@@ -16,13 +16,11 @@
       --teal2:#0f7180;
       --yellow:#f7bd1f;
       --coral:#ff6f61;
-      --mint:#80d6c8;
-      --white:#ffffff;
+      --white:#fff;
       --muted:#60708d;
       --line:rgba(16,32,68,.13);
       --shadow:0 24px 70px rgba(16,32,68,.13);
       --radius:26px;
-      --navh:74px;
     }
 
     *{box-sizing:border-box}
@@ -42,8 +40,6 @@
       overflow-x:hidden;
     }
 
-    a{color:inherit}
-
     .page{
       width:min(1360px, calc(100% - 44px));
       margin-inline:auto;
@@ -53,13 +49,13 @@
       position:sticky;
       top:0;
       z-index:50;
-      background:rgba(238,243,248,.84);
+      background:rgba(238,243,248,.86);
       backdrop-filter:blur(18px);
       border-bottom:1px solid rgba(16,32,68,.09);
     }
 
     .nav-inner{
-      min-height:var(--navh);
+      min-height:74px;
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -116,7 +112,7 @@
 
     .hero{
       display:grid;
-      grid-template-columns:minmax(0, 1.15fr) minmax(330px,.85fr);
+      grid-template-columns:minmax(0,1.15fr) minmax(330px,.85fr);
       gap:22px;
       align-items:stretch;
     }
@@ -148,6 +144,7 @@
       align-items:center;
       gap:10px;
       width:max-content;
+      max-width:100%;
       padding:9px 13px;
       border-radius:999px;
       background:rgba(255,255,255,.10);
@@ -169,10 +166,12 @@
 
     h1{
       margin:34px 0 0;
-      max-width:780px;
-      font-size:clamp(3.6rem,7.2vw,7.8rem);
-      line-height:.86;
-      letter-spacing:-.09em;
+      max-width:100%;
+      color:white;
+      font-size:clamp(4.2rem,7.2vw,7.6rem);
+      line-height:.90;
+      letter-spacing:-.066em;
+      overflow-wrap:normal;
     }
 
     .hero-sub{
@@ -286,6 +285,7 @@
       position:relative;
       z-index:2;
       margin:0;
+      color:white;
       font-size:clamp(2.2rem,4.2vw,4rem);
       line-height:1.05;
       letter-spacing:-.075em;
@@ -356,13 +356,11 @@
       scroll-margin-top:78px;
     }
 
-    #missie, #visie, #waardenblok, #programma, #praktisch, #faq{
+    #missie, #visie, #waardenblok, #vuca, #programma, #praktisch, #faq{
       scroll-margin-top:78px;
     }
 
-    .section-head{
-      margin-bottom:24px;
-    }
+    .section-head{margin-bottom:24px}
 
     .section-title{
       display:flex;
@@ -489,6 +487,124 @@
       display:block;
       color:rgba(255,255,255,.84);
       line-height:1.55;
+    }
+
+    .vuca-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+    }
+
+    .vuca-card{
+      background:white;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:0 18px 42px rgba(16,32,68,.08);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .vuca-card::before{
+      content:"";
+      position:absolute;
+      inset:0 0 auto;
+      height:8px;
+      background:linear-gradient(90deg,var(--yellow),var(--teal),var(--coral));
+    }
+
+    .vuca-top{
+      padding:28px 28px 18px;
+      display:flex;
+      gap:18px;
+      align-items:flex-start;
+    }
+
+    .vuca-letter{
+      width:62px;
+      height:62px;
+      flex:0 0 62px;
+      border-radius:21px;
+      display:grid;
+      place-items:center;
+      background:var(--navy);
+      color:white;
+      font-size:1.85rem;
+      font-weight:1000;
+      box-shadow:9px 9px 0 rgba(18,139,154,.16);
+    }
+
+    .vuca-card:nth-child(2) .vuca-letter{
+      background:var(--teal);
+      box-shadow:9px 9px 0 rgba(247,189,31,.20);
+    }
+
+    .vuca-top h3{
+      margin:0 0 8px;
+      color:var(--navy);
+      font-size:2rem;
+      letter-spacing:-.065em;
+    }
+
+    .vuca-top p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.6;
+    }
+
+    .vuca-list{
+      display:grid;
+      gap:10px;
+      padding:0 28px 28px;
+    }
+
+    .vuca-item{
+      display:grid;
+      grid-template-columns:42px 1fr;
+      gap:12px;
+      padding:14px;
+      border-radius:18px;
+      background:#f6f9fc;
+      border:1px solid var(--line);
+    }
+
+    .vuca-item b{
+      color:var(--navy);
+      display:block;
+      margin-bottom:3px;
+      letter-spacing:-.02em;
+    }
+
+    .vuca-item span{
+      color:var(--muted);
+      line-height:1.5;
+      font-size:.95rem;
+    }
+
+    .vuca-mini{
+      width:42px;
+      height:42px;
+      border-radius:15px;
+      display:grid;
+      place-items:center;
+      background:var(--yellow);
+      color:var(--navy2);
+      font-weight:1000;
+    }
+
+    .vuca-card:nth-child(2) .vuca-mini{
+      background:var(--teal);
+      color:white;
+    }
+
+    .vuca-note{
+      margin:0 28px 28px;
+      border-radius:20px;
+      padding:18px;
+      background:linear-gradient(135deg,rgba(247,189,31,.18),rgba(18,139,154,.13));
+      border:1px solid rgba(16,32,68,.10);
+      color:#2c3b5e;
+      line-height:1.6;
+      font-weight:750;
     }
 
     .timeline{
@@ -764,164 +880,12 @@
     }
 
     @media(max-width:720px){
-      .page{width:min(100% - 30px,1360px)}
-      .nav-inner{
-        align-items:flex-start;
-        flex-direction:column;
-        padding:12px 0;
-      }
-      .nav-links{justify-content:flex-start}
-      header{padding-top:32px}
-      .hero-main{padding:30px 22px}
-      .floating-card{display:none}
-      h1{font-size:clamp(3.25rem,18vw,5.2rem)}
-      .hero-sub{gap:14px}
-      .goldbar{height:60px}
-      .hero-kicker,.hero-actions{margin-left:23px}
-      .side-links,.quick,.values{grid-template-columns:1fr}
-      .time-row{grid-template-columns:82px minmax(0,1fr)}
-      .info-btn{grid-column:1/-1}
-      .drawer{
-        top:auto;
-        right:12px;
-        left:12px;
-        bottom:12px;
-        width:auto;
-        transform:translateY(calc(100% + 32px));
-      }
-      .drawer.open{transform:translateY(0)}
-    }
-    .vuca-grid{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:18px;
-    }
-
-    .vuca-card{
-      background:white;
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:0 18px 42px rgba(16,32,68,.08);
-      overflow:hidden;
-      position:relative;
-    }
-
-    .vuca-card::before{
-      content:"";
-      position:absolute;
-      inset:0 0 auto;
-      height:8px;
-      background:linear-gradient(90deg,var(--yellow),var(--teal),var(--coral));
-    }
-
-    .vuca-top{
-      padding:28px 28px 18px;
-      display:flex;
-      gap:18px;
-      align-items:flex-start;
-    }
-
-    .vuca-letter{
-      width:62px;
-      height:62px;
-      flex:0 0 62px;
-      border-radius:21px;
-      display:grid;
-      place-items:center;
-      background:var(--navy);
-      color:white;
-      font-size:1.85rem;
-      font-weight:1000;
-      box-shadow:9px 9px 0 rgba(18,139,154,.16);
-    }
-
-    .vuca-card:nth-child(2) .vuca-letter{
-      background:var(--teal);
-      box-shadow:9px 9px 0 rgba(247,189,31,.20);
-    }
-
-    .vuca-top h3{
-      margin:0 0 8px;
-      color:var(--navy);
-      font-size:2rem;
-      letter-spacing:-.065em;
-    }
-
-    .vuca-top p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.6;
-    }
-
-    .vuca-list{
-      display:grid;
-      gap:10px;
-      padding:0 28px 28px;
-    }
-
-    .vuca-item{
-      display:grid;
-      grid-template-columns:42px 1fr;
-      gap:12px;
-      padding:14px;
-      border-radius:18px;
-      background:#f6f9fc;
-      border:1px solid var(--line);
-    }
-
-    .vuca-item b{
-      color:var(--navy);
-      display:block;
-      margin-bottom:3px;
-      letter-spacing:-.02em;
-    }
-
-    .vuca-item span{
-      color:var(--muted);
-      line-height:1.5;
-      font-size:.95rem;
-    }
-
-    .vuca-mini{
-      width:42px;
-      height:42px;
-      border-radius:15px;
-      display:grid;
-      place-items:center;
-      background:var(--yellow);
-      color:var(--navy2);
-      font-weight:1000;
-    }
-
-    .vuca-card:nth-child(2) .vuca-mini{
-      background:var(--teal);
-      color:white;
-    }
-
-    .vuca-note{
-      margin:0 28px 28px;
-      border-radius:20px;
-      padding:18px;
-      background:linear-gradient(135deg,rgba(247,189,31,.18),rgba(18,139,154,.13));
-      border:1px solid rgba(16,32,68,.10);
-      color:#2c3b5e;
-      line-height:1.6;
-      font-weight:750;
-    }
-
-
-    /* Extra gsm-optimalisatie */
-    @media(max-width:720px){
       body{
         background-size:38px 38px,38px 38px,auto,auto,auto;
       }
 
       .page{
         width:min(100% - 26px,1360px);
-      }
-
-      nav{
-        position:sticky;
       }
 
       .nav-inner{
@@ -985,6 +949,8 @@
         padding:28px 20px 24px;
       }
 
+      .floating-card{display:none}
+
       .label{
         font-size:.64rem;
         letter-spacing:.14em;
@@ -993,16 +959,17 @@
 
       h1{
         margin-top:24px;
-        font-size:clamp(2.85rem,15.5vw,4.45rem);
-        line-height:.88;
-        letter-spacing:-.065em;
+        font-size:clamp(2.72rem,14.2vw,4.25rem);
+        line-height:.92;
+        letter-spacing:-.045em;
       }
 
       .hero-sub{
         margin-top:20px;
-        font-size:clamp(1.65rem,10vw,3rem);
+        font-size:clamp(1.55rem,9vw,2.75rem);
         line-height:1;
         gap:12px;
+        letter-spacing:-.052em;
       }
 
       .goldbar{
@@ -1049,12 +1016,9 @@
         line-height:1.58;
       }
 
-      .side-links{
-        grid-template-columns:1fr;
-        gap:8px;
-      }
-
-      .quick{
+      .side-links,
+      .quick,
+      .values{
         grid-template-columns:1fr;
       }
 
@@ -1088,7 +1052,7 @@
       }
 
       h2{
-        font-size:clamp(2.45rem,14vw,4.2rem);
+        font-size:clamp(2.35rem,13vw,4rem);
         line-height:.92;
       }
 
@@ -1117,11 +1081,6 @@
       .card p{
         font-size:.98rem;
         line-height:1.55;
-      }
-
-      .values{
-        grid-template-columns:1fr;
-        gap:10px;
       }
 
       .value{
@@ -1302,11 +1261,12 @@
       }
 
       h1{
-        font-size:clamp(2.55rem,16.5vw,3.75rem);
+        font-size:clamp(2.50rem,13vw,3.55rem);
+        letter-spacing:-.035em;
       }
 
       .hero-sub{
-        font-size:clamp(1.45rem,10vw,2.6rem);
+        font-size:clamp(1.38rem,8.5vw,2.35rem);
       }
 
       .time-row{
@@ -1317,8 +1277,6 @@
         font-size:.66rem;
       }
     }
-
-
   </style>
 </head>
 
@@ -1383,62 +1341,25 @@
 
   <main>
     <section id="missie" class="page">
-      <div class="section-head">
-        <div class="section-title"><h2>Missie</h2></div>
-      </div>
-
+      <div class="section-head"><div class="section-title"><h2>Missie</h2></div></div>
       <div class="cards">
-        <article class="card">
-          <div class="icon"><i class="fa-solid fa-bullseye"></i></div>
-          <h3>Samen uit de routine</h3>
-          <p>De ploeg samenbrengen buiten de dagelijkse context, met activiteiten die zorgen voor beweging, verbinding en ontspanning.</p>
-        </article>
-
-        <article class="card">
-          <div class="icon"><i class="fa-solid fa-people-group"></i></div>
-          <h3>Iedereen mee</h3>
-          <p>Actief genoeg om plezant te zijn, maar laagdrempelig genoeg zodat iedereen kan deelnemen zonder prestatiedruk.</p>
-        </article>
-
-        <article class="card">
-          <div class="icon"><i class="fa-solid fa-face-laugh-beam"></i></div>
-          <h3>Fun boven score</h3>
-          <p>De sfeer primeert. Winnen mag, lachen moet.</p>
-        </article>
+        <article class="card"><div class="icon"><i class="fa-solid fa-bullseye"></i></div><h3>Samen uit de routine</h3><p>De ploeg samenbrengen buiten de dagelijkse context, met activiteiten die zorgen voor beweging, verbinding en ontspanning.</p></article>
+        <article class="card"><div class="icon"><i class="fa-solid fa-people-group"></i></div><h3>Iedereen mee</h3><p>Actief genoeg om plezant te zijn, maar laagdrempelig genoeg zodat iedereen kan deelnemen zonder prestatiedruk.</p></article>
+        <article class="card"><div class="icon"><i class="fa-solid fa-face-laugh-beam"></i></div><h3>Fun boven score</h3><p>De sfeer primeert. Winnen mag, lachen moet.</p></article>
       </div>
     </section>
 
     <section id="visie" class="page">
-      <div class="section-head">
-        <div class="section-title"><h2>Visie</h2></div>
-      </div>
-
+      <div class="section-head"><div class="section-title"><h2>Visie</h2></div></div>
       <div class="cards">
-        <article class="card">
-          <div class="icon"><i class="fa-solid fa-eye"></i></div>
-          <h3>Strak georganiseerd</h3>
-          <p>Een helder programma, weinig praktische ruis en duidelijke timing.</p>
-        </article>
-
-        <article class="card">
-          <div class="icon"><i class="fa-solid fa-wave-square"></i></div>
-          <h3>Los genoeg</h3>
-          <p>Genoeg ademruimte om te bekomen, te praten en niet de hele dag in een strak schema te zitten.</p>
-        </article>
-
-        <article class="card">
-          <div class="icon"><i class="fa-solid fa-sun"></i></div>
-          <h3>Goed gevoel achteraf</h3>
-          <p>Een dag die professioneel oogt, maar vooral natuurlijk en ontspannen aanvoelt.</p>
-        </article>
+        <article class="card"><div class="icon"><i class="fa-solid fa-eye"></i></div><h3>Strak georganiseerd</h3><p>Een helder programma, weinig praktische ruis en duidelijke timing.</p></article>
+        <article class="card"><div class="icon"><i class="fa-solid fa-wave-square"></i></div><h3>Los genoeg</h3><p>Genoeg ademruimte om te bekomen, te praten en niet de hele dag in een strak schema te zitten.</p></article>
+        <article class="card"><div class="icon"><i class="fa-solid fa-sun"></i></div><h3>Goed gevoel achteraf</h3><p>Een dag die professioneel oogt, maar vooral natuurlijk en ontspannen aanvoelt.</p></article>
       </div>
     </section>
 
     <section id="waardenblok" class="page">
-      <div class="section-head">
-        <div class="section-title"><h2>Waarden</h2></div>
-      </div>
-
+      <div class="section-head"><div class="section-title"><h2>Waarden</h2></div></div>
       <div class="values">
         <div class="value"><b>Laagdrempelig</b><span>Iedereen kan meedoen op zijn of haar niveau.</span></div>
         <div class="value"><b>Samen</b><span>Groepsgevoel staat centraal, niet de uitslag.</span></div>
@@ -1448,9 +1369,7 @@
     </section>
 
     <section id="vuca" class="page">
-      <div class="section-head">
-        <div class="section-title"><h2>VUCA / BANI</h2></div>
-      </div>
+      <div class="section-head"><div class="section-title"><h2>VUCA / BANI</h2></div></div>
 
       <div class="vuca-grid">
         <article class="vuca-card">
@@ -1461,26 +1380,12 @@
               <p>De teambuilding als mini-managementcase: het plan is helder, maar de dag zelf blijft natuurlijk levendig.</p>
             </div>
           </div>
-
           <div class="vuca-list">
-            <div class="vuca-item">
-              <div class="vuca-mini">V</div>
-              <div><b>Volatility</b><span>Het weer, de energie van de groep en het tempo van de activiteiten kunnen snel veranderen.</span></div>
-            </div>
-            <div class="vuca-item">
-              <div class="vuca-mini">U</div>
-              <div><b>Uncertainty</b><span>Niet alles is vooraf perfect te voorspellen: wie speelt mee, wie neemt pauze, wat loopt uit?</span></div>
-            </div>
-            <div class="vuca-item">
-              <div class="vuca-mini">C</div>
-              <div><b>Complexity</b><span>Sportkot, timing, eten, verplaatsing, groepen en sfeer moeten tegelijk kloppen.</span></div>
-            </div>
-            <div class="vuca-item">
-              <div class="vuca-mini">A</div>
-              <div><b>Ambiguity</b><span>Het is geen wedstrijd en geen vergadering: het zit net tussen fun, teamgevoel en praktische organisatie.</span></div>
-            </div>
+            <div class="vuca-item"><div class="vuca-mini">V</div><div><b>Volatility</b><span>Het weer, de energie van de groep en het tempo van de activiteiten kunnen snel veranderen.</span></div></div>
+            <div class="vuca-item"><div class="vuca-mini">U</div><div><b>Uncertainty</b><span>Niet alles is vooraf perfect te voorspellen: wie speelt mee, wie neemt pauze, wat loopt uit?</span></div></div>
+            <div class="vuca-item"><div class="vuca-mini">C</div><div><b>Complexity</b><span>Sportkot, timing, eten, verplaatsing, groepen en sfeer moeten tegelijk kloppen.</span></div></div>
+            <div class="vuca-item"><div class="vuca-mini">A</div><div><b>Ambiguity</b><span>Het is geen wedstrijd en geen vergadering: het zit net tussen fun, teamgevoel en praktische organisatie.</span></div></div>
           </div>
-
           <p class="vuca-note">Daarom: duidelijke timing, eenvoudige keuzes en genoeg ruimte om de dag organisch te laten lopen.</p>
         </article>
 
@@ -1492,92 +1397,33 @@
               <p>Omdat een groepsdag niet alleen rationeel is. Mensen worden moe, enthousiast, hongerig, competitief of net heel chill.</p>
             </div>
           </div>
-
           <div class="vuca-list">
-            <div class="vuca-item">
-              <div class="vuca-mini">B</div>
-              <div><b>Brittle</b><span>Een strak schema kan breken als één onderdeel uitloopt. Dus bouwen we lucht in.</span></div>
-            </div>
-            <div class="vuca-item">
-              <div class="vuca-mini">A</div>
-              <div><b>Anxious</b><span>Niet iedereen houdt van sportieve opdrachten. Laagdrempeligheid en humor halen de druk eraf.</span></div>
-            </div>
-            <div class="vuca-item">
-              <div class="vuca-mini">N</div>
-              <div><b>Non-linear</b><span>Een klein moment kan veel sfeer maken: een goeie rally, een botsing, een grap, een frietje op het juiste moment.</span></div>
-            </div>
-            <div class="vuca-item">
-              <div class="vuca-mini">I</div>
-              <div><b>Incomprehensible</b><span>Sommige dingen ga je niet uitleggen. Waarom bumperballs werken? Omdat iedereen vanzelf begint te lachen.</span></div>
-            </div>
+            <div class="vuca-item"><div class="vuca-mini">B</div><div><b>Brittle</b><span>Een strak schema kan breken als één onderdeel uitloopt. Dus bouwen we lucht in.</span></div></div>
+            <div class="vuca-item"><div class="vuca-mini">A</div><div><b>Anxious</b><span>Niet iedereen houdt van sportieve opdrachten. Laagdrempeligheid en humor halen de druk eraf.</span></div></div>
+            <div class="vuca-item"><div class="vuca-mini">N</div><div><b>Non-linear</b><span>Een klein moment kan veel sfeer maken: een goeie rally, een botsing, een grap, een frietje op het juiste moment.</span></div></div>
+            <div class="vuca-item"><div class="vuca-mini">I</div><div><b>Incomprehensible</b><span>Sommige dingen ga je niet uitleggen. Waarom bumperballs werken? Omdat iedereen vanzelf begint te lachen.</span></div></div>
           </div>
-
           <p class="vuca-note">Daarom: actief genoeg voor energie, los genoeg voor ontspanning en simpel genoeg zodat iedereen mee is.</p>
         </article>
       </div>
     </section>
 
     <section id="programma" class="page">
-      <div class="section-head">
-        <div class="section-title"><h2>Programma</h2></div>
-      </div>
-
+      <div class="section-head"><div class="section-title"><h2>Programma</h2></div></div>
       <div class="timeline">
-        <div class="time-row" data-time="08:00" data-title="Aankomst & omkleden" data-text="Verzamelen aan het Sportkot, rustig aankomen, omkleden en klaarzetten voor de eerste activiteit.">
-          <div class="time">08:00</div>
-          <div><h3>Aankomst & omkleden</h3><p>Verzamelen, omkleden en opstarten.</p></div>
-          <button class="info-btn">Info</button>
-        </div>
-
-        <div class="time-row" data-time="08:30" data-title="Padel" data-text="We spelen in ploegen en roteren door. Wie even niet speelt, supportert of neemt kort pauze.">
-          <div class="time">08:30</div>
-          <div><h3>Padel</h3><p>Teams, rotatie en sportieve opener.</p></div>
-          <button class="info-btn">Info</button>
-        </div>
-
-        <div class="time-row" data-time="10:30" data-title="Bumperballs" data-text="Korte spelvormen met veel beweging en fun. De nadruk ligt op amusement en groepssfeer.">
-          <div class="time">10:30</div>
-          <div><h3>Bumperballs</h3><p>Actief, grappig en laagdrempelig.</p></div>
-          <button class="info-btn">Info</button>
-        </div>
-
-        <div class="time-row" data-time="12:00" data-title="Lunch" data-text="Broodjesmoment en korte pauze. Vegetarische opties worden vooraf bevraagd.">
-          <div class="time">12:00</div>
-          <div><h3>Lunch</h3><p>Broodjes en korte pauze.</p></div>
-          <button class="info-btn">Info</button>
-        </div>
-
-        <div class="time-row" data-time="13:00" data-title="Beachvolleybal" data-text="Beachvolley met teams en rotatie. Competitie mag, maar sfeer blijft belangrijker dan winnen.">
-          <div class="time">13:00</div>
-          <div><h3>Beachvolleybal</h3><p>Zand, teams en groepssfeer.</p></div>
-          <button class="info-btn">Info</button>
-        </div>
-
-        <div class="time-row" data-time="15:00" data-title="Chillen & extra spel" data-text="Rustiger blok om te bekomen, bij te praten, te supporteren of eventueel nog een licht spel te doen.">
-          <div class="time">15:00</div>
-          <div><h3>Chillen & extra spel</h3><p>Rustiger blok met ademruimte.</p></div>
-          <button class="info-btn">Info</button>
-        </div>
-
-        <div class="time-row" data-time="16:30" data-title="Frietjes & drink" data-text="Afsluiter van het sportieve deel met frietjes, drank en rustig napraten.">
-          <div class="time">16:30</div>
-          <div><h3>Frietjes & drink</h3><p>Gezellig afronden.</p></div>
-          <button class="info-btn">Info</button>
-        </div>
-
-        <div class="time-row" data-time="19:00" data-title="Optioneel: terrasje Leuven" data-text="Wie nog zin heeft, kan optioneel mee richting Leuven centrum voor een rustige afsluiter.">
-          <div class="time">19:00</div>
-          <div><h3>Optioneel: terrasje Leuven</h3><p>Vrijblijvende afsluiter.</p></div>
-          <button class="info-btn">Info</button>
-        </div>
+        <div class="time-row" data-time="08:00" data-title="Aankomst & omkleden" data-text="Verzamelen aan het Sportkot, rustig aankomen, omkleden en klaarzetten voor de eerste activiteit."><div class="time">08:00</div><div><h3>Aankomst & omkleden</h3><p>Verzamelen, omkleden en opstarten.</p></div><button class="info-btn">Info</button></div>
+        <div class="time-row" data-time="08:30" data-title="Padel" data-text="We spelen in ploegen en roteren door. Wie even niet speelt, supportert of neemt kort pauze."><div class="time">08:30</div><div><h3>Padel</h3><p>Teams, rotatie en sportieve opener.</p></div><button class="info-btn">Info</button></div>
+        <div class="time-row" data-time="10:30" data-title="Bumperballs" data-text="Korte spelvormen met veel beweging en fun. De nadruk ligt op amusement en groepssfeer."><div class="time">10:30</div><div><h3>Bumperballs</h3><p>Actief, grappig en laagdrempelig.</p></div><button class="info-btn">Info</button></div>
+        <div class="time-row" data-time="12:00" data-title="Lunch" data-text="Broodjesmoment en korte pauze. Vegetarische opties worden vooraf bevraagd."><div class="time">12:00</div><div><h3>Lunch</h3><p>Broodjes en korte pauze.</p></div><button class="info-btn">Info</button></div>
+        <div class="time-row" data-time="13:00" data-title="Beachvolleybal" data-text="Beachvolley met teams en rotatie. Competitie mag, maar sfeer blijft belangrijker dan winnen."><div class="time">13:00</div><div><h3>Beachvolleybal</h3><p>Zand, teams en groepssfeer.</p></div><button class="info-btn">Info</button></div>
+        <div class="time-row" data-time="15:00" data-title="Chillen & extra spel" data-text="Rustiger blok om te bekomen, bij te praten, te supporteren of eventueel nog een licht spel te doen."><div class="time">15:00</div><div><h3>Chillen & extra spel</h3><p>Rustiger blok met ademruimte.</p></div><button class="info-btn">Info</button></div>
+        <div class="time-row" data-time="16:30" data-title="Frietjes & drink" data-text="Afsluiter van het sportieve deel met frietjes, drank en rustig napraten."><div class="time">16:30</div><div><h3>Frietjes & drink</h3><p>Gezellig afronden.</p></div><button class="info-btn">Info</button></div>
+        <div class="time-row" data-time="19:00" data-title="Optioneel: terrasje Leuven" data-text="Wie nog zin heeft, kan optioneel mee richting Leuven centrum voor een rustige afsluiter."><div class="time">19:00</div><div><h3>Optioneel: terrasje Leuven</h3><p>Vrijblijvende afsluiter.</p></div><button class="info-btn">Info</button></div>
       </div>
     </section>
 
     <section id="praktisch" class="page">
-      <div class="section-head">
-        <div class="section-title"><h2>Praktisch</h2></div>
-      </div>
-
+      <div class="section-head"><div class="section-title"><h2>Praktisch</h2></div></div>
       <div class="practical-grid">
         <div class="panel">
           <h3><i class="fa-solid fa-list-check"></i> Meebrengen</h3>
@@ -1590,7 +1436,6 @@
             <li><i class="fa-regular fa-circle"></i> Goed humeur</li>
           </ul>
         </div>
-
         <div class="panel">
           <h3><i class="fa-solid fa-wallet"></i> Richtprijs</h3>
           <div class="price">± €55–€75</div>
@@ -1600,30 +1445,12 @@
     </section>
 
     <section id="faq" class="page">
-      <div class="section-head">
-        <div class="section-title"><h2>FAQ</h2></div>
-      </div>
-
+      <div class="section-head"><div class="section-title"><h2>FAQ</h2></div></div>
       <div class="faq">
-        <div class="faq-item open">
-          <button class="faq-q">Moet je sportief zijn om mee te doen? <i class="fa-solid fa-chevron-down"></i></button>
-          <div class="faq-a">Nee. Het is actief, maar het blijft teambuilding. Je hoeft geen topsporter te zijn.</div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-q">Is er eten voorzien? <i class="fa-solid fa-chevron-down"></i></button>
-          <div class="faq-a">Ja. Rond de middag zijn er broodjes en later op de dag is er een frietmoment.</div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-q">Zijn er vegetarische opties? <i class="fa-solid fa-chevron-down"></i></button>
-          <div class="faq-a">Ja, dit wordt vooraf bevraagd zodat de bestelling correct kan gebeuren.</div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-q">Wat bij slecht weer? <i class="fa-solid fa-chevron-down"></i></button>
-          <div class="faq-a">De weersituatie wordt vooraf bekeken. Indien nodig volgt er aangepaste praktische info.</div>
-        </div>
+        <div class="faq-item open"><button class="faq-q">Moet je sportief zijn om mee te doen? <i class="fa-solid fa-chevron-down"></i></button><div class="faq-a">Nee. Het is actief, maar het blijft teambuilding. Je hoeft geen topsporter te zijn.</div></div>
+        <div class="faq-item"><button class="faq-q">Is er eten voorzien? <i class="fa-solid fa-chevron-down"></i></button><div class="faq-a">Ja. Rond de middag zijn er broodjes en later op de dag is er een frietmoment.</div></div>
+        <div class="faq-item"><button class="faq-q">Zijn er vegetarische opties? <i class="fa-solid fa-chevron-down"></i></button><div class="faq-a">Ja, dit wordt vooraf bevraagd zodat de bestelling correct kan gebeuren.</div></div>
+        <div class="faq-item"><button class="faq-q">Wat bij slecht weer? <i class="fa-solid fa-chevron-down"></i></button><div class="faq-a">De weersituatie wordt vooraf bekeken. Indien nodig volgt er aangepaste praktische info.</div></div>
       </div>
     </section>
   </main>
@@ -1659,6 +1486,7 @@
     });
 
     document.getElementById("drawerClose").addEventListener("click", () => drawer.classList.remove("open"));
+
     document.addEventListener("keydown", e => {
       if(e.key === "Escape") drawer.classList.remove("open");
     });
@@ -1669,7 +1497,7 @@
       });
     });
 
-    const key = "teambuildingChecklistSpeels";
+    const key = "teambuildingChecklistFresh";
     const saved = JSON.parse(localStorage.getItem(key) || "[]");
     const items = document.querySelectorAll("#packlist li");
 
