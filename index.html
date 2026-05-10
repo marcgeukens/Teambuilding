@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Teambuilding Heverlee 2026 — missie, visie, waarden en programma. Actief. Ontspannen. Samen op pad." />
   <title>Teambuilding Heverlee 2026</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
   <style>
     :root{
@@ -19,38 +20,17 @@
       --white:#ffffff;
       --muted:#60708d;
       --line:rgba(16,32,68,.13);
-
-      --shadow-lg:0 24px 70px rgba(16,32,68,.13);
-      --shadow-md:0 18px 42px rgba(16,32,68,.08);
-      --shadow-sm:0 12px 28px rgba(16,32,68,.055);
-
-      --radius-xl:36px;
-      --radius-lg:30px;
-      --radius-md:24px;
-      --radius-sm:18px;
-
-      --container:1360px;
-
-      --space-1:8px;
-      --space-2:12px;
-      --space-3:16px;
-      --space-4:20px;
-      --space-5:24px;
-      --space-6:28px;
-      --space-7:34px;
-      --space-8:44px;
-      --space-9:58px;
-
-      --accent:linear-gradient(90deg,var(--yellow),var(--teal),var(--coral));
-      --focus:0 0 0 4px rgba(247,191,33,.35);
+      --shadow:0 24px 70px rgba(16,32,68,.13);
+      --radius:26px;
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
+
     body{
       margin:0;
       color:var(--ink);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
         linear-gradient(90deg, rgba(31,50,112,.055) 1px, transparent 1px),
         linear-gradient(rgba(31,50,112,.055) 1px, transparent 1px),
@@ -61,49 +41,20 @@
       overflow-x:hidden;
     }
 
-    /* Accessibility helpers */
-    .skip-link{
-      position:absolute;
-      left:-999px;
-      top:10px;
-      padding:10px 12px;
-      border-radius:999px;
-      background:var(--yellow);
-      color:var(--navy-dark);
-      font-weight:900;
-      text-decoration:none;
-      z-index:999;
-    }
-    .skip-link:focus{ left:12px; box-shadow:var(--focus); }
-
-    :focus-visible{ outline:none; box-shadow:var(--focus); border-radius:14px; }
-    @media (prefers-reduced-motion: reduce){
-      html{scroll-behavior:auto}
-      *, *::before, *::after{ transition:none !important; animation:none !important; }
-    }
-
     .page{
-      width:min(var(--container), calc(100% - 42px));
+      width:min(1360px, calc(100% - 42px));
       margin-inline:auto;
     }
 
-    /* Icons */
-    .i{
-      width:1em;height:1em;
-      display:inline-block;
-      vertical-align:-.15em;
-      fill:currentColor;
-    }
-
-    /* Nav */
     nav{
       position:sticky;
       top:0;
       z-index:50;
-      background:rgba(238,243,248,.92);
+      background:rgba(238,243,248,.88);
       backdrop-filter:blur(16px);
       border-bottom:1px solid rgba(16,32,68,.08);
     }
+
     .nav-inner{
       min-height:74px;
       display:flex;
@@ -111,6 +62,7 @@
       justify-content:space-between;
       gap:20px;
     }
+
     .brand{
       display:flex;
       align-items:center;
@@ -119,23 +71,27 @@
       letter-spacing:-.04em;
       white-space:nowrap;
     }
+
     .brand-mark{
-      width:48px;height:48px;
+      width:48px;
+      height:48px;
       flex:0 0 48px;
-      display:grid;place-items:center;
+      display:grid;
+      place-items:center;
       border-radius:18px;
       background:var(--yellow);
       color:var(--navy-dark);
       box-shadow:9px 9px 0 rgba(20,140,155,.16);
       transform:rotate(-2deg);
-      font-size:1.25rem;
     }
+
     .nav-links{
       display:flex;
       justify-content:flex-end;
       flex-wrap:wrap;
       gap:7px;
     }
+
     .nav-links a{
       text-decoration:none;
       padding:9px 12px;
@@ -146,11 +102,14 @@
       font-size:.78rem;
       font-weight:950;
     }
-    .nav-links a:hover{ background:var(--navy); color:white; }
-    .nav-links a[aria-current="page"]{ background:rgba(31,50,112,.12); }
 
-    /* Header hero */
-    header{ padding:54px 0 34px; }
+    .nav-links a:hover{
+      background:var(--navy);
+      color:white;
+    }
+
+    header{padding:54px 0 34px}
+
     .hero{
       display:grid;
       grid-template-columns:minmax(0,1.15fr) minmax(370px,.85fr);
@@ -158,11 +117,12 @@
       align-items:stretch;
     }
 
-    .hero-main, .hero-side{
+    .hero-main,
+    .hero-side{
       position:relative;
       overflow:hidden;
-      border-radius:var(--radius-xl);
-      box-shadow:var(--shadow-lg);
+      border-radius:36px;
+      box-shadow:var(--shadow);
     }
 
     .hero-main{
@@ -183,8 +143,10 @@
       position:absolute;
       right:34px;
       top:24px;
-      width:126px;height:126px;
-      display:grid;place-items:center;
+      width:126px;
+      height:126px;
+      display:grid;
+      place-items:center;
       border-radius:34px;
       background:rgba(255,255,255,.10);
       border:1px solid rgba(255,255,255,.14);
@@ -208,8 +170,10 @@
       letter-spacing:.2em;
       font-weight:900;
     }
+
     .label-dot{
-      width:9px;height:9px;
+      width:9px;
+      height:9px;
       border-radius:50%;
       background:var(--yellow);
       box-shadow:0 0 0 7px rgba(247,191,33,.15);
@@ -218,9 +182,10 @@
     h1{
       margin:34px 0 0;
       color:white;
-      font-size:clamp(3.2rem,6.25vw,6.1rem);
+      font-size:clamp(3.7rem,6.35vw,6.2rem);
       line-height:.92;
       letter-spacing:-.068em;
+      word-break:keep-all;
     }
 
     .hero-sub{
@@ -229,11 +194,12 @@
       align-items:flex-start;
       gap:20px;
       color:#dbe5ff;
-      font-size:clamp(1.6rem,3.05vw,3.3rem);
+      font-size:clamp(1.7rem,3.1vw,3.5rem);
       line-height:1;
       letter-spacing:-.065em;
       font-weight:300;
     }
+
     .goldbar{
       flex:0 0 9px;
       height:82px;
@@ -272,22 +238,27 @@
       font-weight:950;
       font-size:.86rem;
       transition:.16s transform,.16s background,.16s color;
-      will-change:transform;
     }
+
     .btn.primary{
       color:var(--navy-dark);
       background:var(--yellow);
       border-color:var(--yellow);
     }
-    .btn:hover{ transform:translateY(-2px); background:white; color:var(--navy-dark); }
 
-    /* Right side */
+    .btn:hover{
+      transform:translateY(-2px);
+      background:white;
+      color:var(--navy-dark);
+    }
+
     .hero-side{
       min-height:580px;
       display:grid;
       grid-template-rows:auto 1fr;
       background:white;
     }
+
     .side-top{
       min-height:210px;
       position:relative;
@@ -298,14 +269,18 @@
         radial-gradient(circle at 18% 24%, rgba(255,255,255,.34), transparent 15%),
         linear-gradient(135deg,var(--teal),var(--teal-dark));
     }
+
     .side-top::after{
       content:"";
       position:absolute;
-      width:210px;height:210px;
-      right:-74px; top:-78px;
+      width:210px;
+      height:210px;
+      right:-74px;
+      top:-78px;
       border-radius:50%;
       border:2px solid rgba(255,255,255,.23);
     }
+
     .side-title{
       position:relative;
       z-index:2;
@@ -315,6 +290,7 @@
       line-height:1.03;
       letter-spacing:-.075em;
     }
+
     .side-bottom{
       padding:28px;
       display:flex;
@@ -322,12 +298,13 @@
       justify-content:space-between;
       gap:22px;
     }
+
     .side-text{
+      max-width:460px;
       margin:0;
       color:var(--muted);
       line-height:1.65;
       font-size:1.03rem;
-      max-width:460px;
     }
 
     .side-links{
@@ -336,6 +313,7 @@
       gap:10px;
       margin-top:16px;
     }
+
     .side-links a{
       text-align:center;
       text-decoration:none;
@@ -349,9 +327,13 @@
       letter-spacing:.04em;
       font-size:.78rem;
       transition:.16s transform,.16s background,.16s color;
-      will-change:transform;
     }
-    .side-links a:hover{ transform:translateY(-2px); background:var(--yellow); color:var(--navy-dark); }
+
+    .side-links a:hover{
+      transform:translateY(-2px);
+      background:var(--yellow);
+      color:var(--navy-dark);
+    }
 
     .concept-strip{
       display:grid;
@@ -359,6 +341,7 @@
       gap:12px;
       margin-top:6px;
     }
+
     .concept-card{
       position:relative;
       overflow:hidden;
@@ -368,16 +351,21 @@
       border-radius:22px;
       background:linear-gradient(180deg,#ffffff,#f5f8fc);
     }
+
     .concept-card::before{
       content:"";
       position:absolute;
-      inset:0 0 auto;
+      inset:0 auto auto 0;
+      width:100%;
       height:7px;
-      background:var(--accent);
+      background:linear-gradient(90deg,var(--yellow),var(--teal),var(--coral));
     }
-    .chip-icon{
-      width:54px;height:54px;
-      display:grid;place-items:center;
+
+    .concept-icon{
+      width:54px;
+      height:54px;
+      display:grid;
+      place-items:center;
       margin-bottom:12px;
       border-radius:18px;
       color:white;
@@ -385,22 +373,26 @@
       box-shadow:7px 7px 0 rgba(20,140,155,.14);
       font-size:1.35rem;
     }
-    .concept-card:nth-child(2) .chip-icon{
+
+    .concept-card:nth-child(2) .concept-icon{
       background:var(--teal);
       box-shadow:7px 7px 0 rgba(247,191,33,.16);
     }
+
     .concept-card h3{
       margin:0 0 7px;
       color:var(--navy);
       font-size:1.1rem;
       letter-spacing:-.04em;
     }
+
     .concept-card p{
       margin:0;
       color:var(--muted);
       font-size:.93rem;
       line-height:1.52;
     }
+
     .concept-tag{
       display:inline-flex;
       align-items:center;
@@ -422,34 +414,49 @@
       grid-template-columns:repeat(3,1fr);
       gap:10px;
     }
+
     .quick-item{
       padding:14px;
       background:#f6f9fc;
       border:1px solid var(--line);
       border-radius:18px;
     }
-    .quick-item .q-ico{ color:var(--teal); font-size:1.05rem; }
-    .quick-item b{ display:block; color:var(--navy); margin-top:6px; }
-    .quick-item span{ display:block; color:var(--muted); font-size:.86rem; margin-top:3px; }
-    .quick-item a{ color:var(--teal); font-weight:950; text-decoration:none; }
-    .quick-item a:hover{ text-decoration:underline; }
 
-    /* Sections */
-    section{ padding:58px 0; scroll-margin-top:78px; }
-    .section-head{ margin-bottom:24px; }
+    .quick-item i{color:var(--teal);margin-bottom:7px}
+    .quick-item b{display:block;color:var(--navy)}
+    .quick-item span{display:block;color:var(--muted);font-size:.86rem;margin-top:3px}
+
+    .quick-item a{
+      color:var(--teal);
+      font-weight:950;
+      text-decoration:none;
+    }
+
+    .quick-item a:hover{
+      text-decoration:underline;
+    }
+
+    section{padding:58px 0;scroll-margin-top:78px}
+    #missie,#visie,#waardenblok,#vuca,#programma,#praktisch,#faq{scroll-margin-top:78px}
+
+    .section-head{margin-bottom:24px}
+
     .section-title{
       display:flex;
       align-items:flex-start;
       gap:18px;
     }
+
     .section-title::before{
       content:"";
-      width:9px;height:72px;
+      width:9px;
+      height:72px;
       flex:0 0 9px;
       margin-top:6px;
       border-radius:999px;
       background:var(--yellow);
     }
+
     h2{
       margin:0;
       font-size:clamp(2.4rem,5vw,5.3rem);
@@ -458,12 +465,12 @@
       color:var(--navy);
     }
 
-    /* Shared card styles */
     .cards{
       display:grid;
       grid-template-columns:repeat(3,minmax(0,1fr));
       gap:16px;
     }
+
     .card{
       position:relative;
       overflow:hidden;
@@ -471,28 +478,32 @@
       padding:26px;
       background:white;
       border:1px solid var(--line);
-      border-radius:26px;
-      box-shadow:var(--shadow-md);
+      border-radius:var(--radius);
+      box-shadow:0 18px 42px rgba(16,32,68,.08);
     }
+
     .card::before{
       content:"";
       position:absolute;
       inset:0 0 auto;
       height:8px;
-      background:var(--accent);
+      background:linear-gradient(90deg,var(--yellow),var(--teal),var(--coral));
     }
-    .card-icon{
-      width:58px;height:58px;
-      display:grid;place-items:center;
+
+    .icon{
+      width:58px;
+      height:58px;
+      display:grid;
+      place-items:center;
       margin-bottom:20px;
       border-radius:20px;
       color:white;
       background:var(--navy);
       box-shadow:8px 8px 0 rgba(20,140,155,.14);
-      font-size:1.25rem;
     }
-    .cards .card:nth-child(2) .card-icon{ background:var(--teal); box-shadow:8px 8px 0 rgba(247,191,33,.18); }
-    .cards .card:nth-child(3) .card-icon{ background:var(--coral); box-shadow:8px 8px 0 rgba(31,50,112,.12); }
+
+    .card:nth-child(2) .icon{background:var(--teal);box-shadow:8px 8px 0 rgba(247,191,33,.18)}
+    .card:nth-child(3) .icon{background:var(--coral);box-shadow:8px 8px 0 rgba(31,50,112,.12)}
 
     .card h3{
       margin:0 0 10px;
@@ -500,19 +511,20 @@
       font-size:1.75rem;
       letter-spacing:-.055em;
     }
+
     .card p{
       margin:0;
       color:var(--muted);
       line-height:1.65;
     }
 
-    /* Values */
     .values{
       display:grid;
       grid-template-columns:repeat(4,minmax(0,1fr));
       gap:14px;
       margin-top:16px;
     }
+
     .value{
       position:relative;
       overflow:hidden;
@@ -521,65 +533,77 @@
       border-radius:24px;
       color:white;
       background:var(--navy);
-      box-shadow:var(--shadow-md);
+      box-shadow:0 18px 42px rgba(16,32,68,.09);
     }
-    .value:nth-child(2){ background:var(--teal); }
-    .value:nth-child(3){ background:var(--coral); }
-    .value:nth-child(4){ background:#30487e; }
+
+    .value:nth-child(2){background:var(--teal)}
+    .value:nth-child(3){background:var(--coral)}
+    .value:nth-child(4){background:#30487e}
 
     .value::after{
       content:"";
       position:absolute;
-      width:98px;height:98px;
-      right:-28px;bottom:-34px;
+      width:98px;
+      height:98px;
+      right:-28px;
+      bottom:-34px;
       border-radius:50%;
       background:rgba(255,255,255,.12);
     }
+
     .value b{
-      position:relative; z-index:2;
+      position:relative;
+      z-index:2;
       display:block;
       margin-bottom:10px;
       font-size:1.2rem;
       letter-spacing:-.035em;
     }
+
     .value span{
-      position:relative; z-index:2;
+      position:relative;
+      z-index:2;
       display:block;
       color:rgba(255,255,255,.84);
       line-height:1.55;
     }
 
-    /* VUCA/BANI */
     .vuca-grid{
       display:grid;
       grid-template-columns:repeat(2,minmax(0,1fr));
       gap:18px;
     }
+
     .vuca-card{
       position:relative;
       overflow:hidden;
       background:white;
       border:1px solid var(--line);
-      border-radius:26px;
-      box-shadow:var(--shadow-md);
+      border-radius:var(--radius);
+      box-shadow:0 18px 42px rgba(16,32,68,.08);
     }
+
     .vuca-card::before{
       content:"";
       position:absolute;
       inset:0 0 auto;
       height:8px;
-      background:var(--accent);
+      background:linear-gradient(90deg,var(--yellow),var(--teal),var(--coral));
     }
+
     .vuca-top{
       display:flex;
       align-items:flex-start;
       gap:18px;
       padding:28px 28px 18px;
     }
+
     .vuca-letter{
-      width:62px;height:62px;
+      width:62px;
+      height:62px;
       flex:0 0 62px;
-      display:grid;place-items:center;
+      display:grid;
+      place-items:center;
       border-radius:21px;
       background:var(--navy);
       color:white;
@@ -587,16 +611,19 @@
       font-weight:1000;
       box-shadow:9px 9px 0 rgba(20,140,155,.16);
     }
+
     .vuca-card:nth-child(2) .vuca-letter{
       background:var(--teal);
       box-shadow:9px 9px 0 rgba(247,191,33,.20);
     }
+
     .vuca-top h3{
       margin:0 0 8px;
       color:var(--navy);
       font-size:2rem;
       letter-spacing:-.065em;
     }
+
     .vuca-top p{
       margin:0;
       color:var(--muted);
@@ -608,6 +635,7 @@
       gap:10px;
       padding:0 28px 28px;
     }
+
     .vuca-item{
       display:grid;
       grid-template-columns:42px 1fr;
@@ -617,29 +645,36 @@
       background:#f6f9fc;
       border:1px solid var(--line);
     }
+
     .vuca-mini{
-      width:42px;height:42px;
-      display:grid;place-items:center;
+      width:42px;
+      height:42px;
+      display:grid;
+      place-items:center;
       border-radius:15px;
       background:var(--yellow);
       color:var(--navy-dark);
       font-weight:1000;
     }
+
     .vuca-card:nth-child(2) .vuca-mini{
       background:var(--teal);
       color:white;
     }
+
     .vuca-item b{
       display:block;
       margin-bottom:3px;
       color:var(--navy);
       letter-spacing:-.02em;
     }
+
     .vuca-item span{
       color:var(--muted);
       line-height:1.5;
       font-size:.95rem;
     }
+
     .vuca-note{
       margin:0 28px 28px;
       padding:18px;
@@ -651,8 +686,11 @@
       font-weight:750;
     }
 
-    /* Program timeline */
-    .timeline{ display:grid; gap:12px; }
+    .timeline{
+      display:grid;
+      gap:12px;
+    }
+
     .time-row{
       display:grid;
       grid-template-columns:108px minmax(0,1fr) auto;
@@ -663,33 +701,40 @@
       background:white;
       border:1px solid var(--line);
       box-shadow:0 14px 30px rgba(16,32,68,.06);
+      cursor:pointer;
       transition:.16s transform,.16s box-shadow,.16s border-color;
     }
+
     .time-row:hover{
       transform:translateX(7px);
       border-color:rgba(20,140,155,.42);
       box-shadow:0 18px 42px rgba(20,140,155,.12);
     }
+
     .time{
       min-height:54px;
-      display:grid;place-items:center;
+      display:grid;
+      place-items:center;
       border-radius:16px;
       background:var(--yellow);
       color:var(--navy-dark);
       font-weight:1000;
       letter-spacing:-.02em;
     }
+
     .time-row h3{
       margin:0 0 3px;
       color:var(--navy);
       font-size:1.14rem;
       letter-spacing:-.035em;
     }
+
     .time-row p{
       margin:0;
       color:var(--muted);
       line-height:1.42;
     }
+
     .info-btn{
       min-height:42px;
       padding:0 14px;
@@ -700,30 +745,28 @@
       font-weight:950;
       cursor:pointer;
     }
-    .time-row:hover .info-btn{ background:var(--teal); }
-    .info-btn:active{ transform:translateY(1px); }
 
-    /* Practical */
+    .time-row:hover .info-btn{background:var(--teal)}
+
     .practical-grid{
       display:grid;
       grid-template-columns:1.1fr .9fr;
       gap:16px;
     }
+
     .panel{
       padding:26px;
       background:white;
       border:1px solid var(--line);
-      border-radius:26px;
-      box-shadow:var(--shadow-md);
+      border-radius:var(--radius);
+      box-shadow:0 18px 42px rgba(16,32,68,.08);
     }
+
     .panel h3{
       margin:0 0 18px;
       color:var(--navy);
       font-size:1.5rem;
       letter-spacing:-.045em;
-      display:flex;
-      align-items:center;
-      gap:10px;
     }
 
     .checklist{
@@ -733,6 +776,7 @@
       display:grid;
       gap:10px;
     }
+
     .checklist li{
       display:flex;
       align-items:center;
@@ -745,36 +789,18 @@
       cursor:pointer;
       user-select:none;
     }
+
     .checklist li.done{
       background:#eaf7f6;
       border-color:rgba(20,140,155,.28);
       color:var(--navy);
       font-weight:800;
     }
-    .check-ico{
-      width:22px;
-      display:grid;
-      place-items:center;
-      color:var(--teal);
-      flex:0 0 22px;
-    }
 
-    .panel-actions{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:12px;
+    .checklist i{
+      width:20px;
+      color:var(--teal);
     }
-    .mini-btn{
-      border:1px solid var(--line);
-      background:#f6f9fc;
-      padding:10px 12px;
-      border-radius:14px;
-      font-weight:900;
-      cursor:pointer;
-      color:var(--navy);
-    }
-    .mini-btn:hover{ background:var(--yellow); border-color:rgba(0,0,0,0); color:var(--navy-dark); }
 
     .price{
       margin:4px 0 16px;
@@ -784,66 +810,75 @@
       letter-spacing:-.08em;
       font-weight:1000;
     }
+
     .muted{
       margin:0;
       color:var(--muted);
       line-height:1.65;
     }
 
-    /* FAQ with details */
     .faq{
       max-width:960px;
       display:grid;
       gap:10px;
     }
-    details.faq-item{
+
+    .faq-item{
       overflow:hidden;
       background:white;
       border:1px solid var(--line);
       border-radius:20px;
-      box-shadow:var(--shadow-sm);
+      box-shadow:0 12px 28px rgba(16,32,68,.055);
     }
-    details.faq-item > summary{
-      list-style:none;
-      cursor:pointer;
-      padding:18px 20px;
-      color:var(--navy);
-      font-weight:950;
+
+    .faq-q{
+      width:100%;
+      border:0;
+      background:white;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:14px;
+      gap:18px;
+      padding:18px 20px;
+      color:var(--navy);
+      font-weight:950;
+      text-align:left;
+      cursor:pointer;
     }
-    details.faq-item > summary::-webkit-details-marker{ display:none; }
+
     .faq-a{
+      display:none;
       padding:0 20px 18px;
       color:var(--muted);
       line-height:1.6;
     }
-    .chev{
-      transition:transform .16s ease;
-      color:var(--navy);
-      opacity:.75;
-      flex:0 0 auto;
-    }
-    details[open] .chev{ transform:rotate(180deg); }
 
-    /* Dialog (drawer) */
-    dialog#drawer{
-      width:min(420px,calc(100vw - 36px));
-      border:1px solid var(--line);
-      border-radius:30px;
-      padding:0;
-      box-shadow:var(--shadow-lg);
-      overflow:hidden;
+    .faq-item.open .faq-a{display:block}
+    .faq-item.open .faq-q i{transform:rotate(180deg)}
+
+    .drawer{
       position:fixed;
       right:24px;
       top:96px;
+      width:min(420px,calc(100vw - 36px));
+      z-index:120;
+      overflow:hidden;
+      background:white;
+      border:1px solid var(--line);
+      border-radius:30px;
+      box-shadow:var(--shadow);
+      transform:translateX(calc(100% + 40px));
+      opacity:0;
+      pointer-events:none;
+      transition:.26s ease;
     }
-    dialog#drawer::backdrop{
-      background:rgba(16,32,68,.28);
-      backdrop-filter: blur(3px);
+
+    .drawer.open{
+      transform:translateX(0);
+      opacity:1;
+      pointer-events:auto;
     }
+
     .drawer-top{
       min-height:120px;
       position:relative;
@@ -852,14 +887,18 @@
       color:white;
       background:linear-gradient(135deg,var(--teal),var(--navy));
     }
+
     .drawer-top::after{
       content:"";
       position:absolute;
-      width:120px;height:120px;
-      right:-30px; bottom:-42px;
+      width:120px;
+      height:120px;
+      right:-30px;
+      bottom:-42px;
       border-radius:50%;
       background:var(--yellow);
     }
+
     .drawer-time{
       display:inline-flex;
       align-items:center;
@@ -870,33 +909,36 @@
       color:var(--yellow);
       font-weight:950;
     }
+
     .drawer-close{
       position:absolute;
       z-index:2;
-      right:14px; top:14px;
-      width:40px;height:40px;
+      right:14px;
+      top:14px;
+      width:40px;
+      height:40px;
       border:0;
       border-radius:15px;
       background:rgba(16,32,68,.74);
       color:white;
       cursor:pointer;
-      display:grid;
-      place-items:center;
     }
-    .drawer-body{ padding:24px; }
+
+    .drawer-body{padding:24px}
+
     .drawer-body h3{
       margin:0 0 10px;
       color:var(--navy);
       font-size:1.65rem;
       letter-spacing:-.055em;
     }
+
     .drawer-body p{
       margin:0;
       color:var(--muted);
       line-height:1.65;
     }
 
-    /* Footer */
     footer{
       margin-top:52px;
       padding:38px 0;
@@ -904,16 +946,31 @@
       color:#dfe8ff;
     }
 
-    /* Responsive */
     @media (max-width:1080px){
-      .hero, .cards, .vuca-grid, .practical-grid{ grid-template-columns:1fr; }
-      .hero-main, .hero-side{ min-height:auto; }
-      .quick, .values, .concept-strip{ grid-template-columns:1fr 1fr; }
+      .hero,
+      .cards,
+      .vuca-grid,
+      .practical-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero-main,
+      .hero-side{
+        min-height:auto;
+      }
+
+      .quick,
+      .values,
+      .concept-strip{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .hero-main{min-height:unset}
     }
 
     @media (max-width:760px){
-      body{ background-size:38px 38px,38px 38px,auto,auto,auto; }
-      .page{ width:min(100% - 24px, var(--container)); }
+      body{background-size:38px 38px,38px 38px,auto,auto,auto}
+      .page{width:min(100% - 24px, 1360px)}
 
       .nav-inner{
         min-height:auto;
@@ -922,13 +979,17 @@
         gap:10px;
         padding:10px 0 11px;
       }
-      .brand{ font-size:.98rem; }
+
+      .brand{font-size:.98rem}
+
       .brand-mark{
-        width:42px;height:42px;
+        width:42px;
+        height:42px;
         flex-basis:42px;
         border-radius:15px;
         box-shadow:6px 6px 0 rgba(20,140,155,.16);
       }
+
       .nav-links{
         width:100%;
         display:flex;
@@ -940,7 +1001,9 @@
         scrollbar-width:none;
         -webkit-overflow-scrolling:touch;
       }
-      .nav-links::-webkit-scrollbar{ display:none; }
+
+      .nav-links::-webkit-scrollbar{display:none}
+
       .nav-links a{
         flex:0 0 auto;
         font-size:.70rem;
@@ -949,79 +1012,199 @@
         border:1px solid rgba(16,32,68,.08);
       }
 
-      header{ padding:22px 0 18px; }
-      .hero{ gap:14px; }
-      .hero-main, .hero-side{ border-radius:24px; }
-      .hero-main{ padding:28px 20px 24px; }
-      .floating-card{ display:none; }
+      header{padding:22px 0 18px}
+      .hero{gap:14px}
 
-      .label{ font-size:.64rem; letter-spacing:.14em; padding:7px 10px; }
+      .hero-main,
+      .hero-side{
+        min-height:auto;
+        border-radius:24px;
+      }
+
+      .hero-main{padding:28px 20px 24px}
+      .floating-card{display:none}
+
+      .label{
+        font-size:.64rem;
+        letter-spacing:.14em;
+        padding:7px 10px;
+      }
+
       h1{
         margin-top:24px;
-        font-size:clamp(2.5rem, 13vw, 3.75rem);
+        font-size:clamp(2.65rem, 13vw, 3.8rem);
         line-height:.93;
         letter-spacing:-.045em;
       }
+
       .hero-sub{
         margin-top:20px;
         gap:12px;
-        font-size:clamp(1.35rem, 8.4vw, 2.45rem);
+        font-size:clamp(1.42rem, 8.4vw, 2.5rem);
         line-height:1.02;
         letter-spacing:-.05em;
       }
-      .goldbar{ width:7px; flex-basis:7px; height:56px; }
-      .hero-kicker{ margin:18px 0 0 19px; font-size:1rem; }
+
+      .goldbar{
+        width:7px;
+        flex-basis:7px;
+        height:56px;
+      }
+
+      .hero-kicker{
+        margin:18px 0 0 19px;
+        font-size:1rem;
+      }
+
       .hero-actions{
         display:grid;
         grid-template-columns:1fr;
         gap:9px;
         margin:24px 0 0 19px;
       }
-      .btn{ width:100%; min-height:46px; border-radius:14px; }
 
-      .side-top{ padding:24px 22px; }
-      .side-title{ font-size:clamp(2rem, 11vw, 3rem); line-height:1.05; }
-      .side-bottom{ padding:22px; gap:18px; }
-      .side-text{ font-size:.98rem; line-height:1.58; }
-      .side-links, .quick, .values, .concept-strip{ grid-template-columns:1fr; }
-
-      section{ padding:36px 0; scroll-margin-top:118px; }
-      .section-head{ margin-bottom:18px; }
-      .section-title{ gap:12px; }
-      .section-title::before{
-        width:7px; flex-basis:7px;
-        height:54px; margin-top:4px;
+      .btn{
+        width:100%;
+        min-height:46px;
+        border-radius:14px;
       }
-      h2{ font-size:clamp(2.25rem,12vw,3.85rem); line-height:.92; }
 
-      .cards{ grid-template-columns:1fr; gap:12px; }
-      .card{ min-height:auto; padding:22px; border-radius:22px; }
-      .card-icon{ width:52px;height:52px; margin-bottom:16px; border-radius:18px; }
-      .card h3{ font-size:1.45rem; }
-      .card p{ font-size:.98rem; line-height:1.55; }
+      .side-top{
+        min-height:auto;
+        padding:24px 22px;
+      }
 
-      .value{ min-height:auto; padding:20px; border-radius:20px; }
-      .vuca-card{ border-radius:22px; }
-      .vuca-top{ padding:24px 20px 14px; gap:13px; }
+      .side-title{
+        font-size:clamp(2rem, 11vw, 3rem);
+        line-height:1.05;
+      }
+
+      .side-bottom{
+        padding:22px;
+        gap:18px;
+      }
+
+      .side-text{
+        font-size:.98rem;
+        line-height:1.58;
+      }
+
+      .side-links,
+      .quick,
+      .values,
+      .concept-strip{
+        grid-template-columns:1fr;
+      }
+
+      .concept-card{
+        min-height:auto;
+        padding:16px;
+      }
+
+      .concept-icon{
+        width:48px;
+        height:48px;
+        border-radius:16px;
+        font-size:1.2rem;
+      }
+
+      .concept-card h3{font-size:1.04rem}
+      .concept-card p{font-size:.91rem}
+
+      section{padding:36px 0;scroll-margin-top:118px}
+      #missie,#visie,#waardenblok,#vuca,#programma,#praktisch,#faq{scroll-margin-top:118px}
+
+      .section-head{margin-bottom:18px}
+      .section-title{gap:12px}
+
+      .section-title::before{
+        width:7px;
+        flex-basis:7px;
+        height:54px;
+        margin-top:4px;
+      }
+
+      h2{
+        font-size:clamp(2.25rem,12vw,3.85rem);
+        line-height:.92;
+      }
+
+      .cards{
+        grid-template-columns:1fr;
+        gap:12px;
+      }
+
+      .card{
+        min-height:auto;
+        padding:22px;
+        border-radius:22px;
+      }
+
+      .icon{
+        width:52px;
+        height:52px;
+        margin-bottom:16px;
+        border-radius:18px;
+      }
+
+      .card h3{font-size:1.45rem}
+      .card p{font-size:.98rem;line-height:1.55}
+
+      .value{
+        min-height:auto;
+        padding:20px;
+        border-radius:20px;
+      }
+
+      .vuca-grid{
+        grid-template-columns:1fr;
+        gap:14px;
+      }
+
+      .vuca-card{border-radius:22px}
+
+      .vuca-top{
+        padding:24px 20px 14px;
+        gap:13px;
+      }
+
       .vuca-letter{
-        width:52px;height:52px;
+        width:52px;
+        height:52px;
         flex-basis:52px;
         border-radius:18px;
         font-size:1.55rem;
         box-shadow:6px 6px 0 rgba(20,140,155,.16);
       }
-      .vuca-card:nth-child(2) .vuca-letter{ box-shadow:6px 6px 0 rgba(247,191,33,.20); }
-      .vuca-top h3{ font-size:1.75rem; }
-      .vuca-top p{ font-size:.97rem; line-height:1.52; }
-      .vuca-list{ padding:0 20px 20px; gap:8px; }
+
+      .vuca-card:nth-child(2) .vuca-letter{box-shadow:6px 6px 0 rgba(247,191,33,.20)}
+      .vuca-top h3{font-size:1.75rem}
+      .vuca-top p{font-size:.97rem;line-height:1.52}
+
+      .vuca-list{
+        padding:0 20px 20px;
+        gap:8px;
+      }
+
       .vuca-item{
         grid-template-columns:36px 1fr;
         gap:10px;
         padding:12px;
         border-radius:16px;
       }
-      .vuca-mini{ width:36px;height:36px; border-radius:13px; font-size:.9rem; }
-      .vuca-item span{ font-size:.91rem; line-height:1.45; }
+
+      .vuca-mini{
+        width:36px;
+        height:36px;
+        border-radius:13px;
+        font-size:.9rem;
+      }
+
+      .vuca-item span{
+        font-size:.91rem;
+        line-height:1.45;
+      }
+
       .vuca-note{
         margin:0 20px 20px;
         padding:15px;
@@ -1029,7 +1212,8 @@
         font-size:.94rem;
       }
 
-      .timeline{ gap:10px; }
+      .timeline{gap:10px}
+
       .time-row{
         grid-template-columns:72px 1fr;
         align-items:start;
@@ -1037,10 +1221,25 @@
         padding:12px;
         border-radius:19px;
       }
-      .time-row:hover{ transform:none; }
-      .time{ min-height:48px; border-radius:14px; font-size:.93rem; }
-      .time-row h3{ font-size:1.02rem; line-height:1.15; }
-      .time-row p{ font-size:.9rem; line-height:1.35; }
+
+      .time-row:hover{transform:none}
+
+      .time{
+        min-height:48px;
+        border-radius:14px;
+        font-size:.93rem;
+      }
+
+      .time-row h3{
+        font-size:1.02rem;
+        line-height:1.15;
+      }
+
+      .time-row p{
+        font-size:.9rem;
+        line-height:1.35;
+      }
+
       .info-btn{
         grid-column:1 / -1;
         width:100%;
@@ -1048,104 +1247,101 @@
         border-radius:13px;
       }
 
-      .panel{ padding:22px; border-radius:22px; }
-      .price{ font-size:clamp(2.6rem,16vw,4rem); }
+      .practical-grid{
+        grid-template-columns:1fr;
+        gap:12px;
+      }
 
-      dialog#drawer{
+      .panel{
+        padding:22px;
+        border-radius:22px;
+      }
+
+      .price{font-size:clamp(2.6rem,16vw,4rem)}
+      .faq-q{padding:16px}
+      .faq-a{padding:0 16px 16px}
+
+      .drawer{
         top:auto;
         right:10px;
         left:10px;
         bottom:10px;
         width:auto;
         border-radius:24px;
+        transform:translateY(calc(100% + 32px));
       }
-      .drawer-top{ min-height:92px; padding:18px; }
-      .drawer-body{ padding:20px; }
-      .drawer-body h3{ font-size:1.4rem; }
-      .drawer-body p{ font-size:.96rem; line-height:1.55; }
 
-      footer{ margin-top:28px; padding:28px 0; }
+      .drawer.open{transform:translateY(0)}
+      .drawer-top{min-height:92px;padding:18px}
+      .drawer-body{padding:20px}
+      .drawer-body h3{font-size:1.4rem}
+      .drawer-body p{font-size:.96rem;line-height:1.55}
+
+      footer{
+        margin-top:28px;
+        padding:28px 0;
+      }
     }
 
     @media (max-width:420px){
-      .page{ width:min(100% - 18px, var(--container)); }
-      h1{ font-size:clamp(2.35rem, 12.2vw, 3.25rem); letter-spacing:-.035em; }
-      .hero-sub{ font-size:clamp(1.25rem,8.1vw,2.05rem); }
-      .time-row{ grid-template-columns:66px 1fr; }
-      .nav-links a{ font-size:.66rem; }
+      .page{width:min(100% - 18px, 1360px)}
+
+      h1{
+        font-size:clamp(2.45rem, 12.2vw, 3.35rem);
+        letter-spacing:-.035em;
+      }
+
+      .hero-sub{font-size:clamp(1.3rem,8.1vw,2.1rem)}
+      .time-row{grid-template-columns:66px 1fr}
+      .nav-links a{font-size:.66rem}
     }
   </style>
 </head>
 
 <body>
-  #contentSpring naar inhoud</a>
-
-  <!-- Inline SVG icon sprite (sneller dan externe icon-fonts) -->
-  <svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
-    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 12-14h-7l-1-6z"/></symbol>
-    <symbol id="i-calendar" viewBox="0 0 24 24"><path d="M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2H7zm14 8H3v10h18V10z"/></symbol>
-    <symbol id="i-wave" viewBox="0 0 24 24"><path d="M3 12c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2v2c-2 0-2 2-4 2s-2-2-4-2-2 2-4 2-2-2-4-2-2 2-4 2v-2z"/></symbol>
-    <symbol id="i-list" viewBox="0 0 24 24"><path d="M4 6h2v2H4V6zm4 0h12v2H8V6zM4 11h2v2H4v-2zm4 0h12v2H8v-2zM4 16h2v2H4v-2zm4 0h12v2H8v-2z"/></symbol>
-    <symbol id="i-target" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10h-2A8 8 0 1 1 12 4V2zm8.5 1.5L12 12l-2 2 2 2 2-2 8.5-8.5-2-2z"/></symbol>
-    <symbol id="i-people" viewBox="0 0 24 24"><path d="M16 11c1.66 0 3-1.34 3-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zM8 11c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.93 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></symbol>
-    <symbol id="i-smile" viewBox="0 0 24 24"><path d="M12 22a10 10 0 1 0-10-10 10 10 0 0 0 10 10zm-4-8h2a2 2 0 0 0 4 0h2a4 4 0 0 1-8 0zm-1-4a1.5 1.5 0 1 1 1.5-1.5A1.5 1.5 0 0 1 7 10zm10 0a1.5 1.5 0 1 1 1.5-1.5A1.5 1.5 0 0 1 17 10z"/></symbol>
-    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M12 5c-7 0-10 7-10 7s3 7 10 7 10-7 10-7-3-7-10-7zm0 12a5 5 0 1 1 5-5 5 5 0 0 1-5 5z"/></symbol>
-    <symbol id="i-sun" viewBox="0 0 24 24"><path d="M12 18a6 6 0 1 1 6-6 6 6 0 0 1-6 6zm0-16h2v3h-2V2zM12 19h2v3h-2v-3zM2 12h3v2H2v-2zm19 0h3v2h-3v-2zM4.22 4.22l2.12 2.12-1.41 1.41L2.81 5.63l1.41-1.41zm14.14 14.14l2.12 2.12-1.41 1.41-2.12-2.12 1.41-1.41zM19.78 4.22l1.41 1.41-2.12 2.12-1.41-1.41 2.12-2.12zM5.63 17.07l1.41 1.41-2.12 2.12-1.41-1.41 2.12-2.12z"/></symbol>
-    <symbol id="i-clock" viewBox="0 0 24 24"><path d="M12 22a10 10 0 1 1 10-10 10 10 0 0 1-10 10zm1-17h-2v7l6 3 1-1.73-5-2.27V5z"/></symbol>
-    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18.3 5.71 12 12l6.3 6.29-1.41 1.42L10.59 13.4 4.29 19.71 2.88 18.29 9.17 12 2.88 5.71 4.29 4.29l6.3 6.31 6.3-6.31 1.41 1.42z"/></symbol>
-    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 14.5 9 2.5 2.5 0 0 1 12 11.5z"/></symbol>
-    <symbol id="i-shirt" viewBox="0 0 24 24"><path d="M16 3 12 5 8 3 3 6v4l3-1v13h12V9l3 1V6l-5-3z"/></symbol>
-    <symbol id="i-euro" viewBox="0 0 24 24"><path d="M15 18a5 5 0 0 1-4.9-4H17v-2H10.1a6.7 6.7 0 0 1 0-2H17V8h-6.9A5 5 0 0 1 15 4c1.1 0 2.1.35 2.95.95L19.3 3.6A7 7 0 0 0 15 2a7 7 0 0 0-6.93 6H5v2h2.07a9 9 0 0 0 0 2H5v2h3.07A7 7 0 0 0 15 20a7 7 0 0 0 4.3-1.6l-1.35-1.35A5 5 0 0 1 15 18z"/></symbol>
-    <symbol id="i-heli" viewBox="0 0 24 24"><path d="M7 4h10v2H7V4zm6 3h4a4 4 0 0 1 4 4v3h-2v-3a2 2 0 0 0-2-2h-4v5h-2V7h2zm-7 4h2v3H6v-3zm0 5h12v2H6v-2z"/></symbol>
-    <symbol id="i-bike" viewBox="0 0 24 24"><path d="M5.5 16a3.5 3.5 0 1 1 3.5-3.5A3.5 3.5 0 0 1 5.5 16zm13 0a3.5 3.5 0 1 1 3.5-3.5A3.5 3.5 0 0 1 18.5 16zM10 5h3l1 2h3v2h-2l2 5h-2l-2.2-5H11l-2 5H7l3-7z"/></symbol>
-    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M12 15.5 5.5 9l1.4-1.4 5.1 5.1 5.1-5.1L18.5 9 12 15.5z"/></symbol>
-    <symbol id="i-check" viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></symbol>
-    <symbol id="i-circle" viewBox="0 0 24 24"><path d="M12 20a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm0-14a6 6 0 1 0 6 6 6 6 0 0 0-6-6z"/></symbol>
-  </svg>
-
-  <nav aria-label="Hoofdnavigatie">
+  <nav>
     <div class="page nav-inner">
-      <div class="brand" aria-label="Teambuilding Heverlee">
-        <div class="brand-mark" aria-hidden="true"><svg class="i">#i-bolt</use></svg></div>
+      <div class="brand">
+        <div class="brand-mark"><i class="fa-solid fa-bolt"></i></div>
         <span>Teambuilding Heverlee</span>
       </div>
 
-      <div class="nav-links" id="navLinks">
-        #missieMissie</a>
-        #visieVisie</a>
-        #waardenblokWaarden</a>
-        #vucaVUCA/BANI</a>
-        #programmaProgramma</a>
-        #praktischPraktisch</a>
-        #faqFAQ</a>
+      <div class="nav-links">
+        <a href="#missie">Missie</a>
+        <a href="#visie">Visie</a>
+        <a href="#waardenblok">Waarden</a>
+        <a href="#vuca">VUCA/BANI</a>
+        <a href="#programma">Programma</a>
+        <a href="#praktisch">Praktisch</a>
+        <a href="#faq">FAQ</a>
       </div>
     </div>
   </nav>
 
-  <header class="page" aria-labelledby="pageTitle">
+  <header class="page">
     <div class="hero">
       <div class="hero-main">
-        <div class="floating-card" aria-hidden="true">🏐</div>
+        <div class="floating-card">🏐</div>
 
         <div class="label"><span class="label-dot"></span> Vrijdag 17 juli 2026</div>
 
-        <h1 id="pageTitle">Teambuilding Heverlee 2026</h1>
+        <h1>Teambuilding<br>Heverlee</h1>
 
         <div class="hero-sub">
-          <span class="goldbar" aria-hidden="true"></span>
-          <span>missie, visie<br>&amp; waarden</span>
+          <span class="goldbar"></span>
+          <span>missie, visie<br>& waarden</span>
         </div>
 
         <div class="hero-kicker">Actief. Ontspannen. Samen op pad.</div>
 
         <div class="hero-actions">
-          #programma<svg class="i" aria-hidden="true">#i-calendar</use></svg> Programma</a>
-          #vuca<svg class="i" aria-hidden="true">#i-wave</use></svg> VUCA / BANI</a>
-          #praktisch<svg class="i" aria-hidden="true">#i-list</use></svg> Praktisch</a>
+          <a class="btn primary" href="#programma"><i class="fa-solid fa-calendar-days"></i> Programma</a>
+          <a class="btn" href="#vuca"><i class="fa-solid fa-wave-square"></i> VUCA / BANI</a>
+          <a class="btn" href="#praktisch"><i class="fa-solid fa-list-check"></i> Praktisch</a>
         </div>
       </div>
 
-      <aside class="hero-side" aria-label="Samenvatting">
+      <aside class="hero-side">
         <div class="side-top">
           <h2 class="side-title">Visie<br>Actieve ploeg.<br>Ontspannen sfeer.</h2>
         </div>
@@ -1156,111 +1352,103 @@
               Een actieve dag met padel, bumperballs, beachvolley, frietjes en een vrijblijvende afsluiter in Leuven.
             </p>
 
-            <div class="side-links" aria-label="Snelle links">
-              #missieMissie</a>
-              #visieVisie</a>
-              #waardenblokWaarden</a>
+            <div class="side-links">
+              <a href="#missie">Missie</a>
+              <a href="#visie">Visie</a>
+              <a href="#waardenblok">Waarden</a>
             </div>
           </div>
 
           <div class="concept-strip">
             <article class="concept-card">
-              <div class="chip-icon" aria-hidden="true"><svg class="i">#i-heli</use></svg></div>
+              <div class="concept-icon"><i class="fa-solid fa-helicopter"></i></div>
               <h3>Helikopterzicht</h3>
               <p>Het overzicht bewaren: planning, timing en groepsflow in één blik.</p>
-              <span class="concept-tag"><svg class="i" aria-hidden="true">#i-eye</use></svg> Grote lijnen</span>
+              <span class="concept-tag"><i class="fa-solid fa-eye"></i> Grote lijnen</span>
             </article>
 
             <article class="concept-card">
-              <div class="chip-icon" aria-hidden="true"><svg class="i">#i-bike</use></svg></div>
+              <div class="concept-icon"><i class="fa-solid fa-bicycle"></i></div>
               <h3>Fietszicht</h3>
               <p>Niet overdenken: gewoon trappen, meedoen, lachen en samen vooruit.</p>
-              <span class="concept-tag"><svg class="i" aria-hidden="true">#i-chevron</use></svg> Gewoon gaan</span>
+              <span class="concept-tag"><i class="fa-solid fa-arrow-right"></i> Gewoon gaan</span>
             </article>
           </div>
 
-          <div class="quick" aria-label="Snelle info">
+          <div class="quick">
             <div class="quick-item">
-              <div class="q-ico" aria-hidden="true"><svg class="i">#i-pin</use></svg></div>
+              <i class="fa-solid fa-location-dot"></i>
               <b>Locatie</b>
               <span>
-                https://www.google.com/maps/search/?api=1&query=Sportkot+KU+Leuven
+                <a href="https://www.google.com/maps/search/?api=1&query=Sportkot+KU+Leuven" target="_blank" rel="noopener noreferrer">
                   Sportkot KU Leuven
                 </a>
               </span>
             </div>
-            <div class="quick-item">
-              <div class="q-ico" aria-hidden="true"><svg class="i">#i-shirt</use></svg></div>
-              <b>Kledij</b>
-              <span>Sportief</span>
-            </div>
-            <div class="quick-item">
-              <div class="q-ico" aria-hidden="true"><svg class="i">#i-euro</use></svg></div>
-              <b>Richtprijs</b>
-              <span>± €55–€75</span>
-            </div>
+            <div class="quick-item"><i class="fa-solid fa-shirt"></i><b>Kledij</b><span>Sportief</span></div>
+            <div class="quick-item"><i class="fa-solid fa-euro-sign"></i><b>Richtprijs</b><span>± €55–€75</span></div>
           </div>
         </div>
       </aside>
     </div>
   </header>
 
-  <main id="content">
-    <section id="missie" class="page" aria-labelledby="missieTitle">
+  <main>
+    <section id="missie" class="page">
       <div class="section-head">
-        <div class="section-title"><h2 id="missieTitle">Missie</h2></div>
+        <div class="section-title"><h2>Missie</h2></div>
       </div>
 
       <div class="cards">
         <article class="card">
-          <div class="card-icon" aria-hidden="true"><svg class="i">#i-target</use></svg></div>
+          <div class="icon"><i class="fa-solid fa-bullseye"></i></div>
           <h3>Samen uit de routine</h3>
           <p>De ploeg samenbrengen buiten de dagelijkse context, met activiteiten die zorgen voor beweging, verbinding en ontspanning.</p>
         </article>
 
         <article class="card">
-          <div class="card-icon" aria-hidden="true"><svg class="i">#i-people</use></svg></div>
+          <div class="icon"><i class="fa-solid fa-people-group"></i></div>
           <h3>Iedereen mee</h3>
           <p>Actief genoeg om plezant te zijn, maar laagdrempelig genoeg zodat iedereen kan deelnemen zonder prestatiedruk.</p>
         </article>
 
         <article class="card">
-          <div class="card-icon" aria-hidden="true"><svg class="i">#i-smile</use></svg></div>
+          <div class="icon"><i class="fa-solid fa-face-laugh-beam"></i></div>
           <h3>Fun boven score</h3>
           <p>De sfeer primeert. Winnen mag, lachen moet.</p>
         </article>
       </div>
     </section>
 
-    <section id="visie" class="page" aria-labelledby="visieTitle">
+    <section id="visie" class="page">
       <div class="section-head">
-        <div class="section-title"><h2 id="visieTitle">Visie</h2></div>
+        <div class="section-title"><h2>Visie</h2></div>
       </div>
 
       <div class="cards">
         <article class="card">
-          <div class="card-icon" aria-hidden="true"><svg class="i">#i-eye</use></svg></div>
+          <div class="icon"><i class="fa-solid fa-eye"></i></div>
           <h3>Strak georganiseerd</h3>
           <p>Een helder programma, weinig praktische ruis en duidelijke timing.</p>
         </article>
 
         <article class="card">
-          <div class="card-icon" aria-hidden="true"><svg class="i">#i-wave</use></svg></div>
+          <div class="icon"><i class="fa-solid fa-wave-square"></i></div>
           <h3>Los genoeg</h3>
           <p>Genoeg ademruimte om te bekomen, te praten en niet de hele dag in een strak schema te zitten.</p>
         </article>
 
         <article class="card">
-          <div class="card-icon" aria-hidden="true"><svg class="i">#i-sun</use></svg></div>
+          <div class="icon"><i class="fa-solid fa-sun"></i></div>
           <h3>Goed gevoel achteraf</h3>
           <p>Een dag die professioneel oogt, maar vooral natuurlijk en ontspannen aanvoelt.</p>
         </article>
       </div>
     </section>
 
-    <section id="waardenblok" class="page" aria-labelledby="waardenTitle">
+    <section id="waardenblok" class="page">
       <div class="section-head">
-        <div class="section-title"><h2 id="waardenTitle">Waarden</h2></div>
+        <div class="section-title"><h2>Waarden</h2></div>
       </div>
 
       <div class="values">
@@ -1271,15 +1459,15 @@
       </div>
     </section>
 
-    <section id="vuca" class="page" aria-labelledby="vucaTitle">
+    <section id="vuca" class="page">
       <div class="section-head">
-        <div class="section-title"><h2 id="vucaTitle">VUCA / BANI</h2></div>
+        <div class="section-title"><h2>VUCA / BANI</h2></div>
       </div>
 
       <div class="vuca-grid">
         <article class="vuca-card">
           <div class="vuca-top">
-            <div class="vuca-letter" aria-hidden="true">V</div>
+            <div class="vuca-letter">V</div>
             <div>
               <h3>VUCA</h3>
               <p>De teambuilding als mini-managementcase: het plan is helder, maar de dag zelf blijft levendig en licht onvoorspelbaar.</p>
@@ -1287,10 +1475,10 @@
           </div>
 
           <div class="vuca-list">
-            <div class="vuca-item"><div class="vuca-mini" aria-hidden="true">V</div><div><b>Volatility</b><span>Het weer, de energie van de groep en het ritme van de activiteiten kunnen plots veranderen.</span></div></div>
-            <div class="vuca-item"><div class="vuca-mini" aria-hidden="true">U</div><div><b>Uncertainty</b><span>Niet alles is vooraf perfect te voorspellen: wie doet volop mee, wie neemt pauze, wat loopt een beetje uit?</span></div></div>
-            <div class="vuca-item"><div class="vuca-mini" aria-hidden="true">C</div><div><b>Complexity</b><span>Locatie, timing, eten, verplaatsing, groepsindeling en sfeer moeten tegelijk kloppen.</span></div></div>
-            <div class="vuca-item"><div class="vuca-mini" aria-hidden="true">A</div><div><b>Ambiguity</b><span>Het is geen pure sportdag en geen vergadering: net dat tussengebied maakt het interessant.</span></div></div>
+            <div class="vuca-item"><div class="vuca-mini">V</div><div><b>Volatility</b><span>Het weer, de energie van de groep en het ritme van de activiteiten kunnen plots veranderen.</span></div></div>
+            <div class="vuca-item"><div class="vuca-mini">U</div><div><b>Uncertainty</b><span>Niet alles is vooraf perfect te voorspellen: wie doet volop mee, wie neemt pauze, wat loopt een beetje uit?</span></div></div>
+            <div class="vuca-item"><div class="vuca-mini">C</div><div><b>Complexity</b><span>Locatie, timing, eten, verplaatsing, groepsindeling en sfeer moeten tegelijk kloppen.</span></div></div>
+            <div class="vuca-item"><div class="vuca-mini">A</div><div><b>Ambiguity</b><span>Het is geen pure sportdag en geen vergadering: net dat tussengebied maakt het interessant.</span></div></div>
           </div>
 
           <p class="vuca-note">Dus: duidelijke timing, eenvoudige keuzes en genoeg ruimte om de dag organisch te laten lopen.</p>
@@ -1298,7 +1486,7 @@
 
         <article class="vuca-card">
           <div class="vuca-top">
-            <div class="vuca-letter" aria-hidden="true">B</div>
+            <div class="vuca-letter">B</div>
             <div>
               <h3>BANI</h3>
               <p>Omdat een groepsdag niet alleen rationeel is. Mensen worden moe, enthousiast, hongerig, competitief of net heel relaxed.</p>
@@ -1306,10 +1494,10 @@
           </div>
 
           <div class="vuca-list">
-            <div class="vuca-item"><div class="vuca-mini" aria-hidden="true">B</div><div><b>Brittle</b><span>Een strak schema kan snel breken zodra één onderdeel uitloopt. Daarom bouwen we marge in.</span></div></div>
-            <div class="vuca-item"><div class="vuca-mini" aria-hidden="true">A</div><div><b>Anxious</b><span>Niet iedereen leeft op van sportieve opdrachten. Humor en laagdrempeligheid halen de druk weg.</span></div></div>
-            <div class="vuca-item"><div class="vuca-mini" aria-hidden="true">N</div><div><b>Non-linear</b><span>Een klein moment kan veel sfeer maken: één goede rally, een botsing in bumperballs of een perfect getimede frietpauze.</span></div></div>
-            <div class="vuca-item"><div class="vuca-mini" aria-hidden="true">I</div><div><b>Incomprehensible</b><span>Sommige dingen moet je niet analyseren. Waarom werkt het? Omdat mensen vanzelf beginnen lachen.</span></div></div>
+            <div class="vuca-item"><div class="vuca-mini">B</div><div><b>Brittle</b><span>Een strak schema kan snel breken zodra één onderdeel uitloopt. Daarom bouwen we marge in.</span></div></div>
+            <div class="vuca-item"><div class="vuca-mini">A</div><div><b>Anxious</b><span>Niet iedereen leeft op van sportieve opdrachten. Humor en laagdrempeligheid halen de druk weg.</span></div></div>
+            <div class="vuca-item"><div class="vuca-mini">N</div><div><b>Non-linear</b><span>Een klein moment kan veel sfeer maken: één goede rally, een botsing in bumperballs of een perfect getimede frietpauze.</span></div></div>
+            <div class="vuca-item"><div class="vuca-mini">I</div><div><b>Incomprehensible</b><span>Sommige dingen moet je niet analyseren. Waarom werkt het? Omdat mensen vanzelf beginnen lachen.</span></div></div>
           </div>
 
           <p class="vuca-note">Dus: actief genoeg voor energie, los genoeg voor ontspanning en simpel genoeg zodat iedereen mee is.</p>
@@ -1317,257 +1505,185 @@
       </div>
     </section>
 
-    <section id="programma" class="page" aria-labelledby="progTitle">
+    <section id="programma" class="page">
       <div class="section-head">
-        <div class="section-title"><h2 id="progTitle">Programma</h2></div>
+        <div class="section-title"><h2>Programma</h2></div>
       </div>
 
-      <div class="timeline" aria-label="Dagplanning">
+      <div class="timeline">
         <div class="time-row" data-time="08:00" data-title="Aankomst & omkleden" data-text="Verzamelen aan het Sportkot, rustig aankomen, omkleden en klaarzetten voor de eerste activiteit.">
           <div class="time">08:00</div>
           <div><h3>Aankomst & omkleden</h3><p>Verzamelen, omkleden en rustig opstarten.</p></div>
-          <button class="info-btn" type="button" data-open-drawer>Info</button>
+          <button class="info-btn">Info</button>
         </div>
 
         <div class="time-row" data-time="08:30" data-title="Padel" data-text="We spelen in ploegen en roteren door. Wie even niet speelt, supportert of neemt kort pauze.">
           <div class="time">08:30</div>
           <div><h3>Padel</h3><p>Teams, rotatie en een sportieve opener.</p></div>
-          <button class="info-btn" type="button" data-open-drawer>Info</button>
+          <button class="info-btn">Info</button>
         </div>
 
         <div class="time-row" data-time="10:30" data-title="Bumperballs" data-text="Korte spelvormen met veel beweging en fun. De nadruk ligt op amusement en groepssfeer.">
           <div class="time">10:30</div>
           <div><h3>Bumperballs</h3><p>Actief, grappig en laagdrempelig.</p></div>
-          <button class="info-btn" type="button" data-open-drawer>Info</button>
+          <button class="info-btn">Info</button>
         </div>
 
         <div class="time-row" data-time="12:00" data-title="Lunch" data-text="Broodjesmoment en korte pauze. Vegetarische opties worden vooraf bevraagd.">
           <div class="time">12:00</div>
           <div><h3>Lunch</h3><p>Broodjes en korte pauze.</p></div>
-          <button class="info-btn" type="button" data-open-drawer>Info</button>
+          <button class="info-btn">Info</button>
         </div>
 
         <div class="time-row" data-time="13:00" data-title="Beachvolleybal" data-text="Beachvolley met teams en rotatie. Competitie mag, maar sfeer blijft belangrijker dan winnen.">
           <div class="time">13:00</div>
           <div><h3>Beachvolleybal</h3><p>Zand, teams en groepssfeer.</p></div>
-          <button class="info-btn" type="button" data-open-drawer>Info</button>
+          <button class="info-btn">Info</button>
         </div>
 
         <div class="time-row" data-time="15:00" data-title="Chillen & extra spel" data-text="Rustiger blok om te bekomen, bij te praten, te supporteren of eventueel nog een licht spel te doen.">
           <div class="time">15:00</div>
           <div><h3>Chillen & extra spel</h3><p>Rustiger blok met ademruimte.</p></div>
-          <button class="info-btn" type="button" data-open-drawer>Info</button>
+          <button class="info-btn">Info</button>
         </div>
 
         <div class="time-row" data-time="16:30" data-title="Frietjes & drink" data-text="Afsluiter van het sportieve deel met frietjes, drank en rustig napraten.">
           <div class="time">16:30</div>
           <div><h3>Frietjes & drink</h3><p>Gezellig afronden.</p></div>
-          <button class="info-btn" type="button" data-open-drawer>Info</button>
+          <button class="info-btn">Info</button>
         </div>
 
         <div class="time-row" data-time="19:00" data-title="Optioneel: terrasje Leuven" data-text="Wie nog zin heeft, kan optioneel mee richting Leuven centrum voor een rustige afsluiter.">
           <div class="time">19:00</div>
           <div><h3>Optioneel: terrasje Leuven</h3><p>Vrijblijvende afsluiter.</p></div>
-          <button class="info-btn" type="button" data-open-drawer>Info</button>
+          <button class="info-btn">Info</button>
         </div>
       </div>
-
-      <p class="muted" style="margin-top:16px;">
-        <strong>Opmerking:</strong> timings zijn indicatief — kleine verschuivingen kunnen gebeuren afhankelijk van weer, flow en groepsenergie.
-      </p>
     </section>
 
-    <section id="praktisch" class="page" aria-labelledby="praktischTitle">
+    <section id="praktisch" class="page">
       <div class="section-head">
-        <div class="section-title"><h2 id="praktischTitle">Praktisch</h2></div>
+        <div class="section-title"><h2>Praktisch</h2></div>
       </div>
 
       <div class="practical-grid">
         <div class="panel">
-          <h3><svg class="i" aria-hidden="true">#i-list</use></svg> Meebrengen</h3>
-
-          <ul class="checklist" id="packlist" aria-label="Meeneemlijst">
-            <li data-id="sportswear"><span class="check-ico" aria-hidden="true"><svg class="i">#i-circle</use></svg></span> Sportieve kledij</li>
-            <li data-id="shoes"><span class="check-ico" aria-hidden="true"><svg class="i">#i-circle</use></svg></span> Sportschoenen</li>
-            <li data-id="shower"><span class="check-ico" aria-hidden="true"><svg class="i">#i-circle</use></svg></span> Douchegerief</li>
-            <li data-id="spare"><span class="check-ico" aria-hidden="true"><svg class="i">#i-circle</use></svg></span> Reservekledij</li>
-            <li data-id="sunscreen"><span class="check-ico" aria-hidden="true"><svg class="i">#i-circle</use></svg></span> Zonnecrème bij goed weer</li>
-            <li data-id="mood"><span class="check-ico" aria-hidden="true"><svg class="i">#i-circle</use></svg></span> Goed humeur</li>
+          <h3><i class="fa-solid fa-list-check"></i> Meebrengen</h3>
+          <ul class="checklist" id="packlist">
+            <li><i class="fa-regular fa-circle"></i> Sportieve kledij</li>
+            <li><i class="fa-regular fa-circle"></i> Sportschoenen</li>
+            <li><i class="fa-regular fa-circle"></i> Douchegerief</li>
+            <li><i class="fa-regular fa-circle"></i> Reservekledij</li>
+            <li><i class="fa-regular fa-circle"></i> Zonnecrème bij goed weer</li>
+            <li><i class="fa-regular fa-circle"></i> Goed humeur</li>
           </ul>
-
-          <div class="panel-actions">
-            <button class="mini-btn" type="button" id="markAll">Alles aanvinken</button>
-            <button class="mini-btn" type="button" id="clearAll">Alles wissen</button>
-          </div>
         </div>
 
         <div class="panel">
-          <h3><svg class="i" aria-hidden="true">#i-euro</use></svg> Richtprijs</h3>
+          <h3><i class="fa-solid fa-wallet"></i> Richtprijs</h3>
           <div class="price">± €55–€75</div>
           <p class="muted">Definitieve prijs volgt na bevestiging van de keuzes en eventuele tussenkomsten.</p>
-          <p class="muted" style="margin-top:10px;"><strong>Datum:</strong> Vrijdag 17 juli 2026</p>
         </div>
       </div>
     </section>
 
-    <section id="faq" class="page" aria-labelledby="faqTitle">
+    <section id="faq" class="page">
       <div class="section-head">
-        <div class="section-title"><h2 id="faqTitle">FAQ</h2></div>
+        <div class="section-title"><h2>FAQ</h2></div>
       </div>
 
       <div class="faq">
-        <details class="faq-item" open>
-          <summary>Moet je sportief zijn om mee te doen? <span class="chev" aria-hidden="true"><svg class="i">#i-chevron</use></svg></span></summary>
+        <div class="faq-item open">
+          <button class="faq-q">Moet je sportief zijn om mee te doen? <i class="fa-solid fa-chevron-down"></i></button>
           <div class="faq-a">Nee. Het is actief, maar het blijft teambuilding. Je hoeft geen topsporter te zijn.</div>
-        </details>
+        </div>
 
-        <details class="faq-item">
-          <summary>Is er eten voorzien? <span class="chev" aria-hidden="true"><svg class="i">#i-chevron</use></svg></span></summary>
+        <div class="faq-item">
+          <button class="faq-q">Is er eten voorzien? <i class="fa-solid fa-chevron-down"></i></button>
           <div class="faq-a">Ja. Rond de middag zijn er broodjes en later op de dag is er een frietmoment. Dit is in de prijs inbegrepen.</div>
-        </details>
+        </div>
 
-        <details class="faq-item">
-          <summary>Zijn er vegetarische opties? <span class="chev" aria-hidden="true"><svg class="i">#i-chevron</use></svg></span></summary>
+        <div class="faq-item">
+          <button class="faq-q">Zijn er vegetarische opties? <i class="fa-solid fa-chevron-down"></i></button>
           <div class="faq-a">Ja, dit wordt vooraf bevraagd zodat de bestelling correct kan gebeuren.</div>
-        </details>
+        </div>
 
-        <details class="faq-item">
-          <summary>Wat bij slecht weer? <span class="chev" aria-hidden="true"><svg class="i">#i-chevron</use></svg></span></summary>
+        <div class="faq-item">
+          <button class="faq-q">Wat bij slecht weer? <i class="fa-solid fa-chevron-down"></i></button>
           <div class="faq-a">De weersituatie wordt vooraf bekeken. Indien nodig volgt er aangepaste praktische info.</div>
-        </details>
+        </div>
       </div>
     </section>
   </main>
 
-  <!-- Accessible dialog as “drawer” -->
-  <dialog id="drawer" aria-labelledby="drawerTitle" aria-describedby="drawerText">
+  <aside class="drawer" id="drawer" aria-live="polite">
+    <button class="drawer-close" id="drawerClose" aria-label="Sluiten"><i class="fa-solid fa-xmark"></i></button>
+
     <div class="drawer-top">
-      <span class="drawer-time" id="drawerTime"><svg class="i" aria-hidden="true">#i-clock</use></svg> 08:00</span>
-      <button class="drawer-close" type="button" id="drawerClose" aria-label="Sluiten">
-        <svg class="i" aria-hidden="true">#i-x</use></svg>
-      </button>
+      <span class="drawer-time" id="drawerTime"><i class="fa-solid fa-clock"></i> 08:00</span>
     </div>
+
     <div class="drawer-body">
       <h3 id="drawerTitle">Info</h3>
       <p id="drawerText">Klik op een programmaonderdeel voor extra uitleg.</p>
     </div>
-  </dialog>
+  </aside>
 
   <footer>
     <div class="page"><strong>Teambuilding Heverlee 2026</strong></div>
   </footer>
 
   <script>
-    // --- Active nav highlight (based on scroll) ---
-    const sections = [...document.querySelectorAll("main section[id]")];
-    const navLinks = [...document.querySelectorAll(".nav-links a")];
-
-    const setCurrent = (id) => {
-      navLinks.forEach(a => a.removeAttribute("aria-current"));
-      const match = navLinks.find(a => a.getAttribute("href") === "#" + id);
-      if (match) match.setAttribute("aria-current", "page");
-    };
-
-    const io = new IntersectionObserver((entries) => {
-      const visible = entries
-        .filter(e => e.isIntersecting)
-        .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (visible) setCurrent(visible.target.id);
-    }, { rootMargin: "-30% 0px -60% 0px", threshold: [0.1, 0.2, 0.3] });
-
-    sections.forEach(s => io.observe(s));
-
-    // --- Dialog drawer ---
     const drawer = document.getElementById("drawer");
     const drawerTime = document.getElementById("drawerTime");
     const drawerTitle = document.getElementById("drawerTitle");
     const drawerText = document.getElementById("drawerText");
-    const drawerClose = document.getElementById("drawerClose");
 
-    let lastFocus = null;
-
-    function openDrawer({time, title, text}) {
-      lastFocus = document.activeElement;
-
-      drawerTime.innerHTML = `<svg class="i" aria-hidden="true">#i-clock</use></svg> ${time}`;
-      drawerTitle.textContent = title;
-      drawerText.textContent = text;
-
-      if (!drawer.open) drawer.showModal();
-      drawerClose.focus();
-    }
-
-    function closeDrawer() {
-      if (drawer.open) drawer.close();
-      if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
-    }
-
-    drawerClose.addEventListener("click", closeDrawer);
-
-    // Close on click outside dialog content
-    drawer.addEventListener("click", (e) => {
-      const rect = drawer.getBoundingClientRect();
-      const inDialog =
-        e.clientX >= rect.left && e.clientX <= rect.right &&
-        e.clientY >= rect.top && e.clientY <= rect.bottom;
-      if (!inDialog) closeDrawer();
-    });
-
-    // Hook Info buttons
-    document.querySelectorAll("[data-open-drawer]").forEach(btn => {
-      btn.addEventListener("click", (e) => {
-        const row = e.currentTarget.closest(".time-row");
-        openDrawer({
-          time: row.dataset.time,
-          title: row.dataset.title,
-          text: row.dataset.text
-        });
+    document.querySelectorAll(".time-row").forEach(row => {
+      row.addEventListener("click", () => {
+        drawerTime.innerHTML = `<i class="fa-solid fa-clock"></i> ${row.dataset.time}`;
+        drawerTitle.textContent = row.dataset.title;
+        drawerText.textContent = row.dataset.text;
+        drawer.classList.add("open");
       });
     });
 
-    // --- Checklist with stable IDs ---
-    const checklistKey = "teambuildingPacklistHeverlee2026";
-    const packlist = document.getElementById("packlist");
-    const items = [...packlist.querySelectorAll("li[data-id]")];
+    document.getElementById("drawerClose").addEventListener("click", () => {
+      drawer.classList.remove("open");
+    });
 
-    const load = () => new Set(JSON.parse(localStorage.getItem(checklistKey) || "[]"));
-    const save = (set) => localStorage.setItem(checklistKey, JSON.stringify([...set]));
+    document.addEventListener("keydown", event => {
+      if(event.key === "Escape") drawer.classList.remove("open");
+    });
 
-    const state = load();
-
-    function render() {
-      items.forEach(li => {
-        const id = li.dataset.id;
-        const done = state.has(id);
-        li.classList.toggle("done", done);
-        li.querySelector(".check-ico").innerHTML = done
-          ? `<svg class="i" aria-hidden="true">#i-check</use></svg>`
-          : `<svg class="i" aria-hidden="true">#i-circle</use></svg>`;
+    document.querySelectorAll(".faq-q").forEach(button => {
+      button.addEventListener("click", () => {
+        button.parentElement.classList.toggle("open");
       });
+    });
+
+    const checklistKey = "teambuildingChecklistHeliFietsFaq";
+    const savedItems = JSON.parse(localStorage.getItem(checklistKey) || "[]");
+    const checklistItems = document.querySelectorAll("#packlist li");
+
+    function setDone(item, done){
+      item.classList.toggle("done", done);
+      item.querySelector("i").className = done ? "fa-solid fa-circle-check" : "fa-regular fa-circle";
     }
 
-    packlist.addEventListener("click", (e) => {
-      const li = e.target.closest("li[data-id]");
-      if (!li) return;
-      const id = li.dataset.id;
-      if (state.has(id)) state.delete(id); else state.add(id);
-      save(state);
-      render();
-    });
+    checklistItems.forEach((item, index) => {
+      if(savedItems.includes(index)) setDone(item, true);
 
-    document.getElementById("markAll").addEventListener("click", () => {
-      items.forEach(li => state.add(li.dataset.id));
-      save(state);
-      render();
-    });
+      item.addEventListener("click", () => {
+        setDone(item, !item.classList.contains("done"));
 
-    document.getElementById("clearAll").addEventListener("click", () => {
-      state.clear();
-      save(state);
-      render();
-    });
+        const activeItems = [...checklistItems]
+          .map((li, i) => li.classList.contains("done") ? i : null)
+          .filter(i => i !== null);
 
-    render();
+        localStorage.setItem(checklistKey, JSON.stringify(activeItems));
+      });
+    });
   </script>
 </body>
 </html>
