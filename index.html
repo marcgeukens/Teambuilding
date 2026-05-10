@@ -682,110 +682,141 @@
       text-transform: uppercase;
     }
 
-    .alert-grid {
+    .priority {
+      position: relative;
+      overflow: hidden;
       display: grid;
       grid-template-columns: minmax(0, 1.15fr) minmax(330px, .85fr);
       align-items: stretch;
       gap: 16px;
-      margin-top: 16px;
-      margin-bottom: 16px;
-    }
-
-    .notice,
-    .countdown {
-      position: relative;
-      overflow: hidden;
-      padding: 16px;
-      border-radius: 22px;
-      box-shadow: 0 14px 34px rgba(16, 32, 68, .08);
-    }
-
-    .notice {
+      margin-block: 16px;
+      padding: 18px;
       border: 1px solid rgba(255, 115, 101, .22);
+      border-radius: 30px;
       background:
-        radial-gradient(circle at 8% 20%, rgba(255, 115, 101, .18), transparent 26%),
-        radial-gradient(circle at 94% 12%, rgba(247, 191, 33, .24), transparent 26%),
-        linear-gradient(135deg, #fff, #fff8ef);
+        radial-gradient(circle at 4% 18%, rgba(255, 115, 101, .20), transparent 22%),
+        radial-gradient(circle at 92% 14%, rgba(247, 191, 33, .24), transparent 24%),
+        radial-gradient(circle at 62% 110%, rgba(20, 140, 155, .13), transparent 28%),
+        linear-gradient(135deg, #ffffff, #fff8ef 48%, #f5fbfd);
+      box-shadow: 0 18px 46px rgba(16, 32, 68, .10);
     }
 
-    .countdown {
-      border: 1px solid var(--color-line);
-      background:
-        radial-gradient(circle at 8% 18%, rgba(247, 191, 33, .22), transparent 25%),
-        radial-gradient(circle at 94% 15%, rgba(20, 140, 155, .15), transparent 25%),
-        linear-gradient(135deg, #fff, #f6f9fc);
-    }
-
-    .notice::before,
-    .countdown::before {
+    .priority::before {
       content: "";
       position: absolute;
       inset: 0 0 auto;
-      height: 6px;
+      height: 7px;
       background: linear-gradient(90deg, var(--color-coral), var(--color-warning), var(--color-accent));
     }
 
-    .countdown::before {
-      background: linear-gradient(90deg, var(--color-warning), var(--color-accent), var(--color-coral));
-    }
-
-    .notice__inner,
-    .countdown__header {
+    .priority__main {
+      position: relative;
+      z-index: 1;
       display: grid;
-      grid-template-columns: auto minmax(0, 1fr);
-      align-items: start;
-      gap: 13px;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 18px;
+      min-width: 0;
     }
 
-    .notice__icon,
-    .countdown__icon {
-      width: 46px;
-      height: 46px;
+    .priority__icon {
+      width: 58px;
+      height: 58px;
       display: grid;
       place-items: center;
-      border-radius: 16px;
+      border-radius: 20px;
       color: var(--color-white);
-      box-shadow: 6px 6px 0 rgba(247, 191, 33, .22);
-    }
-
-    .notice__icon {
       background: var(--color-coral);
+      box-shadow: 8px 8px 0 rgba(247, 191, 33, .24);
+      font-size: 1.35rem;
     }
 
-    .countdown__icon {
-      background: var(--color-heading);
-      box-shadow: 5px 5px 0 rgba(20, 140, 155, .15);
+    .priority__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin: 0 0 5px;
+      color: var(--color-accent-dark);
+      font-size: .68rem;
+      font-weight: 1000;
+      letter-spacing: .10em;
+      text-transform: uppercase;
     }
 
-    .notice h2,
-    .countdown h2 {
+    .priority__eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--color-warning);
+      box-shadow: 0 0 0 5px rgba(247, 191, 33, .18);
+    }
+
+    .priority h2 {
       margin: 0;
       color: var(--color-heading);
-      font-size: clamp(1.2rem, 2.4vw, 2rem);
-      line-height: 1;
-      letter-spacing: -.055em;
+      font-size: clamp(1.65rem, 3.1vw, 2.65rem);
+      line-height: .95;
+      letter-spacing: -.065em;
     }
 
-    .notice p,
-    .countdown p {
-      margin: 6px 0 0;
+    .priority p {
+      margin: 7px 0 0;
       color: #4f5f7d;
-      font-size: .94rem;
+      font-size: .96rem;
       font-weight: 750;
-      line-height: 1.38;
+      line-height: 1.42;
     }
 
-    .notice .button {
-      margin-top: 13px;
-      width: 100%;
-      border-color: var(--color-heading);
+    .priority__button {
+      min-height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 20px;
+      border-radius: 17px;
       color: var(--color-white);
       background: var(--color-heading);
+      font-size: .9rem;
+      font-weight: 1000;
+      text-decoration: none;
+      white-space: nowrap;
+      box-shadow: 0 14px 28px rgba(31, 50, 112, .18);
+      transition: background .16s ease, box-shadow .16s ease, transform .16s ease;
     }
 
-    .notice .button:hover,
-    .notice .button:focus-visible {
+    .priority__button:hover,
+    .priority__button:focus-visible {
+      color: var(--color-white);
       background: var(--color-coral);
+      box-shadow: 0 16px 30px rgba(255, 115, 101, .20);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .priority__countdown {
+      position: relative;
+      z-index: 1;
+      min-width: 0;
+      padding: 16px;
+      border: 1px solid rgba(16, 32, 68, .09);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, .64);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .75), 0 10px 24px rgba(16, 32, 68, .055);
+      backdrop-filter: blur(10px);
+    }
+
+    .priority__countdown-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .priority__countdown h2 {
+      font-size: clamp(1.25rem, 2.25vw, 2rem);
     }
 
     .date-pill {
@@ -793,7 +824,6 @@
       align-items: center;
       justify-content: center;
       gap: 7px;
-      margin-top: 11px;
       padding: 8px 10px;
       border-radius: 999px;
       color: var(--color-heading-dark);
@@ -809,15 +839,14 @@
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 8px;
-      margin-top: 12px;
     }
 
     .countdown__box {
-      min-height: 68px;
+      min-height: 66px;
       padding: 11px;
-      border: 1px solid var(--color-line);
-      border-radius: 17px;
-      background: var(--color-white);
+      border: 1px solid rgba(16, 32, 68, .09);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, .74);
       box-shadow: 0 8px 18px rgba(16, 32, 68, .045);
     }
 
@@ -828,7 +857,7 @@
 
     .countdown__box strong {
       color: var(--color-heading);
-      font-size: clamp(1.55rem, 3vw, 2.65rem);
+      font-size: clamp(1.55rem, 3vw, 2.55rem);
       font-weight: 1000;
       line-height: .9;
       letter-spacing: -.055em;
@@ -837,7 +866,7 @@
     .countdown__box span {
       margin-top: 8px;
       color: var(--color-muted);
-      font-size: .64rem;
+      font-size: .62rem;
       font-weight: 950;
       letter-spacing: .08em;
       text-transform: uppercase;
@@ -1332,7 +1361,7 @@
       .card-grid,
       .vuca-grid,
       .practical-grid,
-      .alert-grid {
+      .priority {
         grid-template-columns: 1fr;
       }
 
@@ -1532,34 +1561,56 @@
         font-size: .86rem;
       }
 
-      .notice,
-      .countdown {
-        padding: 13px;
-        border-radius: 20px;
-      }
-
-      .alert-grid {
+      .priority {
         gap: 12px;
-        margin-bottom: 12px;
+        margin-block: 12px;
+        padding: 14px;
+        border-radius: 23px;
       }
 
-      .notice__icon,
-      .countdown__icon {
+      .priority__main {
+        grid-template-columns: 38px minmax(0, 1fr);
+        gap: 10px;
+      }
+
+      .priority__icon {
         width: 38px;
         height: 38px;
         border-radius: 13px;
+        box-shadow: 5px 5px 0 rgba(247, 191, 33, .22);
         font-size: 1rem;
       }
 
-      .notice h2,
-      .countdown h2 {
-        font-size: clamp(1.22rem, 6.5vw, 1.8rem);
+      .priority__button {
+        grid-column: 1 / -1;
+        width: 100%;
+        min-height: 44px;
+        border-radius: 14px;
+      }
+
+      .priority__eyebrow {
+        margin-bottom: 5px;
+        font-size: .62rem;
+      }
+
+      .priority h2 {
+        font-size: clamp(1.35rem, 6.6vw, 2rem);
         line-height: 1.03;
       }
 
-      .notice p,
-      .countdown p {
+      .priority p {
         font-size: .86rem;
+      }
+
+      .priority__countdown {
+        padding: 12px;
+        border-radius: 18px;
+      }
+
+      .priority__countdown-header {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
       }
 
       .date-pill {
@@ -1875,31 +1926,33 @@
   </nav>
 
   <header id="top" class="site-header">
-    <div class="page alert-grid" aria-label="Belangrijke informatie">
-      <section class="notice" aria-labelledby="notice-title">
-        <div class="notice__inner">
-          <div class="notice__icon" aria-hidden="true"><i class="fa-solid fa-bread-slice"></i></div>
-          <div>
-            <h2 id="notice-title">Vul het broodjesformulier in</h2>
-            <p>
-              Voor de broodjesbestelling vragen we iedereen om het formulier tijdig in te vullen.
-              Zo kunnen we correct bestellen en vermijden we gepruts op de dag zelf.
-            </p>
-            <a class="button" href="https://forms.office.com/e/DDMftsAXKb" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i> Formulier invullen
-            </a>
-          </div>
-        </div>
-      </section>
+    <section class="page priority" aria-labelledby="priority-title">
+      <div class="priority__main">
+        <div class="priority__icon" aria-hidden="true"><i class="fa-solid fa-bread-slice"></i></div>
 
-      <section class="countdown" aria-labelledby="countdown-title">
-        <div class="countdown__header">
-          <div class="countdown__icon" aria-hidden="true"><i class="fa-solid fa-hourglass-half"></i></div>
+        <div>
+          <p class="priority__eyebrow">Belangrijk voor de lunch</p>
+          <h2 id="priority-title">Vul het broodjesformulier in</h2>
+          <p>
+            Voor de broodjesbestelling vragen we iedereen om het formulier tijdig in te vullen.
+            Zo kunnen we correct bestellen en vermijden we gepruts op de dag zelf.
+          </p>
+        </div>
+
+        <a class="priority__button" href="https://forms.office.com/e/DDMftsAXKb" target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i> Formulier invullen
+        </a>
+      </div>
+
+      <section class="priority__countdown" aria-labelledby="countdown-title">
+        <div class="priority__countdown-header">
           <div>
-            <h2 id="countdown-title">Nog even aftellen</h2>
-            <p>Tot vrijdag 17 juli 2026 om 08:00 aan het Sportkot KU Leuven.</p>
-            <span class="date-pill"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> 17 juli 2026</span>
+            <p class="priority__eyebrow">Nog even aftellen</p>
+            <h2 id="countdown-title">17 juli 2026</h2>
+            <p>Start om 08:00 aan het Sportkot KU Leuven.</p>
           </div>
+
+          <span class="date-pill"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Vrijdag</span>
         </div>
 
         <div class="countdown__grid" id="countdown" aria-live="polite">
@@ -1913,7 +1966,7 @@
           Vandaag is het zover. Tijd voor padel, bumperballs, beachvolley en frietjes.
         </p>
       </section>
-    </div>
+    </section>
 
     <div class="page hero" aria-labelledby="page-title">
       <div class="hero__main">
