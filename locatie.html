@@ -25,7 +25,10 @@
     }
 
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+
+    html{
+      scroll-behavior:smooth;
+    }
 
     body{
       margin:0;
@@ -52,7 +55,7 @@
       position:sticky;
       top:0;
       z-index:50;
-      background:rgba(238,243,248,.90);
+      background:rgba(238,243,248,.92);
       backdrop-filter:blur(16px);
       border-bottom:1px solid rgba(16,32,68,.08);
     }
@@ -115,7 +118,9 @@
       transform:translateY(-1px);
     }
 
-    header{padding:26px 0 22px}
+    header{
+      padding:26px 0 22px;
+    }
 
     .hero{
       position:relative;
@@ -206,26 +211,28 @@
     }
 
     .hero-actions{
-      display:flex;
-      flex-wrap:wrap;
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
       gap:10px;
       margin-top:28px;
+      max-width:620px;
     }
 
     .btn{
-      min-height:46px;
+      min-height:52px;
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:8px;
-      padding:0 15px;
-      border-radius:15px;
+      gap:9px;
+      padding:0 16px;
+      border-radius:16px;
       border:1px solid rgba(255,255,255,.18);
       text-decoration:none;
       color:white;
       background:rgba(255,255,255,.10);
-      font-weight:950;
-      font-size:.84rem;
+      font-weight:1000;
+      font-size:.9rem;
+      text-align:center;
       transition:.16s transform,.16s background,.16s color;
     }
 
@@ -235,15 +242,15 @@
       border-color:var(--yellow);
     }
 
-    .btn.location{
-      background:var(--teal);
-      border-color:var(--teal);
-      color:white;
-    }
-
     .btn.apple{
       background:#111827;
       border-color:#111827;
+      color:white;
+    }
+
+    .btn.secondary{
+      grid-column:1 / -1;
+      background:rgba(255,255,255,.10);
       color:white;
     }
 
@@ -317,17 +324,37 @@
       color:var(--navy-dark);
     }
 
-    .quick-item:nth-child(2) .quick-icon{background:var(--teal);color:white}
-    .quick-item:nth-child(3) .quick-icon{background:var(--coral);color:white}
+    .quick-item:nth-child(2) .quick-icon{
+      background:var(--teal);
+      color:white;
+    }
 
-    .quick-item b{display:block;color:var(--navy);margin-bottom:3px}
-    .quick-item span{display:block;color:var(--muted);font-size:.9rem;line-height:1.4}
-    .quick-item a{color:var(--teal);font-weight:950;text-decoration:none}
-    .quick-item a:hover{text-decoration:underline}
+    .quick-item:nth-child(3) .quick-icon{
+      background:var(--coral);
+      color:white;
+    }
 
-    section{padding:42px 0;scroll-margin-top:82px}
+    .quick-item b{
+      display:block;
+      color:var(--navy);
+      margin-bottom:3px;
+    }
 
-    .section-head{margin-bottom:20px}
+    .quick-item span{
+      display:block;
+      color:var(--muted);
+      font-size:.9rem;
+      line-height:1.4;
+    }
+
+    section{
+      padding:42px 0;
+      scroll-margin-top:82px;
+    }
+
+    .section-head{
+      margin-bottom:20px;
+    }
 
     .section-title{
       display:flex;
@@ -394,8 +421,15 @@
       box-shadow:7px 7px 0 rgba(20,140,155,.14);
     }
 
-    .card:nth-child(2) .icon{background:var(--teal);box-shadow:7px 7px 0 rgba(247,191,33,.18)}
-    .card:nth-child(3) .icon{background:var(--coral);box-shadow:7px 7px 0 rgba(31,50,112,.12)}
+    .card:nth-child(2) .icon{
+      background:var(--teal);
+      box-shadow:7px 7px 0 rgba(247,191,33,.18);
+    }
+
+    .card:nth-child(3) .icon{
+      background:var(--coral);
+      box-shadow:7px 7px 0 rgba(31,50,112,.12);
+    }
 
     .card h3{
       margin:0 0 9px;
@@ -408,14 +442,6 @@
       margin:0;
       color:var(--muted);
       line-height:1.62;
-    }
-
-    .small-note{
-      margin-top:10px;
-      color:var(--muted);
-      font-size:.92rem;
-      line-height:1.45;
-      font-weight:700;
     }
 
     .map-card{
@@ -472,16 +498,26 @@
       font-weight:700;
     }
 
-    .map-actions{
+    .route-panel{
       padding:18px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
       background:white;
     }
 
+    .route-panel-title{
+      margin:0 0 12px;
+      color:var(--navy);
+      font-size:1rem;
+      letter-spacing:-.02em;
+    }
+
+    .route-buttons{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:10px;
+    }
+
     .button{
-      min-height:44px;
+      min-height:48px;
       display:inline-flex;
       align-items:center;
       justify-content:center;
@@ -493,6 +529,7 @@
       text-decoration:none;
       font-weight:1000;
       font-size:.86rem;
+      text-align:center;
       transition:.16s transform,.16s background;
     }
 
@@ -506,6 +543,11 @@
       color:var(--navy-dark);
     }
 
+    .button.apple{
+      background:#111827;
+      color:white;
+    }
+
     .button.coral{
       background:var(--coral);
       color:white;
@@ -513,11 +555,6 @@
 
     .button.navy{
       background:var(--navy);
-      color:white;
-    }
-
-    .button.apple{
-      background:#111827;
       color:white;
     }
 
@@ -549,9 +586,20 @@
       box-shadow:6px 6px 0 rgba(20,140,155,.13);
     }
 
-    .step:nth-child(2) .step-number{background:var(--teal);color:white}
-    .step:nth-child(3) .step-number{background:var(--coral);color:white}
-    .step:nth-child(4) .step-number{background:var(--navy);color:white}
+    .step:nth-child(2) .step-number{
+      background:var(--teal);
+      color:white;
+    }
+
+    .step:nth-child(3) .step-number{
+      background:var(--coral);
+      color:white;
+    }
+
+    .step:nth-child(4) .step-number{
+      background:var(--navy);
+      color:white;
+    }
 
     .step h3{
       margin:0 0 4px;
@@ -569,7 +617,7 @@
     .notice{
       position:relative;
       overflow:hidden;
-      padding:20px;
+      padding:22px;
       border-radius:var(--radius);
       background:
         radial-gradient(circle at 8% 20%, rgba(255,115,101,.18), transparent 26%),
@@ -618,11 +666,19 @@
       background:#f6f9fc;
       border:1px solid var(--line);
       color:#52627e;
+      line-height:1.35;
     }
 
     .checklist i{
       width:20px;
       color:var(--teal);
+    }
+
+    .final-actions{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:10px;
+      margin-top:18px;
     }
 
     footer{
@@ -635,14 +691,24 @@
     @media (max-width:980px){
       .hero,
       .grid,
-      .grid.two{grid-template-columns:1fr}
+      .grid.two{
+        grid-template-columns:1fr;
+      }
+
       .hero-main,
-      .hero-side{min-height:auto}
+      .hero-side{
+        min-height:auto;
+      }
     }
 
     @media (max-width:760px){
-      body{background-size:36px 36px,36px 36px,auto,auto,auto}
-      .page{width:min(100% - 20px, 1180px)}
+      body{
+        background-size:36px 36px,36px 36px,auto,auto,auto;
+      }
+
+      .page{
+        width:min(100% - 20px, 1180px);
+      }
 
       .nav-inner{
         min-height:auto;
@@ -652,7 +718,9 @@
         padding:10px 0;
       }
 
-      .brand{font-size:.98rem}
+      .brand{
+        font-size:.98rem;
+      }
 
       .brand-mark{
         width:40px;
@@ -673,7 +741,9 @@
         -webkit-overflow-scrolling:touch;
       }
 
-      .nav-links::-webkit-scrollbar{display:none}
+      .nav-links::-webkit-scrollbar{
+        display:none;
+      }
 
       .nav-links a{
         flex:0 0 auto;
@@ -683,13 +753,26 @@
         border:1px solid rgba(16,32,68,.08);
       }
 
-      header{padding:16px 0 20px}
+      header{
+        padding:16px 0 20px;
+      }
 
-      .hero{gap:12px}
+      .hero{
+        gap:12px;
+      }
+
       .hero-main,
-      .hero-side{border-radius:23px}
-      .hero-main{padding:26px 20px 24px}
-      .floating-card{display:none}
+      .hero-side{
+        border-radius:23px;
+      }
+
+      .hero-main{
+        padding:26px 20px 24px;
+      }
+
+      .floating-card{
+        display:none;
+      }
 
       .label{
         font-size:.61rem;
@@ -711,16 +794,16 @@
       }
 
       .hero-actions{
-        display:grid;
         grid-template-columns:1fr;
         gap:8px;
         margin-top:22px;
+        max-width:none;
       }
 
       .btn,
       .button{
         width:100%;
-        min-height:44px;
+        min-height:48px;
         border-radius:14px;
       }
 
@@ -734,12 +817,22 @@
         line-height:1.05;
       }
 
-      .side-bottom{padding:20px}
+      .side-bottom{
+        padding:20px;
+      }
 
-      section{padding:34px 0;scroll-margin-top:118px}
+      section{
+        padding:34px 0;
+        scroll-margin-top:118px;
+      }
 
-      .section-head{margin-bottom:16px}
-      .section-title{gap:11px}
+      .section-head{
+        margin-bottom:16px;
+      }
+
+      .section-title{
+        gap:11px;
+      }
 
       .section-title::before{
         width:7px;
@@ -766,13 +859,34 @@
         border-radius:17px;
       }
 
-      .card h3{font-size:1.35rem}
-      .card p{font-size:.95rem;line-height:1.52}
+      .card h3{
+        font-size:1.35rem;
+      }
 
-      .map-card{min-height:auto}
-      .map-placeholder{min-height:280px}
-      .map-pin{width:84px;height:84px;border-radius:27px;font-size:2.6rem}
-      .map-actions{display:grid;grid-template-columns:1fr}
+      .card p{
+        font-size:.95rem;
+        line-height:1.52;
+      }
+
+      .map-card{
+        min-height:auto;
+      }
+
+      .map-placeholder{
+        min-height:260px;
+      }
+
+      .map-pin{
+        width:84px;
+        height:84px;
+        border-radius:27px;
+        font-size:2.6rem;
+      }
+
+      .route-buttons,
+      .final-actions{
+        grid-template-columns:1fr;
+      }
 
       .step{
         grid-template-columns:42px 1fr;
@@ -786,8 +900,19 @@
         border-radius:14px;
       }
 
-      .step h3{font-size:1rem}
-      .step p{font-size:.91rem;line-height:1.45}
+      .step h3{
+        font-size:1rem;
+      }
+
+      .step p{
+        font-size:.91rem;
+        line-height:1.45;
+      }
+
+      .notice{
+        padding:20px;
+        border-radius:21px;
+      }
 
       footer{
         margin-top:26px;
@@ -797,9 +922,27 @@
     }
 
     @media (max-width:380px){
-      .page{width:min(100% - 16px, 1180px)}
-      h1{font-size:clamp(2.25rem,12.6vw,3.15rem)}
-      .nav-links a{font-size:.63rem}
+      .page{
+        width:min(100% - 16px, 1180px);
+      }
+
+      h1{
+        font-size:clamp(2.25rem,12.6vw,3.15rem);
+      }
+
+      .nav-links a{
+        font-size:.63rem;
+      }
+
+      .quick-item{
+        grid-template-columns:34px 1fr;
+      }
+
+      .quick-icon{
+        width:34px;
+        height:34px;
+        border-radius:12px;
+      }
     }
   </style>
 </head>
@@ -833,23 +976,20 @@
         <h1>Locatie<br>& parking</h1>
 
         <p class="hero-text">
-          Alle praktische info om vlot aan te komen aan het Sportkot KU Leuven. Kies gewoon je favoriete kaarten-app: Google Maps of Apple Kaarten.
+          Alles wat je nodig hebt om vlot aan te komen aan het Sportkot KU Leuven.
+          Kies je route-app, vertrek op tijd en sluit rustig aan bij de groep.
         </p>
 
         <div class="hero-actions">
-          <a class="btn primary" href="https://www.google.com/maps/search/?api=1&query=Sportkot+KU+Leuven" target="_blank" rel="noopener noreferrer">
-            <i class="fa-solid fa-map-location-dot"></i> Google Maps
+          <a class="btn primary" href="https://www.google.com/maps/dir/?api=1&destination=Sportkot+KU+Leuven" target="_blank" rel="noopener noreferrer">
+            <i class="fa-solid fa-route"></i> Route via Google Maps
           </a>
 
-          <a class="btn apple" href="https://maps.apple.com/?q=Sportkot%20KU%20Leuven" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-apple"></i> Apple Kaarten
+          <a class="btn apple" href="https://maps.apple.com/?daddr=Sportkot%20KU%20Leuven" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-apple"></i> Route via Apple Kaarten
           </a>
 
-          <a class="btn location" href="#parking">
-            <i class="fa-solid fa-square-parking"></i> Parkinginfo
-          </a>
-
-          <a class="btn" href="index.html">
+          <a class="btn secondary" href="index.html">
             <i class="fa-solid fa-arrow-left"></i> Terug naar hoofdpagina
           </a>
         </div>
@@ -865,23 +1005,23 @@
             <div class="quick-icon"><i class="fa-solid fa-clock"></i></div>
             <div>
               <b>Aankomst</b>
-              <span>Voorzie wat marge. We verzamelen om 08:00 aan het Sportkot.</span>
+              <span>We verzamelen om 08:00 aan het Sportkot. Kom liefst iets vroeger.</span>
             </div>
           </div>
 
           <div class="quick-item">
-            <div class="quick-icon"><i class="fa-solid fa-car"></i></div>
+            <div class="quick-icon"><i class="fa-solid fa-square-parking"></i></div>
             <div>
               <b>Parking</b>
-              <span>Er is normaal parking op of rond de site. Kom liefst niet op het nippertje.</span>
+              <span>Er is normaal parking op of rond de site. Voorzie wel wat marge.</span>
             </div>
           </div>
 
           <div class="quick-item">
-            <div class="quick-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+            <div class="quick-icon"><i class="fa-solid fa-shirt"></i></div>
             <div>
-              <b>Kaarten-app</b>
-              <span>Android of laptop? Google Maps. iPhone? Apple Kaarten werkt ook perfect.</span>
+              <b>Omkleden</b>
+              <span>Kom sportief of neem je spullen mee om ter plaatse om te kleden.</span>
             </div>
           </div>
         </div>
@@ -892,7 +1032,9 @@
   <main>
     <section id="adres" class="page">
       <div class="section-head">
-        <div class="section-title"><h2>Adres</h2></div>
+        <div class="section-title">
+          <h2>Adres</h2>
+        </div>
       </div>
 
       <div class="grid two">
@@ -902,28 +1044,23 @@
               <div class="map-pin"><i class="fa-solid fa-location-dot"></i></div>
               <h3>Sportkot<br>KU Leuven</h3>
               <p>
-                Gebruik Google Maps of Apple Kaarten om rechtstreeks naar de site te navigeren.
-                Zo moet niemand op de dag zelf beginnen zoeken.
+                Gebruik één van de routeknoppen. Zo hoef je geen adres over te typen en kom je meteen op de juiste plaats terecht.
               </p>
             </div>
           </div>
 
-          <div class="map-actions">
-            <a class="button yellow" href="https://www.google.com/maps/search/?api=1&query=Sportkot+KU+Leuven" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-map-location-dot"></i> Open in Google Maps
-            </a>
+          <div class="route-panel">
+            <h3 class="route-panel-title">Route starten</h3>
 
-            <a class="button apple" href="https://maps.apple.com/?q=Sportkot%20KU%20Leuven" target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-apple"></i> Open in Apple Kaarten
-            </a>
+            <div class="route-buttons">
+              <a class="button yellow" href="https://www.google.com/maps/dir/?api=1&destination=Sportkot+KU+Leuven" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-route"></i> Google Maps
+              </a>
 
-            <a class="button" href="https://www.google.com/maps/dir/?api=1&destination=Sportkot+KU+Leuven" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-route"></i> Route via Google Maps
-            </a>
-
-            <a class="button navy" href="https://maps.apple.com/?daddr=Sportkot%20KU%20Leuven" target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-apple"></i> Route via Apple Kaarten
-            </a>
+              <a class="button apple" href="https://maps.apple.com/?daddr=Sportkot%20KU%20Leuven" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-apple"></i> Apple Kaarten
+              </a>
+            </div>
           </div>
         </article>
 
@@ -931,32 +1068,32 @@
           <div class="step">
             <div class="step-number">1</div>
             <div>
-              <h3>Kies je kaarten-app</h3>
-              <p>Gebruik Google Maps of Apple Kaarten. Beide knoppen staan op deze pagina.</p>
+              <h3>Kies je route-app</h3>
+              <p>Google Maps werkt voor iedereen. Apple Kaarten is handig voor wie met iPhone rijdt.</p>
             </div>
           </div>
 
           <div class="step">
             <div class="step-number">2</div>
             <div>
-              <h3>Zoek op Sportkot KU Leuven</h3>
-              <p>Je hoeft geen adres over te typen. Klik gewoon op één van de knoppen.</p>
+              <h3>Vertrek met marge</h3>
+              <p>Kom liever iets te vroeg dan exact op tijd. Parkeren en oriënteren kost altijd enkele minuten.</p>
             </div>
           </div>
 
           <div class="step">
             <div class="step-number">3</div>
             <div>
-              <h3>Rustig parkeren</h3>
-              <p>Kom liever iets te vroeg dan exact op tijd. Dan heb je marge om te parkeren en je te oriënteren.</p>
+              <h3>Verzamel aan het Sportkot</h3>
+              <p>We verzamelen om 08:00 aan het Sportkot. Daarna is er tijd om rustig op te starten.</p>
             </div>
           </div>
 
           <div class="step">
             <div class="step-number">4</div>
             <div>
-              <h3>Verzamelen aan het Sportkot</h3>
-              <p>We verzamelen om 08:00 aan het Sportkot. Daarna is er tijd om om te kleden en rustig op te starten.</p>
+              <h3>Start teambuilding</h3>
+              <p>Vanaf 08:30 starten we met de eerste activiteit. Wie klaar is, kan rustig aansluiten.</p>
             </div>
           </div>
         </div>
@@ -965,63 +1102,69 @@
 
     <section id="parking" class="page">
       <div class="section-head">
-        <div class="section-title"><h2>Parking</h2></div>
+        <div class="section-title">
+          <h2>Parking</h2>
+        </div>
       </div>
 
       <div class="grid">
         <article class="card">
           <div class="icon"><i class="fa-solid fa-square-parking"></i></div>
           <h3>Parking op of rond de site</h3>
-          <p>Er is normaal voldoende parking op of rond de site. Kom wel op tijd, zodat je niet gehaast moet zoeken.</p>
+          <p>
+            Er is normaal parking op of rond de site. Kom wel op tijd, zodat je niet gehaast moet zoeken.
+          </p>
         </article>
 
         <article class="card">
           <div class="icon"><i class="fa-solid fa-clock"></i></div>
-          <h3>Marge voorzien</h3>
-          <p>Reken een paar minuten extra voor parkeren, wandelen naar het verzamelpunt en eventueel omkleden.</p>
+          <h3>Voorzie marge</h3>
+          <p>
+            Reken een paar minuten extra voor parkeren, wandelen naar het verzamelpunt en eventueel omkleden.
+          </p>
         </article>
 
         <article class="card">
           <div class="icon"><i class="fa-solid fa-person-walking"></i></div>
           <h3>Volg de groep</h3>
-          <p>Na aankomst verzamelen we aan het Sportkot. Van daaruit kunnen we samen naar de juiste velden of activiteit gaan.</p>
+          <p>
+            Na aankomst verzamelen we aan het Sportkot. Van daaruit gaan we samen naar de juiste velden of activiteit.
+          </p>
         </article>
       </div>
     </section>
 
     <section id="route" class="page">
       <div class="section-head">
-        <div class="section-title"><h2>Route</h2></div>
+        <div class="section-title">
+          <h2>Route</h2>
+        </div>
       </div>
 
       <div class="grid two">
         <article class="notice">
           <h3><i class="fa-solid fa-triangle-exclamation"></i> Praktische tip</h3>
           <p>
-            Vertrek niet op het nippertje. Zelfs als de parking vlot gaat, verlies je snel enkele minuten met zoeken,
-            wandelen, omkleden of iemand terugvinden.
+            Zet je route best al klaar vóór je vertrekt. Zelfs als de parking vlot gaat,
+            verlies je snel enkele minuten met zoeken, wandelen, omkleden of iemand terugvinden.
           </p>
         </article>
 
         <article class="card">
           <div class="icon"><i class="fa-solid fa-route"></i></div>
-          <h3>Route starten</h3>
+          <h3>Start meteen je route</h3>
           <p>
-            Kies hieronder je route-app. Google Maps werkt breed, Apple Kaarten is handig voor wie met iPhone rijdt.
+            Gebruik gewoon de app die je normaal ook gebruikt. Meer moet dat niet zijn.
           </p>
 
-          <div class="map-actions" style="padding:18px 0 0;background:transparent;">
-            <a class="button" href="https://www.google.com/maps/dir/?api=1&destination=Sportkot+KU+Leuven" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-route"></i> Route via Google Maps
+          <div class="final-actions">
+            <a class="button yellow" href="https://www.google.com/maps/dir/?api=1&destination=Sportkot+KU+Leuven" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-route"></i> Google Maps
             </a>
 
             <a class="button apple" href="https://maps.apple.com/?daddr=Sportkot%20KU%20Leuven" target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-apple"></i> Route via Apple Kaarten
+              <i class="fa-brands fa-apple"></i> Apple Kaarten
             </a>
-          </div>
-
-          <div class="small-note">
-            Tip: zet de route best al eens klaar voor je vertrekt. Dan moet je aan de parking zelf niet meer zoeken.
           </div>
         </article>
       </div>
@@ -1029,13 +1172,16 @@
 
     <section id="aankomst" class="page">
       <div class="section-head">
-        <div class="section-title"><h2>Aankomst</h2></div>
+        <div class="section-title">
+          <h2>Aankomst</h2>
+        </div>
       </div>
 
       <div class="grid two">
         <article class="card">
           <div class="icon"><i class="fa-solid fa-list-check"></i></div>
           <h3>Bij aankomst</h3>
+
           <ul class="checklist">
             <li><i class="fa-solid fa-circle-check"></i> Parkeer rustig op of rond de site.</li>
             <li><i class="fa-solid fa-circle-check"></i> Ga naar het Sportkot of het afgesproken verzamelpunt.</li>
@@ -1048,10 +1194,11 @@
           <div class="icon"><i class="fa-solid fa-bread-slice"></i></div>
           <h3>Niet vergeten</h3>
           <p>
-            Vul ook het broodjesformulier in. Dat staat los van de locatie, maar is wel nodig om de lunch correct te kunnen bestellen.
+            Vul ook het broodjesformulier in. Dat staat los van de locatie,
+            maar is wel nodig om de lunch correct te kunnen bestellen.
           </p>
 
-          <div class="map-actions" style="padding:18px 0 0;background:transparent;">
+          <div class="final-actions">
             <a class="button coral" href="https://forms.office.com/e/DDMftsAXKb" target="_blank" rel="noopener noreferrer">
               <i class="fa-solid fa-pen-to-square"></i> Broodjesformulier
             </a>
@@ -1067,7 +1214,7 @@
 
   <footer>
     <div class="page">
-      <strong>Teambuilding Heverlee 2026</strong> · Locatie & parking · Google Maps & Apple Kaarten
+      <strong>Teambuilding Heverlee 2026</strong> · Locatie & parking
     </div>
   </footer>
 </body>
