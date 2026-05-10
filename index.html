@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Vraag aan zoekmachines om deze pagina niet te indexeren -->
+  <meta name="robots" content="noindex, nofollow" />
+
   <title>Teambuilding Prom 23 Klas A</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
@@ -25,6 +29,7 @@
     }
 
     *{box-sizing:border-box}
+
     html{scroll-behavior:smooth}
 
     body{
@@ -41,12 +46,150 @@
       overflow-x:hidden;
     }
 
+    body.locked{
+      overflow:hidden;
+    }
+
     a{color:inherit}
 
     .page{
       width:min(1180px, calc(100% - 28px));
       margin-inline:auto;
     }
+
+    /* PASSWORD SCREEN */
+
+    .password-screen{
+      position:fixed;
+      inset:0;
+      z-index:9999;
+      display:grid;
+      place-items:center;
+      padding:22px;
+      background:
+        radial-gradient(circle at 10% 8%, rgba(247,191,33,.28), transparent 26%),
+        radial-gradient(circle at 90% 10%, rgba(20,140,155,.22), transparent 26%),
+        radial-gradient(circle at 50% 100%, rgba(255,115,101,.15), transparent 28%),
+        linear-gradient(135deg,var(--navy),var(--navy-dark));
+    }
+
+    .password-screen.hidden{
+      display:none;
+    }
+
+    .password-card{
+      width:min(440px, 100%);
+      position:relative;
+      overflow:hidden;
+      padding:30px;
+      border-radius:30px;
+      background:white;
+      box-shadow:0 28px 80px rgba(0,0,0,.30);
+      border:1px solid rgba(255,255,255,.24);
+    }
+
+    .password-card::before{
+      content:"";
+      position:absolute;
+      inset:0 0 auto;
+      height:7px;
+      background:linear-gradient(90deg,var(--yellow),var(--teal),var(--coral));
+    }
+
+    .password-badge{
+      width:58px;
+      height:58px;
+      display:grid;
+      place-items:center;
+      margin-bottom:18px;
+      border-radius:20px;
+      background:var(--yellow);
+      color:var(--navy-dark);
+      font-size:1.45rem;
+      box-shadow:7px 7px 0 rgba(20,140,155,.18);
+      transform:rotate(-2deg);
+    }
+
+    .password-card h1{
+      margin:0 0 10px;
+      color:var(--navy);
+      font-size:clamp(1.8rem,6vw,2.35rem);
+      line-height:.98;
+      letter-spacing:-.065em;
+    }
+
+    .password-card p{
+      margin:0 0 20px;
+      color:var(--muted);
+      line-height:1.55;
+      font-weight:750;
+    }
+
+    .password-form{
+      display:grid;
+      gap:10px;
+    }
+
+    .password-form input{
+      width:100%;
+      min-height:50px;
+      padding:0 14px;
+      border-radius:15px;
+      border:1px solid var(--line);
+      font:inherit;
+      color:var(--ink);
+      outline:none;
+      background:#f8fafc;
+    }
+
+    .password-form input:focus{
+      border-color:rgba(20,140,155,.55);
+      box-shadow:0 0 0 4px rgba(20,140,155,.12);
+      background:white;
+    }
+
+    .password-form button{
+      min-height:50px;
+      border:0;
+      border-radius:15px;
+      background:var(--navy);
+      color:white;
+      font-weight:1000;
+      cursor:pointer;
+      transition:.16s transform,.16s background;
+    }
+
+    .password-form button:hover{
+      transform:translateY(-2px);
+      background:var(--teal);
+    }
+
+    .password-error{
+      display:none;
+      margin-top:10px;
+      padding:11px 13px;
+      border-radius:14px;
+      background:rgba(255,115,101,.12);
+      color:#9b3028;
+      border:1px solid rgba(255,115,101,.26);
+      font-weight:850;
+      font-size:.92rem;
+    }
+
+    .password-error.show{
+      display:block;
+    }
+
+    .password-small{
+      margin-top:16px;
+      padding-top:14px;
+      border-top:1px solid var(--line);
+      color:#7a879d;
+      font-size:.82rem;
+      line-height:1.45;
+    }
+
+    /* NAV */
 
     nav{
       position:sticky;
@@ -121,8 +264,23 @@
     }
 
     header{padding:26px 0 30px}
-    section{padding:48px 0;scroll-margin-top:82px}
-    #missie,#visie,#waardenblok,#vuca,#programma,#praktisch,#faq{scroll-margin-top:82px}
+
+    section{
+      padding:48px 0;
+      scroll-margin-top:82px;
+    }
+
+    #missie,
+    #visie,
+    #waardenblok,
+    #vuca,
+    #programma,
+    #praktisch,
+    #faq{
+      scroll-margin-top:82px;
+    }
+
+    /* ALERTS */
 
     .form-alert,
     .countdown{
@@ -159,7 +317,9 @@
       background:linear-gradient(90deg,var(--coral),var(--yellow),var(--teal));
     }
 
-    .countdown::before{background:linear-gradient(90deg,var(--yellow),var(--teal),var(--coral))}
+    .countdown::before{
+      background:linear-gradient(90deg,var(--yellow),var(--teal),var(--coral));
+    }
 
     .form-alert-inner{
       display:grid;
@@ -229,6 +389,8 @@
       background:var(--coral);
       color:white;
     }
+
+    /* COUNTDOWN */
 
     .countdown-top{
       display:flex;
@@ -315,7 +477,11 @@
       line-height:1.45;
     }
 
-    .countdown-done.show{display:block}
+    .countdown-done.show{
+      display:block;
+    }
+
+    /* HERO */
 
     .hero{
       display:grid;
@@ -647,9 +813,23 @@
       border-radius:17px;
     }
 
-    .quick-item i{color:var(--teal);margin-bottom:7px}
-    .quick-item b{display:block;color:var(--navy)}
-    .quick-item span{display:block;color:var(--muted);font-size:.84rem;margin-top:3px;line-height:1.35}
+    .quick-item i{
+      color:var(--teal);
+      margin-bottom:7px;
+    }
+
+    .quick-item b{
+      display:block;
+      color:var(--navy);
+    }
+
+    .quick-item span{
+      display:block;
+      color:var(--muted);
+      font-size:.84rem;
+      margin-top:3px;
+      line-height:1.35;
+    }
 
     .quick-item a{
       color:var(--teal);
@@ -657,9 +837,15 @@
       text-decoration:none;
     }
 
-    .quick-item a:hover{text-decoration:underline}
+    .quick-item a:hover{
+      text-decoration:underline;
+    }
 
-    .section-head{margin-bottom:20px}
+    /* SECTIONS */
+
+    .section-head{
+      margin-bottom:20px;
+    }
 
     .section-title{
       display:flex;
@@ -705,8 +891,15 @@
       box-shadow:7px 7px 0 rgba(20,140,155,.14);
     }
 
-    .card:nth-child(2) .icon{background:var(--teal);box-shadow:7px 7px 0 rgba(247,191,33,.18)}
-    .card:nth-child(3) .icon{background:var(--coral);box-shadow:7px 7px 0 rgba(31,50,112,.12)}
+    .card:nth-child(2) .icon{
+      background:var(--teal);
+      box-shadow:7px 7px 0 rgba(247,191,33,.18);
+    }
+
+    .card:nth-child(3) .icon{
+      background:var(--coral);
+      box-shadow:7px 7px 0 rgba(31,50,112,.12);
+    }
 
     .card h3{
       margin:0 0 9px;
@@ -772,14 +965,21 @@
       line-height:1.52;
     }
 
+    /* VUCA */
+
     .vuca-grid{
       display:grid;
       grid-template-columns:repeat(2,minmax(0,1fr));
       gap:16px;
     }
 
-    .vuca-card{border-radius:var(--radius)}
-    .vuca-card::before{height:7px}
+    .vuca-card{
+      border-radius:var(--radius);
+    }
+
+    .vuca-card::before{
+      height:7px;
+    }
 
     .vuca-top{
       display:flex;
@@ -876,7 +1076,12 @@
       font-weight:750;
     }
 
-    .timeline{display:grid;gap:10px}
+    /* PROGRAMMA */
+
+    .timeline{
+      display:grid;
+      gap:10px;
+    }
 
     .time-row{
       display:grid;
@@ -934,7 +1139,11 @@
       cursor:pointer;
     }
 
-    .time-row:hover .info-btn{background:var(--teal)}
+    .time-row:hover .info-btn{
+      background:var(--teal);
+    }
+
+    /* PRAKTISCH */
 
     .practical-grid{
       display:grid;
@@ -970,9 +1179,17 @@
       font-size:.86rem;
     }
 
-    .panel-button:hover{background:var(--navy)}
-    .panel-button.secondary{background:var(--navy)}
-    .panel-button.secondary:hover{background:var(--coral)}
+    .panel-button:hover{
+      background:var(--navy);
+    }
+
+    .panel-button.secondary{
+      background:var(--navy);
+    }
+
+    .panel-button.secondary:hover{
+      background:var(--coral);
+    }
 
     .checklist{
       list-style:none;
@@ -1012,6 +1229,8 @@
       color:var(--muted);
       line-height:1.62;
     }
+
+    /* FAQ */
 
     .faq{
       max-width:900px;
@@ -1063,9 +1282,19 @@
       text-decoration:none;
     }
 
-    .faq-a a:hover{text-decoration:underline}
-    .faq-item.open .faq-a{display:block}
-    .faq-item.open .faq-q i{transform:rotate(180deg)}
+    .faq-a a:hover{
+      text-decoration:underline;
+    }
+
+    .faq-item.open .faq-a{
+      display:block;
+    }
+
+    .faq-item.open .faq-q i{
+      transform:rotate(180deg);
+    }
+
+    /* DRAWER */
 
     .drawer{
       position:fixed;
@@ -1135,7 +1364,9 @@
       cursor:pointer;
     }
 
-    .drawer-body{padding:22px}
+    .drawer-body{
+      padding:22px;
+    }
 
     .drawer-body h3{
       margin:0 0 9px;
@@ -1157,21 +1388,49 @@
       color:#dfe8ff;
     }
 
+    /* RESPONSIVE */
+
     @media (max-width:980px){
       .hero,
       .cards,
       .vuca-grid,
-      .practical-grid{grid-template-columns:1fr}
+      .practical-grid{
+        grid-template-columns:1fr;
+      }
 
       .hero-main,
-      .hero-side{min-height:auto}
-      .values{grid-template-columns:1fr 1fr}
-      .side-links{grid-template-columns:repeat(3,1fr)}
+      .hero-side{
+        min-height:auto;
+      }
+
+      .values{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .side-links{
+        grid-template-columns:repeat(3,1fr);
+      }
     }
 
     @media (max-width:760px){
-      body{background-size:36px 36px,36px 36px,auto,auto,auto}
-      .page{width:min(100% - 20px, 1180px)}
+      body{
+        background-size:36px 36px,36px 36px,auto,auto,auto;
+      }
+
+      .page{
+        width:min(100% - 20px, 1180px);
+      }
+
+      .password-card{
+        padding:26px 22px;
+        border-radius:24px;
+      }
+
+      .password-badge{
+        width:52px;
+        height:52px;
+        border-radius:18px;
+      }
 
       .nav-inner{
         min-height:auto;
@@ -1181,7 +1440,9 @@
         padding:10px 0;
       }
 
-      .brand{font-size:.98rem}
+      .brand{
+        font-size:.98rem;
+      }
 
       .brand-mark{
         width:40px;
@@ -1202,7 +1463,9 @@
         -webkit-overflow-scrolling:touch;
       }
 
-      .nav-links::-webkit-scrollbar{display:none}
+      .nav-links::-webkit-scrollbar{
+        display:none;
+      }
 
       .nav-links a{
         flex:0 0 auto;
@@ -1212,7 +1475,9 @@
         border:1px solid rgba(16,32,68,.08);
       }
 
-      header{padding:16px 0 20px}
+      header{
+        padding:16px 0 20px;
+      }
 
       .form-alert,
       .countdown{
@@ -1241,7 +1506,9 @@
       }
 
       .form-alert p,
-      .countdown p{font-size:.86rem}
+      .countdown p{
+        font-size:.86rem;
+      }
 
       .form-button{
         grid-column:1 / -1;
@@ -1260,14 +1527,18 @@
         align-items:flex-start;
       }
 
-      .countdown-icon{flex-basis:38px}
+      .countdown-icon{
+        flex-basis:38px;
+      }
 
       .date-pill{
         width:100%;
         justify-content:center;
       }
 
-      .count-grid{gap:6px}
+      .count-grid{
+        gap:6px;
+      }
 
       .count-box{
         min-height:58px;
@@ -1287,10 +1558,22 @@
         letter-spacing:.055em;
       }
 
-      .hero{gap:12px}
-      .hero-main,.hero-side{border-radius:23px}
-      .hero-main{padding:26px 20px 24px}
-      .floating-card{display:none}
+      .hero{
+        gap:12px;
+      }
+
+      .hero-main,
+      .hero-side{
+        border-radius:23px;
+      }
+
+      .hero-main{
+        padding:26px 20px 24px;
+      }
+
+      .floating-card{
+        display:none;
+      }
 
       .label{
         font-size:.61rem;
@@ -1363,7 +1646,9 @@
 
       .concept-strip,
       .quick,
-      .values{grid-template-columns:1fr}
+      .values{
+        grid-template-columns:1fr;
+      }
 
       .concept-card{
         min-height:auto;
@@ -1385,14 +1670,37 @@
         padding:12px;
       }
 
-      .quick-item i{grid-row:1 / span 2;margin:2px 0 0}
-      .quick-item span{font-size:.86rem}
+      .quick-item i{
+        grid-row:1 / span 2;
+        margin:2px 0 0;
+      }
 
-      section{padding:34px 0;scroll-margin-top:118px}
-      #missie,#visie,#waardenblok,#vuca,#programma,#praktisch,#faq{scroll-margin-top:118px}
+      .quick-item span{
+        font-size:.86rem;
+      }
 
-      .section-head{margin-bottom:16px}
-      .section-title{gap:11px}
+      section{
+        padding:34px 0;
+        scroll-margin-top:118px;
+      }
+
+      #missie,
+      #visie,
+      #waardenblok,
+      #vuca,
+      #programma,
+      #praktisch,
+      #faq{
+        scroll-margin-top:118px;
+      }
+
+      .section-head{
+        margin-bottom:16px;
+      }
+
+      .section-title{
+        gap:11px;
+      }
 
       .section-title::before{
         width:7px;
@@ -1406,7 +1714,9 @@
         line-height:.94;
       }
 
-      .cards{gap:11px}
+      .cards{
+        gap:11px;
+      }
 
       .card{
         min-height:auto;
@@ -1421,8 +1731,14 @@
         border-radius:17px;
       }
 
-      .card h3{font-size:1.35rem}
-      .card p{font-size:.95rem;line-height:1.52}
+      .card h3{
+        font-size:1.35rem;
+      }
+
+      .card p{
+        font-size:.95rem;
+        line-height:1.52;
+      }
 
       .value{
         min-height:auto;
@@ -1430,8 +1746,13 @@
         border-radius:20px;
       }
 
-      .vuca-grid{gap:12px}
-      .vuca-card{border-radius:21px}
+      .vuca-grid{
+        gap:12px;
+      }
+
+      .vuca-card{
+        border-radius:21px;
+      }
 
       .vuca-top{
         padding:22px 18px 13px;
@@ -1447,11 +1768,23 @@
         box-shadow:5px 5px 0 rgba(20,140,155,.16);
       }
 
-      .vuca-card:nth-child(2) .vuca-letter{box-shadow:5px 5px 0 rgba(247,191,33,.20)}
-      .vuca-top h3{font-size:1.55rem}
-      .vuca-top p{font-size:.93rem;line-height:1.48}
+      .vuca-card:nth-child(2) .vuca-letter{
+        box-shadow:5px 5px 0 rgba(247,191,33,.20);
+      }
 
-      .vuca-list{padding:0 18px 18px;gap:8px}
+      .vuca-top h3{
+        font-size:1.55rem;
+      }
+
+      .vuca-top p{
+        font-size:.93rem;
+        line-height:1.48;
+      }
+
+      .vuca-list{
+        padding:0 18px 18px;
+        gap:8px;
+      }
 
       .vuca-item{
         grid-template-columns:34px 1fr;
@@ -1467,7 +1800,10 @@
         font-size:.86rem;
       }
 
-      .vuca-item span{font-size:.88rem;line-height:1.42}
+      .vuca-item span{
+        font-size:.88rem;
+        line-height:1.42;
+      }
 
       .vuca-note{
         margin:0 18px 18px;
@@ -1476,7 +1812,9 @@
         font-size:.91rem;
       }
 
-      .timeline{gap:9px}
+      .timeline{
+        gap:9px;
+      }
 
       .time-row{
         grid-template-columns:68px 1fr;
@@ -1486,7 +1824,9 @@
         border-radius:18px;
       }
 
-      .time-row:hover{transform:none}
+      .time-row:hover{
+        transform:none;
+      }
 
       .time{
         min-height:46px;
@@ -1511,14 +1851,18 @@
         border-radius:12px;
       }
 
-      .practical-grid{gap:11px}
+      .practical-grid{
+        gap:11px;
+      }
 
       .panel{
         padding:20px;
         border-radius:21px;
       }
 
-      .panel h3{font-size:1.28rem}
+      .panel h3{
+        font-size:1.28rem;
+      }
 
       .checklist li{
         padding:11px;
@@ -1546,11 +1890,27 @@
         transform:translateY(calc(100% + 30px));
       }
 
-      .drawer.open{transform:translateY(0)}
-      .drawer-top{min-height:88px;padding:17px}
-      .drawer-body{padding:19px}
-      .drawer-body h3{font-size:1.32rem}
-      .drawer-body p{font-size:.94rem;line-height:1.52}
+      .drawer.open{
+        transform:translateY(0);
+      }
+
+      .drawer-top{
+        min-height:88px;
+        padding:17px;
+      }
+
+      .drawer-body{
+        padding:19px;
+      }
+
+      .drawer-body h3{
+        font-size:1.32rem;
+      }
+
+      .drawer-body p{
+        font-size:.94rem;
+        line-height:1.52;
+      }
 
       footer{
         margin-top:26px;
@@ -1560,16 +1920,68 @@
     }
 
     @media (max-width:380px){
-      .page{width:min(100% - 16px, 1180px)}
-      h1{font-size:clamp(2.25rem,12.6vw,3.15rem)}
-      .count-box span{font-size:.5rem}
-      .time-row{grid-template-columns:62px 1fr}
-      .nav-links a{font-size:.63rem}
+      .page{
+        width:min(100% - 16px, 1180px);
+      }
+
+      h1{
+        font-size:clamp(2.25rem,12.6vw,3.15rem);
+      }
+
+      .count-box span{
+        font-size:.5rem;
+      }
+
+      .time-row{
+        grid-template-columns:62px 1fr;
+      }
+
+      .nav-links a{
+        font-size:.63rem;
+      }
     }
   </style>
 </head>
 
-<body>
+<body class="locked">
+
+  <div class="password-screen" id="passwordScreen" aria-label="Wachtwoordscherm">
+    <div class="password-card">
+      <div class="password-badge">
+        <i class="fa-solid fa-lock"></i>
+      </div>
+
+      <h1>Even het wachtwoord ingeven</h1>
+
+      <p>
+        Deze pagina is bedoeld voor Prom 23 Klas A.
+        Geef het wachtwoord in om verder te gaan.
+      </p>
+
+      <form class="password-form" id="passwordForm">
+        <input
+          type="password"
+          id="passwordInput"
+          placeholder="Wachtwoord"
+          autocomplete="current-password"
+          aria-label="Wachtwoord"
+        />
+
+        <button type="submit">
+          <i class="fa-solid fa-unlock"></i> Binnenkomen
+        </button>
+      </form>
+
+      <div class="password-error" id="passwordError">
+        Oei. Dat wachtwoord klopt niet.
+      </div>
+
+      <div class="password-small">
+        Tip: na correcte toegang wordt dit onthouden in dezelfde browser.
+      </div>
+    </div>
+  </div>
+
   <nav>
     <div class="page nav-inner">
       <div class="brand">
@@ -1597,7 +2009,10 @@
 
         <div>
           <h2>Belangrijk: vul het broodjesformulier in</h2>
-          <p>Voor de broodjesbestelling vragen we iedereen om het formulier tijdig in te vullen. Zo kunnen we correct bestellen en vermijden we gepruts op de dag zelf.</p>
+          <p>
+            Voor de broodjesbestelling vragen we iedereen om het formulier tijdig in te vullen.
+            Zo kunnen we correct bestellen en vermijden we gepruts op de dag zelf.
+          </p>
         </div>
 
         <a class="form-button" href="https://forms.office.com/e/DDMftsAXKb" target="_blank" rel="noopener noreferrer">
@@ -1616,7 +2031,9 @@
           </div>
         </div>
 
-        <div class="date-pill"><i class="fa-solid fa-calendar-check"></i> 17 juli 2026</div>
+        <div class="date-pill">
+          <i class="fa-solid fa-calendar-check"></i> 17 juli 2026
+        </div>
       </div>
 
       <div class="count-grid" id="countdown">
@@ -1634,7 +2051,10 @@
     <div class="hero">
       <div class="hero-main">
         <div class="floating-card">🏐</div>
-        <div class="label"><span class="label-dot"></span> Vrijdag 17 juli 2026</div>
+
+        <div class="label">
+          <span class="label-dot"></span> Vrijdag 17 juli 2026
+        </div>
 
         <h1>Teambuilding<br>Heverlee</h1>
 
@@ -1643,20 +2063,40 @@
           <span>missie, visie<br>& waarden</span>
         </div>
 
-        <div class="hero-kicker">Actief. Ontspannen. Samen op pad.</div>
+        <div class="hero-kicker">
+          Actief. Ontspannen. Samen op pad.
+        </div>
 
         <div class="hero-actions">
-          <a class="btn primary" href="#programma"><i class="fa-solid fa-calendar-days"></i> Programma</a>
-          <a class="btn location" href="locatie.html"><i class="fa-solid fa-location-dot"></i> Locatie & parking</a>
-          <a class="btn" href="#vuca"><i class="fa-solid fa-wave-square"></i> VUCA / BANI</a>
-          <a class="btn" href="#praktisch"><i class="fa-solid fa-list-check"></i> Praktisch</a>
-          <a class="btn" href="https://forms.office.com/e/DDMftsAXKb" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-bread-slice"></i> Broodjesformulier</a>
+          <a class="btn primary" href="#programma">
+            <i class="fa-solid fa-calendar-days"></i> Programma
+          </a>
+
+          <a class="btn location" href="locatie.html">
+            <i class="fa-solid fa-location-dot"></i> Locatie & parking
+          </a>
+
+          <a class="btn" href="#vuca">
+            <i class="fa-solid fa-wave-square"></i> VUCA / BANI
+          </a>
+
+          <a class="btn" href="#praktisch">
+            <i class="fa-solid fa-list-check"></i> Praktisch
+          </a>
+
+          <a class="btn" href="https://forms.office.com/e/DDMftsAXKb" target="_blank" rel="noopener noreferrer">
+            <i class="fa-solid fa-bread-slice"></i> Broodjesformulier
+          </a>
         </div>
       </div>
 
       <aside class="hero-side">
         <div class="side-top">
-          <h2 class="side-title">Actief programma.<br>Losse sfeer.<br>Samen op pad.</h2>
+          <h2 class="side-title">
+            Actief programma.<br>
+            Losse sfeer.<br>
+            Samen op pad.
+          </h2>
         </div>
 
         <div class="side-bottom">
@@ -1678,15 +2118,23 @@
             <article class="concept-card">
               <div class="concept-icon"><i class="fa-solid fa-helicopter"></i></div>
               <h3>Helikopterzicht</h3>
-              <p>Het overzicht bewaren: planning, timing, parking, broodjes en groepsflow in één blik.</p>
-              <span class="concept-tag"><i class="fa-solid fa-eye"></i> Grote lijnen</span>
+              <p>
+                Het overzicht bewaren: planning, timing, parking, broodjes en groepsflow in één blik.
+              </p>
+              <span class="concept-tag">
+                <i class="fa-solid fa-eye"></i> Grote lijnen
+              </span>
             </article>
 
             <article class="concept-card">
               <div class="concept-icon"><i class="fa-solid fa-bicycle"></i></div>
               <h3>Fietszicht</h3>
-              <p>Niet overdenken: gewoon toekomen, parkeren, trappen, meedoen, lachen en samen vooruit.</p>
-              <span class="concept-tag"><i class="fa-solid fa-arrow-right"></i> Gewoon gaan</span>
+              <p>
+                Niet overdenken: gewoon toekomen, parkeren, trappen, meedoen, lachen en samen vooruit.
+              </p>
+              <span class="concept-tag">
+                <i class="fa-solid fa-arrow-right"></i> Gewoon gaan
+              </span>
             </article>
           </div>
 
@@ -1706,7 +2154,11 @@
             <div class="quick-item">
               <i class="fa-solid fa-bread-slice"></i>
               <b>Broodjes</b>
-              <span><a href="https://forms.office.com/e/DDMftsAXKb" target="_blank" rel="noopener noreferrer">Formulier invullen</a></span>
+              <span>
+                <a href="https://forms.office.com/e/DDMftsAXKb" target="_blank" rel="noopener noreferrer">
+                  Formulier invullen
+                </a>
+              </span>
             </div>
           </div>
         </div>
@@ -1724,19 +2176,28 @@
         <article class="card">
           <div class="icon"><i class="fa-solid fa-bullseye"></i></div>
           <h3>Samen uit de routine</h3>
-          <p>De ploeg samenbrengen buiten de dagelijkse context, met een dag die draait rond beweging, ontspanning en groepsgevoel.</p>
+          <p>
+            De ploeg samenbrengen buiten de dagelijkse context,
+            met een dag die draait rond beweging, ontspanning en groepsgevoel.
+          </p>
         </article>
 
         <article class="card">
           <div class="icon"><i class="fa-solid fa-people-group"></i></div>
           <h3>Iedereen mee</h3>
-          <p>Actief genoeg om plezant te zijn, maar laagdrempelig genoeg zodat iedereen kan deelnemen zonder prestatiedruk.</p>
+          <p>
+            Actief genoeg om plezant te zijn,
+            maar laagdrempelig genoeg zodat iedereen kan deelnemen zonder prestatiedruk.
+          </p>
         </article>
 
         <article class="card">
           <div class="icon"><i class="fa-solid fa-face-laugh-beam"></i></div>
           <h3>Fun boven score</h3>
-          <p>Winnen mag, lachen moet. De sfeer is belangrijker dan de uitslag.</p>
+          <p>
+            Winnen mag, lachen moet.
+            De sfeer is belangrijker dan de uitslag.
+          </p>
         </article>
       </div>
     </section>
@@ -1750,19 +2211,28 @@
         <article class="card">
           <div class="icon"><i class="fa-solid fa-seedling"></i></div>
           <h3>Een teambuilding die natuurlijk aanvoelt</h3>
-          <p>We willen een dag organiseren die professioneel voorbereid is, maar niet stijf, geforceerd of overdreven geregisseerd aanvoelt.</p>
+          <p>
+            We willen een dag organiseren die professioneel voorbereid is,
+            maar niet stijf, geforceerd of overdreven geregisseerd aanvoelt.
+          </p>
         </article>
 
         <article class="card">
           <div class="icon"><i class="fa-solid fa-route"></i></div>
           <h3>Structuur zonder keurslijf</h3>
-          <p>Iedereen weet waar hij moet zijn en wat er gebeurt, maar er blijft ruimte voor spontaniteit, marge en ontspanning.</p>
+          <p>
+            Iedereen weet waar hij moet zijn en wat er gebeurt,
+            maar er blijft ruimte voor spontaniteit, marge en ontspanning.
+          </p>
         </article>
 
         <article class="card">
           <div class="icon"><i class="fa-solid fa-heart"></i></div>
           <h3>Een goed gevoel achteraf</h3>
-          <p>De bedoeling is dat mensen niet alleen aanwezig waren, maar achteraf voelen dat het een plezante en verbindende dag was.</p>
+          <p>
+            De bedoeling is dat mensen niet alleen aanwezig waren,
+            maar achteraf voelen dat het een plezante en verbindende dag was.
+          </p>
         </article>
       </div>
     </section>
@@ -1806,15 +2276,45 @@
             <div class="vuca-letter">V</div>
             <div>
               <h3>VUCA</h3>
-              <p>De teambuilding als mini-managementcase: het plan is helder, maar de dag zelf blijft levendig en licht onvoorspelbaar.</p>
+              <p>
+                De teambuilding als mini-managementcase:
+                het plan is helder, maar de dag zelf blijft levendig en licht onvoorspelbaar.
+              </p>
             </div>
           </div>
 
           <div class="vuca-list">
-            <div class="vuca-item"><div class="vuca-mini">V</div><div><b>Volatility</b><span>Het weer, de energie van de groep en het ritme van de activiteiten kunnen plots veranderen.</span></div></div>
-            <div class="vuca-item"><div class="vuca-mini">U</div><div><b>Uncertainty</b><span>Niet alles is vooraf perfect te voorspellen: wie doet volop mee, wie neemt pauze, wat loopt een beetje uit?</span></div></div>
-            <div class="vuca-item"><div class="vuca-mini">C</div><div><b>Complexity</b><span>Timing, eten, broodjeskeuzes, verplaatsing, groepsindeling en sfeer moeten tegelijk kloppen.</span></div></div>
-            <div class="vuca-item"><div class="vuca-mini">A</div><div><b>Ambiguity</b><span>Het is geen pure sportdag en geen lesdag. Net dat tussengebied maakt het plezant.</span></div></div>
+            <div class="vuca-item">
+              <div class="vuca-mini">V</div>
+              <div>
+                <b>Volatility</b>
+                <span>Het weer, de energie van de groep en het ritme van de activiteiten kunnen plots veranderen.</span>
+              </div>
+            </div>
+
+            <div class="vuca-item">
+              <div class="vuca-mini">U</div>
+              <div>
+                <b>Uncertainty</b>
+                <span>Niet alles is vooraf perfect te voorspellen: wie doet volop mee, wie neemt pauze, wat loopt een beetje uit?</span>
+              </div>
+            </div>
+
+            <div class="vuca-item">
+              <div class="vuca-mini">C</div>
+              <div>
+                <b>Complexity</b>
+                <span>Timing, eten, broodjeskeuzes, verplaatsing, groepsindeling en sfeer moeten tegelijk kloppen.</span>
+              </div>
+            </div>
+
+            <div class="vuca-item">
+              <div class="vuca-mini">A</div>
+              <div>
+                <b>Ambiguity</b>
+                <span>Het is geen pure sportdag en geen lesdag. Net dat tussengebied maakt het plezant.</span>
+              </div>
+            </div>
           </div>
 
           <p class="vuca-note">
@@ -1827,15 +2327,45 @@
             <div class="vuca-letter">B</div>
             <div>
               <h3>BANI</h3>
-              <p>Omdat een groepsdag niet alleen rationeel is. Mensen worden moe, enthousiast, hongerig, competitief of net heel relaxed.</p>
+              <p>
+                Omdat een groepsdag niet alleen rationeel is.
+                Mensen worden moe, enthousiast, hongerig, competitief of net heel relaxed.
+              </p>
             </div>
           </div>
 
           <div class="vuca-list">
-            <div class="vuca-item"><div class="vuca-mini">B</div><div><b>Brittle</b><span>Een strak schema kan snel breken zodra één onderdeel uitloopt. Daarom bouwen we marge in.</span></div></div>
-            <div class="vuca-item"><div class="vuca-mini">A</div><div><b>Anxious</b><span>Niet iedereen leeft op van sportieve opdrachten of praktische onzekerheid. Heldere info haalt druk weg.</span></div></div>
-            <div class="vuca-item"><div class="vuca-mini">N</div><div><b>Non-linear</b><span>Een klein moment kan veel sfeer maken: één rally, één botsing in bumperballs of één perfect getimede frietpauze.</span></div></div>
-            <div class="vuca-item"><div class="vuca-mini">I</div><div><b>Incomprehensible</b><span>Sommige dingen moet je niet overanalyseren. Waarom werkt het? Omdat mensen vanzelf plezier beginnen maken.</span></div></div>
+            <div class="vuca-item">
+              <div class="vuca-mini">B</div>
+              <div>
+                <b>Brittle</b>
+                <span>Een strak schema kan snel breken zodra één onderdeel uitloopt. Daarom bouwen we marge in.</span>
+              </div>
+            </div>
+
+            <div class="vuca-item">
+              <div class="vuca-mini">A</div>
+              <div>
+                <b>Anxious</b>
+                <span>Niet iedereen leeft op van sportieve opdrachten of praktische onzekerheid. Heldere info haalt druk weg.</span>
+              </div>
+            </div>
+
+            <div class="vuca-item">
+              <div class="vuca-mini">N</div>
+              <div>
+                <b>Non-linear</b>
+                <span>Een klein moment kan veel sfeer maken: één rally, één botsing in bumperballs of één perfect getimede frietpauze.</span>
+              </div>
+            </div>
+
+            <div class="vuca-item">
+              <div class="vuca-mini">I</div>
+              <div>
+                <b>Incomprehensible</b>
+                <span>Sommige dingen moet je niet overanalyseren. Waarom werkt het? Omdat mensen vanzelf plezier beginnen maken.</span>
+              </div>
+            </div>
           </div>
 
           <p class="vuca-note">
@@ -1853,49 +2383,73 @@
       <div class="timeline">
         <div class="time-row" data-time="08:00" data-title="Aankomst & omkleden" data-text="Verzamelen aan het Sportkot, rustig aankomen, parkeren, omkleden en klaarzetten voor de eerste activiteit. Voor details over bereikbaarheid en parking: klik bovenaan op Locatie & parking.">
           <div class="time">08:00</div>
-          <div><h3>Aankomst & omkleden</h3><p>Verzamelen, parkeren, omkleden en rustig opstarten.</p></div>
+          <div>
+            <h3>Aankomst & omkleden</h3>
+            <p>Verzamelen, parkeren, omkleden en rustig opstarten.</p>
+          </div>
           <button class="info-btn">Info</button>
         </div>
 
         <div class="time-row" data-time="08:30" data-title="Padel" data-text="We spelen in ploegen en roteren door. Wie even niet speelt, supportert of neemt kort pauze.">
           <div class="time">08:30</div>
-          <div><h3>Padel</h3><p>Teams, rotatie en een sportieve opener.</p></div>
+          <div>
+            <h3>Padel</h3>
+            <p>Teams, rotatie en een sportieve opener.</p>
+          </div>
           <button class="info-btn">Info</button>
         </div>
 
         <div class="time-row" data-time="10:30" data-title="Bumperballs" data-text="Korte spelvormen met veel beweging en fun. De nadruk ligt op amusement en groepssfeer.">
           <div class="time">10:30</div>
-          <div><h3>Bumperballs</h3><p>Actief, grappig en laagdrempelig.</p></div>
+          <div>
+            <h3>Bumperballs</h3>
+            <p>Actief, grappig en laagdrempelig.</p>
+          </div>
           <button class="info-btn">Info</button>
         </div>
 
         <div class="time-row" data-time="12:00" data-title="Lunch" data-text="Broodjesmoment en korte pauze. Het is belangrijk dat iedereen vooraf het broodjesformulier invult, zodat de bestelling correct kan gebeuren.">
           <div class="time">12:00</div>
-          <div><h3>Lunch</h3><p>Broodjes en korte pauze.</p></div>
+          <div>
+            <h3>Lunch</h3>
+            <p>Broodjes en korte pauze.</p>
+          </div>
           <button class="info-btn">Info</button>
         </div>
 
         <div class="time-row" data-time="13:00" data-title="Beachvolleybal" data-text="Beachvolley met teams en rotatie. Competitie mag, maar sfeer blijft belangrijker dan winnen.">
           <div class="time">13:00</div>
-          <div><h3>Beachvolleybal</h3><p>Zand, teams en groepssfeer.</p></div>
+          <div>
+            <h3>Beachvolleybal</h3>
+            <p>Zand, teams en groepssfeer.</p>
+          </div>
           <button class="info-btn">Info</button>
         </div>
 
         <div class="time-row" data-time="15:00" data-title="Chillen & extra spel" data-text="Rustiger blok om te bekomen, bij te praten, te supporteren of eventueel nog een licht spel te doen.">
           <div class="time">15:00</div>
-          <div><h3>Chillen & extra spel</h3><p>Rustiger blok met ademruimte.</p></div>
+          <div>
+            <h3>Chillen & extra spel</h3>
+            <p>Rustiger blok met ademruimte.</p>
+          </div>
           <button class="info-btn">Info</button>
         </div>
 
         <div class="time-row" data-time="16:30" data-title="Frietjes & drink" data-text="Afsluiter van het sportieve deel met frietjes, drank en rustig napraten. Daarna volgt ook de opkuis.">
           <div class="time">16:30</div>
-          <div><h3>Frietjes & drink</h3><p>Gezellig afronden en opkuis.</p></div>
+          <div>
+            <h3>Frietjes & drink</h3>
+            <p>Gezellig afronden en opkuis.</p>
+          </div>
           <button class="info-btn">Info</button>
         </div>
 
         <div class="time-row" data-time="19:00" data-title="Optioneel: terrasje Leuven" data-text="Wie nog zin heeft, kan optioneel mee richting Leuven centrum voor een rustige afsluiter.">
           <div class="time">19:00</div>
-          <div><h3>Optioneel: terrasje Leuven</h3><p>Vrijblijvende afsluiter.</p></div>
+          <div>
+            <h3>Optioneel: terrasje Leuven</h3>
+            <p>Vrijblijvende afsluiter.</p>
+          </div>
           <button class="info-btn">Info</button>
         </div>
       </div>
@@ -1950,15 +2504,24 @@
 
       <div class="faq">
         <div class="faq-item important open">
-          <button class="faq-q">Denk je dat er écht mensen zijn die het broodjesformulier vergeten in te vullen? <i class="fa-solid fa-chevron-down"></i></button>
+          <button class="faq-q">
+            Denk je dat er écht mensen zijn die het broodjesformulier vergeten in te vullen?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+
           <div class="faq-a">
-            Ja. Ervaring leert dat dit echt mogelijk is. Spread the word! Vul het hier in:
+            Ja. Ervaring leert dat dit echt mogelijk is. Spread the word!
+            Vul het hier in:
             <a href="https://forms.office.com/e/DDMftsAXKb" target="_blank" rel="noopener noreferrer">broodjesformulier openen</a>.
           </div>
         </div>
 
         <div class="faq-item important">
-          <button class="faq-q">Waar vind ik de locatie- en parkinginfo? <i class="fa-solid fa-chevron-down"></i></button>
+          <button class="faq-q">
+            Waar vind ik de locatie- en parkinginfo?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+
           <div class="faq-a">
             Op de aparte locatiepagina:
             <a href="locatie.html">Locatie & parking</a>.
@@ -1967,28 +2530,46 @@
         </div>
 
         <div class="faq-item">
-          <button class="faq-q">Moet je een sportbeest zijn om mee te doen? <i class="fa-solid fa-chevron-down"></i></button>
+          <button class="faq-q">
+            Moet je een sportbeest zijn om mee te doen?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+
           <div class="faq-a">
-            Nee. Het is actief, maar het blijft teambuilding. Het doel is een leuke dag beleven, niet de Olympische selectie halen.
+            Nee. Het is actief, maar het blijft teambuilding.
+            Het doel is een leuke dag beleven, niet de Olympische selectie halen.
           </div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-q">Is er eten voorzien? <i class="fa-solid fa-chevron-down"></i></button>
+          <button class="faq-q">
+            Is er eten voorzien?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+
           <div class="faq-a">
-            Ja. Rond de middag zijn er broodjes en later op de dag is er een frietmoment. Dit is allebei in de prijs inbegrepen.
+            Ja. Rond de middag zijn er broodjes en later op de dag is er een frietmoment.
+            Dit is allebei in de prijs inbegrepen.
           </div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-q">Zijn er vegetarische opties? <i class="fa-solid fa-chevron-down"></i></button>
+          <button class="faq-q">
+            Zijn er vegetarische opties?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+
           <div class="faq-a">
             Ja, dit wordt via het formulier bevraagd zodat de bestelling correct kan gebeuren.
           </div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-q">Wat bij slecht weer? <i class="fa-solid fa-chevron-down"></i></button>
+          <button class="faq-q">
+            Wat bij slecht weer?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+
           <div class="faq-a">
             De weersituatie wordt vooraf bekeken. Indien nodig volgt er aangepaste praktische info.
           </div>
@@ -2003,7 +2584,9 @@
     </button>
 
     <div class="drawer-top">
-      <span class="drawer-time" id="drawerTime"><i class="fa-solid fa-clock"></i> 08:00</span>
+      <span class="drawer-time" id="drawerTime">
+        <i class="fa-solid fa-clock"></i> 08:00
+      </span>
     </div>
 
     <div class="drawer-body">
@@ -2013,10 +2596,44 @@
   </aside>
 
   <footer>
-    <div class="page"><strong>Teambuilding Prom 23 Klas A</strong></div>
+    <div class="page">
+      <strong>Teambuilding Prom 23 Klas A</strong>
+    </div>
   </footer>
 
   <script>
+    const correctPassword = "Teambuildingprom23";
+    const accessKey = "teambuildingAccessProm23KlasA";
+
+    const passwordScreen = document.getElementById("passwordScreen");
+    const passwordForm = document.getElementById("passwordForm");
+    const passwordInput = document.getElementById("passwordInput");
+    const passwordError = document.getElementById("passwordError");
+
+    function unlockPage(){
+      passwordScreen.classList.add("hidden");
+      document.body.classList.remove("locked");
+    }
+
+    if(localStorage.getItem(accessKey) === "ok"){
+      unlockPage();
+    }else{
+      passwordInput.focus();
+    }
+
+    passwordForm.addEventListener("submit", event => {
+      event.preventDefault();
+
+      if(passwordInput.value === correctPassword){
+        localStorage.setItem(accessKey, "ok");
+        unlockPage();
+      }else{
+        passwordError.classList.add("show");
+        passwordInput.value = "";
+        passwordInput.focus();
+      }
+    });
+
     const eventDate = new Date("2026-07-17T08:00:00+02:00");
 
     const daysEl = document.getElementById("days");
