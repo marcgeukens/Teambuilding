@@ -5,17 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Teambuilding Heverlee 2026</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
   <style>
     :root{
       --bg:#eef3f8;
       --ink:#102044;
       --navy:#1f3270;
-      --navy2:#182655;
+      --navy-dark:#182655;
       --teal:#148c9b;
-      --teal2:#116f7d;
+      --teal-dark:#116f7d;
       --yellow:#f7bf21;
       --coral:#ff7365;
-      --white:#fff;
+      --white:#ffffff;
       --muted:#60708d;
       --line:rgba(16,32,68,.13);
       --shadow:0 24px 70px rgba(16,32,68,.13);
@@ -23,7 +24,9 @@
     }
 
     *{box-sizing:border-box}
+
     html{scroll-behavior:smooth}
+
     body{
       margin:0;
       color:var(--ink);
@@ -72,20 +75,20 @@
     .brand-mark{
       width:48px;
       height:48px;
-      border-radius:18px;
+      flex:0 0 48px;
       display:grid;
       place-items:center;
+      border-radius:18px;
       background:var(--yellow);
-      color:var(--navy2);
+      color:var(--navy-dark);
       box-shadow:9px 9px 0 rgba(20,140,155,.16);
       transform:rotate(-2deg);
-      flex:0 0 48px;
     }
 
     .nav-links{
       display:flex;
-      flex-wrap:wrap;
       justify-content:flex-end;
+      flex-wrap:wrap;
       gap:7px;
     }
 
@@ -105,7 +108,7 @@
       color:white;
     }
 
-    header{padding:54px 0 34px;}
+    header{padding:54px 0 34px}
 
     .hero{
       display:grid;
@@ -116,39 +119,47 @@
 
     .hero-main,
     .hero-side{
+      position:relative;
+      overflow:hidden;
       border-radius:36px;
       box-shadow:var(--shadow);
-      overflow:hidden;
-      position:relative;
     }
 
     .hero-main{
-      background:
-        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px),
-        linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
-        linear-gradient(135deg,var(--navy),var(--navy2));
-      background-size:48px 48px,48px 48px,auto;
-      color:white;
+      min-height:580px;
       padding:clamp(34px,5vw,64px);
       display:flex;
       flex-direction:column;
       justify-content:center;
-      min-height:580px;
+      color:white;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+        linear-gradient(135deg,var(--navy),var(--navy-dark));
+      background-size:48px 48px,48px 48px,auto;
     }
 
-    .hero-side{
-      background:white;
+    .floating-card{
+      position:absolute;
+      right:34px;
+      top:24px;
+      width:126px;
+      height:126px;
       display:grid;
-      grid-template-rows:auto 1fr;
-      min-height:580px;
+      place-items:center;
+      border-radius:34px;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.14);
+      transform:rotate(8deg);
+      font-size:3.5rem;
     }
 
     .label{
+      width:max-content;
+      max-width:100%;
       display:inline-flex;
       align-items:center;
       gap:10px;
-      width:max-content;
-      max-width:100%;
       padding:9px 13px;
       border-radius:999px;
       background:rgba(255,255,255,.10);
@@ -161,7 +172,9 @@
     }
 
     .label-dot{
-      width:9px;height:9px;border-radius:50%;
+      width:9px;
+      height:9px;
+      border-radius:50%;
       background:var(--yellow);
       box-shadow:0 0 0 7px rgba(247,191,33,.15);
     }
@@ -187,7 +200,13 @@
       font-weight:300;
     }
 
-    .goldbar{flex:0 0 9px;height:82px;background:var(--yellow);margin-top:4px;border-radius:999px}
+    .goldbar{
+      flex:0 0 9px;
+      height:82px;
+      margin-top:4px;
+      border-radius:999px;
+      background:var(--yellow);
+    }
 
     .hero-kicker{
       margin:24px 0 0 29px;
@@ -205,11 +224,11 @@
     }
 
     .btn{
+      min-height:48px;
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:9px;
-      min-height:48px;
       padding:0 16px;
       border-radius:15px;
       border:1px solid rgba(255,255,255,.18);
@@ -222,7 +241,7 @@
     }
 
     .btn.primary{
-      color:var(--navy2);
+      color:var(--navy-dark);
       background:var(--yellow);
       border-color:var(--yellow);
     }
@@ -230,41 +249,36 @@
     .btn:hover{
       transform:translateY(-2px);
       background:white;
-      color:var(--navy2);
+      color:var(--navy-dark);
     }
 
-    .floating-card{
-      position:absolute;
-      right:34px;
-      top:24px;
-      width:126px;height:126px;
-      border-radius:34px;
-      background:rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.14);
+    .hero-side{
+      min-height:580px;
       display:grid;
-      place-items:center;
-      transform:rotate(8deg);
-      font-size:3.5rem;
+      grid-template-rows:auto 1fr;
+      background:white;
     }
 
     .side-top{
-      background:
-        radial-gradient(circle at 18% 24%, rgba(255,255,255,.34), transparent 15%),
-        linear-gradient(135deg,var(--teal),var(--teal2));
-      color:white;
-      padding:30px;
       min-height:210px;
       position:relative;
       overflow:hidden;
+      padding:30px;
+      color:white;
+      background:
+        radial-gradient(circle at 18% 24%, rgba(255,255,255,.34), transparent 15%),
+        linear-gradient(135deg,var(--teal),var(--teal-dark));
     }
 
     .side-top::after{
       content:"";
       position:absolute;
-      width:210px;height:210px;
+      width:210px;
+      height:210px;
+      right:-74px;
+      top:-78px;
       border-radius:50%;
       border:2px solid rgba(255,255,255,.23);
-      right:-74px; top:-78px;
     }
 
     .side-title{
@@ -286,11 +300,11 @@
     }
 
     .side-text{
+      max-width:460px;
+      margin:0;
       color:var(--muted);
       line-height:1.65;
       font-size:1.03rem;
-      max-width:460px;
-      margin:0;
     }
 
     .side-links{
@@ -315,7 +329,11 @@
       transition:.16s transform,.16s background,.16s color;
     }
 
-    .side-links a:hover{transform:translateY(-2px);background:var(--yellow);color:var(--navy2)}
+    .side-links a:hover{
+      transform:translateY(-2px);
+      background:var(--yellow);
+      color:var(--navy-dark);
+    }
 
     .concept-strip{
       display:grid;
@@ -326,12 +344,12 @@
 
     .concept-card{
       position:relative;
-      border:1px solid var(--line);
-      background:linear-gradient(180deg,#ffffff,#f5f8fc);
-      border-radius:22px;
-      padding:18px;
-      min-height:144px;
       overflow:hidden;
+      min-height:144px;
+      padding:18px;
+      border:1px solid var(--line);
+      border-radius:22px;
+      background:linear-gradient(180deg,#ffffff,#f5f8fc);
     }
 
     .concept-card::before{
@@ -344,13 +362,16 @@
     }
 
     .concept-icon{
-      width:54px;height:54px;border-radius:18px;
-      display:grid;place-items:center;
+      width:54px;
+      height:54px;
+      display:grid;
+      place-items:center;
+      margin-bottom:12px;
+      border-radius:18px;
       color:white;
       background:var(--navy);
       box-shadow:7px 7px 0 rgba(20,140,155,.14);
       font-size:1.35rem;
-      margin-bottom:12px;
     }
 
     .concept-card:nth-child(2) .concept-icon{
@@ -395,18 +416,19 @@
     }
 
     .quick-item{
+      padding:14px;
       background:#f6f9fc;
       border:1px solid var(--line);
       border-radius:18px;
-      padding:14px;
     }
 
     .quick-item i{color:var(--teal);margin-bottom:7px}
     .quick-item b{display:block;color:var(--navy)}
     .quick-item span{display:block;color:var(--muted);font-size:.86rem;margin-top:3px}
 
-    section{padding:58px 0;scroll-margin-top:78px;}
+    section{padding:58px 0;scroll-margin-top:78px}
     #missie,#visie,#waardenblok,#vuca,#programma,#praktisch,#faq{scroll-margin-top:78px}
+
     .section-head{margin-bottom:24px}
 
     .section-title{
@@ -417,9 +439,12 @@
 
     .section-title::before{
       content:"";
-      width:9px;height:72px;flex:0 0 9px;border-radius:999px;
-      background:var(--yellow);
+      width:9px;
+      height:72px;
+      flex:0 0 9px;
       margin-top:6px;
+      border-radius:999px;
+      background:var(--yellow);
     }
 
     h2{
@@ -430,17 +455,21 @@
       color:var(--navy);
     }
 
-    .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+    }
 
     .card{
-      background:white;
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:26px;
-      box-shadow:0 18px 42px rgba(16,32,68,.08);
       position:relative;
       overflow:hidden;
       min-height:250px;
+      padding:26px;
+      background:white;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:0 18px 42px rgba(16,32,68,.08);
     }
 
     .card::before{
@@ -452,20 +481,32 @@
     }
 
     .icon{
-      width:58px;height:58px;border-radius:20px;
-      display:grid;place-items:center;
-      color:white;background:var(--navy);
+      width:58px;
+      height:58px;
+      display:grid;
+      place-items:center;
       margin-bottom:20px;
+      border-radius:20px;
+      color:white;
+      background:var(--navy);
       box-shadow:8px 8px 0 rgba(20,140,155,.14);
     }
+
     .card:nth-child(2) .icon{background:var(--teal);box-shadow:8px 8px 0 rgba(247,191,33,.18)}
     .card:nth-child(3) .icon{background:var(--coral);box-shadow:8px 8px 0 rgba(31,50,112,.12)}
 
     .card h3{
-      margin:0 0 10px;color:var(--navy);
-      font-size:1.75rem;letter-spacing:-.055em;
+      margin:0 0 10px;
+      color:var(--navy);
+      font-size:1.75rem;
+      letter-spacing:-.055em;
     }
-    .card p{margin:0;color:var(--muted);line-height:1.65}
+
+    .card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.65;
+    }
 
     .values{
       display:grid;
@@ -475,53 +516,89 @@
     }
 
     .value{
-      border-radius:24px;padding:24px;min-height:170px;color:white;
+      position:relative;
+      overflow:hidden;
+      min-height:170px;
+      padding:24px;
+      border-radius:24px;
+      color:white;
       background:var(--navy);
       box-shadow:0 18px 42px rgba(16,32,68,.09);
-      position:relative;overflow:hidden;
     }
+
     .value:nth-child(2){background:var(--teal)}
     .value:nth-child(3){background:var(--coral)}
     .value:nth-child(4){background:#30487e}
+
     .value::after{
       content:"";
       position:absolute;
-      width:98px;height:98px;border-radius:50%;
+      width:98px;
+      height:98px;
+      right:-28px;
+      bottom:-34px;
+      border-radius:50%;
       background:rgba(255,255,255,.12);
-      right:-28px;bottom:-34px;
-    }
-    .value b{
-      position:relative;z-index:2;display:block;
-      font-size:1.2rem;margin-bottom:10px;letter-spacing:-.035em;
-    }
-    .value span{
-      position:relative;z-index:2;display:block;
-      color:rgba(255,255,255,.84);line-height:1.55;
     }
 
-    .vuca-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .value b{
+      position:relative;
+      z-index:2;
+      display:block;
+      margin-bottom:10px;
+      font-size:1.2rem;
+      letter-spacing:-.035em;
+    }
+
+    .value span{
+      position:relative;
+      z-index:2;
+      display:block;
+      color:rgba(255,255,255,.84);
+      line-height:1.55;
+    }
+
+    .vuca-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+    }
 
     .vuca-card{
-      background:white;border:1px solid var(--line);
-      border-radius:var(--radius);box-shadow:0 18px 42px rgba(16,32,68,.08);
-      overflow:hidden;position:relative;
+      position:relative;
+      overflow:hidden;
+      background:white;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:0 18px 42px rgba(16,32,68,.08);
     }
 
     .vuca-card::before{
       content:"";
-      position:absolute;inset:0 0 auto;height:8px;
+      position:absolute;
+      inset:0 0 auto;
+      height:8px;
       background:linear-gradient(90deg,var(--yellow),var(--teal),var(--coral));
     }
 
     .vuca-top{
+      display:flex;
+      align-items:flex-start;
+      gap:18px;
       padding:28px 28px 18px;
-      display:flex;gap:18px;align-items:flex-start;
     }
 
     .vuca-letter{
-      width:62px;height:62px;flex:0 0 62px;border-radius:21px;
-      display:grid;place-items:center;background:var(--navy);color:white;
-      font-size:1.85rem;font-weight:1000;
+      width:62px;
+      height:62px;
+      flex:0 0 62px;
+      display:grid;
+      place-items:center;
+      border-radius:21px;
+      background:var(--navy);
+      color:white;
+      font-size:1.85rem;
+      font-weight:1000;
       box-shadow:9px 9px 0 rgba(20,140,155,.16);
     }
 
@@ -531,35 +608,78 @@
     }
 
     .vuca-top h3{
-      margin:0 0 8px;color:var(--navy);
-      font-size:2rem;letter-spacing:-.065em;
+      margin:0 0 8px;
+      color:var(--navy);
+      font-size:2rem;
+      letter-spacing:-.065em;
     }
-    .vuca-top p{margin:0;color:var(--muted);line-height:1.6}
 
-    .vuca-list{display:grid;gap:10px;padding:0 28px 28px}
+    .vuca-top p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.6;
+    }
+
+    .vuca-list{
+      display:grid;
+      gap:10px;
+      padding:0 28px 28px;
+    }
+
     .vuca-item{
-      display:grid;grid-template-columns:42px 1fr;gap:12px;
-      padding:14px;border-radius:18px;background:#f6f9fc;border:1px solid var(--line);
+      display:grid;
+      grid-template-columns:42px 1fr;
+      gap:12px;
+      padding:14px;
+      border-radius:18px;
+      background:#f6f9fc;
+      border:1px solid var(--line);
     }
-
-    .vuca-item b{color:var(--navy);display:block;margin-bottom:3px;letter-spacing:-.02em}
-    .vuca-item span{color:var(--muted);line-height:1.5;font-size:.95rem}
 
     .vuca-mini{
-      width:42px;height:42px;border-radius:15px;
-      display:grid;place-items:center;background:var(--yellow);
-      color:var(--navy2);font-weight:1000;
+      width:42px;
+      height:42px;
+      display:grid;
+      place-items:center;
+      border-radius:15px;
+      background:var(--yellow);
+      color:var(--navy-dark);
+      font-weight:1000;
     }
-    .vuca-card:nth-child(2) .vuca-mini{background:var(--teal);color:white}
+
+    .vuca-card:nth-child(2) .vuca-mini{
+      background:var(--teal);
+      color:white;
+    }
+
+    .vuca-item b{
+      display:block;
+      margin-bottom:3px;
+      color:var(--navy);
+      letter-spacing:-.02em;
+    }
+
+    .vuca-item span{
+      color:var(--muted);
+      line-height:1.5;
+      font-size:.95rem;
+    }
 
     .vuca-note{
-      margin:0 28px 28px;border-radius:20px;padding:18px;
+      margin:0 28px 28px;
+      padding:18px;
+      border-radius:20px;
       background:linear-gradient(135deg,rgba(247,191,33,.18),rgba(20,140,155,.13));
       border:1px solid rgba(16,32,68,.10);
-      color:#2c3b5e;line-height:1.6;font-weight:750;
+      color:#2c3b5e;
+      line-height:1.6;
+      font-weight:750;
     }
 
-    .timeline{display:grid;gap:12px}
+    .timeline{
+      display:grid;
+      gap:12px;
+    }
 
     .time-row{
       display:grid;
@@ -582,141 +702,325 @@
     }
 
     .time{
-      display:grid;place-items:center;min-height:54px;
-      border-radius:16px;background:var(--yellow);
-      color:var(--navy2);font-weight:1000;letter-spacing:-.02em;
+      min-height:54px;
+      display:grid;
+      place-items:center;
+      border-radius:16px;
+      background:var(--yellow);
+      color:var(--navy-dark);
+      font-weight:1000;
+      letter-spacing:-.02em;
     }
 
-    .time-row h3{margin:0 0 3px;color:var(--navy);font-size:1.14rem;letter-spacing:-.035em}
-    .time-row p{margin:0;color:var(--muted);line-height:1.42}
+    .time-row h3{
+      margin:0 0 3px;
+      color:var(--navy);
+      font-size:1.14rem;
+      letter-spacing:-.035em;
+    }
+
+    .time-row p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.42;
+    }
 
     .info-btn{
-      border:0;border-radius:14px;min-height:42px;padding:0 14px;
-      background:var(--navy);color:white;font-weight:950;cursor:pointer;
+      min-height:42px;
+      padding:0 14px;
+      border:0;
+      border-radius:14px;
+      background:var(--navy);
+      color:white;
+      font-weight:950;
+      cursor:pointer;
     }
+
     .time-row:hover .info-btn{background:var(--teal)}
 
-    .practical-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
+    .practical-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:16px;
+    }
+
     .panel{
-      background:white;border:1px solid var(--line);
+      padding:26px;
+      background:white;
+      border:1px solid var(--line);
       border-radius:var(--radius);
       box-shadow:0 18px 42px rgba(16,32,68,.08);
-      padding:26px;
     }
 
     .panel h3{
-      margin:0 0 18px;color:var(--navy);
-      font-size:1.5rem;letter-spacing:-.045em;
+      margin:0 0 18px;
+      color:var(--navy);
+      font-size:1.5rem;
+      letter-spacing:-.045em;
     }
 
-    .checklist{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+    .checklist{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      gap:10px;
+    }
+
     .checklist li{
-      display:flex;align-items:center;gap:11px;
-      padding:13px;border-radius:16px;background:#f6f9fc;
+      display:flex;
+      align-items:center;
+      gap:11px;
+      padding:13px;
+      border-radius:16px;
+      background:#f6f9fc;
       border:1px solid var(--line);
-      color:#52627e;cursor:pointer;user-select:none;
+      color:#52627e;
+      cursor:pointer;
+      user-select:none;
     }
+
     .checklist li.done{
-      background:#eaf7f6;border-color:rgba(20,140,155,.28);
-      color:var(--navy);font-weight:800;
+      background:#eaf7f6;
+      border-color:rgba(20,140,155,.28);
+      color:var(--navy);
+      font-weight:800;
     }
-    .checklist i{color:var(--teal);width:20px}
+
+    .checklist i{
+      width:20px;
+      color:var(--teal);
+    }
 
     .price{
+      margin:4px 0 16px;
+      color:var(--teal);
       font-size:clamp(2.6rem,4.6vw,4.8rem);
-      line-height:.9;letter-spacing:-.08em;
-      font-weight:1000;color:var(--teal);margin:4px 0 16px;
+      line-height:.9;
+      letter-spacing:-.08em;
+      font-weight:1000;
     }
 
-    .faq{display:grid;gap:10px;max-width:960px}
+    .muted{
+      margin:0;
+      color:var(--muted);
+      line-height:1.65;
+    }
+
+    .faq{
+      max-width:960px;
+      display:grid;
+      gap:10px;
+    }
+
     .faq-item{
-      border-radius:20px;overflow:hidden;background:white;
-      border:1px solid var(--line);box-shadow:0 12px 28px rgba(16,32,68,.055);
+      overflow:hidden;
+      background:white;
+      border:1px solid var(--line);
+      border-radius:20px;
+      box-shadow:0 12px 28px rgba(16,32,68,.055);
     }
+
     .faq-q{
-      width:100%;border:0;background:white;
-      display:flex;align-items:center;justify-content:space-between;gap:18px;
-      padding:18px 20px;color:var(--navy);font-weight:950;text-align:left;cursor:pointer;
+      width:100%;
+      border:0;
+      background:white;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:18px 20px;
+      color:var(--navy);
+      font-weight:950;
+      text-align:left;
+      cursor:pointer;
     }
-    .faq-a{display:none;padding:0 20px 18px;color:var(--muted);line-height:1.6}
+
+    .faq-a{
+      display:none;
+      padding:0 20px 18px;
+      color:var(--muted);
+      line-height:1.6;
+    }
+
     .faq-item.open .faq-a{display:block}
     .faq-item.open .faq-q i{transform:rotate(180deg)}
 
     .drawer{
-      position:fixed;right:24px;top:96px;width:min(420px,calc(100vw - 36px));
-      z-index:120;background:white;border:1px solid var(--line);
-      border-radius:30px;overflow:hidden;box-shadow:var(--shadow);
-      transform:translateX(calc(100% + 40px));opacity:0;pointer-events:none;
+      position:fixed;
+      right:24px;
+      top:96px;
+      width:min(420px,calc(100vw - 36px));
+      z-index:120;
+      overflow:hidden;
+      background:white;
+      border:1px solid var(--line);
+      border-radius:30px;
+      box-shadow:var(--shadow);
+      transform:translateX(calc(100% + 40px));
+      opacity:0;
+      pointer-events:none;
       transition:.26s ease;
     }
-    .drawer.open{transform:translateX(0);opacity:1;pointer-events:auto}
+
+    .drawer.open{
+      transform:translateX(0);
+      opacity:1;
+      pointer-events:auto;
+    }
+
     .drawer-top{
-      min-height:120px;padding:22px;color:white;
+      min-height:120px;
+      position:relative;
+      overflow:hidden;
+      padding:22px;
+      color:white;
       background:linear-gradient(135deg,var(--teal),var(--navy));
-      position:relative;overflow:hidden;
     }
+
     .drawer-top::after{
-      content:"";position:absolute;width:120px;height:120px;border-radius:50%;
-      right:-30px;bottom:-42px;background:var(--yellow);
+      content:"";
+      position:absolute;
+      width:120px;
+      height:120px;
+      right:-30px;
+      bottom:-42px;
+      border-radius:50%;
+      background:var(--yellow);
     }
+
     .drawer-time{
-      display:inline-flex;align-items:center;gap:8px;border-radius:999px;
-      background:rgba(16,32,68,.75);color:var(--yellow);padding:8px 11px;font-weight:950;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 11px;
+      border-radius:999px;
+      background:rgba(16,32,68,.75);
+      color:var(--yellow);
+      font-weight:950;
     }
+
     .drawer-close{
-      position:absolute;z-index:2;right:14px;top:14px;width:40px;height:40px;
-      border:0;border-radius:15px;background:rgba(16,32,68,.74);color:white;cursor:pointer;
+      position:absolute;
+      z-index:2;
+      right:14px;
+      top:14px;
+      width:40px;
+      height:40px;
+      border:0;
+      border-radius:15px;
+      background:rgba(16,32,68,.74);
+      color:white;
+      cursor:pointer;
     }
+
     .drawer-body{padding:24px}
-    .drawer-body h3{margin:0 0 10px;color:var(--navy);font-size:1.65rem;letter-spacing:-.055em}
-    .drawer-body p{margin:0;color:var(--muted);line-height:1.65}
+
+    .drawer-body h3{
+      margin:0 0 10px;
+      color:var(--navy);
+      font-size:1.65rem;
+      letter-spacing:-.055em;
+    }
+
+    .drawer-body p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.65;
+    }
 
     footer{
-      margin-top:52px;background:var(--navy2);color:#dfe8ff;padding:38px 0;
+      margin-top:52px;
+      padding:38px 0;
+      background:var(--navy-dark);
+      color:#dfe8ff;
     }
 
     @media (max-width:1080px){
-      .hero,.cards,.vuca-grid,.practical-grid{grid-template-columns:1fr}
-      .hero-main,.hero-side{min-height:auto}
-      .quick,.values,.concept-strip{grid-template-columns:1fr 1fr}
+      .hero,
+      .cards,
+      .vuca-grid,
+      .practical-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero-main,
+      .hero-side{
+        min-height:auto;
+      }
+
+      .quick,
+      .values,
+      .concept-strip{
+        grid-template-columns:1fr 1fr;
+      }
+
       .hero-main{min-height:unset}
     }
 
     @media (max-width:760px){
       body{background-size:38px 38px,38px 38px,auto,auto,auto}
+
       .page{width:min(100% - 24px, 1360px)}
 
       .nav-inner{
-        min-height:auto;align-items:flex-start;flex-direction:column;
-        padding:10px 0 11px;gap:10px;
+        min-height:auto;
+        align-items:flex-start;
+        flex-direction:column;
+        gap:10px;
+        padding:10px 0 11px;
       }
 
       .brand{font-size:.98rem}
+
       .brand-mark{
-        width:42px;height:42px;border-radius:15px;
+        width:42px;
+        height:42px;
+        flex-basis:42px;
+        border-radius:15px;
         box-shadow:6px 6px 0 rgba(20,140,155,.16);
       }
 
       .nav-links{
-        width:100%;display:flex;gap:6px;flex-wrap:nowrap;
-        overflow-x:auto;justify-content:flex-start;padding-bottom:3px;
-        scrollbar-width:none;-webkit-overflow-scrolling:touch;
+        width:100%;
+        display:flex;
+        flex-wrap:nowrap;
+        justify-content:flex-start;
+        gap:6px;
+        overflow-x:auto;
+        padding-bottom:3px;
+        scrollbar-width:none;
+        -webkit-overflow-scrolling:touch;
       }
+
       .nav-links::-webkit-scrollbar{display:none}
+
       .nav-links a{
-        flex:0 0 auto;font-size:.70rem;padding:8px 10px;
+        flex:0 0 auto;
+        font-size:.70rem;
+        padding:8px 10px;
         background:rgba(255,255,255,.58);
         border:1px solid rgba(16,32,68,.08);
       }
 
       header{padding:22px 0 18px}
+
       .hero{gap:14px}
-      .hero-main,.hero-side{border-radius:24px;min-height:auto}
+
+      .hero-main,
+      .hero-side{
+        min-height:auto;
+        border-radius:24px;
+      }
 
       .hero-main{padding:28px 20px 24px}
       .floating-card{display:none}
 
-      .label{font-size:.64rem;letter-spacing:.14em;padding:7px 10px}
+      .label{
+        font-size:.64rem;
+        letter-spacing:.14em;
+        padding:7px 10px;
+      }
 
       h1{
         margin-top:24px;
@@ -727,107 +1031,266 @@
 
       .hero-sub{
         margin-top:20px;
+        gap:12px;
         font-size:clamp(1.42rem, 8.4vw, 2.5rem);
-        line-height:1.02;gap:12px;letter-spacing:-.05em;
+        line-height:1.02;
+        letter-spacing:-.05em;
       }
 
-      .goldbar{width:7px;flex-basis:7px;height:56px}
-      .hero-kicker{margin:18px 0 0 19px;font-size:1rem}
+      .goldbar{
+        width:7px;
+        flex-basis:7px;
+        height:56px;
+      }
+
+      .hero-kicker{
+        margin:18px 0 0 19px;
+        font-size:1rem;
+      }
+
       .hero-actions{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:9px;
         margin:24px 0 0 19px;
-        display:grid;grid-template-columns:1fr;gap:9px;
       }
-      .btn{width:100%;min-height:46px;border-radius:14px}
 
-      .side-top{min-height:auto;padding:24px 22px}
-      .side-title{font-size:clamp(2rem, 11vw, 3rem);line-height:1.05}
-      .side-bottom{padding:22px;gap:18px}
-      .side-text{font-size:.98rem;line-height:1.58}
-      .side-links,.quick,.values,.concept-strip{grid-template-columns:1fr}
+      .btn{
+        width:100%;
+        min-height:46px;
+        border-radius:14px;
+      }
 
-      .concept-card{min-height:auto;padding:16px}
-      .concept-icon{width:48px;height:48px;border-radius:16px;font-size:1.2rem}
+      .side-top{
+        min-height:auto;
+        padding:24px 22px;
+      }
+
+      .side-title{
+        font-size:clamp(2rem, 11vw, 3rem);
+        line-height:1.05;
+      }
+
+      .side-bottom{
+        padding:22px;
+        gap:18px;
+      }
+
+      .side-text{
+        font-size:.98rem;
+        line-height:1.58;
+      }
+
+      .side-links,
+      .quick,
+      .values,
+      .concept-strip{
+        grid-template-columns:1fr;
+      }
+
+      .concept-card{
+        min-height:auto;
+        padding:16px;
+      }
+
+      .concept-icon{
+        width:48px;
+        height:48px;
+        border-radius:16px;
+        font-size:1.2rem;
+      }
+
       .concept-card h3{font-size:1.04rem}
       .concept-card p{font-size:.91rem}
 
       section{padding:36px 0;scroll-margin-top:118px}
       #missie,#visie,#waardenblok,#vuca,#programma,#praktisch,#faq{scroll-margin-top:118px}
+
       .section-head{margin-bottom:18px}
       .section-title{gap:12px}
-      .section-title::before{width:7px;flex-basis:7px;height:54px;margin-top:4px}
 
-      h2{font-size:clamp(2.25rem,12vw,3.85rem);line-height:.92}
-      .cards{grid-template-columns:1fr;gap:12px}
-      .card{min-height:auto;border-radius:22px;padding:22px}
-      .icon{width:52px;height:52px;border-radius:18px;margin-bottom:16px}
+      .section-title::before{
+        width:7px;
+        flex-basis:7px;
+        height:54px;
+        margin-top:4px;
+      }
+
+      h2{
+        font-size:clamp(2.25rem,12vw,3.85rem);
+        line-height:.92;
+      }
+
+      .cards{
+        grid-template-columns:1fr;
+        gap:12px;
+      }
+
+      .card{
+        min-height:auto;
+        padding:22px;
+        border-radius:22px;
+      }
+
+      .icon{
+        width:52px;
+        height:52px;
+        margin-bottom:16px;
+        border-radius:18px;
+      }
+
       .card h3{font-size:1.45rem}
       .card p{font-size:.98rem;line-height:1.55}
-      .value{min-height:auto;border-radius:20px;padding:20px}
 
-      .vuca-grid{grid-template-columns:1fr;gap:14px}
-      .vuca-card{border-radius:22px}
-      .vuca-top{padding:24px 20px 14px;gap:13px}
-      .vuca-letter{
-        width:52px;height:52px;flex-basis:52px;border-radius:18px;
-        font-size:1.55rem;box-shadow:6px 6px 0 rgba(20,140,155,.16);
+      .value{
+        min-height:auto;
+        padding:20px;
+        border-radius:20px;
       }
+
+      .vuca-grid{
+        grid-template-columns:1fr;
+        gap:14px;
+      }
+
+      .vuca-card{border-radius:22px}
+
+      .vuca-top{
+        padding:24px 20px 14px;
+        gap:13px;
+      }
+
+      .vuca-letter{
+        width:52px;
+        height:52px;
+        flex-basis:52px;
+        border-radius:18px;
+        font-size:1.55rem;
+        box-shadow:6px 6px 0 rgba(20,140,155,.16);
+      }
+
       .vuca-card:nth-child(2) .vuca-letter{box-shadow:6px 6px 0 rgba(247,191,33,.20)}
       .vuca-top h3{font-size:1.75rem}
       .vuca-top p{font-size:.97rem;line-height:1.52}
-      .vuca-list{padding:0 20px 20px;gap:8px}
-      .vuca-item{
-        grid-template-columns:36px 1fr;gap:10px;padding:12px;border-radius:16px;
+
+      .vuca-list{
+        padding:0 20px 20px;
+        gap:8px;
       }
-      .vuca-mini{width:36px;height:36px;border-radius:13px;font-size:.9rem}
-      .vuca-item span{font-size:.91rem;line-height:1.45}
+
+      .vuca-item{
+        grid-template-columns:36px 1fr;
+        gap:10px;
+        padding:12px;
+        border-radius:16px;
+      }
+
+      .vuca-mini{
+        width:36px;
+        height:36px;
+        border-radius:13px;
+        font-size:.9rem;
+      }
+
+      .vuca-item span{
+        font-size:.91rem;
+        line-height:1.45;
+      }
+
       .vuca-note{
-        margin:0 20px 20px;padding:15px;border-radius:17px;font-size:.94rem;
+        margin:0 20px 20px;
+        padding:15px;
+        border-radius:17px;
+        font-size:.94rem;
       }
 
       .timeline{gap:10px}
+
       .time-row{
         grid-template-columns:72px 1fr;
-        gap:11px;padding:12px;border-radius:19px;align-items:start;
-      }
-      .time-row:hover{transform:none}
-      .time{min-height:48px;border-radius:14px;font-size:.93rem}
-      .time-row h3{font-size:1.02rem;line-height:1.15}
-      .time-row p{font-size:.9rem;line-height:1.35}
-      .info-btn{
-        grid-column:1 / -1;width:100%;min-height:40px;border-radius:13px;
+        align-items:start;
+        gap:11px;
+        padding:12px;
+        border-radius:19px;
       }
 
-      .practical-grid{grid-template-columns:1fr;gap:12px}
-      .panel{border-radius:22px;padding:22px}
+      .time-row:hover{transform:none}
+
+      .time{
+        min-height:48px;
+        border-radius:14px;
+        font-size:.93rem;
+      }
+
+      .time-row h3{
+        font-size:1.02rem;
+        line-height:1.15;
+      }
+
+      .time-row p{
+        font-size:.9rem;
+        line-height:1.35;
+      }
+
+      .info-btn{
+        grid-column:1 / -1;
+        width:100%;
+        min-height:40px;
+        border-radius:13px;
+      }
+
+      .practical-grid{
+        grid-template-columns:1fr;
+        gap:12px;
+      }
+
+      .panel{
+        padding:22px;
+        border-radius:22px;
+      }
+
       .price{font-size:clamp(2.6rem,16vw,4rem)}
 
       .faq-q{padding:16px}
       .faq-a{padding:0 16px 16px}
 
       .drawer{
-        top:auto;right:10px;left:10px;bottom:10px;width:auto;
-        border-radius:24px;transform:translateY(calc(100% + 32px));
+        top:auto;
+        right:10px;
+        left:10px;
+        bottom:10px;
+        width:auto;
+        border-radius:24px;
+        transform:translateY(calc(100% + 32px));
       }
+
       .drawer.open{transform:translateY(0)}
       .drawer-top{min-height:92px;padding:18px}
       .drawer-body{padding:20px}
       .drawer-body h3{font-size:1.4rem}
       .drawer-body p{font-size:.96rem;line-height:1.55}
-      footer{margin-top:28px;padding:28px 0}
+
+      footer{
+        margin-top:28px;
+        padding:28px 0;
+      }
     }
 
     @media (max-width:420px){
       .page{width:min(100% - 18px, 1360px)}
+
       h1{
         font-size:clamp(2.45rem, 12.2vw, 3.35rem);
         letter-spacing:-.035em;
       }
+
       .hero-sub{font-size:clamp(1.3rem,8.1vw,2.1rem)}
       .time-row{grid-template-columns:66px 1fr}
       .nav-links a{font-size:.66rem}
     }
   </style>
 </head>
+
 <body>
   <nav>
     <div class="page nav-inner">
@@ -835,6 +1298,7 @@
         <div class="brand-mark"><i class="fa-solid fa-bolt"></i></div>
         <span>Teambuilding Heverlee</span>
       </div>
+
       <div class="nav-links">
         <a href="#missie">Missie</a>
         <a href="#visie">Visie</a>
@@ -842,6 +1306,7 @@
         <a href="#vuca">VUCA/BANI</a>
         <a href="#programma">Programma</a>
         <a href="#praktisch">Praktisch</a>
+        <a href="#faq">FAQ</a>
       </div>
     </div>
   </nav>
@@ -850,13 +1315,18 @@
     <div class="hero">
       <div class="hero-main">
         <div class="floating-card">🏐</div>
+
         <div class="label"><span class="label-dot"></span> Vrijdag 17 juli 2026</div>
+
         <h1>Teambuilding<br>Heverlee</h1>
+
         <div class="hero-sub">
           <span class="goldbar"></span>
           <span>missie, visie<br>& waarden</span>
         </div>
+
         <div class="hero-kicker">Actief. Ontspannen. Samen op pad.</div>
+
         <div class="hero-actions">
           <a class="btn primary" href="#programma"><i class="fa-solid fa-calendar-days"></i> Programma</a>
           <a class="btn" href="#vuca"><i class="fa-solid fa-wave-square"></i> VUCA / BANI</a>
@@ -868,9 +1338,13 @@
         <div class="side-top">
           <h2 class="side-title">Visie<br>Actieve ploeg.<br>Ontspannen sfeer.</h2>
         </div>
+
         <div class="side-bottom">
           <div>
-            <p class="side-text">Een actieve dag met padel, bumperballs, beachvolley, frietjes en een vrijblijvende afsluiter in Leuven.</p>
+            <p class="side-text">
+              Een actieve dag met padel, bumperballs, beachvolley, frietjes en een vrijblijvende afsluiter in Leuven.
+            </p>
+
             <div class="side-links">
               <a href="#missie">Missie</a>
               <a href="#visie">Visie</a>
@@ -906,25 +1380,62 @@
 
   <main>
     <section id="missie" class="page">
-      <div class="section-head"><div class="section-title"><h2>Missie</h2></div></div>
+      <div class="section-head">
+        <div class="section-title"><h2>Missie</h2></div>
+      </div>
+
       <div class="cards">
-        <article class="card"><div class="icon"><i class="fa-solid fa-bullseye"></i></div><h3>Samen uit de routine</h3><p>De ploeg samenbrengen buiten de dagelijkse context, met activiteiten die zorgen voor beweging, verbinding en ontspanning.</p></article>
-        <article class="card"><div class="icon"><i class="fa-solid fa-people-group"></i></div><h3>Iedereen mee</h3><p>Actief genoeg om plezant te zijn, maar laagdrempelig genoeg zodat iedereen kan deelnemen zonder prestatiedruk.</p></article>
-        <article class="card"><div class="icon"><i class="fa-solid fa-face-laugh-beam"></i></div><h3>Fun boven score</h3><p>De sfeer primeert. Winnen mag, lachen moet.</p></article>
+        <article class="card">
+          <div class="icon"><i class="fa-solid fa-bullseye"></i></div>
+          <h3>Samen uit de routine</h3>
+          <p>De ploeg samenbrengen buiten de dagelijkse context, met activiteiten die zorgen voor beweging, verbinding en ontspanning.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon"><i class="fa-solid fa-people-group"></i></div>
+          <h3>Iedereen mee</h3>
+          <p>Actief genoeg om plezant te zijn, maar laagdrempelig genoeg zodat iedereen kan deelnemen zonder prestatiedruk.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon"><i class="fa-solid fa-face-laugh-beam"></i></div>
+          <h3>Fun boven score</h3>
+          <p>De sfeer primeert. Winnen mag, lachen moet.</p>
+        </article>
       </div>
     </section>
 
     <section id="visie" class="page">
-      <div class="section-head"><div class="section-title"><h2>Visie</h2></div></div>
+      <div class="section-head">
+        <div class="section-title"><h2>Visie</h2></div>
+      </div>
+
       <div class="cards">
-        <article class="card"><div class="icon"><i class="fa-solid fa-eye"></i></div><h3>Strak georganiseerd</h3><p>Een helder programma, weinig praktische ruis en duidelijke timing.</p></article>
-        <article class="card"><div class="icon"><i class="fa-solid fa-wave-square"></i></div><h3>Los genoeg</h3><p>Genoeg ademruimte om te bekomen, te praten en niet de hele dag in een strak schema te zitten.</p></article>
-        <article class="card"><div class="icon"><i class="fa-solid fa-sun"></i></div><h3>Goed gevoel achteraf</h3><p>Een dag die professioneel oogt, maar vooral natuurlijk en ontspannen aanvoelt.</p></article>
+        <article class="card">
+          <div class="icon"><i class="fa-solid fa-eye"></i></div>
+          <h3>Strak georganiseerd</h3>
+          <p>Een helder programma, weinig praktische ruis en duidelijke timing.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon"><i class="fa-solid fa-wave-square"></i></div>
+          <h3>Los genoeg</h3>
+          <p>Genoeg ademruimte om te bekomen, te praten en niet de hele dag in een strak schema te zitten.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon"><i class="fa-solid fa-sun"></i></div>
+          <h3>Goed gevoel achteraf</h3>
+          <p>Een dag die professioneel oogt, maar vooral natuurlijk en ontspannen aanvoelt.</p>
+        </article>
       </div>
     </section>
 
     <section id="waardenblok" class="page">
-      <div class="section-head"><div class="section-title"><h2>Waarden</h2></div></div>
+      <div class="section-head">
+        <div class="section-title"><h2>Waarden</h2></div>
+      </div>
+
       <div class="values">
         <div class="value"><b>Laagdrempelig</b><span>Iedereen kan meedoen op zijn of haar niveau.</span></div>
         <div class="value"><b>Samen</b><span>Groepsgevoel staat centraal, niet de uitslag.</span></div>
@@ -934,7 +1445,10 @@
     </section>
 
     <section id="vuca" class="page">
-      <div class="section-head"><div class="section-title"><h2>VUCA / BANI</h2></div></div>
+      <div class="section-head">
+        <div class="section-title"><h2>VUCA / BANI</h2></div>
+      </div>
+
       <div class="vuca-grid">
         <article class="vuca-card">
           <div class="vuca-top">
@@ -944,12 +1458,14 @@
               <p>De teambuilding als mini-managementcase: het plan is helder, maar de dag zelf blijft levendig en licht onvoorspelbaar.</p>
             </div>
           </div>
+
           <div class="vuca-list">
             <div class="vuca-item"><div class="vuca-mini">V</div><div><b>Volatility</b><span>Het weer, de energie van de groep en het ritme van de activiteiten kunnen plots veranderen.</span></div></div>
             <div class="vuca-item"><div class="vuca-mini">U</div><div><b>Uncertainty</b><span>Niet alles is vooraf perfect te voorspellen: wie doet volop mee, wie neemt pauze, wat loopt een beetje uit?</span></div></div>
             <div class="vuca-item"><div class="vuca-mini">C</div><div><b>Complexity</b><span>Locatie, timing, eten, verplaatsing, groepsindeling en sfeer moeten tegelijk kloppen.</span></div></div>
             <div class="vuca-item"><div class="vuca-mini">A</div><div><b>Ambiguity</b><span>Het is geen pure sportdag en geen vergadering: net dat tussengebied maakt het interessant.</span></div></div>
           </div>
+
           <p class="vuca-note">Dus: duidelijke timing, eenvoudige keuzes en genoeg ruimte om de dag organisch te laten lopen.</p>
         </article>
 
@@ -961,33 +1477,80 @@
               <p>Omdat een groepsdag niet alleen rationeel is. Mensen worden moe, enthousiast, hongerig, competitief of net heel relaxed.</p>
             </div>
           </div>
+
           <div class="vuca-list">
             <div class="vuca-item"><div class="vuca-mini">B</div><div><b>Brittle</b><span>Een strak schema kan snel breken zodra één onderdeel uitloopt. Daarom bouwen we marge in.</span></div></div>
             <div class="vuca-item"><div class="vuca-mini">A</div><div><b>Anxious</b><span>Niet iedereen leeft op van sportieve opdrachten. Humor en laagdrempeligheid halen de druk weg.</span></div></div>
             <div class="vuca-item"><div class="vuca-mini">N</div><div><b>Non-linear</b><span>Een klein moment kan veel sfeer maken: één goede rally, een botsing in bumperballs of een perfect getimede frietpauze.</span></div></div>
             <div class="vuca-item"><div class="vuca-mini">I</div><div><b>Incomprehensible</b><span>Sommige dingen moet je niet analyseren. Waarom werkt het? Omdat mensen vanzelf beginnen lachen.</span></div></div>
           </div>
+
           <p class="vuca-note">Dus: actief genoeg voor energie, los genoeg voor ontspanning en simpel genoeg zodat iedereen mee is.</p>
         </article>
       </div>
     </section>
 
     <section id="programma" class="page">
-      <div class="section-head"><div class="section-title"><h2>Programma</h2></div></div>
+      <div class="section-head">
+        <div class="section-title"><h2>Programma</h2></div>
+      </div>
+
       <div class="timeline">
-        <div class="time-row" data-time="08:00" data-title="Aankomst & omkleden" data-text="Verzamelen aan het Sportkot, rustig aankomen, omkleden en klaarzetten voor de eerste activiteit."><div class="time">08:00</div><div><h3>Aankomst & omkleden</h3><p>Verzamelen, omkleden en rustig opstarten.</p></div><button class="info-btn">Info</button></div>
-        <div class="time-row" data-time="08:30" data-title="Padel" data-text="We spelen in ploegen en roteren door. Wie even niet speelt, supportert of neemt kort pauze."><div class="time">08:30</div><div><h3>Padel</h3><p>Teams, rotatie en een sportieve opener.</p></div><button class="info-btn">Info</button></div>
-        <div class="time-row" data-time="10:30" data-title="Bumperballs" data-text="Korte spelvormen met veel beweging en fun. De nadruk ligt op amusement en groepssfeer."><div class="time">10:30</div><div><h3>Bumperballs</h3><p>Actief, grappig en laagdrempelig.</p></div><button class="info-btn">Info</button></div>
-        <div class="time-row" data-time="12:00" data-title="Lunch" data-text="Broodjesmoment en korte pauze. Vegetarische opties worden vooraf bevraagd."><div class="time">12:00</div><div><h3>Lunch</h3><p>Broodjes en korte pauze.</p></div><button class="info-btn">Info</button></div>
-        <div class="time-row" data-time="13:00" data-title="Beachvolleybal" data-text="Beachvolley met teams en rotatie. Competitie mag, maar sfeer blijft belangrijker dan winnen."><div class="time">13:00</div><div><h3>Beachvolleybal</h3><p>Zand, teams en groepssfeer.</p></div><button class="info-btn">Info</button></div>
-        <div class="time-row" data-time="15:00" data-title="Chillen & extra spel" data-text="Rustiger blok om te bekomen, bij te praten, te supporteren of eventueel nog een licht spel te doen."><div class="time">15:00</div><div><h3>Chillen & extra spel</h3><p>Rustiger blok met ademruimte.</p></div><button class="info-btn">Info</button></div>
-        <div class="time-row" data-time="16:30" data-title="Frietjes & drink" data-text="Afsluiter van het sportieve deel met frietjes, drank en rustig napraten."><div class="time">16:30</div><div><h3>Frietjes & drink</h3><p>Gezellig afronden.</p></div><button class="info-btn">Info</button></div>
-        <div class="time-row" data-time="19:00" data-title="Optioneel: terrasje Leuven" data-text="Wie nog zin heeft, kan optioneel mee richting Leuven centrum voor een rustige afsluiter."><div class="time">19:00</div><div><h3>Optioneel: terrasje Leuven</h3><p>Vrijblijvende afsluiter.</p></div><button class="info-btn">Info</button></div>
+        <div class="time-row" data-time="08:00" data-title="Aankomst & omkleden" data-text="Verzamelen aan het Sportkot, rustig aankomen, omkleden en klaarzetten voor de eerste activiteit.">
+          <div class="time">08:00</div>
+          <div><h3>Aankomst & omkleden</h3><p>Verzamelen, omkleden en rustig opstarten.</p></div>
+          <button class="info-btn">Info</button>
+        </div>
+
+        <div class="time-row" data-time="08:30" data-title="Padel" data-text="We spelen in ploegen en roteren door. Wie even niet speelt, supportert of neemt kort pauze.">
+          <div class="time">08:30</div>
+          <div><h3>Padel</h3><p>Teams, rotatie en een sportieve opener.</p></div>
+          <button class="info-btn">Info</button>
+        </div>
+
+        <div class="time-row" data-time="10:30" data-title="Bumperballs" data-text="Korte spelvormen met veel beweging en fun. De nadruk ligt op amusement en groepssfeer.">
+          <div class="time">10:30</div>
+          <div><h3>Bumperballs</h3><p>Actief, grappig en laagdrempelig.</p></div>
+          <button class="info-btn">Info</button>
+        </div>
+
+        <div class="time-row" data-time="12:00" data-title="Lunch" data-text="Broodjesmoment en korte pauze. Vegetarische opties worden vooraf bevraagd.">
+          <div class="time">12:00</div>
+          <div><h3>Lunch</h3><p>Broodjes en korte pauze.</p></div>
+          <button class="info-btn">Info</button>
+        </div>
+
+        <div class="time-row" data-time="13:00" data-title="Beachvolleybal" data-text="Beachvolley met teams en rotatie. Competitie mag, maar sfeer blijft belangrijker dan winnen.">
+          <div class="time">13:00</div>
+          <div><h3>Beachvolleybal</h3><p>Zand, teams en groepssfeer.</p></div>
+          <button class="info-btn">Info</button>
+        </div>
+
+        <div class="time-row" data-time="15:00" data-title="Chillen & extra spel" data-text="Rustiger blok om te bekomen, bij te praten, te supporteren of eventueel nog een licht spel te doen.">
+          <div class="time">15:00</div>
+          <div><h3>Chillen & extra spel</h3><p>Rustiger blok met ademruimte.</p></div>
+          <button class="info-btn">Info</button>
+        </div>
+
+        <div class="time-row" data-time="16:30" data-title="Frietjes & drink" data-text="Afsluiter van het sportieve deel met frietjes, drank en rustig napraten.">
+          <div class="time">16:30</div>
+          <div><h3>Frietjes & drink</h3><p>Gezellig afronden.</p></div>
+          <button class="info-btn">Info</button>
+        </div>
+
+        <div class="time-row" data-time="19:00" data-title="Optioneel: terrasje Leuven" data-text="Wie nog zin heeft, kan optioneel mee richting Leuven centrum voor een rustige afsluiter.">
+          <div class="time">19:00</div>
+          <div><h3>Optioneel: terrasje Leuven</h3><p>Vrijblijvende afsluiter.</p></div>
+          <button class="info-btn">Info</button>
+        </div>
       </div>
     </section>
 
     <section id="praktisch" class="page">
-      <div class="section-head"><div class="section-title"><h2>Praktisch</h2></div></div>
+      <div class="section-head">
+        <div class="section-title"><h2>Praktisch</h2></div>
+      </div>
+
       <div class="practical-grid">
         <div class="panel">
           <h3><i class="fa-solid fa-list-check"></i> Meebrengen</h3>
@@ -1000,30 +1563,51 @@
             <li><i class="fa-regular fa-circle"></i> Goed humeur</li>
           </ul>
         </div>
+
         <div class="panel">
           <h3><i class="fa-solid fa-wallet"></i> Richtprijs</h3>
           <div class="price">± €55–€75</div>
-          <p style="color:var(--muted);line-height:1.65;margin:0">Definitieve prijs volgt na bevestiging van de keuzes en eventuele tussenkomsten.</p>
+          <p class="muted">Definitieve prijs volgt na bevestiging van de keuzes en eventuele tussenkomsten.</p>
         </div>
       </div>
     </section>
 
     <section id="faq" class="page">
-      <div class="section-head"><div class="section-title"><h2>FAQ</h2></div></div>
+      <div class="section-head">
+        <div class="section-title"><h2>FAQ</h2></div>
+      </div>
+
       <div class="faq">
-        <div class="faq-item open"><button class="faq-q">Moet je sportief zijn om mee te doen? <i class="fa-solid fa-chevron-down"></i></button><div class="faq-a">Nee. Het is actief, maar het blijft teambuilding. Je hoeft geen topsporter te zijn.</div></div>
-        <div class="faq-item"><button class="faq-q">Is er eten voorzien? <i class="fa-solid fa-chevron-down"></i></button><div class="faq-a">Ja. Rond de middag zijn er broodjes en later op de dag is er een frietmoment. Dit is in de prijs inbegrepen.</div></div>
-        <div class="faq-item"><button class="faq-q">Zijn er vegetarische opties? <i class="fa-solid fa-chevron-down"></i></button><div class="faq-a">Ja, dit wordt vooraf bevraagd zodat de bestelling correct kan gebeuren.</div></div>
-        <div class="faq-item"><button class="faq-q">Wat bij slecht weer? <i class="fa-solid fa-chevron-down"></i></button><div class="faq-a">De weersituatie wordt vooraf bekeken. Indien nodig volgt er aangepaste praktische info.</div></div>
+        <div class="faq-item open">
+          <button class="faq-q">Moet je sportief zijn om mee te doen? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a">Nee. Het is actief, maar het blijft teambuilding. Je hoeft geen topsporter te zijn.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">Is er eten voorzien? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a">Ja. Rond de middag zijn er broodjes en later op de dag is er een frietmoment. Dit is in de prijs inbegrepen.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">Zijn er vegetarische opties? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a">Ja, dit wordt vooraf bevraagd zodat de bestelling correct kan gebeuren.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">Wat bij slecht weer? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a">De weersituatie wordt vooraf bekeken. Indien nodig volgt er aangepaste praktische info.</div>
+        </div>
       </div>
     </section>
   </main>
 
   <aside class="drawer" id="drawer" aria-live="polite">
     <button class="drawer-close" id="drawerClose" aria-label="Sluiten"><i class="fa-solid fa-xmark"></i></button>
+
     <div class="drawer-top">
       <span class="drawer-time" id="drawerTime"><i class="fa-solid fa-clock"></i> 08:00</span>
     </div>
+
     <div class="drawer-body">
       <h3 id="drawerTitle">Info</h3>
       <p id="drawerText">Klik op een programmaonderdeel voor extra uitleg.</p>
@@ -1049,32 +1633,40 @@
       });
     });
 
-    document.getElementById("drawerClose").addEventListener("click", () => drawer.classList.remove("open"));
-    document.addEventListener("keydown", e => {
-      if(e.key === "Escape") drawer.classList.remove("open");
+    document.getElementById("drawerClose").addEventListener("click", () => {
+      drawer.classList.remove("open");
     });
 
-    document.querySelectorAll(".faq-q").forEach(btn => {
-      btn.addEventListener("click", () => btn.parentElement.classList.toggle("open"));
+    document.addEventListener("keydown", event => {
+      if(event.key === "Escape") drawer.classList.remove("open");
     });
 
-    const key = "teambuildingChecklistHeliFiets";
-    const saved = JSON.parse(localStorage.getItem(key) || "[]");
-    const items = document.querySelectorAll("#packlist li");
+    document.querySelectorAll(".faq-q").forEach(button => {
+      button.addEventListener("click", () => {
+        button.parentElement.classList.toggle("open");
+      });
+    });
+
+    const checklistKey = "teambuildingChecklistHeliFietsFaq";
+    const savedItems = JSON.parse(localStorage.getItem(checklistKey) || "[]");
+    const checklistItems = document.querySelectorAll("#packlist li");
 
     function setDone(item, done){
       item.classList.toggle("done", done);
       item.querySelector("i").className = done ? "fa-solid fa-circle-check" : "fa-regular fa-circle";
     }
 
-    items.forEach((item, index) => {
-      if(saved.includes(index)) setDone(item, true);
+    checklistItems.forEach((item, index) => {
+      if(savedItems.includes(index)) setDone(item, true);
+
       item.addEventListener("click", () => {
         setDone(item, !item.classList.contains("done"));
-        const active = [...items]
-          .map((li,i) => li.classList.contains("done") ? i : null)
+
+        const activeItems = [...checklistItems]
+          .map((li, i) => li.classList.contains("done") ? i : null)
           .filter(i => i !== null);
-        localStorage.setItem(key, JSON.stringify(active));
+
+        localStorage.setItem(checklistKey, JSON.stringify(activeItems));
       });
     });
   </script>
