@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Teambuilding Heverlee 2026</title>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
   <style>
@@ -24,7 +25,6 @@
     }
 
     *{box-sizing:border-box}
-
     html{scroll-behavior:smooth}
 
     body{
@@ -425,6 +425,16 @@
     .quick-item i{color:var(--teal);margin-bottom:7px}
     .quick-item b{display:block;color:var(--navy)}
     .quick-item span{display:block;color:var(--muted);font-size:.86rem;margin-top:3px}
+
+    .quick-item a{
+      color:var(--teal);
+      font-weight:950;
+      text-decoration:none;
+    }
+
+    .quick-item a:hover{
+      text-decoration:underline;
+    }
 
     section{padding:58px 0;scroll-margin-top:78px}
     #missie,#visie,#waardenblok,#vuca,#programma,#praktisch,#faq{scroll-margin-top:78px}
@@ -960,7 +970,6 @@
 
     @media (max-width:760px){
       body{background-size:38px 38px,38px 38px,auto,auto,auto}
-
       .page{width:min(100% - 24px, 1360px)}
 
       .nav-inner{
@@ -1004,7 +1013,6 @@
       }
 
       header{padding:22px 0 18px}
-
       .hero{gap:14px}
 
       .hero-main,
@@ -1250,7 +1258,6 @@
       }
 
       .price{font-size:clamp(2.6rem,16vw,4rem)}
-
       .faq-q{padding:16px}
       .faq-a{padding:0 16px 16px}
 
@@ -1369,7 +1376,15 @@
           </div>
 
           <div class="quick">
-            <div class="quick-item"><i class="fa-solid fa-location-dot"></i><b>Locatie</b><span>Sportkot KU Leuven</span></div>
+            <div class="quick-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <b>Locatie</b>
+              <span>
+                <a href="https://www.google.com/maps/search/?api=1&query=Sportkot+KU+Leuven" target="_blank" rel="noopener noreferrer">
+                  Sportkot KU Leuven
+                </a>
+              </span>
+            </div>
             <div class="quick-item"><i class="fa-solid fa-shirt"></i><b>Kledij</b><span>Sportief</span></div>
             <div class="quick-item"><i class="fa-solid fa-euro-sign"></i><b>Richtprijs</b><span>± €55–€75</span></div>
           </div>
