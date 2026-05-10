@@ -438,6 +438,36 @@
       line-height: 1.62;
     }
 
+    .side-links {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 9px;
+      margin-top: 16px;
+    }
+
+    .side-links a {
+      padding: 11px 8px;
+      border: 1px solid var(--color-line);
+      border-radius: 14px;
+      color: var(--color-heading);
+      background: #edf4f7;
+      font-size: .7rem;
+      font-weight: 950;
+      letter-spacing: .04em;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background .16s ease, color .16s ease, transform .16s ease;
+    }
+
+    .side-links a:hover,
+    .side-links a:focus-visible {
+      color: var(--color-heading-dark);
+      background: var(--color-warning);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
     .quick-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1407,6 +1437,10 @@
         grid-template-columns: 1fr;
       }
 
+      .side-links {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .concept-card {
         min-height: auto;
         padding: 15px;
@@ -1766,6 +1800,46 @@
   </nav>
 
   <header id="top" class="site-header">
+    <div class="page alert-grid" aria-label="Belangrijke informatie">
+      <section class="notice" aria-labelledby="notice-title">
+        <div class="notice__inner">
+          <div class="notice__icon" aria-hidden="true"><i class="fa-solid fa-bread-slice"></i></div>
+          <div>
+            <h2 id="notice-title">Vul het broodjesformulier in</h2>
+            <p>
+              Voor de broodjesbestelling vragen we iedereen om het formulier tijdig in te vullen.
+              Zo kunnen we correct bestellen en vermijden we gepruts op de dag zelf.
+            </p>
+            <a class="button" href="https://forms.office.com/e/DDMftsAXKb" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i> Formulier invullen
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="countdown" aria-labelledby="countdown-title">
+        <div class="countdown__header">
+          <div class="countdown__icon" aria-hidden="true"><i class="fa-solid fa-hourglass-half"></i></div>
+          <div>
+            <h2 id="countdown-title">Nog even aftellen</h2>
+            <p>Tot vrijdag 17 juli 2026 om 08:00 aan het Sportkot KU Leuven.</p>
+            <span class="date-pill"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> 17 juli 2026</span>
+          </div>
+        </div>
+
+        <div class="countdown__grid" id="countdown" aria-live="polite">
+          <div class="countdown__box"><strong id="days">0</strong><span>Dagen</span></div>
+          <div class="countdown__box"><strong id="hours">00</strong><span>Uren</span></div>
+          <div class="countdown__box"><strong id="minutes">00</strong><span>Minuten</span></div>
+          <div class="countdown__box"><strong id="seconds">00</strong><span>Seconden</span></div>
+        </div>
+
+        <p class="countdown__done" id="countdownDone">
+          Vandaag is het zover. Tijd voor padel, bumperballs, beachvolley en frietjes.
+        </p>
+      </section>
+    </div>
+
     <div class="page hero" aria-labelledby="page-title">
       <div class="hero__main">
         <div class="hero__floating-icon" aria-hidden="true">🏐</div>
@@ -1807,6 +1881,13 @@
               Praktisch voorbereid, maar niet stijf of geforceerd.
             </p>
 
+            <nav class="side-links" aria-label="Conceptuele onderdelen">
+              <a href="#missie">Missie</a>
+              <a href="#visie">Visie</a>
+              <a href="#waarden">Waarden</a>
+              <a href="#vuca-bani">VUCA/BANI</a>
+            </nav>
+
             <div class="quick-grid" aria-label="Snelle praktische info">
               <article class="quick-card">
                 <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
@@ -1845,46 +1926,6 @@
           </div>
         </div>
       </aside>
-    </div>
-
-    <div class="page alert-grid" aria-label="Belangrijke informatie">
-      <section class="notice" aria-labelledby="notice-title">
-        <div class="notice__inner">
-          <div class="notice__icon" aria-hidden="true"><i class="fa-solid fa-bread-slice"></i></div>
-          <div>
-            <h2 id="notice-title">Vul het broodjesformulier in</h2>
-            <p>
-              Voor de broodjesbestelling vragen we iedereen om het formulier tijdig in te vullen.
-              Zo kunnen we correct bestellen en vermijden we gepruts op de dag zelf.
-            </p>
-            <a class="button" href="https://forms.office.com/e/DDMftsAXKb" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i> Formulier invullen
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="countdown" aria-labelledby="countdown-title">
-        <div class="countdown__header">
-          <div class="countdown__icon" aria-hidden="true"><i class="fa-solid fa-hourglass-half"></i></div>
-          <div>
-            <h2 id="countdown-title">Nog even aftellen</h2>
-            <p>Tot vrijdag 17 juli 2026 om 08:00 aan het Sportkot KU Leuven.</p>
-            <span class="date-pill"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> 17 juli 2026</span>
-          </div>
-        </div>
-
-        <div class="countdown__grid" id="countdown" aria-live="polite">
-          <div class="countdown__box"><strong id="days">0</strong><span>Dagen</span></div>
-          <div class="countdown__box"><strong id="hours">00</strong><span>Uren</span></div>
-          <div class="countdown__box"><strong id="minutes">00</strong><span>Minuten</span></div>
-          <div class="countdown__box"><strong id="seconds">00</strong><span>Seconden</span></div>
-        </div>
-
-        <p class="countdown__done" id="countdownDone">
-          Vandaag is het zover. Tijd voor padel, bumperballs, beachvolley en frietjes.
-        </p>
-      </section>
     </div>
   </header>
 
@@ -2053,7 +2094,7 @@
       <div class="timeline" aria-label="Dagprogramma">
         <button class="timeline-row" type="button" data-time="08:00" data-title="Aankomst & omkleden" data-text="Verzamelen aan het Sportkot, rustig aankomen, parkeren, omkleden en klaarzetten voor de eerste activiteit. Voor details over bereikbaarheid en parking: klik bovenaan op Locatie & parking.">
           <span class="timeline-row__time">08:00</span>
-          <span><span class="timeline-row__title"><h3>Aankomst &amp; omkleden</h3></span><p>Verzamelen, parkeren, omkleden en rustig opstarten.</p></span>
+          <span><h3>Aankomst &amp; omkleden</h3><p>Verzamelen, parkeren, omkleden en rustig opstarten.</p></span>
           <span class="timeline-row__label">Info</span>
         </button>
 
