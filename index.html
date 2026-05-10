@@ -8,78 +8,70 @@
 
   <style>
     :root{
-      --bg:#050816;
-      --bg2:#09111f;
-      --card:rgba(15,23,42,.78);
-      --card2:rgba(30,41,59,.66);
-      --text:#f8fafc;
-      --muted:#a8b3c7;
-      --line:rgba(255,255,255,.13);
-      --blue:#38bdf8;
-      --cyan:#67e8f9;
-      --green:#86efac;
-      --gold:#facc15;
-      --pink:#fb7185;
-      --orange:#fb923c;
-      --radius:28px;
+      --navy:#1d2f68;
+      --navy-dark:#081126;
+      --navy-mid:#14234f;
+      --teal:#12839a;
+      --teal-dark:#0d6072;
+      --gold:#f4b51d;
+      --paper:#f6f7fb;
+      --ink:#152044;
+      --muted:#b8c6dd;
+      --soft:#52617a;
+      --white:#fff;
+      --line:rgba(255,255,255,.14);
+      --line-dark:rgba(21,32,68,.13);
+      --shadow:0 26px 70px rgba(0,0,0,.28);
+      --left:clamp(22px, 6vw, 116px);
+      --right:clamp(18px, 4vw, 72px);
     }
 
     *{box-sizing:border-box}
-
     html{scroll-behavior:smooth}
 
     body{
       margin:0;
-      color:var(--text);
+      color:var(--white);
       font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at 12% 8%, rgba(56,189,248,.24), transparent 30%),
-        radial-gradient(circle at 86% 9%, rgba(250,204,21,.14), transparent 24%),
-        radial-gradient(circle at 82% 82%, rgba(134,239,172,.13), transparent 26%),
-        linear-gradient(135deg,#050816,#08111f 52%,#050816);
+      background:var(--navy-dark);
       overflow-x:hidden;
     }
 
-    body:before{
+    body::before{
       content:"";
       position:fixed;
       inset:0;
-      pointer-events:none;
-      background-image:
-        linear-gradient(rgba(255,255,255,.026) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.026) 1px, transparent 1px);
-      background-size:46px 46px;
-      mask-image:linear-gradient(to bottom, black, transparent 82%);
-      z-index:-2;
+      z-index:-3;
+      background:
+        linear-gradient(90deg,
+          var(--navy-dark) 0%,
+          var(--navy-mid) 53%,
+          #0a2b3b 53%,
+          var(--teal-dark) 60%,
+          var(--teal) 100%);
     }
 
-    body:after{
+    body::after{
       content:"";
       position:fixed;
-      width:520px;
-      height:520px;
-      right:-210px;
-      top:210px;
-      border-radius:50%;
-      background:radial-gradient(circle, rgba(103,232,249,.12), transparent 68%);
+      inset:0;
+      z-index:-2;
       pointer-events:none;
-      z-index:-1;
-    }
-
-    .wrap{
-      width:min(1600px,100%);
-      margin:0 auto;
-      padding-left:clamp(18px,4vw,72px);
-      padding-right:clamp(18px,4vw,72px);
+      opacity:.16;
+      background-image:
+        linear-gradient(rgba(255,255,255,.11) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.11) 1px, transparent 1px);
+      background-size:58px 58px;
+      mask-image:linear-gradient(to bottom, black 0%, black 58%, transparent 92%);
     }
 
     nav{
       position:sticky;
       top:0;
-      z-index:80;
-      background:rgba(5,8,22,.75);
-      border-bottom:1px solid var(--line);
-      backdrop-filter:blur(18px);
+      z-index:90;
+      background:rgba(9,17,38,.88);
+      border-bottom:1px solid rgba(255,255,255,.10);
+      backdrop-filter:blur(16px);
     }
 
     .nav-inner{
@@ -87,1166 +79,1380 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:18px;
+      gap:22px;
+      padding-left:var(--left);
+      padding-right:var(--right);
     }
 
     .brand{
       display:flex;
       align-items:center;
-      gap:12px;
-      font-weight:1000;
-      letter-spacing:-.045em;
+      gap:14px;
+      color:#eef4ff;
+      font-weight:900;
+      letter-spacing:-.035em;
       white-space:nowrap;
     }
 
-    .brand-mark{
-      width:44px;
-      height:44px;
-      border-radius:16px;
+    .mark{
+      width:42px;
+      height:42px;
       display:grid;
       place-items:center;
-      color:#06101e;
-      background:linear-gradient(135deg,var(--blue),var(--cyan));
-      box-shadow:0 18px 38px rgba(56,189,248,.22);
+      color:#091127;
+      background:var(--gold);
+      box-shadow:0 18px 44px rgba(244,181,29,.20);
     }
 
     .nav-links{
       display:flex;
       flex-wrap:wrap;
-      justify-content:flex-end;
       gap:8px;
+      justify-content:flex-end;
     }
 
     .nav-links a{
+      color:#bfcbe1;
       text-decoration:none;
-      color:var(--muted);
-      font-size:.9rem;
       font-weight:850;
-      padding:8px 11px;
-      border-radius:999px;
+      font-size:.88rem;
+      padding:8px 10px;
     }
 
     .nav-links a:hover{
-      background:rgba(255,255,255,.08);
-      color:var(--text);
+      color:white;
+      background:rgba(255,255,255,.07);
     }
 
-    header{
-      padding:70px 0 52px;
+    .page{
+      width:100%;
+      padding-left:var(--left);
+      padding-right:var(--right);
     }
 
     .hero{
+      min-height:calc(100vh - 68px);
       display:grid;
-      grid-template-columns:minmax(0,1.16fr) minmax(380px,.72fr);
-      gap:32px;
+      grid-template-columns:minmax(0, 1fr) minmax(300px, 430px);
+      gap:clamp(32px, 6vw, 90px);
       align-items:center;
+      padding-top:58px;
+      padding-bottom:64px;
+      max-width:1380px;
     }
 
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:8px 13px;
-      border-radius:999px;
-      border:1px solid rgba(103,232,249,.38);
-      background:rgba(56,189,248,.09);
-      color:var(--cyan);
-      font-size:.78rem;
-      letter-spacing:.12em;
+    .kicker{
+      letter-spacing:.46em;
       text-transform:uppercase;
-      font-weight:950;
+      font-weight:500;
+      color:#d6e2f5;
+      margin-bottom:58px;
+      font-size:.9rem;
     }
 
-    .pulse{
-      width:9px;
-      height:9px;
-      border-radius:50%;
-      background:var(--green);
-      box-shadow:0 0 0 rgba(134,239,172,.7);
-      animation:pulse 1.8s infinite;
+    .hero-title-row{
+      display:grid;
+      grid-template-columns:12px minmax(0,1fr);
+      gap:26px;
+      align-items:center;
     }
 
-    @keyframes pulse{
-      70%{box-shadow:0 0 0 14px rgba(134,239,172,0)}
-      100%{box-shadow:0 0 0 0 rgba(134,239,172,0)}
+    .gold-bar{
+      width:12px;
+      height:214px;
+      background:var(--gold);
     }
 
     h1{
-      margin:22px 0 18px;
-      font-size:clamp(3.3rem,8.5vw,8rem);
-      line-height:.86;
-      letter-spacing:-.09em;
-    }
-
-    .gradient{
-      background:linear-gradient(100deg,#fff,var(--cyan),var(--gold));
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-    }
-
-    .lead{
-      max-width:840px;
-      color:var(--muted);
-      font-size:clamp(1.05rem,2vw,1.25rem);
-      line-height:1.65;
       margin:0;
+      max-width:920px;
+      font-size:clamp(3.1rem, 7.3vw, 7rem);
+      line-height:.92;
+      letter-spacing:-.07em;
+      font-weight:950;
+    }
+
+    h1 span{
+      display:block;
+      margin-top:.18em;
+      color:#d5e0f1;
+      font-weight:480;
+      font-size:.59em;
+      letter-spacing:-.055em;
+    }
+
+    .tagline{
+      margin:30px 0 0 38px;
+      color:var(--gold);
+      font-size:clamp(1rem, 1.6vw, 1.28rem);
+      font-style:italic;
+      letter-spacing:.02em;
     }
 
     .hero-actions{
       display:flex;
       flex-wrap:wrap;
       gap:12px;
-      margin-top:28px;
+      margin:40px 0 0 38px;
     }
 
     .btn{
       min-height:50px;
-      padding:0 17px;
-      border-radius:16px;
-      border:0;
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:10px;
+      padding:0 18px;
+      border:1px solid rgba(255,255,255,.18);
+      background:var(--gold);
+      color:#081127;
       text-decoration:none;
       font-weight:950;
       cursor:pointer;
-      color:#06101e;
-      background:linear-gradient(135deg,var(--blue),var(--cyan));
-      box-shadow:0 18px 38px rgba(56,189,248,.18);
-      transition:.18s transform,.18s filter;
+      transition:.16s transform,.16s filter;
     }
 
-    .btn:hover{transform:translateY(-2px); filter:brightness(1.07)}
+    .btn:hover{transform:translateY(-2px); filter:brightness(1.05)}
 
     .btn.secondary{
-      color:var(--text);
       background:rgba(255,255,255,.075);
-      border:1px solid var(--line);
-      box-shadow:none;
+      color:white;
     }
 
-    .mission-card{
-      border-radius:var(--radius);
-      border:1px solid var(--line);
-      background:linear-gradient(145deg,rgba(15,23,42,.88),rgba(30,41,59,.66));
-      min-height:540px;
-      padding:22px;
-      box-shadow:0 30px 90px rgba(0,0,0,.42);
-      overflow:hidden;
-      position:relative;
-    }
-
-    .mission-card:before{
-      content:"MISSION\\A HEADQUARTERS";
-      white-space:pre;
-      position:absolute;
-      right:-24px;
-      top:72px;
-      color:rgba(255,255,255,.035);
-      font-weight:1000;
-      font-size:5.6rem;
-      line-height:.82;
-      letter-spacing:-.08em;
-      transform:rotate(-8deg);
-      pointer-events:none;
-    }
-
-    .visual{
-      height:300px;
-      border-radius:24px;
-      position:relative;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.13);
-      background:
-        radial-gradient(circle at 50% 18%, rgba(255,255,255,.23), transparent 12%),
-        linear-gradient(180deg,rgba(56,189,248,.18),rgba(250,204,21,.12));
-    }
-
-    .court{
-      position:absolute;
-      left:9%;
-      right:9%;
-      bottom:24px;
-      height:124px;
-      border-radius:18px;
-      transform:skewX(-13deg);
-      border:2px solid rgba(255,255,255,.42);
-      background:
-        linear-gradient(90deg, rgba(255,255,255,.22) 1px, transparent 1px),
-        linear-gradient(rgba(255,255,255,.22) 1px, transparent 1px),
-        linear-gradient(135deg, rgba(103,232,249,.30), rgba(134,239,172,.22));
-      background-size:40px 40px,40px 40px,auto;
-      box-shadow:0 24px 60px rgba(0,0,0,.34);
-    }
-
-    .ball{
-      position:absolute;
-      top:78px;
-      left:56%;
-      width:58px;
-      height:58px;
-      border-radius:50%;
-      background:radial-gradient(circle at 35% 28%,#fff,var(--gold) 34%,#f97316 72%);
-      animation:float 3.8s ease-in-out infinite;
-      box-shadow:0 20px 46px rgba(249,115,22,.24);
-    }
-
-    @keyframes float{50%{transform:translateY(-22px) translateX(14px) rotate(16deg)}}
-
-    .bubble{
-      position:absolute;
-      width:104px;
-      height:104px;
-      border-radius:50%;
-      border:3px solid rgba(255,255,255,.46);
-      background:rgba(255,255,255,.08);
-      backdrop-filter:blur(4px);
-      left:17%;
-      top:106px;
-      animation:wobble 3.4s ease-in-out infinite;
-    }
-
-    .bubble.two{left:auto; right:13%; top:128px; animation-delay:.55s}
-
-    @keyframes wobble{50%{transform:translateY(9px) scale(1.04)}}
-
-    .countdown{
+    .vision-card{
+      min-height:465px;
       display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:10px;
-      margin-top:18px;
-      position:relative;
-      z-index:1;
-    }
-
-    .count{
+      align-content:center;
+      justify-items:center;
       text-align:center;
-      padding:14px 8px;
-      border-radius:18px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.06);
+      padding:46px 30px;
+      background:linear-gradient(135deg, rgba(19,131,154,.96), rgba(16,118,140,.92));
+      border-left:100px solid rgba(0,0,0,.16);
+      box-shadow:var(--shadow);
     }
 
-    .count strong{
-      display:block;
-      font-size:1.65rem;
-      letter-spacing:-.04em;
+    .vision-card h2{
+      margin:0;
+      font-size:2rem;
+      line-height:1.24;
+      letter-spacing:-.035em;
     }
 
-    .count span{
-      display:block;
-      color:var(--muted);
-      font-size:.78rem;
-      text-transform:uppercase;
-      letter-spacing:.06em;
-      font-weight:850;
+    .vision-card p{
+      max-width:305px;
+      margin:18px 0 0;
+      color:rgba(255,255,255,.84);
+      line-height:1.65;
     }
 
-    .facts{
+    .mini-board{
       display:grid;
-      grid-template-columns:repeat(3,1fr);
+      grid-template-columns:repeat(3, 1fr);
       gap:10px;
-      margin-top:12px;
-      position:relative;
-      z-index:1;
+      margin-top:30px;
+      width:100%;
+      max-width:330px;
     }
 
-    .fact{
-      padding:13px;
-      border-radius:18px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.06);
+    .mini-board div{
+      background:rgba(8,17,38,.34);
+      border:1px solid rgba(255,255,255,.18);
+      padding:12px 8px;
+      font-weight:950;
+      font-size:.8rem;
+      text-transform:uppercase;
+      letter-spacing:.05em;
     }
-
-    .fact i{color:var(--gold); margin-right:6px}
-    .fact b{display:block; margin-bottom:4px}
-    .fact span{color:var(--muted); font-size:.9rem}
 
     section{
-      padding:54px 0;
+      padding:78px 0;
       scroll-margin-top:92px;
     }
 
-    .section-head{
-      margin-bottom:28px;
+    .section-dark{
+      background:linear-gradient(90deg, var(--navy-dark) 0%, var(--navy-mid) 53%, #0a2b3b 53%, var(--teal-dark) 60%, var(--teal) 100%);
     }
 
-    h2{
+    .section-light{
+      color:var(--ink);
+      background:linear-gradient(90deg, var(--paper) 0%, var(--paper) 53%, #e7edf4 53%, #e7edf4 100%);
+    }
+
+    .section-inner{
+      max-width:1260px;
+      padding-left:var(--left);
+      padding-right:var(--right);
+    }
+
+    .section-head{
+      display:grid;
+      grid-template-columns:12px minmax(0,1fr);
+      gap:24px;
+      align-items:end;
+      margin-bottom:34px;
+    }
+
+    .section-line{
+      width:12px;
+      height:84px;
+      background:var(--gold);
+    }
+
+    .section-head small{
+      display:block;
+      margin-bottom:10px;
+      color:var(--gold);
+      letter-spacing:.34em;
+      text-transform:uppercase;
+      font-weight:900;
+      font-size:.76rem;
+    }
+
+    .section-light .section-head small{color:#a97404}
+
+    .section-head h2{
       margin:0;
-      font-size:clamp(2rem,5vw,4rem);
-      line-height:.94;
+      font-size:clamp(2.4rem, 5.4vw, 4.7rem);
+      line-height:.95;
       letter-spacing:-.07em;
+    }
+
+    .section-sub{
+      margin:-14px 0 34px 38px;
+      max-width:780px;
+      color:#c4d0e5;
+      line-height:1.65;
+    }
+
+    .section-light .section-sub{color:#5b6a84}
+
+    .framework-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:18px;
+      margin-left:38px;
+      max-width:1050px;
+    }
+
+    .framework-card{
+      background:white;
+      color:var(--ink);
+      border:1px solid var(--line-dark);
+      padding:26px;
+      min-height:270px;
+      box-shadow:0 18px 50px rgba(21,32,68,.07);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .framework-card::after{
+      content:"";
+      position:absolute;
+      width:150px;
+      height:150px;
+      right:-70px;
+      top:-70px;
+      background:var(--gold);
+      opacity:.16;
+      border-radius:999px;
+    }
+
+    .framework-card.dark{
+      background:rgba(255,255,255,.075);
+      color:white;
+      border-color:rgba(255,255,255,.16);
+    }
+
+    .framework-card.dark p{color:#c4d0e5}
+
+    .framework-icon{
+      width:58px;
+      height:58px;
+      display:grid;
+      place-items:center;
+      background:var(--gold);
+      color:#091127;
+      font-size:1.35rem;
+      margin-bottom:18px;
+      position:relative;
+      z-index:1;
+    }
+
+    .framework-card h3{
+      margin:0 0 10px;
+      font-size:1.6rem;
+      letter-spacing:-.045em;
+      position:relative;
+      z-index:1;
+    }
+
+    .framework-card p{
+      margin:0;
+      color:#52617a;
+      line-height:1.64;
+      position:relative;
+      z-index:1;
+    }
+
+    .values{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0, 1fr));
+      gap:12px;
+      margin-left:38px;
+      max-width:1050px;
+    }
+
+    .value-card{
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.07);
+      padding:22px;
+      min-height:180px;
+    }
+
+    .value-card i{
+      color:var(--gold);
+      font-size:1.4rem;
+      margin-bottom:16px;
+    }
+
+    .value-card h3{
+      margin:0 0 8px;
+      letter-spacing:-.03em;
+    }
+
+    .value-card p{
+      margin:0;
+      color:#c4d0e5;
+      line-height:1.55;
+      font-size:.96rem;
+    }
+
+    .bani-vuca{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:18px;
+      margin-left:38px;
+      max-width:1080px;
+    }
+
+    .model-card{
+      background:white;
+      border:1px solid var(--line-dark);
+      padding:26px;
+      box-shadow:0 18px 50px rgba(21,32,68,.07);
+    }
+
+    .model-title{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      margin-bottom:20px;
+    }
+
+    .model-title span{
+      width:58px;
+      height:58px;
+      display:grid;
+      place-items:center;
+      background:var(--gold);
+      color:#091127;
+      font-weight:1000;
+      font-size:1.08rem;
+    }
+
+    .model-title h3{
+      margin:0;
+      font-size:2rem;
+      letter-spacing:-.06em;
+    }
+
+    .model-list{
+      display:grid;
+      gap:11px;
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+
+    .model-list li{
+      display:grid;
+      grid-template-columns:42px minmax(0,1fr);
+      gap:12px;
+      align-items:start;
+      color:#52617a;
+      line-height:1.5;
+    }
+
+    .model-list b{
+      display:grid;
+      place-items:center;
+      background:#edf2f8;
+      color:#13214a;
+      height:34px;
+      font-weight:1000;
+    }
+
+    .model-list strong{
+      color:#152044;
     }
 
     .timeline{
       display:grid;
-      gap:14px;
+      gap:12px;
+      max-width:980px;
+      margin-left:38px;
     }
 
     .time-row{
       display:grid;
-      grid-template-columns:112px minmax(0,1fr) auto;
-      gap:14px;
+      grid-template-columns:108px minmax(0,1fr) auto;
+      gap:16px;
       align-items:center;
       padding:16px;
-      border-radius:24px;
-      background:rgba(255,255,255,.06);
-      border:1px solid var(--line);
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.055);
       cursor:pointer;
-      position:relative;
-      transition:.18s transform,.18s background,.18s border-color,.18s box-shadow;
+      transition:.16s transform,.16s background,.16s border-color;
     }
 
     .time-row:hover{
-      transform:translateX(5px);
-      background:rgba(56,189,248,.10);
-      border-color:rgba(56,189,248,.34);
-    }
-
-    .time-row.active{
-      background:rgba(56,189,248,.13);
-      border-color:rgba(56,189,248,.46);
-      box-shadow:0 18px 50px rgba(56,189,248,.10);
+      transform:translateX(7px);
+      background:rgba(255,255,255,.09);
+      border-color:rgba(244,181,29,.58);
     }
 
     .time-chip{
-      color:#06101e;
-      background:linear-gradient(135deg,var(--gold),#fde68a);
-      border-radius:16px;
-      padding:12px 8px;
+      background:var(--gold);
+      color:#0b1229;
       font-weight:950;
       text-align:center;
-      box-shadow:0 14px 28px rgba(250,204,21,.12);
+      padding:13px 8px;
+      letter-spacing:-.02em;
     }
 
-    .time-row h3{margin:0 0 5px; font-size:1.16rem}
-    .time-row p{margin:0; color:var(--muted); line-height:1.45}
+    .time-row h3{
+      margin:0 0 4px;
+      font-size:1.15rem;
+      letter-spacing:-.025em;
+    }
 
-    .more{
-      color:#06101e;
-      background:linear-gradient(135deg,var(--blue),var(--cyan));
-      text-decoration:none;
+    .time-row p{
+      margin:0;
+      color:#b9c6dc;
+      line-height:1.45;
+    }
+
+    .open-detail{
+      border:0;
+      min-height:42px;
+      padding:0 13px;
+      color:#091127;
+      background:#e7edf6;
       font-weight:950;
-      padding:11px 14px;
-      border-radius:15px;
+      cursor:pointer;
       white-space:nowrap;
     }
 
-    #aankomst,#padel,#bumperballs,#lunch,#beachvolley,#chillen,#frietjes,#terras{
-      scroll-margin-top:118px;
-    }
+    .open-detail:hover{background:white}
 
-    .detail-grid{
+    .details-grid{
       display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
       gap:18px;
+      margin-left:38px;
+      max-width:1040px;
     }
 
     .detail-card{
-      display:grid;
-      grid-template-columns:78px minmax(0,1fr) 260px;
+      border:1px solid var(--line-dark);
+      background:white;
+      padding:26px;
+      box-shadow:0 18px 50px rgba(21,32,68,.07);
+      min-height:260px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    .detail-top{
+      display:flex;
       gap:18px;
-      align-items:start;
-      padding:24px;
-      border-radius:28px;
-      border:1px solid var(--line);
-      background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.035));
-      box-shadow:0 18px 50px rgba(0,0,0,.18);
+      align-items:flex-start;
     }
 
     .detail-icon{
-      width:64px;
-      height:64px;
-      border-radius:22px;
+      flex:0 0 auto;
+      width:58px;
+      height:58px;
       display:grid;
       place-items:center;
-      color:#06101e;
-      background:linear-gradient(135deg,var(--blue),var(--cyan));
-      font-size:1.45rem;
+      color:#091127;
+      background:var(--gold);
+      font-size:1.3rem;
     }
 
-    .detail-card:nth-child(2n) .detail-icon{background:linear-gradient(135deg,var(--gold),#fde68a)}
-    .detail-card:nth-child(3n) .detail-icon{background:linear-gradient(135deg,var(--green),var(--cyan))}
-    .detail-card:nth-child(4n) .detail-icon{background:linear-gradient(135deg,var(--pink),#fda4af)}
-
     .detail-card h3{
-      margin:0 0 8px;
-      font-size:1.55rem;
+      margin:0 0 9px;
+      font-size:1.48rem;
       letter-spacing:-.045em;
     }
 
     .detail-card p{
-      margin:0 0 14px;
-      color:var(--muted);
-      line-height:1.65;
+      color:#52617a;
+      line-height:1.62;
+      margin:0;
     }
 
-    .mini-list{
+    .pills{
       display:flex;
       flex-wrap:wrap;
       gap:8px;
-      margin-top:12px;
+      margin-top:22px;
     }
 
     .pill{
       display:inline-flex;
       align-items:center;
       gap:7px;
+      font-size:.88rem;
+      font-weight:820;
+      color:#4a5870;
+      border:1px solid var(--line-dark);
+      background:#f5f7fb;
       padding:8px 10px;
-      border-radius:999px;
-      background:rgba(255,255,255,.07);
-      border:1px solid rgba(255,255,255,.10);
-      color:var(--muted);
-      font-size:.9rem;
-      font-weight:800;
-    }
-
-    .preview{
-      border-radius:22px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.16);
-      background:rgba(255,255,255,.05);
-      cursor:pointer;
-      transition:.18s transform,.18s filter;
-    }
-
-    .preview:hover{
-      transform:translateY(-3px);
-      filter:brightness(1.08);
-    }
-
-    .preview svg{
-      width:100%;
-      display:block;
-      aspect-ratio:16/10;
-      height:auto;
-    }
-
-    .backtop{
-      display:inline-flex;
-      margin-top:10px;
-      color:var(--cyan);
-      font-weight:900;
-      text-decoration:none;
     }
 
     .info-grid{
       display:grid;
-      grid-template-columns:1.08fr .92fr;
-      gap:16px;
+      grid-template-columns:minmax(0, 1.05fr) minmax(280px, .72fr);
+      gap:18px;
+      margin-left:38px;
+      max-width:1040px;
     }
 
     .panel{
-      border-radius:28px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.06);
-      padding:24px;
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.14);
+      padding:26px;
     }
 
-    .panel h3{margin:0 0 15px; font-size:1.34rem; letter-spacing:-.035em}
+    .panel h3{
+      margin:0 0 18px;
+      font-size:1.35rem;
+      letter-spacing:-.035em;
+    }
 
     .checklist{
       list-style:none;
-      display:grid;
-      gap:10px;
       padding:0;
       margin:0;
+      display:grid;
+      gap:10px;
     }
 
     .checklist li{
+      display:flex;
+      align-items:center;
+      gap:11px;
       padding:12px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.08);
-      background:rgba(255,255,255,.045);
-      color:var(--muted);
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.055);
+      color:#d8e2f2;
       cursor:pointer;
       user-select:none;
-      display:flex;
-      gap:10px;
-      align-items:center;
     }
 
     .checklist li.done{
-      color:var(--text);
-      background:rgba(134,239,172,.10);
-      border-color:rgba(134,239,172,.25);
+      background:rgba(244,181,29,.14);
+      border-color:rgba(244,181,29,.42);
+      color:white;
     }
 
-    .checklist i{color:var(--green); width:22px; text-align:center}
+    .checklist i{
+      color:var(--gold);
+      width:20px;
+      text-align:center;
+    }
 
     .price{
-      font-size:clamp(2rem,5vw,4.4rem);
+      font-size:clamp(2.3rem,5vw,4.2rem);
       font-weight:1000;
-      letter-spacing:-.08em;
-      margin:3px 0 8px;
-      background:linear-gradient(135deg,var(--green),var(--cyan));
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
+      letter-spacing:-.075em;
+      color:var(--gold);
+      margin:0 0 10px;
     }
 
-    .small{color:var(--muted); line-height:1.62; margin:0}
+    .small{
+      margin:0;
+      color:#c5d0e3;
+      line-height:1.65;
+    }
 
-    .faq{display:grid; gap:12px}
+    .faq{
+      display:grid;
+      gap:12px;
+      margin-left:38px;
+      max-width:900px;
+    }
 
     .faq-item{
-      border-radius:22px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.055);
-      overflow:hidden;
+      background:#fff;
+      border:1px solid var(--line-dark);
+      box-shadow:0 12px 38px rgba(21,32,68,.06);
     }
 
     .faq-q{
       width:100%;
       border:0;
       background:transparent;
-      color:var(--text);
-      padding:18px;
+      color:var(--ink);
+      padding:18px 20px;
       display:flex;
       justify-content:space-between;
       align-items:center;
-      gap:12px;
+      gap:18px;
       font-weight:950;
-      font-size:1rem;
       text-align:left;
       cursor:pointer;
+      font-size:1rem;
     }
 
     .faq-a{
       display:none;
-      padding:0 18px 18px;
-      color:var(--muted);
+      padding:0 20px 20px;
+      color:#52617a;
       line-height:1.6;
     }
 
     .faq-item.open .faq-a{display:block}
     .faq-item.open .faq-q i{transform:rotate(180deg)}
 
-    .slide-panel{
-      position:fixed;
-      top:88px;
-      right:clamp(14px,2.2vw,42px);
-      width:min(400px,calc(100vw - 36px));
-      max-height:calc(100vh - 110px);
-      z-index:90;
-      transform:translateX(calc(100% + 28px));
-      opacity:0;
-      transition:transform .32s ease, opacity .25s ease;
-      pointer-events:none;
+    footer{
+      background:#081127;
+      color:#9eacc6;
+      padding:34px var(--right) 46px var(--left);
+      border-top:1px solid rgba(255,255,255,.10);
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-size:.76rem;
     }
 
-    .slide-panel.open{
-      transform:translateX(0);
+    .drawer{
+      position:fixed;
+      top:0;
+      right:0;
+      width:min(460px, 100vw);
+      height:100vh;
+      z-index:160;
+      background:#f8fafc;
+      color:var(--ink);
+      box-shadow:-34px 0 90px rgba(0,0,0,.42);
+      transform:translateX(105%);
+      transition:transform .28s ease;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .drawer.open{transform:translateX(0)}
+
+    .drawer-top{
+      min-height:150px;
+      background:linear-gradient(135deg, var(--teal), var(--teal-dark));
+      color:white;
+      padding:24px;
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:18px;
+    }
+
+    .drawer-time{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:rgba(9,17,39,.72);
+      color:var(--gold);
+      padding:8px 10px;
+      font-weight:950;
+    }
+
+    .drawer-close{
+      width:42px;
+      height:42px;
+      border:1px solid rgba(255,255,255,.26);
+      background:rgba(9,17,39,.45);
+      color:white;
+      cursor:pointer;
+      font-size:1.05rem;
+    }
+
+    .drawer-body{
+      padding:28px 26px;
+      overflow:auto;
+    }
+
+    .drawer-body h3{
+      font-size:2rem;
+      letter-spacing:-.06em;
+      line-height:1.02;
+      margin:0 0 16px;
+    }
+
+    .drawer-body p{
+      color:#52617a;
+      line-height:1.72;
+      margin:0;
+      font-size:1.02rem;
+    }
+
+    .drawer-actions{
+      padding:0 26px 28px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:auto;
+    }
+
+    .drawer-actions a,
+    .drawer-actions button{
+      min-height:44px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+      padding:0 14px;
+      border:0;
+      background:var(--gold);
+      color:#091127;
+      text-decoration:none;
+      font-weight:950;
+      cursor:pointer;
+    }
+
+    .drawer-actions .ghost{
+      background:#e8edf5;
+      color:#17213f;
+    }
+
+    .visual{
+      margin-top:22px;
+      height:210px;
+      background:#e8edf5;
+      border:1px solid #d7deeb;
+      overflow:hidden;
+      position:relative;
+    }
+
+    .visual svg{
+      width:100%;
+      height:100%;
+      display:block;
+    }
+
+    .overlay{
+      position:fixed;
+      inset:0;
+      z-index:150;
+      background:rgba(3,8,22,.55);
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .2s ease;
+    }
+
+    .overlay.open{
       opacity:1;
       pointer-events:auto;
     }
 
-    .slide-card{
-      border-radius:28px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.18);
-      background:linear-gradient(145deg,rgba(16,24,39,.98),rgba(22,34,53,.96));
-      box-shadow:0 30px 90px rgba(0,0,0,.55);
-      backdrop-filter:blur(18px);
-    }
-
-    .slide-top{
-      min-height:116px;
-      padding:20px;
-      background:
-        radial-gradient(circle at 18% 24%, rgba(255,255,255,.28), transparent 14%),
-        linear-gradient(135deg, rgba(56,189,248,.34), rgba(250,204,21,.18));
-      position:relative;
-      overflow:hidden;
-    }
-
-    .slide-time{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 11px;
-      border-radius:999px;
-      background:rgba(6,16,30,.72);
-      color:var(--gold);
-      font-weight:950;
-      letter-spacing:.04em;
-    }
-
-    .slide-close{
-      position:absolute;
-      top:12px;
-      right:12px;
-      width:40px;
-      height:40px;
-      border:1px solid rgba(255,255,255,.22);
-      border-radius:14px;
-      background:rgba(6,16,30,.62);
-      color:white;
-      cursor:pointer;
-      z-index:2;
-      backdrop-filter:blur(8px);
-    }
-
-    .slide-body{padding:22px}
-
-    .slide-body h3{
-      margin:0 0 10px;
-      font-size:1.65rem;
-      letter-spacing:-.05em;
-    }
-
-    .slide-body p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.65;
-    }
-
-    .slide-actions{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      padding:0 22px 22px;
-    }
-
-    .slide-btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      min-height:42px;
-      padding:0 13px;
-      border-radius:14px;
-      text-decoration:none;
-      font-weight:950;
-      color:#06101e;
-      background:linear-gradient(135deg,var(--blue),var(--cyan));
-      border:0;
-      cursor:pointer;
-    }
-
-    .slide-btn.ghost{
-      color:var(--text);
-      background:rgba(255,255,255,.08);
-      border:1px solid var(--line);
-    }
-
-    .modal{
-      position:fixed;
-      inset:0;
-      z-index:120;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      padding:20px;
-      background:rgba(2,6,18,.78);
-      backdrop-filter:blur(18px);
-    }
-
-    .modal.open{display:flex}
-
-    .modal-card{
-      width:min(940px,100%);
-      border-radius:32px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.20);
-      background:linear-gradient(145deg,rgba(16,24,39,.98),rgba(22,34,53,.96));
-      box-shadow:0 35px 110px rgba(0,0,0,.65);
-      position:relative;
-      animation:pop .22s ease-out;
-    }
-
-    @keyframes pop{
-      from{opacity:0; transform:scale(.96) translateY(12px)}
-      to{opacity:1; transform:scale(1) translateY(0)}
-    }
-
-    .modal-visual svg{
-      display:block;
-      width:100%;
-      height:min(58vh,540px);
-    }
-
-    .modal-body{padding:20px 22px 22px}
-
-    .modal-body h3{
-      margin:0 0 6px;
-      font-size:clamp(1.45rem,3vw,2.35rem);
-      letter-spacing:-.055em;
-    }
-
-    .modal-body p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.55;
-    }
-
-    .modal-close{
-      position:absolute;
-      top:14px;
-      right:14px;
-      width:44px;
-      height:44px;
-      border-radius:15px;
-      border:1px solid rgba(255,255,255,.22);
-      background:rgba(6,16,30,.68);
-      color:white;
-      cursor:pointer;
-      backdrop-filter:blur(10px);
-      z-index:2;
-    }
-
-    footer{
-      border-top:1px solid var(--line);
-      color:var(--muted);
-      text-align:center;
-      padding:36px 20px 54px;
-    }
-
-    @media(max-width:1050px){
-      .detail-card{grid-template-columns:78px 1fr}
-      .preview{grid-column:2}
-    }
-
-    @media(max-width:940px){
-      .hero{grid-template-columns:1fr}
-      .info-grid{grid-template-columns:1fr}
-    }
-
-    @media(max-width:900px){
-      .slide-panel{
-        top:auto;
-        right:12px;
-        left:12px;
-        bottom:12px;
-        width:auto;
-        max-height:72vh;
-        transform:translateY(calc(100% + 24px));
+    @media(max-width:1080px){
+      .framework-grid,
+      .values,
+      .bani-vuca{
+        grid-template-columns:1fr 1fr;
       }
-      .slide-panel.open{transform:translateY(0)}
-      .slide-card{border-radius:24px}
-      .slide-top{min-height:92px}
     }
 
-    @media(max-width:680px){
-      .wrap{padding-left:15px; padding-right:15px}
-      .nav-inner{align-items:flex-start; flex-direction:column; padding:12px 0}
-      .nav-links{justify-content:flex-start}
-      .nav-links a{font-size:.82rem; padding:7px 8px}
-      header{padding:40px 0 38px}
-      h1{font-size:clamp(3rem,17vw,5rem)}
-      .mission-card{padding:14px; min-height:auto}
-      .visual{height:230px}
-      .countdown{grid-template-columns:repeat(2,1fr)}
-      .facts{grid-template-columns:1fr}
-      .time-row{grid-template-columns:78px 1fr; align-items:start}
-      .more{grid-column:1 / -1; text-align:center}
-      .detail-card{grid-template-columns:1fr}
-      .preview{grid-column:auto}
-      .modal-visual svg{height:42vh}
+    @media(max-width:980px){
+      .hero{
+        grid-template-columns:1fr;
+      }
+
+      .vision-card{
+        max-width:560px;
+        min-height:300px;
+        border-left:48px solid rgba(0,0,0,.16);
+        justify-items:start;
+        text-align:left;
+      }
+
+      .details-grid,
+      .info-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:720px){
+      :root{
+        --left:18px;
+        --right:18px;
+      }
+
+      .nav-inner{
+        align-items:flex-start;
+        flex-direction:column;
+        padding-top:12px;
+        padding-bottom:12px;
+      }
+
+      .hero{
+        padding-top:42px;
+        min-height:auto;
+      }
+
+      .kicker{
+        letter-spacing:.24em;
+        margin-bottom:34px;
+        font-size:.76rem;
+      }
+
+      .hero-title-row{
+        grid-template-columns:8px minmax(0,1fr);
+        gap:18px;
+      }
+
+      .gold-bar{
+        width:8px;
+        height:178px;
+      }
+
+      .tagline,
+      .hero-actions,
+      .timeline,
+      .details-grid,
+      .info-grid,
+      .faq,
+      .framework-grid,
+      .values,
+      .bani-vuca,
+      .section-sub{
+        margin-left:26px;
+      }
+
+      .framework-grid,
+      .values,
+      .bani-vuca{
+        grid-template-columns:1fr;
+      }
+
+      .time-row{
+        grid-template-columns:82px minmax(0,1fr);
+      }
+
+      .open-detail{
+        grid-column:1 / -1;
+        width:100%;
+      }
+
+      .drawer{
+        width:100vw;
+      }
+
+      .mini-board{
+        grid-template-columns:1fr;
+      }
     }
   </style>
 </head>
 
 <body>
   <nav>
-    <div class="wrap nav-inner">
+    <div class="nav-inner">
       <div class="brand">
-        <div class="brand-mark"><i class="fa-solid fa-bolt"></i></div>
+        <div class="mark"><i class="fa-solid fa-bolt"></i></div>
         <div>Mission Headquarters</div>
       </div>
       <div class="nav-links">
+        <a href="#kompas">Kompas</a>
+        <a href="#vuca-bani">VUCA/BANI</a>
         <a href="#programma">Programma</a>
-        <a href="#details">Details</a>
         <a href="#praktisch">Praktisch</a>
-        <a href="#faq">FAQ</a>
       </div>
     </div>
   </nav>
 
-  <header class="wrap">
+  <header class="page">
     <div class="hero">
       <div>
-        <span class="eyebrow"><span class="pulse"></span> Mission Headquarters</span>
-        <h1><span class="gradient">Teambuilding</span><br>Heverlee</h1>
-        <p class="lead">
-          Vrijdag 17 juli 2026 trekken we naar het Sportkot van KU Leuven voor een actieve dag met padel,
-          bumperballs, beachvolley, chillmomenten, frietjes en eventueel nog een rustige afsluiter in Leuven centrum.
-        </p>
+        <div class="kicker">Teambuilding Heverlee 2026</div>
+        <div class="hero-title-row">
+          <div class="gold-bar"></div>
+          <h1>Mission Headquarters <span>missie, visie & waarden</span></h1>
+        </div>
+        <p class="tagline">Strategisch sterk. Operationeel plezant. Frietjes als einddoel.</p>
+
         <div class="hero-actions">
-          <a class="btn" href="#programma"><i class="fa-solid fa-calendar-days"></i> Programma</a>
-          <a class="btn secondary" href="#details"><i class="fa-solid fa-circle-info"></i> Details</a>
+          <a class="btn" href="#kompas"><i class="fa-solid fa-compass"></i> Kompas</a>
+          <a class="btn secondary" href="#programma"><i class="fa-solid fa-calendar-days"></i> Programma</a>
         </div>
       </div>
 
-      <div class="mission-card">
-        <div class="visual" aria-hidden="true">
-          <div class="ball"></div>
-          <div class="bubble"></div>
-          <div class="bubble two"></div>
-          <div class="court"></div>
+      <aside class="vision-card">
+        <h2>Visie<br>Actieve ploeg.<br>Ontspannen sfeer.</h2>
+        <p>Een dag waarop iedereen even uit de dagelijkse rol stapt, samen beweegt, lacht en afsluit zonder vergaderdruk.</p>
+        <div class="mini-board">
+          <div>Missie</div>
+          <div>Visie</div>
+          <div>Waarden</div>
         </div>
-
-        <div class="countdown">
-          <div class="count"><strong id="d">--</strong><span>dagen</span></div>
-          <div class="count"><strong id="h">--</strong><span>uren</span></div>
-          <div class="count"><strong id="m">--</strong><span>min</span></div>
-          <div class="count"><strong id="s">--</strong><span>sec</span></div>
-        </div>
-
-        <div class="facts">
-          <div class="fact"><b><i class="fa-solid fa-location-dot"></i> Locatie</b><span>Sportkot KU Leuven</span></div>
-          <div class="fact"><b><i class="fa-solid fa-shirt"></i> Kledij</b><span>Sportief</span></div>
-          <div class="fact"><b><i class="fa-solid fa-euro-sign"></i> Richtprijs</b><span>± €55–€75 p.p.</span></div>
-        </div>
-      </div>
+      </aside>
     </div>
   </header>
 
   <main>
-    <section id="programma" class="wrap">
-      <div class="section-head"><h2>Programma</h2></div>
-
-      <div class="timeline">
-        <div class="time-row active" data-time="08:00" data-title="Aankomst & omkleden" data-target="#aankomst" data-icon="🏁" data-colors="#0ea5e9,#1e3a8a,#020617" data-detail="We verzamelen aan het Sportkot, kleden ons om en starten rustig op. Kom liefst op tijd, zodat de eerste activiteit vlot kan beginnen.">
-          <div class="time-chip">08:00</div>
-          <div><h3>Aankomst & omkleden</h3><p>Verzamelen, omkleden en rustig opstarten.</p></div>
-          <a class="more" href="#aankomst">Details</a>
+    <section id="kompas" class="section-light">
+      <div class="section-inner">
+        <div class="section-head">
+          <div class="section-line"></div>
+          <div>
+            <small>Strategisch kompas</small>
+            <h2>Missie, visie, waarden</h2>
+          </div>
         </div>
+        <p class="section-sub">Managementtaal, maar dan zonder PowerPoint-coma. Dit is het officiële teambuildingkompas: waar doen we het voor, waar willen we naartoe en hoe gedragen we ons terwijl iemand in een bumperball tegen de grond gaat?</p>
 
-        <div class="time-row" data-time="08:30" data-title="Padel" data-target="#padel" data-icon="🎾" data-colors="#14b8a6,#2563eb,#020617" data-detail="We spelen in ploegen van vier en roteren door. Wie even niet speelt, supportert of recupereert. Het is vooral bedoeld als leuke opener.">
-          <div class="time-chip">08:30</div>
-          <div><h3>Padel</h3><p>Teams van vier, afwisselend spelen en supporteren.</p></div>
-          <a class="more" href="#padel">Details</a>
-        </div>
+        <div class="framework-grid">
+          <article class="framework-card">
+            <div class="framework-icon"><i class="fa-solid fa-bullseye"></i></div>
+            <h3>Missie</h3>
+            <p>We brengen de ploeg samen buiten de normale context, met sportieve activiteiten die laagdrempelig genoeg zijn om mee te doen en plezant genoeg om over na te praten.</p>
+          </article>
 
-        <div class="time-row" data-time="10:30" data-title="Bumperballs" data-target="#bumperballs" data-icon="⚽" data-colors="#fb7185,#f97316,#111827" data-detail="Korte wedstrijden met veel botsen, lachen en opnieuw rechtstaan. Verwacht vooral chaos en ambiance, niet noodzakelijk verfijnde tactiek.">
-          <div class="time-chip">10:30</div>
-          <div><h3>Bumperballs</h3><p>Chaotisch, sportief en vooral plezant.</p></div>
-          <a class="more" href="#bumperballs">Details</a>
-        </div>
+          <article class="framework-card">
+            <div class="framework-icon"><i class="fa-solid fa-eye"></i></div>
+            <h3>Visie</h3>
+            <p>Een team dat elkaar niet alleen kent uit overleg, mails en deadlines, maar ook uit padelrally’s, zandduiken, tactisch frietbestellen en gecontroleerde chaos.</p>
+          </article>
 
-        <div class="time-row" data-time="12:00" data-title="Lunch" data-target="#lunch" data-icon="🥪" data-colors="#f59e0b,#ef4444,#111827" data-detail="Rond de middag nemen we pauze met vooraf bestelde broodjes. Vegetarische opties worden vooraf bevraagd.">
-          <div class="time-chip">12:00</div>
-          <div><h3>Lunch</h3><p>Broodjes en korte pauze.</p></div>
-          <a class="more" href="#lunch">Details</a>
-        </div>
-
-        <div class="time-row" data-time="13:00" data-title="Beachvolleybal" data-target="#beachvolley" data-icon="🏐" data-colors="#fde047,#06b6d4,#0f172a" data-detail="Na de lunch schakelen we over naar beachvolley. Teams, rotatie en genoeg competitie om het plezant te houden.">
-          <div class="time-chip">13:00</div>
-          <div><h3>Beachvolleybal</h3><p>Zand, ploegen, rotatie en ambiance.</p></div>
-          <a class="more" href="#beachvolley">Details</a>
-        </div>
-
-        <div class="time-row" data-time="15:00" data-title="Chillen & extra spel" data-target="#chillen" data-icon="☀️" data-colors="#38bdf8,#22c55e,#052e16" data-detail="Een bewust rustiger blok: bekomen, napraten, supporteren of eventueel een lichter spel spelen.">
-          <div class="time-chip">15:00</div>
-          <div><h3>Chillen & extra spel</h3><p>Even bekomen, napraten en eventueel iets rustigers spelen.</p></div>
-          <a class="more" href="#chillen">Details</a>
-        </div>
-
-        <div class="time-row" data-time="16:30" data-title="Frietjes & drink" data-target="#frietjes" data-icon="🍟" data-colors="#facc15,#f97316,#111827" data-detail="Het officiële herstelprotocol: frietjes, drank en rustig napraten na de activiteiten.">
-          <div class="time-chip">16:30</div>
-          <div><h3>Frietjes & drink</h3><p>Frietkraam, drank en afsluitend napraten.</p></div>
-          <a class="more" href="#frietjes">Details</a>
-        </div>
-
-        <div class="time-row" data-time="19:00" data-title="Optioneel: Terrasje Leuven" data-target="#terras" data-icon="☕" data-colors="#38bdf8,#22c55e,#0f172a" data-detail="Voor wie nog zin heeft om rustig af te sluiten: optioneel richting Leuven centrum voor een terrasje. Wie naar huis wil, kan gewoon afronden.">
-          <div class="time-chip">19:00</div>
-          <div><h3>Optioneel: Terrasje Leuven</h3><p>Voor wie nog zin heeft om rustig af te sluiten.</p></div>
-          <a class="more" href="#terras">Details</a>
+          <article class="framework-card">
+            <div class="framework-icon"><i class="fa-solid fa-gem"></i></div>
+            <h3>Waarden</h3>
+            <p>Sportiviteit, humor, zorg voor elkaar, geen gedoe, iedereen mee, en de diepe overtuiging dat een goede teambuilding eindigt met iets warms uit een frietkraam.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="details" class="wrap">
-      <div class="section-head"><h2>Details</h2></div>
-
-      <div class="detail-grid">
-        <article class="detail-card" id="aankomst" data-icon="🏁" data-colors="#0ea5e9,#1e3a8a,#020617">
-          <div class="detail-icon"><i class="fa-solid fa-flag-checkered"></i></div>
+    <section id="waarden" class="section-dark">
+      <div class="section-inner">
+        <div class="section-head">
+          <div class="section-line"></div>
           <div>
-            <h3>Aankomst & omkleden</h3>
-            <p>We verzamelen om 08:00 aan het Sportkot van KU Leuven. Er is tijd om aan te komen, om te kleden en rustig te starten. Kom liefst op tijd, zodat de eerste activiteit niet meteen vertraging oploopt.</p>
-            <div class="mini-list">
+            <small>Gedragscode</small>
+            <h2>Onze waarden</h2>
+          </div>
+        </div>
+        <p class="section-sub">Geen marmeren beleidsverklaring, wel vier principes die de dag overeind houden.</p>
+
+        <div class="values">
+          <article class="value-card">
+            <i class="fa-solid fa-people-group"></i>
+            <h3>Inclusief spelen</h3>
+            <p>Je hoeft geen sportbeest te zijn. Iedereen telt mee, ook wie vooral uitblinkt in supporteren.</p>
+          </article>
+
+          <article class="value-card">
+            <i class="fa-solid fa-face-laugh-beam"></i>
+            <h3>Humor boven ego</h3>
+            <p>Wie valt, staat recht. Wie wint, blijft bescheiden. Wie verliest, claimt “strategische recuperatie”.</p>
+          </article>
+
+          <article class="value-card">
+            <i class="fa-solid fa-shield-heart"></i>
+            <h3>Zorgzaam botsen</h3>
+            <p>Bumperballs zijn chaos, maar geen vrijgeleide voor middeleeuwse veldslagen.</p>
+          </article>
+
+          <article class="value-card">
+            <i class="fa-solid fa-fries"></i>
+            <h3>Frituurgerichtheid</h3>
+            <p>Alle wegen leiden naar het afsluitmoment. Operationele excellentie met saus naar keuze.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="vuca-bani" class="section-light">
+      <div class="section-inner">
+        <div class="section-head">
+          <div class="section-line"></div>
+          <div>
+            <small>Risicoanalyse, maar plezant</small>
+            <h2>VUCA & BANI</h2>
+          </div>
+        </div>
+        <p class="section-sub">Omdat elke teambuilding in theorie een stabiel plan heeft, tot iemand vraagt waar de kleedkamers zijn, wie tegen wie speelt en of er vegetarische snacks voorzien zijn.</p>
+
+        <div class="bani-vuca">
+          <article class="model-card">
+            <div class="model-title">
+              <span>VUCA</span>
+              <h3>De dag zoals hij aanvoelt</h3>
+            </div>
+            <ul class="model-list">
+              <li><b>V</b><span><strong>Volatile:</strong> het weer, de energie en het aantal mensen dat “ik doe rustig aan” zegt maar toch sprint.</span></li>
+              <li><b>U</b><span><strong>Uncertain:</strong> wie padel kan, wie dat dénkt te kunnen en wie gewoon gevaarlijk veel vertrouwen heeft.</span></li>
+              <li><b>C</b><span><strong>Complex:</strong> timing, ploegen, broodjes, rotatie en de eeuwige vraag: “Waar moeten we nu zijn?”</span></li>
+              <li><b>A</b><span><strong>Ambiguous:</strong> “chillen” betekent voor de ene rust, voor de andere een extra spel met overdreven competitie.</span></li>
+            </ul>
+          </article>
+
+          <article class="model-card">
+            <div class="model-title">
+              <span>BANI</span>
+              <h3>De menselijke realiteit</h3>
+            </div>
+            <ul class="model-list">
+              <li><b>B</b><span><strong>Brittle:</strong> de planning lijkt stevig, tot drie mensen tegelijk hun sportschoenen vergeten.</span></li>
+              <li><b>A</b><span><strong>Anxious:</strong> lichte stress bij “moet ik sportief zijn?” Antwoord: nee, normaal doen is genoeg.</span></li>
+              <li><b>N</b><span><strong>Non-linear:</strong> één bumperballbotsing kan meer teamgevoel opleveren dan drie formele workshops.</span></li>
+              <li><b>I</b><span><strong>Incomprehensible:</strong> waarom iemand beachvolley serieus tactisch begint te analyseren, weet niemand.</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="strategie" class="section-dark">
+      <div class="section-inner">
+        <div class="section-head">
+          <div class="section-line"></div>
+          <div>
+            <small>Antwoord op chaos</small>
+            <h2>Onze aanpak</h2>
+          </div>
+        </div>
+        <p class="section-sub">VUCA en BANI vragen geen paniek, maar een helder teambuildingbeleid: simpel communiceren, veel lachen, niemand forceren en voldoende marge voorzien.</p>
+
+        <div class="framework-grid">
+          <article class="framework-card dark">
+            <div class="framework-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+            <h3>Duidelijkheid</h3>
+            <p>Eén programma, duidelijke uren, korte uitleg per blok. Geen verborgen draaiboek voor deelnemers.</p>
+          </article>
+
+          <article class="framework-card dark">
+            <div class="framework-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
+            <h3>Flexibiliteit</h3>
+            <p>Als iets uitloopt, schuiven we bij. Het doel is geen militaire precisie, maar een dag die goed voelt.</p>
+          </article>
+
+          <article class="framework-card dark">
+            <div class="framework-icon"><i class="fa-solid fa-heart"></i></div>
+            <h3>Psychologische veiligheid</h3>
+            <p>Meedoen mag op eigen niveau. Niemand wordt afgerekend op sportieve glorie of gebrek daaraan.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="programma" class="section-dark">
+      <div class="section-inner">
+        <div class="section-head">
+          <div class="section-line"></div>
+          <div>
+            <small>Operationele planning</small>
+            <h2>Programma</h2>
+          </div>
+        </div>
+        <p class="section-sub">Klik op een blok voor de detailfiche. Er staat bewust niets automatisch open: de bezoeker houdt de controle, zoals het hoort in modern management.</p>
+
+        <div class="timeline">
+          <div class="time-row" data-time="08:00" data-title="Aankomst & omkleden" data-detail="We verzamelen aan het Sportkot van KU Leuven. Er is tijd om aan te komen, om te kleden en rustig te starten. Strategisch doel: iedereen op dezelfde plaats krijgen zonder VUCA-paniek." data-icon="flag">
+            <div class="time-chip">08:00</div>
+            <div><h3>Aankomst & omkleden</h3><p>Verzamelen, omkleden en rustig opstarten.</p></div>
+            <button class="open-detail">Details</button>
+          </div>
+
+          <div class="time-row" data-time="08:30" data-title="Padel" data-detail="We spelen in ploegen van vier en roteren door. Missie: samen starten met iets actiefs. Waarde: humor boven ego, zeker bij gemiste ballen." data-icon="padel">
+            <div class="time-chip">08:30</div>
+            <div><h3>Padel</h3><p>Teams van vier, afwisselend spelen en supporteren.</p></div>
+            <button class="open-detail">Details</button>
+          </div>
+
+          <div class="time-row" data-time="10:30" data-title="Bumperballs" data-detail="Korte wedstrijden met veel botsen, lachen en opnieuw rechtstaan. Dit is het BANI-moment van de dag: non-lineair, licht absurd en zeer verbindend." data-icon="bumper">
+            <div class="time-chip">10:30</div>
+            <div><h3>Bumperballs</h3><p>Chaotisch, sportief en vooral plezant.</p></div>
+            <button class="open-detail">Details</button>
+          </div>
+
+          <div class="time-row" data-time="12:00" data-title="Lunch" data-detail="Rond de middag nemen we pauze met vooraf bestelde broodjes. Complexiteit reduceren we door vooraf keuzes te bevragen, inclusief vegetarische opties." data-icon="lunch">
+            <div class="time-chip">12:00</div>
+            <div><h3>Lunch</h3><p>Broodjes en korte pauze.</p></div>
+            <button class="open-detail">Details</button>
+          </div>
+
+          <div class="time-row" data-time="13:00" data-title="Beachvolleybal" data-detail="Na de lunch schakelen we over naar beachvolley. Teams, rotatie en genoeg competitie om het levendig te houden zonder dat het een Olympisch selectiecriterium wordt." data-icon="volley">
+            <div class="time-chip">13:00</div>
+            <div><h3>Beachvolleybal</h3><p>Zand, ploegen, rotatie en ambiance.</p></div>
+            <button class="open-detail">Details</button>
+          </div>
+
+          <div class="time-row" data-time="15:00" data-title="Chillen & extra spel" data-detail="Een bewust rustiger blok: bekomen, napraten, supporteren of eventueel een lichter spel spelen. Ambiguïteit mag hier: chillen betekent niet voor iedereen hetzelfde." data-icon="sun">
+            <div class="time-chip">15:00</div>
+            <div><h3>Chillen & extra spel</h3><p>Even bekomen en eventueel iets rustigers spelen.</p></div>
+            <button class="open-detail">Details</button>
+          </div>
+
+          <div class="time-row" data-time="16:30" data-title="Frietjes & drink" data-detail="Het officiële herstelmoment: frietjes, drank en rustig napraten na de activiteiten. Strategisch eindpunt: tevreden mensen en sauslogistiek onder controle." data-icon="fries">
+            <div class="time-chip">16:30</div>
+            <div><h3>Frietjes & drink</h3><p>Frietkraam, drank en afsluitend napraten.</p></div>
+            <button class="open-detail">Details</button>
+          </div>
+
+          <div class="time-row" data-time="19:00" data-title="Optioneel: terrasje Leuven" data-detail="Voor wie nog een tweede adem heeft: optioneel afzakken richting Leuven centrum voor een rustig terrasmoment. Geen druk, geen verplichting, gewoon een zachte landing." data-icon="terrace">
+            <div class="time-chip">19:00</div>
+            <div><h3>Optioneel: terrasje Leuven</h3><p>Rustige afsluiter in Leuven centrum.</p></div>
+            <button class="open-detail">Details</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="details" class="section-light">
+      <div class="section-inner">
+        <div class="section-head">
+          <div class="section-line"></div>
+          <div>
+            <small>Activiteiten</small>
+            <h2>Detailfiches</h2>
+          </div>
+        </div>
+
+        <div class="details-grid">
+          <article class="detail-card">
+            <div class="detail-top">
+              <div class="detail-icon"><i class="fa-solid fa-flag-checkered"></i></div>
+              <div>
+                <h3>Aankomst</h3>
+                <p>Doel: iedereen verzamelen zonder startstress. Managementvertaling: alignment vóór uitvoering.</p>
+              </div>
+            </div>
+            <div class="pills">
               <span class="pill"><i class="fa-solid fa-clock"></i> 08:00</span>
-              <span class="pill"><i class="fa-solid fa-location-dot"></i> Sportkot KU Leuven</span>
-              <span class="pill"><i class="fa-solid fa-shirt"></i> Sportieve kledij</span>
+              <span class="pill"><i class="fa-solid fa-location-dot"></i> Sportkot</span>
             </div>
-            <a class="backtop" href="#programma">Terug naar programma ↑</a>
-          </div>
-          <div class="preview" data-title="Aankomst & omkleden" data-text="Start van de dag"></div>
-        </article>
+          </article>
 
-        <article class="detail-card" id="padel" data-icon="🎾" data-colors="#14b8a6,#2563eb,#020617">
-          <div class="detail-icon"><i class="fa-solid fa-table-tennis-paddle-ball"></i></div>
-          <div>
-            <h3>Padel</h3>
-            <p>We starten met padel. Er wordt gespeeld in ploegen van vier, met rotatie. Wie even niet speelt, kan supporteren, coachen of recupereren. Je hoeft geen padelcrack te zijn: meedoen is belangrijker dan winnen.</p>
-            <div class="mini-list">
-              <span class="pill"><i class="fa-solid fa-clock"></i> 08:30</span>
-              <span class="pill"><i class="fa-solid fa-users"></i> Ploegen van 4</span>
-              <span class="pill"><i class="fa-solid fa-rotate"></i> Afwisselend spelen</span>
+          <article class="detail-card">
+            <div class="detail-top">
+              <div class="detail-icon"><i class="fa-solid fa-table-tennis-paddle-ball"></i></div>
+              <div>
+                <h3>Padel</h3>
+                <p>Laagdrempelige opener met ploegen van vier. Hier ontstaat de eerste coalitie van de dag.</p>
+              </div>
             </div>
-            <a class="backtop" href="#programma">Terug naar programma ↑</a>
-          </div>
-          <div class="preview" data-title="Padel" data-text="Padelblok"></div>
-        </article>
-
-        <article class="detail-card" id="bumperballs" data-icon="⚽" data-colors="#fb7185,#f97316,#111827">
-          <div class="detail-icon"><i class="fa-solid fa-person-running"></i></div>
-          <div>
-            <h3>Bumperballs</h3>
-            <p>Bumperballs is het meest chaotische onderdeel van de dag. Korte wedstrijden, veel botsen, lachen en opnieuw rechtstaan. Ideaal om iedereen even uit zijn normale rol te halen.</p>
-            <div class="mini-list">
-              <span class="pill"><i class="fa-solid fa-clock"></i> 10:30</span>
-              <span class="pill"><i class="fa-solid fa-face-laugh-beam"></i> Fun centraal</span>
-              <span class="pill"><i class="fa-solid fa-shield-heart"></i> Sportief maar laagdrempelig</span>
+            <div class="pills">
+              <span class="pill"><i class="fa-solid fa-users"></i> Ploegen</span>
+              <span class="pill"><i class="fa-solid fa-rotate"></i> Rotatie</span>
             </div>
-            <a class="backtop" href="#programma">Terug naar programma ↑</a>
-          </div>
-          <div class="preview" data-title="Bumperballs" data-text="Bumperball challenge"></div>
-        </article>
+          </article>
 
-        <article class="detail-card" id="lunch" data-icon="🥪" data-colors="#f59e0b,#ef4444,#111827">
-          <div class="detail-icon"><i class="fa-solid fa-bread-slice"></i></div>
-          <div>
-            <h3>Lunch</h3>
-            <p>Rond de middag voorzien we broodjes. De keuze voor broodjes en eventuele vegetarische opties wordt vooraf bevraagd, zodat iedereen iets heeft dat past.</p>
-            <div class="mini-list">
-              <span class="pill"><i class="fa-solid fa-clock"></i> 12:00</span>
+          <article class="detail-card">
+            <div class="detail-top">
+              <div class="detail-icon"><i class="fa-solid fa-person-running"></i></div>
+              <div>
+                <h3>Bumperballs</h3>
+                <p>Gecontroleerde chaos met hoge lachfactor. Ideaal om hiërarchie even te vervangen door zwaartekracht.</p>
+              </div>
+            </div>
+            <div class="pills">
+              <span class="pill"><i class="fa-solid fa-face-laugh-beam"></i> Fun</span>
+              <span class="pill"><i class="fa-solid fa-shield-heart"></i> Zorgzaam botsen</span>
+            </div>
+          </article>
+
+          <article class="detail-card">
+            <div class="detail-top">
+              <div class="detail-icon"><i class="fa-solid fa-bread-slice"></i></div>
+              <div>
+                <h3>Lunch</h3>
+                <p>Broodjes en recuperatie. Geen workshop, wel de noodzakelijke brandstof voor de namiddag.</p>
+              </div>
+            </div>
+            <div class="pills">
               <span class="pill"><i class="fa-solid fa-utensils"></i> Broodjes</span>
-              <span class="pill"><i class="fa-solid fa-leaf"></i> Veggie bevragen</span>
+              <span class="pill"><i class="fa-solid fa-leaf"></i> Veggie mogelijk</span>
             </div>
-            <a class="backtop" href="#programma">Terug naar programma ↑</a>
-          </div>
-          <div class="preview" data-title="Lunch" data-text="Lunchpauze"></div>
-        </article>
+          </article>
 
-        <article class="detail-card" id="beachvolley" data-icon="🏐" data-colors="#fde047,#06b6d4,#0f172a">
-          <div class="detail-icon"><i class="fa-solid fa-volleyball"></i></div>
-          <div>
-            <h3>Beachvolleybal</h3>
-            <p>Na de lunch spelen we beachvolleybal. Het wordt opgevat als groepsactiviteit met teams en rotatie. Competitie mag, maar het blijft vooral een teambuildingmoment.</p>
-            <div class="mini-list">
-              <span class="pill"><i class="fa-solid fa-clock"></i> 13:00</span>
+          <article class="detail-card">
+            <div class="detail-top">
+              <div class="detail-icon"><i class="fa-solid fa-volleyball"></i></div>
+              <div>
+                <h3>Beachvolley</h3>
+                <p>Sportief genoeg om energie te geven, informeel genoeg om niemand te verliezen.</p>
+              </div>
+            </div>
+            <div class="pills">
               <span class="pill"><i class="fa-solid fa-umbrella-beach"></i> Zandveld</span>
               <span class="pill"><i class="fa-solid fa-people-group"></i> Teams</span>
             </div>
-            <a class="backtop" href="#programma">Terug naar programma ↑</a>
-          </div>
-          <div class="preview" data-title="Beachvolleybal" data-text="Beachvolley"></div>
-        </article>
+          </article>
 
-        <article class="detail-card" id="chillen" data-icon="☀️" data-colors="#38bdf8,#22c55e,#052e16">
-          <div class="detail-icon"><i class="fa-solid fa-sun"></i></div>
-          <div>
-            <h3>Chillen & extra spel</h3>
-            <p>Rond 15:00 is er ruimte om te bekomen, bij te praten, te supporteren of iets rustigers te doen. Dit is bewust een minder strak blok, zodat de dag niet alleen uit sporten bestaat.</p>
-            <div class="mini-list">
-              <span class="pill"><i class="fa-solid fa-clock"></i> 15:00</span>
-              <span class="pill"><i class="fa-solid fa-mug-hot"></i> Rustmoment</span>
-              <span class="pill"><i class="fa-solid fa-gamepad"></i> Extra spel mogelijk</span>
+          <article class="detail-card">
+            <div class="detail-top">
+              <div class="detail-icon"><i class="fa-solid fa-mug-hot"></i></div>
+              <div>
+                <h3>Terrasje Leuven</h3>
+                <p>Optioneel en rustig. De informele after-action review van de dag.</p>
+              </div>
             </div>
-            <a class="backtop" href="#programma">Terug naar programma ↑</a>
-          </div>
-          <div class="preview" data-title="Chillen & extra spel" data-text="Rustiger blok"></div>
-        </article>
-
-        <article class="detail-card" id="frietjes" data-icon="🍟" data-colors="#facc15,#f97316,#111827">
-          <div class="detail-icon"><i class="fa-solid fa-utensils"></i></div>
-          <div>
-            <h3>Frietjes & drink</h3>
-            <p>Vanaf de late namiddag sluiten we het sportieve gedeelte af met frietjes, drank en napraten. Het exacte aanbod volgt nog, maar het idee is simpel: gezellig afsluiten zonder veel praktische stress.</p>
-            <div class="mini-list">
-              <span class="pill"><i class="fa-solid fa-clock"></i> 16:30</span>
-              <span class="pill"><i class="fa-solid fa-glass-water"></i> Drankmoment</span>
-              <span class="pill"><i class="fa-solid fa-comment"></i> Napraten</span>
-            </div>
-            <a class="backtop" href="#programma">Terug naar programma ↑</a>
-          </div>
-          <div class="preview" data-title="Frietjes & drink" data-text="Frietfinale"></div>
-        </article>
-
-        <article class="detail-card" id="terras" data-icon="☕" data-colors="#38bdf8,#22c55e,#0f172a">
-          <div class="detail-icon"><i class="fa-solid fa-mug-saucer"></i></div>
-          <div>
-            <h3>Optioneel: Terrasje Leuven</h3>
-            <p>Voor wie na de activiteiten nog zin heeft, kunnen we richting Leuven centrum voor een rustig terrasje. Dit is volledig optioneel: wie naar huis wil, kan gewoon afronden na het frietmoment.</p>
-            <div class="mini-list">
+            <div class="pills">
               <span class="pill"><i class="fa-solid fa-clock"></i> 19:00</span>
-              <span class="pill"><i class="fa-solid fa-map-location-dot"></i> Leuven centrum</span>
               <span class="pill"><i class="fa-solid fa-circle-check"></i> Optioneel</span>
             </div>
-            <a class="backtop" href="#programma">Terug naar programma ↑</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="praktisch" class="section-dark">
+      <div class="section-inner">
+        <div class="section-head">
+          <div class="section-line"></div>
+          <div>
+            <small>Praktisch</small>
+            <h2>Mission checklist</h2>
           </div>
-          <div class="preview" data-title="Optioneel: Terrasje Leuven" data-text="Rustig afsluiten in Leuven centrum"></div>
-        </article>
-      </div>
-    </section>
-
-    <section id="praktisch" class="wrap">
-      <div class="section-head"><h2>Praktisch</h2></div>
-
-      <div class="info-grid">
-        <div class="panel">
-          <h3><i class="fa-solid fa-list-check"></i> Wat meebrengen?</h3>
-          <ul class="checklist" id="packlist">
-            <li><i class="fa-regular fa-circle"></i> Sportieve kledij</li>
-            <li><i class="fa-regular fa-circle"></i> Sportschoenen</li>
-            <li><i class="fa-regular fa-circle"></i> Douchegerief</li>
-            <li><i class="fa-regular fa-circle"></i> Reservekledij</li>
-            <li><i class="fa-regular fa-circle"></i> Zonnecrème bij goed weer</li>
-            <li><i class="fa-regular fa-circle"></i> Goed humeur</li>
-          </ul>
         </div>
 
-        <div class="panel">
-          <h3><i class="fa-solid fa-wallet"></i> Richtprijs</h3>
-          <div class="price">± €55–€75</div>
-          <p class="small">De definitieve prijs volgt na bevestiging van alle keuzes en eventuele tussenkomsten. Dit is bewust alleen de deelnemersinfo, geen intern kostenoverzicht.</p>
+        <div class="info-grid">
+          <div class="panel">
+            <h3><i class="fa-solid fa-list-check"></i> Wat meebrengen?</h3>
+            <ul class="checklist" id="packlist">
+              <li><i class="fa-regular fa-circle"></i> Sportieve kledij</li>
+              <li><i class="fa-regular fa-circle"></i> Sportschoenen</li>
+              <li><i class="fa-regular fa-circle"></i> Douchegerief</li>
+              <li><i class="fa-regular fa-circle"></i> Reservekledij</li>
+              <li><i class="fa-regular fa-circle"></i> Zonnecrème bij goed weer</li>
+              <li><i class="fa-regular fa-circle"></i> Goed humeur</li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h3><i class="fa-solid fa-wallet"></i> Richtprijs</h3>
+            <div class="price">± €55–€75</div>
+            <p class="small">Definitief bedrag volgt na bevestiging van alle keuzes. Dit blijft deelnemersinfo, geen intern kostenoverzicht.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="faq" class="wrap">
-      <div class="section-head"><h2>FAQ</h2></div>
+    <section id="faq" class="section-light">
+      <div class="section-inner">
+        <div class="section-head">
+          <div class="section-line"></div>
+          <div>
+            <small>FAQ</small>
+            <h2>Vragen</h2>
+          </div>
+        </div>
 
-      <div class="faq">
-        <div class="faq-item open">
-          <button class="faq-q">Moet je sportief zijn om mee te doen? <i class="fa-solid fa-chevron-down"></i></button>
-          <div class="faq-a">Nee. Het is actief, maar het blijft teambuilding. Je hoeft geen topsporter te zijn.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">Is er eten voorzien? <i class="fa-solid fa-chevron-down"></i></button>
-          <div class="faq-a">Ja. Rond de middag zijn er broodjes en later op de dag is er een frietmoment.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">Zijn er vegetarische opties? <i class="fa-solid fa-chevron-down"></i></button>
-          <div class="faq-a">Ja, dit wordt vooraf bevraagd zodat de bestelling correct kan gebeuren.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">Wat bij slecht weer? <i class="fa-solid fa-chevron-down"></i></button>
-          <div class="faq-a">De weersituatie wordt vooraf bekeken. Indien nodig volgt er aangepaste praktische info.</div>
+        <div class="faq">
+          <div class="faq-item">
+            <button class="faq-q">Moet je sportief zijn om mee te doen? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-a">Nee. Het is actief, maar het blijft teambuilding. Je hoeft geen topsporter te zijn.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">Waarom staat VUCA/BANI op een teambuildingsite? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-a">Omdat het grappig is én omdat elke groepsactiviteit stiekem een kleine managementcase is.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">Is er eten voorzien? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-a">Ja. Rond de middag zijn er broodjes en later op de dag is er een frietmoment.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">Zijn er vegetarische opties? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-a">Ja, dit wordt vooraf bevraagd zodat de bestelling correct kan gebeuren.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">Wat bij slecht weer? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="faq-a">De weersituatie wordt vooraf bekeken. Indien nodig volgt er aangepaste praktische info.</div>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <aside class="slide-panel open" id="slidePanel" aria-live="polite">
-    <div class="slide-card">
-      <button class="slide-close" id="slideClose" aria-label="Sluiten"><i class="fa-solid fa-xmark"></i></button>
-      <div class="slide-top">
-        <span class="slide-time" id="slideTime"><i class="fa-solid fa-clock"></i> 08:00</span>
-      </div>
-      <div class="slide-body">
-        <h3 id="slideTitle">Aankomst & omkleden</h3>
-        <p id="slideText">We verzamelen aan het Sportkot, kleden ons om en starten rustig op. Kom liefst op tijd, zodat de eerste activiteit vlot kan beginnen.</p>
-      </div>
-      <div class="slide-actions">
-        <a class="slide-btn" id="slideMore" href="#aankomst"><i class="fa-solid fa-circle-info"></i> Bekijk detail</a>
-        <button class="slide-btn ghost" id="slidePreview" type="button"><i class="fa-solid fa-image"></i> Preview</button>
-        <a class="slide-btn ghost" href="#praktisch"><i class="fa-solid fa-list-check"></i> Checklist</a>
-      </div>
+  <div class="overlay" id="overlay"></div>
+
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-top">
+      <span class="drawer-time" id="drawerTime"><i class="fa-solid fa-clock"></i> 08:00</span>
+      <button class="drawer-close" id="drawerClose" aria-label="Sluiten"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="drawer-body">
+      <h3 id="drawerTitle">Titel</h3>
+      <p id="drawerText">Details</p>
+      <div class="visual" id="drawerVisual" aria-hidden="true"></div>
+    </div>
+    <div class="drawer-actions">
+      <a href="#praktisch" class="ghost"><i class="fa-solid fa-list-check"></i> Checklist</a>
+      <button class="ghost" id="drawerClose2" type="button"><i class="fa-solid fa-arrow-right"></i> Sluiten</button>
     </div>
   </aside>
 
-  <div class="modal" id="modal" aria-hidden="true">
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="modal-close" id="modalClose" aria-label="Sluiten"><i class="fa-solid fa-xmark"></i></button>
-      <div class="modal-visual" id="modalVisual"></div>
-      <div class="modal-body">
-        <h3 id="modalTitle">Preview</h3>
-        <p id="modalText">Mission preview</p>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    Mission Headquarters · Teambuilding Heverlee 2026
-  </footer>
+  <footer>Mission Headquarters — Missie, Visie, Waarden — Teambuilding Heverlee 2026</footer>
 
   <script>
-    const target = new Date("2026-07-17T08:00:00+02:00");
+    const visuals = {
+      flag: `<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg"><rect width="800" height="420" fill="#e8edf5"/><rect x="82" y="82" width="560" height="240" fill="#fff" stroke="#cfd8e7" stroke-width="5"/><path d="M170 315V105" stroke="#f4b51d" stroke-width="16"/><path d="M186 116h190l-28 50 28 50H186z" fill="#12839a"/><circle cx="585" cy="215" r="66" fill="#1d2f68"/><path d="M552 215h66M585 182v66" stroke="white" stroke-width="12"/></svg>`,
+      padel: `<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg"><rect width="800" height="420" fill="#e8edf5"/><path d="M120 300h480l60-150H180z" fill="#12839a" opacity=".85" stroke="#0d6072" stroke-width="5"/><path d="M170 275h455M205 210h445M245 155h390M270 145l-55 155M365 145l-30 155M460 145l-5 155M555 145l25 155" stroke="white" opacity=".45" stroke-width="3"/><circle cx="575" cy="130" r="38" fill="#f4b51d"/><path d="M265 105c60 25 67 91 23 131-44 40-109 25-131-24-22-48 1-103 50-119 18-6 38-3 58 12z" fill="none" stroke="#1d2f68" stroke-width="12"/></svg>`,
+      bumper: `<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg"><rect width="800" height="420" fill="#e8edf5"/><circle cx="265" cy="215" r="95" fill="#12839a" opacity=".92"/><circle cx="535" cy="215" r="95" fill="#1d2f68" opacity=".95"/><circle cx="265" cy="215" r="52" fill="white" opacity=".78"/><circle cx="535" cy="215" r="52" fill="white" opacity=".78"/><path d="M360 155l80 120M438 155l-80 120" stroke="#f4b51d" stroke-width="16" stroke-linecap="round"/><circle cx="400" cy="210" r="23" fill="#f4b51d"/></svg>`,
+      lunch: `<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg"><rect width="800" height="420" fill="#e8edf5"/><rect x="145" y="145" width="510" height="160" rx="80" fill="#f4b51d"/><rect x="165" y="185" width="470" height="80" rx="40" fill="#fff"/><path d="M225 210h350" stroke="#12839a" stroke-width="15" stroke-linecap="round"/><circle cx="275" cy="210" r="12" fill="#1d2f68"/><circle cx="400" cy="210" r="12" fill="#1d2f68"/><circle cx="525" cy="210" r="12" fill="#1d2f68"/></svg>`,
+      volley: `<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg"><rect width="800" height="420" fill="#e8edf5"/><path d="M110 310h580" stroke="#f4b51d" stroke-width="32"/><path d="M155 120v190M645 120v190M155 145h490" stroke="#1d2f68" stroke-width="10" stroke-linecap="round"/><path d="M185 165h430M185 190h430M185 215h430M185 240h430M185 265h430M250 145v150M340 145v150M430 145v150M520 145v150" stroke="#1d2f68" opacity=".24" stroke-width="4"/><circle cx="565" cy="102" r="48" fill="#12839a"/><path d="M532 102h66M565 69v66" stroke="white" stroke-width="8" opacity=".7"/></svg>`,
+      sun: `<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg"><rect width="800" height="420" fill="#e8edf5"/><circle cx="210" cy="120" r="58" fill="#f4b51d"/><path d="M105 315c78-58 148-73 236-41 63 23 122 13 181-27 56-38 105-47 174-17v95H105z" fill="#12839a"/><path d="M185 260h320" stroke="#1d2f68" stroke-width="14" stroke-linecap="round"/><path d="M258 230l-26 65M438 230l26 65" stroke="#1d2f68" stroke-width="10" stroke-linecap="round"/></svg>`,
+      fries: `<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg"><rect width="800" height="420" fill="#e8edf5"/><path d="M275 330h250l32-170H243z" fill="#1d2f68"/><path d="M270 165l-20-78M335 165l-5-105M400 165l15-95M465 165l45-88M530 165l72-65" stroke="#f4b51d" stroke-width="28" stroke-linecap="round"/><path d="M310 240h180" stroke="#fff" stroke-width="14" stroke-linecap="round"/></svg>`,
+      terrace: `<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg"><rect width="800" height="420" fill="#e8edf5"/><path d="M130 150h540l-52-70H182z" fill="#12839a"/><path d="M180 150v65M620 150v65M400 150v190" stroke="#1d2f68" stroke-width="10" stroke-linecap="round"/><rect x="240" y="248" width="320" height="22" fill="#1d2f68"/><path d="M300 270l-48 80M500 270l48 80" stroke="#1d2f68" stroke-width="10" stroke-linecap="round"/><circle cx="310" cy="220" r="26" fill="#f4b51d"/><circle cx="490" cy="220" r="26" fill="#f4b51d"/></svg>`
+    };
 
-    function pad(n){ return String(n).padStart(2, "0"); }
+    const drawer = document.getElementById("drawer");
+    const overlay = document.getElementById("overlay");
+    const drawerTime = document.getElementById("drawerTime");
+    const drawerTitle = document.getElementById("drawerTitle");
+    const drawerText = document.getElementById("drawerText");
+    const drawerVisual = document.getElementById("drawerVisual");
 
-    function updateCountdown(){
-      const diff = target - new Date();
-      if(diff <= 0){
-        ["d","h","m","s"].forEach(id => document.getElementById(id).textContent = "00");
-        return;
-      }
-      const d = Math.floor(diff / 86400000);
-      const h = Math.floor(diff / 3600000) % 24;
-      const m = Math.floor(diff / 60000) % 60;
-      const s = Math.floor(diff / 1000) % 60;
-      document.getElementById("d").textContent = d;
-      document.getElementById("h").textContent = pad(h);
-      document.getElementById("m").textContent = pad(m);
-      document.getElementById("s").textContent = pad(s);
+    function openDrawer(row){
+      drawerTime.innerHTML = `<i class="fa-solid fa-clock"></i> ${row.dataset.time}`;
+      drawerTitle.textContent = row.dataset.title;
+      drawerText.textContent = row.dataset.detail;
+      drawerVisual.innerHTML = visuals[row.dataset.icon] || visuals.flag;
+      drawer.classList.add("open");
+      overlay.classList.add("open");
+      drawer.setAttribute("aria-hidden", "false");
     }
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-
-    function makeVisual(title, icon, colors, terrace=false){
-      const [c1,c2,c3] = colors.split(",");
-      const extra = terrace ? `
-        <g stroke="rgba(255,255,255,.75)" stroke-width="13" stroke-linecap="round" fill="none">
-          <path d="M420 500 H780"/>
-          <path d="M500 500 L455 590"/>
-          <path d="M700 500 L745 590"/>
-          <path d="M435 438 H525 V500"/>
-          <path d="M675 438 H765 V500"/>
-        </g>` : `
-        <g opacity=".65">
-          <circle cx="450" cy="505" r="28" fill="rgba(255,255,255,.28)"/>
-          <circle cx="600" cy="505" r="28" fill="rgba(255,255,255,.28)"/>
-          <circle cx="750" cy="505" r="28" fill="rgba(255,255,255,.28)"/>
-          <path d="M420 570 C500 530 700 530 780 570" fill="none" stroke="rgba(255,255,255,.62)" stroke-width="13" stroke-linecap="round"/>
-        </g>`;
-
-      return `
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" aria-hidden="true">
-        <defs>
-          <linearGradient id="g${title.length}" x1="0" x2="1" y1="0" y2="1">
-            <stop stop-color="${c1}" offset="0"/>
-            <stop stop-color="${c2}" offset=".58"/>
-            <stop stop-color="${c3}" offset="1"/>
-          </linearGradient>
-          <radialGradient id="r${title.length}" cx="30%" cy="20%" r="70%">
-            <stop stop-color="white" stop-opacity=".42"/>
-            <stop offset=".45" stop-color="white" stop-opacity=".06"/>
-            <stop offset="1" stop-color="black" stop-opacity=".25"/>
-          </radialGradient>
-          <filter id="shadow${title.length}" x="-20%" y="-20%" width="140%" height="140%">
-            <feDropShadow dx="0" dy="24" stdDeviation="22" flood-color="#000" flood-opacity=".32"/>
-          </filter>
-        </defs>
-        <rect width="1200" height="760" fill="url(#g${title.length})"/>
-        <rect width="1200" height="760" fill="url(#r${title.length})"/>
-        <g opacity=".16">
-          <path d="M0 610 C190 520 330 670 520 585 C710 500 820 600 1200 485 L1200 760 L0 760Z" fill="#fff"/>
-          <path d="M0 120 H1200 M0 240 H1200 M0 360 H1200 M0 480 H1200 M0 600 H1200 M120 0 V760 M240 0 V760 M360 0 V760 M480 0 V760 M600 0 V760 M720 0 V760 M840 0 V760 M960 0 V760 M1080 0 V760" stroke="#fff" stroke-width="3"/>
-        </g>
-        <g filter="url(#shadow${title.length})">
-          <rect x="95" y="95" width="1010" height="570" rx="60" fill="rgba(5,10,25,.35)" stroke="rgba(255,255,255,.40)" stroke-width="5"/>
-          <circle cx="600" cy="285" r="118" fill="rgba(255,255,255,.17)" stroke="rgba(255,255,255,.55)" stroke-width="6"/>
-          <text x="600" y="328" text-anchor="middle" font-size="140" font-family="Arial, sans-serif">${icon}</text>
-          ${extra}
-          <text x="600" y="655" text-anchor="middle" font-size="74" fill="#fff" font-weight="900" font-family="Arial, sans-serif">${title}</text>
-        </g>
-      </svg>`;
+    function closeDrawer(){
+      drawer.classList.remove("open");
+      overlay.classList.remove("open");
+      drawer.setAttribute("aria-hidden", "true");
     }
 
-    document.querySelectorAll(".preview").forEach(preview => {
-      const card = preview.closest(".detail-card");
-      const svg = makeVisual(preview.dataset.title, card.dataset.icon, card.dataset.colors, card.id === "terras");
-      preview.innerHTML = svg;
-      preview.addEventListener("click", () => openModal(preview.dataset.title, preview.dataset.text, svg));
+    document.querySelectorAll(".time-row").forEach(row => {
+      row.addEventListener("click", () => openDrawer(row));
     });
 
-    const packKey = "missionHeadquartersPacklist";
+    document.getElementById("drawerClose").addEventListener("click", closeDrawer);
+    document.getElementById("drawerClose2").addEventListener("click", closeDrawer);
+    overlay.addEventListener("click", closeDrawer);
+
+    document.addEventListener("keydown", (event) => {
+      if(event.key === "Escape") closeDrawer();
+    });
+
+    const packKey = "missionHQPacklistMVW";
     const saved = JSON.parse(localStorage.getItem(packKey) || "[]");
     const items = document.querySelectorAll("#packlist li");
 
@@ -1258,89 +1464,16 @@
     items.forEach((item, index) => {
       if(saved.includes(index)) setDone(item, true);
       item.addEventListener("click", () => {
-        const isDone = item.classList.toggle("done");
-        item.querySelector("i").className = isDone ? "fa-solid fa-circle-check" : "fa-regular fa-circle";
+        setDone(item, !item.classList.contains("done"));
         const active = [...items].map((li, i) => li.classList.contains("done") ? i : null).filter(i => i !== null);
         localStorage.setItem(packKey, JSON.stringify(active));
       });
     });
 
     document.querySelectorAll(".faq-q").forEach(btn => {
-      btn.addEventListener("click", () => btn.parentElement.classList.toggle("open"));
-    });
-
-    const timelineRows = document.querySelectorAll(".time-row[data-title]");
-    const slidePanel = document.getElementById("slidePanel");
-    const slideClose = document.getElementById("slideClose");
-    const slideTime = document.getElementById("slideTime");
-    const slideTitle = document.getElementById("slideTitle");
-    const slideText = document.getElementById("slideText");
-    const slideMore = document.getElementById("slideMore");
-    const slidePreview = document.getElementById("slidePreview");
-
-    let currentPreview = {
-      title: "Aankomst & omkleden",
-      text: "Start van de dag",
-      svg: makeVisual("Aankomst & omkleden", "🏁", "#0ea5e9,#1e3a8a,#020617")
-    };
-
-    function openSlide(row){
-      timelineRows.forEach(r => r.classList.remove("active"));
-      row.classList.add("active");
-      slideTime.innerHTML = `<i class="fa-solid fa-clock"></i> ${row.dataset.time}`;
-      slideTitle.textContent = row.dataset.title;
-      slideText.textContent = row.dataset.detail;
-      slideMore.href = row.dataset.target;
-
-      currentPreview = {
-        title: row.dataset.title,
-        text: "Mission preview",
-        svg: makeVisual(row.dataset.title, row.dataset.icon, row.dataset.colors, row.dataset.target === "#terras")
-      };
-
-      slidePanel.classList.add("open");
-    }
-
-    timelineRows.forEach(row => {
-      row.addEventListener("click", event => {
-        if(event.target.closest("a.more")) return;
-        openSlide(row);
+      btn.addEventListener("click", () => {
+        btn.parentElement.classList.toggle("open");
       });
-    });
-
-    slideClose.addEventListener("click", () => slidePanel.classList.remove("open"));
-    slidePreview.addEventListener("click", () => openModal(currentPreview.title, currentPreview.text, currentPreview.svg));
-
-    const modal = document.getElementById("modal");
-    const modalClose = document.getElementById("modalClose");
-    const modalVisual = document.getElementById("modalVisual");
-    const modalTitle = document.getElementById("modalTitle");
-    const modalText = document.getElementById("modalText");
-
-    function openModal(title, text, svg){
-      modalTitle.textContent = title;
-      modalText.textContent = text;
-      modalVisual.innerHTML = svg;
-      modal.classList.add("open");
-      modal.setAttribute("aria-hidden", "false");
-    }
-
-    function closeModal(){
-      modal.classList.remove("open");
-      modal.setAttribute("aria-hidden", "true");
-      modalVisual.innerHTML = "";
-    }
-
-    modalClose.addEventListener("click", closeModal);
-    modal.addEventListener("click", event => {
-      if(event.target === modal) closeModal();
-    });
-
-    document.addEventListener("keydown", event => {
-      if(event.key === "Escape"){
-        slidePanel.classList.remove("open");
-        closeModal();
-      }
     });
   </script>
 </body>
