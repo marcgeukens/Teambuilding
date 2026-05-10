@@ -1,6 +1,4 @@
-from pathlib import Path
-
-html = r"""<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="nl">
 <head>
   <meta charset="UTF-8" />
@@ -10,49 +8,53 @@ html = r"""<!DOCTYPE html>
 
   <style>
     :root{
-      --navy:#1b2d63;
-      --navy-dark:#101b3d;
-      --teal:#118899;
-      --teal-dark:#0d6675;
-      --gold:#f5b51d;
-      --paper:#f3f6fb;
-      --white:#fff;
-      --ink:#071331;
-      --muted:#5a6680;
-      --line:rgba(7,19,49,.13);
-      --shadow:0 28px 70px rgba(7,19,49,.16);
+      --bg:#eef3f8;
+      --ink:#102044;
+      --navy:#1e316b;
+      --navy2:#172553;
+      --teal:#128b9a;
+      --teal2:#0f7180;
+      --yellow:#f7bd1f;
+      --coral:#ff6f61;
+      --mint:#80d6c8;
+      --white:#ffffff;
+      --muted:#60708d;
+      --line:rgba(16,32,68,.13);
+      --shadow:0 24px 70px rgba(16,32,68,.13);
+      --radius:26px;
     }
 
     *{box-sizing:border-box}
-
     html{scroll-behavior:smooth}
 
     body{
       margin:0;
-      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color:var(--ink);
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        linear-gradient(90deg, rgba(27,45,99,.045) 1px, transparent 1px),
-        linear-gradient(rgba(27,45,99,.045) 1px, transparent 1px),
-        var(--paper);
-      background-size:56px 56px;
+        linear-gradient(90deg, rgba(30,49,107,.055) 1px, transparent 1px),
+        linear-gradient(rgba(30,49,107,.055) 1px, transparent 1px),
+        radial-gradient(circle at 12% 7%, rgba(247,189,31,.20), transparent 26%),
+        radial-gradient(circle at 88% 12%, rgba(18,139,154,.18), transparent 25%),
+        var(--bg);
+      background-size:54px 54px,54px 54px,auto,auto,auto;
       overflow-x:hidden;
     }
 
-    .wrap{
-      width:min(1480px,100%);
-      margin:0;
-      padding-left:clamp(22px,5vw,92px);
-      padding-right:clamp(18px,3vw,54px);
+    a{color:inherit}
+
+    .page{
+      width:min(1360px, calc(100% - 44px));
+      margin-inline:auto;
     }
 
     nav{
       position:sticky;
       top:0;
       z-index:50;
-      background:rgba(243,246,251,.9);
+      background:rgba(238,243,248,.84);
       backdrop-filter:blur(18px);
-      border-bottom:1px solid rgba(7,19,49,.08);
+      border-bottom:1px solid rgba(16,32,68,.09);
     }
 
     .nav-inner{
@@ -60,44 +62,46 @@ html = r"""<!DOCTYPE html>
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:24px;
+      gap:20px;
     }
 
     .brand{
       display:flex;
       align-items:center;
-      gap:13px;
+      gap:12px;
       font-weight:950;
-      color:var(--navy-dark);
       letter-spacing:-.04em;
       white-space:nowrap;
     }
 
-    .brand-icon{
-      width:46px;
-      height:46px;
+    .brand-mark{
+      width:48px;
+      height:48px;
+      border-radius:18px;
       display:grid;
       place-items:center;
-      background:var(--gold);
-      color:var(--navy-dark);
-      box-shadow:10px 10px 0 rgba(17,136,153,.16);
+      background:var(--yellow);
+      color:var(--navy2);
+      box-shadow:9px 9px 0 rgba(18,139,154,.18);
+      transform:rotate(-2deg);
     }
 
     .nav-links{
       display:flex;
-      gap:8px;
       flex-wrap:wrap;
       justify-content:flex-end;
+      gap:7px;
     }
 
     .nav-links a{
       text-decoration:none;
-      color:#293551;
-      font-size:.86rem;
-      font-weight:900;
-      letter-spacing:.03em;
+      padding:9px 12px;
+      border-radius:999px;
+      color:#2c3b5e;
       text-transform:uppercase;
-      padding:10px 12px;
+      letter-spacing:.045em;
+      font-size:.78rem;
+      font-weight:950;
     }
 
     .nav-links a:hover{
@@ -106,255 +110,333 @@ html = r"""<!DOCTYPE html>
     }
 
     header{
-      padding-top:74px;
-      padding-bottom:64px;
+      padding:54px 0 34px;
     }
 
     .hero{
       display:grid;
-      grid-template-columns:minmax(0,1.42fr) minmax(400px,.78fr);
-      min-height:620px;
+      grid-template-columns:minmax(0, 1.15fr) minmax(330px,.85fr);
+      gap:22px;
       align-items:stretch;
     }
 
-    .hero-main{
-      background:var(--navy);
-      color:white;
-      padding:clamp(42px,6vw,86px);
-      display:flex;
-      align-items:center;
-      position:relative;
+    .hero-main,
+    .hero-side{
+      border-radius:36px;
+      box-shadow:var(--shadow);
       overflow:hidden;
+      position:relative;
+      min-height:560px;
     }
 
-    .hero-main::after{
-      content:"";
-      position:absolute;
-      inset:0;
+    .hero-main{
       background:
         linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px),
-        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px);
-      background-size:56px 56px;
-      opacity:.55;
-      pointer-events:none;
+        linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+        linear-gradient(135deg,var(--navy),var(--navy2));
+      background-size:48px 48px,48px 48px,auto;
+      color:white;
+      padding:clamp(34px,5vw,68px);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
     }
 
-    .hero-content{
-      position:relative;
-      z-index:2;
-      max-width:950px;
-    }
-
-    .eyebrow{
-      color:#dbe5ff;
+    .label{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      width:max-content;
+      padding:9px 13px;
+      border-radius:999px;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.18);
+      color:#dfe8ff;
       text-transform:uppercase;
-      letter-spacing:.42em;
-      font-size:.88rem;
-      font-weight:700;
-      margin-bottom:44px;
+      font-size:.76rem;
+      letter-spacing:.2em;
+      font-weight:900;
+    }
+
+    .label-dot{
+      width:9px;
+      height:9px;
+      border-radius:50%;
+      background:var(--yellow);
+      box-shadow:0 0 0 7px rgba(247,189,31,.15);
     }
 
     h1{
-      margin:0;
-      font-size:clamp(4.2rem,8.7vw,9.3rem);
-      line-height:.82;
-      letter-spacing:-.086em;
+      margin:34px 0 0;
+      max-width:780px;
+      font-size:clamp(3.6rem,7.2vw,7.8rem);
+      line-height:.86;
+      letter-spacing:-.09em;
     }
 
-    .subtitle{
-      margin-top:22px;
-      padding-left:34px;
-      border-left:11px solid var(--gold);
-      color:#dce6ff;
-      font-size:clamp(2rem,4.8vw,5.1rem);
+    .hero-sub{
+      margin-top:24px;
+      display:flex;
+      align-items:flex-start;
+      gap:20px;
+      color:#dbe5ff;
+      font-size:clamp(1.9rem,3.6vw,4.1rem);
+      line-height:.98;
+      letter-spacing:-.065em;
       font-weight:300;
-      line-height:1;
-      letter-spacing:-.058em;
     }
 
-    .tagline{
-      margin:34px 0 0 48px;
-      color:var(--gold);
-      font-size:clamp(1rem,1.7vw,1.34rem);
+    .goldbar{
+      flex:0 0 9px;
+      height:82px;
+      background:var(--yellow);
+      margin-top:4px;
+      border-radius:999px;
+    }
+
+    .hero-kicker{
+      margin:24px 0 0 29px;
+      color:var(--yellow);
+      font-size:clamp(1rem,1.6vw,1.25rem);
       font-style:italic;
-      font-weight:700;
+      font-weight:850;
     }
 
     .hero-actions{
       display:flex;
       flex-wrap:wrap;
-      gap:10px;
-      margin:34px 0 0 48px;
+      gap:11px;
+      margin:34px 0 0 29px;
     }
 
-    .hero-actions a{
-      text-decoration:none;
-      text-transform:uppercase;
-      letter-spacing:.045em;
-      font-size:.8rem;
-      font-weight:950;
-      padding:12px 14px;
-      background:rgba(255,255,255,.09);
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+      min-height:48px;
+      padding:0 15px;
+      border-radius:15px;
       border:1px solid rgba(255,255,255,.18);
+      text-decoration:none;
       color:white;
+      background:rgba(255,255,255,.10);
+      font-weight:950;
+      font-size:.86rem;
       transition:.16s transform,.16s background,.16s color;
     }
 
-    .hero-actions a.primary{
-      background:var(--gold);
-      color:var(--navy-dark);
-      border-color:var(--gold);
+    .btn.primary{
+      color:var(--navy2);
+      background:var(--yellow);
+      border-color:var(--yellow);
     }
 
-    .hero-actions a:hover{
+    .btn:hover{
       transform:translateY(-2px);
       background:white;
-      color:var(--navy-dark);
+      color:var(--navy2);
+    }
+
+    .floating-card{
+      position:absolute;
+      right:34px;
+      top:34px;
+      width:120px;
+      height:120px;
+      border-radius:34px;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.14);
+      display:grid;
+      place-items:center;
+      transform:rotate(8deg);
+      font-size:3.4rem;
     }
 
     .hero-side{
       display:grid;
-      grid-template-columns:92px 1fr;
-      background:var(--teal);
+      grid-template-rows:auto 1fr;
+      background:white;
+    }
+
+    .side-top{
+      background:
+        radial-gradient(circle at 18% 24%, rgba(255,255,255,.34), transparent 15%),
+        linear-gradient(135deg,var(--teal),var(--teal2));
       color:white;
+      padding:30px;
+      min-height:255px;
+      position:relative;
+      overflow:hidden;
     }
 
-    .side-strip{
-      background:var(--teal-dark);
+    .side-top::after{
+      content:"";
+      position:absolute;
+      width:210px;
+      height:210px;
+      border-radius:50%;
+      border:2px solid rgba(255,255,255,.23);
+      right:-74px;
+      top:-78px;
     }
 
-    .side-content{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:38px;
-      text-align:center;
-    }
-
-    .side-card{
-      width:min(430px,100%);
-    }
-
-    .side-card h2{
+    .side-title{
+      position:relative;
+      z-index:2;
       margin:0;
-      font-size:clamp(2.1rem,3.2vw,3.5rem);
-      line-height:1.18;
-      letter-spacing:-.055em;
+      font-size:clamp(2.2rem,4.2vw,4rem);
+      line-height:1.05;
+      letter-spacing:-.075em;
     }
 
-    .side-card p{
-      margin:24px auto 0;
-      color:#e6fbff;
-      max-width:360px;
-      line-height:1.65;
-      font-size:1.04rem;
+    .side-bottom{
+      padding:30px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:24px;
+    }
+
+    .side-text{
+      color:var(--muted);
+      line-height:1.7;
+      font-size:1.05rem;
+      max-width:460px;
     }
 
     .side-links{
       display:grid;
       grid-template-columns:repeat(3,1fr);
       gap:10px;
-      margin-top:32px;
     }
 
     .side-links a{
+      text-align:center;
       text-decoration:none;
-      background:rgba(8,19,49,.34);
-      border:1px solid rgba(255,255,255,.2);
-      color:white;
-      padding:13px 8px;
-      font-size:.78rem;
-      text-transform:uppercase;
-      letter-spacing:.055em;
+      background:#edf4f7;
+      border:1px solid var(--line);
+      padding:12px 8px;
+      border-radius:14px;
       font-weight:950;
+      color:var(--navy);
+      text-transform:uppercase;
+      letter-spacing:.04em;
+      font-size:.78rem;
       transition:.16s transform,.16s background,.16s color;
     }
 
     .side-links a:hover{
       transform:translateY(-2px);
-      background:var(--gold);
-      color:var(--navy-dark);
+      background:var(--yellow);
+      color:var(--navy2);
     }
 
+    .quick{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+    }
+
+    .quick-item{
+      background:#f6f9fc;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+    }
+
+    .quick-item i{color:var(--teal); margin-bottom:7px}
+    .quick-item b{display:block;color:var(--navy)}
+    .quick-item span{display:block;color:var(--muted);font-size:.86rem;margin-top:3px}
+
     section{
-      padding:54px 0;
+      padding:58px 0;
       scroll-margin-top:96px;
     }
 
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:24px;
+      margin-bottom:24px;
+    }
+
     .section-title{
-      display:grid;
-      grid-template-columns:14px minmax(0,1fr);
+      display:flex;
+      align-items:flex-start;
       gap:18px;
-      align-items:start;
-      margin-bottom:28px;
     }
 
     .section-title::before{
       content:"";
-      width:10px;
-      height:84px;
-      background:var(--gold);
-      margin-top:7px;
+      width:9px;
+      height:72px;
+      flex:0 0 9px;
+      border-radius:999px;
+      background:var(--yellow);
+      margin-top:6px;
     }
 
-    .section-title h2{
+    h2{
       margin:0;
-      color:var(--navy);
-      font-size:clamp(2.7rem,5.8vw,6rem);
+      font-size:clamp(2.4rem,5vw,5.3rem);
       line-height:.9;
       letter-spacing:-.08em;
+      color:var(--navy);
     }
 
-    .section-title p{
-      margin:14px 0 0;
-      max-width:760px;
+    .section-note{
+      margin:8px 0 0;
+      max-width:690px;
       color:var(--muted);
-      font-size:1.05rem;
       line-height:1.65;
+      font-size:1.03rem;
     }
 
-    .grid-3{
+    .cards{
       display:grid;
       grid-template-columns:repeat(3,minmax(0,1fr));
       gap:16px;
-      max-width:1280px;
     }
 
     .card{
-      position:relative;
-      overflow:hidden;
       background:white;
       border:1px solid var(--line);
-      box-shadow:0 18px 42px rgba(7,19,49,.07);
-      padding:28px;
-      min-height:245px;
+      border-radius:var(--radius);
+      padding:26px;
+      box-shadow:0 18px 42px rgba(16,32,68,.08);
+      position:relative;
+      overflow:hidden;
     }
 
     .card::before{
       content:"";
       position:absolute;
-      top:0;
-      left:0;
+      inset:0 0 auto;
       height:8px;
-      width:100%;
-      background:linear-gradient(90deg,var(--gold),var(--teal));
+      background:linear-gradient(90deg,var(--yellow),var(--teal),var(--coral));
     }
 
-    .card-icon{
-      width:54px;
-      height:54px;
+    .icon{
+      width:58px;
+      height:58px;
+      border-radius:20px;
       display:grid;
       place-items:center;
-      background:var(--navy);
       color:white;
+      background:var(--navy);
       margin-bottom:20px;
-      box-shadow:8px 8px 0 rgba(17,136,153,.16);
+      box-shadow:8px 8px 0 rgba(18,139,154,.14);
     }
 
+    .card:nth-child(2) .icon{background:var(--teal); box-shadow:8px 8px 0 rgba(247,189,31,.18)}
+    .card:nth-child(3) .icon{background:var(--coral); box-shadow:8px 8px 0 rgba(30,49,107,.12)}
+
     .card h3{
-      margin:0 0 12px;
+      margin:0 0 10px;
       color:var(--navy);
-      font-size:1.65rem;
+      font-size:1.55rem;
       letter-spacing:-.05em;
     }
 
@@ -367,183 +449,200 @@ html = r"""<!DOCTYPE html>
     .values{
       display:grid;
       grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:12px;
-      max-width:1280px;
+      gap:14px;
     }
 
     .value{
-      background:var(--navy);
-      color:white;
+      border-radius:24px;
       padding:24px;
-      min-height:165px;
+      min-height:170px;
+      color:white;
+      background:var(--navy);
+      box-shadow:0 18px 42px rgba(16,32,68,.09);
+      position:relative;
+      overflow:hidden;
     }
 
-    .value:nth-child(even){
-      background:var(--teal);
+    .value:nth-child(2){background:var(--teal)}
+    .value:nth-child(3){background:var(--coral)}
+    .value:nth-child(4){background:#30487e}
+
+    .value::after{
+      content:"";
+      position:absolute;
+      width:98px;
+      height:98px;
+      border-radius:50%;
+      background:rgba(255,255,255,.12);
+      right:-28px;
+      bottom:-34px;
     }
 
     .value b{
+      position:relative;
+      z-index:2;
       display:block;
+      font-size:1.2rem;
       margin-bottom:10px;
-      font-size:1.22rem;
       letter-spacing:-.035em;
     }
 
     .value span{
+      position:relative;
+      z-index:2;
       display:block;
-      color:rgba(255,255,255,.82);
+      color:rgba(255,255,255,.84);
       line-height:1.55;
     }
 
     .timeline{
       display:grid;
-      gap:10px;
-      max-width:1280px;
+      gap:12px;
     }
 
     .time-row{
       display:grid;
-      grid-template-columns:110px minmax(0,1fr) auto;
-      gap:16px;
+      grid-template-columns:108px minmax(0,1fr) auto;
       align-items:center;
+      gap:16px;
+      padding:14px;
+      border-radius:22px;
       background:white;
       border:1px solid var(--line);
-      padding:16px;
-      box-shadow:0 14px 28px rgba(7,19,49,.055);
+      box-shadow:0 14px 30px rgba(16,32,68,.06);
       cursor:pointer;
-      transition:.16s transform,.16s border-color,.16s box-shadow;
+      transition:.16s transform,.16s box-shadow,.16s border-color;
     }
 
     .time-row:hover{
-      transform:translateX(8px);
-      border-color:rgba(17,136,153,.45);
-      box-shadow:0 18px 42px rgba(17,136,153,.11);
+      transform:translateX(7px);
+      border-color:rgba(18,139,154,.42);
+      box-shadow:0 18px 42px rgba(18,139,154,.12);
     }
 
     .time{
-      background:var(--gold);
-      color:var(--navy-dark);
-      text-align:center;
+      display:grid;
+      place-items:center;
+      min-height:54px;
+      border-radius:16px;
+      background:var(--yellow);
+      color:var(--navy2);
       font-weight:1000;
-      padding:13px 8px;
+      letter-spacing:-.02em;
     }
 
     .time-row h3{
       margin:0 0 3px;
       color:var(--navy);
-      font-size:1.18rem;
-      letter-spacing:-.04em;
+      font-size:1.14rem;
+      letter-spacing:-.035em;
     }
 
     .time-row p{
       margin:0;
       color:var(--muted);
+      line-height:1.42;
     }
 
-    .row-action{
+    .info-btn{
+      border:0;
+      border-radius:14px;
+      min-height:42px;
+      padding:0 14px;
       background:var(--navy);
       color:white;
-      border:0;
-      padding:11px 14px;
       font-weight:950;
-      text-transform:uppercase;
-      letter-spacing:.04em;
-      font-size:.78rem;
       cursor:pointer;
     }
 
-    .row-action:hover{
-      background:var(--teal);
-    }
+    .time-row:hover .info-btn{background:var(--teal)}
 
-    .practical{
+    .practical-grid{
       display:grid;
-      grid-template-columns:1.15fr .85fr;
-      gap:18px;
-      max-width:1280px;
+      grid-template-columns:1.1fr .9fr;
+      gap:16px;
     }
 
     .panel{
       background:white;
       border:1px solid var(--line);
-      padding:28px;
-      box-shadow:0 18px 42px rgba(7,19,49,.07);
+      border-radius:var(--radius);
+      box-shadow:0 18px 42px rgba(16,32,68,.08);
+      padding:26px;
     }
 
     .panel h3{
       margin:0 0 18px;
       color:var(--navy);
-      font-size:1.65rem;
-      letter-spacing:-.04em;
+      font-size:1.5rem;
+      letter-spacing:-.045em;
     }
 
     .checklist{
+      list-style:none;
+      margin:0;
+      padding:0;
       display:grid;
       gap:10px;
-      list-style:none;
-      padding:0;
-      margin:0;
     }
 
     .checklist li{
       display:flex;
       align-items:center;
-      gap:12px;
-      background:#f8fafc;
-      border:1px solid var(--line);
+      gap:11px;
       padding:13px;
-      color:#4f5c76;
+      border-radius:16px;
+      background:#f6f9fc;
+      border:1px solid var(--line);
+      color:#52627e;
       cursor:pointer;
       user-select:none;
     }
 
     .checklist li.done{
-      background:#e8f7f9;
+      background:#eaf7f6;
+      border-color:rgba(18,139,154,.28);
       color:var(--navy);
-      border-color:rgba(17,136,153,.28);
       font-weight:800;
     }
 
-    .checklist i{
-      color:var(--teal);
-      width:20px;
-    }
+    .checklist i{color:var(--teal); width:20px}
 
     .price{
-      margin:8px 0 18px;
-      color:var(--teal);
-      font-size:clamp(2.7rem,5vw,5rem);
+      font-size:clamp(2.6rem,4.6vw,4.8rem);
       line-height:.9;
       letter-spacing:-.08em;
       font-weight:1000;
+      color:var(--teal);
+      margin:4px 0 16px;
     }
 
     .faq{
       display:grid;
       gap:10px;
-      max-width:980px;
+      max-width:960px;
     }
 
     .faq-item{
+      border-radius:20px;
+      overflow:hidden;
       background:white;
       border:1px solid var(--line);
-      box-shadow:0 10px 24px rgba(7,19,49,.05);
-      overflow:hidden;
+      box-shadow:0 12px 28px rgba(16,32,68,.055);
     }
 
     .faq-q{
       width:100%;
-      padding:18px 20px;
       border:0;
       background:white;
-      color:var(--navy);
       display:flex;
-      justify-content:space-between;
-      gap:16px;
       align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:18px 20px;
+      color:var(--navy);
       font-weight:950;
       text-align:left;
-      font-size:1rem;
       cursor:pointer;
     }
 
@@ -551,7 +650,7 @@ html = r"""<!DOCTYPE html>
       display:none;
       padding:0 20px 18px;
       color:var(--muted);
-      line-height:1.65;
+      line-height:1.6;
     }
 
     .faq-item.open .faq-a{display:block}
@@ -559,14 +658,16 @@ html = r"""<!DOCTYPE html>
 
     .drawer{
       position:fixed;
-      right:28px;
-      top:98px;
-      width:min(430px,calc(100vw - 44px));
+      right:24px;
+      top:96px;
+      width:min(420px,calc(100vw - 36px));
+      z-index:120;
       background:white;
       border:1px solid var(--line);
+      border-radius:30px;
+      overflow:hidden;
       box-shadow:var(--shadow);
-      z-index:120;
-      transform:translateX(calc(100% + 48px));
+      transform:translateX(calc(100% + 40px));
       opacity:0;
       pointer-events:none;
       transition:.26s ease;
@@ -578,305 +679,268 @@ html = r"""<!DOCTYPE html>
       pointer-events:auto;
     }
 
-    .drawer-head{
-      background:var(--teal);
-      color:white;
+    .drawer-top{
+      min-height:120px;
       padding:22px;
-      min-height:116px;
+      color:white;
+      background:linear-gradient(135deg,var(--teal),var(--navy));
       position:relative;
       overflow:hidden;
     }
 
-    .drawer-head::after{
+    .drawer-top::after{
       content:"";
       position:absolute;
-      right:24px;
-      bottom:-28px;
-      width:74px;
-      height:74px;
-      background:var(--gold);
+      width:120px;
+      height:120px;
       border-radius:50%;
-      box-shadow:-26px -22px 0 rgba(255,255,255,.16);
+      right:-30px;
+      bottom:-42px;
+      background:var(--yellow);
     }
 
     .drawer-time{
       display:inline-flex;
       align-items:center;
       gap:8px;
-      background:var(--navy-dark);
-      color:var(--gold);
+      border-radius:999px;
+      background:rgba(16,32,68,.75);
+      color:var(--yellow);
       padding:8px 11px;
       font-weight:950;
     }
 
-    .drawer-body{
-      padding:30px 22px 22px;
+    .drawer-close{
+      position:absolute;
+      z-index:2;
+      right:14px;
+      top:14px;
+      width:40px;
+      height:40px;
+      border:0;
+      border-radius:15px;
+      background:rgba(16,32,68,.74);
+      color:white;
+      cursor:pointer;
     }
 
-    .drawer h3{
+    .drawer-body{
+      padding:24px;
+    }
+
+    .drawer-body h3{
       margin:0 0 10px;
       color:var(--navy);
-      font-size:1.7rem;
-      letter-spacing:-.05em;
+      font-size:1.65rem;
+      letter-spacing:-.055em;
     }
 
-    .drawer p{
+    .drawer-body p{
       margin:0;
       color:var(--muted);
       line-height:1.65;
     }
 
-    .drawer-close{
-      position:absolute;
-      top:14px;
-      right:14px;
-      z-index:2;
-      width:40px;
-      height:40px;
-      border:0;
-      background:rgba(8,19,49,.82);
-      color:white;
-      cursor:pointer;
-    }
-
     footer{
-      margin-top:56px;
-      background:var(--navy-dark);
-      color:#dbe5ff;
-      padding:40px 0;
+      margin-top:52px;
+      background:var(--navy2);
+      color:#dfe8ff;
+      padding:38px 0;
     }
 
-    @media(max-width:980px){
-      .hero{
-        grid-template-columns:1fr;
-        min-height:auto;
-      }
-
-      .hero-side{
-        grid-template-columns:54px 1fr;
-        min-height:410px;
-      }
-
-      .grid-3,
+    @media(max-width:1060px){
+      .hero,
+      .cards,
       .values,
-      .practical{
+      .practical-grid{
         grid-template-columns:1fr;
       }
 
-      .value{
+      .hero-main,
+      .hero-side{
         min-height:auto;
+      }
+
+      .quick{
+        grid-template-columns:1fr;
       }
     }
 
     @media(max-width:720px){
-      .wrap{
-        padding-left:16px;
-        padding-right:16px;
-      }
-
+      .page{width:min(100% - 30px,1360px)}
       .nav-inner{
         align-items:flex-start;
         flex-direction:column;
         padding:12px 0;
       }
-
-      .nav-links{
-        justify-content:flex-start;
-      }
-
-      header{
-        padding-top:34px;
-      }
-
-      .hero-main{
-        padding:34px 24px;
-        min-height:520px;
-      }
-
-      .eyebrow{
-        letter-spacing:.24em;
-        margin-bottom:30px;
-      }
-
-      .subtitle{
-        padding-left:18px;
-        border-left-width:8px;
-      }
-
-      .tagline,
-      .hero-actions{
-        margin-left:26px;
-      }
-
-      .side-links{
-        grid-template-columns:1fr;
-      }
-
-      .time-row{
-        grid-template-columns:84px minmax(0,1fr);
-      }
-
-      .row-action{
-        grid-column:1/-1;
-      }
-
+      .nav-links{justify-content:flex-start}
+      header{padding-top:32px}
+      .hero-main{padding:30px 22px}
+      .floating-card{display:none}
+      h1{font-size:clamp(3.25rem,18vw,5.2rem)}
+      .hero-sub{gap:14px}
+      .goldbar{height:60px}
+      .hero-kicker,.hero-actions{margin-left:23px}
+      .side-links{grid-template-columns:1fr}
+      .section-head{display:block}
+      .time-row{grid-template-columns:82px minmax(0,1fr)}
+      .info-btn{grid-column:1/-1}
       .drawer{
         top:auto;
-        bottom:12px;
-        left:12px;
         right:12px;
+        left:12px;
+        bottom:12px;
         width:auto;
-        transform:translateY(calc(100% + 30px));
+        transform:translateY(calc(100% + 32px));
       }
-
-      .drawer.open{
-        transform:translateY(0);
-      }
+      .drawer.open{transform:translateY(0)}
     }
   </style>
 </head>
 
 <body>
   <nav>
-    <div class="wrap nav-inner">
+    <div class="page nav-inner">
       <div class="brand">
-        <div class="brand-icon"><i class="fa-solid fa-bolt"></i></div>
-        Teambuilding Heverlee
+        <div class="brand-mark"><i class="fa-solid fa-bolt"></i></div>
+        <span>Teambuilding Heverlee</span>
       </div>
       <div class="nav-links">
         <a href="#kompas">Missie</a>
-        <a href="#waardenblok">Waarden</a>
+        <a href="#waarden">Waarden</a>
         <a href="#programma">Programma</a>
         <a href="#praktisch">Praktisch</a>
       </div>
     </div>
   </nav>
 
-  <header class="wrap">
+  <header class="page">
     <div class="hero">
       <div class="hero-main">
-        <div class="hero-content">
-          <div class="eyebrow">Vrijdag 17 juli 2026</div>
-          <h1>Teambuilding<br>Heverlee</h1>
-          <div class="subtitle">missie, visie & waarden</div>
-          <p class="tagline">Actief. Ontspannen. Samen op pad.</p>
-          <div class="hero-actions">
-            <a class="primary" href="#programma"><i class="fa-solid fa-calendar-days"></i> Programma</a>
-            <a href="#kompas"><i class="fa-solid fa-compass"></i> Missie & visie</a>
-            <a href="#praktisch"><i class="fa-solid fa-list-check"></i> Praktisch</a>
-          </div>
+        <div class="floating-card">🏐</div>
+        <div class="label"><span class="label-dot"></span> Vrijdag 17 juli 2026</div>
+        <h1>Teambuilding<br>Heverlee</h1>
+        <div class="hero-sub">
+          <span class="goldbar"></span>
+          <span>missie, visie<br>& waarden</span>
+        </div>
+        <div class="hero-kicker">Actief. Ontspannen. Samen op pad.</div>
+        <div class="hero-actions">
+          <a class="btn primary" href="#programma"><i class="fa-solid fa-calendar-days"></i> Programma</a>
+          <a class="btn" href="#kompas"><i class="fa-solid fa-compass"></i> Missie & visie</a>
+          <a class="btn" href="#praktisch"><i class="fa-solid fa-list-check"></i> Praktisch</a>
         </div>
       </div>
 
-      <div class="hero-side">
-        <div class="side-strip"></div>
-        <div class="side-content">
-          <div class="side-card">
-            <h2>Visie<br>Actieve ploeg.<br>Ontspannen sfeer.</h2>
-            <p>Een dag waarop iedereen even uit de dagelijkse rol stapt, samen beweegt, lacht en rustig afsluit.</p>
+      <aside class="hero-side">
+        <div class="side-top">
+          <h2 class="side-title">Visie<br>Actieve ploeg.<br>Ontspannen sfeer.</h2>
+        </div>
+        <div class="side-bottom">
+          <div>
+            <p class="side-text">Een dag waarop iedereen even uit de dagelijkse rol stapt, samen beweegt, lacht en rustig afsluit.</p>
             <div class="side-links">
               <a href="#missie">Missie</a>
               <a href="#visie">Visie</a>
-              <a href="#waardenblok">Waarden</a>
+              <a href="#waarden">Waarden</a>
             </div>
           </div>
+          <div class="quick">
+            <div class="quick-item"><i class="fa-solid fa-location-dot"></i><b>Locatie</b><span>Sportkot KU Leuven</span></div>
+            <div class="quick-item"><i class="fa-solid fa-shirt"></i><b>Kledij</b><span>Sportief</span></div>
+            <div class="quick-item"><i class="fa-solid fa-euro-sign"></i><b>Richtprijs</b><span>± €55–€75</span></div>
+          </div>
         </div>
-      </div>
+      </aside>
     </div>
   </header>
 
   <main>
-    <section id="kompas" class="wrap">
-      <div class="section-title">
-        <div>
-          <h2>Missie & visie</h2>
-          <p>Een heldere dagopbouw: samen starten, actief bezig zijn, genoeg ruimte laten voor pauze en eindigen in een ontspannen sfeer.</p>
+    <section id="kompas" class="page">
+      <div class="section-head">
+        <div class="section-title">
+          <div>
+            <h2>Missie & visie</h2>
+            <p class="section-note">Heldere opbouw, actieve blokken, voldoende pauze en een losse afsluiter. Niet te zwaar, wel goed georganiseerd.</p>
+          </div>
         </div>
       </div>
 
-      <div class="grid-3">
+      <div class="cards">
         <article class="card" id="missie">
-          <div class="card-icon"><i class="fa-solid fa-bullseye"></i></div>
+          <div class="icon"><i class="fa-solid fa-bullseye"></i></div>
           <h3>Missie</h3>
-          <p>De ploeg samenbrengen buiten de dagelijkse context, met sportieve en laagdrempelige activiteiten die zorgen voor verbinding en ontspanning.</p>
+          <p>De ploeg samenbrengen buiten de dagelijkse context, met activiteiten die voor verbinding, beweging en ontspanning zorgen.</p>
         </article>
 
         <article class="card" id="visie">
-          <div class="card-icon"><i class="fa-solid fa-eye"></i></div>
+          <div class="icon"><i class="fa-solid fa-eye"></i></div>
           <h3>Visie</h3>
-          <p>Een teambuilding die professioneel oogt, praktisch duidelijk is en tegelijk luchtig genoeg blijft om echt als vrije groepsdag aan te voelen.</p>
+          <p>Een teambuilding die professioneel oogt, praktisch duidelijk is en tegelijk luchtig genoeg blijft om echt vrij aan te voelen.</p>
         </article>
 
         <article class="card">
-          <div class="card-icon"><i class="fa-solid fa-route"></i></div>
+          <div class="icon"><i class="fa-solid fa-route"></i></div>
           <h3>Aanpak</h3>
-          <p>Een actieve voormiddag, een eenvoudige lunch, een groepsactiviteit in de namiddag en daarna een rustige afsluiter met frietjes en eventueel een terrasje.</p>
+          <p>Een actieve voormiddag, eenvoudige lunch, groepsactiviteit in de namiddag en daarna rustig afronden.</p>
         </article>
       </div>
     </section>
 
-    <section id="waardenblok" class="wrap">
-      <div class="section-title">
-        <div>
-          <h2>Waarden</h2>
-          <p>De toon van de dag: sportief, eenvoudig, ontspannen en inclusief.</p>
+    <section id="waarden" class="page">
+      <div class="section-head">
+        <div class="section-title">
+          <div>
+            <h2>Waarden</h2>
+            <p class="section-note">De toon van de dag: sportief, toegankelijk, helder en gezellig.</p>
+          </div>
         </div>
       </div>
 
       <div class="values">
-        <div class="value">
-          <b>Laagdrempelig</b>
-          <span>Iedereen kan meedoen op zijn of haar niveau.</span>
-        </div>
-        <div class="value">
-          <b>Samen</b>
-          <span>Groepsgevoel staat centraal, niet de uitslag.</span>
-        </div>
-        <div class="value">
-          <b>Ontspannen</b>
-          <span>Geen vergaderdruk, geen zware omkadering.</span>
-        </div>
-        <div class="value">
-          <b>Duidelijk</b>
-          <span>Een strak programma met genoeg ademruimte.</span>
-        </div>
+        <div class="value"><b>Laagdrempelig</b><span>Iedereen kan meedoen op zijn of haar niveau.</span></div>
+        <div class="value"><b>Samen</b><span>Groepsgevoel staat centraal, niet de uitslag.</span></div>
+        <div class="value"><b>Ontspannen</b><span>Geen vergaderdruk, wel ruimte om te lachen.</span></div>
+        <div class="value"><b>Duidelijk</b><span>Een strak programma met genoeg ademruimte.</span></div>
       </div>
     </section>
 
-    <section id="vuca" class="wrap">
-      <div class="section-title">
-        <div>
-          <h2>VUCA / BANI</h2>
-          <p>Een lichte knipoog naar managementtaal: groepsactiviteiten zijn soms wat onvoorspelbaar, maar net daarom werken ze verbindend.</p>
+    <section id="vuca" class="page">
+      <div class="section-head">
+        <div class="section-title">
+          <div>
+            <h2>VUCA / BANI</h2>
+            <p class="section-note">Een lichte managementknipoog: groepsactiviteiten zijn soms onvoorspelbaar, maar net dat maakt ze plezant.</p>
+          </div>
         </div>
       </div>
 
-      <div class="grid-3">
+      <div class="cards">
         <article class="card">
-          <div class="card-icon"><i class="fa-solid fa-wind"></i></div>
+          <div class="icon"><i class="fa-solid fa-wind"></i></div>
           <h3>VUCA</h3>
-          <p>Het weer, de groepsenergie en het spelverloop zijn nooit helemaal voorspelbaar. Een duidelijk programma houdt de dag toch overzichtelijk.</p>
+          <p>Weer, groepsenergie en spelverloop zijn nooit helemaal voorspelbaar. Een duidelijke planning houdt het overzichtelijk.</p>
         </article>
-
         <article class="card">
-          <div class="card-icon"><i class="fa-solid fa-wave-square"></i></div>
+          <div class="icon"><i class="fa-solid fa-wave-square"></i></div>
           <h3>BANI</h3>
-          <p>Een actieve dag mag wat chaotisch aanvoelen. Met voldoende pauzes, duidelijke info en een eenvoudige afsluiter blijft alles beheersbaar.</p>
+          <p>Een actieve dag mag een beetje chaotisch zijn. Pauzes, simpele info en een rustige afsluiter houden alles aangenaam.</p>
         </article>
-
         <article class="card">
-          <div class="card-icon"><i class="fa-solid fa-face-smile"></i></div>
+          <div class="icon"><i class="fa-solid fa-face-smile"></i></div>
           <h3>Vertaling</h3>
-          <p>Niet te zwaar maken: samen sporten, lachen, eten en afronden. Dat is de echte bedoeling.</p>
+          <p>Samen sporten, lachen, eten en afronden. Dat is de essentie.</p>
         </article>
       </div>
     </section>
 
-    <section id="programma" class="wrap">
-      <div class="section-title">
-        <div>
-          <h2>Programma</h2>
-          <p>Klik op een onderdeel voor korte extra uitleg.</p>
+    <section id="programma" class="page">
+      <div class="section-head">
+        <div class="section-title">
+          <div>
+            <h2>Programma</h2>
+            <p class="section-note">Klik op een onderdeel voor korte extra uitleg.</p>
+          </div>
         </div>
       </div>
 
@@ -884,62 +948,64 @@ html = r"""<!DOCTYPE html>
         <div class="time-row" data-time="08:00" data-title="Aankomst & omkleden" data-text="Verzamelen aan het Sportkot, rustig aankomen, omkleden en klaarzetten voor de eerste activiteit.">
           <div class="time">08:00</div>
           <div><h3>Aankomst & omkleden</h3><p>Verzamelen, omkleden en opstarten.</p></div>
-          <button class="row-action">Info</button>
+          <button class="info-btn">Info</button>
         </div>
 
         <div class="time-row" data-time="08:30" data-title="Padel" data-text="We spelen in ploegen en roteren door. Wie even niet speelt, supportert of neemt kort pauze.">
           <div class="time">08:30</div>
           <div><h3>Padel</h3><p>Teams, rotatie en sportieve opener.</p></div>
-          <button class="row-action">Info</button>
+          <button class="info-btn">Info</button>
         </div>
 
         <div class="time-row" data-time="10:30" data-title="Bumperballs" data-text="Korte spelvormen met veel beweging en fun. De nadruk ligt op amusement en groepssfeer.">
           <div class="time">10:30</div>
           <div><h3>Bumperballs</h3><p>Actief, grappig en laagdrempelig.</p></div>
-          <button class="row-action">Info</button>
+          <button class="info-btn">Info</button>
         </div>
 
         <div class="time-row" data-time="12:00" data-title="Lunch" data-text="Broodjesmoment en korte pauze. Vegetarische opties worden vooraf bevraagd.">
           <div class="time">12:00</div>
           <div><h3>Lunch</h3><p>Broodjes en korte pauze.</p></div>
-          <button class="row-action">Info</button>
+          <button class="info-btn">Info</button>
         </div>
 
         <div class="time-row" data-time="13:00" data-title="Beachvolleybal" data-text="Beachvolley met teams en rotatie. Competitie mag, maar sfeer blijft belangrijker dan winnen.">
           <div class="time">13:00</div>
           <div><h3>Beachvolleybal</h3><p>Zand, teams en groepssfeer.</p></div>
-          <button class="row-action">Info</button>
+          <button class="info-btn">Info</button>
         </div>
 
         <div class="time-row" data-time="15:00" data-title="Chillen & extra spel" data-text="Rustiger blok om te bekomen, bij te praten, te supporteren of eventueel nog een licht spel te doen.">
           <div class="time">15:00</div>
           <div><h3>Chillen & extra spel</h3><p>Rustiger blok met ademruimte.</p></div>
-          <button class="row-action">Info</button>
+          <button class="info-btn">Info</button>
         </div>
 
         <div class="time-row" data-time="16:30" data-title="Frietjes & drink" data-text="Afsluiter van het sportieve deel met frietjes, drank en rustig napraten.">
           <div class="time">16:30</div>
           <div><h3>Frietjes & drink</h3><p>Gezellig afronden.</p></div>
-          <button class="row-action">Info</button>
+          <button class="info-btn">Info</button>
         </div>
 
         <div class="time-row" data-time="19:00" data-title="Optioneel: terrasje Leuven" data-text="Wie nog zin heeft, kan optioneel mee richting Leuven centrum voor een rustige afsluiter.">
           <div class="time">19:00</div>
           <div><h3>Optioneel: terrasje Leuven</h3><p>Vrijblijvende afsluiter.</p></div>
-          <button class="row-action">Info</button>
+          <button class="info-btn">Info</button>
         </div>
       </div>
     </section>
 
-    <section id="praktisch" class="wrap">
-      <div class="section-title">
-        <div>
-          <h2>Praktisch</h2>
-          <p>De belangrijkste info in één overzicht.</p>
+    <section id="praktisch" class="page">
+      <div class="section-head">
+        <div class="section-title">
+          <div>
+            <h2>Praktisch</h2>
+            <p class="section-note">De belangrijkste info in één overzicht.</p>
+          </div>
         </div>
       </div>
 
-      <div class="practical">
+      <div class="practical-grid">
         <div class="panel">
           <h3><i class="fa-solid fa-list-check"></i> Meebrengen</h3>
           <ul class="checklist" id="packlist">
@@ -960,11 +1026,13 @@ html = r"""<!DOCTYPE html>
       </div>
     </section>
 
-    <section id="faq" class="wrap">
-      <div class="section-title">
-        <div>
-          <h2>FAQ</h2>
-          <p>Korte praktische vragen.</p>
+    <section id="faq" class="page">
+      <div class="section-head">
+        <div class="section-title">
+          <div>
+            <h2>FAQ</h2>
+            <p class="section-note">Korte praktische vragen.</p>
+          </div>
         </div>
       </div>
 
@@ -994,7 +1062,7 @@ html = r"""<!DOCTYPE html>
 
   <aside class="drawer" id="drawer" aria-live="polite">
     <button class="drawer-close" id="drawerClose" aria-label="Sluiten"><i class="fa-solid fa-xmark"></i></button>
-    <div class="drawer-head">
+    <div class="drawer-top">
       <span class="drawer-time" id="drawerTime"><i class="fa-solid fa-clock"></i> 08:00</span>
     </div>
     <div class="drawer-body">
@@ -1004,9 +1072,7 @@ html = r"""<!DOCTYPE html>
   </aside>
 
   <footer>
-    <div class="wrap">
-      <strong>Teambuilding Heverlee 2026</strong>
-    </div>
+    <div class="page"><strong>Teambuilding Heverlee 2026</strong></div>
   </footer>
 
   <script>
@@ -1035,7 +1101,7 @@ html = r"""<!DOCTYPE html>
       });
     });
 
-    const key = "teambuildingChecklist";
+    const key = "teambuildingChecklistSpeels";
     const saved = JSON.parse(localStorage.getItem(key) || "[]");
     const items = document.querySelectorAll("#packlist li");
 
@@ -1057,8 +1123,3 @@ html = r"""<!DOCTYPE html>
   </script>
 </body>
 </html>
-"""
-
-out = Path("/mnt/data/teambuilding-heverlee-missie-visie-waarden-clean.html")
-out.write_text(html, encoding="utf-8")
-out
