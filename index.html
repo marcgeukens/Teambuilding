@@ -1,64 +1,66 @@
-<!DOCTYPE html>
+from pathlib import Path
+
+html = r"""<!DOCTYPE html>
 <html lang="nl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mission Headquarters | Teambuilding Heverlee 2026</title>
+  <title>Teambuilding Heverlee 2026</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
   <style>
     :root{
-      --navy:#16275b;
-      --navy2:#0e1a3d;
-      --teal:#0f8798;
-      --teal2:#116979;
+      --navy:#1b2d63;
+      --navy-dark:#101b3d;
+      --teal:#118899;
+      --teal-dark:#0d6675;
       --gold:#f5b51d;
-      --paper:#f4f7fb;
+      --paper:#f3f6fb;
+      --white:#fff;
       --ink:#071331;
-      --muted:#56627a;
-      --white:#ffffff;
-      --line:rgba(7,19,49,.12);
-      --shadow:0 28px 70px rgba(7,19,49,.18);
-      --radius:0px;
+      --muted:#5a6680;
+      --line:rgba(7,19,49,.13);
+      --shadow:0 28px 70px rgba(7,19,49,.16);
     }
 
     *{box-sizing:border-box}
+
     html{scroll-behavior:smooth}
+
     body{
       margin:0;
       font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color:var(--ink);
       background:
-        linear-gradient(90deg, rgba(22,39,91,.06) 1px, transparent 1px),
-        linear-gradient(rgba(22,39,91,.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(27,45,99,.045) 1px, transparent 1px),
+        linear-gradient(rgba(27,45,99,.045) 1px, transparent 1px),
         var(--paper);
-      background-size:52px 52px;
+      background-size:56px 56px;
       overflow-x:hidden;
     }
 
-    a{color:inherit}
-
-    .shell{
-      width:min(1500px,100%);
+    .wrap{
+      width:min(1480px,100%);
       margin:0;
       padding-left:clamp(22px,5vw,92px);
-      padding-right:clamp(16px,3vw,48px);
+      padding-right:clamp(18px,3vw,54px);
     }
 
-    .topbar{
+    nav{
       position:sticky;
       top:0;
-      z-index:60;
-      background:rgba(244,247,251,.86);
+      z-index:50;
+      background:rgba(243,246,251,.9);
       backdrop-filter:blur(18px);
-      border-bottom:1px solid rgba(7,19,49,.09);
+      border-bottom:1px solid rgba(7,19,49,.08);
     }
 
-    .nav{
+    .nav-inner{
       min-height:74px;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:28px;
+      gap:24px;
     }
 
     .brand{
@@ -66,128 +68,131 @@
       align-items:center;
       gap:13px;
       font-weight:950;
-      color:var(--navy2);
+      color:var(--navy-dark);
       letter-spacing:-.04em;
       white-space:nowrap;
     }
 
-    .brand-mark{
+    .brand-icon{
       width:46px;
       height:46px;
       display:grid;
       place-items:center;
       background:var(--gold);
-      color:var(--navy2);
-      box-shadow:10px 10px 0 rgba(17,105,121,.18);
+      color:var(--navy-dark);
+      box-shadow:10px 10px 0 rgba(17,136,153,.16);
     }
 
-    .navlinks{
+    .nav-links{
       display:flex;
       gap:8px;
       flex-wrap:wrap;
       justify-content:flex-end;
     }
 
-    .navlinks a{
+    .nav-links a{
       text-decoration:none;
-      padding:10px 12px;
-      font-size:.9rem;
+      color:#293551;
+      font-size:.86rem;
       font-weight:900;
-      color:#283552;
+      letter-spacing:.03em;
       text-transform:uppercase;
-      letter-spacing:.025em;
+      padding:10px 12px;
     }
 
-    .navlinks a:hover{
+    .nav-links a:hover{
       background:var(--navy);
       color:white;
+    }
+
+    header{
+      padding-top:74px;
+      padding-bottom:64px;
     }
 
     .hero{
-      min-height:720px;
       display:grid;
-      grid-template-columns:minmax(0, 1.45fr) minmax(420px,.75fr);
-      gap:0;
-      padding-top:78px;
-      padding-bottom:72px;
+      grid-template-columns:minmax(0,1.42fr) minmax(400px,.78fr);
+      min-height:620px;
       align-items:stretch;
     }
 
-    .hero-left{
+    .hero-main{
       background:var(--navy);
       color:white;
-      min-height:610px;
       padding:clamp(42px,6vw,86px);
+      display:flex;
+      align-items:center;
       position:relative;
       overflow:hidden;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
     }
 
-    .hero-left::after{
+    .hero-main::after{
       content:"";
       position:absolute;
       inset:0;
       background:
         linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px),
         linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px);
-      background-size:52px 52px;
+      background-size:56px 56px;
       opacity:.55;
       pointer-events:none;
     }
 
-    .hero-content{position:relative; z-index:2}
+    .hero-content{
+      position:relative;
+      z-index:2;
+      max-width:950px;
+    }
 
     .eyebrow{
+      color:#dbe5ff;
       text-transform:uppercase;
       letter-spacing:.42em;
-      color:#dbe5ff;
-      font-size:.9rem;
+      font-size:.88rem;
       font-weight:700;
-      margin-bottom:46px;
+      margin-bottom:44px;
     }
 
     h1{
       margin:0;
-      font-size:clamp(4rem,8.6vw,9.5rem);
+      font-size:clamp(4.2rem,8.7vw,9.3rem);
       line-height:.82;
-      letter-spacing:-.085em;
-      max-width:920px;
+      letter-spacing:-.086em;
     }
 
     .subtitle{
-      font-size:clamp(2.1rem,4.6vw,5.2rem);
-      line-height:1;
-      font-weight:300;
-      color:#d9e4ff;
-      letter-spacing:-.055em;
-      margin-top:20px;
-      padding-left:36px;
+      margin-top:22px;
+      padding-left:34px;
       border-left:11px solid var(--gold);
+      color:#dce6ff;
+      font-size:clamp(2rem,4.8vw,5.1rem);
+      font-weight:300;
+      line-height:1;
+      letter-spacing:-.058em;
     }
 
     .tagline{
-      color:var(--gold);
-      font-style:italic;
-      font-size:clamp(1rem,1.8vw,1.35rem);
       margin:34px 0 0 48px;
+      color:var(--gold);
+      font-size:clamp(1rem,1.7vw,1.34rem);
+      font-style:italic;
       font-weight:700;
     }
 
-    .command-links{
+    .hero-actions{
       display:flex;
       flex-wrap:wrap;
       gap:10px;
       margin:34px 0 0 48px;
     }
 
-    .command-links a{
+    .hero-actions a{
       text-decoration:none;
       text-transform:uppercase;
-      font-weight:950;
       letter-spacing:.045em;
       font-size:.8rem;
+      font-weight:950;
       padding:12px 14px;
       background:rgba(255,255,255,.09);
       border:1px solid rgba(255,255,255,.18);
@@ -195,87 +200,85 @@
       transition:.16s transform,.16s background,.16s color;
     }
 
-    .command-links a.main{
+    .hero-actions a.primary{
       background:var(--gold);
-      color:var(--navy2);
+      color:var(--navy-dark);
       border-color:var(--gold);
     }
 
-    .command-links a:hover{
+    .hero-actions a:hover{
       transform:translateY(-2px);
       background:white;
-      color:var(--navy2);
+      color:var(--navy-dark);
     }
 
-    .hero-right{
+    .hero-side{
       display:grid;
-      grid-template-columns:90px 1fr;
-      min-height:610px;
+      grid-template-columns:92px 1fr;
       background:var(--teal);
       color:white;
     }
 
     .side-strip{
-      background:var(--teal2);
+      background:var(--teal-dark);
     }
 
-    .vision-panel{
+    .side-content{
       display:flex;
       align-items:center;
       justify-content:center;
-      text-align:center;
       padding:38px;
-      position:relative;
+      text-align:center;
     }
 
-    .vision-card{
-      width:min(420px,100%);
+    .side-card{
+      width:min(430px,100%);
     }
 
-    .vision-card h2{
+    .side-card h2{
       margin:0;
-      font-size:clamp(2rem,3.3vw,3.35rem);
+      font-size:clamp(2.1rem,3.2vw,3.5rem);
       line-height:1.18;
       letter-spacing:-.055em;
     }
 
-    .vision-card p{
-      color:#e5fbff;
-      line-height:1.65;
+    .side-card p{
       margin:24px auto 0;
+      color:#e6fbff;
       max-width:360px;
+      line-height:1.65;
       font-size:1.04rem;
     }
 
-    .vision-buttons{
+    .side-links{
       display:grid;
       grid-template-columns:repeat(3,1fr);
       gap:10px;
       margin-top:32px;
     }
 
-    .vision-buttons a{
+    .side-links a{
       text-decoration:none;
       background:rgba(8,19,49,.34);
-      border:1px solid rgba(255,255,255,.20);
+      border:1px solid rgba(255,255,255,.2);
+      color:white;
       padding:13px 8px;
       font-size:.78rem;
       text-transform:uppercase;
       letter-spacing:.055em;
       font-weight:950;
-      color:white;
       transition:.16s transform,.16s background,.16s color;
     }
 
-    .vision-buttons a:hover{
+    .side-links a:hover{
       transform:translateY(-2px);
       background:var(--gold);
-      color:var(--navy2);
+      color:var(--navy-dark);
     }
 
     section{
       padding:54px 0;
-      scroll-margin-top:98px;
+      scroll-margin-top:96px;
     }
 
     .section-title{
@@ -289,22 +292,22 @@
     .section-title::before{
       content:"";
       width:10px;
-      height:86px;
+      height:84px;
       background:var(--gold);
       margin-top:7px;
     }
 
     .section-title h2{
       margin:0;
-      font-size:clamp(2.6rem,5.8vw,6rem);
+      color:var(--navy);
+      font-size:clamp(2.7rem,5.8vw,6rem);
       line-height:.9;
       letter-spacing:-.08em;
-      color:var(--navy);
     }
 
     .section-title p{
       margin:14px 0 0;
-      max-width:780px;
+      max-width:760px;
       color:var(--muted);
       font-size:1.05rem;
       line-height:1.65;
@@ -318,13 +321,13 @@
     }
 
     .card{
-      background:white;
-      border:1px solid var(--line);
-      box-shadow:0 18px 42px rgba(7,19,49,.08);
-      padding:28px;
-      min-height:250px;
       position:relative;
       overflow:hidden;
+      background:white;
+      border:1px solid var(--line);
+      box-shadow:0 18px 42px rgba(7,19,49,.07);
+      padding:28px;
+      min-height:245px;
     }
 
     .card::before{
@@ -332,8 +335,8 @@
       position:absolute;
       top:0;
       left:0;
-      width:100%;
       height:8px;
+      width:100%;
       background:linear-gradient(90deg,var(--gold),var(--teal));
     }
 
@@ -345,7 +348,7 @@
       background:var(--navy);
       color:white;
       margin-bottom:20px;
-      box-shadow:8px 8px 0 rgba(15,135,152,.16);
+      box-shadow:8px 8px 0 rgba(17,136,153,.16);
     }
 
     .card h3{
@@ -372,22 +375,24 @@
       background:var(--navy);
       color:white;
       padding:24px;
-      min-height:170px;
-      position:relative;
-      overflow:hidden;
+      min-height:165px;
     }
 
-    .value:nth-child(even){background:var(--teal)}
+    .value:nth-child(even){
+      background:var(--teal);
+    }
+
     .value b{
       display:block;
-      font-size:1.25rem;
-      letter-spacing:-.035em;
       margin-bottom:10px;
+      font-size:1.22rem;
+      letter-spacing:-.035em;
     }
+
     .value span{
+      display:block;
       color:rgba(255,255,255,.82);
       line-height:1.55;
-      display:block;
     }
 
     .timeline{
@@ -404,30 +409,30 @@
       background:white;
       border:1px solid var(--line);
       padding:16px;
-      box-shadow:0 14px 28px rgba(7,19,49,.06);
+      box-shadow:0 14px 28px rgba(7,19,49,.055);
       cursor:pointer;
       transition:.16s transform,.16s border-color,.16s box-shadow;
     }
 
     .time-row:hover{
       transform:translateX(8px);
-      border-color:rgba(15,135,152,.45);
-      box-shadow:0 18px 42px rgba(15,135,152,.12);
+      border-color:rgba(17,136,153,.45);
+      box-shadow:0 18px 42px rgba(17,136,153,.11);
     }
 
     .time{
       background:var(--gold);
-      color:var(--navy2);
-      font-weight:1000;
+      color:var(--navy-dark);
       text-align:center;
+      font-weight:1000;
       padding:13px 8px;
     }
 
     .time-row h3{
       margin:0 0 3px;
       color:var(--navy);
-      letter-spacing:-.04em;
       font-size:1.18rem;
+      letter-spacing:-.04em;
     }
 
     .time-row p{
@@ -441,53 +446,14 @@
       border:0;
       padding:11px 14px;
       font-weight:950;
-      cursor:pointer;
       text-transform:uppercase;
-      font-size:.78rem;
       letter-spacing:.04em;
+      font-size:.78rem;
+      cursor:pointer;
     }
 
-    .row-action:hover{background:var(--teal)}
-
-    .playbook{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:18px;
-      max-width:1280px;
-    }
-
-    .matrix{
-      background:white;
-      border:1px solid var(--line);
-      box-shadow:0 18px 42px rgba(7,19,49,.07);
-      padding:28px;
-    }
-
-    .matrix h3{
-      margin:0 0 18px;
-      color:var(--navy);
-      font-size:2rem;
-      letter-spacing:-.06em;
-    }
-
-    .matrix ul{
-      list-style:none;
-      padding:0;
-      margin:0;
-      display:grid;
-      gap:12px;
-    }
-
-    .matrix li{
-      padding:14px;
-      border-left:7px solid var(--gold);
-      background:#f8fafc;
-      color:#536078;
-      line-height:1.55;
-    }
-
-    .matrix strong{
-      color:var(--navy);
+    .row-action:hover{
+      background:var(--teal);
     }
 
     .practical{
@@ -534,19 +500,22 @@
     .checklist li.done{
       background:#e8f7f9;
       color:var(--navy);
-      border-color:rgba(15,135,152,.28);
+      border-color:rgba(17,136,153,.28);
       font-weight:800;
     }
 
-    .checklist i{color:var(--teal); width:20px}
+    .checklist i{
+      color:var(--teal);
+      width:20px;
+    }
 
     .price{
+      margin:8px 0 18px;
+      color:var(--teal);
       font-size:clamp(2.7rem,5vw,5rem);
       line-height:.9;
       letter-spacing:-.08em;
       font-weight:1000;
-      color:var(--teal);
-      margin:8px 0 18px;
     }
 
     .faq{
@@ -588,13 +557,6 @@
     .faq-item.open .faq-a{display:block}
     .faq-item.open .faq-q i{transform:rotate(180deg)}
 
-    footer{
-      background:var(--navy2);
-      color:#dbe5ff;
-      margin-top:56px;
-      padding:40px 0;
-    }
-
     .drawer{
       position:fixed;
       right:28px;
@@ -622,25 +584,26 @@
       padding:22px;
       min-height:116px;
       position:relative;
+      overflow:hidden;
     }
 
     .drawer-head::after{
       content:"";
       position:absolute;
-      right:22px;
-      bottom:-26px;
-      width:70px;
-      height:70px;
+      right:24px;
+      bottom:-28px;
+      width:74px;
+      height:74px;
       background:var(--gold);
       border-radius:50%;
-      box-shadow:-25px -20px 0 rgba(255,255,255,.16);
+      box-shadow:-26px -22px 0 rgba(255,255,255,.16);
     }
 
     .drawer-time{
       display:inline-flex;
-      gap:8px;
       align-items:center;
-      background:var(--navy2);
+      gap:8px;
+      background:var(--navy-dark);
       color:var(--gold);
       padding:8px 11px;
       font-weight:950;
@@ -667,52 +630,121 @@
       position:absolute;
       top:14px;
       right:14px;
+      z-index:2;
       width:40px;
       height:40px;
       border:0;
       background:rgba(8,19,49,.82);
       color:white;
       cursor:pointer;
-      z-index:2;
+    }
+
+    footer{
+      margin-top:56px;
+      background:var(--navy-dark);
+      color:#dbe5ff;
+      padding:40px 0;
     }
 
     @media(max-width:980px){
-      .hero{grid-template-columns:1fr; min-height:auto}
-      .hero-right{grid-template-columns:54px 1fr; min-height:430px}
-      .grid-3,.values,.playbook,.practical{grid-template-columns:1fr}
-      .value{min-height:auto}
+      .hero{
+        grid-template-columns:1fr;
+        min-height:auto;
+      }
+
+      .hero-side{
+        grid-template-columns:54px 1fr;
+        min-height:410px;
+      }
+
+      .grid-3,
+      .values,
+      .practical{
+        grid-template-columns:1fr;
+      }
+
+      .value{
+        min-height:auto;
+      }
     }
 
     @media(max-width:720px){
-      .shell{padding-left:16px;padding-right:16px}
-      .nav{align-items:flex-start; flex-direction:column; padding:12px 0}
-      .navlinks{justify-content:flex-start}
-      .hero{padding-top:34px}
-      .hero-left{padding:34px 24px; min-height:520px}
-      .eyebrow{letter-spacing:.26em; margin-bottom:30px}
-      .subtitle{padding-left:18px; border-left-width:8px}
-      .tagline,.command-links{margin-left:26px}
-      .vision-buttons{grid-template-columns:1fr}
-      .time-row{grid-template-columns:84px minmax(0,1fr)}
-      .row-action{grid-column:1/-1}
+      .wrap{
+        padding-left:16px;
+        padding-right:16px;
+      }
+
+      .nav-inner{
+        align-items:flex-start;
+        flex-direction:column;
+        padding:12px 0;
+      }
+
+      .nav-links{
+        justify-content:flex-start;
+      }
+
+      header{
+        padding-top:34px;
+      }
+
+      .hero-main{
+        padding:34px 24px;
+        min-height:520px;
+      }
+
+      .eyebrow{
+        letter-spacing:.24em;
+        margin-bottom:30px;
+      }
+
+      .subtitle{
+        padding-left:18px;
+        border-left-width:8px;
+      }
+
+      .tagline,
+      .hero-actions{
+        margin-left:26px;
+      }
+
+      .side-links{
+        grid-template-columns:1fr;
+      }
+
+      .time-row{
+        grid-template-columns:84px minmax(0,1fr);
+      }
+
+      .row-action{
+        grid-column:1/-1;
+      }
+
       .drawer{
         top:auto;
         bottom:12px;
-        right:12px;
         left:12px;
+        right:12px;
         width:auto;
         transform:translateY(calc(100% + 30px));
       }
-      .drawer.open{transform:translateY(0)}
+
+      .drawer.open{
+        transform:translateY(0);
+      }
     }
   </style>
 </head>
+
 <body>
-  <nav class="topbar">
-    <div class="shell nav">
-      <div class="brand"><div class="brand-mark"><i class="fa-solid fa-bolt"></i></div>Mission Headquarters</div>
-      <div class="navlinks">
-        <a href="#kompas">Kompas</a>
+  <nav>
+    <div class="wrap nav-inner">
+      <div class="brand">
+        <div class="brand-icon"><i class="fa-solid fa-bolt"></i></div>
+        Teambuilding Heverlee
+      </div>
+      <div class="nav-links">
+        <a href="#kompas">Missie</a>
         <a href="#waardenblok">Waarden</a>
         <a href="#programma">Programma</a>
         <a href="#praktisch">Praktisch</a>
@@ -720,32 +752,33 @@
     </div>
   </nav>
 
-  <header class="shell hero">
-    <div class="hero-left">
-      <div class="hero-content">
-        <div class="eyebrow">Teambuilding Heverlee 2026</div>
-        <h1>Mission<br>Headquarters</h1>
-        <div class="subtitle">missie, visie & gecontroleerde chaos</div>
-        <p class="tagline">Actief. Ontspannen. Geen vergaderdruk. Wel frietdiscipline.</p>
-        <div class="command-links">
-          <a class="main" href="#missie"><i class="fa-solid fa-bullseye"></i> Commando Missie</a>
-          <a href="#visie"><i class="fa-solid fa-eye"></i> Commando Visie</a>
-          <a href="#waardenblok"><i class="fa-solid fa-gem"></i> Commando Waarden</a>
-          <a href="#programma"><i class="fa-solid fa-calendar-days"></i> Operationeel plan</a>
+  <header class="wrap">
+    <div class="hero">
+      <div class="hero-main">
+        <div class="hero-content">
+          <div class="eyebrow">Vrijdag 17 juli 2026</div>
+          <h1>Teambuilding<br>Heverlee</h1>
+          <div class="subtitle">missie, visie & waarden</div>
+          <p class="tagline">Actief. Ontspannen. Samen op pad.</p>
+          <div class="hero-actions">
+            <a class="primary" href="#programma"><i class="fa-solid fa-calendar-days"></i> Programma</a>
+            <a href="#kompas"><i class="fa-solid fa-compass"></i> Missie & visie</a>
+            <a href="#praktisch"><i class="fa-solid fa-list-check"></i> Praktisch</a>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="hero-right">
-      <div class="side-strip"></div>
-      <div class="vision-panel">
-        <div class="vision-card">
-          <h2>Commando<br>Teamgevoel.<br>Gecontroleerde chaos.</h2>
-          <p>Een dag waarop de dagelijkse rol even uitgaat en de ploeg samen beweegt, lacht en landt op een terras of rond de frietjes.</p>
-          <div class="vision-buttons">
-            <a href="#missie">Missie</a>
-            <a href="#visie">Visie</a>
-            <a href="#waardenblok">Waarden</a>
+      <div class="hero-side">
+        <div class="side-strip"></div>
+        <div class="side-content">
+          <div class="side-card">
+            <h2>Visie<br>Actieve ploeg.<br>Ontspannen sfeer.</h2>
+            <p>Een dag waarop iedereen even uit de dagelijkse rol stapt, samen beweegt, lacht en rustig afsluit.</p>
+            <div class="side-links">
+              <a href="#missie">Missie</a>
+              <a href="#visie">Visie</a>
+              <a href="#waardenblok">Waarden</a>
+            </div>
           </div>
         </div>
       </div>
@@ -753,11 +786,11 @@
   </header>
 
   <main>
-    <section id="kompas" class="shell">
+    <section id="kompas" class="wrap">
       <div class="section-title">
         <div>
-          <h2>Strategisch kompas</h2>
-          <p>Een teambuilding als mini-operatie: duidelijk doel, luchtige uitvoering en nul ambitie om er een managementseminarie van te maken.</p>
+          <h2>Missie & visie</h2>
+          <p>Een heldere dagopbouw: samen starten, actief bezig zijn, genoeg ruimte laten voor pauze en eindigen in een ontspannen sfeer.</p>
         </div>
       </div>
 
@@ -765,118 +798,144 @@
         <article class="card" id="missie">
           <div class="card-icon"><i class="fa-solid fa-bullseye"></i></div>
           <h3>Missie</h3>
-          <p>De ploeg uit de dagelijkse stand-by halen en samen in beweging zetten. Laagdrempelig, actief en net chaotisch genoeg om achteraf goeie verhalen op te leveren.</p>
+          <p>De ploeg samenbrengen buiten de dagelijkse context, met sportieve en laagdrempelige activiteiten die zorgen voor verbinding en ontspanning.</p>
         </article>
 
         <article class="card" id="visie">
           <div class="card-icon"><i class="fa-solid fa-eye"></i></div>
           <h3>Visie</h3>
-          <p>Een team dat elkaar niet alleen kent uit overleg, mails en deadlines, maar ook uit padelrally’s, zandduiken, tactisch frietbestellen en één perfect getimede bumperballbotsing.</p>
+          <p>Een teambuilding die professioneel oogt, praktisch duidelijk is en tegelijk luchtig genoeg blijft om echt als vrije groepsdag aan te voelen.</p>
         </article>
 
         <article class="card">
-          <div class="card-icon"><i class="fa-solid fa-map"></i></div>
-          <h3>Strategie</h3>
-          <p>Starten met energie, opbouwen naar groepschaos, daarna gecontroleerd afschakelen. Kortom: eerst bewegen, dan herstellen, dan verhalen maken.</p>
+          <div class="card-icon"><i class="fa-solid fa-route"></i></div>
+          <h3>Aanpak</h3>
+          <p>Een actieve voormiddag, een eenvoudige lunch, een groepsactiviteit in de namiddag en daarna een rustige afsluiter met frietjes en eventueel een terrasje.</p>
         </article>
       </div>
     </section>
 
-    <section id="waardenblok" class="shell">
+    <section id="waardenblok" class="wrap">
       <div class="section-title">
         <div>
           <h2>Waarden</h2>
-          <p>Niet te plechtig. Wel duidelijk genoeg om te weten wat voor dag het moet worden.</p>
+          <p>De toon van de dag: sportief, eenvoudig, ontspannen en inclusief.</p>
         </div>
       </div>
 
       <div class="values">
-        <div class="value"><b>Sportief zonder heldengedoe</b><span>Meedoen primeert. Niemand hoeft plots olympisch materiaal te zijn.</span></div>
-        <div class="value"><b>Humor met klasse</b><span>Lachen mag. Flauw doen hoeft niet. Subtiele sabotage in padel: bespreekbaar.</span></div>
-        <div class="value"><b>Iedereen mee</b><span>Actief, maar laagdrempelig. Supporteren telt ook als operationele bijdrage.</span></div>
-        <div class="value"><b>Herstelprotocol</b><span>Water, pauze, frietjes, eventueel terras. Dat is geen luxe, dat is planning.</span></div>
+        <div class="value">
+          <b>Laagdrempelig</b>
+          <span>Iedereen kan meedoen op zijn of haar niveau.</span>
+        </div>
+        <div class="value">
+          <b>Samen</b>
+          <span>Groepsgevoel staat centraal, niet de uitslag.</span>
+        </div>
+        <div class="value">
+          <b>Ontspannen</b>
+          <span>Geen vergaderdruk, geen zware omkadering.</span>
+        </div>
+        <div class="value">
+          <b>Duidelijk</b>
+          <span>Een strak programma met genoeg ademruimte.</span>
+        </div>
       </div>
     </section>
 
-    <section id="vuca" class="shell">
+    <section id="vuca" class="wrap">
       <div class="section-title">
         <div>
           <h2>VUCA / BANI</h2>
-          <p>Niet als droge theorie, wel als knipoog naar de realiteit van groepsactiviteiten: iedereen komt met goede intenties, en vijf minuten later is er zand, chaos en discussie over puntentelling.</p>
+          <p>Een lichte knipoog naar managementtaal: groepsactiviteiten zijn soms wat onvoorspelbaar, maar net daarom werken ze verbindend.</p>
         </div>
       </div>
 
-      <div class="playbook">
-        <div class="matrix">
-          <h3>VUCA op het veld</h3>
-          <ul>
-            <li><strong>Volatile:</strong> het programma staat vast, de groepsenergie niet.</li>
-            <li><strong>Uncertain:</strong> wie padel kan, wie dat dénkt te kunnen en wie ineens “ik heb dat nog gedaan” zegt.</li>
-            <li><strong>Complex:</strong> timing, rotatie, douches, honger en groepsdynamiek tegelijk.</li>
-            <li><strong>Ambiguous:</strong> “chillen” betekent voor de ene rust en voor de andere een spel met verdacht veel puntentelling.</li>
-          </ul>
-        </div>
+      <div class="grid-3">
+        <article class="card">
+          <div class="card-icon"><i class="fa-solid fa-wind"></i></div>
+          <h3>VUCA</h3>
+          <p>Het weer, de groepsenergie en het spelverloop zijn nooit helemaal voorspelbaar. Een duidelijk programma houdt de dag toch overzichtelijk.</p>
+        </article>
 
-        <div class="matrix">
-          <h3>BANI in de praktijk</h3>
-          <ul>
-            <li><strong>Brittle:</strong> één ontbrekende douchehanddoek kan een planning mentaal doen kraken.</li>
-            <li><strong>Anxious:</strong> “Moet ik sportief zijn?” Nee. Aanwezig zijn is al deelname.</li>
-            <li><strong>Non-linear:</strong> één bumperballbotsing kan meer teamgevoel opleveren dan drie workshops en een beleidsnota.</li>
-            <li><strong>Incomprehensible:</strong> waarom iemand na vijf minuten beachvolley plots teamcaptain wordt, blijft een mysterie.</li>
-          </ul>
-        </div>
+        <article class="card">
+          <div class="card-icon"><i class="fa-solid fa-wave-square"></i></div>
+          <h3>BANI</h3>
+          <p>Een actieve dag mag wat chaotisch aanvoelen. Met voldoende pauzes, duidelijke info en een eenvoudige afsluiter blijft alles beheersbaar.</p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon"><i class="fa-solid fa-face-smile"></i></div>
+          <h3>Vertaling</h3>
+          <p>Niet te zwaar maken: samen sporten, lachen, eten en afronden. Dat is de echte bedoeling.</p>
+        </article>
       </div>
     </section>
 
-    <section id="programma" class="shell">
+    <section id="programma" class="wrap">
       <div class="section-title">
         <div>
-          <h2>Operationeel plan</h2>
-          <p>Klik op een blok voor een korte briefing. Niets staat standaard open: pas actie wanneer iemand effectief klikt.</p>
+          <h2>Programma</h2>
+          <p>Klik op een onderdeel voor korte extra uitleg.</p>
         </div>
       </div>
 
       <div class="timeline">
-        <div class="time-row" data-time="08:00" data-title="Aankomst & omkleden" data-text="Verzamelen aan het Sportkot, rustig landen, omkleden en klaarzetten voor de eerste activiteit. Geen haastpaniek, wel op tijd zijn.">
-          <div class="time">08:00</div><div><h3>Aankomst & omkleden</h3><p>Verzamelen, omkleden, rustig opstarten.</p></div><button class="row-action">Briefing</button>
+        <div class="time-row" data-time="08:00" data-title="Aankomst & omkleden" data-text="Verzamelen aan het Sportkot, rustig aankomen, omkleden en klaarzetten voor de eerste activiteit.">
+          <div class="time">08:00</div>
+          <div><h3>Aankomst & omkleden</h3><p>Verzamelen, omkleden en opstarten.</p></div>
+          <button class="row-action">Info</button>
         </div>
 
-        <div class="time-row" data-time="08:30" data-title="Padel" data-text="Teams van vier, roteren en vooral niet doen alsof dit een selectiewedstrijd is. Ambitie mag, dramatiek liever beperkt.">
-          <div class="time">08:30</div><div><h3>Padel</h3><p>Teams, rotatie en sportieve opener.</p></div><button class="row-action">Briefing</button>
+        <div class="time-row" data-time="08:30" data-title="Padel" data-text="We spelen in ploegen en roteren door. Wie even niet speelt, supportert of neemt kort pauze.">
+          <div class="time">08:30</div>
+          <div><h3>Padel</h3><p>Teams, rotatie en sportieve opener.</p></div>
+          <button class="row-action">Info</button>
         </div>
 
-        <div class="time-row" data-time="10:30" data-title="Bumperballs" data-text="Gecontroleerde chaos met veel botsen, lachen en opnieuw rechtstaan. Ideaal om iedereen even uit zijn normale rol te halen.">
-          <div class="time">10:30</div><div><h3>Bumperballs</h3><p>Chaos, fun en teamgevoel.</p></div><button class="row-action">Briefing</button>
+        <div class="time-row" data-time="10:30" data-title="Bumperballs" data-text="Korte spelvormen met veel beweging en fun. De nadruk ligt op amusement en groepssfeer.">
+          <div class="time">10:30</div>
+          <div><h3>Bumperballs</h3><p>Actief, grappig en laagdrempelig.</p></div>
+          <button class="row-action">Info</button>
         </div>
 
-        <div class="time-row" data-time="12:00" data-title="Lunch" data-text="Broodjesmoment. Even hergroeperen, energie bijtanken en de eerste analyses over padel en bumperballs laten passeren.">
-          <div class="time">12:00</div><div><h3>Lunch</h3><p>Broodjes en korte pauze.</p></div><button class="row-action">Briefing</button>
+        <div class="time-row" data-time="12:00" data-title="Lunch" data-text="Broodjesmoment en korte pauze. Vegetarische opties worden vooraf bevraagd.">
+          <div class="time">12:00</div>
+          <div><h3>Lunch</h3><p>Broodjes en korte pauze.</p></div>
+          <button class="row-action">Info</button>
         </div>
 
-        <div class="time-row" data-time="13:00" data-title="Beachvolleybal" data-text="Zand, teams en rotatie. Competitie mag, maar de bedoeling blijft dat iedereen mee is en dat niemand de sfeer wegbaggert.">
-          <div class="time">13:00</div><div><h3>Beachvolleybal</h3><p>Zand, teams en ambiance.</p></div><button class="row-action">Briefing</button>
+        <div class="time-row" data-time="13:00" data-title="Beachvolleybal" data-text="Beachvolley met teams en rotatie. Competitie mag, maar sfeer blijft belangrijker dan winnen.">
+          <div class="time">13:00</div>
+          <div><h3>Beachvolleybal</h3><p>Zand, teams en groepssfeer.</p></div>
+          <button class="row-action">Info</button>
         </div>
 
-        <div class="time-row" data-time="15:00" data-title="Chillen & extra spel" data-text="Bewust rustiger blok. Bekomen, napraten, supporteren of een lichter spel. Dit is het anti-overloadmoment.">
-          <div class="time">15:00</div><div><h3>Chillen & extra spel</h3><p>Ontladen zonder vergaderagenda.</p></div><button class="row-action">Briefing</button>
+        <div class="time-row" data-time="15:00" data-title="Chillen & extra spel" data-text="Rustiger blok om te bekomen, bij te praten, te supporteren of eventueel nog een licht spel te doen.">
+          <div class="time">15:00</div>
+          <div><h3>Chillen & extra spel</h3><p>Rustiger blok met ademruimte.</p></div>
+          <button class="row-action">Info</button>
         </div>
 
-        <div class="time-row" data-time="16:30" data-title="Frietjes & drink" data-text="De waardige afsluiter van het sportieve deel. Frietjes, drank, napraten en de dag rustig afronden.">
-          <div class="time">16:30</div><div><h3>Frietjes & drink</h3><p>Herstelprotocol en napraten.</p></div><button class="row-action">Briefing</button>
+        <div class="time-row" data-time="16:30" data-title="Frietjes & drink" data-text="Afsluiter van het sportieve deel met frietjes, drank en rustig napraten.">
+          <div class="time">16:30</div>
+          <div><h3>Frietjes & drink</h3><p>Gezellig afronden.</p></div>
+          <button class="row-action">Info</button>
         </div>
 
-        <div class="time-row" data-time="19:00" data-title="Optioneel: terrasje Leuven" data-text="Voor wie nog zin heeft: rustig richting Leuven centrum. Geen verplicht nummer, gewoon een zachte landing voor wie blijft hangen.">
-          <div class="time">19:00</div><div><h3>Optioneel: terrasje Leuven</h3><p>Rustige afsluiter, volledig optioneel.</p></div><button class="row-action">Briefing</button>
+        <div class="time-row" data-time="19:00" data-title="Optioneel: terrasje Leuven" data-text="Wie nog zin heeft, kan optioneel mee richting Leuven centrum voor een rustige afsluiter.">
+          <div class="time">19:00</div>
+          <div><h3>Optioneel: terrasje Leuven</h3><p>Vrijblijvende afsluiter.</p></div>
+          <button class="row-action">Info</button>
         </div>
       </div>
     </section>
 
-    <section id="praktisch" class="shell">
+    <section id="praktisch" class="wrap">
       <div class="section-title">
         <div>
           <h2>Praktisch</h2>
-          <p>De korte versie: sportief komen, reservegerief meenemen en niet vergeten dat teambuilding ook gewoon plezant mag zijn.</p>
+          <p>De belangrijkste info in één overzicht.</p>
         </div>
       </div>
 
@@ -889,7 +948,7 @@
             <li><i class="fa-regular fa-circle"></i> Douchegerief</li>
             <li><i class="fa-regular fa-circle"></i> Reservekledij</li>
             <li><i class="fa-regular fa-circle"></i> Zonnecrème bij goed weer</li>
-            <li><i class="fa-regular fa-circle"></i> Goed humeur, liefst opgeladen</li>
+            <li><i class="fa-regular fa-circle"></i> Goed humeur</li>
           </ul>
         </div>
 
@@ -901,11 +960,11 @@
       </div>
     </section>
 
-    <section id="faq" class="shell">
+    <section id="faq" class="wrap">
       <div class="section-title">
         <div>
           <h2>FAQ</h2>
-          <p>Kort, nuttig en zonder onnozele meta-vragen.</p>
+          <p>Korte praktische vragen.</p>
         </div>
       </div>
 
@@ -914,14 +973,17 @@
           <button class="faq-q">Moet je sportief zijn om mee te doen? <i class="fa-solid fa-chevron-down"></i></button>
           <div class="faq-a">Nee. Het is actief, maar het blijft teambuilding. Je hoeft geen topsporter te zijn.</div>
         </div>
+
         <div class="faq-item">
           <button class="faq-q">Is er eten voorzien? <i class="fa-solid fa-chevron-down"></i></button>
           <div class="faq-a">Ja. Rond de middag zijn er broodjes en later op de dag is er een frietmoment.</div>
         </div>
+
         <div class="faq-item">
           <button class="faq-q">Zijn er vegetarische opties? <i class="fa-solid fa-chevron-down"></i></button>
           <div class="faq-a">Ja, dit wordt vooraf bevraagd zodat de bestelling correct kan gebeuren.</div>
         </div>
+
         <div class="faq-item">
           <button class="faq-q">Wat bij slecht weer? <i class="fa-solid fa-chevron-down"></i></button>
           <div class="faq-a">De weersituatie wordt vooraf bekeken. Indien nodig volgt er aangepaste praktische info.</div>
@@ -936,15 +998,14 @@
       <span class="drawer-time" id="drawerTime"><i class="fa-solid fa-clock"></i> 08:00</span>
     </div>
     <div class="drawer-body">
-      <h3 id="drawerTitle">Briefing</h3>
-      <p id="drawerText">Klik op een programmaonderdeel voor de briefing.</p>
+      <h3 id="drawerTitle">Info</h3>
+      <p id="drawerText">Klik op een programmaonderdeel voor extra uitleg.</p>
     </div>
   </aside>
 
   <footer>
-    <div class="shell">
-      <strong>Mission Headquarters</strong><br>
-      Teambuilding Heverlee 2026
+    <div class="wrap">
+      <strong>Teambuilding Heverlee 2026</strong>
     </div>
   </footer>
 
@@ -964,13 +1025,17 @@
     });
 
     document.getElementById("drawerClose").addEventListener("click", () => drawer.classList.remove("open"));
-    document.addEventListener("keydown", e => { if(e.key === "Escape") drawer.classList.remove("open"); });
-
-    document.querySelectorAll(".faq-q").forEach(btn => {
-      btn.addEventListener("click", () => btn.parentElement.classList.toggle("open"));
+    document.addEventListener("keydown", e => {
+      if(e.key === "Escape") drawer.classList.remove("open");
     });
 
-    const key = "missionHQChecklist";
+    document.querySelectorAll(".faq-q").forEach(btn => {
+      btn.addEventListener("click", () => {
+        btn.parentElement.classList.toggle("open");
+      });
+    });
+
+    const key = "teambuildingChecklist";
     const saved = JSON.parse(localStorage.getItem(key) || "[]");
     const items = document.querySelectorAll("#packlist li");
 
@@ -983,10 +1048,17 @@
       if(saved.includes(index)) setDone(item, true);
       item.addEventListener("click", () => {
         setDone(item, !item.classList.contains("done"));
-        const active = [...items].map((li,i) => li.classList.contains("done") ? i : null).filter(i => i !== null);
+        const active = [...items]
+          .map((li,i) => li.classList.contains("done") ? i : null)
+          .filter(i => i !== null);
         localStorage.setItem(key, JSON.stringify(active));
       });
     });
   </script>
 </body>
 </html>
+"""
+
+out = Path("/mnt/data/teambuilding-heverlee-missie-visie-waarden-clean.html")
+out.write_text(html, encoding="utf-8")
+out
