@@ -637,9 +637,11 @@
 
     .alert-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
+      grid-template-columns: minmax(0, 1.15fr) minmax(330px, .85fr);
+      align-items: stretch;
+      gap: 16px;
       margin-top: 16px;
+      margin-bottom: 16px;
     }
 
     .notice,
@@ -1487,6 +1489,11 @@
       .countdown {
         padding: 13px;
         border-radius: 20px;
+      }
+
+      .alert-grid {
+        gap: 12px;
+        margin-bottom: 12px;
       }
 
       .notice__icon,
