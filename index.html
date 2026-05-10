@@ -114,6 +114,12 @@
       transform:translateY(-1px);
     }
 
+    .nav-links a.external-link{
+      background:rgba(247,191,33,.35);
+      color:var(--navy-dark);
+      border:1px solid rgba(247,191,33,.55);
+    }
+
     header{padding:26px 0 30px}
 
     .form-alert{
@@ -459,6 +465,12 @@
       border-color:var(--yellow);
     }
 
+    .btn.location{
+      background:var(--teal);
+      border-color:var(--teal);
+      color:white;
+    }
+
     .btn:hover{
       transform:translateY(-2px);
       background:white;
@@ -522,7 +534,7 @@
 
     .side-links{
       display:grid;
-      grid-template-columns:repeat(3,1fr);
+      grid-template-columns:repeat(4,1fr);
       gap:9px;
       margin-top:14px;
     }
@@ -980,6 +992,9 @@
 
     .panel-action{
       margin-top:16px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:9px;
     }
 
     .panel-button{
@@ -998,6 +1013,14 @@
     }
 
     .panel-button:hover{background:var(--navy)}
+
+    .panel-button.secondary{
+      background:var(--navy);
+    }
+
+    .panel-button.secondary:hover{
+      background:var(--coral);
+    }
 
     .checklist{
       list-style:none;
@@ -1030,15 +1053,6 @@
     .checklist i{
       width:20px;
       color:var(--teal);
-    }
-
-    .price{
-      margin:4px 0 14px;
-      color:var(--teal);
-      font-size:clamp(2.4rem,4.3vw,4.2rem);
-      line-height:.9;
-      letter-spacing:-.08em;
-      font-weight:1000;
     }
 
     .muted{
@@ -1203,6 +1217,7 @@
       .hero-main,
       .hero-side{min-height:auto}
       .values{grid-template-columns:1fr 1fr}
+      .side-links{grid-template-columns:repeat(2,1fr)}
     }
 
     @media (max-width:760px){
@@ -1585,8 +1600,6 @@
         font-size:.94rem;
       }
 
-      .price{font-size:clamp(2.3rem,15vw,3.7rem)}
-
       .faq-q{
         padding:15px;
         font-size:.94rem;
@@ -1645,6 +1658,7 @@
         <a href="#vuca">VUCA/BANI</a>
         <a href="#programma">Programma</a>
         <a href="#praktisch">Praktisch</a>
+        <a class="external-link" href="locatie.html"><i class="fa-solid fa-location-dot"></i> Locatie</a>
         <a href="#faq">FAQ</a>
       </div>
     </div>
@@ -1705,6 +1719,7 @@
 
         <div class="hero-actions">
           <a class="btn primary" href="#programma"><i class="fa-solid fa-calendar-days"></i> Programma</a>
+          <a class="btn location" href="locatie.html"><i class="fa-solid fa-location-dot"></i> Locatie & parking</a>
           <a class="btn" href="#vuca"><i class="fa-solid fa-wave-square"></i> VUCA / BANI</a>
           <a class="btn" href="#praktisch"><i class="fa-solid fa-list-check"></i> Praktisch</a>
           <a class="btn" href="https://forms.office.com/e/DDMftsAXKb" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-bread-slice"></i> Broodjesformulier</a>
@@ -1719,13 +1734,14 @@
         <div class="side-bottom">
           <div>
             <p class="side-text">
-              Een actieve dag met padel, bumperballs, beachvolley, frietjes en een vrijblijvende afsluiter in Leuven. Vergeet zeker het broodjesformulier niet in te vullen.
+              Een actieve dag met padel, bumperballs, beachvolley, frietjes en een vrijblijvende afsluiter in Leuven. Check ook de aparte locatiepagina voor bereikbaarheid en parking.
             </p>
 
             <div class="side-links">
               <a href="#missie">Missie</a>
               <a href="#visie">Visie</a>
               <a href="#waardenblok">Waarden</a>
+              <a href="locatie.html">Locatie</a>
             </div>
           </div>
 
@@ -1733,14 +1749,14 @@
             <article class="concept-card">
               <div class="concept-icon"><i class="fa-solid fa-helicopter"></i></div>
               <h3>Helikopterzicht</h3>
-              <p>Het overzicht bewaren: planning, timing en groepsflow in één blik.</p>
+              <p>Het overzicht bewaren: planning, timing, locatie, parking en groepsflow in één blik.</p>
               <span class="concept-tag"><i class="fa-solid fa-eye"></i> Grote lijnen</span>
             </article>
 
             <article class="concept-card">
               <div class="concept-icon"><i class="fa-solid fa-bicycle"></i></div>
               <h3>Fietszicht</h3>
-              <p>Niet overdenken: gewoon trappen, meedoen, lachen en samen vooruit.</p>
+              <p>Niet overdenken: gewoon toekomen, parkeren, trappen, meedoen, lachen en samen vooruit.</p>
               <span class="concept-tag"><i class="fa-solid fa-arrow-right"></i> Gewoon gaan</span>
             </article>
           </div>
@@ -1749,11 +1765,7 @@
             <div class="quick-item">
               <i class="fa-solid fa-location-dot"></i>
               <b>Locatie</b>
-              <span>
-                <a href="https://www.google.com/maps/search/?api=1&query=Sportkot+KU+Leuven" target="_blank" rel="noopener noreferrer">
-                  Sportkot KU Leuven
-                </a>
-              </span>
+              <span><a href="locatie.html">Locatie & parkinginfo</a></span>
             </div>
             <div class="quick-item"><i class="fa-solid fa-shirt"></i><b>Kledij</b><span>Sportief</span></div>
             <div class="quick-item"><i class="fa-solid fa-bread-slice"></i><b>Broodjes</b><span><a href="https://forms.office.com/e/DDMftsAXKb" target="_blank" rel="noopener noreferrer">Formulier invullen</a></span></div>
@@ -1799,7 +1811,7 @@
         <article class="card">
           <div class="icon"><i class="fa-solid fa-eye"></i></div>
           <h3>Strak georganiseerd</h3>
-          <p>Een helder programma, weinig praktische ruis en duidelijke timing. Ook de broodjesbestelling vraagt vooraf duidelijke input.</p>
+          <p>Een helder programma, weinig praktische ruis en duidelijke timing. Locatie- en parkinginfo staan apart zodat niemand moet zoeken.</p>
         </article>
 
         <article class="card">
@@ -1825,7 +1837,7 @@
         <div class="value"><b>Laagdrempelig</b><span>Iedereen kan meedoen op zijn of haar niveau.</span></div>
         <div class="value"><b>Samen</b><span>Groepsgevoel staat centraal, niet de uitslag.</span></div>
         <div class="value"><b>Ontspannen</b><span>Geen druk, wel ruimte om te lachen.</span></div>
-        <div class="value"><b>Duidelijk</b><span>Een strak programma met genoeg ademruimte.</span></div>
+        <div class="value"><b>Duidelijk</b><span>Een strak programma met genoeg praktische info vooraf.</span></div>
       </div>
     </section>
 
@@ -1847,11 +1859,11 @@
           <div class="vuca-list">
             <div class="vuca-item"><div class="vuca-mini">V</div><div><b>Volatility</b><span>Het weer, de energie van de groep en het ritme van de activiteiten kunnen plots veranderen.</span></div></div>
             <div class="vuca-item"><div class="vuca-mini">U</div><div><b>Uncertainty</b><span>Niet alles is vooraf perfect te voorspellen: wie doet volop mee, wie neemt pauze, wat loopt een beetje uit?</span></div></div>
-            <div class="vuca-item"><div class="vuca-mini">C</div><div><b>Complexity</b><span>Locatie, timing, eten, broodjeskeuzes, verplaatsing, groepsindeling en sfeer moeten tegelijk kloppen.</span></div></div>
+            <div class="vuca-item"><div class="vuca-mini">C</div><div><b>Complexity</b><span>Locatie, parking, timing, eten, broodjeskeuzes, verplaatsing, groepsindeling en sfeer moeten tegelijk kloppen.</span></div></div>
             <div class="vuca-item"><div class="vuca-mini">A</div><div><b>Ambiguity</b><span>Het is geen pure sportdag en geen lesdag: net dat tussengebied maakt het interessant.</span></div></div>
           </div>
 
-          <p class="vuca-note">Dus: duidelijke timing, eenvoudige keuzes en genoeg ruimte om de dag organisch te laten lopen.</p>
+          <p class="vuca-note">Dus: duidelijke timing, eenvoudige keuzes, een aparte locatiepagina en genoeg ruimte om de dag organisch te laten lopen.</p>
         </article>
 
         <article class="vuca-card">
@@ -1865,7 +1877,7 @@
 
           <div class="vuca-list">
             <div class="vuca-item"><div class="vuca-mini">B</div><div><b>Brittle</b><span>Een strak schema kan snel breken zodra één onderdeel uitloopt. Daarom bouwen we marge in.</span></div></div>
-            <div class="vuca-item"><div class="vuca-mini">A</div><div><b>Anxious</b><span>Niet iedereen leeft op van sportieve opdrachten. Humor en laagdrempeligheid halen de druk weg.</span></div></div>
+            <div class="vuca-item"><div class="vuca-mini">A</div><div><b>Anxious</b><span>Niet iedereen leeft op van sportieve opdrachten of praktische onzekerheid. Heldere info haalt druk weg.</span></div></div>
             <div class="vuca-item"><div class="vuca-mini">N</div><div><b>Non-linear</b><span>Een klein moment kan veel sfeer maken: één goede rally, een botsing in bumperballs of een perfect getimede frietpauze.</span></div></div>
             <div class="vuca-item"><div class="vuca-mini">I</div><div><b>Incomprehensible</b><span>Sommige dingen moet je niet overanalyseren. Waarom werkt het? Omdat mensen vanzelf plezier beginnen maken.</span></div></div>
           </div>
@@ -1881,9 +1893,9 @@
       </div>
 
       <div class="timeline">
-        <div class="time-row" data-time="08:00" data-title="Aankomst & omkleden" data-text="Verzamelen aan het Sportkot, rustig aankomen, omkleden en klaarzetten voor de eerste activiteit.">
+        <div class="time-row" data-time="08:00" data-title="Aankomst & omkleden" data-text="Verzamelen aan het Sportkot, rustig aankomen, parkeren, omkleden en klaarzetten voor de eerste activiteit. Voor details over bereikbaarheid en parking: klik op Locatie & parking bovenaan.">
           <div class="time">08:00</div>
-          <div><h3>Aankomst & omkleden</h3><p>Verzamelen, omkleden en rustig opstarten.</p></div>
+          <div><h3>Aankomst & omkleden</h3><p>Verzamelen, parkeren, omkleden en rustig opstarten.</p></div>
           <button class="info-btn">Info</button>
         </div>
 
@@ -1947,15 +1959,19 @@
             <li><i class="fa-regular fa-circle"></i> Zonnecrème bij goed weer</li>
             <li><i class="fa-regular fa-circle"></i> Goed humeur</li>
             <li><i class="fa-regular fa-circle"></i> Broodjesformulier ingevuld</li>
+            <li><i class="fa-regular fa-circle"></i> Locatie- en parkinginfo bekeken</li>
           </ul>
         </div>
 
         <div class="panel">
-          <h3><i class="fa-solid fa-bread-slice"></i> Broodjesformulier</h3>
-          <p class="muted">Voor de broodjes is het belangrijk dat iedereen het formulier invult. Zonder input wordt correct bestellen moeilijk.</p>
+          <h3><i class="fa-solid fa-circle-info"></i> Snel naar de juiste info</h3>
+          <p class="muted">Voor de broodjes is het belangrijk dat iedereen het formulier invult. Voor de aankomst, parking en route ter plaatse staat er een aparte locatiepagina klaar.</p>
           <div class="panel-action">
             <a class="panel-button" href="https://forms.office.com/e/DDMftsAXKb" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-pen-to-square"></i> Formulier invullen
+              <i class="fa-solid fa-pen-to-square"></i> Broodjesformulier
+            </a>
+            <a class="panel-button secondary" href="locatie.html">
+              <i class="fa-solid fa-location-dot"></i> Locatie & parking
             </a>
           </div>
         </div>
@@ -1970,7 +1986,12 @@
       <div class="faq">
         <div class="faq-item important open">
           <button class="faq-q">Is het broodjesformulier echt belangrijk? <i class="fa-solid fa-chevron-down"></i></button>
-          <div class="faq-a">Voor de goede vrede: "Ja!". Vul het hier in: <a href="https://forms.office.com/e/DDMftsAXKb" target="_blank" rel="noopener noreferrer">broodjesformulier openen</a>.</div>
+          <div class="faq-a">Voor de goede vrede: ja. Vul het hier in: <a href="https://forms.office.com/e/DDMftsAXKb" target="_blank" rel="noopener noreferrer">broodjesformulier openen</a>.</div>
+        </div>
+
+        <div class="faq-item important">
+          <button class="faq-q">Waar vind ik de locatie- en parkinginfo? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a">Op de aparte locatiepagina: <a href="locatie.html">Locatie & parking openen</a>. Daar kan je alle info zetten over adres, parking, verzamelpunt en hoe je er geraakt.</div>
         </div>
 
         <div class="faq-item">
@@ -1995,10 +2016,8 @@
         
         <div class="faq-item">
           <button class="faq-q">Is er parking? <i class="fa-solid fa-chevron-down"></i></button>
-          <div class="faq-a">Ja, normaal is er genoeg parking op de site!</div>
+          <div class="faq-a">Ja, normaal is er genoeg parking op de site. De praktische details kan je bundelen op de pagina <a href="locatie.html">Locatie & parking</a>.</div>
         </div>
-
-        
       </div>
     </section>
   </main>
