@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Teambuilding Heverlee 2026</title>
+  <title>Teambuilding Prom 23 Klas A</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
 
@@ -52,7 +52,7 @@
       position:sticky;
       top:0;
       z-index:50;
-      background:rgba(238,243,248,.90);
+      background:rgba(238,243,248,.92);
       backdrop-filter:blur(16px);
       border-bottom:1px solid rgba(16,32,68,.08);
     }
@@ -515,7 +515,7 @@
 
     .side-links{
       display:grid;
-      grid-template-columns:repeat(4,1fr);
+      grid-template-columns:repeat(3,1fr);
       gap:9px;
       margin-top:14px;
     }
@@ -1166,7 +1166,7 @@
       .hero-main,
       .hero-side{min-height:auto}
       .values{grid-template-columns:1fr 1fr}
-      .side-links{grid-template-columns:repeat(2,1fr)}
+      .side-links{grid-template-columns:repeat(3,1fr)}
     }
 
     @media (max-width:760px){
@@ -1357,7 +1357,10 @@
         line-height:1.55;
       }
 
-      .side-links,
+      .side-links{
+        grid-template-columns:repeat(3,1fr);
+      }
+
       .concept-strip,
       .quick,
       .values{grid-template-columns:1fr}
@@ -1571,7 +1574,7 @@
     <div class="page nav-inner">
       <div class="brand">
         <div class="brand-mark"><i class="fa-solid fa-bolt"></i></div>
-        <span>Teambuilding Heverlee</span>
+        <span>Teambuilding Prom 23 Klas A</span>
       </div>
 
       <div class="nav-links" aria-label="Navigatie">
@@ -1661,14 +1664,13 @@
             <p class="side-text">
               Een dag met beweging, plezier en genoeg ruimte om gewoon samen te zijn.
               Padel, bumperballs, beachvolley, broodjes, frietjes en een vrijblijvende afsluiter in Leuven.
-              Alles wat je vooraf nodig hebt, vind je hier overzichtelijk terug.
+              Praktisch voorbereid, maar niet stijf of geforceerd.
             </p>
 
             <div class="side-links">
               <a href="#missie">Missie</a>
               <a href="#visie">Visie</a>
               <a href="#waardenblok">Waarden</a>
-              <a href="locatie.html">Locatie</a>
             </div>
           </div>
 
@@ -1676,7 +1678,7 @@
             <article class="concept-card">
               <div class="concept-icon"><i class="fa-solid fa-helicopter"></i></div>
               <h3>Helikopterzicht</h3>
-              <p>Het overzicht bewaren: planning, timing, locatie, parking, broodjes en groepsflow in één blik.</p>
+              <p>Het overzicht bewaren: planning, timing, parking, broodjes en groepsflow in één blik.</p>
               <span class="concept-tag"><i class="fa-solid fa-eye"></i> Grote lijnen</span>
             </article>
 
@@ -1788,7 +1790,7 @@
 
         <div class="value">
           <b>Duidelijk</b>
-          <span>Een strak programma met genoeg praktische info vooraf.</span>
+          <span>Praktische info vooraf, zodat de dag zelf gewoon kan lopen.</span>
         </div>
       </div>
     </section>
@@ -1811,7 +1813,7 @@
           <div class="vuca-list">
             <div class="vuca-item"><div class="vuca-mini">V</div><div><b>Volatility</b><span>Het weer, de energie van de groep en het ritme van de activiteiten kunnen plots veranderen.</span></div></div>
             <div class="vuca-item"><div class="vuca-mini">U</div><div><b>Uncertainty</b><span>Niet alles is vooraf perfect te voorspellen: wie doet volop mee, wie neemt pauze, wat loopt een beetje uit?</span></div></div>
-            <div class="vuca-item"><div class="vuca-mini">C</div><div><b>Complexity</b><span>Locatie, timing, eten, broodjeskeuzes, verplaatsing, groepsindeling en sfeer moeten tegelijk kloppen.</span></div></div>
+            <div class="vuca-item"><div class="vuca-mini">C</div><div><b>Complexity</b><span>Timing, eten, broodjeskeuzes, verplaatsing, groepsindeling en sfeer moeten tegelijk kloppen.</span></div></div>
             <div class="vuca-item"><div class="vuca-mini">A</div><div><b>Ambiguity</b><span>Het is geen pure sportdag en geen lesdag. Net dat tussengebied maakt het plezant.</span></div></div>
           </div>
 
@@ -1948,9 +1950,9 @@
 
       <div class="faq">
         <div class="faq-item important open">
-          <button class="faq-q">Denk je dat er écht mensen zijn die het broodjesformulier vergeten in te vullen? Dat is toch ondenkbaar met al die herinneringen?! <i class="fa-solid fa-chevron-down"></i></button>
+          <button class="faq-q">Denk je dat er écht mensen zijn die het broodjesformulier vergeten in te vullen? <i class="fa-solid fa-chevron-down"></i></button>
           <div class="faq-a">
-            Ja. Ervaring leert dat dit echt mogelijk is... Spread the word! Vul het hier in:
+            Ja. Ervaring leert dat dit echt mogelijk is. Spread the word! Vul het hier in:
             <a href="https://forms.office.com/e/DDMftsAXKb" target="_blank" rel="noopener noreferrer">broodjesformulier openen</a>.
           </div>
         </div>
@@ -2011,7 +2013,7 @@
   </aside>
 
   <footer>
-    <div class="page"><strong>Teambuilding Heverlee 2026</strong></div>
+    <div class="page"><strong>Teambuilding Prom 23 Klas A</strong></div>
   </footer>
 
   <script>
@@ -2086,7 +2088,7 @@
       });
     });
 
-    const checklistKey = "teambuildingChecklistHeverlee2026";
+    const checklistKey = "teambuildingChecklistProm23KlasA";
     const savedItems = JSON.parse(localStorage.getItem(checklistKey) || "[]");
     const checklistItems = document.querySelectorAll("#packlist li");
 
