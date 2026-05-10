@@ -101,14 +101,159 @@
       letter-spacing:.045em;
       font-size:.78rem;
       font-weight:950;
+      transition:.16s background,.16s color,.16s transform;
     }
 
     .nav-links a:hover{
       background:var(--navy);
       color:white;
+      transform:translateY(-1px);
     }
 
-    header{padding:54px 0 34px}
+    header{padding:44px 0 34px}
+
+    .countdown-wrap{
+      margin-bottom:22px;
+      position:relative;
+      overflow:hidden;
+      border-radius:32px;
+      background:
+        radial-gradient(circle at 8% 20%, rgba(247,191,33,.35), transparent 22%),
+        radial-gradient(circle at 94% 18%, rgba(20,140,155,.22), transparent 24%),
+        linear-gradient(135deg,#ffffff,#f5f8fc);
+      border:1px solid var(--line);
+      box-shadow:0 18px 48px rgba(16,32,68,.09);
+      padding:22px;
+    }
+
+    .countdown-wrap::before{
+      content:"";
+      position:absolute;
+      inset:0 0 auto;
+      height:8px;
+      background:linear-gradient(90deg,var(--yellow),var(--teal),var(--coral));
+    }
+
+    .countdown-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      margin-bottom:16px;
+    }
+
+    .countdown-title{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+
+    .countdown-icon{
+      width:52px;
+      height:52px;
+      flex:0 0 52px;
+      display:grid;
+      place-items:center;
+      border-radius:18px;
+      background:var(--navy);
+      color:white;
+      box-shadow:7px 7px 0 rgba(20,140,155,.16);
+      font-size:1.25rem;
+    }
+
+    .countdown-title h2{
+      margin:0;
+      color:var(--navy);
+      font-size:clamp(1.6rem,3.2vw,3rem);
+      line-height:.98;
+      letter-spacing:-.065em;
+    }
+
+    .countdown-title p{
+      margin:5px 0 0;
+      color:var(--muted);
+      font-weight:750;
+    }
+
+    .countdown-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 13px;
+      border-radius:999px;
+      background:var(--yellow);
+      color:var(--navy-dark);
+      font-size:.78rem;
+      font-weight:1000;
+      text-transform:uppercase;
+      letter-spacing:.045em;
+      white-space:nowrap;
+    }
+
+    .countdown-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:10px;
+    }
+
+    .count-box{
+      position:relative;
+      overflow:hidden;
+      min-height:104px;
+      padding:16px;
+      border-radius:22px;
+      background:white;
+      border:1px solid var(--line);
+      box-shadow:0 12px 28px rgba(16,32,68,.06);
+    }
+
+    .count-box::after{
+      content:"";
+      position:absolute;
+      width:76px;
+      height:76px;
+      right:-26px;
+      bottom:-32px;
+      border-radius:50%;
+      background:rgba(20,140,155,.10);
+    }
+
+    .count-number{
+      position:relative;
+      z-index:2;
+      display:block;
+      color:var(--navy);
+      font-size:clamp(2rem,4.2vw,4.3rem);
+      line-height:.9;
+      letter-spacing:-.07em;
+      font-weight:1000;
+    }
+
+    .count-label{
+      position:relative;
+      z-index:2;
+      display:block;
+      margin-top:10px;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.075em;
+      font-size:.75rem;
+      font-weight:950;
+    }
+
+    .countdown-done{
+      display:none;
+      margin-top:14px;
+      padding:14px 16px;
+      border-radius:18px;
+      background:linear-gradient(135deg,rgba(247,191,33,.20),rgba(20,140,155,.14));
+      border:1px solid rgba(16,32,68,.10);
+      color:var(--navy);
+      font-weight:900;
+    }
+
+    .countdown-done.show{display:block}
 
     .hero{
       display:grid;
@@ -432,9 +577,7 @@
       text-decoration:none;
     }
 
-    .quick-item a:hover{
-      text-decoration:underline;
-    }
+    .quick-item a:hover{text-decoration:underline}
 
     section{padding:58px 0;scroll-margin-top:78px}
     #missie,#visie,#waardenblok,#vuca,#programma,#praktisch,#faq{scroll-margin-top:78px}
@@ -457,7 +600,8 @@
       background:var(--yellow);
     }
 
-    h2{
+    .section-title h2,
+    h2.section-main-title{
       margin:0;
       font-size:clamp(2.4rem,5vw,5.3rem);
       line-height:.9;
@@ -686,10 +830,7 @@
       font-weight:750;
     }
 
-    .timeline{
-      display:grid;
-      gap:12px;
-    }
+    .timeline{display:grid;gap:12px}
 
     .time-row{
       display:grid;
@@ -955,15 +1096,11 @@
       }
 
       .hero-main,
-      .hero-side{
-        min-height:auto;
-      }
+      .hero-side{min-height:auto}
 
       .quick,
       .values,
-      .concept-strip{
-        grid-template-columns:1fr 1fr;
-      }
+      .concept-strip{grid-template-columns:1fr 1fr}
 
       .hero-main{min-height:unset}
     }
@@ -1013,6 +1150,60 @@
       }
 
       header{padding:22px 0 18px}
+
+      .countdown-wrap{
+        margin-bottom:14px;
+        padding:18px;
+        border-radius:24px;
+      }
+
+      .countdown-head{
+        align-items:flex-start;
+        flex-direction:column;
+        gap:12px;
+      }
+
+      .countdown-icon{
+        width:46px;
+        height:46px;
+        flex-basis:46px;
+        border-radius:16px;
+      }
+
+      .countdown-title h2{
+        font-size:clamp(1.65rem,9vw,2.5rem);
+      }
+
+      .countdown-title p{
+        font-size:.92rem;
+        line-height:1.35;
+      }
+
+      .countdown-badge{
+        width:100%;
+        justify-content:center;
+      }
+
+      .countdown-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:8px;
+      }
+
+      .count-box{
+        min-height:88px;
+        padding:14px;
+        border-radius:18px;
+      }
+
+      .count-number{
+        font-size:clamp(2rem,12vw,3.4rem);
+      }
+
+      .count-label{
+        margin-top:8px;
+        font-size:.68rem;
+      }
+
       .hero{gap:14px}
 
       .hero-main,
@@ -1092,9 +1283,7 @@
       .side-links,
       .quick,
       .values,
-      .concept-strip{
-        grid-template-columns:1fr;
-      }
+      .concept-strip{grid-template-columns:1fr}
 
       .concept-card{
         min-height:auto;
@@ -1124,7 +1313,8 @@
         margin-top:4px;
       }
 
-      h2{
+      .section-title h2,
+      h2.section-main-title{
         font-size:clamp(2.25rem,12vw,3.85rem);
         line-height:.92;
       }
@@ -1156,11 +1346,7 @@
         border-radius:20px;
       }
 
-      .vuca-grid{
-        grid-template-columns:1fr;
-        gap:14px;
-      }
-
+      .vuca-grid{grid-template-columns:1fr;gap:14px}
       .vuca-card{border-radius:22px}
 
       .vuca-top{
@@ -1181,10 +1367,7 @@
       .vuca-top h3{font-size:1.75rem}
       .vuca-top p{font-size:.97rem;line-height:1.52}
 
-      .vuca-list{
-        padding:0 20px 20px;
-        gap:8px;
-      }
+      .vuca-list{padding:0 20px 20px;gap:8px}
 
       .vuca-item{
         grid-template-columns:36px 1fr;
@@ -1200,10 +1383,7 @@
         font-size:.9rem;
       }
 
-      .vuca-item span{
-        font-size:.91rem;
-        line-height:1.45;
-      }
+      .vuca-item span{font-size:.91rem;line-height:1.45}
 
       .vuca-note{
         margin:0 20px 20px;
@@ -1235,10 +1415,7 @@
         line-height:1.15;
       }
 
-      .time-row p{
-        font-size:.9rem;
-        line-height:1.35;
-      }
+      .time-row p{font-size:.9rem;line-height:1.35}
 
       .info-btn{
         grid-column:1 / -1;
@@ -1247,10 +1424,7 @@
         border-radius:13px;
       }
 
-      .practical-grid{
-        grid-template-columns:1fr;
-        gap:12px;
-      }
+      .practical-grid{grid-template-columns:1fr;gap:12px}
 
       .panel{
         padding:22px;
@@ -1277,10 +1451,7 @@
       .drawer-body h3{font-size:1.4rem}
       .drawer-body p{font-size:.96rem;line-height:1.55}
 
-      footer{
-        margin-top:28px;
-        padding:28px 0;
-      }
+      footer{margin-top:28px;padding:28px 0}
     }
 
     @media (max-width:420px){
@@ -1319,6 +1490,30 @@
   </nav>
 
   <header class="page">
+    <section class="countdown-wrap" aria-label="Afteller naar de teambuilding">
+      <div class="countdown-head">
+        <div class="countdown-title">
+          <div class="countdown-icon"><i class="fa-solid fa-hourglass-half"></i></div>
+          <div>
+            <h2>Nog even aftellen</h2>
+            <p>Tot vrijdag 17 juli 2026 om 08:00 aan het Sportkot KU Leuven.</p>
+          </div>
+        </div>
+        <div class="countdown-badge"><i class="fa-solid fa-calendar-check"></i> Teambuilding 2026</div>
+      </div>
+
+      <div class="countdown-grid" id="countdown">
+        <div class="count-box"><span class="count-number" id="days">000</span><span class="count-label">Dagen</span></div>
+        <div class="count-box"><span class="count-number" id="hours">00</span><span class="count-label">Uren</span></div>
+        <div class="count-box"><span class="count-number" id="minutes">00</span><span class="count-label">Minuten</span></div>
+        <div class="count-box"><span class="count-number" id="seconds">00</span><span class="count-label">Seconden</span></div>
+      </div>
+
+      <div class="countdown-done" id="countdownDone">
+        Vandaag is het zover. Tijd voor padel, bumperballs, beachvolley en frietjes.
+      </div>
+    </section>
+
     <div class="hero">
       <div class="hero-main">
         <div class="floating-card">🏐</div>
@@ -1634,6 +1829,46 @@
   </footer>
 
   <script>
+    const eventDate = new Date("2026-07-17T08:00:00+02:00");
+
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
+    const countdownDone = document.getElementById("countdownDone");
+
+    function pad(number){
+      return String(number).padStart(2, "0");
+    }
+
+    function updateCountdown(){
+      const now = new Date();
+      const diff = eventDate - now;
+
+      if(diff <= 0){
+        daysEl.textContent = "000";
+        hoursEl.textContent = "00";
+        minutesEl.textContent = "00";
+        secondsEl.textContent = "00";
+        countdownDone.classList.add("show");
+        return;
+      }
+
+      const totalSeconds = Math.floor(diff / 1000);
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+
+      daysEl.textContent = String(days).padStart(3, "0");
+      hoursEl.textContent = pad(hours);
+      minutesEl.textContent = pad(minutes);
+      secondsEl.textContent = pad(seconds);
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
     const drawer = document.getElementById("drawer");
     const drawerTime = document.getElementById("drawerTime");
     const drawerTitle = document.getElementById("drawerTitle");
