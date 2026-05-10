@@ -450,26 +450,73 @@
     }
 
     .side-links a {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
       padding: 11px 8px;
       border: 1px solid var(--color-line);
       border-radius: 14px;
       color: var(--color-heading);
-      background: #edf4f7;
       font-size: .7rem;
       font-weight: 950;
       letter-spacing: .04em;
       text-align: center;
       text-decoration: none;
       text-transform: uppercase;
-      transition: background .16s ease, color .16s ease, transform .16s ease;
+      box-shadow: 0 8px 18px rgba(16, 32, 68, .045);
+      transition: background .16s ease, border-color .16s ease, color .16s ease, box-shadow .16s ease, transform .16s ease;
+    }
+
+    .side-links a::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      flex: 0 0 7px;
+      border-radius: 50%;
+      background: currentColor;
+      box-shadow: 0 0 0 5px rgba(16, 32, 68, .06);
+    }
+
+    .side-links a:nth-child(1) {
+      border-color: rgba(247, 191, 33, .55);
+      background: linear-gradient(135deg, rgba(247, 191, 33, .34), rgba(255, 255, 255, .88));
+    }
+
+    .side-links a:nth-child(2) {
+      border-color: rgba(20, 140, 155, .34);
+      background: linear-gradient(135deg, rgba(20, 140, 155, .18), rgba(255, 255, 255, .90));
+    }
+
+    .side-links a:nth-child(3) {
+      border-color: rgba(255, 115, 101, .34);
+      background: linear-gradient(135deg, rgba(255, 115, 101, .18), rgba(255, 255, 255, .90));
+    }
+
+    .side-links a:nth-child(4) {
+      color: var(--color-white);
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--color-heading), var(--color-accent));
+      box-shadow: 0 10px 24px rgba(20, 140, 155, .18);
     }
 
     .side-links a:hover,
     .side-links a:focus-visible {
       color: var(--color-heading-dark);
+      border-color: rgba(247, 191, 33, .60);
       background: var(--color-warning);
+      box-shadow: 0 12px 26px rgba(247, 191, 33, .20);
       transform: translateY(-2px);
       outline: none;
+    }
+
+    .side-links a:nth-child(4):hover,
+    .side-links a:nth-child(4):focus-visible {
+      color: var(--color-white);
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--color-coral), var(--color-heading));
+      box-shadow: 0 12px 26px rgba(255, 115, 101, .20);
     }
 
     .quick-grid {
