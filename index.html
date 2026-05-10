@@ -440,9 +440,13 @@
 
     .side-links {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 9px;
       margin-top: 16px;
+    }
+
+    .side-links a:nth-child(4) {
+      grid-column: 1 / -1;
     }
 
     .side-links a {
@@ -1438,7 +1442,16 @@
       }
 
       .side-links {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .side-links a {
+        padding-inline: 6px;
+        font-size: .64rem;
+      }
+
+      .side-links a:nth-child(4) {
+        grid-column: 1 / -1;
       }
 
       .concept-card {
@@ -1771,6 +1784,14 @@
 
       .site-nav__links a {
         font-size: .63rem;
+      }
+
+      .side-links {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .side-links a:nth-child(4) {
+        grid-column: 1 / -1;
       }
     }
   </style>
