@@ -10,12 +10,12 @@
     :root{
       --bg:#eef3f8;
       --ink:#102044;
-      --navy:#1e316b;
-      --navy2:#172553;
-      --teal:#128b9a;
-      --teal2:#0f7180;
-      --yellow:#f7bd1f;
-      --coral:#ff6f61;
+      --navy:#1f3270;
+      --navy2:#182655;
+      --teal:#148c9b;
+      --teal2:#116f7d;
+      --yellow:#f7bf21;
+      --coral:#ff7365;
       --white:#fff;
       --muted:#60708d;
       --line:rgba(16,32,68,.13);
@@ -25,23 +25,22 @@
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-
     body{
       margin:0;
       color:var(--ink);
       font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        linear-gradient(90deg, rgba(30,49,107,.055) 1px, transparent 1px),
-        linear-gradient(rgba(30,49,107,.055) 1px, transparent 1px),
-        radial-gradient(circle at 12% 7%, rgba(247,189,31,.20), transparent 26%),
-        radial-gradient(circle at 88% 12%, rgba(18,139,154,.18), transparent 25%),
+        linear-gradient(90deg, rgba(31,50,112,.055) 1px, transparent 1px),
+        linear-gradient(rgba(31,50,112,.055) 1px, transparent 1px),
+        radial-gradient(circle at 10% 6%, rgba(247,191,33,.18), transparent 24%),
+        radial-gradient(circle at 92% 10%, rgba(20,140,155,.15), transparent 22%),
         var(--bg);
       background-size:54px 54px,54px 54px,auto,auto,auto;
       overflow-x:hidden;
     }
 
     .page{
-      width:min(1360px, calc(100% - 44px));
+      width:min(1360px, calc(100% - 42px));
       margin-inline:auto;
     }
 
@@ -49,9 +48,9 @@
       position:sticky;
       top:0;
       z-index:50;
-      background:rgba(238,243,248,.86);
-      backdrop-filter:blur(18px);
-      border-bottom:1px solid rgba(16,32,68,.09);
+      background:rgba(238,243,248,.88);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(16,32,68,.08);
     }
 
     .nav-inner{
@@ -79,7 +78,7 @@
       place-items:center;
       background:var(--yellow);
       color:var(--navy2);
-      box-shadow:9px 9px 0 rgba(18,139,154,.18);
+      box-shadow:9px 9px 0 rgba(20,140,155,.16);
       transform:rotate(-2deg);
     }
 
@@ -94,7 +93,7 @@
       text-decoration:none;
       padding:9px 12px;
       border-radius:999px;
-      color:#2c3b5e;
+      color:#2b3c62;
       text-transform:uppercase;
       letter-spacing:.045em;
       font-size:.78rem;
@@ -123,7 +122,6 @@
       box-shadow:var(--shadow);
       overflow:hidden;
       position:relative;
-      min-height:560px;
     }
 
     .hero-main{
@@ -137,6 +135,14 @@
       display:flex;
       flex-direction:column;
       justify-content:center;
+      min-height:560px;
+    }
+
+    .hero-side{
+      background:white;
+      display:grid;
+      grid-template-rows:auto 1fr;
+      min-height:560px;
     }
 
     .label{
@@ -161,17 +167,16 @@
       height:9px;
       border-radius:50%;
       background:var(--yellow);
-      box-shadow:0 0 0 7px rgba(247,189,31,.15);
+      box-shadow:0 0 0 7px rgba(247,191,33,.15);
     }
 
     h1{
       margin:34px 0 0;
-      max-width:100%;
       color:white;
-      font-size:clamp(4.2rem,7.2vw,7.6rem);
+      font-size:clamp(4rem,7vw,7.3rem);
       line-height:.90;
       letter-spacing:-.066em;
-      overflow-wrap:normal;
+      overflow-wrap:anywhere;
     }
 
     .hero-sub{
@@ -180,7 +185,7 @@
       align-items:flex-start;
       gap:20px;
       color:#dbe5ff;
-      font-size:clamp(1.9rem,3.6vw,4.1rem);
+      font-size:clamp(1.9rem,3.5vw,4rem);
       line-height:.98;
       letter-spacing:-.065em;
       font-weight:300;
@@ -197,7 +202,7 @@
     .hero-kicker{
       margin:24px 0 0 29px;
       color:var(--yellow);
-      font-size:clamp(1rem,1.6vw,1.25rem);
+      font-size:clamp(1rem,1.55vw,1.25rem);
       font-style:italic;
       font-weight:850;
     }
@@ -215,7 +220,7 @@
       justify-content:center;
       gap:9px;
       min-height:48px;
-      padding:0 15px;
+      padding:0 16px;
       border-radius:15px;
       border:1px solid rgba(255,255,255,.18);
       text-decoration:none;
@@ -253,12 +258,6 @@
       font-size:3.4rem;
     }
 
-    .hero-side{
-      display:grid;
-      grid-template-rows:auto 1fr;
-      background:white;
-    }
-
     .side-top{
       background:
         radial-gradient(circle at 18% 24%, rgba(255,255,255,.34), transparent 15%),
@@ -286,7 +285,7 @@
       z-index:2;
       margin:0;
       color:white;
-      font-size:clamp(2.2rem,4.2vw,4rem);
+      font-size:clamp(2.15rem,4.1vw,3.95rem);
       line-height:1.05;
       letter-spacing:-.075em;
     }
@@ -420,11 +419,11 @@
       color:white;
       background:var(--navy);
       margin-bottom:20px;
-      box-shadow:8px 8px 0 rgba(18,139,154,.14);
+      box-shadow:8px 8px 0 rgba(20,140,155,.14);
     }
 
-    .card:nth-child(2) .icon{background:var(--teal); box-shadow:8px 8px 0 rgba(247,189,31,.18)}
-    .card:nth-child(3) .icon{background:var(--coral); box-shadow:8px 8px 0 rgba(30,49,107,.12)}
+    .card:nth-child(2) .icon{background:var(--teal); box-shadow:8px 8px 0 rgba(247,191,33,.18)}
+    .card:nth-child(3) .icon{background:var(--coral); box-shadow:8px 8px 0 rgba(31,50,112,.12)}
 
     .card h3{
       margin:0 0 10px;
@@ -530,12 +529,12 @@
       color:white;
       font-size:1.85rem;
       font-weight:1000;
-      box-shadow:9px 9px 0 rgba(18,139,154,.16);
+      box-shadow:9px 9px 0 rgba(20,140,155,.16);
     }
 
     .vuca-card:nth-child(2) .vuca-letter{
       background:var(--teal);
-      box-shadow:9px 9px 0 rgba(247,189,31,.20);
+      box-shadow:9px 9px 0 rgba(247,191,33,.20);
     }
 
     .vuca-top h3{
@@ -600,7 +599,7 @@
       margin:0 28px 28px;
       border-radius:20px;
       padding:18px;
-      background:linear-gradient(135deg,rgba(247,189,31,.18),rgba(18,139,154,.13));
+      background:linear-gradient(135deg,rgba(247,191,33,.18),rgba(20,140,155,.13));
       border:1px solid rgba(16,32,68,.10);
       color:#2c3b5e;
       line-height:1.6;
@@ -628,8 +627,8 @@
 
     .time-row:hover{
       transform:translateX(7px);
-      border-color:rgba(18,139,154,.42);
-      box-shadow:0 18px 42px rgba(18,139,154,.12);
+      border-color:rgba(20,140,155,.42);
+      box-shadow:0 18px 42px rgba(20,140,155,.12);
     }
 
     .time{
@@ -713,7 +712,7 @@
 
     .checklist li.done{
       background:#eaf7f6;
-      border-color:rgba(18,139,154,.28);
+      border-color:rgba(20,140,155,.28);
       color:var(--navy);
       font-weight:800;
     }
@@ -836,10 +835,7 @@
       cursor:pointer;
     }
 
-    .drawer-body{
-      padding:24px;
-    }
-
+    .drawer-body{padding:24px}
     .drawer-body h3{
       margin:0 0 10px;
       color:var(--navy);
@@ -860,33 +856,20 @@
       padding:38px 0;
     }
 
-    @media(max-width:1060px){
+    @media (max-width:1060px){
       .hero,
       .cards,
       .vuca-grid,
-      .practical-grid{
-        grid-template-columns:1fr;
-      }
-
+      .practical-grid{grid-template-columns:1fr}
       .hero-main,
-      .hero-side{
-        min-height:auto;
-      }
-
+      .hero-side{min-height:auto}
       .quick,
-      .values{
-        grid-template-columns:1fr 1fr;
-      }
+      .values{grid-template-columns:1fr 1fr}
     }
 
-    @media(max-width:720px){
-      body{
-        background-size:38px 38px,38px 38px,auto,auto,auto;
-      }
-
-      .page{
-        width:min(100% - 26px,1360px);
-      }
+    @media (max-width:720px){
+      body{background-size:38px 38px,38px 38px,auto,auto,auto}
+      .page{width:min(100% - 24px, 1360px)}
 
       .nav-inner{
         min-height:auto;
@@ -896,15 +879,10 @@
         gap:10px;
       }
 
-      .brand{
-        font-size:.98rem;
-      }
-
+      .brand{font-size:.98rem}
       .brand-mark{
-        width:42px;
-        height:42px;
-        border-radius:15px;
-        box-shadow:6px 6px 0 rgba(18,139,154,.18);
+        width:42px;height:42px;border-radius:15px;
+        box-shadow:6px 6px 0 rgba(20,140,155,.16);
       }
 
       .nav-links{
@@ -919,10 +897,7 @@
         -webkit-overflow-scrolling:touch;
       }
 
-      .nav-links::-webkit-scrollbar{
-        display:none;
-      }
-
+      .nav-links::-webkit-scrollbar{display:none}
       .nav-links a{
         flex:0 0 auto;
         font-size:.70rem;
@@ -931,13 +906,8 @@
         border:1px solid rgba(16,32,68,.08);
       }
 
-      header{
-        padding:22px 0 18px;
-      }
-
-      .hero{
-        gap:14px;
-      }
+      header{padding:22px 0 18px}
+      .hero{gap:14px}
 
       .hero-main,
       .hero-side{
@@ -945,10 +915,7 @@
         min-height:auto;
       }
 
-      .hero-main{
-        padding:28px 20px 24px;
-      }
-
+      .hero-main{padding:28px 20px 24px}
       .floating-card{display:none}
 
       .label{
@@ -959,27 +926,22 @@
 
       h1{
         margin-top:24px;
-        font-size:clamp(2.72rem,14.2vw,4.25rem);
-        line-height:.92;
-        letter-spacing:-.045em;
+        font-size:clamp(2.45rem, 13vw, 3.65rem);
+        line-height:.93;
+        letter-spacing:-.04em;
       }
 
       .hero-sub{
         margin-top:20px;
-        font-size:clamp(1.55rem,9vw,2.75rem);
-        line-height:1;
+        font-size:clamp(1.45rem, 8.4vw, 2.55rem);
+        line-height:1.02;
         gap:12px;
-        letter-spacing:-.052em;
+        letter-spacing:-.05em;
       }
 
-      .goldbar{
-        width:7px;
-        flex-basis:7px;
-        height:56px;
-      }
-
+      .goldbar{width:7px;flex-basis:7px;height:56px}
       .hero-kicker{
-        margin:20px 0 0 19px;
+        margin:18px 0 0 19px;
         font-size:1rem;
       }
 
@@ -1002,30 +964,15 @@
       }
 
       .side-title{
-        font-size:clamp(2.05rem,12vw,3.2rem);
+        font-size:clamp(2rem, 11vw, 3rem);
         line-height:1.05;
       }
 
-      .side-bottom{
-        padding:22px;
-        gap:18px;
-      }
-
-      .side-text{
-        font-size:.98rem;
-        line-height:1.58;
-      }
-
+      .side-bottom{padding:22px;gap:18px}
+      .side-text{font-size:.98rem;line-height:1.58}
       .side-links,
       .quick,
-      .values{
-        grid-template-columns:1fr;
-      }
-
-      .quick-item{
-        border-radius:16px;
-        padding:13px;
-      }
+      .values{grid-template-columns:1fr}
 
       section{
         padding:36px 0;
@@ -1036,31 +983,18 @@
         scroll-margin-top:118px;
       }
 
-      .section-head{
-        margin-bottom:18px;
-      }
-
-      .section-title{
-        gap:12px;
-      }
-
+      .section-head{margin-bottom:18px}
+      .section-title{gap:12px}
       .section-title::before{
-        width:7px;
-        flex-basis:7px;
-        height:54px;
-        margin-top:4px;
+        width:7px;flex-basis:7px;height:54px;margin-top:4px;
       }
 
       h2{
-        font-size:clamp(2.35rem,13vw,4rem);
+        font-size:clamp(2.25rem, 12vw, 3.85rem);
         line-height:.92;
       }
 
-      .cards{
-        grid-template-columns:1fr;
-        gap:12px;
-      }
-
+      .cards{grid-template-columns:1fr;gap:12px}
       .card{
         min-height:auto;
         border-radius:22px;
@@ -1068,20 +1002,11 @@
       }
 
       .icon{
-        width:52px;
-        height:52px;
-        border-radius:18px;
-        margin-bottom:16px;
+        width:52px;height:52px;border-radius:18px;margin-bottom:16px;
       }
 
-      .card h3{
-        font-size:1.45rem;
-      }
-
-      .card p{
-        font-size:.98rem;
-        line-height:1.55;
-      }
+      .card h3{font-size:1.45rem}
+      .card p{font-size:.98rem;line-height:1.55}
 
       .value{
         min-height:auto;
@@ -1089,47 +1014,25 @@
         padding:20px;
       }
 
-      .vuca-grid{
-        grid-template-columns:1fr;
-        gap:14px;
-      }
-
-      .vuca-card{
-        border-radius:22px;
-      }
-
+      .vuca-grid{grid-template-columns:1fr;gap:14px}
+      .vuca-card{border-radius:22px}
       .vuca-top{
         padding:24px 20px 14px;
         gap:13px;
       }
 
       .vuca-letter{
-        width:52px;
-        height:52px;
-        flex-basis:52px;
-        border-radius:18px;
-        font-size:1.55rem;
-        box-shadow:6px 6px 0 rgba(18,139,154,.16);
+        width:52px;height:52px;flex-basis:52px;border-radius:18px;
+        font-size:1.55rem;box-shadow:6px 6px 0 rgba(20,140,155,.16);
       }
 
       .vuca-card:nth-child(2) .vuca-letter{
-        box-shadow:6px 6px 0 rgba(247,189,31,.20);
+        box-shadow:6px 6px 0 rgba(247,191,33,.20);
       }
 
-      .vuca-top h3{
-        font-size:1.75rem;
-      }
-
-      .vuca-top p{
-        font-size:.97rem;
-        line-height:1.52;
-      }
-
-      .vuca-list{
-        padding:0 20px 20px;
-        gap:8px;
-      }
-
+      .vuca-top h3{font-size:1.75rem}
+      .vuca-top p{font-size:.97rem;line-height:1.52}
+      .vuca-list{padding:0 20px 20px;gap:8px}
       .vuca-item{
         grid-template-columns:36px 1fr;
         gap:10px;
@@ -1138,10 +1041,7 @@
       }
 
       .vuca-mini{
-        width:36px;
-        height:36px;
-        border-radius:13px;
-        font-size:.9rem;
+        width:36px;height:36px;border-radius:13px;font-size:.9rem;
       }
 
       .vuca-item span{
@@ -1156,9 +1056,7 @@
         font-size:.94rem;
       }
 
-      .timeline{
-        gap:10px;
-      }
+      .timeline{gap:10px}
 
       .time-row{
         grid-template-columns:72px 1fr;
@@ -1168,10 +1066,7 @@
         align-items:start;
       }
 
-      .time-row:hover{
-        transform:none;
-      }
-
+      .time-row:hover{transform:none}
       .time{
         min-height:48px;
         border-radius:14px;
@@ -1205,17 +1100,9 @@
         padding:22px;
       }
 
-      .price{
-        font-size:clamp(2.6rem,16vw,4rem);
-      }
-
-      .faq-q{
-        padding:16px;
-      }
-
-      .faq-a{
-        padding:0 16px 16px;
-      }
+      .price{font-size:clamp(2.6rem,16vw,4rem)}
+      .faq-q{padding:16px}
+      .faq-a{padding:0 16px 16px}
 
       .drawer{
         top:auto;
@@ -1227,55 +1114,23 @@
         transform:translateY(calc(100% + 32px));
       }
 
-      .drawer.open{
-        transform:translateY(0);
-      }
-
-      .drawer-top{
-        min-height:92px;
-        padding:18px;
-      }
-
-      .drawer-body{
-        padding:20px;
-      }
-
-      .drawer-body h3{
-        font-size:1.4rem;
-      }
-
-      .drawer-body p{
-        font-size:.96rem;
-        line-height:1.55;
-      }
-
-      footer{
-        margin-top:28px;
-        padding:28px 0;
-      }
+      .drawer.open{transform:translateY(0)}
+      .drawer-top{min-height:92px;padding:18px}
+      .drawer-body{padding:20px}
+      .drawer-body h3{font-size:1.4rem}
+      .drawer-body p{font-size:.96rem;line-height:1.55}
+      footer{margin-top:28px;padding:28px 0}
     }
 
-    @media(max-width:420px){
-      .page{
-        width:min(100% - 20px,1360px);
-      }
-
+    @media (max-width:420px){
+      .page{width:min(100% - 18px, 1360px)}
       h1{
-        font-size:clamp(2.50rem,13vw,3.55rem);
-        letter-spacing:-.035em;
+        font-size:clamp(2.36rem, 12.2vw, 3.3rem);
+        letter-spacing:-.032em;
       }
-
-      .hero-sub{
-        font-size:clamp(1.38rem,8.5vw,2.35rem);
-      }
-
-      .time-row{
-        grid-template-columns:66px 1fr;
-      }
-
-      .nav-links a{
-        font-size:.66rem;
-      }
+      .hero-sub{font-size:clamp(1.32rem, 8.1vw, 2.15rem)}
+      .time-row{grid-template-columns:66px 1fr}
+      .nav-links a{font-size:.66rem}
     }
   </style>
 </head>
@@ -1311,7 +1166,7 @@
         <div class="hero-kicker">Actief. Ontspannen. Samen op pad.</div>
         <div class="hero-actions">
           <a class="btn primary" href="#programma"><i class="fa-solid fa-calendar-days"></i> Programma</a>
-          <a class="btn" href="#missie"><i class="fa-solid fa-bullseye"></i> Missie</a>
+          <a class="btn" href="#vuca"><i class="fa-solid fa-wave-square"></i> VUCA / BANI</a>
           <a class="btn" href="#praktisch"><i class="fa-solid fa-list-check"></i> Praktisch</a>
         </div>
       </div>
@@ -1370,23 +1225,22 @@
 
     <section id="vuca" class="page">
       <div class="section-head"><div class="section-title"><h2>VUCA / BANI</h2></div></div>
-
       <div class="vuca-grid">
         <article class="vuca-card">
           <div class="vuca-top">
             <div class="vuca-letter">V</div>
             <div>
               <h3>VUCA</h3>
-              <p>De teambuilding als mini-managementcase: het plan is helder, maar de dag zelf blijft natuurlijk levendig.</p>
+              <p>De teambuilding als mini-managementcase: het plan is helder, maar de dag zelf blijft levendig en licht onvoorspelbaar.</p>
             </div>
           </div>
           <div class="vuca-list">
-            <div class="vuca-item"><div class="vuca-mini">V</div><div><b>Volatility</b><span>Het weer, de energie van de groep en het tempo van de activiteiten kunnen snel veranderen.</span></div></div>
-            <div class="vuca-item"><div class="vuca-mini">U</div><div><b>Uncertainty</b><span>Niet alles is vooraf perfect te voorspellen: wie speelt mee, wie neemt pauze, wat loopt uit?</span></div></div>
-            <div class="vuca-item"><div class="vuca-mini">C</div><div><b>Complexity</b><span>Sportkot, timing, eten, verplaatsing, groepen en sfeer moeten tegelijk kloppen.</span></div></div>
-            <div class="vuca-item"><div class="vuca-mini">A</div><div><b>Ambiguity</b><span>Het is geen wedstrijd en geen vergadering: het zit net tussen fun, teamgevoel en praktische organisatie.</span></div></div>
+            <div class="vuca-item"><div class="vuca-mini">V</div><div><b>Volatility</b><span>Het weer, de energie van de groep en het ritme van de activiteiten kunnen plots veranderen.</span></div></div>
+            <div class="vuca-item"><div class="vuca-mini">U</div><div><b>Uncertainty</b><span>Niet alles is vooraf perfect te voorspellen: wie doet volop mee, wie neemt pauze, wat loopt een beetje uit?</span></div></div>
+            <div class="vuca-item"><div class="vuca-mini">C</div><div><b>Complexity</b><span>Locatie, timing, eten, verplaatsing, groepsindeling en sfeer moeten tegelijk kloppen.</span></div></div>
+            <div class="vuca-item"><div class="vuca-mini">A</div><div><b>Ambiguity</b><span>Het is geen pure sportdag en geen vergadering: net dat tussengebied maakt het interessant.</span></div></div>
           </div>
-          <p class="vuca-note">Daarom: duidelijke timing, eenvoudige keuzes en genoeg ruimte om de dag organisch te laten lopen.</p>
+          <p class="vuca-note">Dus: duidelijke timing, eenvoudige keuzes en genoeg ruimte om de dag organisch te laten lopen.</p>
         </article>
 
         <article class="vuca-card">
@@ -1394,16 +1248,16 @@
             <div class="vuca-letter">B</div>
             <div>
               <h3>BANI</h3>
-              <p>Omdat een groepsdag niet alleen rationeel is. Mensen worden moe, enthousiast, hongerig, competitief of net heel chill.</p>
+              <p>Omdat een groepsdag niet alleen rationeel is. Mensen worden moe, enthousiast, hongerig, competitief of net heel relaxed.</p>
             </div>
           </div>
           <div class="vuca-list">
-            <div class="vuca-item"><div class="vuca-mini">B</div><div><b>Brittle</b><span>Een strak schema kan breken als één onderdeel uitloopt. Dus bouwen we lucht in.</span></div></div>
-            <div class="vuca-item"><div class="vuca-mini">A</div><div><b>Anxious</b><span>Niet iedereen houdt van sportieve opdrachten. Laagdrempeligheid en humor halen de druk eraf.</span></div></div>
-            <div class="vuca-item"><div class="vuca-mini">N</div><div><b>Non-linear</b><span>Een klein moment kan veel sfeer maken: een goeie rally, een botsing, een grap, een frietje op het juiste moment.</span></div></div>
-            <div class="vuca-item"><div class="vuca-mini">I</div><div><b>Incomprehensible</b><span>Sommige dingen ga je niet uitleggen. Waarom bumperballs werken? Omdat iedereen vanzelf begint te lachen.</span></div></div>
+            <div class="vuca-item"><div class="vuca-mini">B</div><div><b>Brittle</b><span>Een strak schema kan snel breken zodra één onderdeel uitloopt. Daarom bouwen we marge in.</span></div></div>
+            <div class="vuca-item"><div class="vuca-mini">A</div><div><b>Anxious</b><span>Niet iedereen leeft op van sportieve opdrachten. Humor en laagdrempeligheid halen de druk weg.</span></div></div>
+            <div class="vuca-item"><div class="vuca-mini">N</div><div><b>Non-linear</b><span>Een klein moment kan veel sfeer maken: één goede rally, een botsing in bumperballs of een perfect getimede frietpauze.</span></div></div>
+            <div class="vuca-item"><div class="vuca-mini">I</div><div><b>Incomprehensible</b><span>Sommige dingen moet je niet analyseren. Waarom werkt het? Omdat mensen vanzelf beginnen lachen.</span></div></div>
           </div>
-          <p class="vuca-note">Daarom: actief genoeg voor energie, los genoeg voor ontspanning en simpel genoeg zodat iedereen mee is.</p>
+          <p class="vuca-note">Dus: actief genoeg voor energie, los genoeg voor ontspanning en simpel genoeg zodat iedereen mee is.</p>
         </article>
       </div>
     </section>
@@ -1411,8 +1265,8 @@
     <section id="programma" class="page">
       <div class="section-head"><div class="section-title"><h2>Programma</h2></div></div>
       <div class="timeline">
-        <div class="time-row" data-time="08:00" data-title="Aankomst & omkleden" data-text="Verzamelen aan het Sportkot, rustig aankomen, omkleden en klaarzetten voor de eerste activiteit."><div class="time">08:00</div><div><h3>Aankomst & omkleden</h3><p>Verzamelen, omkleden en opstarten.</p></div><button class="info-btn">Info</button></div>
-        <div class="time-row" data-time="08:30" data-title="Padel" data-text="We spelen in ploegen en roteren door. Wie even niet speelt, supportert of neemt kort pauze."><div class="time">08:30</div><div><h3>Padel</h3><p>Teams, rotatie en sportieve opener.</p></div><button class="info-btn">Info</button></div>
+        <div class="time-row" data-time="08:00" data-title="Aankomst & omkleden" data-text="Verzamelen aan het Sportkot, rustig aankomen, omkleden en klaarzetten voor de eerste activiteit."><div class="time">08:00</div><div><h3>Aankomst & omkleden</h3><p>Verzamelen, omkleden en rustig opstarten.</p></div><button class="info-btn">Info</button></div>
+        <div class="time-row" data-time="08:30" data-title="Padel" data-text="We spelen in ploegen en roteren door. Wie even niet speelt, supportert of neemt kort pauze."><div class="time">08:30</div><div><h3>Padel</h3><p>Teams, rotatie en een sportieve opener.</p></div><button class="info-btn">Info</button></div>
         <div class="time-row" data-time="10:30" data-title="Bumperballs" data-text="Korte spelvormen met veel beweging en fun. De nadruk ligt op amusement en groepssfeer."><div class="time">10:30</div><div><h3>Bumperballs</h3><p>Actief, grappig en laagdrempelig.</p></div><button class="info-btn">Info</button></div>
         <div class="time-row" data-time="12:00" data-title="Lunch" data-text="Broodjesmoment en korte pauze. Vegetarische opties worden vooraf bevraagd."><div class="time">12:00</div><div><h3>Lunch</h3><p>Broodjes en korte pauze.</p></div><button class="info-btn">Info</button></div>
         <div class="time-row" data-time="13:00" data-title="Beachvolleybal" data-text="Beachvolley met teams en rotatie. Competitie mag, maar sfeer blijft belangrijker dan winnen."><div class="time">13:00</div><div><h3>Beachvolleybal</h3><p>Zand, teams en groepssfeer.</p></div><button class="info-btn">Info</button></div>
@@ -1439,7 +1293,7 @@
         <div class="panel">
           <h3><i class="fa-solid fa-wallet"></i> Richtprijs</h3>
           <div class="price">± €55–€75</div>
-          <p style="color:var(--muted);line-height:1.65;margin:0">Definitieve prijs volgt na bevestiging van alle keuzes en eventuele tussenkomsten.</p>
+          <p style="color:var(--muted);line-height:1.65;margin:0">Definitieve prijs volgt na bevestiging van de keuzes en eventuele tussenkomsten.</p>
         </div>
       </div>
     </section>
@@ -1497,7 +1351,7 @@
       });
     });
 
-    const key = "teambuildingChecklistFresh";
+    const key = "teambuildingChecklistNoMissionBtn";
     const saved = JSON.parse(localStorage.getItem(key) || "[]");
     const items = document.querySelectorAll("#packlist li");
 
