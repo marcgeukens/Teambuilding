@@ -53,6 +53,10 @@
       margin-inline:auto;
     }
 
+    .mobile-only{
+      display:none !important;
+    }
+
     nav{
       position:sticky;
       top:0;
@@ -138,7 +142,7 @@
 
     .hero-left{
       position:relative;
-      min-height:620px;
+      min-height:610px;
       padding:clamp(34px,5.2vw,74px);
       color:white;
       background:
@@ -199,7 +203,7 @@
     h1{
       margin:34px 0 0;
       color:white;
-      font-size:clamp(3.15rem,7vw,6.2rem);
+      font-size:clamp(3.05rem,6.7vw,6rem);
       line-height:.88;
       letter-spacing:-.075em;
     }
@@ -379,12 +383,12 @@
       font-weight:700;
     }
 
-    .arrival-list{
+    .brief-list{
       display:grid;
       gap:10px;
     }
 
-    .arrival-item{
+    .brief-item{
       display:grid;
       grid-template-columns:44px 1fr;
       gap:12px;
@@ -396,7 +400,7 @@
       box-shadow:0 10px 24px rgba(16,32,68,.055);
     }
 
-    .arrival-icon{
+    .brief-icon{
       width:44px;
       height:44px;
       display:grid;
@@ -407,18 +411,18 @@
       font-weight:1000;
     }
 
-    .arrival-item:nth-child(2) .arrival-icon{background:var(--navy);color:white}
-    .arrival-item:nth-child(3) .arrival-icon{background:var(--teal);color:white}
-    .arrival-item:nth-child(4) .arrival-icon{background:var(--coral);color:white}
+    .brief-item:nth-child(2) .brief-icon{background:var(--navy);color:white}
+    .brief-item:nth-child(3) .brief-icon{background:var(--teal);color:white}
+    .brief-item:nth-child(4) .brief-icon{background:var(--coral);color:white}
 
-    .arrival-item b{
+    .brief-item b{
       display:block;
       color:var(--navy);
       letter-spacing:-.03em;
       margin-bottom:2px;
     }
 
-    .arrival-item span{
+    .brief-item span{
       display:block;
       color:var(--muted);
       font-weight:650;
@@ -464,7 +468,7 @@
     }
 
     .lead{
-      max-width:880px;
+      max-width:890px;
       margin:12px 0 0 22px;
       color:#536689;
       font-size:1.05rem;
@@ -472,14 +476,7 @@
       font-weight:700;
     }
 
-    .quick-grid{
-      display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:12px;
-    }
-
-    .quick-card,
-    .mode-card,
+    .card,
     .panel{
       position:relative;
       overflow:hidden;
@@ -489,20 +486,7 @@
       box-shadow:var(--soft-shadow);
     }
 
-    .quick-card{
-      min-height:174px;
-      padding:22px;
-      text-decoration:none;
-      transition:.16s transform,.16s box-shadow;
-    }
-
-    .quick-card:hover{
-      transform:translateY(-3px);
-      box-shadow:0 22px 48px rgba(16,32,68,.13);
-    }
-
-    .quick-card::before,
-    .mode-card::before,
+    .card::before,
     .panel::before{
       content:"";
       position:absolute;
@@ -511,78 +495,31 @@
       background:linear-gradient(90deg,var(--yellow),var(--teal),var(--coral));
     }
 
-    .quick-icon{
-      width:52px;
-      height:52px;
+    .info-grid{
       display:grid;
-      place-items:center;
-      margin-bottom:16px;
-      border-radius:18px;
-      color:white;
-      background:var(--navy);
-      box-shadow:7px 7px 0 rgba(20,140,155,.14);
-    }
-
-    .quick-card:nth-child(2) .quick-icon{background:var(--teal);box-shadow:7px 7px 0 rgba(247,191,33,.18)}
-    .quick-card:nth-child(3) .quick-icon{background:var(--coral);box-shadow:7px 7px 0 rgba(31,50,112,.12)}
-    .quick-card:nth-child(4) .quick-icon{background:var(--green);box-shadow:7px 7px 0 rgba(31,50,112,.12)}
-
-    .quick-card b{
-      display:block;
-      color:var(--navy);
-      font-size:1.22rem;
-      line-height:1.05;
-      letter-spacing:-.04em;
-      margin-bottom:7px;
-    }
-
-    .quick-card span{
-      display:block;
-      color:var(--muted);
-      line-height:1.42;
-      font-weight:650;
-      font-size:.94rem;
-    }
-
-    .mode-grid{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
+      grid-template-columns:repeat(3,minmax(0,1fr));
       gap:14px;
     }
 
-    .mode-card{
+    .info-card{
+      min-height:205px;
       padding:24px;
-      min-height:330px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      gap:18px;
     }
 
-    .mode-top{
-      display:grid;
-      grid-template-columns:58px 1fr;
-      gap:15px;
-      align-items:start;
-    }
-
-    .mode-icon{
-      width:58px;
-      height:58px;
+    .info-icon{
+      width:56px;
+      height:56px;
       display:grid;
       place-items:center;
-      border-radius:20px;
+      margin-bottom:18px;
+      border-radius:19px;
       color:white;
       background:var(--navy);
       box-shadow:7px 7px 0 rgba(20,140,155,.14);
-      font-size:1.2rem;
     }
 
-    .mode-card:nth-child(2) .mode-icon{background:var(--teal);box-shadow:7px 7px 0 rgba(247,191,33,.18)}
-    .mode-card:nth-child(3) .mode-icon{background:var(--coral);box-shadow:7px 7px 0 rgba(31,50,112,.12)}
-    .mode-card:nth-child(4) .mode-icon{background:var(--green);box-shadow:7px 7px 0 rgba(31,50,112,.12)}
-    .mode-card:nth-child(5) .mode-icon{background:var(--yellow);color:var(--navy-dark);box-shadow:7px 7px 0 rgba(20,140,155,.14)}
-    .mode-card:nth-child(6) .mode-icon{background:var(--navy-dark);box-shadow:7px 7px 0 rgba(247,191,33,.18)}
+    .info-card:nth-child(2) .info-icon{background:var(--teal);box-shadow:7px 7px 0 rgba(247,191,33,.18)}
+    .info-card:nth-child(3) .info-icon{background:var(--coral);box-shadow:7px 7px 0 rgba(31,50,112,.12)}
 
     .tag{
       display:inline-flex;
@@ -600,16 +537,16 @@
       letter-spacing:.08em;
     }
 
-    .mode-card h3,
+    .card h3,
     .panel h3{
       margin:0 0 9px;
       color:var(--navy);
-      font-size:1.55rem;
+      font-size:1.48rem;
       line-height:1.05;
       letter-spacing:-.055em;
     }
 
-    .mode-card p,
+    .card p,
     .panel p{
       margin:0;
       color:var(--muted);
@@ -617,27 +554,62 @@
       font-weight:650;
     }
 
-    .mode-list{
-      list-style:none;
-      margin:18px 0 0;
-      padding:0;
+    .route-grid{
       display:grid;
-      gap:8px;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px;
     }
 
-    .mode-list li{
+    .route-card{
+      min-height:300px;
+      padding:24px;
       display:flex;
-      align-items:flex-start;
-      gap:10px;
-      color:#52627e;
-      font-weight:650;
-      line-height:1.38;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:18px;
     }
 
-    .mode-list i{
-      color:var(--teal);
-      margin-top:3px;
-      width:18px;
+    .route-top{
+      display:grid;
+      grid-template-columns:58px 1fr;
+      gap:15px;
+      align-items:start;
+    }
+
+    .route-icon{
+      width:58px;
+      height:58px;
+      display:grid;
+      place-items:center;
+      border-radius:20px;
+      color:white;
+      background:var(--navy);
+      box-shadow:7px 7px 0 rgba(20,140,155,.14);
+      font-size:1.2rem;
+    }
+
+    .route-card:nth-child(2) .route-icon{background:var(--teal);box-shadow:7px 7px 0 rgba(247,191,33,.18)}
+    .route-card:nth-child(3) .route-icon{background:var(--coral);box-shadow:7px 7px 0 rgba(31,50,112,.12)}
+    .route-card:nth-child(4) .route-icon{background:var(--green);box-shadow:7px 7px 0 rgba(31,50,112,.12)}
+
+    .route-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:16px;
+    }
+
+    .meta-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:8px 10px;
+      border-radius:999px;
+      background:#f6f9fc;
+      border:1px solid var(--line);
+      color:#52627e;
+      font-size:.82rem;
+      font-weight:850;
     }
 
     .actions{
@@ -674,11 +646,92 @@
       color:white;
     }
 
-    .route-layout{
+    .walk-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px;
+    }
+
+    .walk-card{
+      padding:24px;
+    }
+
+    .walk-time{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      margin:8px 0 16px;
+      padding:12px 14px;
+      border-radius:18px;
+      background:rgba(247,191,33,.18);
+      border:1px solid rgba(247,191,33,.42);
+      color:#4d3d00;
+      font-weight:1000;
+    }
+
+    .parking-layout,
+    .map-layout{
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:14px;
       align-items:stretch;
+    }
+
+    .panel{
+      padding:24px;
+    }
+
+    .parking-list{
+      list-style:none;
+      margin:18px 0 0;
+      padding:0;
+      display:grid;
+      gap:10px;
+    }
+
+    .parking-list li{
+      display:grid;
+      grid-template-columns:44px 1fr;
+      gap:12px;
+      align-items:center;
+      padding:13px;
+      border-radius:18px;
+      background:#f6f9fc;
+      border:1px solid var(--line);
+      color:#52627e;
+      font-weight:650;
+      line-height:1.38;
+    }
+
+    .parking-list i{
+      width:44px;
+      height:44px;
+      display:grid;
+      place-items:center;
+      border-radius:15px;
+      background:var(--yellow);
+      color:var(--navy-dark);
+    }
+
+    .parking-list li:nth-child(2) i{background:var(--teal);color:white}
+    .parking-list li:nth-child(3) i{background:var(--coral);color:white}
+
+    .parking-list b{
+      display:block;
+      color:var(--navy);
+      letter-spacing:-.03em;
+      margin-bottom:2px;
+    }
+
+    .notice{
+      margin-top:14px;
+      padding:16px;
+      border-radius:20px;
+      background:rgba(247,191,33,.18);
+      border:1px solid rgba(247,191,33,.42);
+      color:#4d3d00;
+      line-height:1.48;
+      font-weight:750;
     }
 
     .map-card{
@@ -696,109 +749,6 @@
       min-height:430px;
       display:block;
       border:0;
-    }
-
-    .panel{
-      padding:24px;
-    }
-
-    .info-grid{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:14px;
-    }
-
-    .info-card{
-      position:relative;
-      overflow:hidden;
-      min-height:210px;
-      padding:24px;
-      border-radius:var(--radius);
-      background:white;
-      border:1px solid var(--line);
-      box-shadow:var(--soft-shadow);
-    }
-
-    .info-card::before{
-      content:"";
-      position:absolute;
-      inset:0 0 auto;
-      height:7px;
-      background:linear-gradient(90deg,var(--yellow),var(--teal),var(--coral));
-    }
-
-    .info-icon{
-      width:56px;
-      height:56px;
-      display:grid;
-      place-items:center;
-      margin-bottom:18px;
-      border-radius:19px;
-      color:white;
-      background:var(--navy);
-      box-shadow:7px 7px 0 rgba(20,140,155,.14);
-    }
-
-    .info-card:nth-child(2) .info-icon{background:var(--teal);box-shadow:7px 7px 0 rgba(247,191,33,.18)}
-    .info-card:nth-child(3) .info-icon{background:var(--coral);box-shadow:7px 7px 0 rgba(31,50,112,.12)}
-
-    .info-card h3{
-      margin:0 0 9px;
-      color:var(--navy);
-      font-size:1.48rem;
-      line-height:1.05;
-      letter-spacing:-.055em;
-    }
-
-    .info-card p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.52;
-      font-weight:650;
-    }
-
-    .route-points{
-      display:grid;
-      gap:10px;
-      margin-top:18px;
-    }
-
-    .route-point{
-      display:grid;
-      grid-template-columns:44px 1fr;
-      gap:12px;
-      align-items:center;
-      padding:13px;
-      border-radius:18px;
-      background:#f6f9fc;
-      border:1px solid var(--line);
-    }
-
-    .route-point i{
-      width:44px;
-      height:44px;
-      display:grid;
-      place-items:center;
-      border-radius:15px;
-      background:var(--yellow);
-      color:var(--navy-dark);
-    }
-
-    .route-point:nth-child(2) i{background:var(--teal);color:white}
-    .route-point:nth-child(3) i{background:var(--coral);color:white}
-    .route-point:nth-child(4) i{background:var(--navy);color:white}
-
-    .route-point b{
-      display:block;
-      color:var(--navy);
-      letter-spacing:-.03em;
-      margin-bottom:2px;
-    }
-
-    .route-point span{
-      color:var(--muted);
-      font-weight:650;
-      line-height:1.35;
     }
 
     .fordt-box{
@@ -912,17 +862,6 @@
       color:var(--teal);
     }
 
-    .notice{
-      margin-top:14px;
-      padding:16px;
-      border-radius:20px;
-      background:rgba(247,191,33,.18);
-      border:1px solid rgba(247,191,33,.42);
-      color:#4d3d00;
-      line-height:1.48;
-      font-weight:750;
-    }
-
     footer{
       margin-top:46px;
       padding:34px 0;
@@ -952,16 +891,13 @@
     @media (max-width:1080px){
       .hero,
       .fordt-box,
-      .route-layout{
+      .parking-layout,
+      .map-layout{
         grid-template-columns:1fr;
       }
 
       .hero-left{
         min-height:auto;
-      }
-
-      .quick-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
       }
 
       .fordt-flow{
@@ -971,12 +907,17 @@
 
     @media (max-width:980px){
       .info-grid,
-      .mode-grid{
+      .route-grid,
+      .walk-grid{
         grid-template-columns:1fr;
       }
     }
 
     @media (max-width:760px){
+      .mobile-only{
+        display:inline-flex !important;
+      }
+
       body{
         background-size:auto,auto,36px 36px,36px 36px,auto;
       }
@@ -1103,29 +1044,25 @@
         font-size:.98rem;
       }
 
-      .quick-grid{
-        grid-template-columns:1fr;
-      }
-
-      .quick-card,
-      .mode-card,
+      .card,
       .panel,
-      .info-card{
+      .map-card{
         border-radius:22px;
       }
 
-      .mode-card,
-      .panel,
-      .info-card{
+      .info-card,
+      .route-card,
+      .walk-card,
+      .panel{
         min-height:auto;
         padding:20px;
       }
 
-      .mode-top{
+      .route-top{
         grid-template-columns:50px 1fr;
       }
 
-      .mode-icon{
+      .route-icon{
         width:50px;
         height:50px;
         border-radius:17px;
@@ -1137,7 +1074,6 @@
 
       .map-card{
         min-height:360px;
-        border-radius:22px;
       }
 
       .map-card iframe{
@@ -1195,10 +1131,10 @@
         <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
         <a class="active" href="#top">Locatie</a>
         <a href="#kerninfo">Kerninfo</a>
-        <a href="#routekeuze">Route</a>
+        <a href="#routeopties">Routeopties</a>
+        <a href="#wandelen">Wandelen</a>
         <a href="#parking">Parking</a>
         <a href="#kaart">Kaart</a>
-        <a href="#checklist">Checklist</a>
       </div>
     </div>
   </nav>
@@ -1215,7 +1151,7 @@
         </div>
 
         <div class="hero-line">
-          Duidelijke locatie. Vrije verplaatsing. Tijdig samen starten.
+          Duidelijke bestemming. Eigen route. Gezamenlijke start.
         </div>
 
         <div class="address-card">
@@ -1238,8 +1174,8 @@
             <i class="fa-brands fa-apple"></i> Apple Kaarten
           </a>
 
-          <a class="hero-button" href="https://waze.com/ul?q=Tervuursevest%20101%203001%20Heverlee&navigate=yes" target="_blank" rel="noopener noreferrer">
-            <i class="fa-solid fa-location-arrow"></i> Waze
+          <a class="hero-button mobile-only" href="https://waze.com/ul?q=Tervuursevest%20101%203001%20Heverlee&navigate=yes" target="_blank" rel="noopener noreferrer">
+            <i class="fa-solid fa-location-arrow"></i> Waze-app
           </a>
 
           <a class="hero-button" href="index.html">
@@ -1250,47 +1186,47 @@
 
       <aside class="hero-right">
         <div class="right-head">
-          <h2>Praktisch,<br>helder en<br>zonder ruis.</h2>
+          <h2>Praktisch<br>zonder<br>overkill.</h2>
         </div>
 
         <div class="right-body">
           <div class="intro-box">
             <p>
-              Iedereen organiseert zijn verplaatsing zelfstandig. Deze pagina bundelt het adres,
-              de routeopties en de praktische aandachtspunten voor een vlotte gezamenlijke start.
+              De verplaatsing gebeurt zelfstandig. Deze pagina bundelt enkel wat nuttig is:
+              adres, routeopties, wandelindicaties, parking en timing.
             </p>
           </div>
 
-          <div class="arrival-list">
-            <article class="arrival-item">
-              <div class="arrival-icon">1</div>
+          <div class="brief-list">
+            <article class="brief-item">
+              <div class="brief-icon">A</div>
               <div>
-                <b>Bestemming</b>
-                <span>Universitair Sportcentrum KU Leuven.</span>
+                <b>Adres</b>
+                <span>Universitair Sportcentrum KU Leuven, Tervuursevest 101.</span>
               </div>
             </article>
 
-            <article class="arrival-item">
-              <div class="arrival-icon">2</div>
+            <article class="brief-item">
+              <div class="brief-icon">P</div>
               <div>
-                <b>Aankomst</b>
-                <span>Voorzie voldoende marge voor verplaatsing, parking of aansluiting.</span>
+                <b>Parking</b>
+                <span>Parkeren op of rond de sportsite; definitieve info volgt indien nodig.</span>
               </div>
             </article>
 
-            <article class="arrival-item">
-              <div class="arrival-icon">3</div>
+            <article class="brief-item">
+              <div class="brief-icon">T</div>
               <div>
-                <b>Verzamelen</b>
-                <span>We spreken af om 08:00.</span>
+                <b>Timing</b>
+                <span>Verzamelen om 08:00. Start om 08:30.</span>
               </div>
             </article>
 
-            <article class="arrival-item">
-              <div class="arrival-icon">4</div>
+            <article class="brief-item">
+              <div class="brief-icon">K</div>
               <div>
-                <b>Start</b>
-                <span>De activiteit start om 08:30.</span>
+                <b>Kledij</b>
+                <span>Sportief of aangepast aan de activiteit.</span>
               </div>
             </article>
           </div>
@@ -1308,7 +1244,7 @@
       </div>
 
       <div class="info-grid">
-        <article class="info-card">
+        <article class="card info-card">
           <div class="info-icon">
             <i class="fa-solid fa-location-dot"></i>
           </div>
@@ -1317,205 +1253,131 @@
           <p>Universitair Sportcentrum KU Leuven, Tervuursevest 101, 3001 Heverlee.</p>
         </article>
 
-        <article class="info-card">
+        <article class="card info-card">
           <div class="info-icon">
             <i class="fa-solid fa-clock"></i>
           </div>
           <div class="tag">Timing</div>
           <h3>08:00 verzamelen</h3>
-          <p>Voorzie voldoende marge. De activiteit start om 08:30.</p>
+          <p>De activiteit start om 08:30. Voorzie dus enige marge bij aankomst.</p>
         </article>
 
-        <article class="info-card">
+        <article class="card info-card">
           <div class="info-icon">
             <i class="fa-solid fa-shirt"></i>
           </div>
-          <div class="tag">Voorzien</div>
+          <div class="tag">Praktisch</div>
           <h3>Sportieve kledij</h3>
           <p>Kom sportief gekleed of voorzie aangepaste kledij ter plaatse.</p>
         </article>
       </div>
     </section>
 
-    <section id="routekeuze" class="page">
+    <section id="routeopties" class="page">
       <div class="section-head">
         <div class="section-title">
-          <h2>Routekeuze</h2>
+          <h2>Routeopties</h2>
         </div>
         <p class="lead">
-          Kies de verplaatsing die voor jou het meest logisch is. De routeknoppen openen meteen de juiste planner.
+          Kies de verplaatsing die het best past. De routeknoppen openen de juiste planner.
         </p>
       </div>
 
-      <div class="quick-grid">
-        <a class="quick-card" href="https://www.google.com/maps/dir/?api=1&destination=Universitair+Sportcentrum+KU+Leuven,+Tervuursevest+101,+3001+Heverlee&travelmode=driving" target="_blank" rel="noopener noreferrer">
-          <div class="quick-icon">
-            <i class="fa-solid fa-car"></i>
-          </div>
-          <b>Wagen</b>
-          <span>Rechtstreeks navigeren naar het Universitair Sportcentrum.</span>
-        </a>
-
-        <a class="quick-card" href="https://www.google.com/maps/dir/?api=1&origin=Leuven+Station&destination=Universitair+Sportcentrum+KU+Leuven,+Tervuursevest+101,+3001+Heverlee&travelmode=transit" target="_blank" rel="noopener noreferrer">
-          <div class="quick-icon">
-            <i class="fa-solid fa-train-subway"></i>
-          </div>
-          <b>Trein en bus</b>
-          <span>Leuven station als vertrekpunt, daarna de meest efficiënte aansluiting.</span>
-        </a>
-
-        <a class="quick-card" href="https://www.google.com/maps/dir/?api=1&origin=Leuven+Station&destination=Universitair+Sportcentrum+KU+Leuven,+Tervuursevest+101,+3001+Heverlee&travelmode=walking" target="_blank" rel="noopener noreferrer">
-          <div class="quick-icon">
-            <i class="fa-solid fa-person-walking"></i>
-          </div>
-          <b>Te voet</b>
-          <span>Wandelroute vanaf Leuven station, vooral handig met voldoende marge.</span>
-        </a>
-
-        <a class="quick-card" href="https://www.google.com/maps/dir/?api=1&destination=Universitair+Sportcentrum+KU+Leuven,+Tervuursevest+101,+3001+Heverlee&travelmode=bicycling" target="_blank" rel="noopener noreferrer">
-          <div class="quick-icon">
-            <i class="fa-solid fa-bicycle"></i>
-          </div>
-          <b>Fiets</b>
-          <span>Praktisch voor wie uit Leuven, Heverlee of de nabije omgeving komt.</span>
-        </a>
-      </div>
-    </section>
-
-    <section id="vervoer" class="page">
-      <div class="section-head">
-        <div class="section-title">
-          <h2>Bereikbaarheid<br>per vervoersmiddel</h2>
-        </div>
-      </div>
-
-      <div class="mode-grid">
-        <article class="mode-card">
+      <div class="route-grid">
+        <article class="card route-card">
           <div>
-            <div class="mode-top">
-              <div class="mode-icon">
+            <div class="route-top">
+              <div class="route-icon">
                 <i class="fa-solid fa-car-side"></i>
               </div>
               <div>
-                <div class="tag">Met de wagen</div>
-                <h3>Rechtstreeks naar het Sportkot</h3>
+                <div class="tag">Wagen</div>
+                <h3>Rechtstreeks naar de sportsite</h3>
                 <p>
-                  Wie met de wagen komt, navigeert best rechtstreeks naar het Universitair Sportcentrum KU Leuven.
-                  Parkeren is normaal mogelijk op of rond de sportsite. Definitieve parkinginfo wordt nog aangevuld indien nodig.
+                  Navigeer naar het Universitair Sportcentrum KU Leuven. Parking is normaal mogelijk op of rond de site.
+                  De exacte parkinginstructie wordt nog bevestigd.
                 </p>
+
+                <div class="route-meta">
+                  <span class="meta-pill"><i class="fa-solid fa-location-dot"></i> Tervuursevest 101</span>
+                  <span class="meta-pill"><i class="fa-solid fa-square-parking"></i> Parking te bevestigen</span>
+                </div>
               </div>
             </div>
-
-            <ul class="mode-list">
-              <li><i class="fa-solid fa-circle-check"></i> Bestemming: Tervuursevest 101, 3001 Heverlee.</li>
-              <li><i class="fa-solid fa-circle-check"></i> Voorzie marge voor verkeer, parking en korte verplaatsing op de site.</li>
-              <li><i class="fa-solid fa-circle-check"></i> Respecteer de lokale signalisatie en eventuele toegangsbeperkingen.</li>
-            </ul>
           </div>
 
           <div class="actions">
             <a class="button" href="https://www.google.com/maps/dir/?api=1&destination=Universitair+Sportcentrum+KU+Leuven,+Tervuursevest+101,+3001+Heverlee&travelmode=driving" target="_blank" rel="noopener noreferrer">
               <i class="fa-solid fa-route"></i> Google Maps
             </a>
+
             <a class="button teal" href="https://maps.apple.com/?daddr=Tervuursevest%20101%2C%203001%20Heverlee&dirflg=d" target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-apple"></i> Apple
+              <i class="fa-brands fa-apple"></i> Apple Kaarten
             </a>
-            <a class="button coral" href="https://waze.com/ul?q=Tervuursevest%20101%203001%20Heverlee&navigate=yes" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-location-arrow"></i> Waze
+
+            <a class="button coral mobile-only" href="https://waze.com/ul?q=Tervuursevest%20101%203001%20Heverlee&navigate=yes" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-location-arrow"></i> Waze-app
             </a>
           </div>
         </article>
 
-        <article class="mode-card">
+        <article class="card route-card">
           <div>
-            <div class="mode-top">
-              <div class="mode-icon">
-                <i class="fa-solid fa-train"></i>
+            <div class="route-top">
+              <div class="route-icon">
+                <i class="fa-solid fa-train-subway"></i>
               </div>
               <div>
                 <div class="tag">Trein en bus</div>
                 <h3>Via Leuven station</h3>
                 <p>
-                  Wie met het openbaar vervoer komt, plant best tot Leuven station en bekijkt van daaruit
-                  de meest efficiënte aansluiting richting Sportkot. Gebruik de actuele routeplanner kort voor vertrek.
+                  Voor openbaar vervoer is Leuven station het meest logische referentiepunt.
+                  Plan van daaruit de meest efficiënte aansluiting richting Sportkot.
                 </p>
+
+                <div class="route-meta">
+                  <span class="meta-pill"><i class="fa-solid fa-train"></i> Leuven station</span>
+                  <span class="meta-pill"><i class="fa-solid fa-bus"></i> Actuele routeplanner</span>
+                </div>
               </div>
             </div>
-
-            <ul class="mode-list">
-              <li><i class="fa-solid fa-circle-check"></i> Plan eerst tot Leuven station.</li>
-              <li><i class="fa-solid fa-circle-check"></i> Zoek vervolgens de aansluiting richting Sportkot, Sportcentrum of Tervuursevest.</li>
-              <li><i class="fa-solid fa-circle-check"></i> Controleer de verbinding kort vooraf.</li>
-            </ul>
           </div>
 
           <div class="actions">
             <a class="button" href="https://www.belgiantrain.be/nl" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-train-subway"></i> NMBS
+              <i class="fa-solid fa-train"></i> NMBS
             </a>
+
             <a class="button teal" href="https://www.delijn.be/nl/routeplanner/" target="_blank" rel="noopener noreferrer">
               <i class="fa-solid fa-bus"></i> De Lijn
             </a>
+
             <a class="button yellow" href="https://www.google.com/maps/dir/?api=1&origin=Leuven+Station&destination=Universitair+Sportcentrum+KU+Leuven,+Tervuursevest+101,+3001+Heverlee&travelmode=transit" target="_blank" rel="noopener noreferrer">
               <i class="fa-solid fa-route"></i> OV-route
             </a>
           </div>
         </article>
 
-        <article class="mode-card">
+        <article class="card route-card">
           <div>
-            <div class="mode-top">
-              <div class="mode-icon">
-                <i class="fa-solid fa-person-walking"></i>
-              </div>
-              <div>
-                <div class="tag">Te voet</div>
-                <h3>Wandelen vanaf Leuven station</h3>
-                <p>
-                  Wandelen vanaf Leuven station is mogelijk, maar vraagt uiteraard extra tijd.
-                  Dit is vooral interessant voor wie bewust wat marge neemt of geen busaansluiting nodig heeft.
-                </p>
-              </div>
-            </div>
-
-            <ul class="mode-list">
-              <li><i class="fa-solid fa-circle-check"></i> Reken ruim voldoende tijd vanaf Leuven station.</li>
-              <li><i class="fa-solid fa-circle-check"></i> Open de wandelroute vooraf in je navigatie-app.</li>
-              <li><i class="fa-solid fa-circle-check"></i> Hou rekening met weer, kledij en eventueel materiaal.</li>
-            </ul>
-          </div>
-
-          <div class="actions">
-            <a class="button" href="https://www.google.com/maps/dir/?api=1&origin=Leuven+Station&destination=Universitair+Sportcentrum+KU+Leuven,+Tervuursevest+101,+3001+Heverlee&travelmode=walking" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-person-walking"></i> Wandelroute
-            </a>
-            <a class="button teal" href="https://maps.apple.com/?saddr=Leuven%20Station&daddr=Tervuursevest%20101%2C%203001%20Heverlee&dirflg=w" target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-apple"></i> Apple
-            </a>
-          </div>
-        </article>
-
-        <article class="mode-card">
-          <div>
-            <div class="mode-top">
-              <div class="mode-icon">
+            <div class="route-top">
+              <div class="route-icon">
                 <i class="fa-solid fa-bicycle"></i>
               </div>
               <div>
-                <div class="tag">Met de fiets</div>
-                <h3>Vlotte optie uit de omgeving</h3>
+                <div class="tag">Fiets</div>
+                <h3>Vlot vanuit Leuven of Heverlee</h3>
                 <p>
-                  Voor wie uit Leuven, Heverlee of de nabije omgeving komt, is de fiets wellicht de meest eenvoudige optie.
-                  Je vermijdt parkeerdruk en rijdt rechtstreeks tot aan de site.
+                  Voor wie uit de omgeving komt, is de fiets waarschijnlijk de meest efficiënte optie.
+                  Je rijdt rechtstreeks tot aan de sportsite.
                 </p>
+
+                <div class="route-meta">
+                  <span class="meta-pill"><i class="fa-solid fa-bicycle"></i> Rechtstreeks</span>
+                  <span class="meta-pill"><i class="fa-solid fa-lock"></i> Slot voorzien</span>
+                </div>
               </div>
             </div>
-
-            <ul class="mode-list">
-              <li><i class="fa-solid fa-circle-check"></i> Navigeer naar Tervuursevest 101.</li>
-              <li><i class="fa-solid fa-circle-check"></i> Voorzie een degelijk slot.</li>
-              <li><i class="fa-solid fa-circle-check"></i> Hou rekening met sportieve kledij en eventuele omkleedmogelijkheid.</li>
-            </ul>
           </div>
 
           <div class="actions">
@@ -1525,65 +1387,95 @@
           </div>
         </article>
 
-        <article class="mode-card">
+        <article class="card route-card">
           <div>
-            <div class="mode-top">
-              <div class="mode-icon">
-                <i class="fa-solid fa-location-dot"></i>
-              </div>
-              <div>
-                <div class="tag">Heverlee station</div>
-                <h3>Alternatief aankomstpunt</h3>
-                <p>
-                  Heverlee station kan voor sommige verbindingen interessant zijn. Bekijk vooraf of dit voor jouw traject
-                  efficiënter is dan aankomen via Leuven station.
-                </p>
-              </div>
-            </div>
-
-            <ul class="mode-list">
-              <li><i class="fa-solid fa-circle-check"></i> Controleer je treinverbinding vooraf.</li>
-              <li><i class="fa-solid fa-circle-check"></i> Plan vanaf Heverlee station verder te voet of met het openbaar vervoer.</li>
-              <li><i class="fa-solid fa-circle-check"></i> Gebruik dit vooral als het logisch past binnen je route.</li>
-            </ul>
-          </div>
-
-          <div class="actions">
-            <a class="button" href="https://www.google.com/maps/dir/?api=1&origin=Heverlee+Station&destination=Universitair+Sportcentrum+KU+Leuven,+Tervuursevest+101,+3001+Heverlee&travelmode=walking" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-person-walking"></i> Vanaf Heverlee
-            </a>
-            <a class="button teal" href="https://www.google.com/maps/dir/?api=1&origin=Heverlee+Station&destination=Universitair+Sportcentrum+KU+Leuven,+Tervuursevest+101,+3001+Heverlee&travelmode=transit" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-route"></i> Routeplanner
-            </a>
-          </div>
-        </article>
-
-        <article class="mode-card">
-          <div>
-            <div class="mode-top">
-              <div class="mode-icon">
+            <div class="route-top">
+              <div class="route-icon">
                 <i class="fa-solid fa-people-arrows"></i>
               </div>
               <div>
                 <div class="tag">Carpool of afzetten</div>
-                <h3>Afstemmen vooraf</h3>
+                <h3>Zelf afstemmen</h3>
                 <p>
-                  Wie samen rijdt of wordt afgezet, spreekt best vooraf een duidelijk aankomstuur af.
-                  Gebruik het Sportkot als gezamenlijke bestemming.
+                  Wie samen rijdt of wordt afgezet, gebruikt hetzelfde adres als referentiepunt.
+                  Aankomst rond 08:00 blijft het uitgangspunt.
                 </p>
+
+                <div class="route-meta">
+                  <span class="meta-pill"><i class="fa-solid fa-share-nodes"></i> Route delen</span>
+                  <span class="meta-pill"><i class="fa-solid fa-clock"></i> 08:00</span>
+                </div>
               </div>
             </div>
-
-            <ul class="mode-list">
-              <li><i class="fa-solid fa-circle-check"></i> Deel de route vooraf met chauffeur of carpoolgroep.</li>
-              <li><i class="fa-solid fa-circle-check"></i> Vermijd last-minute afstemming ter plaatse.</li>
-              <li><i class="fa-solid fa-circle-check"></i> Sluit om 08:00 aan bij de groep.</li>
-            </ul>
           </div>
 
           <div class="actions">
             <a class="button" href="https://www.google.com/maps/dir/?api=1&destination=Universitair+Sportcentrum+KU+Leuven,+Tervuursevest+101,+3001+Heverlee" target="_blank" rel="noopener noreferrer">
               <i class="fa-solid fa-share-nodes"></i> Deel route
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="wandelen" class="page">
+      <div class="section-head">
+        <div class="section-title">
+          <h2>Wandelroutes</h2>
+        </div>
+        <p class="lead">
+          Wie met de trein komt of bewust te voet verdergaat, kan onderstaande wandelroutes gebruiken.
+          De timing is indicatief en hangt af van tempo, weer en exacte route.
+        </p>
+      </div>
+
+      <div class="walk-grid">
+        <article class="card walk-card">
+          <div class="tag">Vanaf Leuven station</div>
+          <h3>Leuven station → Sportkot</h3>
+
+          <div class="walk-time">
+            <i class="fa-solid fa-person-walking"></i>
+            Vermoedelijke wandeltijd: ca. 35 tot 45 minuten
+          </div>
+
+          <p>
+            Mogelijk als je ruim op tijd vertrekt of bewust kiest voor wandelen.
+            Voor een strakke aankomst is bus, fiets of taxi doorgaans efficiënter.
+          </p>
+
+          <div class="actions" style="margin-top:18px;">
+            <a class="button" href="https://www.google.com/maps/dir/?api=1&origin=Leuven+Station&destination=Universitair+Sportcentrum+KU+Leuven,+Tervuursevest+101,+3001+Heverlee&travelmode=walking" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-person-walking"></i> Wandelroute Google
+            </a>
+
+            <a class="button teal" href="https://maps.apple.com/?saddr=Leuven%20Station&daddr=Tervuursevest%20101%2C%203001%20Heverlee&dirflg=w" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-apple"></i> Apple Kaarten
+            </a>
+          </div>
+        </article>
+
+        <article class="card walk-card">
+          <div class="tag">Vanaf Heverlee station</div>
+          <h3>Heverlee station → Sportkot</h3>
+
+          <div class="walk-time">
+            <i class="fa-solid fa-person-walking"></i>
+            Vermoedelijke wandeltijd: ca. 20 tot 25 minuten
+          </div>
+
+          <p>
+            Interessant als je verbinding via Heverlee logisch uitkomt.
+            Controleer wel vooraf of deze treinroute voor jou effectief handiger is dan Leuven station.
+          </p>
+
+          <div class="actions" style="margin-top:18px;">
+            <a class="button" href="https://www.google.com/maps/dir/?api=1&origin=Heverlee+Station&destination=Universitair+Sportcentrum+KU+Leuven,+Tervuursevest+101,+3001+Heverlee&travelmode=walking" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-person-walking"></i> Wandelroute Google
+            </a>
+
+            <a class="button teal" href="https://maps.apple.com/?saddr=Heverlee%20Station&daddr=Tervuursevest%20101%2C%203001%20Heverlee&dirflg=w" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-apple"></i> Apple Kaarten
             </a>
           </div>
         </article>
@@ -1596,88 +1488,89 @@
           <h2>Parking<br>& aankomst</h2>
         </div>
         <p class="lead">
-          Parkeren wordt nog definitief bevestigd. Voorlopig gaan we uit van parkeermogelijkheden op of rond de sportsite.
+          De definitieve parkinginfo wordt nog bevestigd. Voorlopig blijft het Sportkot zelf het centrale referentiepunt.
         </p>
       </div>
 
-      <div class="route-layout">
+      <div class="parking-layout">
         <article class="panel">
-          <h3><i class="fa-solid fa-square-parking"></i> Parking op of rond de site</h3>
+          <h3><i class="fa-solid fa-square-parking"></i> Parking op of rond de sportsite</h3>
           <p>
-            De sportsite beschikt normaal over parkeermogelijkheden in de omgeving van het Sportkot.
-            Zodra er specifieke richtlijnen zijn over waar best te parkeren, wordt deze pagina aangevuld.
+            Er zijn parkeermogelijkheden in de omgeving van het Sportkot. Zodra de beste parking voor onze groep bevestigd is,
+            wordt dit hier concreet aangevuld.
           </p>
 
-          <div class="route-points">
-            <div class="route-point">
+          <ul class="parking-list">
+            <li>
               <i class="fa-solid fa-location-dot"></i>
               <div>
-                <b>Bestemming</b>
+                <b>Referentiepunt</b>
                 <span>Universitair Sportcentrum KU Leuven, Tervuursevest 101.</span>
               </div>
-            </div>
+            </li>
 
-            <div class="route-point">
-              <i class="fa-solid fa-car"></i>
+            <li>
+              <i class="fa-solid fa-square-parking"></i>
               <div>
                 <b>Parkeren</b>
-                <span>Volg ter plaatse de signalisatie en gebruik een toegelaten parking.</span>
+                <span>Op of rond de sportsite, volgens de plaatselijke signalisatie.</span>
               </div>
-            </div>
+            </li>
 
-            <div class="route-point">
-              <i class="fa-solid fa-person-walking"></i>
+            <li>
+              <i class="fa-solid fa-clock"></i>
               <div>
-                <b>Laatste stuk</b>
-                <span>Reken op een korte verplaatsing van parking of halte naar het verzamelpunt.</span>
+                <b>Timing</b>
+                <span>Hou rekening met een korte verplaatsing van parking naar verzamelpunt.</span>
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
 
           <div class="notice">
-            Definitieve parkinginfo volgt zodra dit bevestigd is. Tot dan blijft het adres van het Sportkot het centrale referentiepunt.
+            Parkinginfo wordt nog verfijnd. Dit blok kan later eenvoudig aangepast worden met de exacte parkingnaam of instructie.
           </div>
         </article>
 
         <article class="panel">
           <h3><i class="fa-solid fa-bus"></i> Openbaar vervoer</h3>
           <p>
-            Wie met het openbaar vervoer komt, gebruikt best de actuele routeplanner. Haltes, lijnen en reistijden kunnen wijzigen,
-            dus controleer de verbinding kort voor vertrek.
+            Voor bus- of treinverbindingen is de actuele routeplanner het meest betrouwbaar.
+            Lijnnummers en haltes kunnen wijzigen, dus plan kort voor vertrek.
           </p>
 
-          <div class="route-points">
-            <div class="route-point">
+          <ul class="parking-list">
+            <li>
               <i class="fa-solid fa-train"></i>
               <div>
                 <b>Leuven station</b>
-                <span>Logisch vertrekpunt voor verdere aansluiting richting Sportkot.</span>
+                <span>Meest logische knooppunt voor wie met de trein komt.</span>
               </div>
-            </div>
+            </li>
 
-            <div class="route-point">
+            <li>
               <i class="fa-solid fa-bus-simple"></i>
               <div>
                 <b>Bus of combinatie</b>
                 <span>Plan richting Sportkot, Sportcentrum of Tervuursevest.</span>
               </div>
-            </div>
+            </li>
 
-            <div class="route-point">
-              <i class="fa-solid fa-clock"></i>
+            <li>
+              <i class="fa-solid fa-person-walking"></i>
               <div>
-                <b>Marge</b>
-                <span>Voorzie voldoende tijd tussen aankomst, wandelen en verzamelen.</span>
+                <b>Laatste stuk</b>
+                <span>Reken op een korte wandeling vanaf halte of parking.</span>
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
 
           <div class="actions" style="margin-top:18px;">
             <a class="button teal" href="https://www.delijn.be/nl/routeplanner/" target="_blank" rel="noopener noreferrer">
               <i class="fa-solid fa-bus"></i> De Lijn
             </a>
+
             <a class="button yellow" href="https://www.google.com/maps/dir/?api=1&origin=Leuven+Station&destination=Universitair+Sportcentrum+KU+Leuven,+Tervuursevest+101,+3001+Heverlee&travelmode=transit" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-route"></i> Google route
+              <i class="fa-solid fa-route"></i> Google OV-route
             </a>
           </div>
         </article>
@@ -1691,7 +1584,7 @@
         </div>
       </div>
 
-      <div class="route-layout">
+      <div class="map-layout">
         <article class="map-card" aria-label="Google Maps kaart Sportkot KU Leuven">
           <iframe
             src="https://www.google.com/maps?q=Universitair%20Sportcentrum%20KU%20Leuven%2C%20Tervuursevest%20101%2C%203001%20Heverlee&output=embed"
@@ -1722,13 +1615,13 @@
       <div class="fordt-box">
         <article class="panel fordt-main">
           <div class="fordt-pill">
-            <i class="fa-solid fa-bullseye"></i> Praktisch referentiekader
+            <i class="fa-solid fa-bullseye"></i> Referentiekader
           </div>
 
-          <h3>Van verplaatsing naar gezamenlijke start</h3>
+          <h3>Zelfstandig verplaatsen, samen starten</h3>
           <p>
-            De verplaatsing gebeurt zelfstandig. Het gemeenschappelijk referentiepunt is het Sportkot.
-            Van daaruit starten we als groep aan het programma.
+            Iedereen kiest zijn eigen route. Het Sportkot is het gemeenschappelijk referentiepunt.
+            Van daaruit start het programma gezamenlijk.
           </p>
         </article>
 
@@ -1774,20 +1667,15 @@
       </div>
 
       <article class="panel check-panel">
-        <h3><i class="fa-solid fa-circle-check"></i> Praktisch voor vertrek</h3>
+        <h3><i class="fa-solid fa-circle-check"></i> Voor vertrek</h3>
 
         <ul class="checklist">
-          <li><i class="fa-solid fa-circle-check"></i> Plan je route vooraf via Google Maps, Apple Kaarten, Waze of De Lijn.</li>
-          <li><i class="fa-solid fa-circle-check"></i> Gebruik als bestemming: Universitair Sportcentrum KU Leuven, Tervuursevest 101, 3001 Heverlee.</li>
-          <li><i class="fa-solid fa-circle-check"></i> Voorzie voldoende marge voor verkeer, parking of openbaar vervoer.</li>
-          <li><i class="fa-solid fa-circle-check"></i> Kom sportief gekleed of voorzie aangepaste kledij.</li>
-          <li><i class="fa-solid fa-circle-check"></i> Verzamelen om 08:00. Start activiteit om 08:30.</li>
+          <li><i class="fa-solid fa-circle-check"></i> Bestemming: Universitair Sportcentrum KU Leuven, Tervuursevest 101, 3001 Heverlee.</li>
+          <li><i class="fa-solid fa-circle-check"></i> Route vooraf openen via Google Maps, Apple Kaarten, Waze-app of De Lijn.</li>
+          <li><i class="fa-solid fa-circle-check"></i> Voldoende marge voorzien voor verkeer, parking of aansluiting.</li>
+          <li><i class="fa-solid fa-circle-check"></i> Sportieve of aangepaste kledij voorzien.</li>
+          <li><i class="fa-solid fa-circle-check"></i> Verzamelen om 08:00. Start om 08:30.</li>
         </ul>
-
-        <div class="notice">
-          Parkinginformatie wordt nog bevestigd. Zodra er specifieke richtlijnen zijn over waar best te parkeren,
-          wordt deze pagina aangevuld.
-        </div>
       </article>
     </section>
   </main>
