@@ -10,18 +10,23 @@
   <style>
     :root{
       --bg:#eef3f8;
+      --paper:#ffffff;
       --ink:#102044;
+      --muted:#64738f;
       --navy:#1f3270;
-      --navy-dark:#182655;
+      --navy-dark:#17224f;
       --teal:#148c9b;
-      --teal-dark:#116f7d;
+      --teal-dark:#0f6f7c;
       --yellow:#f7bf21;
       --coral:#ff7365;
-      --white:#ffffff;
-      --muted:#60708d;
-      --line:rgba(16,32,68,.13);
-      --shadow:0 18px 48px rgba(16,32,68,.12);
-      --radius:24px;
+      --green:#35b779;
+      --line:rgba(16,32,68,.12);
+      --soft:rgba(31,50,112,.06);
+      --shadow:0 24px 70px rgba(16,32,68,.14);
+      --shadow-soft:0 14px 34px rgba(16,32,68,.08);
+      --radius:28px;
+      --radius-sm:18px;
+      --max:1180px;
     }
 
     *{box-sizing:border-box}
@@ -35,33 +40,49 @@
       color:var(--ink);
       font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        linear-gradient(90deg, rgba(31,50,112,.055) 1px, transparent 1px),
-        linear-gradient(rgba(31,50,112,.055) 1px, transparent 1px),
-        radial-gradient(circle at 10% 4%, rgba(247,191,33,.18), transparent 25%),
-        radial-gradient(circle at 92% 9%, rgba(20,140,155,.14), transparent 24%),
+        radial-gradient(circle at 12% 3%, rgba(247,191,33,.22), transparent 25%),
+        radial-gradient(circle at 92% 9%, rgba(20,140,155,.16), transparent 28%),
+        linear-gradient(90deg, rgba(31,50,112,.05) 1px, transparent 1px),
+        linear-gradient(rgba(31,50,112,.05) 1px, transparent 1px),
         var(--bg);
-      background-size:48px 48px,48px 48px,auto,auto,auto;
+      background-size:auto,auto,48px 48px,48px 48px,auto;
       overflow-x:hidden;
     }
 
     a{color:inherit}
 
     .page{
-      width:min(1180px, calc(100% - 28px));
+      width:min(var(--max), calc(100% - 28px));
       margin-inline:auto;
     }
+
+    .skip-link{
+      position:absolute;
+      left:12px;
+      top:-80px;
+      z-index:100;
+      padding:10px 14px;
+      border-radius:999px;
+      background:var(--yellow);
+      color:var(--navy-dark);
+      font-weight:1000;
+      text-decoration:none;
+      transition:.16s top;
+    }
+
+    .skip-link:focus{top:12px}
 
     nav{
       position:sticky;
       top:0;
       z-index:50;
       background:rgba(238,243,248,.92);
-      backdrop-filter:blur(16px);
+      backdrop-filter:blur(18px);
       border-bottom:1px solid rgba(16,32,68,.08);
     }
 
     .nav-inner{
-      min-height:70px;
+      min-height:72px;
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -69,10 +90,10 @@
     }
 
     .brand{
+      min-width:0;
       display:flex;
       align-items:center;
       gap:11px;
-      min-width:0;
       color:var(--navy-dark);
       font-weight:1000;
       letter-spacing:-.04em;
@@ -103,10 +124,10 @@
       text-decoration:none;
       padding:9px 11px;
       border-radius:999px;
-      color:#2b3c62;
+      color:#2d3d63;
       text-transform:uppercase;
       letter-spacing:.045em;
-      font-size:.74rem;
+      font-size:.72rem;
       font-weight:950;
       transition:.16s background,.16s color,.16s transform;
     }
@@ -123,11 +144,9 @@
     }
 
     .hero{
-      position:relative;
-      overflow:hidden;
-      min-height:430px;
+      min-height:520px;
       display:grid;
-      grid-template-columns:minmax(0,1.1fr) minmax(300px,.9fr);
+      grid-template-columns:minmax(0,1.18fr) minmax(330px,.82fr);
       gap:18px;
       align-items:stretch;
     }
@@ -136,36 +155,39 @@
     .hero-side{
       position:relative;
       overflow:hidden;
-      border-radius:30px;
+      border-radius:34px;
       box-shadow:var(--shadow);
     }
 
     .hero-main{
-      padding:clamp(30px,5vw,56px);
+      padding:clamp(28px,5vw,62px);
       color:white;
       background:
+        radial-gradient(circle at 80% 14%, rgba(247,191,33,.22), transparent 20%),
+        radial-gradient(circle at 12% 88%, rgba(20,140,155,.24), transparent 26%),
         linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px),
         linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
         linear-gradient(135deg,var(--navy),var(--navy-dark));
-      background-size:44px 44px,44px 44px,auto;
+      background-size:auto,auto,44px 44px,44px 44px,auto;
       display:flex;
       flex-direction:column;
       justify-content:center;
     }
 
-    .floating-card{
+    .hero-main::after{
+      content:"";
       position:absolute;
-      right:28px;
-      top:24px;
-      width:104px;
-      height:104px;
-      display:grid;
-      place-items:center;
-      border-radius:30px;
-      background:rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.14);
-      transform:rotate(8deg);
-      font-size:3rem;
+      width:260px;
+      height:260px;
+      right:-96px;
+      top:-96px;
+      border-radius:50%;
+      border:2px solid rgba(255,255,255,.14);
+    }
+
+    .hero-main > *{
+      position:relative;
+      z-index:2;
     }
 
     .label{
@@ -196,47 +218,90 @@
     h1{
       margin:28px 0 0;
       color:white;
-      font-size:clamp(3rem,6vw,5.4rem);
-      line-height:.92;
-      letter-spacing:-.065em;
+      font-size:clamp(3.35rem,7vw,6.25rem);
+      line-height:.88;
+      letter-spacing:-.075em;
     }
 
     .hero-text{
-      max-width:710px;
+      max-width:720px;
       margin:22px 0 0;
       color:#dbe5ff;
-      font-size:clamp(1rem,1.45vw,1.18rem);
-      line-height:1.6;
+      font-size:clamp(1rem,1.35vw,1.18rem);
+      line-height:1.62;
       font-weight:700;
+    }
+
+    .address-card{
+      display:grid;
+      grid-template-columns:52px minmax(0,1fr);
+      gap:14px;
+      align-items:center;
+      max-width:690px;
+      margin-top:24px;
+      padding:16px;
+      border-radius:22px;
+      background:rgba(255,255,255,.11);
+      border:1px solid rgba(255,255,255,.16);
+      box-shadow:0 18px 42px rgba(0,0,0,.10);
+    }
+
+    .address-icon{
+      width:52px;
+      height:52px;
+      display:grid;
+      place-items:center;
+      border-radius:18px;
+      background:var(--yellow);
+      color:var(--navy-dark);
+      font-size:1.2rem;
+      box-shadow:7px 7px 0 rgba(20,140,155,.18);
+    }
+
+    .address-card strong{
+      display:block;
+      color:white;
+      font-size:1.02rem;
+      line-height:1.25;
+      font-weight:1000;
+      letter-spacing:-.02em;
+    }
+
+    .address-card span{
+      display:block;
+      margin-top:4px;
+      color:#dbe5ff;
+      font-weight:800;
+      line-height:1.35;
     }
 
     .hero-actions{
       display:grid;
       grid-template-columns:repeat(2,minmax(0,1fr));
       gap:10px;
-      margin-top:28px;
-      max-width:620px;
+      max-width:690px;
+      margin-top:18px;
     }
 
     .btn{
-      min-height:52px;
+      min-height:54px;
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:9px;
       padding:0 16px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.18);
+      border-radius:17px;
       text-decoration:none;
+      text-align:center;
+      border:1px solid rgba(255,255,255,.18);
       color:white;
       background:rgba(255,255,255,.10);
+      font-size:.92rem;
       font-weight:1000;
-      font-size:.9rem;
-      text-align:center;
       transition:.16s transform,.16s background,.16s color;
     }
 
-    .btn.primary{
+    .btn.google{
       color:var(--navy-dark);
       background:var(--yellow);
       border-color:var(--yellow);
@@ -248,10 +313,9 @@
       color:white;
     }
 
-    .btn.secondary{
+    .btn.home{
       grid-column:1 / -1;
       background:rgba(255,255,255,.10);
-      color:white;
     }
 
     .btn:hover{
@@ -260,32 +324,40 @@
       color:var(--navy-dark);
     }
 
+    .hero-note{
+      margin-top:14px;
+      color:#cbd7f5;
+      font-size:.9rem;
+      line-height:1.45;
+      font-weight:750;
+    }
+
     .hero-side{
       background:white;
       display:grid;
       grid-template-rows:auto 1fr;
     }
 
-    .side-top{
-      min-height:170px;
+    .side-visual{
       position:relative;
-      overflow:hidden;
+      min-height:230px;
       padding:28px;
       color:white;
       background:
-        radial-gradient(circle at 18% 24%, rgba(255,255,255,.33), transparent 15%),
+        radial-gradient(circle at 22% 18%, rgba(255,255,255,.34), transparent 14%),
+        radial-gradient(circle at 84% 22%, rgba(247,191,33,.24), transparent 23%),
         linear-gradient(135deg,var(--teal),var(--teal-dark));
     }
 
-    .side-top::after{
+    .side-visual::after{
       content:"";
       position:absolute;
-      width:190px;
-      height:190px;
-      right:-76px;
-      top:-78px;
+      width:200px;
+      height:200px;
+      right:-80px;
+      top:-80px;
       border-radius:50%;
-      border:2px solid rgba(255,255,255,.23);
+      border:2px solid rgba(255,255,255,.22);
     }
 
     .side-title{
@@ -293,115 +365,139 @@
       z-index:2;
       margin:0;
       color:white;
-      font-size:clamp(2rem,3.3vw,3.1rem);
-      line-height:1.03;
-      letter-spacing:-.075em;
+      font-size:clamp(2.25rem,4vw,3.45rem);
+      line-height:.98;
+      letter-spacing:-.08em;
     }
 
-    .side-bottom{
-      padding:24px;
-      display:grid;
-      gap:12px;
+    .arrival-chip{
+      position:absolute;
+      left:28px;
+      bottom:26px;
+      z-index:2;
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      padding:10px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.22);
+      color:white;
+      font-weight:1000;
     }
 
-    .quick-item{
+    .side-list{
+      padding:22px;
       display:grid;
-      grid-template-columns:38px 1fr;
       gap:11px;
-      padding:13px;
+    }
+
+    .side-item{
+      display:grid;
+      grid-template-columns:42px 1fr;
+      gap:12px;
+      align-items:start;
+      padding:14px;
+      border-radius:18px;
       background:#f6f9fc;
       border:1px solid var(--line);
-      border-radius:17px;
     }
 
-    .quick-icon{
-      width:38px;
-      height:38px;
+    .side-icon{
+      width:42px;
+      height:42px;
       display:grid;
       place-items:center;
-      border-radius:13px;
+      border-radius:14px;
       background:var(--yellow);
       color:var(--navy-dark);
     }
 
-    .quick-item:nth-child(2) .quick-icon{
-      background:var(--teal);
-      color:white;
-    }
+    .side-item:nth-child(2) .side-icon{background:var(--teal);color:white}
+    .side-item:nth-child(3) .side-icon{background:var(--coral);color:white}
 
-    .quick-item:nth-child(3) .quick-icon{
-      background:var(--coral);
-      color:white;
-    }
-
-    .quick-item b{
+    .side-item b{
       display:block;
       color:var(--navy);
-      margin-bottom:3px;
+      margin-bottom:4px;
+      letter-spacing:-.02em;
     }
 
-    .quick-item span{
+    .side-item span{
       display:block;
       color:var(--muted);
-      font-size:.9rem;
-      line-height:1.4;
+      font-size:.92rem;
+      line-height:1.43;
+      font-weight:650;
+    }
+
+    main{
+      padding-bottom:16px;
     }
 
     section{
       padding:42px 0;
-      scroll-margin-top:82px;
+      scroll-margin-top:88px;
     }
 
     .section-head{
-      margin-bottom:20px;
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:20px;
+      margin-bottom:18px;
     }
 
     .section-title{
       display:flex;
       align-items:flex-start;
-      gap:15px;
+      gap:14px;
     }
 
     .section-title::before{
       content:"";
       width:8px;
-      height:64px;
+      height:58px;
       flex:0 0 8px;
-      margin-top:5px;
+      margin-top:6px;
       border-radius:999px;
       background:var(--yellow);
     }
 
     .section-title h2{
       margin:0;
-      font-size:clamp(2.25rem,4.7vw,4.7rem);
-      line-height:.92;
-      letter-spacing:-.078em;
       color:var(--navy);
+      font-size:clamp(2.25rem,4.7vw,4.7rem);
+      line-height:.9;
+      letter-spacing:-.08em;
     }
 
-    .grid{
+    .section-kicker{
+      max-width:430px;
+      margin:0;
+      color:var(--muted);
+      line-height:1.55;
+      font-weight:700;
+    }
+
+    .info-grid{
       display:grid;
       grid-template-columns:repeat(3,minmax(0,1fr));
       gap:14px;
     }
 
-    .grid.two{
-      grid-template-columns:1.05fr .95fr;
-    }
-
-    .card{
+    .info-card{
       position:relative;
       overflow:hidden;
-      min-height:210px;
+      min-height:220px;
       padding:24px;
+      border-radius:var(--radius);
       background:white;
       border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:0 14px 34px rgba(16,32,68,.075);
+      box-shadow:var(--shadow-soft);
     }
 
-    .card::before{
+    .info-card::before{
       content:"";
       position:absolute;
       inset:0 0 auto;
@@ -409,244 +505,193 @@
       background:linear-gradient(90deg,var(--yellow),var(--teal),var(--coral));
     }
 
-    .icon{
-      width:54px;
-      height:54px;
+    .info-icon{
+      width:56px;
+      height:56px;
       display:grid;
       place-items:center;
       margin-bottom:18px;
-      border-radius:18px;
+      border-radius:19px;
       color:white;
       background:var(--navy);
       box-shadow:7px 7px 0 rgba(20,140,155,.14);
     }
 
-    .card:nth-child(2) .icon{
-      background:var(--teal);
-      box-shadow:7px 7px 0 rgba(247,191,33,.18);
-    }
+    .info-card:nth-child(2) .info-icon{background:var(--teal);box-shadow:7px 7px 0 rgba(247,191,33,.18)}
+    .info-card:nth-child(3) .info-icon{background:var(--coral);box-shadow:7px 7px 0 rgba(31,50,112,.12)}
 
-    .card:nth-child(3) .icon{
-      background:var(--coral);
-      box-shadow:7px 7px 0 rgba(31,50,112,.12);
-    }
-
-    .card h3{
+    .info-card h3{
       margin:0 0 9px;
       color:var(--navy);
-      font-size:1.5rem;
+      font-size:1.48rem;
+      line-height:1.05;
       letter-spacing:-.055em;
     }
 
-    .card p{
+    .info-card p{
       margin:0;
       color:var(--muted);
-      line-height:1.62;
+      line-height:1.58;
+      font-weight:650;
+    }
+
+    .route-story{
+      display:grid;
+      grid-template-columns:.95fr 1.05fr;
+      gap:14px;
+      align-items:stretch;
     }
 
     .map-card{
-      min-height:420px;
-      padding:0;
-      display:grid;
-      grid-template-rows:1fr auto;
-    }
-
-    .map-placeholder{
       position:relative;
-      min-height:315px;
+      overflow:hidden;
+      min-height:410px;
+      display:grid;
+      place-items:center;
+      padding:28px;
+      border-radius:var(--radius);
+      color:white;
+      text-align:center;
       background:
         linear-gradient(90deg, rgba(255,255,255,.16) 1px, transparent 1px),
         linear-gradient(rgba(255,255,255,.16) 1px, transparent 1px),
-        radial-gradient(circle at 25% 30%, rgba(247,191,33,.58), transparent 18%),
-        radial-gradient(circle at 75% 70%, rgba(255,115,101,.34), transparent 20%),
+        radial-gradient(circle at 26% 28%, rgba(247,191,33,.60), transparent 17%),
+        radial-gradient(circle at 74% 70%, rgba(255,115,101,.36), transparent 20%),
         linear-gradient(135deg,var(--teal),var(--navy));
       background-size:38px 38px,38px 38px,auto,auto,auto;
-      display:grid;
-      place-items:center;
-      color:white;
-      text-align:center;
-      padding:24px;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .map-card::after{
+      content:"";
+      position:absolute;
+      width:230px;
+      height:230px;
+      right:-90px;
+      bottom:-90px;
+      border-radius:50%;
+      border:2px solid rgba(255,255,255,.20);
     }
 
     .map-pin{
-      width:100px;
-      height:100px;
+      position:relative;
+      z-index:2;
+      width:108px;
+      height:108px;
       display:grid;
       place-items:center;
-      border-radius:32px;
-      background:rgba(255,255,255,.13);
+      margin:0 auto 20px;
+      border-radius:34px;
+      background:rgba(255,255,255,.14);
       border:1px solid rgba(255,255,255,.22);
-      box-shadow:0 22px 50px rgba(16,32,68,.22);
+      box-shadow:0 22px 50px rgba(16,32,68,.24);
       color:var(--yellow);
-      font-size:3.2rem;
-      margin:0 auto 18px;
+      font-size:3.35rem;
     }
 
-    .map-placeholder h3{
+    .map-card h3{
+      position:relative;
+      z-index:2;
       margin:0;
       color:white;
-      font-size:clamp(1.9rem,4vw,3.2rem);
-      line-height:.98;
-      letter-spacing:-.065em;
+      font-size:clamp(2rem,4vw,3.35rem);
+      line-height:.96;
+      letter-spacing:-.07em;
     }
 
-    .map-placeholder p{
-      margin:12px auto 0;
-      max-width:470px;
+    .map-card p{
+      position:relative;
+      z-index:2;
+      max-width:480px;
+      margin:13px auto 0;
       color:#dbe5ff;
-      line-height:1.5;
-      font-weight:700;
+      line-height:1.52;
+      font-weight:750;
     }
 
-    .route-panel{
-      padding:18px;
-      background:white;
-    }
-
-    .route-panel-title{
-      margin:0 0 12px;
-      color:var(--navy);
-      font-size:1rem;
-      letter-spacing:-.02em;
-    }
-
-    .route-buttons{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:10px;
-    }
-
-    .button{
-      min-height:48px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding:0 14px;
-      border-radius:14px;
-      background:var(--teal);
-      color:white;
-      text-decoration:none;
-      font-weight:1000;
-      font-size:.86rem;
-      text-align:center;
-      transition:.16s transform,.16s background;
-    }
-
-    .button:hover{
-      transform:translateY(-2px);
-      background:var(--navy);
-    }
-
-    .button.yellow{
-      background:var(--yellow);
-      color:var(--navy-dark);
-    }
-
-    .button.apple{
-      background:#111827;
-      color:white;
-    }
-
-    .button.coral{
-      background:var(--coral);
-      color:white;
-    }
-
-    .button.navy{
-      background:var(--navy);
-      color:white;
-    }
-
-    .steps{
+    .timeline{
       display:grid;
       gap:10px;
     }
 
-    .step{
+    .timeline-step{
       display:grid;
-      grid-template-columns:48px 1fr;
-      gap:12px;
-      padding:14px;
-      border-radius:18px;
+      grid-template-columns:50px 1fr;
+      gap:13px;
+      padding:15px;
+      border-radius:20px;
       background:white;
       border:1px solid var(--line);
-      box-shadow:0 10px 24px rgba(16,32,68,.05);
+      box-shadow:0 10px 26px rgba(16,32,68,.055);
     }
 
-    .step-number{
-      width:48px;
-      height:48px;
+    .step-badge{
+      width:50px;
+      height:50px;
       display:grid;
       place-items:center;
-      border-radius:16px;
+      border-radius:17px;
       background:var(--yellow);
       color:var(--navy-dark);
       font-weight:1000;
-      box-shadow:6px 6px 0 rgba(20,140,155,.13);
+      box-shadow:6px 6px 0 rgba(20,140,155,.12);
     }
 
-    .step:nth-child(2) .step-number{
-      background:var(--teal);
-      color:white;
-    }
+    .timeline-step:nth-child(2) .step-badge{background:var(--teal);color:white}
+    .timeline-step:nth-child(3) .step-badge{background:var(--coral);color:white}
+    .timeline-step:nth-child(4) .step-badge{background:var(--navy);color:white}
 
-    .step:nth-child(3) .step-number{
-      background:var(--coral);
-      color:white;
-    }
-
-    .step:nth-child(4) .step-number{
-      background:var(--navy);
-      color:white;
-    }
-
-    .step h3{
+    .timeline-step h3{
       margin:0 0 4px;
       color:var(--navy);
       font-size:1.1rem;
       letter-spacing:-.035em;
     }
 
-    .step p{
+    .timeline-step p{
       margin:0;
       color:var(--muted);
-      line-height:1.5;
+      line-height:1.48;
+      font-weight:650;
     }
 
-    .notice{
+    .arrival-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+
+    .panel{
       position:relative;
       overflow:hidden;
-      padding:22px;
+      padding:24px;
       border-radius:var(--radius);
-      background:
-        radial-gradient(circle at 8% 20%, rgba(255,115,101,.18), transparent 26%),
-        radial-gradient(circle at 94% 12%, rgba(247,191,33,.24), transparent 26%),
-        linear-gradient(135deg,#fff,#fff8ef);
-      border:1px solid rgba(255,115,101,.22);
-      box-shadow:0 14px 34px rgba(16,32,68,.08);
+      background:white;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow-soft);
     }
 
-    .notice::before{
+    .panel::before{
       content:"";
       position:absolute;
       inset:0 0 auto;
       height:7px;
-      background:linear-gradient(90deg,var(--coral),var(--yellow),var(--teal));
+      background:linear-gradient(90deg,var(--yellow),var(--teal),var(--coral));
     }
 
-    .notice h3{
-      margin:0 0 8px;
+    .panel h3{
+      margin:0 0 12px;
       color:var(--navy);
-      font-size:1.45rem;
-      letter-spacing:-.045em;
+      font-size:1.48rem;
+      line-height:1.05;
+      letter-spacing:-.055em;
     }
 
-    .notice p{
+    .panel p{
       margin:0;
-      color:#4f5f7d;
-      line-height:1.55;
-      font-weight:750;
+      color:var(--muted);
+      line-height:1.58;
+      font-weight:650;
     }
 
     .checklist{
@@ -659,27 +704,54 @@
 
     .checklist li{
       display:flex;
-      align-items:center;
+      align-items:flex-start;
       gap:10px;
       padding:12px;
       border-radius:15px;
       background:#f6f9fc;
       border:1px solid var(--line);
       color:#52627e;
-      line-height:1.35;
+      line-height:1.38;
+      font-weight:650;
     }
 
     .checklist i{
       width:20px;
+      margin-top:1px;
       color:var(--teal);
     }
 
-    .final-actions{
+    .bread-actions{
       display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
+      grid-template-columns:1fr 1fr;
       gap:10px;
       margin-top:18px;
     }
+
+    .small-button{
+      min-height:48px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:0 14px;
+      border-radius:15px;
+      text-align:center;
+      text-decoration:none;
+      background:var(--teal);
+      color:white;
+      font-size:.88rem;
+      font-weight:1000;
+      transition:.16s transform,.16s background;
+    }
+
+    .small-button:hover{
+      transform:translateY(-2px);
+      background:var(--navy);
+    }
+
+    .small-button.coral{background:var(--coral)}
+    .small-button.navy{background:var(--navy)}
 
     footer{
       margin-top:46px;
@@ -688,26 +760,51 @@
       color:#dfe8ff;
     }
 
+    .footer-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      line-height:1.45;
+      font-weight:700;
+    }
+
+    .footer-inner a{
+      color:white;
+      font-weight:1000;
+      text-decoration:none;
+    }
+
+    .footer-inner a:hover{text-decoration:underline}
+
     @media (max-width:980px){
       .hero,
-      .grid,
-      .grid.two{
+      .route-story,
+      .arrival-grid{
         grid-template-columns:1fr;
       }
 
-      .hero-main,
-      .hero-side{
+      .hero{
         min-height:auto;
+      }
+
+      .info-grid{
+        grid-template-columns:1fr;
+      }
+
+      .section-head{
+        align-items:flex-start;
+        flex-direction:column;
       }
     }
 
     @media (max-width:760px){
       body{
-        background-size:36px 36px,36px 36px,auto,auto,auto;
+        background-size:auto,auto,36px 36px,36px 36px,auto;
       }
 
       .page{
-        width:min(100% - 20px, 1180px);
+        width:min(100% - 20px, var(--max));
       }
 
       .nav-inner{
@@ -741,15 +838,13 @@
         -webkit-overflow-scrolling:touch;
       }
 
-      .nav-links::-webkit-scrollbar{
-        display:none;
-      }
+      .nav-links::-webkit-scrollbar{display:none}
 
       .nav-links a{
         flex:0 0 auto;
         padding:8px 10px;
         font-size:.66rem;
-        background:rgba(255,255,255,.58);
+        background:rgba(255,255,255,.62);
         border:1px solid rgba(16,32,68,.08);
       }
 
@@ -763,28 +858,24 @@
 
       .hero-main,
       .hero-side{
-        border-radius:23px;
+        border-radius:24px;
       }
 
       .hero-main{
         padding:26px 20px 24px;
       }
 
-      .floating-card{
-        display:none;
-      }
-
       .label{
+        padding:7px 10px;
         font-size:.61rem;
         letter-spacing:.13em;
-        padding:7px 10px;
       }
 
       h1{
         margin-top:22px;
-        font-size:clamp(2.45rem,13vw,3.65rem);
-        line-height:.94;
-        letter-spacing:-.046em;
+        font-size:clamp(2.7rem,14vw,4rem);
+        line-height:.9;
+        letter-spacing:-.055em;
       }
 
       .hero-text{
@@ -793,40 +884,84 @@
         line-height:1.55;
       }
 
+      .address-card{
+        grid-template-columns:44px 1fr;
+        gap:12px;
+        margin-top:20px;
+        padding:13px;
+        border-radius:18px;
+      }
+
+      .address-icon{
+        width:44px;
+        height:44px;
+        border-radius:15px;
+      }
+
+      .address-card strong{
+        font-size:.95rem;
+      }
+
+      .address-card span{
+        font-size:.92rem;
+      }
+
       .hero-actions{
         grid-template-columns:1fr;
         gap:8px;
-        margin-top:22px;
         max-width:none;
       }
 
-      .btn,
-      .button{
+      .btn{
         width:100%;
-        min-height:48px;
-        border-radius:14px;
+        min-height:50px;
+        border-radius:15px;
       }
 
-      .side-top{
-        min-height:auto;
+      .hero-note{
+        font-size:.86rem;
+      }
+
+      .side-visual{
+        min-height:170px;
         padding:22px 20px;
       }
 
       .side-title{
-        font-size:clamp(1.85rem,10.4vw,2.8rem);
-        line-height:1.05;
+        font-size:clamp(2rem,11vw,3rem);
+        line-height:1;
       }
 
-      .side-bottom{
-        padding:20px;
+      .arrival-chip{
+        left:20px;
+        bottom:18px;
+        padding:9px 11px;
+        font-size:.88rem;
+      }
+
+      .side-list{
+        padding:18px;
+      }
+
+      .side-item{
+        grid-template-columns:38px 1fr;
+        padding:12px;
+        border-radius:16px;
+      }
+
+      .side-icon{
+        width:38px;
+        height:38px;
+        border-radius:13px;
       }
 
       section{
         padding:34px 0;
-        scroll-margin-top:118px;
+        scroll-margin-top:116px;
       }
 
       .section-head{
+        gap:12px;
         margin-bottom:16px;
       }
 
@@ -842,112 +977,122 @@
       }
 
       .section-title h2{
-        font-size:clamp(2.05rem,11vw,3.45rem);
+        font-size:clamp(2.1rem,11vw,3.45rem);
         line-height:.94;
       }
 
-      .card{
-        min-height:auto;
-        padding:20px;
-        border-radius:21px;
+      .section-kicker{
+        font-size:.95rem;
       }
 
-      .icon{
+      .info-card,
+      .panel{
+        min-height:auto;
+        padding:20px;
+        border-radius:22px;
+      }
+
+      .info-icon{
         width:50px;
         height:50px;
         margin-bottom:14px;
         border-radius:17px;
       }
 
-      .card h3{
-        font-size:1.35rem;
+      .info-card h3,
+      .panel h3{
+        font-size:1.34rem;
       }
 
-      .card p{
+      .info-card p,
+      .panel p{
         font-size:.95rem;
         line-height:1.52;
       }
 
       .map-card{
-        min-height:auto;
-      }
-
-      .map-placeholder{
-        min-height:260px;
+        min-height:300px;
+        padding:24px 18px;
+        border-radius:22px;
       }
 
       .map-pin{
-        width:84px;
-        height:84px;
-        border-radius:27px;
-        font-size:2.6rem;
+        width:86px;
+        height:86px;
+        border-radius:28px;
+        font-size:2.55rem;
+        margin-bottom:16px;
       }
 
-      .route-buttons,
-      .final-actions{
-        grid-template-columns:1fr;
+      .map-card h3{
+        font-size:clamp(2rem,10vw,2.75rem);
       }
 
-      .step{
+      .map-card p{
+        font-size:.95rem;
+      }
+
+      .timeline-step{
         grid-template-columns:42px 1fr;
+        gap:11px;
         padding:12px;
-        border-radius:16px;
+        border-radius:17px;
       }
 
-      .step-number{
+      .step-badge{
         width:42px;
         height:42px;
         border-radius:14px;
       }
 
-      .step h3{
+      .timeline-step h3{
         font-size:1rem;
       }
 
-      .step p{
+      .timeline-step p{
         font-size:.91rem;
         line-height:1.45;
       }
 
-      .notice{
-        padding:20px;
-        border-radius:21px;
+      .bread-actions{
+        grid-template-columns:1fr;
       }
 
-      footer{
-        margin-top:26px;
-        padding:26px 0;
+      .footer-inner{
+        align-items:flex-start;
+        flex-direction:column;
         font-size:.92rem;
       }
     }
 
     @media (max-width:380px){
       .page{
-        width:min(100% - 16px, 1180px);
+        width:min(100% - 16px, var(--max));
       }
 
       h1{
-        font-size:clamp(2.25rem,12.6vw,3.15rem);
+        font-size:clamp(2.45rem,13vw,3.35rem);
       }
 
       .nav-links a{
         font-size:.63rem;
       }
 
-      .quick-item{
-        grid-template-columns:34px 1fr;
+      .address-card{
+        grid-template-columns:1fr;
       }
 
-      .quick-icon{
-        width:34px;
-        height:34px;
-        border-radius:12px;
+      .address-icon{
+        width:42px;
+        height:42px;
       }
     }
   </style>
 </head>
 
 <body>
+  <a class="skip-link" href="#inhoud">Ga naar inhoud</a>
+
   <nav>
     <div class="page nav-inner">
       <div class="brand">
@@ -957,71 +1102,80 @@
 
       <div class="nav-links" aria-label="Navigatie">
         <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
-        <a href="#adres">Adres</a>
-        <a href="#parking">Parking</a>
-        <a href="#route">Route</a>
-        <a href="#aankomst">Aankomst</a>
         <a class="active" href="locatie.html">Locatie</a>
+        <a href="#parking">Parking</a>
+        <a href="#aankomst">Aankomst</a>
+        <a href="#broodjes">Broodjes</a>
       </div>
     </div>
   </nav>
 
   <header class="page">
     <div class="hero">
-      <div class="hero-main">
-        <div class="floating-card">📍</div>
-
+      <section class="hero-main" aria-labelledby="pagina-titel">
         <div class="label"><span class="label-dot"></span> Vrijdag 17 juli 2026</div>
 
-        <h1>Locatie<br>& parking</h1>
+        <h1 id="pagina-titel">Vlot naar<br>Heverlee.</h1>
 
         <p class="hero-text">
-          Alles wat je nodig hebt om vlot aan te komen aan het Sportkot KU Leuven.
-          Kies je route-app, vertrek op tijd en sluit rustig aan bij de groep.
+          Geen zoekwerk op de dag zelf. Hier staat het adres, de route en de belangrijkste praktische info om rustig aan te komen aan het Sportkot KU Leuven.
         </p>
 
-        <div class="hero-actions">
-          <a class="btn primary" href="https://www.google.com/maps/dir/?api=1&destination=Sportkot+KU+Leuven" target="_blank" rel="noopener noreferrer">
+        <div class="address-card" aria-label="Adres Sportkot KU Leuven">
+          <div class="address-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div>
+            <strong>Universitair Sportcentrum KU Leuven</strong>
+            <span>Tervuursevest 101 · 3001 Heverlee</span>
+          </div>
+        </div>
+
+        <div class="hero-actions" aria-label="Route starten">
+          <a class="btn google" href="https://www.google.com/maps/dir/?api=1&destination=Tervuursevest+101,+3001+Heverlee" target="_blank" rel="noopener noreferrer">
             <i class="fa-solid fa-route"></i> Route via Google Maps
           </a>
 
-          <a class="btn apple" href="https://maps.apple.com/?daddr=Sportkot%20KU%20Leuven" target="_blank" rel="noopener noreferrer">
+          <a class="btn apple" href="https://maps.apple.com/?daddr=Tervuursevest%20101%2C%203001%20Heverlee" target="_blank" rel="noopener noreferrer">
             <i class="fa-brands fa-apple"></i> Route via Apple Kaarten
           </a>
 
-          <a class="btn secondary" href="index.html">
+          <a class="btn home" href="index.html">
             <i class="fa-solid fa-arrow-left"></i> Terug naar hoofdpagina
           </a>
         </div>
-      </div>
 
-      <aside class="hero-side">
-        <div class="side-top">
-          <h2 class="side-title">Rustig<br>aankomen.<br>Niet zoeken.</h2>
+        <p class="hero-note">
+          Tip: zet je route al klaar vóór je vertrekt. Dan moet je op de parking zelf niet meer beginnen zoeken.
+        </p>
+      </section>
+
+      <aside class="hero-side" aria-label="Korte praktische info">
+        <div class="side-visual">
+          <h2 class="side-title">Aankomen<br>zonder<br>gedoe.</h2>
+          <div class="arrival-chip"><i class="fa-solid fa-clock"></i> Verzamelen om 08:00</div>
         </div>
 
-        <div class="side-bottom">
-          <div class="quick-item">
-            <div class="quick-icon"><i class="fa-solid fa-clock"></i></div>
-            <div>
-              <b>Aankomst</b>
-              <span>We verzamelen om 08:00 aan het Sportkot. Kom liefst iets vroeger.</span>
-            </div>
-          </div>
-
-          <div class="quick-item">
-            <div class="quick-icon"><i class="fa-solid fa-square-parking"></i></div>
+        <div class="side-list">
+          <div class="side-item">
+            <div class="side-icon"><i class="fa-solid fa-square-parking"></i></div>
             <div>
               <b>Parking</b>
-              <span>Er is normaal parking op of rond de site. Voorzie wel wat marge.</span>
+              <span>Er is normaal parking op of rond de site. Kom liefst iets vroeger.</span>
             </div>
           </div>
 
-          <div class="quick-item">
-            <div class="quick-icon"><i class="fa-solid fa-shirt"></i></div>
+          <div class="side-item">
+            <div class="side-icon"><i class="fa-solid fa-person-walking"></i></div>
             <div>
-              <b>Omkleden</b>
-              <span>Kom sportief of neem je spullen mee om ter plaatse om te kleden.</span>
+              <b>Verzamelpunt</b>
+              <span>We verzamelen aan het Sportkot en gaan daarna samen naar de juiste activiteit.</span>
+            </div>
+          </div>
+
+          <div class="side-item">
+            <div class="side-icon"><i class="fa-solid fa-shirt"></i></div>
+            <div>
+              <b>Sportief komen</b>
+              <span>Kom sportief gekleed of neem je spullen mee om ter plaatse om te kleden.</span>
             </div>
           </div>
         </div>
@@ -1029,158 +1183,114 @@
     </div>
   </header>
 
-  <main>
-    <section id="adres" class="page">
+  <main id="inhoud">
+    <section id="overzicht" class="page">
       <div class="section-head">
         <div class="section-title">
-          <h2>Adres</h2>
+          <h2>Kort<br>samengevat</h2>
         </div>
+        <p class="section-kicker">
+          De routeknoppen staan bewust alleen bovenaan. De rest van deze pagina helpt vooral om ter plaatse snel te weten wat de bedoeling is.
+        </p>
       </div>
 
-      <div class="grid two">
-        <article class="card map-card">
-          <div class="map-placeholder">
-            <div>
-              <div class="map-pin"><i class="fa-solid fa-location-dot"></i></div>
-              <h3>Sportkot<br>KU Leuven</h3>
-              <p>
-                Gebruik één van de routeknoppen. Zo hoef je geen adres over te typen en kom je meteen op de juiste plaats terecht.
-              </p>
-            </div>
-          </div>
-
-          <div class="route-panel">
-            <h3 class="route-panel-title">Route starten</h3>
-
-            <div class="route-buttons">
-              <a class="button yellow" href="https://www.google.com/maps/dir/?api=1&destination=Sportkot+KU+Leuven" target="_blank" rel="noopener noreferrer">
-                <i class="fa-solid fa-route"></i> Google Maps
-              </a>
-
-              <a class="button apple" href="https://maps.apple.com/?daddr=Sportkot%20KU%20Leuven" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-apple"></i> Apple Kaarten
-              </a>
-            </div>
-          </div>
+      <div class="info-grid">
+        <article class="info-card">
+          <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <h3>Adres staat klaar</h3>
+          <p>
+            Gebruik Tervuursevest 101, 3001 Heverlee of klik bovenaan op je favoriete route-app.
+          </p>
         </article>
 
-        <div class="steps">
-          <div class="step">
-            <div class="step-number">1</div>
-            <div>
-              <h3>Kies je route-app</h3>
-              <p>Google Maps werkt voor iedereen. Apple Kaarten is handig voor wie met iPhone rijdt.</p>
-            </div>
-          </div>
+        <article class="info-card">
+          <div class="info-icon"><i class="fa-solid fa-clock"></i></div>
+          <h3>Niet op het nippertje</h3>
+          <p>
+            Parkeren, wandelen en omkleden kosten altijd enkele minuten. Voorzie dus wat marge.
+          </p>
+        </article>
 
-          <div class="step">
-            <div class="step-number">2</div>
-            <div>
-              <h3>Vertrek met marge</h3>
-              <p>Kom liever iets te vroeg dan exact op tijd. Parkeren en oriënteren kost altijd enkele minuten.</p>
-            </div>
-          </div>
-
-          <div class="step">
-            <div class="step-number">3</div>
-            <div>
-              <h3>Verzamel aan het Sportkot</h3>
-              <p>We verzamelen om 08:00 aan het Sportkot. Daarna is er tijd om rustig op te starten.</p>
-            </div>
-          </div>
-
-          <div class="step">
-            <div class="step-number">4</div>
-            <div>
-              <h3>Start teambuilding</h3>
-              <p>Vanaf 08:30 starten we met de eerste activiteit. Wie klaar is, kan rustig aansluiten.</p>
-            </div>
-          </div>
-        </div>
+        <article class="info-card">
+          <div class="info-icon"><i class="fa-solid fa-people-group"></i></div>
+          <h3>Samen opstarten</h3>
+          <p>
+            We verzamelen aan het Sportkot. Van daaruit vertrekken we samen naar de eerste activiteit.
+          </p>
+        </article>
       </div>
     </section>
 
     <section id="parking" class="page">
       <div class="section-head">
         <div class="section-title">
-          <h2>Parking</h2>
+          <h2>Parking<br>& aankomst</h2>
         </div>
+        <p class="section-kicker">
+          De bedoeling is simpel: rustig parkeren, naar het Sportkot komen en zonder stress aansluiten bij de groep.
+        </p>
       </div>
 
-      <div class="grid">
-        <article class="card">
-          <div class="icon"><i class="fa-solid fa-square-parking"></i></div>
-          <h3>Parking op of rond de site</h3>
-          <p>
-            Er is normaal parking op of rond de site. Kom wel op tijd, zodat je niet gehaast moet zoeken.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="icon"><i class="fa-solid fa-clock"></i></div>
-          <h3>Voorzie marge</h3>
-          <p>
-            Reken een paar minuten extra voor parkeren, wandelen naar het verzamelpunt en eventueel omkleden.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="icon"><i class="fa-solid fa-person-walking"></i></div>
-          <h3>Volg de groep</h3>
-          <p>
-            Na aankomst verzamelen we aan het Sportkot. Van daaruit gaan we samen naar de juiste velden of activiteit.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section id="route" class="page">
-      <div class="section-head">
-        <div class="section-title">
-          <h2>Route</h2>
-        </div>
-      </div>
-
-      <div class="grid two">
-        <article class="notice">
-          <h3><i class="fa-solid fa-triangle-exclamation"></i> Praktische tip</h3>
-          <p>
-            Zet je route best al klaar vóór je vertrekt. Zelfs als de parking vlot gaat,
-            verlies je snel enkele minuten met zoeken, wandelen, omkleden of iemand terugvinden.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="icon"><i class="fa-solid fa-route"></i></div>
-          <h3>Start meteen je route</h3>
-          <p>
-            Gebruik gewoon de app die je normaal ook gebruikt. Meer moet dat niet zijn.
-          </p>
-
-          <div class="final-actions">
-            <a class="button yellow" href="https://www.google.com/maps/dir/?api=1&destination=Sportkot+KU+Leuven" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-route"></i> Google Maps
-            </a>
-
-            <a class="button apple" href="https://maps.apple.com/?daddr=Sportkot%20KU%20Leuven" target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-apple"></i> Apple Kaarten
-            </a>
+      <div class="route-story">
+        <article class="map-card" aria-label="Sportkot KU Leuven">
+          <div>
+            <div class="map-pin"><i class="fa-solid fa-map-location-dot"></i></div>
+            <h3>Sportkot<br>KU Leuven</h3>
+            <p>
+              De navigatie staat bovenaan. Hier vind je vooral de praktische volgorde: aankomen, parkeren, verzamelen en starten.
+            </p>
           </div>
         </article>
+
+        <div class="timeline" aria-label="Stappen bij aankomst">
+          <article class="timeline-step">
+            <div class="step-badge">1</div>
+            <div>
+              <h3>Rij naar Tervuursevest 101</h3>
+              <p>Gebruik Google Maps of Apple Kaarten via de knoppen bovenaan de pagina.</p>
+            </div>
+          </article>
+
+          <article class="timeline-step">
+            <div class="step-badge">2</div>
+            <div>
+              <h3>Parkeer op of rond de site</h3>
+              <p>Er is normaal parking in de buurt van het Sportkot. Kom iets vroeger zodat je rustig kan zoeken.</p>
+            </div>
+          </article>
+
+          <article class="timeline-step">
+            <div class="step-badge">3</div>
+            <div>
+              <h3>Ga naar het verzamelpunt</h3>
+              <p>We verzamelen aan het Sportkot. Vandaar kunnen we samen naar de juiste velden of activiteit.</p>
+            </div>
+          </article>
+
+          <article class="timeline-step">
+            <div class="step-badge">4</div>
+            <div>
+              <h3>Start rustig mee</h3>
+              <p>Wie nog moet omkleden, doet dat best meteen bij aankomst. Daarna sluiten we samen aan.</p>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
     <section id="aankomst" class="page">
       <div class="section-head">
         <div class="section-title">
-          <h2>Aankomst</h2>
+          <h2>Bij<br>aankomst</h2>
         </div>
+        <p class="section-kicker">
+          Kleine checklist, grote rust. Zo weet iedereen wat te doen zonder rond te bellen of te zoeken.
+        </p>
       </div>
 
-      <div class="grid two">
-        <article class="card">
-          <div class="icon"><i class="fa-solid fa-list-check"></i></div>
-          <h3>Bij aankomst</h3>
+      <div class="arrival-grid">
+        <article class="panel">
+          <h3><i class="fa-solid fa-list-check"></i> Checklist</h3>
 
           <ul class="checklist">
             <li><i class="fa-solid fa-circle-check"></i> Parkeer rustig op of rond de site.</li>
@@ -1190,20 +1300,18 @@
           </ul>
         </article>
 
-        <article class="card">
-          <div class="icon"><i class="fa-solid fa-bread-slice"></i></div>
-          <h3>Niet vergeten</h3>
+        <article id="broodjes" class="panel">
+          <h3><i class="fa-solid fa-bread-slice"></i> Niet vergeten</h3>
           <p>
-            Vul ook het broodjesformulier in. Dat staat los van de locatie,
-            maar is wel nodig om de lunch correct te kunnen bestellen.
+            Vul ook het broodjesformulier in. Dat staat los van de locatie, maar is nodig om de lunch correct te kunnen bestellen.
           </p>
 
-          <div class="final-actions">
-            <a class="button coral" href="https://forms.office.com/e/DDMftsAXKb" target="_blank" rel="noopener noreferrer">
+          <div class="bread-actions">
+            <a class="small-button coral" href="https://forms.office.com/e/DDMftsAXKb" target="_blank" rel="noopener noreferrer">
               <i class="fa-solid fa-pen-to-square"></i> Broodjesformulier
             </a>
 
-            <a class="button navy" href="index.html">
+            <a class="small-button navy" href="index.html">
               <i class="fa-solid fa-house"></i> Hoofdpagina
             </a>
           </div>
@@ -1213,8 +1321,12 @@
   </main>
 
   <footer>
-    <div class="page">
-      <strong>Teambuilding Heverlee 2026</strong> · Locatie & parking
+    <div class="page footer-inner">
+      <div>
+        <strong>Teambuilding Heverlee 2026</strong><br>
+        Locatie & parking · Sportkot KU Leuven
+      </div>
+      <a href="#pagina-titel"><i class="fa-solid fa-arrow-up"></i> Naar boven</a>
     </div>
   </footer>
 </body>
