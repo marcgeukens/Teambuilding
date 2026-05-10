@@ -70,7 +70,6 @@
     }
 
     .brand{
-      min-width:0;
       display:flex;
       align-items:center;
       gap:11px;
@@ -83,7 +82,6 @@
     .brand-mark{
       width:44px;
       height:44px;
-      flex:0 0 44px;
       display:grid;
       place-items:center;
       border-radius:16px;
@@ -725,8 +723,7 @@
       align-items:stretch;
     }
 
-    .location-photo{
-      position:relative;
+    .location-map{
       overflow:hidden;
       min-height:390px;
       border-radius:var(--radius);
@@ -735,12 +732,12 @@
       box-shadow:var(--soft-shadow);
     }
 
-    .location-photo img{
+    .location-map iframe{
       width:100%;
       height:100%;
       min-height:390px;
       display:block;
-      object-fit:cover;
+      border:0;
     }
 
     .steps{
@@ -903,7 +900,6 @@
       .brand-mark{
         width:40px;
         height:40px;
-        flex-basis:40px;
         border-radius:14px;
         box-shadow:5px 5px 0 rgba(20,140,155,.16);
       }
@@ -1019,12 +1015,12 @@
         grid-template-columns:1fr;
       }
 
-      .location-photo{
+      .location-map{
         min-height:360px;
         border-radius:22px;
       }
 
-      .location-photo img{
+      .location-map iframe{
         min-height:360px;
       }
 
@@ -1294,8 +1290,13 @@
       </div>
 
       <div class="arrival-layout">
-        <article class="location-photo" aria-label="Locatiekaart">
-          <img src="locatie.jpg" alt="Locatiekaart Sportkot KU Leuven">
+        <article class="location-map" aria-label="Google Maps kaart Sportkot KU Leuven">
+          <iframe
+            src="https://www.google.com/maps?q=Universitair%20Sportcentrum%20KU%20Leuven%2C%20Tervuursevest%20101%2C%203001%20Heverlee&output=embed"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </article>
 
         <div class="steps" aria-label="Stappen bij aankomst">
