@@ -4,61 +4,47 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Maneuverplan Heverlee - Teambuilding 2026</title>
+  <title>Locatie & parking - Teambuilding Heverlee 2026</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
   <style>
     :root{
-      --bg:#061424;
-      --bg2:#082033;
-      --panel:#09243a;
-      --panel2:#0b2e49;
-      --ink:#f6fbff;
-      --soft:#c8d7e8;
-      --muted:#8fa8bf;
-      --navy:#081b2e;
-      --teal:#24c6c1;
-      --teal2:#159c9c;
-      --yellow:#ffc423;
-      --orange:#ff8b2d;
-      --blue:#2366d1;
-      --green:#37b57b;
-      --red:#d7433f;
-      --white:#fff;
-      --line:rgba(255,255,255,.16);
-      --line2:rgba(36,198,193,.38);
-      --shadow:0 28px 90px rgba(0,0,0,.34);
-      --radius:24px;
-      --max:1440px;
+      --bg:#eef3f8;
+      --ink:#102044;
+      --navy:#1f3270;
+      --navy-dark:#172550;
+      --teal:#148c9b;
+      --teal-dark:#0f6d78;
+      --yellow:#f7bf21;
+      --coral:#ff7365;
+      --white:#ffffff;
+      --muted:#60708d;
+      --line:rgba(16,32,68,.13);
+      --shadow:0 24px 70px rgba(16,32,68,.14);
+      --soft-shadow:0 14px 34px rgba(16,32,68,.08);
+      --radius:28px;
+      --max:1180px;
     }
 
-    *{
-      box-sizing:border-box;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
 
     body{
       margin:0;
-      min-height:100vh;
       color:var(--ink);
       font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        radial-gradient(circle at 10% 6%, rgba(36,198,193,.16), transparent 26%),
-        radial-gradient(circle at 90% 8%, rgba(255,196,35,.12), transparent 26%),
-        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px),
-        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-        linear-gradient(135deg,#04101d,#09243a 48%,#061424);
-      background-size:auto,auto,42px 42px,42px 42px,auto;
+        radial-gradient(circle at 10% 4%, rgba(247,191,33,.20), transparent 26%),
+        radial-gradient(circle at 92% 8%, rgba(20,140,155,.16), transparent 28%),
+        linear-gradient(90deg, rgba(31,50,112,.055) 1px, transparent 1px),
+        linear-gradient(rgba(31,50,112,.055) 1px, transparent 1px),
+        var(--bg);
+      background-size:auto,auto,48px 48px,48px 48px,auto;
       overflow-x:hidden;
     }
 
-    a{
-      color:inherit;
-    }
+    a{color:inherit}
 
     .page{
       width:min(var(--max), calc(100% - 28px));
@@ -68,10 +54,10 @@
     nav{
       position:sticky;
       top:0;
-      z-index:80;
-      background:rgba(5,18,31,.82);
+      z-index:50;
+      background:rgba(238,243,248,.92);
       backdrop-filter:blur(18px);
-      border-bottom:1px solid rgba(255,255,255,.10);
+      border-bottom:1px solid rgba(16,32,68,.08);
     }
 
     .nav-inner{
@@ -83,40 +69,41 @@
     }
 
     .brand{
+      min-width:0;
       display:flex;
       align-items:center;
-      gap:12px;
-      min-width:0;
+      gap:11px;
+      color:var(--navy-dark);
       font-weight:1000;
       letter-spacing:-.04em;
       white-space:nowrap;
     }
 
     .brand-mark{
-      width:46px;
-      height:46px;
-      flex:0 0 46px;
+      width:44px;
+      height:44px;
+      flex:0 0 44px;
       display:grid;
       place-items:center;
-      border-radius:15px;
-      color:var(--teal);
-      background:rgba(36,198,193,.10);
-      border:1px solid rgba(36,198,193,.50);
-      box-shadow:0 10px 30px rgba(36,198,193,.12);
+      border-radius:16px;
+      background:var(--yellow);
+      color:var(--navy-dark);
+      box-shadow:7px 7px 0 rgba(20,140,155,.16);
+      transform:rotate(-2deg);
     }
 
     .nav-links{
       display:flex;
       justify-content:flex-end;
-      gap:7px;
       flex-wrap:wrap;
+      gap:7px;
     }
 
     .nav-links a{
       text-decoration:none;
       padding:9px 11px;
       border-radius:999px;
-      color:#cfe0ef;
+      color:#2d3d63;
       text-transform:uppercase;
       letter-spacing:.045em;
       font-size:.72rem;
@@ -126,793 +113,730 @@
 
     .nav-links a:hover,
     .nav-links a.active{
-      background:var(--teal);
-      color:#03101c;
+      background:var(--navy);
+      color:white;
       transform:translateY(-1px);
     }
 
     header{
-      padding:26px 0 18px;
+      padding:26px 0 22px;
     }
 
-    .topbar{
+    .hero{
+      min-height:520px;
       display:grid;
-      grid-template-columns:1fr auto;
+      grid-template-columns:minmax(0,1.16fr) minmax(330px,.84fr);
       gap:18px;
-      align-items:start;
-      margin-bottom:18px;
-    }
-
-    .title-wrap{
-      display:grid;
-      grid-template-columns:78px 1fr;
-      gap:18px;
-      align-items:center;
-      min-width:0;
-    }
-
-    .crest{
-      width:78px;
-      height:78px;
-      display:grid;
-      place-items:center;
-      border-radius:20px;
-      background:rgba(36,198,193,.08);
-      border:2px solid rgba(36,198,193,.55);
-      color:var(--teal);
-      box-shadow:0 18px 40px rgba(36,198,193,.10);
-    }
-
-    .crest i{
-      font-size:2.3rem;
-    }
-
-    h1{
-      margin:0;
-      font-size:clamp(2.75rem,5.2vw,5.7rem);
-      line-height:.87;
-      letter-spacing:-.075em;
-      text-transform:uppercase;
-    }
-
-    h1 span{
-      color:var(--teal);
-    }
-
-    .subtitle{
-      margin:12px 0 0;
-      color:#e3edf7;
-      font-weight:780;
-      font-size:clamp(1rem,1.4vw,1.2rem);
-      line-height:1.35;
-    }
-
-    .date-chip{
-      min-height:48px;
-      display:flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 16px;
-      border-radius:15px;
-      background:rgba(36,198,193,.09);
-      border:1px solid rgba(36,198,193,.45);
-      color:#eaf7ff;
-      font-weight:1000;
-      box-shadow:0 18px 38px rgba(0,0,0,.18);
-      white-space:nowrap;
-    }
-
-    .date-chip i{
-      color:var(--yellow);
-    }
-
-    .poster-grid{
-      display:grid;
-      grid-template-columns:minmax(0,1.9fr) minmax(340px,.9fr);
-      gap:16px;
       align-items:stretch;
     }
 
-    .map-panel,
-    .side-card,
-    .step-card{
-      background:linear-gradient(145deg,rgba(8,32,51,.96),rgba(5,20,34,.96));
-      border:1px solid rgba(36,198,193,.38);
+    .hero-main,
+    .hero-side{
+      position:relative;
+      overflow:hidden;
+      border-radius:34px;
       box-shadow:var(--shadow);
     }
 
-    .map-panel{
-      position:relative;
-      min-height:720px;
-      overflow:hidden;
-      border-radius:var(--radius);
-      padding:12px;
-    }
-
-    .map-board{
-      position:relative;
-      height:100%;
-      min-height:696px;
-      overflow:hidden;
-      border-radius:18px;
-      background:#e9edf0;
-      border:1px solid rgba(255,255,255,.22);
-    }
-
-    .map-bg{
-      position:absolute;
-      inset:0;
-      overflow:hidden;
+    .hero-main{
+      padding:clamp(30px,5vw,62px);
+      color:white;
       background:
-        linear-gradient(120deg, transparent 0 45%, rgba(128,211,173,.35) 45% 70%, transparent 70%),
-        linear-gradient(25deg, rgba(166,222,184,.95) 0 46%, #eef1f3 46% 100%);
+        radial-gradient(circle at 80% 14%, rgba(247,191,33,.22), transparent 20%),
+        radial-gradient(circle at 12% 88%, rgba(20,140,155,.24), transparent 26%),
+        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+        linear-gradient(135deg,var(--navy),var(--navy-dark));
+      background-size:auto,auto,44px 44px,44px 44px,auto;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
     }
 
-    .park{
-      position:absolute;
-      left:-12%;
-      top:16%;
-      width:72%;
-      height:82%;
-      background:rgba(140,217,169,.72);
-      transform:rotate(-16deg);
-      border-radius:34px;
-      border:1px solid rgba(72,156,103,.18);
-    }
-
-    .park::after{
+    .hero-main::after{
       content:"";
       position:absolute;
-      left:10%;
-      top:32%;
-      width:82%;
-      height:2px;
-      border-top:2px solid rgba(71,166,210,.30);
-      transform:rotate(28deg);
+      width:260px;
+      height:260px;
+      right:-96px;
+      top:-96px;
+      border-radius:50%;
+      border:2px solid rgba(255,255,255,.14);
     }
 
-    .river{
-      position:absolute;
-      left:36%;
-      top:7%;
-      width:42px;
-      height:112%;
-      background:rgba(67,171,218,.36);
-      border-left:2px solid rgba(67,171,218,.34);
-      border-right:2px solid rgba(67,171,218,.22);
-      transform:rotate(25deg);
+    .hero-main > *{
+      position:relative;
+      z-index:2;
+    }
+
+    .date-pill{
+      width:max-content;
+      max-width:100%;
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      padding:8px 12px;
       border-radius:999px;
-      filter:blur(.2px);
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.18);
+      color:#dfe8ff;
+      text-transform:uppercase;
+      font-size:.72rem;
+      letter-spacing:.17em;
+      font-weight:900;
     }
 
-    .road{
+    .date-pill::before{
+      content:"";
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--yellow);
+      box-shadow:0 0 0 6px rgba(247,191,33,.15);
+    }
+
+    h1{
+      margin:28px 0 0;
+      color:white;
+      font-size:clamp(3.25rem,7vw,6.15rem);
+      line-height:.88;
+      letter-spacing:-.075em;
+    }
+
+    .hero-text{
+      max-width:680px;
+      margin:22px 0 0;
+      color:#dbe5ff;
+      font-size:clamp(1rem,1.35vw,1.18rem);
+      line-height:1.55;
+      font-weight:750;
+    }
+
+    .address-card{
+      display:grid;
+      grid-template-columns:52px minmax(0,1fr);
+      gap:14px;
+      align-items:center;
+      max-width:690px;
+      margin-top:24px;
+      padding:16px;
+      border-radius:22px;
+      background:rgba(255,255,255,.11);
+      border:1px solid rgba(255,255,255,.16);
+      box-shadow:0 18px 42px rgba(0,0,0,.10);
+    }
+
+    .address-icon{
+      width:52px;
+      height:52px;
+      display:grid;
+      place-items:center;
+      border-radius:18px;
+      background:var(--yellow);
+      color:var(--navy-dark);
+      font-size:1.2rem;
+      box-shadow:7px 7px 0 rgba(20,140,155,.18);
+    }
+
+    .address-card strong{
+      display:block;
+      color:white;
+      font-size:1.02rem;
+      line-height:1.25;
+      font-weight:1000;
+      letter-spacing:-.02em;
+    }
+
+    .address-card span{
+      display:block;
+      margin-top:4px;
+      color:#dbe5ff;
+      font-weight:800;
+      line-height:1.35;
+    }
+
+    .hero-actions{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:10px;
+      max-width:690px;
+      margin-top:18px;
+    }
+
+    .btn{
+      min-height:54px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+      padding:0 16px;
+      border-radius:17px;
+      text-decoration:none;
+      text-align:center;
+      border:1px solid rgba(255,255,255,.18);
+      color:white;
+      background:rgba(255,255,255,.10);
+      font-size:.92rem;
+      font-weight:1000;
+      transition:.16s transform,.16s background,.16s color;
+    }
+
+    .btn.google{
+      color:var(--navy-dark);
+      background:var(--yellow);
+      border-color:var(--yellow);
+    }
+
+    .btn.apple{
+      background:#111827;
+      border-color:#111827;
+      color:white;
+    }
+
+    .btn.home{
+      grid-column:1 / -1;
+      background:rgba(255,255,255,.10);
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+      background:white;
+      color:var(--navy-dark);
+    }
+
+    .hero-side{
+      background:white;
+      display:grid;
+      grid-template-rows:auto 1fr;
+    }
+
+    .side-visual{
+      position:relative;
+      min-height:220px;
+      padding:28px;
+      color:white;
+      background:
+        radial-gradient(circle at 22% 18%, rgba(255,255,255,.34), transparent 14%),
+        radial-gradient(circle at 84% 22%, rgba(247,191,33,.24), transparent 23%),
+        linear-gradient(135deg,var(--teal),var(--teal-dark));
+    }
+
+    .side-visual::after{
+      content:"";
       position:absolute;
-      z-index:3;
-      height:58px;
-      background:#9fb0c2;
-      border-top:2px solid #73879c;
-      border-bottom:2px solid #73879c;
-      box-shadow:0 6px 16px rgba(0,0,0,.10);
+      width:200px;
+      height:200px;
+      right:-80px;
+      top:-80px;
+      border-radius:50%;
+      border:2px solid rgba(255,255,255,.22);
     }
 
-    .road::after{
+    .side-title{
+      position:relative;
+      z-index:2;
+      margin:0;
+      color:white;
+      font-size:clamp(2.1rem,4vw,3.25rem);
+      line-height:.98;
+      letter-spacing:-.08em;
+    }
+
+    .arrival-chip{
+      position:absolute;
+      left:28px;
+      bottom:26px;
+      z-index:2;
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      padding:10px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.22);
+      color:white;
+      font-weight:1000;
+    }
+
+    .side-list{
+      padding:22px;
+      display:grid;
+      gap:11px;
+    }
+
+    .side-item{
+      display:grid;
+      grid-template-columns:42px 1fr;
+      gap:12px;
+      align-items:start;
+      padding:14px;
+      border-radius:18px;
+      background:#f6f9fc;
+      border:1px solid var(--line);
+    }
+
+    .side-icon{
+      width:42px;
+      height:42px;
+      display:grid;
+      place-items:center;
+      border-radius:14px;
+      background:var(--yellow);
+      color:var(--navy-dark);
+    }
+
+    .side-item:nth-child(2) .side-icon{
+      background:var(--teal);
+      color:white;
+    }
+
+    .side-item:nth-child(3) .side-icon{
+      background:var(--coral);
+      color:white;
+    }
+
+    .side-item b{
+      display:block;
+      color:var(--navy);
+      margin-bottom:4px;
+      letter-spacing:-.02em;
+    }
+
+    .side-item span{
+      display:block;
+      color:var(--muted);
+      font-size:.92rem;
+      line-height:1.43;
+      font-weight:650;
+    }
+
+    main{
+      padding-bottom:18px;
+    }
+
+    section{
+      padding:42px 0;
+      scroll-margin-top:88px;
+    }
+
+    .section-head{
+      margin-bottom:18px;
+    }
+
+    .section-title{
+      display:flex;
+      align-items:flex-start;
+      gap:14px;
+    }
+
+    .section-title::before{
+      content:"";
+      width:8px;
+      height:58px;
+      flex:0 0 8px;
+      margin-top:6px;
+      border-radius:999px;
+      background:var(--yellow);
+    }
+
+    .section-title h2{
+      margin:0;
+      color:var(--navy);
+      font-size:clamp(2.25rem,4.7vw,4.7rem);
+      line-height:.9;
+      letter-spacing:-.08em;
+    }
+
+    .info-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:14px;
+    }
+
+    .info-card,
+    .panel{
+      position:relative;
+      overflow:hidden;
+      padding:24px;
+      border-radius:var(--radius);
+      background:white;
+      border:1px solid var(--line);
+      box-shadow:var(--soft-shadow);
+    }
+
+    .info-card{
+      min-height:205px;
+    }
+
+    .info-card::before,
+    .panel::before{
+      content:"";
+      position:absolute;
+      inset:0 0 auto;
+      height:7px;
+      background:linear-gradient(90deg,var(--yellow),var(--teal),var(--coral));
+    }
+
+    .info-icon{
+      width:56px;
+      height:56px;
+      display:grid;
+      place-items:center;
+      margin-bottom:18px;
+      border-radius:19px;
+      color:white;
+      background:var(--navy);
+      box-shadow:7px 7px 0 rgba(20,140,155,.14);
+    }
+
+    .info-card:nth-child(2) .info-icon{
+      background:var(--teal);
+      box-shadow:7px 7px 0 rgba(247,191,33,.18);
+    }
+
+    .info-card:nth-child(3) .info-icon{
+      background:var(--coral);
+      box-shadow:7px 7px 0 rgba(31,50,112,.12);
+    }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      margin-bottom:10px;
+      padding:6px 9px;
+      border-radius:999px;
+      color:var(--navy);
+      background:#eef3f8;
+      border:1px solid var(--line);
+      font-size:.70rem;
+      font-weight:1000;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    .info-card h3,
+    .panel h3{
+      margin:0 0 9px;
+      color:var(--navy);
+      font-size:1.48rem;
+      line-height:1.05;
+      letter-spacing:-.055em;
+    }
+
+    .info-card p,
+    .panel p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.52;
+      font-weight:650;
+    }
+
+    .fordt-box{
+      display:grid;
+      grid-template-columns:.78fr 1.22fr;
+      gap:14px;
+      align-items:stretch;
+    }
+
+    .fordt-main{
+      color:white;
+      background:
+        radial-gradient(circle at 82% 10%, rgba(247,191,33,.22), transparent 24%),
+        linear-gradient(135deg,var(--navy),var(--navy-dark));
+      border-color:rgba(255,255,255,.12);
+    }
+
+    .fordt-main h3,
+    .fordt-main p{
+      color:white;
+    }
+
+    .fordt-main p{
+      color:#dbe5ff;
+    }
+
+    .fordt-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-bottom:14px;
+      padding:8px 11px;
+      border-radius:999px;
+      background:var(--yellow);
+      color:var(--navy-dark);
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      font-size:.72rem;
+      font-weight:1000;
+    }
+
+    .fordt-flow{
+      display:grid;
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      gap:10px;
+    }
+
+    .fordt-item{
+      min-height:150px;
+      padding:16px;
+      border-radius:20px;
+      background:white;
+      border:1px solid var(--line);
+      box-shadow:0 10px 26px rgba(16,32,68,.055);
+    }
+
+    .fordt-letter{
+      width:42px;
+      height:42px;
+      display:grid;
+      place-items:center;
+      margin-bottom:12px;
+      border-radius:15px;
+      background:var(--yellow);
+      color:var(--navy-dark);
+      font-weight:1000;
+      box-shadow:5px 5px 0 rgba(20,140,155,.12);
+    }
+
+    .fordt-item:nth-child(2) .fordt-letter{background:var(--teal);color:white}
+    .fordt-item:nth-child(3) .fordt-letter{background:var(--coral);color:white}
+    .fordt-item:nth-child(4) .fordt-letter{background:var(--navy);color:white}
+    .fordt-item:nth-child(5) .fordt-letter{background:var(--yellow);color:var(--navy-dark)}
+
+    .fordt-item b{
+      display:block;
+      color:var(--navy);
+      margin-bottom:5px;
+      letter-spacing:-.02em;
+    }
+
+    .fordt-item span{
+      display:block;
+      color:var(--muted);
+      font-size:.9rem;
+      line-height:1.4;
+      font-weight:650;
+    }
+
+    .arrival-layout{
+      display:grid;
+      grid-template-columns:.95fr 1.05fr;
+      gap:14px;
+      align-items:stretch;
+    }
+
+    .simple-map{
+      position:relative;
+      overflow:hidden;
+      min-height:380px;
+      border-radius:var(--radius);
+      background:
+        linear-gradient(90deg, rgba(31,50,112,.08) 1px, transparent 1px),
+        linear-gradient(rgba(31,50,112,.08) 1px, transparent 1px),
+        linear-gradient(135deg,#f9fbff,#e9f2f8);
+      background-size:34px 34px,34px 34px,auto;
+      border:1px solid var(--line);
+      box-shadow:var(--soft-shadow);
+    }
+
+    .map-road{
+      position:absolute;
+      left:-8%;
+      right:-8%;
+      top:55%;
+      height:70px;
+      border-radius:999px;
+      background:#9aaabe;
+      transform:rotate(-9deg);
+      box-shadow:0 18px 36px rgba(16,32,68,.12);
+    }
+
+    .map-road::after{
       content:"";
       position:absolute;
       left:0;
       right:0;
       top:50%;
       height:2px;
-      background:rgba(255,255,255,.60);
-      transform:translateY(-50%);
+      background:rgba(255,255,255,.75);
     }
 
-    .road.r1{
-      left:-8%;
-      right:-6%;
-      top:18%;
-      transform:rotate(-23deg);
-      border-radius:999px;
-    }
-
-    .road.r2{
-      left:57%;
-      right:-16%;
-      top:16%;
-      transform:rotate(28deg);
-      border-radius:999px;
-    }
-
-    .road.r3{
-      left:70%;
-      top:40%;
-      width:70px;
-      height:78%;
-      transform:rotate(4deg);
-      border-radius:999px;
-    }
-
-    .road.r4{
-      left:28%;
-      top:75%;
+    .map-green{
+      position:absolute;
+      left:-12%;
+      top:20%;
       width:72%;
-      height:44px;
-      transform:rotate(-30deg);
-      opacity:.74;
-      border-radius:999px;
+      height:78%;
+      background:rgba(20,140,155,.16);
+      border-radius:34px;
+      transform:rotate(-12deg);
     }
 
-    .small-road{
+    .map-zone{
+      position:absolute;
+      z-index:3;
+      min-width:145px;
+      padding:13px;
+      border-radius:18px;
+      color:white;
+      box-shadow:0 14px 30px rgba(16,32,68,.18);
+    }
+
+    .map-zone small{
+      display:inline-flex;
+      padding:4px 7px;
+      border-radius:999px;
+      background:rgba(255,255,255,.16);
+      font-weight:1000;
+      text-transform:uppercase;
+      font-size:.66rem;
+      letter-spacing:.06em;
+    }
+
+    .map-zone strong{
+      display:block;
+      margin-top:8px;
+      font-size:1.08rem;
+      letter-spacing:-.035em;
+    }
+
+    .zone-peb{
+      right:8%;
+      top:18%;
+      background:linear-gradient(135deg,var(--navy),#2948a5);
+    }
+
+    .zone-vwvzz{
+      left:22%;
+      top:42%;
+      background:linear-gradient(135deg,var(--teal),var(--teal-dark));
+    }
+
+    .zone-vl{
+      right:13%;
+      bottom:13%;
+      background:linear-gradient(135deg,#ee7a00,var(--coral));
+    }
+
+    .map-arrow{
       position:absolute;
       z-index:2;
-      height:3px;
-      background:#c4ced8;
-      border-radius:999px;
-      opacity:.9;
-    }
-
-    .small-road.s1{left:3%;top:36%;width:44%;transform:rotate(-19deg)}
-    .small-road.s2{left:45%;top:34%;width:45%;transform:rotate(34deg)}
-    .small-road.s3{left:49%;top:63%;width:42%;transform:rotate(-41deg)}
-    .small-road.s4{left:14%;top:78%;width:55%;transform:rotate(-26deg)}
-    .small-road.s5{left:76%;top:52%;width:22%;transform:rotate(-42deg)}
-    .small-road.s6{left:77%;top:70%;width:28%;transform:rotate(0deg)}
-
-    .grid-line{
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(90deg, rgba(17,38,68,.075) 1px, transparent 1px),
-        linear-gradient(rgba(17,38,68,.075) 1px, transparent 1px);
-      background-size:70px 70px;
-      z-index:1;
-      pointer-events:none;
-    }
-
-    .map-name{
-      position:absolute;
-      z-index:4;
-      color:#26344a;
-      font-weight:900;
-      letter-spacing:.08em;
-      font-size:.88rem;
-      text-transform:uppercase;
-      opacity:.82;
-    }
-
-    .name-groen{left:8%;top:23%}
-    .name-heverlee{right:18%;bottom:17%;font-size:1.2rem}
-    .name-terduin{right:13%;bottom:7%;font-size:.9rem}
-    .name-ku{left:43%;top:27%;letter-spacing:0;text-transform:none;font-size:.88rem;color:#177d63}
-    .name-sport{left:35%;top:43%;letter-spacing:0;text-transform:none;font-size:.95rem;color:#d93030}
-    .name-stadium{left:47%;top:38%;letter-spacing:0;text-transform:none;font-size:.8rem;color:#2b5f61}
-    .name-kajak{left:20%;bottom:34%;letter-spacing:0;text-transform:none;font-size:.88rem;color:#3b5874}
-    .name-castle{left:4%;bottom:22%;letter-spacing:0;text-transform:none;font-size:.88rem;color:#9850d8}
-
-    .road-label{
-      position:absolute;
-      z-index:5;
-      padding:2px 6px;
-      border-radius:4px;
-      background:#2f71c8;
-      color:white;
-      font-size:.72rem;
-      font-weight:1000;
-      border:1px solid rgba(255,255,255,.78);
-      box-shadow:0 3px 8px rgba(0,0,0,.18);
-    }
-
-    .n264{left:5%;top:39%}
-    .n251{right:15%;bottom:11%}
-    .r23{left:52%;top:7%}
-
-    .street{
-      position:absolute;
-      z-index:4;
-      color:#35445a;
-      font-size:.72rem;
-      font-weight:800;
-      opacity:.78;
-      white-space:nowrap;
-    }
-
-    .st1{left:20%;top:31%;transform:rotate(-22deg)}
-    .st2{left:57%;top:6%;transform:rotate(35deg)}
-    .st3{right:4%;top:21%;transform:rotate(96deg)}
-    .st4{right:16%;top:57%;transform:rotate(-42deg)}
-    .st5{left:36%;bottom:8%;transform:rotate(-30deg)}
-    .st6{right:23%;bottom:27%;transform:rotate(-43deg)}
-    .st7{right:6%;bottom:30%;transform:rotate(84deg)}
-
-    .poi{
-      position:absolute;
-      z-index:6;
-      width:24px;
-      height:24px;
-      display:grid;
-      place-items:center;
-      border-radius:50%;
-      background:#fff;
-      border:3px solid #208c75;
-      color:#208c75;
-      font-size:.72rem;
-      box-shadow:0 5px 10px rgba(0,0,0,.13);
-    }
-
-    .poi.red{border-color:#da3c32;color:#da3c32}
-    .poi.blue{border-color:#2b76d2;color:#2b76d2}
-    .poi.p1{left:48%;top:43%}
-    .poi.p2{left:52%;top:34%}
-    .poi.p3{left:63%;top:25%}
-    .poi.p4{left:78%;top:34%}
-    .poi.p5{left:29%;bottom:27%}
-    .poi.p6{left:18%;bottom:16%;border-color:#9850d8;color:#9850d8}
-
-    .hatch{
-      position:absolute;
-      z-index:7;
-      width:86px;
-      height:44px;
-      border-radius:10px;
-      border:2px solid var(--blue);
-      background:
-        repeating-linear-gradient(135deg, rgba(35,102,209,.25) 0 6px, rgba(255,255,255,.25) 6px 12px);
-      transform:rotate(28deg);
-      box-shadow:0 8px 18px rgba(35,102,209,.18);
-    }
-
-    .hatch.parking{
-      left:64%;
-      top:23%;
-    }
-
-    .hatch.activity{
-      width:78px;
-      height:52px;
-      left:59%;
-      top:59%;
-      border-color:var(--orange);
-      background:
-        repeating-linear-gradient(135deg, rgba(255,139,45,.30) 0 6px, rgba(255,255,255,.32) 6px 12px);
-      transform:rotate(-33deg);
-      box-shadow:0 8px 18px rgba(255,139,45,.18);
-    }
-
-    .pin-dot{
-      position:absolute;
-      z-index:14;
-      width:24px;
-      height:24px;
-      border-radius:50%;
-      background:white;
-      border:5px solid var(--teal);
-      box-shadow:0 0 0 5px rgba(255,255,255,.75), 0 12px 22px rgba(0,0,0,.18);
-    }
-
-    .pin-parking{left:70%;top:25%;border-color:var(--blue)}
-    .pin-vwvzz{left:54%;top:46%;border-color:var(--teal)}
-    .pin-vl{left:61%;top:63%;border-color:var(--orange)}
-
-    .route-blue,
-    .route-orange{
-      position:absolute;
-      z-index:12;
-      pointer-events:none;
-    }
-
-    .route-blue{
-      left:56%;
-      top:29%;
+      left:48%;
+      top:37%;
       width:150px;
-      height:135px;
-      border-right:6px solid var(--blue);
-      border-bottom:6px solid var(--blue);
-      border-radius:0 0 55px 0;
-      transform:rotate(16deg);
+      height:100px;
+      border-right:5px dashed var(--yellow);
+      border-bottom:5px dashed var(--yellow);
+      border-radius:0 0 35px 0;
+      transform:rotate(-8deg);
     }
 
-    .route-blue::after{
-      content:"";
-      position:absolute;
-      right:-10px;
-      bottom:-10px;
-      width:18px;
-      height:18px;
-      border-right:6px solid var(--blue);
-      border-bottom:6px solid var(--blue);
-      transform:rotate(45deg);
-    }
-
-    .route-orange{
-      left:58%;
-      top:49%;
-      width:70px;
-      height:118px;
-      border-right:5px dashed var(--orange);
-      border-bottom:5px dashed var(--orange);
-      border-radius:0 0 28px 0;
-      transform:rotate(4deg);
-    }
-
-    .route-orange::after{
+    .map-arrow::after{
       content:"";
       position:absolute;
       right:-9px;
       bottom:-9px;
-      width:17px;
-      height:17px;
-      border-right:5px solid var(--orange);
-      border-bottom:5px solid var(--orange);
+      width:16px;
+      height:16px;
+      border-right:5px solid var(--yellow);
+      border-bottom:5px solid var(--yellow);
       transform:rotate(45deg);
     }
 
-    .callout{
-      position:absolute;
-      z-index:16;
-      width:210px;
-      padding:12px;
-      border-radius:13px;
-      background:rgba(255,255,255,.94);
-      color:#0d2440;
-      border:2px solid currentColor;
-      box-shadow:0 18px 38px rgba(0,0,0,.14);
-    }
-
-    .callout::after{
-      content:"";
-      position:absolute;
-      width:22px;
-      height:2px;
-      background:currentColor;
-    }
-
-    .callout .top{
+    .steps{
       display:grid;
-      grid-template-columns:42px 1fr;
-      align-items:center;
       gap:10px;
-      margin-bottom:6px;
-      font-weight:1000;
-      color:inherit;
     }
 
-    .callout .icon{
-      width:42px;
-      height:42px;
+    .step{
       display:grid;
-      place-items:center;
-      border-radius:10px;
-      color:white;
-      background:currentColor;
-      font-size:1.35rem;
+      grid-template-columns:54px 1fr;
+      gap:13px;
+      padding:15px;
+      border-radius:20px;
+      background:white;
+      border:1px solid var(--line);
+      box-shadow:0 10px 26px rgba(16,32,68,.055);
     }
 
-    .callout b{
-      display:block;
-      font-size:1.08rem;
-      line-height:1.05;
-      letter-spacing:-.04em;
-    }
-
-    .callout span{
-      display:block;
-      color:#1d3b5a;
-      font-size:.88rem;
-      line-height:1.28;
-      font-weight:800;
-    }
-
-    .callout.peb{
-      right:8%;
-      top:8%;
-      color:var(--blue);
-    }
-
-    .callout.peb::after{
-      left:36%;
-      bottom:-22px;
-      transform:rotate(48deg);
-    }
-
-    .callout.vwvzz{
-      left:27%;
-      top:41%;
-      color:var(--teal2);
-    }
-
-    .callout.vwvzz::after{
-      right:-24px;
-      top:46%;
-      transform:rotate(-9deg);
-    }
-
-    .callout.vl{
-      right:24%;
-      top:60%;
-      width:185px;
-      color:var(--orange);
-    }
-
-    .callout.vl::after{
-      left:-22px;
-      top:30%;
-      transform:rotate(-35deg);
-    }
-
-    .map-footer-pills{
-      position:absolute;
-      z-index:25;
-      left:20px;
-      bottom:18px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
-    .map-pill{
-      display:inline-flex;
-      align-items:center;
-      gap:9px;
-      padding:10px 14px;
-      border-radius:13px;
-      color:#eaf7ff;
-      background:rgba(3,16,28,.92);
-      border:1px solid rgba(36,198,193,.45);
-      box-shadow:0 10px 20px rgba(0,0,0,.18);
-      font-weight:900;
-      font-size:.9rem;
-    }
-
-    .map-pill i{
-      color:var(--teal);
-    }
-
-    .compass{
-      position:absolute;
-      z-index:22;
-      right:20px;
-      bottom:20px;
-      width:76px;
-      height:76px;
-      display:grid;
-      place-items:center;
-      border-radius:50%;
-      background:rgba(255,255,255,.92);
-      border:3px solid #0b2542;
-      box-shadow:0 12px 24px rgba(0,0,0,.15);
-      color:#0b2542;
-      font-weight:1000;
-    }
-
-    .compass::before{
-      content:"N";
-      position:absolute;
-      top:8px;
-      font-size:.9rem;
-    }
-
-    .compass i{
-      font-size:2rem;
-      transform:translateY(8px);
-    }
-
-    .side-column{
-      display:grid;
-      gap:16px;
-    }
-
-    .side-card{
-      position:relative;
-      overflow:hidden;
-      min-height:190px;
-      border-radius:18px;
-      padding:20px 20px 20px 92px;
-    }
-
-    .side-card.mani-top{
-      border-color:rgba(255,196,35,.78);
-    }
-
-    .side-card.yellow{
-      border-color:rgba(255,196,35,.78);
-    }
-
-    .side-number{
-      position:absolute;
-      left:14px;
-      top:50%;
-      transform:translateY(-50%);
-      display:grid;
-      place-items:center;
-      width:52px;
-      height:86%;
-      border-radius:14px;
-      border:1px solid rgba(36,198,193,.38);
-      color:var(--teal);
-      font-weight:1000;
-      font-size:1rem;
-    }
-
-    .side-card.yellow .side-number,
-    .side-card.mani-top .side-number{
-      border-color:rgba(255,196,35,.55);
-      color:var(--yellow);
-    }
-
-    .side-icon{
+    .step-badge{
       width:54px;
       height:54px;
       display:grid;
       place-items:center;
-      margin-bottom:10px;
-      border-radius:13px;
-      color:var(--teal);
-      border:2px solid rgba(36,198,193,.55);
-      background:rgba(36,198,193,.09);
-      font-size:1.45rem;
-    }
-
-    .side-card.yellow .side-icon,
-    .side-card.mani-top .side-icon{
-      color:var(--yellow);
-      border-color:rgba(255,196,35,.72);
-      background:rgba(255,196,35,.08);
-    }
-
-    .side-card h2,
-    .side-card h3{
-      margin:0;
-      text-transform:uppercase;
-      font-size:1.55rem;
-      line-height:1;
-      color:var(--teal);
-      letter-spacing:-.04em;
-    }
-
-    .side-card.yellow h3,
-    .side-card.mani-top h3{
-      color:var(--yellow);
-    }
-
-    .side-rule{
-      margin:12px 0;
-      border-top:1px dashed rgba(36,198,193,.45);
-    }
-
-    .side-card.yellow .side-rule,
-    .side-card.mani-top .side-rule{
-      border-color:rgba(255,196,35,.55);
-    }
-
-    .side-lines{
-      display:grid;
-      gap:11px;
-    }
-
-    .side-line{
-      display:grid;
-      grid-template-columns:28px 1fr;
-      gap:10px;
-      align-items:start;
-      color:#e6f1fb;
-      line-height:1.35;
-      font-weight:780;
-    }
-
-    .side-line i{
-      color:#d9e6f1;
-      margin-top:2px;
-      text-align:center;
-    }
-
-    .side-line b{
-      color:white;
-    }
-
-    .side-line em{
-      color:#dbe8f3;
-      font-style:italic;
-      font-weight:760;
-    }
-
-    .steps-row{
-      display:grid;
-      grid-template-columns:repeat(5,minmax(0,1fr));
-      gap:14px;
-      margin-top:16px;
-    }
-
-    .step-card{
-      min-height:122px;
-      border-radius:17px;
-      padding:16px;
-      display:grid;
-      grid-template-columns:58px 1fr;
-      gap:12px;
-      align-items:start;
-    }
-
-    .step-icon{
-      width:58px;
-      height:58px;
-      display:grid;
-      place-items:center;
-      border-radius:13px;
-      border:2px solid rgba(36,198,193,.45);
-      color:var(--teal);
-      background:rgba(36,198,193,.08);
-      font-size:1.35rem;
-      position:relative;
-    }
-
-    .step-icon::before{
-      content:attr(data-nr);
-      position:absolute;
-      left:6px;
-      top:4px;
-      font-size:.75rem;
-      color:#eaf7ff;
+      border-radius:18px;
+      background:var(--yellow);
+      color:var(--navy-dark);
       font-weight:1000;
+      box-shadow:6px 6px 0 rgba(20,140,155,.12);
     }
 
-    .step-card:nth-child(2) .step-icon{
-      color:#78aaff;
-      border-color:rgba(35,102,209,.65);
-      background:rgba(35,102,209,.11);
+    .step:nth-child(2) .step-badge{background:var(--navy);color:white}
+    .step:nth-child(3) .step-badge{background:var(--teal);color:white}
+    .step:nth-child(4) .step-badge{background:var(--coral);color:white}
+
+    .step h3{
+      margin:0 0 4px;
+      color:var(--navy);
+      font-size:1.1rem;
+      letter-spacing:-.035em;
     }
 
-    .step-card:nth-child(4) .step-icon{
-      color:var(--yellow);
-      border-color:rgba(255,196,35,.68);
-      background:rgba(255,196,35,.08);
-    }
-
-    .step-card:nth-child(5) .step-icon{
-      color:var(--orange);
-      border-color:rgba(255,139,45,.68);
-      background:rgba(255,139,45,.08);
-    }
-
-    .step-card h3{
-      margin:0 0 6px;
-      color:var(--teal);
-      font-size:1.08rem;
-      line-height:1.1;
-      letter-spacing:-.04em;
-    }
-
-    .step-card:nth-child(2) h3{
-      color:#9cc0ff;
-    }
-
-    .step-card:nth-child(4) h3{
-      color:var(--yellow);
-    }
-
-    .step-card:nth-child(5) h3{
-      color:var(--orange);
-    }
-
-    .step-card p{
+    .step p{
       margin:0;
-      color:#dce8f3;
-      line-height:1.36;
-      font-weight:700;
-      font-size:.9rem;
+      color:var(--muted);
+      line-height:1.43;
+      font-weight:650;
+    }
+
+    .bottom-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+
+    .checklist{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      gap:9px;
+    }
+
+    .checklist li{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      padding:12px;
+      border-radius:15px;
+      background:#f6f9fc;
+      border:1px solid var(--line);
+      color:#52627e;
+      line-height:1.38;
+      font-weight:650;
+    }
+
+    .checklist i{
+      width:20px;
+      margin-top:1px;
+      color:var(--teal);
     }
 
     footer{
-      padding:28px 0 36px;
-      color:#cfe0ef;
-      font-weight:750;
+      margin-top:46px;
+      padding:34px 0;
+      background:var(--navy-dark);
+      color:#dfe8ff;
     }
 
     .footer-inner{
       display:flex;
+      align-items:center;
       justify-content:space-between;
       gap:16px;
-      align-items:center;
-      padding-top:14px;
-      border-top:1px solid rgba(255,255,255,.10);
+      line-height:1.45;
+      font-weight:700;
     }
 
     .footer-inner a{
@@ -925,130 +849,56 @@
       text-decoration:underline;
     }
 
-    @media (max-width:1180px){
-      .poster-grid{
+    @media (max-width:1080px){
+      .fordt-box,
+      .arrival-layout,
+      .bottom-grid{
         grid-template-columns:1fr;
       }
 
-      .side-column{
-        grid-template-columns:repeat(3,minmax(0,1fr));
-      }
-
-      .side-card{
-        padding:18px;
-      }
-
-      .side-number{
-        position:static;
-        transform:none;
-        width:max-content;
-        height:auto;
-        padding:6px 8px;
-        margin-bottom:10px;
-      }
-
-      .steps-row{
+      .fordt-flow{
         grid-template-columns:repeat(2,minmax(0,1fr));
       }
     }
 
-    @media (max-width:860px){
-      .topbar{
+    @media (max-width:980px){
+      .hero{
         grid-template-columns:1fr;
-      }
-
-      .title-wrap{
-        grid-template-columns:58px 1fr;
-      }
-
-      .crest{
-        width:58px;
-        height:58px;
-        border-radius:16px;
-      }
-
-      .crest i{
-        font-size:1.7rem;
-      }
-
-      .date-chip{
-        width:max-content;
-        max-width:100%;
-        white-space:normal;
-      }
-
-      .map-panel{
         min-height:auto;
       }
 
-      .map-board{
-        min-height:720px;
-      }
-
-      .side-column{
+      .info-grid{
         grid-template-columns:1fr;
-      }
-
-      .callout{
-        width:178px;
-        padding:10px;
-      }
-
-      .callout .top{
-        grid-template-columns:34px 1fr;
-      }
-
-      .callout .icon{
-        width:34px;
-        height:34px;
-        border-radius:9px;
-        font-size:1rem;
-      }
-
-      .callout b{
-        font-size:.96rem;
-      }
-
-      .callout span{
-        font-size:.78rem;
-      }
-
-      .callout.peb{
-        right:3%;
-        top:10%;
-      }
-
-      .callout.vwvzz{
-        left:9%;
-        top:43%;
-      }
-
-      .callout.vl{
-        right:7%;
-        top:64%;
-      }
-
-      .route-blue{
-        left:50%;
-        width:110px;
-      }
-
-      .route-orange{
-        left:54%;
       }
     }
 
-    @media (max-width:680px){
+    @media (max-width:760px){
+      body{
+        background-size:auto,auto,36px 36px,36px 36px,auto;
+      }
+
       .page{
-        width:min(100% - 18px, var(--max));
+        width:min(100% - 20px, var(--max));
       }
 
       .nav-inner{
         min-height:auto;
         flex-direction:column;
         align-items:flex-start;
-        padding:10px 0;
         gap:9px;
+        padding:10px 0;
+      }
+
+      .brand{
+        font-size:.98rem;
+      }
+
+      .brand-mark{
+        width:40px;
+        height:40px;
+        flex-basis:40px;
+        border-radius:14px;
+        box-shadow:5px 5px 0 rgba(20,140,155,.16);
       }
 
       .nav-links{
@@ -1059,6 +909,7 @@
         overflow-x:auto;
         padding-bottom:3px;
         scrollbar-width:none;
+        -webkit-overflow-scrolling:touch;
       }
 
       .nav-links::-webkit-scrollbar{
@@ -1068,84 +919,195 @@
       .nav-links a{
         flex:0 0 auto;
         padding:8px 10px;
-        font-size:.64rem;
-        background:rgba(255,255,255,.05);
-        border:1px solid rgba(255,255,255,.08);
+        font-size:.66rem;
+        background:rgba(255,255,255,.62);
+        border:1px solid rgba(16,32,68,.08);
+      }
+
+      header{
+        padding:16px 0 20px;
+      }
+
+      .hero{
+        gap:12px;
+      }
+
+      .hero-main,
+      .hero-side{
+        border-radius:24px;
+      }
+
+      .hero-main{
+        padding:26px 20px 24px;
+      }
+
+      .date-pill{
+        padding:7px 10px;
+        font-size:.61rem;
+        letter-spacing:.13em;
       }
 
       h1{
-        font-size:clamp(2.4rem,12vw,3.6rem);
+        margin-top:22px;
+        font-size:clamp(2.7rem,14vw,4rem);
+        line-height:.9;
+        letter-spacing:-.055em;
       }
 
-      .subtitle{
-        font-size:.98rem;
+      .hero-text{
+        margin-top:18px;
+        font-size:.96rem;
+        line-height:1.48;
       }
 
-      .map-board{
-        min-height:780px;
+      .address-card{
+        grid-template-columns:44px 1fr;
+        gap:12px;
+        margin-top:20px;
+        padding:13px;
+        border-radius:18px;
       }
 
-      .map-name,
-      .street,
-      .road-label,
-      .poi{
-        transform:scale(.88);
+      .address-icon{
+        width:44px;
+        height:44px;
+        border-radius:15px;
       }
 
-      .callout{
-        width:80%;
+      .hero-actions{
+        grid-template-columns:1fr;
+        gap:8px;
         max-width:none;
       }
 
-      .callout.peb{
-        left:10%;
-        right:auto;
-        top:12%;
+      .btn{
+        width:100%;
+        min-height:50px;
+        border-radius:15px;
       }
 
-      .callout.vwvzz{
-        left:10%;
-        top:43%;
+      .side-visual{
+        min-height:170px;
+        padding:22px 20px;
       }
 
-      .callout.vl{
-        left:10%;
-        right:auto;
-        top:65%;
+      .side-title{
+        font-size:clamp(2rem,11vw,3rem);
+        line-height:1;
       }
 
-      .callout::after,
-      .route-blue,
-      .route-orange,
-      .hatch,
-      .pin-dot{
-        display:none;
+      .arrival-chip{
+        left:20px;
+        bottom:18px;
+        padding:9px 11px;
+        font-size:.88rem;
       }
 
-      .map-footer-pills{
-        left:10px;
-        right:10px;
+      .side-list{
+        padding:18px;
       }
 
-      .map-pill{
-        font-size:.75rem;
-        padding:8px 10px;
+      .side-item{
+        grid-template-columns:38px 1fr;
+        padding:12px;
+        border-radius:16px;
       }
 
-      .compass{
-        right:12px;
-        bottom:92px;
-        width:58px;
-        height:58px;
+      .side-icon{
+        width:38px;
+        height:38px;
+        border-radius:13px;
       }
 
-      .steps-row{
+      section{
+        padding:34px 0;
+        scroll-margin-top:116px;
+      }
+
+      .section-title h2{
+        font-size:clamp(2.1rem,11vw,3.45rem);
+        line-height:.94;
+      }
+
+      .info-card,
+      .panel{
+        min-height:auto;
+        padding:20px;
+        border-radius:22px;
+      }
+
+      .fordt-flow{
         grid-template-columns:1fr;
       }
 
+      .simple-map{
+        min-height:430px;
+        border-radius:22px;
+      }
+
+      .map-zone{
+        min-width:0;
+        width:76%;
+        left:12%;
+        right:auto;
+      }
+
+      .zone-peb{
+        top:11%;
+      }
+
+      .zone-vwvzz{
+        top:40%;
+      }
+
+      .zone-vl{
+        top:69%;
+        bottom:auto;
+      }
+
+      .map-arrow{
+        display:none;
+      }
+
+      .step{
+        grid-template-columns:44px 1fr;
+        padding:12px;
+        border-radius:17px;
+      }
+
+      .step-badge{
+        width:44px;
+        height:44px;
+        border-radius:14px;
+      }
+
       .footer-inner{
-        flex-direction:column;
         align-items:flex-start;
+        flex-direction:column;
+        font-size:.92rem;
+      }
+    }
+
+    @media (max-width:380px){
+      .page{
+        width:min(100% - 16px, var(--max));
+      }
+
+      h1{
+        font-size:clamp(2.45rem,13vw,3.35rem);
+      }
+
+      .nav-links a{
+        font-size:.63rem;
+      }
+
+      .address-card{
+        grid-template-columns:1fr;
+      }
+
+      .address-icon{
+        width:42px;
+        height:42px;
       }
     }
   </style>
@@ -1156,353 +1118,287 @@
     <div class="page nav-inner">
       <div class="brand">
         <div class="brand-mark">
-          <i class="fa-solid fa-chevron-up"></i>
+          <i class="fa-solid fa-location-dot"></i>
         </div>
-        <span>Maneuverplan Heverlee</span>
+        <span>Locatie & parking</span>
       </div>
 
       <div class="nav-links" aria-label="Navigatie">
-        <a class="active" href="#top">ManPlan</a>
-        <a href="#mica">MICA</a>
-        <a href="#uitvoering">Uitvoering</a>
-        <a href="#route">Route</a>
         <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a class="active" href="#top">Locatie</a>
+        <a href="#praktisch">Praktisch</a>
+        <a href="#fordt">FORDT</a>
+        <a href="#parking">Parking</a>
+        <a href="#aankomst">Aankomst</a>
       </div>
     </div>
   </nav>
 
   <header id="top" class="page">
-    <div class="topbar">
-      <div class="title-wrap">
-        <div class="crest">
-          <i class="fa-solid fa-shield-halved"></i>
+    <div class="hero">
+      <section class="hero-main" aria-labelledby="pagina-titel">
+        <div class="date-pill">Vrijdag 17 juli 2026</div>
+
+        <h1 id="pagina-titel">Locatie<br>& parking</h1>
+
+        <p class="hero-text">
+          We verzamelen aan het Sportkot KU Leuven. Kom op tijd, parkeer rustig en sluit aan bij de groep.
+        </p>
+
+        <div class="address-card" aria-label="Adres Sportkot KU Leuven">
+          <div class="address-icon">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+
+          <div>
+            <strong>Universitair Sportcentrum KU Leuven</strong>
+            <span>Tervuursevest 101 · 3001 Heverlee</span>
+          </div>
         </div>
 
-        <div>
-          <h1>Maneuverplan <span>Heverlee</span></h1>
-          <p class="subtitle">Locatieplan voor de aankomst aan het Sportkot KU Leuven.</p>
-        </div>
-      </div>
+        <div class="hero-actions" aria-label="Route starten">
+          <a class="btn google" href="https://www.google.com/maps/dir/?api=1&destination=Tervuursevest+101,+3001+Heverlee" target="_blank" rel="noopener noreferrer">
+            <i class="fa-solid fa-route"></i> Route via Google Maps
+          </a>
 
-      <div class="date-chip">
-        <i class="fa-solid fa-calendar-days"></i>
-        Vrijdag 17 juli 2026 · Hr Avg Ops 08:00
-      </div>
-    </div>
+          <a class="btn apple" href="https://maps.apple.com/?daddr=Tervuursevest%20101%2C%203001%20Heverlee" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-apple"></i> Route via Apple Kaarten
+          </a>
 
-    <div class="poster-grid">
-      <section id="mica" class="map-panel" aria-label="MICA Heverlee">
-        <div class="map-board">
-          <div class="map-bg"></div>
-          <div class="park"></div>
-          <div class="river"></div>
-
-          <div class="road r1"></div>
-          <div class="road r2"></div>
-          <div class="road r3"></div>
-          <div class="road r4"></div>
-
-          <div class="small-road s1"></div>
-          <div class="small-road s2"></div>
-          <div class="small-road s3"></div>
-          <div class="small-road s4"></div>
-          <div class="small-road s5"></div>
-          <div class="small-road s6"></div>
-
-          <div class="grid-line"></div>
-
-          <div class="map-name name-groen">Groeneveld</div>
-          <div class="map-name name-heverlee">Heverlee</div>
-          <div class="map-name name-terduin">Ter Duin</div>
-          <div class="map-name name-ku">KU Leuven<br>Sportcampus Arenberg</div>
-          <div class="map-name name-sport">Sports Centre<br>KU Leuven</div>
-          <div class="map-name name-stadium">Het King Power At<br>Den Dreef Stadion</div>
-          <div class="map-name name-kajak">Kajakloods</div>
-          <div class="map-name name-castle">Arenbergkasteel</div>
-
-          <div class="road-label n264">N264</div>
-          <div class="road-label n251">N251</div>
-          <div class="road-label r23">R23</div>
-
-          <div class="street st1">Koning Boudewijnlaan</div>
-          <div class="street st2">Tervuursevest</div>
-          <div class="street st3">Naamsestraat</div>
-          <div class="street st4">Kardinaal Mercierlaan</div>
-          <div class="street st5">Kardinaal Mercierlaan</div>
-          <div class="street st6">Waversebaan</div>
-          <div class="street st7">Groenstraat</div>
-
-          <div class="poi red p1"><i class="fa-solid fa-location-dot"></i></div>
-          <div class="poi p2"><i class="fa-solid fa-futbol"></i></div>
-          <div class="poi p3"><i class="fa-solid fa-person-running"></i></div>
-          <div class="poi blue p4"><i class="fa-solid fa-cart-shopping"></i></div>
-          <div class="poi p5"><i class="fa-solid fa-water"></i></div>
-          <div class="poi p6"><i class="fa-solid fa-chess-rook"></i></div>
-
-          <div class="hatch parking"></div>
-          <div class="hatch activity"></div>
-
-          <div class="pin-dot pin-parking"></div>
-          <div class="pin-dot pin-vwvzz"></div>
-          <div class="pin-dot pin-vl"></div>
-
-          <div class="route-blue"></div>
-          <div class="route-orange"></div>
-
-          <div class="callout peb">
-            <div class="top">
-              <div class="icon"><i class="fa-solid fa-square-parking"></i></div>
-              <div>
-                <b>PEB</b>
-                <b>Parking</b>
-              </div>
-            </div>
-            <span>Eerste bestemming op of rond de site.</span>
-          </div>
-
-          <div class="callout vwvzz">
-            <div class="top">
-              <div class="icon"><i class="fa-solid fa-users"></i></div>
-              <div>
-                <b>VwVzZ</b>
-                <b>Sportkot KU Leuven</b>
-              </div>
-            </div>
-            <span>Verzamelzone om 08:00.</span>
-          </div>
-
-          <div class="callout vl">
-            <div class="top">
-              <div class="icon"><i class="fa-solid fa-flag-checkered"></i></div>
-              <div>
-                <b>VL</b>
-                <b>Eerste activiteit</b>
-              </div>
-            </div>
-            <span>Start om 08:30.</span>
-          </div>
-
-          <div class="map-footer-pills">
-            <div class="map-pill">
-              <i class="fa-solid fa-arrow-right"></i>
-              As: parking → Sportkot → activiteit
-            </div>
-
-            <div class="map-pill">
-              <i class="fa-solid fa-grip-lines"></i>
-              Dispositief: ACP’s in lijn
-            </div>
-          </div>
-
-          <div class="compass">
-            <i class="fa-solid fa-location-arrow"></i>
-          </div>
+          <a class="btn home" href="index.html">
+            <i class="fa-solid fa-arrow-left"></i> Terug naar hoofdpagina
+          </a>
         </div>
       </section>
 
-      <aside class="side-column" aria-label="ManPlan informatie">
-        <article class="side-card mani-top">
-          <div class="side-icon">
-            <i class="fa-solid fa-users"></i>
+      <aside class="hero-side" aria-label="Korte praktische info">
+        <div class="side-visual">
+          <h2 class="side-title">Rustig<br>aankomen.</h2>
+          <div class="arrival-chip">
+            <i class="fa-solid fa-clock"></i> 08:00 verzamelen
+          </div>
+        </div>
+
+        <div class="side-list">
+          <div class="side-item">
+            <div class="side-icon">
+              <i class="fa-solid fa-square-parking"></i>
+            </div>
+            <div>
+              <b>PEB · Parking</b>
+              <span>Eerste bestemming op of rond de site.</span>
+            </div>
           </div>
 
-          <h3>ManI</h3>
-          <div class="side-rule"></div>
-
-          <div class="side-lines">
-            <div class="side-line">
-              <i class="fa-solid fa-chevron-right"></i>
-              <span>ZKOO te ontspannen met alle ACP’s in Li, inclusief Sportkot KU Leuven, vanaf PEB Parking naar VwVzZ Sportkot, met VL Eerste Activiteit.</span>
+          <div class="side-item">
+            <div class="side-icon">
+              <i class="fa-solid fa-people-group"></i>
             </div>
-
-            <div class="side-line">
-              <i class="fa-solid fa-clock"></i>
-              <span>Verzamelen om 08:00. Eerste activiteit vanaf 08:30.</span>
+            <div>
+              <b>VwVzZ · Sportkot</b>
+              <span>Verzamelzone aan het Sportkot.</span>
             </div>
           </div>
-        </article>
 
-        <article class="side-card">
-          <div class="side-number">01</div>
-          <div class="side-icon">
-            <i class="fa-solid fa-compass"></i>
-          </div>
-
-          <h2>Oriëntatie</h2>
-          <div class="side-rule"></div>
-
-          <div class="side-lines">
-            <div class="side-line">
-              <i class="fa-solid fa-crosshairs"></i>
-              <span><b>ActieZ:</b> <em>Sportkot KU Leuven</em></span>
+          <div class="side-item">
+            <div class="side-icon">
+              <i class="fa-solid fa-flag-checkered"></i>
             </div>
-
-            <div class="side-line">
-              <i class="fa-solid fa-location-dot"></i>
-              <span><b>Adres:</b> <em>Tervuursevest 101, 3001 Heverlee</em></span>
-            </div>
-
-            <div class="side-line">
-              <i class="fa-solid fa-flag"></i>
-              <span><b>MerkP:</b> <em>Parking, Sportkot, startzone</em></span>
+            <div>
+              <b>VL · Eerste activiteit</b>
+              <span>Start vanaf 08:30.</span>
             </div>
           </div>
-        </article>
-
-        <article class="side-card yellow">
-          <div class="side-number">02</div>
-          <div class="side-icon">
-            <i class="fa-solid fa-bullseye"></i>
-          </div>
-
-          <h3>ManI</h3>
-          <div class="side-rule"></div>
-
-          <div class="side-lines">
-            <div class="side-line">
-              <i class="fa-solid fa-angles-right"></i>
-              <span><b>ZKOO:</b> <em>Te ontspannen</em></span>
-            </div>
-
-            <div class="side-line">
-              <i class="fa-solid fa-crosshairs"></i>
-              <span><b>Obj:</b> <em>Sportkot KU Leuven</em></span>
-            </div>
-
-            <div class="side-line">
-              <i class="fa-solid fa-arrow-right"></i>
-              <span><b>Dir:</b> <em>Van PEB Parking naar VwVzZ Sportkot en VL Eerste Activiteit</em></span>
-            </div>
-
-            <div class="side-line">
-              <i class="fa-solid fa-grip-lines"></i>
-              <span><b>Disp:</b> <em>Alle ACP’s in lijn</em></span>
-            </div>
-          </div>
-        </article>
-
-        <article class="side-card">
-          <div class="side-number">03</div>
-          <div class="side-icon">
-            <i class="fa-solid fa-clipboard-check"></i>
-          </div>
-
-          <h2>Praktisch</h2>
-          <div class="side-rule"></div>
-
-          <div class="side-lines">
-            <div class="side-line">
-              <i class="fa-regular fa-clock"></i>
-              <span><b>08:00:</b> <em>Verzamelen aan het Sportkot</em></span>
-            </div>
-
-            <div class="side-line">
-              <i class="fa-regular fa-clock"></i>
-              <span><b>08:30:</b> <em>Start eerste activiteit</em></span>
-            </div>
-
-            <div class="side-line">
-              <i class="fa-solid fa-shirt"></i>
-              <span><b>Uitr:</b> <em>Sportieve kledij of omkleden ter plaatse</em></span>
-            </div>
-          </div>
-        </article>
+        </div>
       </aside>
     </div>
   </header>
 
-  <main id="uitvoering" class="page">
-    <div class="steps-row">
-      <article class="step-card">
-        <div class="step-icon" data-nr="01">
-          <i class="fa-solid fa-car"></i>
+  <main>
+    <section id="praktisch" class="page">
+      <div class="section-head">
+        <div class="section-title">
+          <h2>Praktisch</h2>
         </div>
+      </div>
 
-        <div>
-          <h3>MOV richting Heverlee</h3>
-          <p>Route starten naar Tervuursevest 101, 3001 Heverlee.</p>
+      <div class="info-grid">
+        <article class="info-card">
+          <div class="info-icon">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+          <div class="tag">Obj</div>
+          <h3>Adres</h3>
+          <p>Tervuursevest 101, 3001 Heverlee.</p>
+        </article>
+
+        <article class="info-card">
+          <div class="info-icon">
+            <i class="fa-solid fa-clock"></i>
+          </div>
+          <div class="tag">Termijn</div>
+          <h3>08:00</h3>
+          <p>Verzamelen aan het Sportkot.</p>
+        </article>
+
+        <article class="info-card">
+          <div class="info-icon">
+            <i class="fa-solid fa-person-running"></i>
+          </div>
+          <div class="tag">Uitr</div>
+          <h3>Sportief</h3>
+          <p>Sportieve kledij voorzien of omkleden ter plaatse.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="fordt" class="page">
+      <div class="section-head">
+        <div class="section-title">
+          <h2>ManPlan<br>FORDT</h2>
         </div>
-      </article>
+      </div>
 
-      <article class="step-card">
-        <div class="step-icon" data-nr="02">
-          <i class="fa-solid fa-square-parking"></i>
-        </div>
-
-        <div>
-          <h3>PEB Parking</h3>
-          <p>Voertuig op of rond de site plaatsen.</p>
-        </div>
-      </article>
-
-      <article class="step-card">
-        <div class="step-icon" data-nr="03">
-          <i class="fa-solid fa-users"></i>
-        </div>
-
-        <div>
-          <h3>VwVzZ Sportkot</h3>
-          <p>Aansluiten bij de groep aan het Sportkot.</p>
-        </div>
-      </article>
-
-      <article class="step-card">
-        <div class="step-icon" data-nr="04">
-          <i class="fa-regular fa-clock"></i>
-        </div>
-
-        <div>
-          <h3>PREA 0</h3>
-          <p>Om 08:00 is iedereen verzameld.</p>
-        </div>
-      </article>
-
-      <article class="step-card">
-        <div class="step-icon" data-nr="05">
-          <i class="fa-solid fa-person-running"></i>
-        </div>
-
-        <div>
-          <h3>VL activiteit</h3>
-          <p>Vanaf 08:30 start de eerste activiteit.</p>
-        </div>
-      </article>
-    </div>
-
-    <section id="route" class="route-actions" style="margin-top:18px;">
-      <div class="steps-row" style="grid-template-columns:repeat(3,minmax(0,1fr));">
-        <a class="step-card" href="https://www.google.com/maps/dir/?api=1&destination=Tervuursevest+101,+3001+Heverlee" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-          <div class="step-icon" data-nr="G">
-            <i class="fa-solid fa-route"></i>
+      <div class="fordt-box">
+        <article class="panel fordt-main">
+          <div class="fordt-pill">
+            <i class="fa-solid fa-bullseye"></i> ManI
           </div>
 
-          <div>
-            <h3>Google Maps</h3>
-            <p>Route naar Tervuursevest 101, 3001 Heverlee.</p>
-          </div>
-        </a>
+          <h3>ZKOO te ontspannen</h3>
+          <p>
+            Met alle ACP’s in Li, inclusief Sportkot KU Leuven,
+            vanaf PEB Parking naar VwVzZ Sportkot, met VL Eerste Activiteit.
+          </p>
+        </article>
 
-        <a class="step-card" href="https://maps.apple.com/?daddr=Tervuursevest%20101%2C%203001%20Heverlee" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-          <div class="step-icon" data-nr="A">
-            <i class="fa-brands fa-apple"></i>
+        <div class="fordt-flow" aria-label="FORDT overzicht">
+          <article class="fordt-item">
+            <div class="fordt-letter">F</div>
+            <b>Finaliteit</b>
+            <span>Ontspannen aankomen en samen starten.</span>
+          </article>
+
+          <article class="fordt-item">
+            <div class="fordt-letter">O</div>
+            <b>Objectief</b>
+            <span>Sportkot KU Leuven, Tervuursevest 101.</span>
+          </article>
+
+          <article class="fordt-item">
+            <div class="fordt-letter">R</div>
+            <b>Richting</b>
+            <span>PEB Parking → VwVzZ Sportkot → VL activiteit.</span>
+          </article>
+
+          <article class="fordt-item">
+            <div class="fordt-letter">D</div>
+            <b>Dispositief</b>
+            <span>Alle ACP’s in lijn aan het verzamelpunt.</span>
+          </article>
+
+          <article class="fordt-item">
+            <div class="fordt-letter">T</div>
+            <b>Termijn</b>
+            <span>08:00 verzamelen. 08:30 eerste activiteit.</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="parking" class="page">
+      <div class="section-head">
+        <div class="section-title">
+          <h2>Parking<br>& route</h2>
+        </div>
+      </div>
+
+      <div class="arrival-layout">
+        <article class="simple-map" aria-label="Schematische aankomst">
+          <div class="map-green"></div>
+          <div class="map-road"></div>
+          <div class="map-arrow"></div>
+
+          <div class="map-zone zone-peb">
+            <small>PEB</small>
+            <strong>Parking</strong>
           </div>
 
-          <div>
-            <h3>Apple Kaarten</h3>
-            <p>Route naar het Sportkot KU Leuven.</p>
-          </div>
-        </a>
-
-        <a class="step-card" href="index.html" style="text-decoration:none;">
-          <div class="step-icon" data-nr="H">
-            <i class="fa-solid fa-house"></i>
+          <div class="map-zone zone-vwvzz">
+            <small>VwVzZ</small>
+            <strong>Sportkot</strong>
           </div>
 
-          <div>
-            <h3>Hoofdpagina</h3>
-            <p>Terug naar de teambuildingpagina.</p>
+          <div class="map-zone zone-vl">
+            <small>VL</small>
+            <strong>Eerste activiteit</strong>
           </div>
-        </a>
+        </article>
+
+        <div class="steps" aria-label="Stappen bij aankomst">
+          <article class="step">
+            <div class="step-badge">01</div>
+            <div>
+              <h3>MOV richting Heverlee</h3>
+              <p>Route starten naar Tervuursevest 101, 3001 Heverlee.</p>
+            </div>
+          </article>
+
+          <article class="step">
+            <div class="step-badge">02</div>
+            <div>
+              <h3>PEB · Parking</h3>
+              <p>Voertuig op of rond de site plaatsen.</p>
+            </div>
+          </article>
+
+          <article class="step">
+            <div class="step-badge">03</div>
+            <div>
+              <h3>VwVzZ · Sportkot</h3>
+              <p>Aansluiten bij de groep aan het Sportkot.</p>
+            </div>
+          </article>
+
+          <article class="step">
+            <div class="step-badge">04</div>
+            <div>
+              <h3>VL · Eerste activiteit</h3>
+              <p>Vanaf 08:30 start de eerste activiteit.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="aankomst" class="page">
+      <div class="section-head">
+        <div class="section-title">
+          <h2>Aankomst</h2>
+        </div>
+      </div>
+
+      <div class="bottom-grid">
+        <article class="panel">
+          <h3><i class="fa-solid fa-circle-check"></i> Checklist</h3>
+
+          <ul class="checklist">
+            <li><i class="fa-solid fa-circle-check"></i> Route vooraf bekijken.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Op tijd vertrekken richting Heverlee.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Parkeren op of rond de site.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Naar het Sportkot wandelen.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Sportieve kledij voorzien.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Aansluiten bij de groep om 08:00.</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <h3><i class="fa-solid fa-location-crosshairs"></i> Verzamelpunt</h3>
+          <p>
+            We verzamelen aan het Sportkot KU Leuven. De eerste activiteit start om 08:30.
+            Wie zich ter plaatse nog moet omkleden, voorziet best wat marge.
+          </p>
+        </article>
       </div>
     </section>
   </main>
@@ -1511,7 +1407,7 @@
     <div class="page footer-inner">
       <div>
         <strong>Teambuilding Heverlee 2026</strong><br>
-        Maneuverplan · Sportkot KU Leuven
+        Locatie & parking · Sportkot KU Leuven
       </div>
 
       <a href="#top">
