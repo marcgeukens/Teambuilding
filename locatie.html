@@ -241,6 +241,12 @@
       color:white;
     }
 
+    .btn.apple{
+      background:#111827;
+      border-color:#111827;
+      color:white;
+    }
+
     .btn:hover{
       transform:translateY(-2px);
       background:white;
@@ -404,6 +410,14 @@
       line-height:1.62;
     }
 
+    .small-note{
+      margin-top:10px;
+      color:var(--muted);
+      font-size:.92rem;
+      line-height:1.45;
+      font-weight:700;
+    }
+
     .map-card{
       min-height:420px;
       padding:0;
@@ -499,6 +513,11 @@
 
     .button.navy{
       background:var(--navy);
+      color:white;
+    }
+
+    .button.apple{
+      background:#111827;
       color:white;
     }
 
@@ -814,15 +833,25 @@
         <h1>Locatie<br>& parking</h1>
 
         <p class="hero-text">
-          Alle praktische info om vlot aan te komen aan het Sportkot KU Leuven: adres, parking, verzamelpunt en wat je best vooraf even checkt.
+          Alle praktische info om vlot aan te komen aan het Sportkot KU Leuven. Kies gewoon je favoriete kaarten-app: Google Maps of Apple Kaarten.
         </p>
 
         <div class="hero-actions">
           <a class="btn primary" href="https://www.google.com/maps/search/?api=1&query=Sportkot+KU+Leuven" target="_blank" rel="noopener noreferrer">
-            <i class="fa-solid fa-map-location-dot"></i> Open in Google Maps
+            <i class="fa-solid fa-map-location-dot"></i> Google Maps
           </a>
-          <a class="btn location" href="#parking"><i class="fa-solid fa-square-parking"></i> Parkinginfo</a>
-          <a class="btn" href="index.html"><i class="fa-solid fa-arrow-left"></i> Terug naar hoofdpagina</a>
+
+          <a class="btn apple" href="https://maps.apple.com/?q=Sportkot%20KU%20Leuven" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-apple"></i> Apple Kaarten
+          </a>
+
+          <a class="btn location" href="#parking">
+            <i class="fa-solid fa-square-parking"></i> Parkinginfo
+          </a>
+
+          <a class="btn" href="index.html">
+            <i class="fa-solid fa-arrow-left"></i> Terug naar hoofdpagina
+          </a>
         </div>
       </div>
 
@@ -834,17 +863,26 @@
         <div class="side-bottom">
           <div class="quick-item">
             <div class="quick-icon"><i class="fa-solid fa-clock"></i></div>
-            <div><b>Aankomst</b><span>Voorzie wat marge. We starten om 08:00 aan het Sportkot.</span></div>
+            <div>
+              <b>Aankomst</b>
+              <span>Voorzie wat marge. We verzamelen om 08:00 aan het Sportkot.</span>
+            </div>
           </div>
 
           <div class="quick-item">
             <div class="quick-icon"><i class="fa-solid fa-car"></i></div>
-            <div><b>Parking</b><span>Er is normaal parking op of rond de site. Check de info hieronder.</span></div>
+            <div>
+              <b>Parking</b>
+              <span>Er is normaal parking op of rond de site. Kom liefst niet op het nippertje.</span>
+            </div>
           </div>
 
           <div class="quick-item">
-            <div class="quick-icon"><i class="fa-solid fa-shirt"></i></div>
-            <div><b>Omkleden</b><span>Kom sportief of neem je spullen mee om ter plaatse om te kleden.</span></div>
+            <div class="quick-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+            <div>
+              <b>Kaarten-app</b>
+              <span>Android of laptop? Google Maps. iPhone? Apple Kaarten werkt ook perfect.</span>
+            </div>
           </div>
         </div>
       </aside>
@@ -863,15 +901,28 @@
             <div>
               <div class="map-pin"><i class="fa-solid fa-location-dot"></i></div>
               <h3>Sportkot<br>KU Leuven</h3>
-              <p>Gebruik de Google Maps-knop voor navigatie naar de site. Zo voorkom je zoeken op het laatste moment.</p>
+              <p>
+                Gebruik Google Maps of Apple Kaarten om rechtstreeks naar de site te navigeren.
+                Zo moet niemand op de dag zelf beginnen zoeken.
+              </p>
             </div>
           </div>
+
           <div class="map-actions">
             <a class="button yellow" href="https://www.google.com/maps/search/?api=1&query=Sportkot+KU+Leuven" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-map-location-dot"></i> Google Maps
+              <i class="fa-solid fa-map-location-dot"></i> Open in Google Maps
             </a>
+
+            <a class="button apple" href="https://maps.apple.com/?q=Sportkot%20KU%20Leuven" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-apple"></i> Open in Apple Kaarten
+            </a>
+
             <a class="button" href="https://www.google.com/maps/dir/?api=1&destination=Sportkot+KU+Leuven" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-route"></i> Route starten
+              <i class="fa-solid fa-route"></i> Route via Google Maps
+            </a>
+
+            <a class="button navy" href="https://maps.apple.com/?daddr=Sportkot%20KU%20Leuven" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-apple"></i> Route via Apple Kaarten
             </a>
           </div>
         </article>
@@ -880,13 +931,21 @@
           <div class="step">
             <div class="step-number">1</div>
             <div>
-              <h3>Adres ingeven</h3>
-              <p>Zoek op <strong>Sportkot KU Leuven</strong> in je navigatie-app of gebruik de knop op deze pagina.</p>
+              <h3>Kies je kaarten-app</h3>
+              <p>Gebruik Google Maps of Apple Kaarten. Beide knoppen staan op deze pagina.</p>
             </div>
           </div>
 
           <div class="step">
             <div class="step-number">2</div>
+            <div>
+              <h3>Zoek op Sportkot KU Leuven</h3>
+              <p>Je hoeft geen adres over te typen. Klik gewoon op één van de knoppen.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">3</div>
             <div>
               <h3>Rustig parkeren</h3>
               <p>Kom liever iets te vroeg dan exact op tijd. Dan heb je marge om te parkeren en je te oriënteren.</p>
@@ -894,18 +953,10 @@
           </div>
 
           <div class="step">
-            <div class="step-number">3</div>
-            <div>
-              <h3>Verzamelen aan het Sportkot</h3>
-              <p>We verzamelen om 08:00 aan het Sportkot. Daarna is er tijd om om te kleden en op te starten.</p>
-            </div>
-          </div>
-
-          <div class="step">
             <div class="step-number">4</div>
             <div>
-              <h3>Start teambuilding</h3>
-              <p>Vanaf 08:30 starten we met de eerste activiteit. Wie klaar is, kan rustig aansluiten.</p>
+              <h3>Verzamelen aan het Sportkot</h3>
+              <p>We verzamelen om 08:00 aan het Sportkot. Daarna is er tijd om om te kleden en rustig op te starten.</p>
             </div>
           </div>
         </div>
@@ -947,18 +998,30 @@
         <article class="notice">
           <h3><i class="fa-solid fa-triangle-exclamation"></i> Praktische tip</h3>
           <p>
-            Vertrek niet op het nippertje. Zelfs als de parking vlot gaat, verlies je snel enkele minuten met zoeken, wandelen, omkleden of iemand terugvinden.
+            Vertrek niet op het nippertje. Zelfs als de parking vlot gaat, verlies je snel enkele minuten met zoeken,
+            wandelen, omkleden of iemand terugvinden.
           </p>
         </article>
 
         <article class="card">
           <div class="icon"><i class="fa-solid fa-route"></i></div>
-          <h3>Route openen</h3>
-          <p>Gebruik deze knop om meteen een route naar het Sportkot te starten.</p>
+          <h3>Route starten</h3>
+          <p>
+            Kies hieronder je route-app. Google Maps werkt breed, Apple Kaarten is handig voor wie met iPhone rijdt.
+          </p>
+
           <div class="map-actions" style="padding:18px 0 0;background:transparent;">
             <a class="button" href="https://www.google.com/maps/dir/?api=1&destination=Sportkot+KU+Leuven" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-route"></i> Route naar Sportkot
+              <i class="fa-solid fa-route"></i> Route via Google Maps
             </a>
+
+            <a class="button apple" href="https://maps.apple.com/?daddr=Sportkot%20KU%20Leuven" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-apple"></i> Route via Apple Kaarten
+            </a>
+          </div>
+
+          <div class="small-note">
+            Tip: zet de route best al eens klaar voor je vertrekt. Dan moet je aan de parking zelf niet meer zoeken.
           </div>
         </article>
       </div>
@@ -984,11 +1047,15 @@
         <article class="card">
           <div class="icon"><i class="fa-solid fa-bread-slice"></i></div>
           <h3>Niet vergeten</h3>
-          <p>Vul ook het broodjesformulier in. Dat staat los van de locatie, maar is wel nodig om de lunch correct te kunnen bestellen.</p>
+          <p>
+            Vul ook het broodjesformulier in. Dat staat los van de locatie, maar is wel nodig om de lunch correct te kunnen bestellen.
+          </p>
+
           <div class="map-actions" style="padding:18px 0 0;background:transparent;">
             <a class="button coral" href="https://forms.office.com/e/DDMftsAXKb" target="_blank" rel="noopener noreferrer">
               <i class="fa-solid fa-pen-to-square"></i> Broodjesformulier
             </a>
+
             <a class="button navy" href="index.html">
               <i class="fa-solid fa-house"></i> Hoofdpagina
             </a>
@@ -999,7 +1066,9 @@
   </main>
 
   <footer>
-    <div class="page"><strong>Teambuilding Heverlee 2026</strong> · Locatie & parking</div>
+    <div class="page">
+      <strong>Teambuilding Heverlee 2026</strong> · Locatie & parking · Google Maps & Apple Kaarten
+    </div>
   </footer>
 </body>
 </html>
