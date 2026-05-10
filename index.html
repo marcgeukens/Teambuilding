@@ -22,6 +22,7 @@
       --line:rgba(16,32,68,.13);
       --shadow:0 24px 70px rgba(16,32,68,.13);
       --radius:26px;
+      --navh:74px;
     }
 
     *{box-sizing:border-box}
@@ -58,7 +59,7 @@
     }
 
     .nav-inner{
-      min-height:74px;
+      min-height:var(--navh);
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -309,6 +310,7 @@
       display:grid;
       grid-template-columns:repeat(3,1fr);
       gap:10px;
+      margin-top:18px;
     }
 
     .side-links a{
@@ -351,14 +353,14 @@
 
     section{
       padding:58px 0;
-      scroll-margin-top:96px;
+      scroll-margin-top:78px;
+    }
+
+    #missie, #visie, #waardenblok, #programma, #praktisch, #faq{
+      scroll-margin-top:78px;
     }
 
     .section-head{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap:24px;
       margin-bottom:24px;
     }
 
@@ -386,14 +388,6 @@
       color:var(--navy);
     }
 
-    .section-note{
-      margin:8px 0 0;
-      max-width:690px;
-      color:var(--muted);
-      line-height:1.65;
-      font-size:1.03rem;
-    }
-
     .cards{
       display:grid;
       grid-template-columns:repeat(3,minmax(0,1fr));
@@ -408,6 +402,7 @@
       box-shadow:0 18px 42px rgba(16,32,68,.08);
       position:relative;
       overflow:hidden;
+      min-height:250px;
     }
 
     .card::before{
@@ -436,8 +431,8 @@
     .card h3{
       margin:0 0 10px;
       color:var(--navy);
-      font-size:1.55rem;
-      letter-spacing:-.05em;
+      font-size:1.75rem;
+      letter-spacing:-.055em;
     }
 
     .card p{
@@ -450,6 +445,7 @@
       display:grid;
       grid-template-columns:repeat(4,minmax(0,1fr));
       gap:14px;
+      margin-top:16px;
     }
 
     .value{
@@ -751,7 +747,6 @@
     @media(max-width:1060px){
       .hero,
       .cards,
-      .values,
       .practical-grid{
         grid-template-columns:1fr;
       }
@@ -761,8 +756,9 @@
         min-height:auto;
       }
 
-      .quick{
-        grid-template-columns:1fr;
+      .quick,
+      .values{
+        grid-template-columns:1fr 1fr;
       }
     }
 
@@ -781,8 +777,7 @@
       .hero-sub{gap:14px}
       .goldbar{height:60px}
       .hero-kicker,.hero-actions{margin-left:23px}
-      .side-links{grid-template-columns:1fr}
-      .section-head{display:block}
+      .side-links,.quick,.values{grid-template-columns:1fr}
       .time-row{grid-template-columns:82px minmax(0,1fr)}
       .info-btn{grid-column:1/-1}
       .drawer{
@@ -806,8 +801,9 @@
         <span>Teambuilding Heverlee</span>
       </div>
       <div class="nav-links">
-        <a href="#kompas">Missie</a>
-        <a href="#waarden">Waarden</a>
+        <a href="#missie">Missie</a>
+        <a href="#visie">Visie</a>
+        <a href="#waardenblok">Waarden</a>
         <a href="#programma">Programma</a>
         <a href="#praktisch">Praktisch</a>
       </div>
@@ -827,7 +823,7 @@
         <div class="hero-kicker">Actief. Ontspannen. Samen op pad.</div>
         <div class="hero-actions">
           <a class="btn primary" href="#programma"><i class="fa-solid fa-calendar-days"></i> Programma</a>
-          <a class="btn" href="#kompas"><i class="fa-solid fa-compass"></i> Missie & visie</a>
+          <a class="btn" href="#missie"><i class="fa-solid fa-bullseye"></i> Missie</a>
           <a class="btn" href="#praktisch"><i class="fa-solid fa-list-check"></i> Praktisch</a>
         </div>
       </div>
@@ -838,11 +834,11 @@
         </div>
         <div class="side-bottom">
           <div>
-            <p class="side-text">Een dag waarop iedereen even uit de dagelijkse rol stapt, samen beweegt, lacht en rustig afsluit.</p>
+            <p class="side-text">Een actieve dag met padel, bumperballs, beachvolley, frietjes en een vrijblijvende afsluiter in Leuven.</p>
             <div class="side-links">
               <a href="#missie">Missie</a>
               <a href="#visie">Visie</a>
-              <a href="#waarden">Waarden</a>
+              <a href="#waardenblok">Waarden</a>
             </div>
           </div>
           <div class="quick">
@@ -856,45 +852,61 @@
   </header>
 
   <main>
-    <section id="kompas" class="page">
+    <section id="missie" class="page">
       <div class="section-head">
-        <div class="section-title">
-          <div>
-            <h2>Missie & visie</h2>
-            <p class="section-note">Heldere opbouw, actieve blokken, voldoende pauze en een losse afsluiter. Niet te zwaar, wel goed georganiseerd.</p>
-          </div>
-        </div>
+        <div class="section-title"><h2>Missie</h2></div>
       </div>
 
       <div class="cards">
-        <article class="card" id="missie">
+        <article class="card">
           <div class="icon"><i class="fa-solid fa-bullseye"></i></div>
-          <h3>Missie</h3>
-          <p>De ploeg samenbrengen buiten de dagelijkse context, met activiteiten die voor verbinding, beweging en ontspanning zorgen.</p>
-        </article>
-
-        <article class="card" id="visie">
-          <div class="icon"><i class="fa-solid fa-eye"></i></div>
-          <h3>Visie</h3>
-          <p>Een teambuilding die professioneel oogt, praktisch duidelijk is en tegelijk luchtig genoeg blijft om echt vrij aan te voelen.</p>
+          <h3>Samen uit de routine</h3>
+          <p>De ploeg samenbrengen buiten de dagelijkse context, met activiteiten die zorgen voor beweging, verbinding en ontspanning.</p>
         </article>
 
         <article class="card">
-          <div class="icon"><i class="fa-solid fa-route"></i></div>
-          <h3>Aanpak</h3>
-          <p>Een actieve voormiddag, eenvoudige lunch, groepsactiviteit in de namiddag en daarna rustig afronden.</p>
+          <div class="icon"><i class="fa-solid fa-people-group"></i></div>
+          <h3>Iedereen mee</h3>
+          <p>Actief genoeg om plezant te zijn, maar laagdrempelig genoeg zodat iedereen kan deelnemen zonder prestatiedruk.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon"><i class="fa-solid fa-face-laugh-beam"></i></div>
+          <h3>Fun boven score</h3>
+          <p>De sfeer primeert. Winnen mag, lachen moet.</p>
         </article>
       </div>
     </section>
 
-    <section id="waarden" class="page">
+    <section id="visie" class="page">
       <div class="section-head">
-        <div class="section-title">
-          <div>
-            <h2>Waarden</h2>
-            <p class="section-note">De toon van de dag: sportief, toegankelijk, helder en gezellig.</p>
-          </div>
-        </div>
+        <div class="section-title"><h2>Visie</h2></div>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="icon"><i class="fa-solid fa-eye"></i></div>
+          <h3>Strak georganiseerd</h3>
+          <p>Een helder programma, weinig praktische ruis en duidelijke timing.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon"><i class="fa-solid fa-wave-square"></i></div>
+          <h3>Los genoeg</h3>
+          <p>Genoeg ademruimte om te bekomen, te praten en niet de hele dag in een strak schema te zitten.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon"><i class="fa-solid fa-sun"></i></div>
+          <h3>Goed gevoel achteraf</h3>
+          <p>Een dag die professioneel oogt, maar vooral natuurlijk en ontspannen aanvoelt.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="waardenblok" class="page">
+      <div class="section-head">
+        <div class="section-title"><h2>Waarden</h2></div>
       </div>
 
       <div class="values">
@@ -907,41 +919,31 @@
 
     <section id="vuca" class="page">
       <div class="section-head">
-        <div class="section-title">
-          <div>
-            <h2>VUCA / BANI</h2>
-            <p class="section-note">Een lichte managementknipoog: groepsactiviteiten zijn soms onvoorspelbaar, maar net dat maakt ze plezant.</p>
-          </div>
-        </div>
+        <div class="section-title"><h2>VUCA / BANI</h2></div>
       </div>
 
       <div class="cards">
         <article class="card">
-          <div class="icon"><i class="fa-solid fa-wind"></i></div>
+          <div class="icon"><i class="fa-solid fa-cloud-sun-rain"></i></div>
           <h3>VUCA</h3>
-          <p>Weer, groepsenergie en spelverloop zijn nooit helemaal voorspelbaar. Een duidelijke planning houdt het overzichtelijk.</p>
+          <p>Weer, groepsenergie en spelverloop zijn nooit helemaal voorspelbaar. Een duidelijk programma houdt het plezant.</p>
         </article>
         <article class="card">
-          <div class="icon"><i class="fa-solid fa-wave-square"></i></div>
+          <div class="icon"><i class="fa-solid fa-arrows-spin"></i></div>
           <h3>BANI</h3>
-          <p>Een actieve dag mag een beetje chaotisch zijn. Pauzes, simpele info en een rustige afsluiter houden alles aangenaam.</p>
+          <p>Een actieve dag mag wat chaotisch zijn. Pauzes en simpele afspraken houden alles aangenaam.</p>
         </article>
         <article class="card">
-          <div class="icon"><i class="fa-solid fa-face-smile"></i></div>
-          <h3>Vertaling</h3>
-          <p>Samen sporten, lachen, eten en afronden. Dat is de essentie.</p>
+          <div class="icon"><i class="fa-solid fa-bolt"></i></div>
+          <h3>Antwoord</h3>
+          <p>Bewegen, lachen, eten, afronden. Meer moet dat niet zijn.</p>
         </article>
       </div>
     </section>
 
     <section id="programma" class="page">
       <div class="section-head">
-        <div class="section-title">
-          <div>
-            <h2>Programma</h2>
-            <p class="section-note">Klik op een onderdeel voor korte extra uitleg.</p>
-          </div>
-        </div>
+        <div class="section-title"><h2>Programma</h2></div>
       </div>
 
       <div class="timeline">
@@ -997,12 +999,7 @@
 
     <section id="praktisch" class="page">
       <div class="section-head">
-        <div class="section-title">
-          <div>
-            <h2>Praktisch</h2>
-            <p class="section-note">De belangrijkste info in één overzicht.</p>
-          </div>
-        </div>
+        <div class="section-title"><h2>Praktisch</h2></div>
       </div>
 
       <div class="practical-grid">
@@ -1028,12 +1025,7 @@
 
     <section id="faq" class="page">
       <div class="section-head">
-        <div class="section-title">
-          <div>
-            <h2>FAQ</h2>
-            <p class="section-note">Korte praktische vragen.</p>
-          </div>
-        </div>
+        <div class="section-title"><h2>FAQ</h2></div>
       </div>
 
       <div class="faq">
