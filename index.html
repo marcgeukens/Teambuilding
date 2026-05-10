@@ -910,6 +910,415 @@
     }
 
 
+    /* Extra gsm-optimalisatie */
+    @media(max-width:720px){
+      body{
+        background-size:38px 38px,38px 38px,auto,auto,auto;
+      }
+
+      .page{
+        width:min(100% - 26px,1360px);
+      }
+
+      nav{
+        position:sticky;
+      }
+
+      .nav-inner{
+        min-height:auto;
+        align-items:flex-start;
+        flex-direction:column;
+        padding:10px 0 11px;
+        gap:10px;
+      }
+
+      .brand{
+        font-size:.98rem;
+      }
+
+      .brand-mark{
+        width:42px;
+        height:42px;
+        border-radius:15px;
+        box-shadow:6px 6px 0 rgba(18,139,154,.18);
+      }
+
+      .nav-links{
+        width:100%;
+        display:flex;
+        gap:6px;
+        flex-wrap:nowrap;
+        overflow-x:auto;
+        justify-content:flex-start;
+        padding-bottom:3px;
+        scrollbar-width:none;
+        -webkit-overflow-scrolling:touch;
+      }
+
+      .nav-links::-webkit-scrollbar{
+        display:none;
+      }
+
+      .nav-links a{
+        flex:0 0 auto;
+        font-size:.70rem;
+        padding:8px 10px;
+        background:rgba(255,255,255,.58);
+        border:1px solid rgba(16,32,68,.08);
+      }
+
+      header{
+        padding:22px 0 18px;
+      }
+
+      .hero{
+        gap:14px;
+      }
+
+      .hero-main,
+      .hero-side{
+        border-radius:24px;
+        min-height:auto;
+      }
+
+      .hero-main{
+        padding:28px 20px 24px;
+      }
+
+      .label{
+        font-size:.64rem;
+        letter-spacing:.14em;
+        padding:7px 10px;
+      }
+
+      h1{
+        margin-top:24px;
+        font-size:clamp(3.05rem,17vw,4.8rem);
+        line-height:.88;
+        letter-spacing:-.08em;
+      }
+
+      .hero-sub{
+        margin-top:20px;
+        font-size:clamp(1.65rem,10vw,3rem);
+        line-height:1;
+        gap:12px;
+      }
+
+      .goldbar{
+        width:7px;
+        flex-basis:7px;
+        height:56px;
+      }
+
+      .hero-kicker{
+        margin:20px 0 0 19px;
+        font-size:1rem;
+      }
+
+      .hero-actions{
+        margin:24px 0 0 19px;
+        display:grid;
+        grid-template-columns:1fr;
+        gap:9px;
+      }
+
+      .btn{
+        width:100%;
+        min-height:46px;
+        border-radius:14px;
+      }
+
+      .side-top{
+        min-height:auto;
+        padding:24px 22px;
+      }
+
+      .side-title{
+        font-size:clamp(2.05rem,12vw,3.2rem);
+        line-height:1.05;
+      }
+
+      .side-bottom{
+        padding:22px;
+        gap:18px;
+      }
+
+      .side-text{
+        font-size:.98rem;
+        line-height:1.58;
+      }
+
+      .side-links{
+        grid-template-columns:1fr;
+        gap:8px;
+      }
+
+      .quick{
+        grid-template-columns:1fr;
+      }
+
+      .quick-item{
+        border-radius:16px;
+        padding:13px;
+      }
+
+      section{
+        padding:36px 0;
+        scroll-margin-top:118px;
+      }
+
+      #missie, #visie, #waardenblok, #vuca, #programma, #praktisch, #faq{
+        scroll-margin-top:118px;
+      }
+
+      .section-head{
+        margin-bottom:18px;
+      }
+
+      .section-title{
+        gap:12px;
+      }
+
+      .section-title::before{
+        width:7px;
+        flex-basis:7px;
+        height:54px;
+        margin-top:4px;
+      }
+
+      h2{
+        font-size:clamp(2.45rem,14vw,4.2rem);
+        line-height:.92;
+      }
+
+      .cards{
+        grid-template-columns:1fr;
+        gap:12px;
+      }
+
+      .card{
+        min-height:auto;
+        border-radius:22px;
+        padding:22px;
+      }
+
+      .icon{
+        width:52px;
+        height:52px;
+        border-radius:18px;
+        margin-bottom:16px;
+      }
+
+      .card h3{
+        font-size:1.45rem;
+      }
+
+      .card p{
+        font-size:.98rem;
+        line-height:1.55;
+      }
+
+      .values{
+        grid-template-columns:1fr;
+        gap:10px;
+      }
+
+      .value{
+        min-height:auto;
+        border-radius:20px;
+        padding:20px;
+      }
+
+      .vuca-grid{
+        grid-template-columns:1fr;
+        gap:14px;
+      }
+
+      .vuca-card{
+        border-radius:22px;
+      }
+
+      .vuca-top{
+        padding:24px 20px 14px;
+        gap:13px;
+      }
+
+      .vuca-letter{
+        width:52px;
+        height:52px;
+        flex-basis:52px;
+        border-radius:18px;
+        font-size:1.55rem;
+        box-shadow:6px 6px 0 rgba(18,139,154,.16);
+      }
+
+      .vuca-card:nth-child(2) .vuca-letter{
+        box-shadow:6px 6px 0 rgba(247,189,31,.20);
+      }
+
+      .vuca-top h3{
+        font-size:1.75rem;
+      }
+
+      .vuca-top p{
+        font-size:.97rem;
+        line-height:1.52;
+      }
+
+      .vuca-list{
+        padding:0 20px 20px;
+        gap:8px;
+      }
+
+      .vuca-item{
+        grid-template-columns:36px 1fr;
+        gap:10px;
+        padding:12px;
+        border-radius:16px;
+      }
+
+      .vuca-mini{
+        width:36px;
+        height:36px;
+        border-radius:13px;
+        font-size:.9rem;
+      }
+
+      .vuca-item span{
+        font-size:.91rem;
+        line-height:1.45;
+      }
+
+      .vuca-note{
+        margin:0 20px 20px;
+        padding:15px;
+        border-radius:17px;
+        font-size:.94rem;
+      }
+
+      .timeline{
+        gap:10px;
+      }
+
+      .time-row{
+        grid-template-columns:72px 1fr;
+        gap:11px;
+        padding:12px;
+        border-radius:19px;
+        align-items:start;
+      }
+
+      .time-row:hover{
+        transform:none;
+      }
+
+      .time{
+        min-height:48px;
+        border-radius:14px;
+        font-size:.93rem;
+      }
+
+      .time-row h3{
+        font-size:1.02rem;
+        line-height:1.15;
+      }
+
+      .time-row p{
+        font-size:.9rem;
+        line-height:1.35;
+      }
+
+      .info-btn{
+        grid-column:1 / -1;
+        width:100%;
+        min-height:40px;
+        border-radius:13px;
+      }
+
+      .practical-grid{
+        grid-template-columns:1fr;
+        gap:12px;
+      }
+
+      .panel{
+        border-radius:22px;
+        padding:22px;
+      }
+
+      .price{
+        font-size:clamp(2.6rem,16vw,4rem);
+      }
+
+      .faq-q{
+        padding:16px;
+      }
+
+      .faq-a{
+        padding:0 16px 16px;
+      }
+
+      .drawer{
+        top:auto;
+        right:10px;
+        left:10px;
+        bottom:10px;
+        width:auto;
+        border-radius:24px;
+        transform:translateY(calc(100% + 32px));
+      }
+
+      .drawer.open{
+        transform:translateY(0);
+      }
+
+      .drawer-top{
+        min-height:92px;
+        padding:18px;
+      }
+
+      .drawer-body{
+        padding:20px;
+      }
+
+      .drawer-body h3{
+        font-size:1.4rem;
+      }
+
+      .drawer-body p{
+        font-size:.96rem;
+        line-height:1.55;
+      }
+
+      footer{
+        margin-top:28px;
+        padding:28px 0;
+      }
+    }
+
+    @media(max-width:420px){
+      .page{
+        width:min(100% - 20px,1360px);
+      }
+
+      h1{
+        font-size:clamp(2.75rem,18vw,4rem);
+      }
+
+      .hero-sub{
+        font-size:clamp(1.45rem,10vw,2.6rem);
+      }
+
+      .time-row{
+        grid-template-columns:66px 1fr;
+      }
+
+      .nav-links a{
+        font-size:.66rem;
+      }
+    }
+
+
   </style>
 </head>
 
@@ -924,6 +1333,7 @@
         <a href="#missie">Missie</a>
         <a href="#visie">Visie</a>
         <a href="#waardenblok">Waarden</a>
+        <a href="#vuca">VUCA/BANI</a>
         <a href="#programma">Programma</a>
         <a href="#praktisch">Praktisch</a>
       </div>
@@ -1196,8 +1606,8 @@
 
       <div class="faq">
         <div class="faq-item open">
-          <button class="faq-q">Ga ik volledig kapot zijn na deze dag? <i class="fa-solid fa-chevron-down"></i></button>
-          <div class="faq-a">Nee. Het is actief, maar het blijft teambuilding.</div>
+          <button class="faq-q">Moet je sportief zijn om mee te doen? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a">Nee. Het is actief, maar het blijft teambuilding. Je hoeft geen topsporter te zijn.</div>
         </div>
 
         <div class="faq-item">
