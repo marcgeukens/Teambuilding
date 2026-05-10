@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Teambuilding Heverlee 2026</title>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
 
   <style>
     :root{
@@ -121,28 +121,45 @@
     }
 
     header{padding:26px 0 30px}
+    section{padding:48px 0;scroll-margin-top:82px}
+    #missie,#visie,#waardenblok,#vuca,#programma,#praktisch,#faq{scroll-margin-top:82px}
 
-    .form-alert{
+    .form-alert,
+    .countdown{
       position:relative;
       overflow:hidden;
       margin-bottom:16px;
       padding:15px;
       border-radius:22px;
+      box-shadow:0 14px 34px rgba(16,32,68,.08);
+    }
+
+    .form-alert{
       border:1px solid rgba(255,115,101,.22);
       background:
         radial-gradient(circle at 8% 20%, rgba(255,115,101,.18), transparent 26%),
         radial-gradient(circle at 94% 12%, rgba(247,191,33,.24), transparent 26%),
         linear-gradient(135deg,#fff,#fff8ef);
-      box-shadow:0 14px 34px rgba(16,32,68,.08);
     }
 
-    .form-alert::before{
+    .countdown{
+      border:1px solid var(--line);
+      background:
+        radial-gradient(circle at 8% 18%, rgba(247,191,33,.22), transparent 25%),
+        radial-gradient(circle at 94% 15%, rgba(20,140,155,.15), transparent 25%),
+        linear-gradient(135deg,#fff,#f6f9fc);
+    }
+
+    .form-alert::before,
+    .countdown::before{
       content:"";
       position:absolute;
       inset:0 0 auto;
       height:6px;
       background:linear-gradient(90deg,var(--coral),var(--yellow),var(--teal));
     }
+
+    .countdown::before{background:linear-gradient(90deg,var(--yellow),var(--teal),var(--coral))}
 
     .form-alert-inner{
       display:grid;
@@ -151,19 +168,24 @@
       gap:14px;
     }
 
+    .form-icon,
+    .countdown-icon{
+      display:grid;
+      place-items:center;
+      color:white;
+      box-shadow:6px 6px 0 rgba(247,191,33,.22);
+    }
+
     .form-icon{
       width:46px;
       height:46px;
-      display:grid;
-      place-items:center;
       border-radius:16px;
       background:var(--coral);
-      color:white;
-      box-shadow:6px 6px 0 rgba(247,191,33,.22);
       font-size:1.15rem;
     }
 
-    .form-alert h2{
+    .form-alert h2,
+    .countdown h2{
       margin:0;
       color:var(--navy);
       font-size:clamp(1.2rem,2.4vw,2rem);
@@ -171,7 +193,8 @@
       letter-spacing:-.055em;
     }
 
-    .form-alert p{
+    .form-alert p,
+    .countdown p{
       margin:5px 0 0;
       color:#4f5f7d;
       font-size:.94rem;
@@ -179,49 +202,32 @@
       font-weight:750;
     }
 
-    .form-button{
-      min-height:44px;
+    .form-button,
+    .btn,
+    .panel-button{
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:8px;
+      text-decoration:none;
+      font-weight:1000;
+      transition:.16s transform,.16s background,.16s color;
+    }
+
+    .form-button{
+      min-height:44px;
       padding:0 14px;
       border-radius:14px;
       background:var(--navy);
       color:white;
-      text-decoration:none;
       font-size:.84rem;
-      font-weight:1000;
       white-space:nowrap;
-      transition:.16s transform,.16s background,.16s color;
     }
 
     .form-button:hover{
       transform:translateY(-2px);
       background:var(--coral);
       color:white;
-    }
-
-    .countdown{
-      position:relative;
-      overflow:hidden;
-      margin-bottom:16px;
-      padding:14px;
-      border:1px solid var(--line);
-      border-radius:22px;
-      background:
-        radial-gradient(circle at 8% 18%, rgba(247,191,33,.22), transparent 25%),
-        radial-gradient(circle at 94% 15%, rgba(20,140,155,.15), transparent 25%),
-        linear-gradient(135deg,#fff,#f6f9fc);
-      box-shadow:0 12px 32px rgba(16,32,68,.075);
-    }
-
-    .countdown::before{
-      content:"";
-      position:absolute;
-      inset:0 0 auto;
-      height:6px;
-      background:linear-gradient(90deg,var(--yellow),var(--teal),var(--coral));
     }
 
     .countdown-top{
@@ -243,28 +249,9 @@
       width:40px;
       height:40px;
       flex:0 0 40px;
-      display:grid;
-      place-items:center;
       border-radius:14px;
       background:var(--navy);
-      color:white;
       box-shadow:5px 5px 0 rgba(20,140,155,.15);
-    }
-
-    .countdown h2{
-      margin:0;
-      color:var(--navy);
-      font-size:clamp(1.25rem,2.4vw,2rem);
-      line-height:1;
-      letter-spacing:-.055em;
-    }
-
-    .countdown p{
-      margin:4px 0 0;
-      color:var(--muted);
-      font-size:.9rem;
-      line-height:1.35;
-      font-weight:750;
     }
 
     .date-pill{
@@ -444,19 +431,13 @@
 
     .btn{
       min-height:46px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
       padding:0 15px;
       border-radius:15px;
       border:1px solid rgba(255,255,255,.18);
-      text-decoration:none;
       color:white;
       background:rgba(255,255,255,.10);
-      font-weight:950;
       font-size:.84rem;
-      transition:.16s transform,.16s background,.16s color;
+      font-weight:950;
     }
 
     .btn.primary{
@@ -567,34 +548,53 @@
       margin-top:4px;
     }
 
-    .concept-card{
+    .concept-card,
+    .card,
+    .vuca-card,
+    .panel,
+    .faq-item{
+      background:white;
+      border:1px solid var(--line);
+      box-shadow:0 14px 34px rgba(16,32,68,.075);
+    }
+
+    .concept-card,
+    .card,
+    .vuca-card{
       position:relative;
       overflow:hidden;
+    }
+
+    .concept-card{
       min-height:132px;
       padding:16px;
-      border:1px solid var(--line);
       border-radius:20px;
       background:linear-gradient(180deg,#ffffff,#f5f8fc);
     }
 
-    .concept-card::before{
+    .concept-card::before,
+    .card::before,
+    .vuca-card::before{
       content:"";
       position:absolute;
-      inset:0 auto auto 0;
-      width:100%;
+      inset:0 0 auto;
       height:6px;
       background:linear-gradient(90deg,var(--yellow),var(--teal),var(--coral));
+    }
+
+    .concept-icon,
+    .icon{
+      display:grid;
+      place-items:center;
+      color:white;
+      background:var(--navy);
     }
 
     .concept-icon{
       width:48px;
       height:48px;
-      display:grid;
-      place-items:center;
       margin-bottom:11px;
       border-radius:16px;
-      color:white;
-      background:var(--navy);
       box-shadow:6px 6px 0 rgba(20,140,155,.14);
       font-size:1.18rem;
     }
@@ -659,9 +659,6 @@
 
     .quick-item a:hover{text-decoration:underline}
 
-    section{padding:48px 0;scroll-margin-top:82px}
-    #missie,#visie,#waardenblok,#vuca,#programma,#praktisch,#faq{scroll-margin-top:82px}
-
     .section-head{margin-bottom:20px}
 
     .section-title{
@@ -695,33 +692,16 @@
     }
 
     .card{
-      position:relative;
-      overflow:hidden;
       min-height:230px;
       padding:24px;
-      background:white;
-      border:1px solid var(--line);
       border-radius:var(--radius);
-      box-shadow:0 14px 34px rgba(16,32,68,.075);
-    }
-
-    .card::before{
-      content:"";
-      position:absolute;
-      inset:0 0 auto;
-      height:7px;
-      background:linear-gradient(90deg,var(--yellow),var(--teal),var(--coral));
     }
 
     .icon{
       width:54px;
       height:54px;
-      display:grid;
-      place-items:center;
       margin-bottom:18px;
       border-radius:18px;
-      color:white;
-      background:var(--navy);
       box-shadow:7px 7px 0 rgba(20,140,155,.14);
     }
 
@@ -774,19 +754,20 @@
       background:rgba(255,255,255,.12);
     }
 
-    .value b{
+    .value b,
+    .value span{
       position:relative;
       z-index:2;
       display:block;
+    }
+
+    .value b{
       margin-bottom:9px;
       font-size:1.12rem;
       letter-spacing:-.035em;
     }
 
     .value span{
-      position:relative;
-      z-index:2;
-      display:block;
       color:rgba(255,255,255,.86);
       line-height:1.52;
     }
@@ -797,22 +778,8 @@
       gap:16px;
     }
 
-    .vuca-card{
-      position:relative;
-      overflow:hidden;
-      background:white;
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:0 14px 34px rgba(16,32,68,.075);
-    }
-
-    .vuca-card::before{
-      content:"";
-      position:absolute;
-      inset:0 0 auto;
-      height:7px;
-      background:linear-gradient(90deg,var(--yellow),var(--teal),var(--coral));
-    }
+    .vuca-card{border-radius:var(--radius)}
+    .vuca-card::before{height:7px}
 
     .vuca-top{
       display:flex;
@@ -977,10 +944,7 @@
 
     .panel{
       padding:24px;
-      background:white;
-      border:1px solid var(--line);
       border-radius:var(--radius);
-      box-shadow:0 14px 34px rgba(16,32,68,.075);
     }
 
     .panel h3{
@@ -999,28 +963,16 @@
 
     .panel-button{
       min-height:44px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
       padding:0 14px;
       border-radius:14px;
       background:var(--teal);
       color:white;
-      text-decoration:none;
-      font-weight:1000;
       font-size:.86rem;
     }
 
     .panel-button:hover{background:var(--navy)}
-
-    .panel-button.secondary{
-      background:var(--navy);
-    }
-
-    .panel-button.secondary:hover{
-      background:var(--coral);
-    }
+    .panel-button.secondary{background:var(--navy)}
+    .panel-button.secondary:hover{background:var(--coral)}
 
     .checklist{
       list-style:none;
@@ -1069,8 +1021,6 @@
 
     .faq-item{
       overflow:hidden;
-      background:white;
-      border:1px solid var(--line);
       border-radius:19px;
       box-shadow:0 10px 24px rgba(16,32,68,.05);
     }
@@ -1114,7 +1064,6 @@
     }
 
     .faq-a a:hover{text-decoration:underline}
-
     .faq-item.open .faq-a{display:block}
     .faq-item.open .faq-q i{transform:rotate(180deg)}
 
@@ -1224,8 +1173,6 @@
       body{background-size:36px 36px,36px 36px,auto,auto,auto}
       .page{width:min(100% - 20px, 1180px)}
 
-      nav{position:sticky}
-
       .nav-inner{
         min-height:auto;
         flex-direction:column;
@@ -1267,7 +1214,8 @@
 
       header{padding:16px 0 20px}
 
-      .form-alert{
+      .form-alert,
+      .countdown{
         margin-bottom:12px;
         padding:13px;
         border-radius:20px;
@@ -1278,32 +1226,27 @@
         gap:10px;
       }
 
-      .form-icon{
+      .form-icon,
+      .countdown-icon{
         width:38px;
         height:38px;
         border-radius:13px;
         font-size:1rem;
       }
 
-      .form-alert h2{
+      .form-alert h2,
+      .countdown h2{
         font-size:clamp(1.22rem,6.5vw,1.8rem);
         line-height:1.03;
       }
 
-      .form-alert p{
-        font-size:.86rem;
-      }
+      .form-alert p,
+      .countdown p{font-size:.86rem}
 
       .form-button{
         grid-column:1 / -1;
         width:100%;
         min-height:43px;
-      }
-
-      .countdown{
-        margin-bottom:12px;
-        padding:13px;
-        border-radius:20px;
       }
 
       .countdown-top{
@@ -1317,32 +1260,14 @@
         align-items:flex-start;
       }
 
-      .countdown-icon{
-        width:38px;
-        height:38px;
-        flex-basis:38px;
-        border-radius:13px;
-      }
-
-      .countdown h2{
-        font-size:clamp(1.32rem,7vw,2rem);
-        line-height:1.02;
-      }
-
-      .countdown p{
-        font-size:.86rem;
-      }
+      .countdown-icon{flex-basis:38px}
 
       .date-pill{
         width:100%;
         justify-content:center;
-        padding:8px 10px;
       }
 
-      .count-grid{
-        grid-template-columns:repeat(4,minmax(0,1fr));
-        gap:6px;
-      }
+      .count-grid{gap:6px}
 
       .count-box{
         min-height:58px;
@@ -1363,9 +1288,7 @@
       }
 
       .hero{gap:12px}
-
-      .hero-main,
-      .hero-side{border-radius:23px}
+      .hero-main,.hero-side{border-radius:23px}
       .hero-main{padding:26px 20px 24px}
       .floating-card{display:none}
 
@@ -1705,7 +1628,6 @@
     <div class="hero">
       <div class="hero-main">
         <div class="floating-card">🏐</div>
-
         <div class="label"><span class="label-dot"></span> Vrijdag 17 juli 2026</div>
 
         <h1>Teambuilding<br>Heverlee</h1>
@@ -1765,7 +1687,7 @@
             <div class="quick-item">
               <i class="fa-solid fa-location-dot"></i>
               <b>Locatie</b>
-              <span><a href="locatie.html">Locatie  info</a></span>
+              <span><a href="locatie.html">Locatie-info</a></span>
             </div>
             <div class="quick-item"><i class="fa-solid fa-shirt"></i><b>Kledij</b><span>Sportief</span></div>
             <div class="quick-item"><i class="fa-solid fa-bread-slice"></i><b>Broodjes</b><span><a href="https://forms.office.com/e/DDMftsAXKb" target="_blank" rel="noopener noreferrer">Formulier invullen</a></span></div>
@@ -1811,7 +1733,7 @@
         <article class="card">
           <div class="icon"><i class="fa-solid fa-eye"></i></div>
           <h3>Strak georganiseerd</h3>
-          <p>Een helder programma, weinig praktische ruis en duidelijke timing. Locatie- en info staan apart zodat niemand moet zoeken.</p>
+          <p>Een helder programma, weinig praktische ruis en duidelijke timing. Locatie- en parkinginfo staan apart zodat niemand moet zoeken.</p>
         </article>
 
         <article class="card">
@@ -1859,7 +1781,7 @@
           <div class="vuca-list">
             <div class="vuca-item"><div class="vuca-mini">V</div><div><b>Volatility</b><span>Het weer, de energie van de groep en het ritme van de activiteiten kunnen plots veranderen.</span></div></div>
             <div class="vuca-item"><div class="vuca-mini">U</div><div><b>Uncertainty</b><span>Niet alles is vooraf perfect te voorspellen: wie doet volop mee, wie neemt pauze, wat loopt een beetje uit?</span></div></div>
-            <div class="vuca-item"><div class="vuca-mini">C</div><div><b>Complexity</b><span>Locatie, , timing, eten, broodjeskeuzes, verplaatsing, groepsindeling en sfeer moeten tegelijk kloppen.</span></div></div>
+            <div class="vuca-item"><div class="vuca-mini">C</div><div><b>Complexity</b><span>Locatie, timing, eten, broodjeskeuzes, verplaatsing, groepsindeling en sfeer moeten tegelijk kloppen.</span></div></div>
             <div class="vuca-item"><div class="vuca-mini">A</div><div><b>Ambiguity</b><span>Het is geen pure sportdag en geen lesdag: net dat tussengebied maakt het interessant.</span></div></div>
           </div>
 
@@ -1893,7 +1815,7 @@
       </div>
 
       <div class="timeline">
-        <div class="time-row" data-time="08:00" data-title="Aankomst & omkleden" data-text="Verzamelen aan het Sportkot, rustig aankomen, parkeren, omkleden en klaarzetten voor de eerste activiteit. Voor details over bereikbaarheid en : klik op Locatie &  bovenaan.">
+        <div class="time-row" data-time="08:00" data-title="Aankomst & omkleden" data-text="Verzamelen aan het Sportkot, rustig aankomen, parkeren, omkleden en klaarzetten voor de eerste activiteit. Voor details over bereikbaarheid en parking: klik bovenaan op Locatie & parking.">
           <div class="time">08:00</div>
           <div><h3>Aankomst & omkleden</h3><p>Verzamelen, parkeren, omkleden en rustig opstarten.</p></div>
           <button class="info-btn">Info</button>
@@ -1959,19 +1881,19 @@
             <li><i class="fa-regular fa-circle"></i> Zonnecrème bij goed weer</li>
             <li><i class="fa-regular fa-circle"></i> Goed humeur</li>
             <li><i class="fa-regular fa-circle"></i> Broodjesformulier ingevuld</li>
-            <li><i class="fa-regular fa-circle"></i> Locatie- en info bekeken</li>
+            <li><i class="fa-regular fa-circle"></i> Locatie- en parkinginfo bekeken</li>
           </ul>
         </div>
 
         <div class="panel">
           <h3><i class="fa-solid fa-circle-info"></i> Snel naar de juiste info</h3>
-          <p class="muted">Voor de broodjes is het belangrijk dat iedereen het formulier invult. Voor de aankomst,  en route ter plaatse staat er een aparte locatiepagina klaar.</p>
+          <p class="muted">Voor de broodjes is het belangrijk dat iedereen het formulier invult. Voor de aankomst, parking en route ter plaatse staat er een aparte locatiepagina klaar.</p>
           <div class="panel-action">
             <a class="panel-button" href="https://forms.office.com/e/DDMftsAXKb" target="_blank" rel="noopener noreferrer">
               <i class="fa-solid fa-pen-to-square"></i> Broodjesformulier
             </a>
             <a class="panel-button secondary" href="locatie.html">
-              <i class="fa-solid fa-location-dot"></i> Locatie & Parking
+              <i class="fa-solid fa-location-dot"></i> Locatie & parking
             </a>
           </div>
         </div>
@@ -1991,7 +1913,7 @@
 
         <div class="faq-item important">
           <button class="faq-q">Waar vind ik de locatie- en parkinginfo? <i class="fa-solid fa-chevron-down"></i></button>
-          <div class="faq-a">Op de aparte locatiepagina: <a href="locatie.html">Locatie & parking</a>. Daar kan je alle info terugvinden over adres, parking, verzamelpunt en hoe je er geraakt.</div>
+          <div class="faq-a">Op de aparte locatiepagina: <a href="locatie.html">Locatie & parking</a>. Daar vind je alle info over adres, parking, verzamelpunt en bereikbaarheid.</div>
         </div>
 
         <div class="faq-item">
@@ -2079,6 +2001,7 @@
     const drawerTime = document.getElementById("drawerTime");
     const drawerTitle = document.getElementById("drawerTitle");
     const drawerText = document.getElementById("drawerText");
+    const drawerClose = document.getElementById("drawerClose");
 
     document.querySelectorAll(".time-row").forEach(row => {
       row.addEventListener("click", () => {
@@ -2089,7 +2012,7 @@
       });
     });
 
-    document.getElementById("drawerClose").addEventListener("click", () => {
+    drawerClose.addEventListener("click", () => {
       drawer.classList.remove("open");
     });
 
