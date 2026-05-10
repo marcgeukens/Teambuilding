@@ -27,13 +27,9 @@
       --max:1180px;
     }
 
-    *{
-      box-sizing:border-box;
-    }
+    *{box-sizing:border-box}
 
-    html{
-      scroll-behavior:smooth;
-    }
+    html{scroll-behavior:smooth}
 
     body{
       margin:0;
@@ -49,9 +45,7 @@
       overflow-x:hidden;
     }
 
-    a{
-      color:inherit;
-    }
+    a{color:inherit}
 
     .page{
       width:min(var(--max), calc(100% - 28px));
@@ -539,21 +533,6 @@
       font-weight:650;
     }
 
-    .explain-box{
-      margin-top:14px;
-      padding:16px;
-      border-radius:20px;
-      background:#f6f9fc;
-      border:1px solid var(--line);
-    }
-
-    .explain-box p{
-      margin:0;
-      color:#52627e;
-      line-height:1.48;
-      font-weight:650;
-    }
-
     .fordt-box{
       display:grid;
       grid-template-columns:.82fr 1.18fr;
@@ -569,8 +548,7 @@
       border-color:rgba(255,255,255,.12);
     }
 
-    .fordt-main h3,
-    .fordt-main p{
+    .fordt-main h3{
       color:white;
     }
 
@@ -634,11 +612,6 @@
     .fordt-item:nth-child(4) .fordt-letter{
       background:var(--navy);
       color:white;
-    }
-
-    .fordt-item:nth-child(5) .fordt-letter{
-      background:var(--yellow);
-      color:var(--navy-dark);
     }
 
     .fordt-item b{
@@ -847,10 +820,8 @@
       font-weight:650;
     }
 
-    .bottom-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px;
+    .check-panel{
+      max-width:760px;
     }
 
     .checklist{
@@ -908,8 +879,7 @@
 
     @media (max-width:1080px){
       .fordt-box,
-      .arrival-layout,
-      .bottom-grid{
+      .arrival-layout{
         grid-template-columns:1fr;
       }
 
@@ -1186,7 +1156,7 @@
         <a href="#praktisch">Praktisch</a>
         <a href="#fordt">FORDT</a>
         <a href="#route">Route</a>
-        <a href="#aankomst">Aankomst</a>
+        <a href="#checklist">Checklist</a>
       </div>
     </div>
   </nav>
@@ -1324,16 +1294,10 @@
 
           <h3>Rustig aankomen en samen starten</h3>
           <p>
-            Het aankomstplan is bewust eenvoudig: route nemen, parkeren, naar het Sportkot wandelen,
-            aansluiten bij de groep en daarna samen starten aan de eerste activiteit.
+            FORDT is hier gewoon een handige kapstok om de aankomst duidelijk te maken:
+            waarom we samenkomen, waar we moeten zijn, in welke richting iedereen beweegt,
+            hoe we aansluiten en wanneer we starten.
           </p>
-
-          <div class="explain-box">
-            <p>
-              <strong>Hr Avg Ops</strong> betekent hier gewoon: het afgesproken uur waarop iedereen verzamelt.
-              <strong>PEB</strong> gebruiken we als knipoog voor de parking, dus het eerste aankomstpunt.
-            </p>
-          </div>
         </article>
 
         <div class="fordt-flow" aria-label="FORDT overzicht">
@@ -1351,8 +1315,8 @@
 
           <article class="fordt-item">
             <div class="fordt-letter">R</div>
-            <b>Route</b>
-            <span>Rij naar Heverlee, parkeer op of rond de site en wandel naar het Sportkot.</span>
+            <b>Richting</b>
+            <span>Van parking naar Sportkot, daarna samen door naar de eerste activiteit.</span>
           </article>
 
           <article class="fordt-item">
@@ -1438,42 +1402,25 @@
       </div>
     </section>
 
-    <section id="aankomst" class="page">
+    <section id="checklist" class="page">
       <div class="section-head">
         <div class="section-title">
-          <h2>Aankomst</h2>
+          <h2>Checklist</h2>
         </div>
       </div>
 
-      <div class="bottom-grid">
-        <article class="panel">
-          <h3><i class="fa-solid fa-circle-check"></i> Checklist</h3>
+      <article class="panel check-panel">
+        <h3><i class="fa-solid fa-circle-check"></i> Voor vertrek</h3>
 
-          <ul class="checklist">
-            <li><i class="fa-solid fa-circle-check"></i> Route vooraf bekijken.</li>
-            <li><i class="fa-solid fa-circle-check"></i> Op tijd vertrekken richting Heverlee.</li>
-            <li><i class="fa-solid fa-circle-check"></i> Parkeren op of rond de site.</li>
-            <li><i class="fa-solid fa-circle-check"></i> Naar het Sportkot wandelen.</li>
-            <li><i class="fa-solid fa-circle-check"></i> Sportieve kledij voorzien.</li>
-            <li><i class="fa-solid fa-circle-check"></i> Aansluiten bij de groep om 08:00.</li>
-          </ul>
-        </article>
-
-        <article class="panel">
-          <h3><i class="fa-solid fa-location-crosshairs"></i> Verzamelpunt</h3>
-          <p>
-            We verzamelen aan het Sportkot KU Leuven. De eerste activiteit start om 08:30.
-            Wie zich ter plaatse nog moet omkleden, voorziet best wat marge.
-          </p>
-
-          <div class="explain-box">
-            <p>
-              Kort samengevat: <strong>parking → Sportkot → activiteit</strong>.
-              Dat is het volledige aankomstplan.
-            </p>
-          </div>
-        </article>
-      </div>
+        <ul class="checklist">
+          <li><i class="fa-solid fa-circle-check"></i> Route vooraf bekijken.</li>
+          <li><i class="fa-solid fa-circle-check"></i> Op tijd vertrekken richting Heverlee.</li>
+          <li><i class="fa-solid fa-circle-check"></i> Parkeren op of rond de site.</li>
+          <li><i class="fa-solid fa-circle-check"></i> Naar het Sportkot wandelen.</li>
+          <li><i class="fa-solid fa-circle-check"></i> Sportieve kledij voorzien.</li>
+          <li><i class="fa-solid fa-circle-check"></i> Aansluiten bij de groep om 08:00.</li>
+        </ul>
+      </article>
     </section>
   </main>
 
