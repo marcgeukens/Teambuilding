@@ -124,48 +124,61 @@
     }
 
     .hero{
-      min-height:520px;
       display:grid;
-      grid-template-columns:minmax(0,1.16fr) minmax(330px,.84fr);
+      grid-template-columns:minmax(0,1.25fr) minmax(340px,.95fr);
       gap:18px;
       align-items:stretch;
+      min-height:640px;
     }
 
-    .hero-main,
-    .hero-side{
-      position:relative;
+    .hero-left,
+    .hero-right{
       overflow:hidden;
       border-radius:34px;
       box-shadow:var(--shadow);
     }
 
-    .hero-main{
-      padding:clamp(30px,5vw,62px);
+    .hero-left{
+      position:relative;
+      padding:clamp(34px,5.2vw,74px);
       color:white;
       background:
-        radial-gradient(circle at 80% 14%, rgba(247,191,33,.22), transparent 20%),
-        radial-gradient(circle at 12% 88%, rgba(20,140,155,.24), transparent 26%),
-        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px),
-        linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+        radial-gradient(circle at 83% 10%, rgba(255,255,255,.10), transparent 13%),
+        linear-gradient(90deg, rgba(255,255,255,.048) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,.048) 1px, transparent 1px),
         linear-gradient(135deg,var(--navy),var(--navy-dark));
-      background-size:auto,auto,44px 44px,44px 44px,auto;
+      background-size:auto,44px 44px,44px 44px,auto;
       display:flex;
       flex-direction:column;
       justify-content:center;
     }
 
-    .hero-main::after{
+    .hero-left::after{
       content:"";
       position:absolute;
-      width:260px;
-      height:260px;
-      right:-96px;
-      top:-96px;
-      border-radius:50%;
-      border:2px solid rgba(255,255,255,.14);
+      width:110px;
+      height:110px;
+      right:38px;
+      top:34px;
+      border-radius:28px;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.14);
+      transform:rotate(8deg);
     }
 
-    .hero-main > *{
+    .hero-left::before{
+      content:"\f3c5";
+      position:absolute;
+      right:72px;
+      top:65px;
+      z-index:1;
+      color:#dce7ff;
+      font-family:"Font Awesome 6 Free";
+      font-weight:900;
+      font-size:2rem;
+    }
+
+    .hero-left > *{
       position:relative;
       z-index:2;
     }
@@ -179,12 +192,12 @@
       padding:8px 12px;
       border-radius:999px;
       background:rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.18);
+      border:1px solid rgba(255,255,255,.20);
       color:#dfe8ff;
       text-transform:uppercase;
       font-size:.72rem;
-      letter-spacing:.17em;
-      font-weight:900;
+      letter-spacing:.16em;
+      font-weight:950;
     }
 
     .date-pill::before{
@@ -197,20 +210,42 @@
     }
 
     h1{
-      margin:28px 0 0;
+      margin:34px 0 0;
       color:white;
-      font-size:clamp(3.25rem,7vw,6.15rem);
+      font-size:clamp(3.25rem,7vw,6.2rem);
       line-height:.88;
       letter-spacing:-.075em;
     }
 
-    .hero-text{
-      max-width:690px;
-      margin:22px 0 0;
+    .hero-sub{
+      display:flex;
+      align-items:flex-start;
+      gap:18px;
+      margin-top:24px;
       color:#dbe5ff;
-      font-size:clamp(1rem,1.35vw,1.18rem);
-      line-height:1.55;
-      font-weight:750;
+      font-size:clamp(1.8rem,3vw,3.15rem);
+      line-height:.96;
+      letter-spacing:-.07em;
+      font-weight:350;
+    }
+
+    .hero-sub::before{
+      content:"";
+      width:8px;
+      height:74px;
+      flex:0 0 8px;
+      border-radius:999px;
+      background:var(--yellow);
+      margin-top:5px;
+    }
+
+    .hero-line{
+      margin:26px 0 0 26px;
+      color:var(--yellow);
+      font-size:1.05rem;
+      font-style:italic;
+      font-weight:1000;
+      letter-spacing:-.02em;
     }
 
     .address-card{
@@ -218,8 +253,8 @@
       grid-template-columns:52px minmax(0,1fr);
       gap:14px;
       align-items:center;
-      max-width:700px;
-      margin-top:24px;
+      max-width:720px;
+      margin-top:28px;
       padding:16px;
       border-radius:22px;
       background:rgba(255,255,255,.11);
@@ -256,159 +291,213 @@
       line-height:1.35;
     }
 
-    .hero-actions{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
+    .hero-buttons{
+      display:flex;
+      flex-wrap:wrap;
       gap:10px;
-      max-width:700px;
-      margin-top:18px;
+      margin-top:26px;
+      max-width:760px;
     }
 
-    .btn{
-      min-height:54px;
+    .hero-button{
+      min-height:46px;
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:9px;
-      padding:0 16px;
+      padding:0 18px;
       border-radius:17px;
-      text-decoration:none;
-      text-align:center;
-      border:1px solid rgba(255,255,255,.18);
-      color:white;
+      border:1px solid rgba(255,255,255,.20);
       background:rgba(255,255,255,.10);
-      font-size:.92rem;
+      color:white;
+      text-decoration:none;
+      font-size:.9rem;
       font-weight:1000;
       transition:.16s transform,.16s background,.16s color;
     }
 
-    .btn.google{
+    .hero-button.primary{
       color:var(--navy-dark);
       background:var(--yellow);
       border-color:var(--yellow);
     }
 
-    .btn.apple{
-      background:#111827;
-      border-color:#111827;
+    .hero-button.teal{
+      background:var(--teal);
+      border-color:var(--teal);
       color:white;
     }
 
-    .btn.home{
-      grid-column:1 / -1;
-      background:rgba(255,255,255,.10);
-    }
-
-    .btn:hover{
+    .hero-button:hover{
       transform:translateY(-2px);
       background:white;
       color:var(--navy-dark);
     }
 
-    .hero-side{
+    .hero-right{
       background:white;
       display:grid;
       grid-template-rows:auto 1fr;
     }
 
-    .side-visual{
+    .right-head{
       position:relative;
-      min-height:220px;
-      padding:28px;
+      padding:34px 28px 30px;
+      min-height:215px;
       color:white;
       background:
-        radial-gradient(circle at 22% 18%, rgba(255,255,255,.34), transparent 14%),
-        radial-gradient(circle at 84% 22%, rgba(247,191,33,.24), transparent 23%),
+        radial-gradient(circle at 86% 8%, rgba(255,255,255,.13), transparent 24%),
         linear-gradient(135deg,var(--teal),var(--teal-dark));
     }
 
-    .side-visual::after{
+    .right-head::after{
       content:"";
       position:absolute;
-      width:200px;
-      height:200px;
-      right:-80px;
-      top:-80px;
+      width:190px;
+      height:190px;
+      right:-56px;
+      top:-76px;
       border-radius:50%;
-      border:2px solid rgba(255,255,255,.22);
+      border:2px solid rgba(255,255,255,.25);
     }
 
-    .side-title{
+    .right-head h2{
       position:relative;
       z-index:2;
       margin:0;
       color:white;
-      font-size:clamp(2.1rem,4vw,3.25rem);
-      line-height:.98;
+      font-size:clamp(2.35rem,4.4vw,4.1rem);
+      line-height:.93;
       letter-spacing:-.08em;
     }
 
-    .arrival-chip{
-      position:absolute;
-      left:28px;
-      bottom:26px;
-      z-index:2;
+    .right-body{
+      padding:28px 24px 24px;
+    }
+
+    .intro-text{
+      margin:0;
+      color:#536689;
+      font-size:1rem;
+      line-height:1.55;
+      font-weight:650;
+    }
+
+    .quick-tabs{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:9px;
+      margin-top:20px;
+    }
+
+    .quick-tab{
+      min-height:40px;
       display:inline-flex;
       align-items:center;
-      gap:9px;
-      padding:10px 12px;
-      border-radius:999px;
-      background:rgba(255,255,255,.14);
-      border:1px solid rgba(255,255,255,.22);
-      color:white;
+      justify-content:center;
+      padding:0 14px;
+      border-radius:14px;
+      background:#edf4f8;
+      border:1px solid rgba(16,32,68,.14);
+      color:var(--navy);
+      text-decoration:none;
+      font-size:.78rem;
+      text-transform:uppercase;
+      letter-spacing:.04em;
       font-weight:1000;
     }
 
-    .side-list{
-      padding:22px;
+    .feature-grid{
       display:grid;
-      gap:11px;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin-top:24px;
     }
 
-    .side-item{
+    .feature-card{
+      position:relative;
+      overflow:hidden;
+      min-height:196px;
+      padding:18px;
+      border-radius:22px;
+      background:white;
+      border:1px solid var(--line);
+      box-shadow:var(--soft-shadow);
+    }
+
+    .feature-card::before{
+      content:"";
+      position:absolute;
+      inset:0 0 auto;
+      height:6px;
+      background:linear-gradient(90deg,var(--yellow),var(--teal),var(--coral));
+    }
+
+    .feature-icon{
+      width:48px;
+      height:48px;
       display:grid;
-      grid-template-columns:42px 1fr;
-      gap:12px;
-      align-items:start;
+      place-items:center;
+      margin-bottom:14px;
+      border-radius:16px;
+      background:var(--navy);
+      color:white;
+      font-size:1.15rem;
+      box-shadow:6px 6px 0 rgba(20,140,155,.12);
+    }
+
+    .feature-card:nth-child(2) .feature-icon{
+      background:var(--teal);
+    }
+
+    .feature-card h3{
+      margin:0 0 8px;
+      color:var(--navy);
+      font-size:1.12rem;
+      letter-spacing:-.04em;
+    }
+
+    .feature-card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.45;
+      font-weight:650;
+      font-size:.92rem;
+    }
+
+    .mini-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .mini-card{
+      min-height:110px;
       padding:14px;
       border-radius:18px;
       background:#f6f9fc;
       border:1px solid var(--line);
     }
 
-    .side-icon{
-      width:42px;
-      height:42px;
-      display:grid;
-      place-items:center;
-      border-radius:14px;
-      background:var(--yellow);
-      color:var(--navy-dark);
+    .mini-card i{
+      color:var(--teal);
+      font-size:1.05rem;
+      margin-bottom:12px;
     }
 
-    .side-item:nth-child(2) .side-icon{
-      background:var(--teal);
-      color:white;
-    }
-
-    .side-item:nth-child(3) .side-icon{
-      background:var(--coral);
-      color:white;
-    }
-
-    .side-item b{
+    .mini-card b{
       display:block;
       color:var(--navy);
+      letter-spacing:-.03em;
       margin-bottom:4px;
-      letter-spacing:-.02em;
     }
 
-    .side-item span{
-      display:block;
-      color:var(--muted);
-      font-size:.92rem;
-      line-height:1.43;
-      font-weight:650;
+    .mini-card span{
+      color:var(--teal);
+      font-size:.86rem;
+      line-height:1.3;
+      font-weight:900;
     }
 
     main{
@@ -578,7 +667,7 @@
     }
 
     .fordt-item{
-      min-height:170px;
+      min-height:150px;
       padding:16px;
       border-radius:20px;
       background:white;
@@ -878,6 +967,7 @@
     }
 
     @media (max-width:1080px){
+      .hero,
       .fordt-box,
       .arrival-layout{
         grid-template-columns:1fr;
@@ -890,7 +980,6 @@
 
     @media (max-width:980px){
       .hero{
-        grid-template-columns:1fr;
         min-height:auto;
       }
 
@@ -959,12 +1048,12 @@
         gap:12px;
       }
 
-      .hero-main,
-      .hero-side{
+      .hero-left,
+      .hero-right{
         border-radius:24px;
       }
 
-      .hero-main{
+      .hero-left{
         padding:26px 20px 24px;
       }
 
@@ -981,10 +1070,12 @@
         letter-spacing:-.055em;
       }
 
-      .hero-text{
-        margin-top:18px;
-        font-size:.96rem;
-        line-height:1.48;
+      .hero-sub{
+        font-size:clamp(1.65rem,9vw,2.65rem);
+      }
+
+      .hero-line{
+        margin-left:24px;
       }
 
       .address-card{
@@ -1001,49 +1092,19 @@
         border-radius:15px;
       }
 
-      .hero-actions{
-        grid-template-columns:1fr;
-        gap:8px;
-        max-width:none;
-      }
-
-      .btn{
-        width:100%;
-        min-height:50px;
-        border-radius:15px;
-      }
-
-      .side-visual{
+      .right-head{
         min-height:170px;
-        padding:22px 20px;
+        padding:24px 20px;
       }
 
-      .side-title{
-        font-size:clamp(2rem,11vw,3rem);
-        line-height:1;
+      .right-body{
+        padding:22px 18px;
       }
 
-      .arrival-chip{
-        left:20px;
-        bottom:18px;
-        padding:9px 11px;
-        font-size:.88rem;
-      }
-
-      .side-list{
-        padding:18px;
-      }
-
-      .side-item{
-        grid-template-columns:38px 1fr;
-        padding:12px;
-        border-radius:16px;
-      }
-
-      .side-icon{
-        width:38px;
-        height:38px;
-        border-radius:13px;
+      .quick-tabs,
+      .mini-grid,
+      .feature-grid{
+        grid-template-columns:1fr;
       }
 
       section{
@@ -1163,16 +1224,20 @@
 
   <header id="top" class="page">
     <div class="hero">
-      <section class="hero-main" aria-labelledby="pagina-titel">
+      <section class="hero-left" aria-labelledby="pagina-titel">
         <div class="date-pill">Vrijdag 17 juli 2026</div>
 
         <h1 id="pagina-titel">Locatie<br>& parking</h1>
 
-        <p class="hero-text">
-          We verzamelen aan het Sportkot KU Leuven. Kom op tijd, parkeer rustig en sluit aan bij de groep.
-        </p>
+        <div class="hero-sub">
+          Sportkot<br>KU Leuven
+        </div>
 
-        <div class="address-card" aria-label="Adres Sportkot KU Leuven">
+        <div class="hero-line">
+          Parking → Sportkot → activiteit.
+        </div>
+
+        <div class="address-card">
           <div class="address-icon">
             <i class="fa-solid fa-location-dot"></i>
           </div>
@@ -1183,58 +1248,78 @@
           </div>
         </div>
 
-        <div class="hero-actions" aria-label="Route starten">
-          <a class="btn google" href="https://www.google.com/maps/dir/?api=1&destination=Tervuursevest+101,+3001+Heverlee" target="_blank" rel="noopener noreferrer">
-            <i class="fa-solid fa-route"></i> Route via Google Maps
+        <div class="hero-buttons">
+          <a class="hero-button primary" href="https://www.google.com/maps/dir/?api=1&destination=Tervuursevest+101,+3001+Heverlee" target="_blank" rel="noopener noreferrer">
+            <i class="fa-solid fa-route"></i> Google Maps
           </a>
 
-          <a class="btn apple" href="https://maps.apple.com/?daddr=Tervuursevest%20101%2C%203001%20Heverlee" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-apple"></i> Route via Apple Kaarten
+          <a class="hero-button teal" href="https://maps.apple.com/?daddr=Tervuursevest%20101%2C%203001%20Heverlee" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-apple"></i> Apple Kaarten
           </a>
 
-          <a class="btn home" href="index.html">
-            <i class="fa-solid fa-arrow-left"></i> Terug naar hoofdpagina
+          <a class="hero-button" href="#fordt">
+            <i class="fa-solid fa-list-check"></i> FORDT
+          </a>
+
+          <a class="hero-button" href="index.html">
+            <i class="fa-solid fa-house"></i> Home
           </a>
         </div>
       </section>
 
-      <aside class="hero-side" aria-label="Korte praktische info">
-        <div class="side-visual">
-          <h2 class="side-title">Rustig<br>aankomen.</h2>
-          <div class="arrival-chip">
-            <i class="fa-solid fa-clock"></i> 08:00 verzamelen
-          </div>
+      <aside class="hero-right">
+        <div class="right-head">
+          <h2>Rustig<br>aankomen.<br>Samen starten.</h2>
         </div>
 
-        <div class="side-list">
-          <div class="side-item">
-            <div class="side-icon">
-              <i class="fa-solid fa-clock"></i>
-            </div>
-            <div>
-              <b>Hr Avg Ops · 08:00</b>
-              <span>Het uur waarop iedereen aan het Sportkot verzamelt.</span>
-            </div>
+        <div class="right-body">
+          <p class="intro-text">
+            Kom op tijd, parkeer op of rond de site en wandel naar het Sportkot.
+            Om 08:00 sluiten we aan bij de groep.
+          </p>
+
+          <div class="quick-tabs">
+            <a class="quick-tab" href="#praktisch">Praktisch</a>
+            <a class="quick-tab" href="#route">Route</a>
+            <a class="quick-tab" href="#checklist">Checklist</a>
           </div>
 
-          <div class="side-item">
-            <div class="side-icon">
-              <i class="fa-solid fa-square-parking"></i>
-            </div>
-            <div>
-              <b>PEB · Parking</b>
-              <span>De parking is het eerste aankomstpunt.</span>
-            </div>
+          <div class="feature-grid">
+            <article class="feature-card">
+              <div class="feature-icon">
+                <i class="fa-solid fa-clock"></i>
+              </div>
+              <h3>Hr Avg Ops</h3>
+              <p>08:00 verzamelen aan het Sportkot.</p>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-icon">
+                <i class="fa-solid fa-square-parking"></i>
+              </div>
+              <h3>PEB</h3>
+              <p>Parking als eerste aankomstpunt.</p>
+            </article>
           </div>
 
-          <div class="side-item">
-            <div class="side-icon">
-              <i class="fa-solid fa-person-running"></i>
-            </div>
-            <div>
-              <b>Start · 08:30</b>
-              <span>De eerste activiteit start om 08:30.</span>
-            </div>
+          <div class="mini-grid">
+            <article class="mini-card">
+              <i class="fa-solid fa-location-dot"></i>
+              <b>Locatie</b>
+              <span>Sportkot KU Leuven</span>
+            </article>
+
+            <article class="mini-card">
+              <i class="fa-solid fa-shirt"></i>
+              <b>Kledij</b>
+              <span>Sportief</span>
+            </article>
+
+            <article class="mini-card">
+              <i class="fa-solid fa-flag-checkered"></i>
+              <b>Start</b>
+              <span>08:30</span>
+            </article>
           </div>
         </div>
       </aside>
@@ -1289,46 +1374,42 @@
       <div class="fordt-box">
         <article class="panel fordt-main">
           <div class="fordt-pill">
-            <i class="fa-solid fa-bullseye"></i> Simpel plan
+            <i class="fa-solid fa-bullseye"></i> Aankomstplan
           </div>
 
           <h3>Rustig aankomen en samen starten</h3>
-          <p>
-            FORDT is hier gewoon een handige kapstok om de aankomst duidelijk te maken:
-            waarom we samenkomen, waar we moeten zijn, in welke richting iedereen beweegt,
-            hoe we aansluiten en wanneer we starten.
-          </p>
+          <p>Parking → Sportkot → eerste activiteit.</p>
         </article>
 
         <div class="fordt-flow" aria-label="FORDT overzicht">
           <article class="fordt-item">
             <div class="fordt-letter">F</div>
             <b>Finaliteit</b>
-            <span>Iedereen komt rustig toe en de dag start zonder zoekwerk of stress.</span>
+            <span>Rustig aankomen.</span>
           </article>
 
           <article class="fordt-item">
             <div class="fordt-letter">O</div>
             <b>Objectief</b>
-            <span>Sportkot KU Leuven, Tervuursevest 101, 3001 Heverlee.</span>
+            <span>Sportkot KU Leuven.</span>
           </article>
 
           <article class="fordt-item">
             <div class="fordt-letter">R</div>
             <b>Richting</b>
-            <span>Van parking naar Sportkot, daarna samen door naar de eerste activiteit.</span>
+            <span>Parking → Sportkot → activiteit.</span>
           </article>
 
           <article class="fordt-item">
             <div class="fordt-letter">D</div>
             <b>Dispositief</b>
-            <span>Iedereen sluit aan bij de groep aan het Sportkot. Geen aparte verzamelpunten.</span>
+            <span>Iedereen sluit aan bij de groep.</span>
           </article>
 
           <article class="fordt-item">
             <div class="fordt-letter">T</div>
             <b>Timing</b>
-            <span>08:00 verzamelen. 08:30 start eerste activiteit.</span>
+            <span>08:00 verzamelen. 08:30 start.</span>
           </article>
         </div>
       </div>
@@ -1356,13 +1437,13 @@
           <div class="map-zone zone-sportkot">
             <small>Verzamelen</small>
             <strong>Sportkot</strong>
-            <span>Iedereen sluit hier aan.</span>
+            <span>08:00.</span>
           </div>
 
           <div class="map-zone zone-activiteit">
             <small>Start</small>
             <strong>Activiteit</strong>
-            <span>Vanaf 08:30.</span>
+            <span>08:30.</span>
           </div>
         </article>
 
@@ -1371,7 +1452,7 @@
             <div class="step-badge">01</div>
             <div>
               <h3>Rij naar Heverlee</h3>
-              <p>Start de route naar Tervuursevest 101, 3001 Heverlee.</p>
+              <p>Route naar Tervuursevest 101, 3001 Heverlee.</p>
             </div>
           </article>
 
@@ -1379,7 +1460,7 @@
             <div class="step-badge">02</div>
             <div>
               <h3>Parkeer op of rond de site</h3>
-              <p>De parking is het eerste aankomstpunt. Voorzie enkele minuten marge.</p>
+              <p>Voorzie enkele minuten marge.</p>
             </div>
           </article>
 
@@ -1387,7 +1468,7 @@
             <div class="step-badge">03</div>
             <div>
               <h3>Wandel naar het Sportkot</h3>
-              <p>Daar verzamelen we als groep om 08:00.</p>
+              <p>Verzamelen om 08:00.</p>
             </div>
           </article>
 
@@ -1395,7 +1476,7 @@
             <div class="step-badge">04</div>
             <div>
               <h3>Start om 08:30</h3>
-              <p>Na het verzamelen starten we samen aan de eerste activiteit.</p>
+              <p>Eerste activiteit.</p>
             </div>
           </article>
         </div>
