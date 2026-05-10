@@ -675,38 +675,6 @@
       color:var(--teal);
     }
 
-    .panel-actions{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:10px;
-      margin-top:18px;
-    }
-
-    .small-button{
-      min-height:48px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding:0 14px;
-      border-radius:15px;
-      text-align:center;
-      text-decoration:none;
-      background:var(--teal);
-      color:white;
-      font-size:.88rem;
-      font-weight:1000;
-      transition:.16s transform,.16s background;
-    }
-
-    .small-button:hover{
-      transform:translateY(-2px);
-      background:var(--navy);
-    }
-
-    .small-button.coral{background:var(--coral)}
-    .small-button.navy{background:var(--navy)}
-
     footer{
       margin-top:46px;
       padding:34px 0;
@@ -949,8 +917,6 @@
         line-height:1.4;
       }
 
-      .panel-actions{grid-template-columns:1fr}
-
       .footer-inner{
         align-items:flex-start;
         flex-direction:column;
@@ -982,7 +948,6 @@
         <a href="#praktisch">Praktisch</a>
         <a href="#parking">Parking</a>
         <a href="#aankomst">Aankomst</a>
-        <a href="#broodjes">Broodjes</a>
       </div>
     </div>
   </nav>
@@ -1156,19 +1121,12 @@
           </ul>
         </article>
 
-        <article id="broodjes" class="panel">
-          <h3><i class="fa-solid fa-bread-slice"></i> Broodjes</h3>
-          <p>Vul het formulier in voor de lunchbestelling.</p>
-
-          <div class="panel-actions">
-            <a class="small-button coral" href="https://forms.office.com/e/DDMftsAXKb" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-pen-to-square"></i> Broodjesformulier
-            </a>
-
-            <a class="small-button navy" href="index.html">
-              <i class="fa-solid fa-house"></i> Hoofdpagina
-            </a>
-          </div>
+        <article class="panel">
+          <h3><i class="fa-solid fa-person-running"></i> Ter plaatse</h3>
+          <p>
+            Voorzie sportieve kledij of kom omkleden ter plaatse. We starten samen aan het verzamelpunt,
+            zodat iedereen rustig kan aansluiten voor de eerste activiteit.
+          </p>
         </article>
       </div>
     </section>
