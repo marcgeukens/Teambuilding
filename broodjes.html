@@ -22,7 +22,7 @@
       --line:rgba(16,32,68,.13);
       --shadow:0 18px 48px rgba(16,32,68,.12);
       --shadow-card:0 12px 30px rgba(16,32,68,.075);
-      --page:1180px;
+      --page:1320px;
       --gutter:32px;
       --radius:24px;
     }
@@ -178,6 +178,27 @@
       letter-spacing:-.065em;
     }
 
+    .chips {
+      display:flex;
+      flex-wrap:wrap;
+      gap:9px;
+      margin-top:22px;
+    }
+
+    .chip {
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      min-height:34px;
+      padding:6px 11px;
+      border-radius:999px;
+      color:#dfe8ff;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.18);
+      font-size:.76rem;
+      font-weight:900;
+    }
+
     main {
       padding:18px 0 56px;
     }
@@ -231,7 +252,7 @@
 
     table {
       width:100%;
-      min-width:820px;
+      min-width:1180px;
       border-collapse:collapse;
     }
 
@@ -283,9 +304,10 @@
       white-space:nowrap;
     }
 
-    .special {
+    .note {
       color:#52627e;
       font-weight:750;
+      line-height:1.38;
     }
 
     footer {
@@ -415,7 +437,7 @@
         <a href="index.html">Home</a>
         <a href="#lijst" class="highlight">Lijst</a>
         <a href="spelletjes.html">Spelletjes</a>
-        <a href="locatie.html">Parking</a>
+        <a href="locatie.html">Locatie</a>
       </div>
     </div>
   </nav>
@@ -424,6 +446,12 @@
     <div class="page">
       <section class="hero">
         <h1>Broodjeslijst</h1>
+        <div class="chips">
+          <span class="chip"><i class="fa-solid fa-list"></i> 42 keuzes</span>
+          <span class="chip"><i class="fa-solid fa-pen"></i> 10 requests</span>
+          <span class="chip"><i class="fa-solid fa-triangle-exclamation"></i> 3 allergie/voeding</span>
+          <span class="chip"><i class="fa-solid fa-utensils"></i> 4 avondinfo</span>
+        </div>
       </section>
     </div>
   </header>
@@ -432,7 +460,7 @@
     <section id="lijst" class="page">
       <article class="panel">
         <div class="toolbar">
-          <input class="search-box" id="searchBox" type="search" placeholder="Zoek naam, broodje, type of request..." aria-label="Zoek in broodjeslijst">
+          <input class="search-box" id="searchBox" type="search" placeholder="Zoek naam, broodje, type, request, allergie of avondinfo..." aria-label="Zoek in broodjeslijst">
         </div>
 
         <div class="table-wrap">
@@ -442,303 +470,389 @@
                 <th>Naam</th>
                 <th>Broodje</th>
                 <th>Type</th>
-                <th>Speciale request</th>
+                <th>Request</th>
+                <th>Allergie / voeding</th>
+                <th>Avond</th>
               </tr>
             </thead>
             <tbody id="orderTable">
 
-              <tr data-search="amedeo gobyn boulet bicky wit ">
+              <tr data-search="amedeo gobyn boulet bicky wit met gedroogde ajuintjes graag!  ">
                 <td class="name">Amedeo Gobyn</td>
                 <td>Boulet Bicky</td>
                 <td><span class="type-pill">wit</span></td>
-                <td class="special">—</td>
+                <td class="note">Met gedroogde ajuintjes graag!</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="an vankeirsbilck martino meergranen + groenten ">
+              <tr data-search="an vankeirsbilck martino meergranen + groenten   ik ben er &#x27;s avonds niet meer">
                 <td class="name">An Vankeirsbilck</td>
                 <td>Martino</td>
                 <td><span class="type-pill">meergranen + groenten</span></td>
-                <td class="special">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
+                <td class="note">ik ben er &#x27;s avonds niet meer</td>
               </tr>
 
-              <tr data-search="ann de vree liam — italiaanse ham / mozzarella / rucola / zongedroogde tomaat meergranen ">
+              <tr data-search="ann de vree liam — italiaanse ham / mozzarella / rucola / zongedroogde tomaat meergranen   ">
                 <td class="name">Ann De Vree</td>
                 <td>Liam — Italiaanse Ham / Mozzarella / Rucola / Zongedroogde Tomaat</td>
                 <td><span class="type-pill">meergranen</span></td>
-                <td class="special">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="anna ulburghs liam — italiaanse ham / mozzarella / rucola / zongedroogde tomaat meergranen ">
+              <tr data-search="anna ulburghs liam — italiaanse ham / mozzarella / rucola / zongedroogde tomaat meergranen   ">
                 <td class="name">Anna Ulburghs</td>
                 <td>Liam — Italiaanse Ham / Mozzarella / Rucola / Zongedroogde Tomaat</td>
                 <td><span class="type-pill">meergranen</span></td>
-                <td class="special">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="bart de cocker stefnick wit ">
+              <tr data-search="bart de cocker stefnick wit   ">
                 <td class="name">Bart De Cocker</td>
                 <td>Stefnick</td>
                 <td><span class="type-pill">wit</span></td>
-                <td class="special">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="bram beerden geitenkaas / rucola / serrano / zongedroogde tomaat wit ">
+              <tr data-search="bram beerden geitenkaas / rucola / serrano / zongedroogde tomaat wit zonder tomaat  ">
                 <td class="name">Bram Beerden</td>
                 <td>Geitenkaas / Rucola / Serrano / Zongedroogde Tomaat</td>
                 <td><span class="type-pill">wit</span></td>
-                <td class="special">—</td>
+                <td class="note">zonder tomaat</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="charlotte mensaert kippenwit meergranen + groenten ">
+              <tr data-search="charlotte mensaert kippenwit meergranen + groenten   ">
                 <td class="name">Charlotte Mensaert</td>
                 <td>Kippenwit</td>
                 <td><span class="type-pill">meergranen + groenten</span></td>
-                <td class="special">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="david verbist boulet bicky wit ">
+              <tr data-search="david verbist boulet bicky wit   ">
                 <td class="name">David Verbist</td>
                 <td>Boulet Bicky</td>
                 <td><span class="type-pill">wit</span></td>
-                <td class="special">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="davy truyers boulet wit + groenten ">
+              <tr data-search="davy truyers boulet wit + groenten zonder tomaat + andalouse  ">
                 <td class="name">Davy Truyers</td>
                 <td>Boulet</td>
                 <td><span class="type-pill">wit + groenten</span></td>
-                <td class="special">—</td>
+                <td class="note">Zonder tomaat + andalouse</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="didier lecluyse boulet bicky wit ">
+              <tr data-search="didier lecluyse boulet bicky wit   ">
                 <td class="name">Didier Lecluyse</td>
                 <td>Boulet Bicky</td>
                 <td><span class="type-pill">wit</span></td>
-                <td class="special">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="dieter dobbels tonijn pikant meergranen ">
+              <tr data-search="dieter dobbels tonijn pikant meergranen   ">
                 <td class="name">Dieter Dobbels</td>
                 <td>Tonijn Pikant</td>
                 <td><span class="type-pill">meergranen</span></td>
-                <td class="special">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="dieter van bussel lex — geitenkaas / honing / spek / tomaat meergranen + groenten ">
+              <tr data-search="dieter van bussel lex — geitenkaas / honing / spek / tomaat meergranen + groenten   ">
                 <td class="name">Dieter Van Bussel</td>
                 <td>Lex — Geitenkaas / Honing / Spek / Tomaat</td>
                 <td><span class="type-pill">meergranen + groenten</span></td>
-                <td class="special">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="digna wevers brie / honing / noten / rucola meergranen ">
+              <tr data-search="digna wevers brie / honing / noten / rucola meergranen   ">
                 <td class="name">Digna Wevers</td>
                 <td>Brie / Honing / Noten / Rucola</td>
                 <td><span class="type-pill">meergranen</span></td>
-                <td class="special">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="dirk geniesse mozzarella / pesto / tomaat wit ">
+              <tr data-search="dirk geniesse mozzarella / pesto / tomaat wit   ">
                 <td class="name">Dirk Geniesse</td>
                 <td>Mozzarella / Pesto / Tomaat</td>
                 <td><span class="type-pill">wit</span></td>
-                <td class="special">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="dominique inzé estelle — carpaccio / parmezaan / rucola / truffelmayo meergranen ">
+              <tr data-search="dominique inzé estelle — carpaccio / parmezaan / rucola / truffelmayo meergranen   ">
                 <td class="name">Dominique Inzé</td>
                 <td>Estelle — Carpaccio / Parmezaan / Rucola / Truffelmayo</td>
                 <td><span class="type-pill">meergranen</span></td>
-                <td class="special">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="dries de block kaas/hesp meergranen + groenten ">
+              <tr data-search="dries de block kaas/hesp meergranen + groenten   ">
                 <td class="name">Dries De Block</td>
                 <td>Kaas/Hesp</td>
                 <td><span class="type-pill">meergranen + groenten</span></td>
-                <td class="special">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="fleur dely kaas/hesp wit + groenten ">
+              <tr data-search="fleur dely kaas/hesp wit + groenten   ">
                 <td class="name">Fleur Dely</td>
                 <td>Kaas/Hesp</td>
                 <td><span class="type-pill">wit + groenten</span></td>
-                <td class="special">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="frederick smeyers geitenkaas / honing / noten / rucola / zongedroogde tomaat meergranen ">
+              <tr data-search="frederick smeyers geitenkaas / honing / noten / rucola / zongedroogde tomaat meergranen   ">
                 <td class="name">Frederick Smeyers</td>
                 <td>Geitenkaas / Honing / Noten / Rucola / Zongedroogde Tomaat</td>
                 <td><span class="type-pill">meergranen</span></td>
-                <td class="special">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="gertjan vande kerkhof boulet wit + groenten ">
+              <tr data-search="gertjan vande kerkhof boulet wit + groenten   ">
                 <td class="name">Gertjan Vande Kerkhof</td>
                 <td>Boulet</td>
                 <td><span class="type-pill">wit + groenten</span></td>
-                <td class="special">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="gilles de wilde boulet bicky meergranen ">
+              <tr data-search="gilles de wilde boulet bicky meergranen   ">
                 <td class="name">Gilles De Wilde</td>
                 <td>Boulet Bicky</td>
                 <td><span class="type-pill">meergranen</span></td>
-                <td class="special">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="helga van petegem stefnick wit ">
+              <tr data-search="helga van petegem stefnick wit   ">
                 <td class="name">Helga Van Petegem</td>
                 <td>Stefnick</td>
                 <td><span class="type-pill">wit</span></td>
-                <td class="special">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="jan vinck kaas/hesp wit ">
+              <tr data-search="jan vinck kaas/hesp wit   ">
                 <td class="name">Jan Vinck</td>
                 <td>Kaas/Hesp</td>
                 <td><span class="type-pill">wit</span></td>
-                <td class="special">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="jill van belle americain wit + groenten ">
+              <tr data-search="jill van belle americain wit + groenten zonder ei, met mayo aub  ">
                 <td class="name">Jill Van Belle</td>
                 <td>Americain</td>
                 <td><span class="type-pill">wit + groenten</span></td>
-                <td class="special">—</td>
+                <td class="note">zonder ei, met mayo aub</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="jinse maus liam — italiaanse ham / mozzarella / rucola / zongedroogde tomaat meergranen ">
+              <tr data-search="jinse maus liam — italiaanse ham / mozzarella / rucola / zongedroogde tomaat meergranen   ">
                 <td class="name">Jinse Maus</td>
                 <td>Liam — Italiaanse Ham / Mozzarella / Rucola / Zongedroogde Tomaat</td>
                 <td><span class="type-pill">meergranen</span></td>
-                <td class="special">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="joachim heyvaert liam — italiaanse ham / mozzarella / rucola / zongedroogde tomaat wit zeevruchten en schaaldieren">
+              <tr data-search="joachim heyvaert liam — italiaanse ham / mozzarella / rucola / zongedroogde tomaat wit  zeevruchten en schaaldieren ">
                 <td class="name">Joachim Heyvaert</td>
                 <td>Liam — Italiaanse Ham / Mozzarella / Rucola / Zongedroogde Tomaat</td>
                 <td><span class="type-pill">wit</span></td>
-                <td class="special">Zeevruchten en schaaldieren</td>
+                <td class="note">—</td>
+                <td class="note">Zeevruchten en schaaldieren</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="kevin van roy steffen — effi / italiaanse ham / rucola / zongedroogde tomaat wit ">
+              <tr data-search="kevin van roy steffen — effi / italiaanse ham / rucola / zongedroogde tomaat wit zonder zongedroogde tomaten  ">
                 <td class="name">Kevin Van Roy</td>
                 <td>Steffen — Effi / Italiaanse Ham / Rucola / Zongedroogde Tomaat</td>
                 <td><span class="type-pill">wit</span></td>
-                <td class="special">—</td>
+                <td class="note">zonder zongedroogde tomaten</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="lieven delvaux italiaanse ham meergranen + groenten ">
+              <tr data-search="lieven delvaux italiaanse ham meergranen + groenten   ">
                 <td class="name">Lieven Delvaux</td>
                 <td>Italiaanse Ham</td>
                 <td><span class="type-pill">meergranen + groenten</span></td>
-                <td class="special">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="liselot verbruggen brie / honing / noten / rucola meergranen ">
+              <tr data-search="liselot verbruggen brie / honing / noten / rucola meergranen   ">
                 <td class="name">Liselot Verbruggen</td>
                 <td>Brie / Honing / Noten / Rucola</td>
                 <td><span class="type-pill">meergranen</span></td>
-                <td class="special">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="lode moens boulet bicky meergranen ">
+              <tr data-search="lode moens boulet bicky meergranen absoluut, onder geen enkele omstandigheid, tomaat  absoluut niet">
                 <td class="name">Lode Moens</td>
                 <td>Boulet Bicky</td>
                 <td><span class="type-pill">meergranen</span></td>
-                <td class="special">—</td>
+                <td class="note">Absoluut, onder geen enkele omstandigheid, tomaat</td>
+                <td class="note">—</td>
+                <td class="note">Absoluut niet</td>
               </tr>
 
-              <tr data-search="maarten wybo boulet bicky wit ">
+              <tr data-search="maarten wybo boulet bicky wit   ">
                 <td class="name">Maarten Wybo</td>
                 <td>Boulet Bicky</td>
                 <td><span class="type-pill">wit</span></td>
-                <td class="special">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="marc geukens stefnick wit + groenten ">
+              <tr data-search="marc geukens stefnick wit + groenten   ">
                 <td class="name">Marc Geukens</td>
                 <td>Stefnick</td>
                 <td><span class="type-pill">wit + groenten</span></td>
-                <td class="special">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="mario pettinato liam — italiaanse ham / mozzarella / rucola / zongedroogde tomaat wit ">
+              <tr data-search="mario pettinato liam — italiaanse ham / mozzarella / rucola / zongedroogde tomaat wit   ">
                 <td class="name">Mario Pettinato</td>
                 <td>Liam — Italiaanse Ham / Mozzarella / Rucola / Zongedroogde Tomaat</td>
                 <td><span class="type-pill">wit</span></td>
-                <td class="special">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="nils jouret boulet bicky meergranen ">
+              <tr data-search="nils jouret boulet bicky meergranen zonder tomaat  ">
                 <td class="name">Nils Jouret</td>
                 <td>Boulet Bicky</td>
                 <td><span class="type-pill">meergranen</span></td>
-                <td class="special">—</td>
+                <td class="note">Zonder tomaat</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="sara de brandt estelle — carpaccio / parmezaan / rucola / truffelmayo meergranen ">
+              <tr data-search="sara de brandt estelle — carpaccio / parmezaan / rucola / truffelmayo meergranen   ">
                 <td class="name">Sara De Brandt</td>
                 <td>Estelle — Carpaccio / Parmezaan / Rucola / Truffelmayo</td>
                 <td><span class="type-pill">meergranen</span></td>
-                <td class="special">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="scott schippers estelle — carpaccio / parmezaan / rucola / truffelmayo wit ">
+              <tr data-search="scott schippers estelle — carpaccio / parmezaan / rucola / truffelmayo wit   ">
                 <td class="name">Scott Schippers</td>
                 <td>Estelle — Carpaccio / Parmezaan / Rucola / Truffelmayo</td>
                 <td><span class="type-pill">wit</span></td>
-                <td class="special">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="sebastian verriest stefnick wit ">
+              <tr data-search="sebastian verriest stefnick wit   ">
                 <td class="name">Sebastian Verriest</td>
                 <td>Stefnick</td>
                 <td><span class="type-pill">wit</span></td>
-                <td class="special">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="stefanie vandenbrouck kaas/hesp meergranen ">
+              <tr data-search="stefanie vandenbrouck kaas/hesp meergranen geen wortel  ">
                 <td class="name">Stefanie Vandenbrouck</td>
                 <td>Kaas/Hesp</td>
                 <td><span class="type-pill">meergranen</span></td>
-                <td class="special">—</td>
+                <td class="note">geen wortel</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="steven engels lex — geitenkaas / honing / spek / tomaat wit ">
+              <tr data-search="steven engels lex — geitenkaas / honing / spek / tomaat wit   ">
                 <td class="name">Steven Engels</td>
                 <td>Lex — Geitenkaas / Honing / Spek / Tomaat</td>
                 <td><span class="type-pill">wit</span></td>
-                <td class="special">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="steven mahieu kaas meergranen + groenten ik eet geen vlees">
+              <tr data-search="steven mahieu kaas meergranen + groenten zonder mayonaise ik eet geen vlees vegetarisch aub">
                 <td class="name">Steven Mahieu</td>
                 <td>Kaas</td>
                 <td><span class="type-pill">meergranen + groenten</span></td>
-                <td class="special">Ik eet geen vlees</td>
+                <td class="note">zonder mayonaise</td>
+                <td class="note">Ik eet geen vlees</td>
+                <td class="note">vegetarisch aub</td>
               </tr>
 
-              <tr data-search="stijn bockstael kippenwit meergranen + groenten ">
+              <tr data-search="stijn bockstael kippenwit meergranen + groenten   ">
                 <td class="name">Stijn Bockstael</td>
                 <td>Kippenwit</td>
                 <td><span class="type-pill">meergranen + groenten</span></td>
-                <td class="special">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="sven vispoel tonijn pikant wit + groenten ">
+              <tr data-search="sven vispoel tonijn pikant wit + groenten   ">
                 <td class="name">Sven Vispoel</td>
                 <td>Tonijn Pikant</td>
                 <td><span class="type-pill">wit + groenten</span></td>
-                <td class="special">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
+                <td class="note">—</td>
               </tr>
 
-              <tr data-search="valerie helderweirt gerookte zalm meergranen eventueel slaatje indien glutenvrije broodjes niet kunnen? · gluten">
+              <tr data-search="valerie helderweirt gerookte zalm meergranen glutenvrij! · eventueel slaatje indien glutenvrije broodjes niet kunnen? gluten glutenvrij ;)">
                 <td class="name">Valerie Helderweirt</td>
                 <td>Gerookte zalm</td>
                 <td><span class="type-pill">meergranen</span></td>
-                <td class="special">Eventueel slaatje indien glutenvrije broodjes niet kunnen? · Gluten</td>
+                <td class="note">Glutenvrij! · Eventueel slaatje indien glutenvrije broodjes niet kunnen?</td>
+                <td class="note">Gluten</td>
+                <td class="note">Glutenvrij ;)</td>
               </tr>
             </tbody>
           </table>
