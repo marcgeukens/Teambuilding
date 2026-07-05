@@ -1,1 +1,2089 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Spelletjes, spelregels, ploegen en schema's voor de teambuilding van Prom 23 Klas A.">
+  <title>Spelletjes & spelregels · Teambuilding Prom 23 Klas A</title>
 
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+  <style>
+    :root{
+      --bg:#eef3f8;
+      --text:#102044;
+      --navy:#1f3270;
+      --navy-dark:#182655;
+      --teal:#148c9b;
+      --teal-dark:#116f7d;
+      --yellow:#f7bf21;
+      --coral:#ff7365;
+      --green:#3a9d70;
+      --white:#fff;
+      --muted:#60708d;
+      --line:rgba(16,32,68,.13);
+      --shadow:0 18px 48px rgba(16,32,68,.12);
+      --shadow-card:0 12px 30px rgba(16,32,68,.075);
+      --radius:24px;
+      --page:1320px;
+      --gutter:32px;
+    }
+
+    *,
+    *::before,
+    *::after{box-sizing:border-box}
+
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      color:var(--text);
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        linear-gradient(90deg, rgba(31,50,112,.055) 1px, transparent 1px),
+        linear-gradient(rgba(31,50,112,.055) 1px, transparent 1px),
+        radial-gradient(circle at 10% 4%, rgba(247,191,33,.18), transparent 25%),
+        radial-gradient(circle at 92% 9%, rgba(20,140,155,.14), transparent 24%),
+        var(--bg);
+      background-size:48px 48px,48px 48px,auto,auto,auto;
+      overflow-x:hidden;
+    }
+
+    a{color:inherit}
+    button,input{font:inherit}
+
+    .page{
+      width:min(var(--page), calc(100% - var(--gutter)));
+      margin-inline:auto;
+    }
+
+    .skip-link{
+      position:fixed;
+      top:12px;
+      left:12px;
+      z-index:200;
+      transform:translateY(-180%);
+      padding:10px 14px;
+      border-radius:999px;
+      background:var(--yellow);
+      color:var(--navy-dark);
+      font-weight:950;
+      text-decoration:none;
+      transition:.16s transform;
+    }
+
+    .skip-link:focus{transform:translateY(0)}
+
+    .site-nav{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(238,243,248,.94);
+      border-bottom:1px solid rgba(16,32,68,.08);
+      backdrop-filter:blur(16px);
+    }
+
+    .site-nav__inner{
+      min-height:70px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:11px;
+      color:var(--navy-dark);
+      font-weight:1000;
+      letter-spacing:-.04em;
+      text-decoration:none;
+      white-space:nowrap;
+    }
+
+    .brand__mark{
+      width:44px;
+      height:44px;
+      flex:0 0 44px;
+      display:grid;
+      place-items:center;
+      border-radius:16px;
+      color:var(--navy-dark);
+      background:var(--yellow);
+      box-shadow:7px 7px 0 rgba(20,140,155,.16);
+      transform:rotate(-2deg);
+    }
+
+    .site-nav__links{
+      display:flex;
+      justify-content:flex-end;
+      flex-wrap:wrap;
+      gap:7px;
+    }
+
+    .site-nav__links a{
+      padding:9px 11px;
+      border-radius:999px;
+      color:#2b3c62;
+      font-size:.67rem;
+      font-weight:950;
+      letter-spacing:.045em;
+      text-decoration:none;
+      text-transform:uppercase;
+      transition:.16s background,.16s color,.16s transform;
+    }
+
+    .site-nav__links a:hover,
+    .site-nav__links a:focus-visible{
+      color:white;
+      background:var(--navy);
+      transform:translateY(-1px);
+      outline:none;
+    }
+
+    .site-nav__links a.highlight{
+      color:var(--navy-dark);
+      border:1px solid rgba(247,191,33,.55);
+      background:rgba(247,191,33,.35);
+    }
+
+    .site-header{padding:24px 0 34px}
+
+    .hero{
+      display:grid;
+      grid-template-columns:minmax(0,1.24fr) minmax(360px,.86fr);
+      gap:18px;
+      align-items:stretch;
+    }
+
+    .hero__main,
+    .hero__side{
+      position:relative;
+      overflow:hidden;
+      border-radius:30px;
+      box-shadow:var(--shadow);
+    }
+
+    .hero__main{
+      min-height:520px;
+      padding:clamp(34px,4.4vw,64px);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      color:white;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+        radial-gradient(circle at 85% 8%, rgba(255,255,255,.10), transparent 16%),
+        linear-gradient(135deg,var(--navy),var(--navy-dark));
+      background-size:44px 44px,44px 44px,auto,auto;
+    }
+
+    .hero__icon{
+      position:absolute;
+      top:24px;
+      right:28px;
+      width:104px;
+      height:104px;
+      display:grid;
+      place-items:center;
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:30px;
+      background:rgba(255,255,255,.10);
+      font-size:2.7rem;
+      transform:rotate(8deg);
+    }
+
+    .eyebrow{
+      width:max-content;
+      max-width:100%;
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      padding:8px 12px;
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:999px;
+      color:#dfe8ff;
+      background:rgba(255,255,255,.10);
+      font-size:.72rem;
+      font-weight:900;
+      letter-spacing:.17em;
+      text-transform:uppercase;
+    }
+
+    .eyebrow::before{
+      content:"";
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--yellow);
+      box-shadow:0 0 0 6px rgba(247,191,33,.15);
+    }
+
+    .hero h1{
+      max-width:820px;
+      margin:30px 0 0;
+      color:white;
+      font-size:clamp(3.2rem,5.3vw,6.1rem);
+      line-height:.9;
+      letter-spacing:-.065em;
+    }
+
+    .hero__subtitle{
+      max-width:730px;
+      margin:22px 0 0;
+      display:flex;
+      align-items:flex-start;
+      gap:17px;
+      color:#dbe5ff;
+      font-size:clamp(1.55rem,2.9vw,3.05rem);
+      font-weight:300;
+      line-height:1;
+      letter-spacing:-.06em;
+    }
+
+    .hero__subtitle::before{
+      content:"";
+      width:8px;
+      height:74px;
+      flex:0 0 8px;
+      margin-top:4px;
+      border-radius:999px;
+      background:var(--yellow);
+    }
+
+    .hero__kicker{
+      margin:22px 0 0 25px;
+      color:var(--yellow);
+      font-size:clamp(1rem,1.4vw,1.18rem);
+      font-style:italic;
+      font-weight:850;
+    }
+
+    .hero__actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:30px 0 0 25px;
+    }
+
+    .button{
+      min-height:46px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:0 15px;
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:15px;
+      color:white;
+      background:rgba(255,255,255,.10);
+      font-size:.84rem;
+      font-weight:950;
+      text-decoration:none;
+      transition:.16s background,.16s color,.16s transform;
+      cursor:pointer;
+    }
+
+    .button:hover,
+    .button:focus-visible{
+      color:var(--navy-dark);
+      background:white;
+      transform:translateY(-2px);
+      outline:none;
+    }
+
+    .button--primary{color:var(--navy-dark);border-color:var(--yellow);background:var(--yellow)}
+    .button--teal{color:white;border-color:var(--teal);background:var(--teal)}
+    .button--teal:hover,.button--teal:focus-visible{color:white;background:var(--navy)}
+
+    .hero__side{
+      min-height:520px;
+      display:grid;
+      grid-template-rows:auto 1fr;
+      background:white;
+    }
+
+    .hero__side-top{
+      min-height:205px;
+      position:relative;
+      overflow:hidden;
+      padding:36px 32px 30px;
+      color:white;
+      background:
+        radial-gradient(circle at 18% 24%, rgba(255,255,255,.33), transparent 15%),
+        linear-gradient(135deg,var(--teal),var(--teal-dark));
+    }
+
+    .hero__side-top::after{
+      content:"";
+      position:absolute;
+      top:-78px;
+      right:-76px;
+      width:190px;
+      height:190px;
+      border:2px solid rgba(255,255,255,.23);
+      border-radius:50%;
+    }
+
+    .hero__side-title{
+      position:relative;
+      z-index:1;
+      margin:0;
+      color:white;
+      font-size:clamp(2rem,3.4vw,3.2rem);
+      line-height:1.03;
+      letter-spacing:-.075em;
+    }
+
+    .hero__side-body{
+      padding:28px;
+      display:grid;
+      gap:14px;
+      align-content:start;
+    }
+
+    .hero__intro{
+      margin:0;
+      color:var(--muted);
+      font-size:1rem;
+      line-height:1.62;
+      font-weight:700;
+    }
+
+    .stat-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:10px;
+      margin-top:12px;
+    }
+
+    .stat-card{
+      padding:14px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:#f6f9fc;
+    }
+
+    .stat-card b{
+      display:block;
+      color:var(--navy);
+      font-size:1.55rem;
+      line-height:.95;
+      letter-spacing:-.05em;
+    }
+
+    .stat-card span{
+      display:block;
+      margin-top:6px;
+      color:var(--muted);
+      font-size:.83rem;
+      font-weight:800;
+      line-height:1.3;
+    }
+
+    .section{
+      padding:52px 0;
+      scroll-margin-top:86px;
+    }
+
+    .section__header{margin-bottom:20px}
+
+    .section__title{
+      display:flex;
+      align-items:flex-start;
+      gap:15px;
+    }
+
+    .section__title::before{
+      content:"";
+      width:8px;
+      height:64px;
+      flex:0 0 8px;
+      margin-top:5px;
+      border-radius:999px;
+      background:var(--yellow);
+    }
+
+    .section__title h2{
+      margin:0;
+      color:var(--navy);
+      font-size:clamp(2.25rem,4.7vw,4.7rem);
+      line-height:.92;
+      letter-spacing:-.078em;
+    }
+
+    .section__lead{
+      max-width:940px;
+      margin:12px 0 0 23px;
+      color:#536689;
+      font-size:1.02rem;
+      line-height:1.55;
+      font-weight:700;
+    }
+
+    .panel,
+    .info-card,
+    .rule-card,
+    .team-card,
+    .round-card,
+    .roster-panel,
+    .person-panel,
+    .faq-item{
+      border:1px solid var(--line);
+      background:white;
+      box-shadow:var(--shadow-card);
+    }
+
+    .panel,
+    .info-card,
+    .rule-card,
+    .team-card,
+    .round-card,
+    .roster-panel,
+    .person-panel{
+      position:relative;
+      overflow:hidden;
+      border-radius:var(--radius);
+      padding:24px;
+    }
+
+    .panel::before,
+    .info-card::before,
+    .rule-card::before,
+    .team-card::before,
+    .round-card::before,
+    .roster-panel::before,
+    .person-panel::before{
+      content:"";
+      position:absolute;
+      inset:0 0 auto;
+      height:6px;
+      background:linear-gradient(90deg,var(--yellow),var(--teal),var(--coral));
+    }
+
+    .info-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .info-card h3,
+    .rule-card h3,
+    .panel h3,
+    .person-panel h3{
+      margin:0 0 9px;
+      color:var(--navy);
+      font-size:1.38rem;
+      letter-spacing:-.045em;
+    }
+
+    .info-card p,
+    .rule-card p,
+    .panel p,
+    .person-panel p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.58;
+      font-weight:650;
+    }
+
+    .icon-box{
+      width:54px;
+      height:54px;
+      display:grid;
+      place-items:center;
+      margin-bottom:16px;
+      border-radius:18px;
+      color:white;
+      background:var(--navy);
+      box-shadow:7px 7px 0 rgba(20,140,155,.14);
+      font-size:1.12rem;
+    }
+
+    .info-card:nth-child(2) .icon-box,
+    .rule-card:nth-child(2) .icon-box{background:var(--teal);box-shadow:7px 7px 0 rgba(247,191,33,.18)}
+    .info-card:nth-child(3) .icon-box,
+    .rule-card:nth-child(3) .icon-box{background:var(--coral);box-shadow:7px 7px 0 rgba(31,50,112,.12)}
+    .info-card:nth-child(4) .icon-box{background:var(--green)}
+
+    .tag{
+      width:max-content;
+      max-width:100%;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      margin-bottom:10px;
+      padding:6px 9px;
+      border-radius:999px;
+      color:var(--navy);
+      background:#eef3f8;
+      border:1px solid var(--line);
+      font-size:.70rem;
+      font-weight:1000;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .search-layout{
+      display:grid;
+      grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);
+      gap:18px;
+    }
+
+    .search-box{
+      width:100%;
+      min-height:50px;
+      padding:0 15px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:#f6f9fc;
+      color:var(--text);
+      outline:none;
+      font-weight:750;
+    }
+
+    .search-box:focus{
+      border-color:rgba(20,140,155,.50);
+      box-shadow:0 0 0 4px rgba(20,140,155,.12);
+      background:white;
+    }
+
+    .person-result{
+      display:grid;
+      gap:10px;
+    }
+
+    .person-result h3{
+      margin:0;
+      color:var(--navy);
+      font-size:1.5rem;
+      letter-spacing:-.045em;
+    }
+
+    .personal-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:10px;
+      margin-top:10px;
+    }
+
+    .personal-card{
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:#f6f9fc;
+      padding:14px;
+    }
+
+    .personal-card b{
+      color:var(--navy);
+      display:block;
+      margin-bottom:8px;
+    }
+
+    .personal-card ul{
+      margin:0;
+      padding-left:18px;
+      color:#52627e;
+      line-height:1.42;
+      font-size:.92rem;
+      font-weight:700;
+    }
+
+    .summary-table{
+      overflow:auto;
+      border:1px solid var(--line);
+      border-radius:20px;
+      background:white;
+    }
+
+    table{
+      width:100%;
+      min-width:780px;
+      border-collapse:collapse;
+    }
+
+    th,
+    td{
+      padding:13px 14px;
+      border-bottom:1px solid rgba(16,32,68,.09);
+      text-align:left;
+      vertical-align:top;
+    }
+
+    th{
+      color:var(--navy);
+      background:#f6f9fc;
+      font-size:.74rem;
+      letter-spacing:.055em;
+      text-transform:uppercase;
+      font-weight:1000;
+    }
+
+    td{
+      color:#52627e;
+      font-weight:700;
+    }
+
+    .rules-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .rule-card ul{
+      margin:14px 0 0;
+      padding-left:19px;
+      color:#52627e;
+      line-height:1.55;
+      font-weight:700;
+    }
+
+    .rule-card li + li{margin-top:7px}
+
+    .rule-tip{
+      margin-top:14px!important;
+      padding:13px;
+      border-radius:16px;
+      background:linear-gradient(135deg,rgba(247,191,33,.18),rgba(20,140,155,.13));
+      font-weight:850!important;
+      color:#2c3b5e!important;
+    }
+
+    .activity-header{
+      display:grid;
+      grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);
+      gap:16px;
+      margin-bottom:18px;
+    }
+
+    .teams-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:12px;
+      margin:16px 0 24px;
+    }
+
+    .teams-grid.padel{
+      grid-template-columns:repeat(3,minmax(0,1fr));
+    }
+
+    .team-card{
+      padding:18px;
+    }
+
+    .team-card.small{
+      padding:14px;
+    }
+
+    .team-card h4{
+      margin:0 0 10px;
+      color:var(--navy);
+      font-size:1.08rem;
+      letter-spacing:-.035em;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:8px;
+    }
+
+    .team-card h4 span,
+    .team-card h4 small{
+      color:var(--muted);
+      font-size:.74rem;
+      letter-spacing:0;
+      font-weight:850;
+      white-space:nowrap;
+    }
+
+    .person-list{
+      display:flex;
+      flex-wrap:wrap;
+      gap:7px;
+    }
+
+    .person-chip{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:7px 9px;
+      border-radius:999px;
+      background:#f6f9fc;
+      border:1px solid var(--line);
+      color:#52627e;
+      font-size:.84rem;
+      font-weight:750;
+      transition:.15s background,.15s border-color,.15s transform;
+    }
+
+    .person-chip b{
+      display:grid;
+      place-items:center;
+      min-width:22px;
+      height:22px;
+      border-radius:999px;
+      background:var(--yellow);
+      color:var(--navy-dark);
+      font-size:.72rem;
+    }
+
+    .person-chip.is-highlight{
+      background:rgba(247,191,33,.28);
+      border-color:rgba(247,191,33,.65);
+      transform:translateY(-1px);
+    }
+
+    .subheading{
+      margin:30px 0 10px;
+      color:var(--navy);
+      font-size:1.52rem;
+      letter-spacing:-.045em;
+    }
+
+    .rounds-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+      margin-top:12px;
+    }
+
+    .round-card{
+      padding:0;
+    }
+
+    .round-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      padding:18px 18px 12px;
+      border-bottom:1px solid rgba(16,32,68,.08);
+    }
+
+    .round-head h4{
+      margin:0;
+      color:var(--navy);
+      font-size:1.2rem;
+      letter-spacing:-.035em;
+    }
+
+    .round-head span{
+      display:inline-flex;
+      padding:6px 9px;
+      border-radius:999px;
+      background:#eef3f8;
+      color:var(--muted);
+      font-size:.72rem;
+      font-weight:900;
+      white-space:nowrap;
+    }
+
+    .match-list{
+      list-style:none;
+      margin:0;
+      padding:14px 16px 10px;
+      display:grid;
+      gap:8px;
+    }
+
+    .match-list li{
+      display:grid;
+      grid-template-columns:92px 1fr;
+      gap:10px;
+      align-items:center;
+      padding:10px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:#f6f9fc;
+    }
+
+    .match-list b{color:var(--navy)}
+    .match-list span{color:#52627e;font-weight:850}
+    .match-list em{font-style:normal;color:var(--coral);font-weight:1000;margin:0 5px}
+
+    .rest-box{
+      margin:0 16px 16px;
+      padding:12px;
+      border-radius:14px;
+      background:linear-gradient(135deg,rgba(247,191,33,.16),rgba(20,140,155,.10));
+      border:1px solid rgba(16,32,68,.08);
+    }
+
+    .rest-box b{
+      display:block;
+      color:var(--navy);
+      margin-bottom:8px;
+    }
+
+    .rest-box div{
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px;
+    }
+
+    .rest-box span{
+      display:inline-flex;
+      min-width:27px;
+      justify-content:center;
+      padding:5px 8px;
+      border-radius:999px;
+      background:white;
+      border:1px solid var(--line);
+      font-size:.82rem;
+      font-weight:900;
+      color:#52627e;
+    }
+
+    .round-note{
+      margin:0 16px 16px!important;
+      color:var(--muted)!important;
+      font-size:.9rem;
+      line-height:1.45!important;
+    }
+
+    .attention{
+      margin-top:14px;
+      padding:14px 15px;
+      border-radius:18px;
+      border:1px solid rgba(247,191,33,.48);
+      background:rgba(247,191,33,.18);
+      color:#4d3d00!important;
+      font-weight:800!important;
+      line-height:1.48!important;
+    }
+
+    .roster-panel{
+      padding:20px;
+    }
+
+    .roster-tools{
+      display:flex;
+      gap:10px;
+      margin-bottom:14px;
+      align-items:center;
+    }
+
+    .roster-list{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:8px;
+    }
+
+    .roster-list li{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      padding:10px 12px;
+      border-radius:15px;
+      background:#f6f9fc;
+      border:1px solid var(--line);
+    }
+
+    .roster-list li.is-hidden{
+      display:none;
+    }
+
+    .roster-list b{
+      display:grid;
+      place-items:center;
+      width:30px;
+      height:30px;
+      border-radius:999px;
+      background:var(--yellow);
+      color:var(--navy-dark);
+      font-size:.82rem;
+      flex:0 0 30px;
+    }
+
+    .roster-list span{
+      font-weight:850;
+      color:#52627e;
+    }
+
+    .faq{
+      max-width:920px;
+      display:grid;
+      gap:10px;
+    }
+
+    .faq-item{
+      overflow:hidden;
+      border-radius:19px;
+    }
+
+    .faq-item__question{
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:17px 18px;
+      border:0;
+      color:var(--navy);
+      background:white;
+      font-weight:950;
+      text-align:left;
+      cursor:pointer;
+    }
+
+    .faq-item__answer{
+      display:none;
+      padding:0 18px 17px;
+      color:var(--muted);
+      line-height:1.58;
+      font-weight:650;
+    }
+
+    .faq-item.is-open .faq-item__answer{display:block}
+    .faq-item.is-open .faq-item__question i{transform:rotate(180deg)}
+
+    .site-footer{
+      margin-top:46px;
+      padding:34px 0;
+      color:#dfe8ff;
+      background:var(--navy-dark);
+    }
+
+    .footer-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      line-height:1.45;
+      font-weight:700;
+    }
+
+    .footer-inner a{
+      color:white;
+      font-weight:1000;
+      text-decoration:none;
+    }
+
+    .footer-inner a:hover{text-decoration:underline}
+
+    @media(max-width:1120px){
+      .hero,
+      .search-layout,
+      .activity-header{
+        grid-template-columns:1fr;
+      }
+
+      .hero__main,
+      .hero__side{
+        min-height:auto;
+      }
+
+      .info-grid,
+      .teams-grid,
+      .teams-grid.padel,
+      .roster-list{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+
+      .personal-grid,
+      .rules-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:860px){
+      .rounds-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:760px){
+      :root{--gutter:20px}
+
+      body{background-size:36px 36px,36px 36px,auto,auto,auto}
+
+      .site-nav__inner{
+        min-height:auto;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:9px;
+        padding:10px 0;
+      }
+
+      .brand{font-size:.98rem}
+
+      .brand__mark{
+        width:40px;
+        height:40px;
+        flex-basis:40px;
+        border-radius:14px;
+        box-shadow:5px 5px 0 rgba(20,140,155,.16);
+      }
+
+      .site-nav__links{
+        width:100%;
+        flex-wrap:nowrap;
+        justify-content:flex-start;
+        gap:6px;
+        overflow-x:auto;
+        padding-bottom:3px;
+        scrollbar-width:none;
+        -webkit-overflow-scrolling:touch;
+      }
+
+      .site-nav__links::-webkit-scrollbar{display:none}
+
+      .site-nav__links a{
+        flex:0 0 auto;
+        padding:8px 10px;
+        border:1px solid rgba(16,32,68,.08);
+        background:rgba(255,255,255,.58);
+        font-size:.60rem;
+      }
+
+      .site-header{padding:16px 0 20px}
+
+      .hero{gap:12px}
+
+      .hero__main,
+      .hero__side{border-radius:23px}
+
+      .hero__main{padding:26px 20px 24px}
+
+      .hero__icon{display:none}
+
+      .eyebrow{
+        padding:7px 10px;
+        font-size:.61rem;
+        letter-spacing:.13em;
+      }
+
+      .hero h1{
+        margin-top:22px;
+        font-size:clamp(2.38rem,12.8vw,3.65rem);
+        line-height:.94;
+        letter-spacing:-.046em;
+      }
+
+      .hero__subtitle{
+        margin-top:18px;
+        gap:11px;
+        font-size:clamp(1.32rem,8.2vw,2.32rem);
+        line-height:1.02;
+        letter-spacing:-.05em;
+      }
+
+      .hero__subtitle::before{
+        width:7px;
+        height:52px;
+        flex-basis:7px;
+      }
+
+      .hero__kicker,
+      .hero__actions{margin-left:18px}
+
+      .hero__actions{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:8px;
+        margin-top:22px;
+      }
+
+      .button{
+        width:100%;
+        min-height:44px;
+        border-radius:14px;
+      }
+
+      .hero__side-top{
+        min-height:auto;
+        padding:22px 20px;
+      }
+
+      .hero__side-title{
+        font-size:clamp(1.85rem,10.4vw,2.8rem);
+        line-height:1.05;
+      }
+
+      .hero__side-body{padding:20px;gap:16px}
+
+      .stat-grid,
+      .info-grid,
+      .teams-grid,
+      .teams-grid.padel,
+      .roster-list{
+        grid-template-columns:1fr;
+      }
+
+      .section{
+        padding:34px 0;
+        scroll-margin-top:118px;
+      }
+
+      .section__header{margin-bottom:16px}
+
+      .section__title{gap:11px}
+
+      .section__title::before{
+        width:7px;
+        height:50px;
+        flex-basis:7px;
+        margin-top:3px;
+      }
+
+      .section__title h2{
+        font-size:clamp(2.05rem,11vw,3.45rem);
+        line-height:.94;
+      }
+
+      .section__lead{
+        margin-left:18px;
+        font-size:.95rem;
+      }
+
+      .panel,
+      .info-card,
+      .rule-card,
+      .team-card,
+      .round-card,
+      .roster-panel,
+      .person-panel{
+        padding:20px;
+        border-radius:21px;
+      }
+
+      .round-card{padding:0}
+
+      .round-head{
+        display:grid;
+        gap:8px;
+      }
+
+      .round-head span{width:max-content}
+
+      .match-list li{
+        grid-template-columns:1fr;
+        gap:4px;
+      }
+
+      .personal-grid{
+        grid-template-columns:1fr;
+      }
+
+      .footer-inner{
+        align-items:flex-start;
+        flex-direction:column;
+        font-size:.92rem;
+      }
+    }
+
+    @media(max-width:380px){
+      :root{--gutter:16px}
+
+      .hero h1{font-size:clamp(2.18rem,12vw,3.15rem)}
+
+      .site-nav__links a{font-size:.57rem}
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Naar inhoud springen</a>
+
+  <nav class="site-nav" aria-label="Hoofdnavigatie">
+    <div class="page site-nav__inner">
+      <a class="brand" href="index.html" aria-label="Terug naar startpagina">
+        <span class="brand__mark" aria-hidden="true"><i class="fa-solid fa-people-arrows"></i></span>
+        <span>Spelletjes & spelregels</span>
+      </a>
+
+      <div class="site-nav__links">
+        <a href="index.html">Home</a>
+        <a href="#vind-jezelf" class="highlight">Vind jezelf</a>
+        <a href="#spelregels">Spelregels</a>
+        <a href="#padel">Padel</a>
+        <a href="#bumperball">Bumperball</a>
+        <a href="#beachvolley">Beachvolley</a>
+        <a href="#klaslijst">Klaslijst</a>
+        <a href="broodjes.html">Broodjes</a>
+        <a href="locatie.html">Parking</a>
+      </div>
+    </div>
+  </nav>
+
+  <header id="top" class="site-header">
+    <div class="page hero" aria-labelledby="page-title">
+      <div class="hero__main">
+        <div class="hero__icon" aria-hidden="true">🎾</div>
+
+        <p class="eyebrow">Volledig overzicht</p>
+
+        <h1 id="page-title">Spelletjes<br>& spelregels</h1>
+
+        <p class="hero__subtitle">ploegen, rondes<br>velden en rust</p>
+
+        <p class="hero__kicker">Alles uit de Word-documenten, maar leesbaar op één pagina.</p>
+
+        <div class="hero__actions">
+          <a class="button button--primary" href="#vind-jezelf">
+            <i class="fa-solid fa-magnifying-glass"></i> Vind jezelf
+          </a>
+          <a class="button button--teal" href="#padel">
+            <i class="fa-solid fa-table-tennis-paddle-ball"></i> Padel
+          </a>
+          <a class="button" href="#bumperball">
+            <i class="fa-solid fa-person-falling-burst"></i> Bumperball
+          </a>
+          <a class="button" href="#beachvolley">
+            <i class="fa-solid fa-volleyball"></i> Beachvolley
+          </a>
+        </div>
+      </div>
+
+      <aside class="hero__side" aria-label="Korte samenvatting">
+        <div class="hero__side-top">
+          <p class="hero__side-title">Niet zoeken.<br>Gewoon<br>spelen.</p>
+        </div>
+
+        <div class="hero__side-body">
+          <p class="hero__intro">
+            Bij elke sportwissel worden de teams volledig herverdeeld.
+            Je speelt padel, bumperball en beachvolley telkens met en tegen andere mensen.
+          </p>
+
+          <div class="stat-grid">
+            <article class="stat-card"><b>42</b><span>personen in de klaslijst</span></article>
+            <article class="stat-card"><b>21</b><span>padelduo’s</span></article>
+            <article class="stat-card"><b>6</b><span>bumperballteams</span></article>
+            <article class="stat-card"><b>8</b><span>beachvolleyteams</span></article>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section id="vind-jezelf" class="section page" aria-labelledby="vind-title">
+      <header class="section__header">
+        <div class="section__title"><h2 id="vind-title">Vind jezelf</h2></div>
+        <p class="section__lead">
+          Typ je naam of nummer. Je krijgt meteen je padelduo, bumperballteam en beachvolleyteam met rondes.
+        </p>
+      </header>
+
+      <div class="search-layout">
+        <article class="person-panel">
+          <h3><i class="fa-solid fa-magnifying-glass"></i> Persoonlijk overzicht</h3>
+          <p>Voor snel gebruik op de dag zelf. Typ bijvoorbeeld “13”, “Marc” of “Geukens”.</p>
+          <div style="margin-top:16px;">
+            <input class="search-box" id="personSearch" list="peopleOptions" type="search" placeholder="Zoek naam of nummer..." aria-label="Zoek jezelf">
+            <datalist id="peopleOptions">
+              <option value="1 · Beerden Bram"></option><option value="2 · Bockstael Stijn"></option><option value="3 · De Block Dries"></option><option value="4 · De Brandt Sara"></option><option value="5 · De Cocker Bart"></option><option value="6 · De Vree Ann"></option><option value="7 · De Wilde Gilles"></option><option value="8 · Delvaux Lieven"></option><option value="9 · Dely Fleur"></option><option value="10 · Dobbels Dieter"></option><option value="11 · Engels Steven"></option><option value="12 · Geniesse Dirk"></option><option value="13 · Geukens Marc"></option><option value="14 · Gobyn Amedeo"></option><option value="15 · Helderweirt Valerie"></option><option value="16 · Heyvaert Joachim"></option><option value="17 · Hollevoet David"></option><option value="18 · Inzé Dominique"></option><option value="19 · Jouret Nils"></option><option value="20 · Lecluyse Didier"></option><option value="21 · Mahieu Steven"></option><option value="22 · Maus Jinse"></option><option value="23 · Mensaert Charlotte"></option><option value="24 · Moens Lode"></option><option value="25 · Pettinato Mario"></option><option value="26 · Schippers Scott"></option><option value="27 · Smeyers Frederick"></option><option value="28 · Truyers Davy"></option><option value="29 · Ulburghs Anna"></option><option value="30 · Van Belle Jill"></option><option value="31 · van Bussel Dieter"></option><option value="32 · Van Petegem Helga"></option><option value="33 · Van Roy Kevin"></option><option value="34 · Vande Kerkhof Gertjan"></option><option value="35 · Vandenbrouck Stefanie"></option><option value="36 · Verbist David"></option><option value="37 · Verbruggen Liselot"></option><option value="38 · Verriest Sebastian"></option><option value="39 · Vinck Jan"></option><option value="40 · Vispoel Sven"></option><option value="41 · Wevers Digna"></option><option value="42 · Wybo Maarten"></option>
+            </datalist>
+          </div>
+        </article>
+
+        <article class="person-panel">
+          <div class="person-result" id="personResult">
+            <h3>Geen persoon geselecteerd</h3>
+            <p>Begin te typen om je persoonlijke schema te zien.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="overzicht" class="section page" aria-labelledby="overzicht-title">
+      <header class="section__header">
+        <div class="section__title"><h2 id="overzicht-title">Dagschema</h2></div>
+        <p class="section__lead">
+          De drie schema’s laten telkens wat marge over als buffer voor uitloop, uitleg of een korte pauze.
+        </p>
+      </header>
+
+      <div class="summary-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Activiteit</th>
+              <th>Duur</th>
+              <th>Rondes</th>
+              <th>Speeltijd per ronde</th>
+              <th>Wisseltijd</th>
+              <th>Extra</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Padel</strong></td>
+              <td>2u — 112 min gebruikt</td>
+              <td>5</td>
+              <td>20 min</td>
+              <td>3 min</td>
+              <td>Iedereen speelt exact 2 keer.</td>
+            </tr>
+            <tr>
+              <td><strong>Bumperball</strong></td>
+              <td>90 min — 89 min gebruikt</td>
+              <td>4</td>
+              <td>±20 min</td>
+              <td>3 min</td>
+              <td>1 terrein, telkens 2 teams actief.</td>
+            </tr>
+            <tr>
+              <td><strong>Beachvolleybal</strong></td>
+              <td>2u — 112 min gebruikt</td>
+              <td>5</td>
+              <td>20 min</td>
+              <td>3 min</td>
+              <td>4 velden bezet, niemand rust.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="spelregels" class="section page" aria-labelledby="regels-title">
+      <header class="section__header">
+        <div class="section__title"><h2 id="regels-title">Spelregels</h2></div>
+        <p class="section__lead">
+          Recreatief en plezant. Geen scheidsrechtersniveau, gewoon genoeg regels om vlot te spelen.
+        </p>
+      </header>
+
+      <div class="rules-grid">
+        <article class="rule-card">
+          <div class="icon-box"><i class="fa-solid fa-table-tennis-paddle-ball"></i></div>
+          <span class="tag">Padel</span>
+          <h3>Duo’s, glas/gaas en onderhands serveren</h3>
+          <p>Gespeeld in duo’s, met een massief racket zonder snaren en een lagedruk-tennisbal.</p>
+          <ul>
+            <li>De bal mag na de opstuit via glas of gaas terugkaatsen voor je hem terugslaat.</li>
+            <li>Dat mag altijd, ook bij de service.</li>
+            <li>Service is onderhands, diagonaal, en de bal moet eerst stuiteren voor je slaat.</li>
+            <li>Telling kan 15-30-40-game, of gewoon eerste tot 11 als dat sneller moet gaan.</li>
+          </ul>
+          <p class="rule-tip">Recreatieve tip: bij twijfel gewoon overdoen. Plezier &gt; precisie.</p>
+        </article>
+
+        <article class="rule-card">
+          <div class="icon-box"><i class="fa-solid fa-person-falling-burst"></i></div>
+          <span class="tag">Bumperball</span>
+          <h3>Botsen mag, overdrijven niet</h3>
+          <p>Iedereen zit vast in een opblaasbare bumperbal en botst, rolt of duwt tegenstanders om.</p>
+          <ul>
+            <li>Doel is meestal scoren, iemand omver duwen of een “laatste blijft rechtstaan”-variant.</li>
+            <li>Kies vooral wat het meest lacht oplevert.</li>
+            <li>Geen opzettelijk hard frontaal rammen op iemands hoofd of nek.</li>
+            <li>Niemand die niet wil meedoen moet erin.</li>
+          </ul>
+          <p class="rule-tip">Verder: gewoon losgaan. Vallen is de bedoeling en meestal het leukste deel.</p>
+        </article>
+
+        <article class="rule-card">
+          <div class="icon-box"><i class="fa-solid fa-volleyball"></i></div>
+          <span class="tag">Beachvolleybal</span>
+          <h3>Bal over het net, iedereen mee</h3>
+          <p>Bal over het net, elk team normaal maximum 3 aanrakingen per beurt.</p>
+          <ul>
+            <li>Bij 5v5 of 6v6 mag je die 3 aanrakingen soepel houden.</li>
+            <li>Punt bij elke fout van de tegenstander: rally point systeem.</li>
+            <li>Speel bijvoorbeeld tot 15 of 21 punten, met minstens 2 punten verschil.</li>
+            <li>Handen en voeten mogen de bal raken; vasthouden of dubbel raken met dezelfde speler op rij niet.</li>
+          </ul>
+          <p class="rule-tip">Recreatieve tip: houd de bal in het spel en laat iedereen meedoen.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="padel" class="section page" aria-labelledby="padel-title">
+      <header class="section__header">
+        <div class="section__title"><h2 id="padel-title">Padel</h2></div>
+        <p class="section__lead">
+          2 uur, 5 velden, 42 personen en 21 duo’s. 5 rondes van 20 minuten speeltijd + 3 minuten wisseltijd.
+          Iedereen speelt exact 2 keer en nooit tweemaal tegen hetzelfde duo.
+        </p>
+      </header>
+
+      <div class="activity-header">
+        <article class="panel">
+          <h3><i class="fa-solid fa-table-tennis-paddle-ball"></i> Opzet</h3>
+          <p>5 rondes, maximaal 5 velden. In ronde 1 zijn alle 5 velden bezet. In rondes 2 tot 5 is veld 5 vrij.</p>
+        </article>
+        <article class="panel">
+          <h3><i class="fa-solid fa-circle-info"></i> Tip</h3>
+          <p>In de rondes waar veld 5 vrij is, kan je het gebruiken als inloop-/oefenveld voor rustende ploegen, of gewoon laten rusten.</p>
+        </article>
+      </div>
+
+      <h3 class="subheading">Padelduo’s</h3>
+      <div class="teams-grid padel">
+        
+      <article class="team-card small">
+        <h4>Ploeg 1 <span>2 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="10" title="Dobbels Dieter"><b>10</b>Dobbels Dieter</span><span class="person-chip" data-person="4" title="De Brandt Sara"><b>4</b>De Brandt Sara</span></div>
+      </article>
+    
+
+      <article class="team-card small">
+        <h4>Ploeg 2 <span>2 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="11" title="Engels Steven"><b>11</b>Engels Steven</span><span class="person-chip" data-person="27" title="Smeyers Frederick"><b>27</b>Smeyers Frederick</span></div>
+      </article>
+    
+
+      <article class="team-card small">
+        <h4>Ploeg 3 <span>2 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="38" title="Verriest Sebastian"><b>38</b>Verriest Sebastian</span><span class="person-chip" data-person="19" title="Jouret Nils"><b>19</b>Jouret Nils</span></div>
+      </article>
+    
+
+      <article class="team-card small">
+        <h4>Ploeg 4 <span>2 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="40" title="Vispoel Sven"><b>40</b>Vispoel Sven</span><span class="person-chip" data-person="26" title="Schippers Scott"><b>26</b>Schippers Scott</span></div>
+      </article>
+    
+
+      <article class="team-card small">
+        <h4>Ploeg 5 <span>2 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="5" title="De Cocker Bart"><b>5</b>De Cocker Bart</span><span class="person-chip" data-person="34" title="Vande Kerkhof Gertjan"><b>34</b>Vande Kerkhof Gertjan</span></div>
+      </article>
+    
+
+      <article class="team-card small">
+        <h4>Ploeg 6 <span>2 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="23" title="Mensaert Charlotte"><b>23</b>Mensaert Charlotte</span><span class="person-chip" data-person="12" title="Geniesse Dirk"><b>12</b>Geniesse Dirk</span></div>
+      </article>
+    
+
+      <article class="team-card small">
+        <h4>Ploeg 7 <span>2 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="30" title="Van Belle Jill"><b>30</b>Van Belle Jill</span><span class="person-chip" data-person="22" title="Maus Jinse"><b>22</b>Maus Jinse</span></div>
+      </article>
+    
+
+      <article class="team-card small">
+        <h4>Ploeg 8 <span>2 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="13" title="Geukens Marc"><b>13</b>Geukens Marc</span><span class="person-chip" data-person="25" title="Pettinato Mario"><b>25</b>Pettinato Mario</span></div>
+      </article>
+    
+
+      <article class="team-card small">
+        <h4>Ploeg 9 <span>2 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="36" title="Verbist David"><b>36</b>Verbist David</span><span class="person-chip" data-person="37" title="Verbruggen Liselot"><b>37</b>Verbruggen Liselot</span></div>
+      </article>
+    
+
+      <article class="team-card small">
+        <h4>Ploeg 10 <span>2 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="33" title="Van Roy Kevin"><b>33</b>Van Roy Kevin</span><span class="person-chip" data-person="14" title="Gobyn Amedeo"><b>14</b>Gobyn Amedeo</span></div>
+      </article>
+    
+
+      <article class="team-card small">
+        <h4>Ploeg 11 <span>2 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="24" title="Moens Lode"><b>24</b>Moens Lode</span><span class="person-chip" data-person="21" title="Mahieu Steven"><b>21</b>Mahieu Steven</span></div>
+      </article>
+    
+
+      <article class="team-card small">
+        <h4>Ploeg 12 <span>2 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="29" title="Ulburghs Anna"><b>29</b>Ulburghs Anna</span><span class="person-chip" data-person="39" title="Vinck Jan"><b>39</b>Vinck Jan</span></div>
+      </article>
+    
+
+      <article class="team-card small">
+        <h4>Ploeg 13 <span>2 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="31" title="van Bussel Dieter"><b>31</b>van Bussel Dieter</span><span class="person-chip" data-person="20" title="Lecluyse Didier"><b>20</b>Lecluyse Didier</span></div>
+      </article>
+    
+
+      <article class="team-card small">
+        <h4>Ploeg 14 <span>2 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="17" title="Hollevoet David"><b>17</b>Hollevoet David</span><span class="person-chip" data-person="42" title="Wybo Maarten"><b>42</b>Wybo Maarten</span></div>
+      </article>
+    
+
+      <article class="team-card small">
+        <h4>Ploeg 15 <span>2 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="35" title="Vandenbrouck Stefanie"><b>35</b>Vandenbrouck Stefanie</span><span class="person-chip" data-person="32" title="Van Petegem Helga"><b>32</b>Van Petegem Helga</span></div>
+      </article>
+    
+
+      <article class="team-card small">
+        <h4>Ploeg 16 <span>2 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="1" title="Beerden Bram"><b>1</b>Beerden Bram</span><span class="person-chip" data-person="3" title="De Block Dries"><b>3</b>De Block Dries</span></div>
+      </article>
+    
+
+      <article class="team-card small">
+        <h4>Ploeg 17 <span>2 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="28" title="Truyers Davy"><b>28</b>Truyers Davy</span><span class="person-chip" data-person="6" title="De Vree Ann"><b>6</b>De Vree Ann</span></div>
+      </article>
+    
+
+      <article class="team-card small">
+        <h4>Ploeg 18 <span>2 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="7" title="De Wilde Gilles"><b>7</b>De Wilde Gilles</span><span class="person-chip" data-person="9" title="Dely Fleur"><b>9</b>Dely Fleur</span></div>
+      </article>
+    
+
+      <article class="team-card small">
+        <h4>Ploeg 19 <span>2 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="15" title="Helderweirt Valerie"><b>15</b>Helderweirt Valerie</span><span class="person-chip" data-person="16" title="Heyvaert Joachim"><b>16</b>Heyvaert Joachim</span></div>
+      </article>
+    
+
+      <article class="team-card small">
+        <h4>Ploeg 20 <span>2 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="18" title="Inzé Dominique"><b>18</b>Inzé Dominique</span><span class="person-chip" data-person="2" title="Bockstael Stijn"><b>2</b>Bockstael Stijn</span></div>
+      </article>
+    
+
+      <article class="team-card small">
+        <h4>Ploeg 21 <span>2 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="8" title="Delvaux Lieven"><b>8</b>Delvaux Lieven</span><span class="person-chip" data-person="41" title="Wevers Digna"><b>41</b>Wevers Digna</span></div>
+      </article>
+    
+      </div>
+
+      <h3 class="subheading">Padelrondes</h3>
+      <div class="rounds-grid">
+        
+          <article class="round-card">
+            <div class="round-head">
+              <h4>Ronde 1</h4>
+              <span>20 min + 3 min wissel</span>
+            </div>
+            <ul class="match-list"><li><b>Veld 1</b><span>Ploeg 5 <em>vs</em> Ploeg 9</span></li><li><b>Veld 2</b><span>Ploeg 2 <em>vs</em> Ploeg 13</span></li><li><b>Veld 3</b><span>Ploeg 12 <em>vs</em> Ploeg 21</span></li><li><b>Veld 4</b><span>Ploeg 8 <em>vs</em> Ploeg 14</span></li><li><b>Veld 5</b><span>Ploeg 3 <em>vs</em> Ploeg 16</span></li></ul>
+            
+      <div class="rest-box">
+        <b>Rust</b>
+        <div><span>1</span><span>4</span><span>6</span><span>7</span><span>10</span><span>11</span><span>15</span><span>17</span><span>18</span><span>19</span><span>20</span></div>
+      </div>
+    
+            
+          </article>
+        
+
+          <article class="round-card">
+            <div class="round-head">
+              <h4>Ronde 2</h4>
+              <span>20 min + 3 min wissel</span>
+            </div>
+            <ul class="match-list"><li><b>Veld 1</b><span>Ploeg 1 <em>vs</em> Ploeg 10</span></li><li><b>Veld 2</b><span>Ploeg 14 <em>vs</em> Ploeg 17</span></li><li><b>Veld 3</b><span>Ploeg 4 <em>vs</em> Ploeg 18</span></li><li><b>Veld 4</b><span>Ploeg 6 <em>vs</em> Ploeg 11</span></li></ul>
+            
+      <div class="rest-box">
+        <b>Rust</b>
+        <div><span>2</span><span>3</span><span>5</span><span>7</span><span>8</span><span>9</span><span>12</span><span>13</span><span>15</span><span>16</span><span>19</span><span>20</span><span>21</span></div>
+      </div>
+    
+            <p class="round-note"><i class="fa-solid fa-circle-info"></i> Veld 5 vrij: eventueel inloop-/oefenveld of gewoon rust.</p>
+          </article>
+        
+
+          <article class="round-card">
+            <div class="round-head">
+              <h4>Ronde 3</h4>
+              <span>20 min + 3 min wissel</span>
+            </div>
+            <ul class="match-list"><li><b>Veld 1</b><span>Ploeg 11 <em>vs</em> Ploeg 20</span></li><li><b>Veld 2</b><span>Ploeg 1 <em>vs</em> Ploeg 17</span></li><li><b>Veld 3</b><span>Ploeg 3 <em>vs</em> Ploeg 9</span></li><li><b>Veld 4</b><span>Ploeg 6 <em>vs</em> Ploeg 16</span></li></ul>
+            
+      <div class="rest-box">
+        <b>Rust</b>
+        <div><span>2</span><span>4</span><span>5</span><span>7</span><span>8</span><span>10</span><span>12</span><span>13</span><span>14</span><span>15</span><span>18</span><span>19</span><span>21</span></div>
+      </div>
+    
+            <p class="round-note"><i class="fa-solid fa-circle-info"></i> Veld 5 vrij: eventueel inloop-/oefenveld of gewoon rust.</p>
+          </article>
+        
+
+          <article class="round-card">
+            <div class="round-head">
+              <h4>Ronde 4</h4>
+              <span>20 min + 3 min wissel</span>
+            </div>
+            <ul class="match-list"><li><b>Veld 1</b><span>Ploeg 2 <em>vs</em> Ploeg 4</span></li><li><b>Veld 2</b><span>Ploeg 10 <em>vs</em> Ploeg 21</span></li><li><b>Veld 3</b><span>Ploeg 15 <em>vs</em> Ploeg 19</span></li><li><b>Veld 4</b><span>Ploeg 5 <em>vs</em> Ploeg 7</span></li></ul>
+            
+      <div class="rest-box">
+        <b>Rust</b>
+        <div><span>1</span><span>3</span><span>6</span><span>8</span><span>9</span><span>11</span><span>12</span><span>13</span><span>14</span><span>16</span><span>17</span><span>18</span><span>20</span></div>
+      </div>
+    
+            <p class="round-note"><i class="fa-solid fa-circle-info"></i> Veld 5 vrij: eventueel inloop-/oefenveld of gewoon rust.</p>
+          </article>
+        
+
+          <article class="round-card">
+            <div class="round-head">
+              <h4>Ronde 5</h4>
+              <span>20 min + 3 min wissel</span>
+            </div>
+            <ul class="match-list"><li><b>Veld 1</b><span>Ploeg 19 <em>vs</em> Ploeg 20</span></li><li><b>Veld 2</b><span>Ploeg 12 <em>vs</em> Ploeg 18</span></li><li><b>Veld 3</b><span>Ploeg 8 <em>vs</em> Ploeg 15</span></li><li><b>Veld 4</b><span>Ploeg 7 <em>vs</em> Ploeg 13</span></li></ul>
+            
+      <div class="rest-box">
+        <b>Rust</b>
+        <div><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>9</span><span>10</span><span>11</span><span>14</span><span>16</span><span>17</span><span>21</span></div>
+      </div>
+    
+            <p class="round-note"><i class="fa-solid fa-circle-info"></i> Veld 5 vrij: eventueel inloop-/oefenveld of gewoon rust.</p>
+          </article>
+        
+      </div>
+    </section>
+
+    <section id="bumperball" class="section page" aria-labelledby="bumper-title">
+      <header class="section__header">
+        <div class="section__title"><h2 id="bumper-title">Bumperball</h2></div>
+        <p class="section__lead">
+          90 minuten, 1 terrein, 42 personen en 6 teams van 7. 4 rondes van ongeveer 20 minuten speeltijd + 3 minuten wisseltijd.
+          Door 1 terrein spelen telkens 2 teams en rusten de andere teams mee vanaf de kant.
+        </p>
+      </header>
+
+      <div class="activity-header">
+        <article class="panel">
+          <h3><i class="fa-solid fa-person-falling-burst"></i> Opzet</h3>
+          <p>Telkens 2 teams actief op 1 terrein. De andere teams rusten, kijken of supporteren.</p>
+        </article>
+        <article class="panel">
+          <h3><i class="fa-solid fa-scale-balanced"></i> Verdeling</h3>
+          <p>Team C en Team F spelen 2 keer. De andere teams spelen 1 keer. Dat is onvermijdelijk met maar 4 rondes op 1 terrein.</p>
+          <p class="attention">Eerlijker verdelen kan met een 5e ronde, maar dat kost ongeveer 23 extra minuten.</p>
+        </article>
+      </div>
+
+      <h3 class="subheading">Bumperballteams</h3>
+      <div class="teams-grid">
+        
+      <article class="team-card ">
+        <h4>Team A <span>7 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="15" title="Helderweirt Valerie"><b>15</b>Helderweirt Valerie</span><span class="person-chip" data-person="6" title="De Vree Ann"><b>6</b>De Vree Ann</span><span class="person-chip" data-person="23" title="Mensaert Charlotte"><b>23</b>Mensaert Charlotte</span><span class="person-chip" data-person="42" title="Wybo Maarten"><b>42</b>Wybo Maarten</span><span class="person-chip" data-person="41" title="Wevers Digna"><b>41</b>Wevers Digna</span><span class="person-chip" data-person="17" title="Hollevoet David"><b>17</b>Hollevoet David</span><span class="person-chip" data-person="11" title="Engels Steven"><b>11</b>Engels Steven</span></div>
+      </article>
+    
+
+      <article class="team-card ">
+        <h4>Team B <span>7 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="16" title="Heyvaert Joachim"><b>16</b>Heyvaert Joachim</span><span class="person-chip" data-person="12" title="Geniesse Dirk"><b>12</b>Geniesse Dirk</span><span class="person-chip" data-person="36" title="Verbist David"><b>36</b>Verbist David</span><span class="person-chip" data-person="38" title="Verriest Sebastian"><b>38</b>Verriest Sebastian</span><span class="person-chip" data-person="25" title="Pettinato Mario"><b>25</b>Pettinato Mario</span><span class="person-chip" data-person="9" title="Dely Fleur"><b>9</b>Dely Fleur</span><span class="person-chip" data-person="1" title="Beerden Bram"><b>1</b>Beerden Bram</span></div>
+      </article>
+    
+
+      <article class="team-card ">
+        <h4>Team C <span>7 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="20" title="Lecluyse Didier"><b>20</b>Lecluyse Didier</span><span class="person-chip" data-person="37" title="Verbruggen Liselot"><b>37</b>Verbruggen Liselot</span><span class="person-chip" data-person="13" title="Geukens Marc"><b>13</b>Geukens Marc</span><span class="person-chip" data-person="22" title="Maus Jinse"><b>22</b>Maus Jinse</span><span class="person-chip" data-person="40" title="Vispoel Sven"><b>40</b>Vispoel Sven</span><span class="person-chip" data-person="34" title="Vande Kerkhof Gertjan"><b>34</b>Vande Kerkhof Gertjan</span><span class="person-chip" data-person="19" title="Jouret Nils"><b>19</b>Jouret Nils</span></div>
+      </article>
+    
+
+      <article class="team-card ">
+        <h4>Team D <span>7 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="31" title="van Bussel Dieter"><b>31</b>van Bussel Dieter</span><span class="person-chip" data-person="28" title="Truyers Davy"><b>28</b>Truyers Davy</span><span class="person-chip" data-person="18" title="Inzé Dominique"><b>18</b>Inzé Dominique</span><span class="person-chip" data-person="27" title="Smeyers Frederick"><b>27</b>Smeyers Frederick</span><span class="person-chip" data-person="8" title="Delvaux Lieven"><b>8</b>Delvaux Lieven</span><span class="person-chip" data-person="30" title="Van Belle Jill"><b>30</b>Van Belle Jill</span><span class="person-chip" data-person="29" title="Ulburghs Anna"><b>29</b>Ulburghs Anna</span></div>
+      </article>
+    
+
+      <article class="team-card ">
+        <h4>Team E <span>7 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="32" title="Van Petegem Helga"><b>32</b>Van Petegem Helga</span><span class="person-chip" data-person="3" title="De Block Dries"><b>3</b>De Block Dries</span><span class="person-chip" data-person="2" title="Bockstael Stijn"><b>2</b>Bockstael Stijn</span><span class="person-chip" data-person="14" title="Gobyn Amedeo"><b>14</b>Gobyn Amedeo</span><span class="person-chip" data-person="33" title="Van Roy Kevin"><b>33</b>Van Roy Kevin</span><span class="person-chip" data-person="39" title="Vinck Jan"><b>39</b>Vinck Jan</span><span class="person-chip" data-person="24" title="Moens Lode"><b>24</b>Moens Lode</span></div>
+      </article>
+    
+
+      <article class="team-card ">
+        <h4>Team F <span>7 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="7" title="De Wilde Gilles"><b>7</b>De Wilde Gilles</span><span class="person-chip" data-person="35" title="Vandenbrouck Stefanie"><b>35</b>Vandenbrouck Stefanie</span><span class="person-chip" data-person="5" title="De Cocker Bart"><b>5</b>De Cocker Bart</span><span class="person-chip" data-person="4" title="De Brandt Sara"><b>4</b>De Brandt Sara</span><span class="person-chip" data-person="26" title="Schippers Scott"><b>26</b>Schippers Scott</span><span class="person-chip" data-person="10" title="Dobbels Dieter"><b>10</b>Dobbels Dieter</span><span class="person-chip" data-person="21" title="Mahieu Steven"><b>21</b>Mahieu Steven</span></div>
+      </article>
+    
+      </div>
+
+      <h3 class="subheading">Bumperballrondes</h3>
+      <div class="rounds-grid">
+        
+          <article class="round-card">
+            <div class="round-head">
+              <h4>Ronde 1</h4>
+              <span>±20 min + 3 min wissel</span>
+            </div>
+            <ul class="match-list">
+              <li><b>Terrein</b><span>Team D <em>vs</em> Team F</span></li>
+            </ul>
+            
+      <div class="rest-box">
+        <b>Rust</b>
+        <div><span>A</span><span>B</span><span>C</span><span>E</span></div>
+      </div>
+    
+          </article>
+        
+
+          <article class="round-card">
+            <div class="round-head">
+              <h4>Ronde 2</h4>
+              <span>±20 min + 3 min wissel</span>
+            </div>
+            <ul class="match-list">
+              <li><b>Terrein</b><span>Team B <em>vs</em> Team C</span></li>
+            </ul>
+            
+      <div class="rest-box">
+        <b>Rust</b>
+        <div><span>A</span><span>D</span><span>E</span><span>F</span></div>
+      </div>
+    
+          </article>
+        
+
+          <article class="round-card">
+            <div class="round-head">
+              <h4>Ronde 3</h4>
+              <span>±20 min + 3 min wissel</span>
+            </div>
+            <ul class="match-list">
+              <li><b>Terrein</b><span>Team A <em>vs</em> Team E</span></li>
+            </ul>
+            
+      <div class="rest-box">
+        <b>Rust</b>
+        <div><span>B</span><span>C</span><span>D</span><span>F</span></div>
+      </div>
+    
+          </article>
+        
+
+          <article class="round-card">
+            <div class="round-head">
+              <h4>Ronde 4</h4>
+              <span>±20 min + 3 min wissel</span>
+            </div>
+            <ul class="match-list">
+              <li><b>Terrein</b><span>Team C <em>vs</em> Team F</span></li>
+            </ul>
+            
+      <div class="rest-box">
+        <b>Rust</b>
+        <div><span>A</span><span>B</span><span>D</span><span>E</span></div>
+      </div>
+    
+          </article>
+        
+      </div>
+    </section>
+
+    <section id="beachvolley" class="section page" aria-labelledby="beach-title">
+      <header class="section__header">
+        <div class="section__title"><h2 id="beach-title">Beachvolley</h2></div>
+        <p class="section__lead">
+          2 uur, 4 velden en 41 personen: 7 teams van 5 en 1 team van 6. Persoon 42 is deze sessie afwezig.
+          5 rondes van 20 minuten speeltijd + 3 minuten wisseltijd. Alle 4 velden zijn steeds bezet, niemand rust.
+        </p>
+      </header>
+
+      <div class="activity-header">
+        <article class="panel">
+          <h3><i class="fa-solid fa-volleyball"></i> Opzet</h3>
+          <p>Elk team speelt 5 keer, telkens tegen een andere tegenstander. Het schema is de eerste 5 rondes van een volledig round-robin schema voor 8 teams.</p>
+        </article>
+        <article class="panel">
+          <h3><i class="fa-solid fa-user-minus"></i> Afwezig</h3>
+          <p>Persoon 42 — Wybo Maarten — is volgens het schema afwezig tijdens de beachvolleybal.</p>
+        </article>
+      </div>
+
+      <h3 class="subheading">Beachvolleyteams</h3>
+      <div class="teams-grid">
+        
+      <article class="team-card ">
+        <h4>Team 1 <small>6p</small><span>6 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="39" title="Vinck Jan"><b>39</b>Vinck Jan</span><span class="person-chip" data-person="4" title="De Brandt Sara"><b>4</b>De Brandt Sara</span><span class="person-chip" data-person="13" title="Geukens Marc"><b>13</b>Geukens Marc</span><span class="person-chip" data-person="24" title="Moens Lode"><b>24</b>Moens Lode</span><span class="person-chip" data-person="7" title="De Wilde Gilles"><b>7</b>De Wilde Gilles</span><span class="person-chip" data-person="18" title="Inzé Dominique"><b>18</b>Inzé Dominique</span></div>
+      </article>
+    
+
+      <article class="team-card ">
+        <h4>Team 2 <span>5 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="10" title="Dobbels Dieter"><b>10</b>Dobbels Dieter</span><span class="person-chip" data-person="25" title="Pettinato Mario"><b>25</b>Pettinato Mario</span><span class="person-chip" data-person="29" title="Ulburghs Anna"><b>29</b>Ulburghs Anna</span><span class="person-chip" data-person="6" title="De Vree Ann"><b>6</b>De Vree Ann</span><span class="person-chip" data-person="32" title="Van Petegem Helga"><b>32</b>Van Petegem Helga</span></div>
+      </article>
+    
+
+      <article class="team-card ">
+        <h4>Team 3 <span>5 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="17" title="Hollevoet David"><b>17</b>Hollevoet David</span><span class="person-chip" data-person="28" title="Truyers Davy"><b>28</b>Truyers Davy</span><span class="person-chip" data-person="22" title="Maus Jinse"><b>22</b>Maus Jinse</span><span class="person-chip" data-person="9" title="Dely Fleur"><b>9</b>Dely Fleur</span><span class="person-chip" data-person="41" title="Wevers Digna"><b>41</b>Wevers Digna</span></div>
+      </article>
+    
+
+      <article class="team-card ">
+        <h4>Team 4 <span>5 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="21" title="Mahieu Steven"><b>21</b>Mahieu Steven</span><span class="person-chip" data-person="15" title="Helderweirt Valerie"><b>15</b>Helderweirt Valerie</span><span class="person-chip" data-person="20" title="Lecluyse Didier"><b>20</b>Lecluyse Didier</span><span class="person-chip" data-person="35" title="Vandenbrouck Stefanie"><b>35</b>Vandenbrouck Stefanie</span><span class="person-chip" data-person="2" title="Bockstael Stijn"><b>2</b>Bockstael Stijn</span></div>
+      </article>
+    
+
+      <article class="team-card ">
+        <h4>Team 5 <span>5 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="23" title="Mensaert Charlotte"><b>23</b>Mensaert Charlotte</span><span class="person-chip" data-person="8" title="Delvaux Lieven"><b>8</b>Delvaux Lieven</span><span class="person-chip" data-person="5" title="De Cocker Bart"><b>5</b>De Cocker Bart</span><span class="person-chip" data-person="3" title="De Block Dries"><b>3</b>De Block Dries</span><span class="person-chip" data-person="36" title="Verbist David"><b>36</b>Verbist David</span></div>
+      </article>
+    
+
+      <article class="team-card ">
+        <h4>Team 6 <span>5 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="38" title="Verriest Sebastian"><b>38</b>Verriest Sebastian</span><span class="person-chip" data-person="34" title="Vande Kerkhof Gertjan"><b>34</b>Vande Kerkhof Gertjan</span><span class="person-chip" data-person="30" title="Van Belle Jill"><b>30</b>Van Belle Jill</span><span class="person-chip" data-person="1" title="Beerden Bram"><b>1</b>Beerden Bram</span><span class="person-chip" data-person="26" title="Schippers Scott"><b>26</b>Schippers Scott</span></div>
+      </article>
+    
+
+      <article class="team-card ">
+        <h4>Team 7 <span>5 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="16" title="Heyvaert Joachim"><b>16</b>Heyvaert Joachim</span><span class="person-chip" data-person="12" title="Geniesse Dirk"><b>12</b>Geniesse Dirk</span><span class="person-chip" data-person="33" title="Van Roy Kevin"><b>33</b>Van Roy Kevin</span><span class="person-chip" data-person="37" title="Verbruggen Liselot"><b>37</b>Verbruggen Liselot</span><span class="person-chip" data-person="14" title="Gobyn Amedeo"><b>14</b>Gobyn Amedeo</span></div>
+      </article>
+    
+
+      <article class="team-card ">
+        <h4>Team 8 <span>5 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="31" title="van Bussel Dieter"><b>31</b>van Bussel Dieter</span><span class="person-chip" data-person="19" title="Jouret Nils"><b>19</b>Jouret Nils</span><span class="person-chip" data-person="40" title="Vispoel Sven"><b>40</b>Vispoel Sven</span><span class="person-chip" data-person="27" title="Smeyers Frederick"><b>27</b>Smeyers Frederick</span><span class="person-chip" data-person="11" title="Engels Steven"><b>11</b>Engels Steven</span></div>
+      </article>
+    
+      </div>
+
+      <h3 class="subheading">Beachvolleyrondes</h3>
+      <div class="rounds-grid">
+        
+          <article class="round-card">
+            <div class="round-head">
+              <h4>Ronde 1</h4>
+              <span>20 min + 3 min wissel</span>
+            </div>
+            <ul class="match-list"><li><b>Veld 1</b><span>Team 1 <em>vs</em> Team 8</span></li><li><b>Veld 2</b><span>Team 2 <em>vs</em> Team 7</span></li><li><b>Veld 3</b><span>Team 3 <em>vs</em> Team 6</span></li><li><b>Veld 4</b><span>Team 4 <em>vs</em> Team 5</span></li></ul>
+          </article>
+        
+
+          <article class="round-card">
+            <div class="round-head">
+              <h4>Ronde 2</h4>
+              <span>20 min + 3 min wissel</span>
+            </div>
+            <ul class="match-list"><li><b>Veld 1</b><span>Team 1 <em>vs</em> Team 7</span></li><li><b>Veld 2</b><span>Team 8 <em>vs</em> Team 6</span></li><li><b>Veld 3</b><span>Team 2 <em>vs</em> Team 5</span></li><li><b>Veld 4</b><span>Team 3 <em>vs</em> Team 4</span></li></ul>
+          </article>
+        
+
+          <article class="round-card">
+            <div class="round-head">
+              <h4>Ronde 3</h4>
+              <span>20 min + 3 min wissel</span>
+            </div>
+            <ul class="match-list"><li><b>Veld 1</b><span>Team 1 <em>vs</em> Team 6</span></li><li><b>Veld 2</b><span>Team 7 <em>vs</em> Team 5</span></li><li><b>Veld 3</b><span>Team 8 <em>vs</em> Team 4</span></li><li><b>Veld 4</b><span>Team 2 <em>vs</em> Team 3</span></li></ul>
+          </article>
+        
+
+          <article class="round-card">
+            <div class="round-head">
+              <h4>Ronde 4</h4>
+              <span>20 min + 3 min wissel</span>
+            </div>
+            <ul class="match-list"><li><b>Veld 1</b><span>Team 1 <em>vs</em> Team 5</span></li><li><b>Veld 2</b><span>Team 6 <em>vs</em> Team 4</span></li><li><b>Veld 3</b><span>Team 7 <em>vs</em> Team 3</span></li><li><b>Veld 4</b><span>Team 8 <em>vs</em> Team 2</span></li></ul>
+          </article>
+        
+
+          <article class="round-card">
+            <div class="round-head">
+              <h4>Ronde 5</h4>
+              <span>20 min + 3 min wissel</span>
+            </div>
+            <ul class="match-list"><li><b>Veld 1</b><span>Team 1 <em>vs</em> Team 4</span></li><li><b>Veld 2</b><span>Team 5 <em>vs</em> Team 3</span></li><li><b>Veld 3</b><span>Team 6 <em>vs</em> Team 2</span></li><li><b>Veld 4</b><span>Team 7 <em>vs</em> Team 8</span></li></ul>
+          </article>
+        
+      </div>
+    </section>
+
+    <section id="klaslijst" class="section page" aria-labelledby="klas-title">
+      <header class="section__header">
+        <div class="section__title"><h2 id="klas-title">Klaslijst</h2></div>
+        <p class="section__lead">
+          Nummering 1 tot 42. Deze nummers worden gebruikt in de ploegverdelingen.
+        </p>
+      </header>
+
+      <article class="roster-panel">
+        <div class="roster-tools">
+          <input class="search-box" id="rosterSearch" type="search" placeholder="Zoek op nummer of naam..." aria-label="Zoek in klaslijst">
+        </div>
+        <ul class="roster-list" id="rosterList">
+          <li data-search="1 beerden bram"><b>1</b><span>Beerden Bram</span></li>
+<li data-search="2 bockstael stijn"><b>2</b><span>Bockstael Stijn</span></li>
+<li data-search="3 de block dries"><b>3</b><span>De Block Dries</span></li>
+<li data-search="4 de brandt sara"><b>4</b><span>De Brandt Sara</span></li>
+<li data-search="5 de cocker bart"><b>5</b><span>De Cocker Bart</span></li>
+<li data-search="6 de vree ann"><b>6</b><span>De Vree Ann</span></li>
+<li data-search="7 de wilde gilles"><b>7</b><span>De Wilde Gilles</span></li>
+<li data-search="8 delvaux lieven"><b>8</b><span>Delvaux Lieven</span></li>
+<li data-search="9 dely fleur"><b>9</b><span>Dely Fleur</span></li>
+<li data-search="10 dobbels dieter"><b>10</b><span>Dobbels Dieter</span></li>
+<li data-search="11 engels steven"><b>11</b><span>Engels Steven</span></li>
+<li data-search="12 geniesse dirk"><b>12</b><span>Geniesse Dirk</span></li>
+<li data-search="13 geukens marc"><b>13</b><span>Geukens Marc</span></li>
+<li data-search="14 gobyn amedeo"><b>14</b><span>Gobyn Amedeo</span></li>
+<li data-search="15 helderweirt valerie"><b>15</b><span>Helderweirt Valerie</span></li>
+<li data-search="16 heyvaert joachim"><b>16</b><span>Heyvaert Joachim</span></li>
+<li data-search="17 hollevoet david"><b>17</b><span>Hollevoet David</span></li>
+<li data-search="18 inzé dominique"><b>18</b><span>Inzé Dominique</span></li>
+<li data-search="19 jouret nils"><b>19</b><span>Jouret Nils</span></li>
+<li data-search="20 lecluyse didier"><b>20</b><span>Lecluyse Didier</span></li>
+<li data-search="21 mahieu steven"><b>21</b><span>Mahieu Steven</span></li>
+<li data-search="22 maus jinse"><b>22</b><span>Maus Jinse</span></li>
+<li data-search="23 mensaert charlotte"><b>23</b><span>Mensaert Charlotte</span></li>
+<li data-search="24 moens lode"><b>24</b><span>Moens Lode</span></li>
+<li data-search="25 pettinato mario"><b>25</b><span>Pettinato Mario</span></li>
+<li data-search="26 schippers scott"><b>26</b><span>Schippers Scott</span></li>
+<li data-search="27 smeyers frederick"><b>27</b><span>Smeyers Frederick</span></li>
+<li data-search="28 truyers davy"><b>28</b><span>Truyers Davy</span></li>
+<li data-search="29 ulburghs anna"><b>29</b><span>Ulburghs Anna</span></li>
+<li data-search="30 van belle jill"><b>30</b><span>Van Belle Jill</span></li>
+<li data-search="31 van bussel dieter"><b>31</b><span>van Bussel Dieter</span></li>
+<li data-search="32 van petegem helga"><b>32</b><span>Van Petegem Helga</span></li>
+<li data-search="33 van roy kevin"><b>33</b><span>Van Roy Kevin</span></li>
+<li data-search="34 vande kerkhof gertjan"><b>34</b><span>Vande Kerkhof Gertjan</span></li>
+<li data-search="35 vandenbrouck stefanie"><b>35</b><span>Vandenbrouck Stefanie</span></li>
+<li data-search="36 verbist david"><b>36</b><span>Verbist David</span></li>
+<li data-search="37 verbruggen liselot"><b>37</b><span>Verbruggen Liselot</span></li>
+<li data-search="38 verriest sebastian"><b>38</b><span>Verriest Sebastian</span></li>
+<li data-search="39 vinck jan"><b>39</b><span>Vinck Jan</span></li>
+<li data-search="40 vispoel sven"><b>40</b><span>Vispoel Sven</span></li>
+<li data-search="41 wevers digna"><b>41</b><span>Wevers Digna</span></li>
+<li data-search="42 wybo maarten"><b>42</b><span>Wybo Maarten</span></li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="faq" class="section page" aria-labelledby="faq-title">
+      <header class="section__header">
+        <div class="section__title"><h2 id="faq-title">FAQ</h2></div>
+      </header>
+
+      <div class="faq">
+        <article class="faq-item">
+          <button class="faq-item__question" type="button" aria-expanded="false">
+            <span>Worden de teams per sport opnieuw verdeeld?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-item__answer">
+            Ja. Padel, bumperball en beachvolley hebben elk hun eigen ploegverdeling.
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-item__question" type="button" aria-expanded="false">
+            <span>Waarom speelt Team C en F twee keer bij bumperball?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-item__answer">
+            Omdat er maar 4 rondes zijn op 1 terrein. Met deze timing kunnen niet alle 6 teams exact even vaak spelen. Een 5e ronde zou ongeveer 23 minuten extra kosten.
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-item__question" type="button" aria-expanded="false">
+            <span>Moeten de regels strikt gevolgd worden?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-item__answer">
+            Nee. De regels zijn recreatief bedoeld. Bij twijfel: gewoon overdoen. Plezier gaat voor precisie.
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page footer-inner">
+      <div>
+        <strong>Teambuilding Prom 23 Klas A</strong><br>
+        Spelletjes, spelregels, ploegen en rondes
+      </div>
+      <a href="#top"><i class="fa-solid fa-arrow-up"></i> Naar boven</a>
+    </div>
+  </footer>
+
+  <script>
+    const PERSON_SCHEDULE = {"1": {"number": 1, "name": "Beerden Bram", "padel": ["Ploeg 16 met De Block Dries.", "Ronde 1 · Veld 5: tegen ploeg 3 (Verriest Sebastian & Jouret Nils)", "Ronde 3 · Veld 4: tegen ploeg 6 (Mensaert Charlotte & Geniesse Dirk)", "Rust: Ronde 2, Ronde 4, Ronde 5."], "bumperball": ["Team B.", "Ronde 2: tegen team C", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 6.", "Ronde 1 · Veld 3: tegen team 3", "Ronde 2 · Veld 2: tegen team 8", "Ronde 3 · Veld 1: tegen team 1", "Ronde 4 · Veld 2: tegen team 4", "Ronde 5 · Veld 3: tegen team 2"]}, "2": {"number": 2, "name": "Bockstael Stijn", "padel": ["Ploeg 20 met Inzé Dominique.", "Ronde 3 · Veld 1: tegen ploeg 11 (Moens Lode & Mahieu Steven)", "Ronde 5 · Veld 1: tegen ploeg 19 (Helderweirt Valerie & Heyvaert Joachim)", "Rust: Ronde 1, Ronde 2, Ronde 4."], "bumperball": ["Team E.", "Ronde 3: tegen team A", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 4.", "Ronde 1 · Veld 4: tegen team 5", "Ronde 2 · Veld 4: tegen team 3", "Ronde 3 · Veld 3: tegen team 8", "Ronde 4 · Veld 2: tegen team 6", "Ronde 5 · Veld 1: tegen team 1"]}, "3": {"number": 3, "name": "De Block Dries", "padel": ["Ploeg 16 met Beerden Bram.", "Ronde 1 · Veld 5: tegen ploeg 3 (Verriest Sebastian & Jouret Nils)", "Ronde 3 · Veld 4: tegen ploeg 6 (Mensaert Charlotte & Geniesse Dirk)", "Rust: Ronde 2, Ronde 4, Ronde 5."], "bumperball": ["Team E.", "Ronde 3: tegen team A", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 5.", "Ronde 1 · Veld 4: tegen team 4", "Ronde 2 · Veld 3: tegen team 2", "Ronde 3 · Veld 2: tegen team 7", "Ronde 4 · Veld 1: tegen team 1", "Ronde 5 · Veld 2: tegen team 3"]}, "4": {"number": 4, "name": "De Brandt Sara", "padel": ["Ploeg 1 met Dobbels Dieter.", "Ronde 2 · Veld 1: tegen ploeg 10 (Van Roy Kevin & Gobyn Amedeo)", "Ronde 3 · Veld 2: tegen ploeg 17 (Truyers Davy & De Vree Ann)", "Rust: Ronde 1, Ronde 4, Ronde 5."], "bumperball": ["Team F.", "Ronde 1: tegen team D", "Ronde 4: tegen team C", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Team 1.", "Ronde 1 · Veld 1: tegen team 8", "Ronde 2 · Veld 1: tegen team 7", "Ronde 3 · Veld 1: tegen team 6", "Ronde 4 · Veld 1: tegen team 5", "Ronde 5 · Veld 1: tegen team 4"]}, "5": {"number": 5, "name": "De Cocker Bart", "padel": ["Ploeg 5 met Vande Kerkhof Gertjan.", "Ronde 1 · Veld 1: tegen ploeg 9 (Verbist David & Verbruggen Liselot)", "Ronde 4 · Veld 4: tegen ploeg 7 (Van Belle Jill & Maus Jinse)", "Rust: Ronde 2, Ronde 3, Ronde 5."], "bumperball": ["Team F.", "Ronde 1: tegen team D", "Ronde 4: tegen team C", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Team 5.", "Ronde 1 · Veld 4: tegen team 4", "Ronde 2 · Veld 3: tegen team 2", "Ronde 3 · Veld 2: tegen team 7", "Ronde 4 · Veld 1: tegen team 1", "Ronde 5 · Veld 2: tegen team 3"]}, "6": {"number": 6, "name": "De Vree Ann", "padel": ["Ploeg 17 met Truyers Davy.", "Ronde 2 · Veld 2: tegen ploeg 14 (Hollevoet David & Wybo Maarten)", "Ronde 3 · Veld 2: tegen ploeg 1 (Dobbels Dieter & De Brandt Sara)", "Rust: Ronde 1, Ronde 4, Ronde 5."], "bumperball": ["Team A.", "Ronde 3: tegen team E", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 2.", "Ronde 1 · Veld 2: tegen team 7", "Ronde 2 · Veld 3: tegen team 5", "Ronde 3 · Veld 4: tegen team 3", "Ronde 4 · Veld 4: tegen team 8", "Ronde 5 · Veld 3: tegen team 6"]}, "7": {"number": 7, "name": "De Wilde Gilles", "padel": ["Ploeg 18 met Dely Fleur.", "Ronde 2 · Veld 3: tegen ploeg 4 (Vispoel Sven & Schippers Scott)", "Ronde 5 · Veld 2: tegen ploeg 12 (Ulburghs Anna & Vinck Jan)", "Rust: Ronde 1, Ronde 3, Ronde 4."], "bumperball": ["Team F.", "Ronde 1: tegen team D", "Ronde 4: tegen team C", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Team 1.", "Ronde 1 · Veld 1: tegen team 8", "Ronde 2 · Veld 1: tegen team 7", "Ronde 3 · Veld 1: tegen team 6", "Ronde 4 · Veld 1: tegen team 5", "Ronde 5 · Veld 1: tegen team 4"]}, "8": {"number": 8, "name": "Delvaux Lieven", "padel": ["Ploeg 21 met Wevers Digna.", "Ronde 1 · Veld 3: tegen ploeg 12 (Ulburghs Anna & Vinck Jan)", "Ronde 4 · Veld 2: tegen ploeg 10 (Van Roy Kevin & Gobyn Amedeo)", "Rust: Ronde 2, Ronde 3, Ronde 5."], "bumperball": ["Team D.", "Ronde 1: tegen team F", "Rust: Ronde 2, Ronde 3, Ronde 4."], "beachvolley": ["Team 5.", "Ronde 1 · Veld 4: tegen team 4", "Ronde 2 · Veld 3: tegen team 2", "Ronde 3 · Veld 2: tegen team 7", "Ronde 4 · Veld 1: tegen team 1", "Ronde 5 · Veld 2: tegen team 3"]}, "9": {"number": 9, "name": "Dely Fleur", "padel": ["Ploeg 18 met De Wilde Gilles.", "Ronde 2 · Veld 3: tegen ploeg 4 (Vispoel Sven & Schippers Scott)", "Ronde 5 · Veld 2: tegen ploeg 12 (Ulburghs Anna & Vinck Jan)", "Rust: Ronde 1, Ronde 3, Ronde 4."], "bumperball": ["Team B.", "Ronde 2: tegen team C", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 3.", "Ronde 1 · Veld 3: tegen team 6", "Ronde 2 · Veld 4: tegen team 4", "Ronde 3 · Veld 4: tegen team 2", "Ronde 4 · Veld 3: tegen team 7", "Ronde 5 · Veld 2: tegen team 5"]}, "10": {"number": 10, "name": "Dobbels Dieter", "padel": ["Ploeg 1 met De Brandt Sara.", "Ronde 2 · Veld 1: tegen ploeg 10 (Van Roy Kevin & Gobyn Amedeo)", "Ronde 3 · Veld 2: tegen ploeg 17 (Truyers Davy & De Vree Ann)", "Rust: Ronde 1, Ronde 4, Ronde 5."], "bumperball": ["Team F.", "Ronde 1: tegen team D", "Ronde 4: tegen team C", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Team 2.", "Ronde 1 · Veld 2: tegen team 7", "Ronde 2 · Veld 3: tegen team 5", "Ronde 3 · Veld 4: tegen team 3", "Ronde 4 · Veld 4: tegen team 8", "Ronde 5 · Veld 3: tegen team 6"]}, "11": {"number": 11, "name": "Engels Steven", "padel": ["Ploeg 2 met Smeyers Frederick.", "Ronde 1 · Veld 2: tegen ploeg 13 (van Bussel Dieter & Lecluyse Didier)", "Ronde 4 · Veld 1: tegen ploeg 4 (Vispoel Sven & Schippers Scott)", "Rust: Ronde 2, Ronde 3, Ronde 5."], "bumperball": ["Team A.", "Ronde 3: tegen team E", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 8.", "Ronde 1 · Veld 1: tegen team 1", "Ronde 2 · Veld 2: tegen team 6", "Ronde 3 · Veld 3: tegen team 4", "Ronde 4 · Veld 4: tegen team 2", "Ronde 5 · Veld 4: tegen team 7"]}, "12": {"number": 12, "name": "Geniesse Dirk", "padel": ["Ploeg 6 met Mensaert Charlotte.", "Ronde 2 · Veld 4: tegen ploeg 11 (Moens Lode & Mahieu Steven)", "Ronde 3 · Veld 4: tegen ploeg 16 (Beerden Bram & De Block Dries)", "Rust: Ronde 1, Ronde 4, Ronde 5."], "bumperball": ["Team B.", "Ronde 2: tegen team C", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 7.", "Ronde 1 · Veld 2: tegen team 2", "Ronde 2 · Veld 1: tegen team 1", "Ronde 3 · Veld 2: tegen team 5", "Ronde 4 · Veld 3: tegen team 3", "Ronde 5 · Veld 4: tegen team 8"]}, "13": {"number": 13, "name": "Geukens Marc", "padel": ["Ploeg 8 met Pettinato Mario.", "Ronde 1 · Veld 4: tegen ploeg 14 (Hollevoet David & Wybo Maarten)", "Ronde 5 · Veld 3: tegen ploeg 15 (Vandenbrouck Stefanie & Van Petegem Helga)", "Rust: Ronde 2, Ronde 3, Ronde 4."], "bumperball": ["Team C.", "Ronde 2: tegen team B", "Ronde 4: tegen team F", "Rust: Ronde 1, Ronde 3."], "beachvolley": ["Team 1.", "Ronde 1 · Veld 1: tegen team 8", "Ronde 2 · Veld 1: tegen team 7", "Ronde 3 · Veld 1: tegen team 6", "Ronde 4 · Veld 1: tegen team 5", "Ronde 5 · Veld 1: tegen team 4"]}, "14": {"number": 14, "name": "Gobyn Amedeo", "padel": ["Ploeg 10 met Van Roy Kevin.", "Ronde 2 · Veld 1: tegen ploeg 1 (Dobbels Dieter & De Brandt Sara)", "Ronde 4 · Veld 2: tegen ploeg 21 (Delvaux Lieven & Wevers Digna)", "Rust: Ronde 1, Ronde 3, Ronde 5."], "bumperball": ["Team E.", "Ronde 3: tegen team A", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 7.", "Ronde 1 · Veld 2: tegen team 2", "Ronde 2 · Veld 1: tegen team 1", "Ronde 3 · Veld 2: tegen team 5", "Ronde 4 · Veld 3: tegen team 3", "Ronde 5 · Veld 4: tegen team 8"]}, "15": {"number": 15, "name": "Helderweirt Valerie", "padel": ["Ploeg 19 met Heyvaert Joachim.", "Ronde 4 · Veld 3: tegen ploeg 15 (Vandenbrouck Stefanie & Van Petegem Helga)", "Ronde 5 · Veld 1: tegen ploeg 20 (Inzé Dominique & Bockstael Stijn)", "Rust: Ronde 1, Ronde 2, Ronde 3."], "bumperball": ["Team A.", "Ronde 3: tegen team E", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 4.", "Ronde 1 · Veld 4: tegen team 5", "Ronde 2 · Veld 4: tegen team 3", "Ronde 3 · Veld 3: tegen team 8", "Ronde 4 · Veld 2: tegen team 6", "Ronde 5 · Veld 1: tegen team 1"]}, "16": {"number": 16, "name": "Heyvaert Joachim", "padel": ["Ploeg 19 met Helderweirt Valerie.", "Ronde 4 · Veld 3: tegen ploeg 15 (Vandenbrouck Stefanie & Van Petegem Helga)", "Ronde 5 · Veld 1: tegen ploeg 20 (Inzé Dominique & Bockstael Stijn)", "Rust: Ronde 1, Ronde 2, Ronde 3."], "bumperball": ["Team B.", "Ronde 2: tegen team C", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 7.", "Ronde 1 · Veld 2: tegen team 2", "Ronde 2 · Veld 1: tegen team 1", "Ronde 3 · Veld 2: tegen team 5", "Ronde 4 · Veld 3: tegen team 3", "Ronde 5 · Veld 4: tegen team 8"]}, "17": {"number": 17, "name": "Hollevoet David", "padel": ["Ploeg 14 met Wybo Maarten.", "Ronde 1 · Veld 4: tegen ploeg 8 (Geukens Marc & Pettinato Mario)", "Ronde 2 · Veld 2: tegen ploeg 17 (Truyers Davy & De Vree Ann)", "Rust: Ronde 3, Ronde 4, Ronde 5."], "bumperball": ["Team A.", "Ronde 3: tegen team E", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 3.", "Ronde 1 · Veld 3: tegen team 6", "Ronde 2 · Veld 4: tegen team 4", "Ronde 3 · Veld 4: tegen team 2", "Ronde 4 · Veld 3: tegen team 7", "Ronde 5 · Veld 2: tegen team 5"]}, "18": {"number": 18, "name": "Inzé Dominique", "padel": ["Ploeg 20 met Bockstael Stijn.", "Ronde 3 · Veld 1: tegen ploeg 11 (Moens Lode & Mahieu Steven)", "Ronde 5 · Veld 1: tegen ploeg 19 (Helderweirt Valerie & Heyvaert Joachim)", "Rust: Ronde 1, Ronde 2, Ronde 4."], "bumperball": ["Team D.", "Ronde 1: tegen team F", "Rust: Ronde 2, Ronde 3, Ronde 4."], "beachvolley": ["Team 1.", "Ronde 1 · Veld 1: tegen team 8", "Ronde 2 · Veld 1: tegen team 7", "Ronde 3 · Veld 1: tegen team 6", "Ronde 4 · Veld 1: tegen team 5", "Ronde 5 · Veld 1: tegen team 4"]}, "19": {"number": 19, "name": "Jouret Nils", "padel": ["Ploeg 3 met Verriest Sebastian.", "Ronde 1 · Veld 5: tegen ploeg 16 (Beerden Bram & De Block Dries)", "Ronde 3 · Veld 3: tegen ploeg 9 (Verbist David & Verbruggen Liselot)", "Rust: Ronde 2, Ronde 4, Ronde 5."], "bumperball": ["Team C.", "Ronde 2: tegen team B", "Ronde 4: tegen team F", "Rust: Ronde 1, Ronde 3."], "beachvolley": ["Team 8.", "Ronde 1 · Veld 1: tegen team 1", "Ronde 2 · Veld 2: tegen team 6", "Ronde 3 · Veld 3: tegen team 4", "Ronde 4 · Veld 4: tegen team 2", "Ronde 5 · Veld 4: tegen team 7"]}, "20": {"number": 20, "name": "Lecluyse Didier", "padel": ["Ploeg 13 met van Bussel Dieter.", "Ronde 1 · Veld 2: tegen ploeg 2 (Engels Steven & Smeyers Frederick)", "Ronde 5 · Veld 4: tegen ploeg 7 (Van Belle Jill & Maus Jinse)", "Rust: Ronde 2, Ronde 3, Ronde 4."], "bumperball": ["Team C.", "Ronde 2: tegen team B", "Ronde 4: tegen team F", "Rust: Ronde 1, Ronde 3."], "beachvolley": ["Team 4.", "Ronde 1 · Veld 4: tegen team 5", "Ronde 2 · Veld 4: tegen team 3", "Ronde 3 · Veld 3: tegen team 8", "Ronde 4 · Veld 2: tegen team 6", "Ronde 5 · Veld 1: tegen team 1"]}, "21": {"number": 21, "name": "Mahieu Steven", "padel": ["Ploeg 11 met Moens Lode.", "Ronde 2 · Veld 4: tegen ploeg 6 (Mensaert Charlotte & Geniesse Dirk)", "Ronde 3 · Veld 1: tegen ploeg 20 (Inzé Dominique & Bockstael Stijn)", "Rust: Ronde 1, Ronde 4, Ronde 5."], "bumperball": ["Team F.", "Ronde 1: tegen team D", "Ronde 4: tegen team C", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Team 4.", "Ronde 1 · Veld 4: tegen team 5", "Ronde 2 · Veld 4: tegen team 3", "Ronde 3 · Veld 3: tegen team 8", "Ronde 4 · Veld 2: tegen team 6", "Ronde 5 · Veld 1: tegen team 1"]}, "22": {"number": 22, "name": "Maus Jinse", "padel": ["Ploeg 7 met Van Belle Jill.", "Ronde 4 · Veld 4: tegen ploeg 5 (De Cocker Bart & Vande Kerkhof Gertjan)", "Ronde 5 · Veld 4: tegen ploeg 13 (van Bussel Dieter & Lecluyse Didier)", "Rust: Ronde 1, Ronde 2, Ronde 3."], "bumperball": ["Team C.", "Ronde 2: tegen team B", "Ronde 4: tegen team F", "Rust: Ronde 1, Ronde 3."], "beachvolley": ["Team 3.", "Ronde 1 · Veld 3: tegen team 6", "Ronde 2 · Veld 4: tegen team 4", "Ronde 3 · Veld 4: tegen team 2", "Ronde 4 · Veld 3: tegen team 7", "Ronde 5 · Veld 2: tegen team 5"]}, "23": {"number": 23, "name": "Mensaert Charlotte", "padel": ["Ploeg 6 met Geniesse Dirk.", "Ronde 2 · Veld 4: tegen ploeg 11 (Moens Lode & Mahieu Steven)", "Ronde 3 · Veld 4: tegen ploeg 16 (Beerden Bram & De Block Dries)", "Rust: Ronde 1, Ronde 4, Ronde 5."], "bumperball": ["Team A.", "Ronde 3: tegen team E", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 5.", "Ronde 1 · Veld 4: tegen team 4", "Ronde 2 · Veld 3: tegen team 2", "Ronde 3 · Veld 2: tegen team 7", "Ronde 4 · Veld 1: tegen team 1", "Ronde 5 · Veld 2: tegen team 3"]}, "24": {"number": 24, "name": "Moens Lode", "padel": ["Ploeg 11 met Mahieu Steven.", "Ronde 2 · Veld 4: tegen ploeg 6 (Mensaert Charlotte & Geniesse Dirk)", "Ronde 3 · Veld 1: tegen ploeg 20 (Inzé Dominique & Bockstael Stijn)", "Rust: Ronde 1, Ronde 4, Ronde 5."], "bumperball": ["Team E.", "Ronde 3: tegen team A", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 1.", "Ronde 1 · Veld 1: tegen team 8", "Ronde 2 · Veld 1: tegen team 7", "Ronde 3 · Veld 1: tegen team 6", "Ronde 4 · Veld 1: tegen team 5", "Ronde 5 · Veld 1: tegen team 4"]}, "25": {"number": 25, "name": "Pettinato Mario", "padel": ["Ploeg 8 met Geukens Marc.", "Ronde 1 · Veld 4: tegen ploeg 14 (Hollevoet David & Wybo Maarten)", "Ronde 5 · Veld 3: tegen ploeg 15 (Vandenbrouck Stefanie & Van Petegem Helga)", "Rust: Ronde 2, Ronde 3, Ronde 4."], "bumperball": ["Team B.", "Ronde 2: tegen team C", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 2.", "Ronde 1 · Veld 2: tegen team 7", "Ronde 2 · Veld 3: tegen team 5", "Ronde 3 · Veld 4: tegen team 3", "Ronde 4 · Veld 4: tegen team 8", "Ronde 5 · Veld 3: tegen team 6"]}, "26": {"number": 26, "name": "Schippers Scott", "padel": ["Ploeg 4 met Vispoel Sven.", "Ronde 2 · Veld 3: tegen ploeg 18 (De Wilde Gilles & Dely Fleur)", "Ronde 4 · Veld 1: tegen ploeg 2 (Engels Steven & Smeyers Frederick)", "Rust: Ronde 1, Ronde 3, Ronde 5."], "bumperball": ["Team F.", "Ronde 1: tegen team D", "Ronde 4: tegen team C", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Team 6.", "Ronde 1 · Veld 3: tegen team 3", "Ronde 2 · Veld 2: tegen team 8", "Ronde 3 · Veld 1: tegen team 1", "Ronde 4 · Veld 2: tegen team 4", "Ronde 5 · Veld 3: tegen team 2"]}, "27": {"number": 27, "name": "Smeyers Frederick", "padel": ["Ploeg 2 met Engels Steven.", "Ronde 1 · Veld 2: tegen ploeg 13 (van Bussel Dieter & Lecluyse Didier)", "Ronde 4 · Veld 1: tegen ploeg 4 (Vispoel Sven & Schippers Scott)", "Rust: Ronde 2, Ronde 3, Ronde 5."], "bumperball": ["Team D.", "Ronde 1: tegen team F", "Rust: Ronde 2, Ronde 3, Ronde 4."], "beachvolley": ["Team 8.", "Ronde 1 · Veld 1: tegen team 1", "Ronde 2 · Veld 2: tegen team 6", "Ronde 3 · Veld 3: tegen team 4", "Ronde 4 · Veld 4: tegen team 2", "Ronde 5 · Veld 4: tegen team 7"]}, "28": {"number": 28, "name": "Truyers Davy", "padel": ["Ploeg 17 met De Vree Ann.", "Ronde 2 · Veld 2: tegen ploeg 14 (Hollevoet David & Wybo Maarten)", "Ronde 3 · Veld 2: tegen ploeg 1 (Dobbels Dieter & De Brandt Sara)", "Rust: Ronde 1, Ronde 4, Ronde 5."], "bumperball": ["Team D.", "Ronde 1: tegen team F", "Rust: Ronde 2, Ronde 3, Ronde 4."], "beachvolley": ["Team 3.", "Ronde 1 · Veld 3: tegen team 6", "Ronde 2 · Veld 4: tegen team 4", "Ronde 3 · Veld 4: tegen team 2", "Ronde 4 · Veld 3: tegen team 7", "Ronde 5 · Veld 2: tegen team 5"]}, "29": {"number": 29, "name": "Ulburghs Anna", "padel": ["Ploeg 12 met Vinck Jan.", "Ronde 1 · Veld 3: tegen ploeg 21 (Delvaux Lieven & Wevers Digna)", "Ronde 5 · Veld 2: tegen ploeg 18 (De Wilde Gilles & Dely Fleur)", "Rust: Ronde 2, Ronde 3, Ronde 4."], "bumperball": ["Team D.", "Ronde 1: tegen team F", "Rust: Ronde 2, Ronde 3, Ronde 4."], "beachvolley": ["Team 2.", "Ronde 1 · Veld 2: tegen team 7", "Ronde 2 · Veld 3: tegen team 5", "Ronde 3 · Veld 4: tegen team 3", "Ronde 4 · Veld 4: tegen team 8", "Ronde 5 · Veld 3: tegen team 6"]}, "30": {"number": 30, "name": "Van Belle Jill", "padel": ["Ploeg 7 met Maus Jinse.", "Ronde 4 · Veld 4: tegen ploeg 5 (De Cocker Bart & Vande Kerkhof Gertjan)", "Ronde 5 · Veld 4: tegen ploeg 13 (van Bussel Dieter & Lecluyse Didier)", "Rust: Ronde 1, Ronde 2, Ronde 3."], "bumperball": ["Team D.", "Ronde 1: tegen team F", "Rust: Ronde 2, Ronde 3, Ronde 4."], "beachvolley": ["Team 6.", "Ronde 1 · Veld 3: tegen team 3", "Ronde 2 · Veld 2: tegen team 8", "Ronde 3 · Veld 1: tegen team 1", "Ronde 4 · Veld 2: tegen team 4", "Ronde 5 · Veld 3: tegen team 2"]}, "31": {"number": 31, "name": "van Bussel Dieter", "padel": ["Ploeg 13 met Lecluyse Didier.", "Ronde 1 · Veld 2: tegen ploeg 2 (Engels Steven & Smeyers Frederick)", "Ronde 5 · Veld 4: tegen ploeg 7 (Van Belle Jill & Maus Jinse)", "Rust: Ronde 2, Ronde 3, Ronde 4."], "bumperball": ["Team D.", "Ronde 1: tegen team F", "Rust: Ronde 2, Ronde 3, Ronde 4."], "beachvolley": ["Team 8.", "Ronde 1 · Veld 1: tegen team 1", "Ronde 2 · Veld 2: tegen team 6", "Ronde 3 · Veld 3: tegen team 4", "Ronde 4 · Veld 4: tegen team 2", "Ronde 5 · Veld 4: tegen team 7"]}, "32": {"number": 32, "name": "Van Petegem Helga", "padel": ["Ploeg 15 met Vandenbrouck Stefanie.", "Ronde 4 · Veld 3: tegen ploeg 19 (Helderweirt Valerie & Heyvaert Joachim)", "Ronde 5 · Veld 3: tegen ploeg 8 (Geukens Marc & Pettinato Mario)", "Rust: Ronde 1, Ronde 2, Ronde 3."], "bumperball": ["Team E.", "Ronde 3: tegen team A", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 2.", "Ronde 1 · Veld 2: tegen team 7", "Ronde 2 · Veld 3: tegen team 5", "Ronde 3 · Veld 4: tegen team 3", "Ronde 4 · Veld 4: tegen team 8", "Ronde 5 · Veld 3: tegen team 6"]}, "33": {"number": 33, "name": "Van Roy Kevin", "padel": ["Ploeg 10 met Gobyn Amedeo.", "Ronde 2 · Veld 1: tegen ploeg 1 (Dobbels Dieter & De Brandt Sara)", "Ronde 4 · Veld 2: tegen ploeg 21 (Delvaux Lieven & Wevers Digna)", "Rust: Ronde 1, Ronde 3, Ronde 5."], "bumperball": ["Team E.", "Ronde 3: tegen team A", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 7.", "Ronde 1 · Veld 2: tegen team 2", "Ronde 2 · Veld 1: tegen team 1", "Ronde 3 · Veld 2: tegen team 5", "Ronde 4 · Veld 3: tegen team 3", "Ronde 5 · Veld 4: tegen team 8"]}, "34": {"number": 34, "name": "Vande Kerkhof Gertjan", "padel": ["Ploeg 5 met De Cocker Bart.", "Ronde 1 · Veld 1: tegen ploeg 9 (Verbist David & Verbruggen Liselot)", "Ronde 4 · Veld 4: tegen ploeg 7 (Van Belle Jill & Maus Jinse)", "Rust: Ronde 2, Ronde 3, Ronde 5."], "bumperball": ["Team C.", "Ronde 2: tegen team B", "Ronde 4: tegen team F", "Rust: Ronde 1, Ronde 3."], "beachvolley": ["Team 6.", "Ronde 1 · Veld 3: tegen team 3", "Ronde 2 · Veld 2: tegen team 8", "Ronde 3 · Veld 1: tegen team 1", "Ronde 4 · Veld 2: tegen team 4", "Ronde 5 · Veld 3: tegen team 2"]}, "35": {"number": 35, "name": "Vandenbrouck Stefanie", "padel": ["Ploeg 15 met Van Petegem Helga.", "Ronde 4 · Veld 3: tegen ploeg 19 (Helderweirt Valerie & Heyvaert Joachim)", "Ronde 5 · Veld 3: tegen ploeg 8 (Geukens Marc & Pettinato Mario)", "Rust: Ronde 1, Ronde 2, Ronde 3."], "bumperball": ["Team F.", "Ronde 1: tegen team D", "Ronde 4: tegen team C", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Team 4.", "Ronde 1 · Veld 4: tegen team 5", "Ronde 2 · Veld 4: tegen team 3", "Ronde 3 · Veld 3: tegen team 8", "Ronde 4 · Veld 2: tegen team 6", "Ronde 5 · Veld 1: tegen team 1"]}, "36": {"number": 36, "name": "Verbist David", "padel": ["Ploeg 9 met Verbruggen Liselot.", "Ronde 1 · Veld 1: tegen ploeg 5 (De Cocker Bart & Vande Kerkhof Gertjan)", "Ronde 3 · Veld 3: tegen ploeg 3 (Verriest Sebastian & Jouret Nils)", "Rust: Ronde 2, Ronde 4, Ronde 5."], "bumperball": ["Team B.", "Ronde 2: tegen team C", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 5.", "Ronde 1 · Veld 4: tegen team 4", "Ronde 2 · Veld 3: tegen team 2", "Ronde 3 · Veld 2: tegen team 7", "Ronde 4 · Veld 1: tegen team 1", "Ronde 5 · Veld 2: tegen team 3"]}, "37": {"number": 37, "name": "Verbruggen Liselot", "padel": ["Ploeg 9 met Verbist David.", "Ronde 1 · Veld 1: tegen ploeg 5 (De Cocker Bart & Vande Kerkhof Gertjan)", "Ronde 3 · Veld 3: tegen ploeg 3 (Verriest Sebastian & Jouret Nils)", "Rust: Ronde 2, Ronde 4, Ronde 5."], "bumperball": ["Team C.", "Ronde 2: tegen team B", "Ronde 4: tegen team F", "Rust: Ronde 1, Ronde 3."], "beachvolley": ["Team 7.", "Ronde 1 · Veld 2: tegen team 2", "Ronde 2 · Veld 1: tegen team 1", "Ronde 3 · Veld 2: tegen team 5", "Ronde 4 · Veld 3: tegen team 3", "Ronde 5 · Veld 4: tegen team 8"]}, "38": {"number": 38, "name": "Verriest Sebastian", "padel": ["Ploeg 3 met Jouret Nils.", "Ronde 1 · Veld 5: tegen ploeg 16 (Beerden Bram & De Block Dries)", "Ronde 3 · Veld 3: tegen ploeg 9 (Verbist David & Verbruggen Liselot)", "Rust: Ronde 2, Ronde 4, Ronde 5."], "bumperball": ["Team B.", "Ronde 2: tegen team C", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 6.", "Ronde 1 · Veld 3: tegen team 3", "Ronde 2 · Veld 2: tegen team 8", "Ronde 3 · Veld 1: tegen team 1", "Ronde 4 · Veld 2: tegen team 4", "Ronde 5 · Veld 3: tegen team 2"]}, "39": {"number": 39, "name": "Vinck Jan", "padel": ["Ploeg 12 met Ulburghs Anna.", "Ronde 1 · Veld 3: tegen ploeg 21 (Delvaux Lieven & Wevers Digna)", "Ronde 5 · Veld 2: tegen ploeg 18 (De Wilde Gilles & Dely Fleur)", "Rust: Ronde 2, Ronde 3, Ronde 4."], "bumperball": ["Team E.", "Ronde 3: tegen team A", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 1.", "Ronde 1 · Veld 1: tegen team 8", "Ronde 2 · Veld 1: tegen team 7", "Ronde 3 · Veld 1: tegen team 6", "Ronde 4 · Veld 1: tegen team 5", "Ronde 5 · Veld 1: tegen team 4"]}, "40": {"number": 40, "name": "Vispoel Sven", "padel": ["Ploeg 4 met Schippers Scott.", "Ronde 2 · Veld 3: tegen ploeg 18 (De Wilde Gilles & Dely Fleur)", "Ronde 4 · Veld 1: tegen ploeg 2 (Engels Steven & Smeyers Frederick)", "Rust: Ronde 1, Ronde 3, Ronde 5."], "bumperball": ["Team C.", "Ronde 2: tegen team B", "Ronde 4: tegen team F", "Rust: Ronde 1, Ronde 3."], "beachvolley": ["Team 8.", "Ronde 1 · Veld 1: tegen team 1", "Ronde 2 · Veld 2: tegen team 6", "Ronde 3 · Veld 3: tegen team 4", "Ronde 4 · Veld 4: tegen team 2", "Ronde 5 · Veld 4: tegen team 7"]}, "41": {"number": 41, "name": "Wevers Digna", "padel": ["Ploeg 21 met Delvaux Lieven.", "Ronde 1 · Veld 3: tegen ploeg 12 (Ulburghs Anna & Vinck Jan)", "Ronde 4 · Veld 2: tegen ploeg 10 (Van Roy Kevin & Gobyn Amedeo)", "Rust: Ronde 2, Ronde 3, Ronde 5."], "bumperball": ["Team A.", "Ronde 3: tegen team E", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 3.", "Ronde 1 · Veld 3: tegen team 6", "Ronde 2 · Veld 4: tegen team 4", "Ronde 3 · Veld 4: tegen team 2", "Ronde 4 · Veld 3: tegen team 7", "Ronde 5 · Veld 2: tegen team 5"]}, "42": {"number": 42, "name": "Wybo Maarten", "padel": ["Ploeg 14 met Hollevoet David.", "Ronde 1 · Veld 4: tegen ploeg 8 (Geukens Marc & Pettinato Mario)", "Ronde 2 · Veld 2: tegen ploeg 17 (Truyers Davy & De Vree Ann)", "Rust: Ronde 3, Ronde 4, Ronde 5."], "bumperball": ["Team A.", "Ronde 3: tegen team E", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Afwezig bij beachvolleybal volgens het schema."]}};
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    (() => {
+      const searchInput = document.getElementById("personSearch");
+      const result = document.getElementById("personResult");
+      const chips = [...document.querySelectorAll(".person-chip")];
+
+      function findPerson(query) {
+        const q = query.trim().toLowerCase();
+        if (!q) return null;
+
+        const numberMatch = q.match(/^\d+/);
+        if (numberMatch && PERSON_SCHEDULE[numberMatch[0]]) return PERSON_SCHEDULE[numberMatch[0]];
+
+        return Object.values(PERSON_SCHEDULE).find(person =>
+          person.name.toLowerCase().includes(q) || String(person.number) === q
+        ) || null;
+      }
+
+      function renderList(title, items) {
+        return `
+          <article class="personal-card">
+            <b>${escapeHtml(title)}</b>
+            <ul>${items.map(item => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+          </article>
+        `;
+      }
+
+      function update() {
+        const person = findPerson(searchInput.value);
+        chips.forEach(chip => chip.classList.remove("is-highlight"));
+
+        if (!person) {
+          result.innerHTML = `
+            <h3>Geen persoon geselecteerd</h3>
+            <p>Begin te typen om je persoonlijke schema te zien.</p>
+          `;
+          return;
+        }
+
+        chips
+          .filter(chip => chip.dataset.person === String(person.number))
+          .forEach(chip => chip.classList.add("is-highlight"));
+
+        result.innerHTML = `
+          <h3>${person.number} · ${escapeHtml(person.name)}</h3>
+          <p>Persoonlijk overzicht voor deze teambuilding.</p>
+          <div class="personal-grid">
+            ${renderList("Padel", person.padel)}
+            ${renderList("Bumperball", person.bumperball)}
+            ${renderList("Beachvolley", person.beachvolley)}
+          </div>
+        `;
+      }
+
+      searchInput.addEventListener("input", update);
+    })();
+
+    (() => {
+      const rosterSearch = document.getElementById("rosterSearch");
+      const rosterItems = [...document.querySelectorAll("#rosterList li")];
+
+      rosterSearch.addEventListener("input", () => {
+        const q = rosterSearch.value.trim().toLowerCase();
+        rosterItems.forEach(item => {
+          item.classList.toggle("is-hidden", !item.dataset.search.includes(q));
+        });
+      });
+    })();
+
+    (() => {
+      document.querySelectorAll(".faq-item__question").forEach(button => {
+        button.addEventListener("click", () => {
+          const item = button.closest(".faq-item");
+          const open = item.classList.toggle("is-open");
+          button.setAttribute("aria-expanded", String(open));
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
