@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="description" content="Broodjeslijst voor de teambuilding van Prom 23 Klas A in Heverlee.">
-  <title>Broodjeslijst · Teambuilding Prom 23 Klas A</title>
+  <meta name="description" content="Broodjeskeuzes voor de teambuilding van Prom 23 Klas A.">
+  <title>Broodjeskeuzes · Teambuilding Prom 23 Klas A</title>
 
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
   <style>
-    :root{
+    :root {
       --bg:#eef3f8;
       --text:#102044;
       --navy:#1f3270;
@@ -30,17 +30,15 @@
       --gutter:32px;
     }
 
-    *,
-    *::before,
-    *::after{
+    *, *::before, *::after {
       box-sizing:border-box;
     }
 
-    html{
+    html {
       scroll-behavior:smooth;
     }
 
-    body{
+    body {
       margin:0;
       color:var(--text);
       font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -54,34 +52,20 @@
       overflow-x:hidden;
     }
 
-    a{color:inherit}
-    input{font:inherit}
+    a {
+      color:inherit;
+    }
 
-    .page{
+    input {
+      font:inherit;
+    }
+
+    .page {
       width:min(var(--page), calc(100% - var(--gutter)));
       margin-inline:auto;
     }
 
-    .skip-link{
-      position:fixed;
-      top:12px;
-      left:12px;
-      z-index:200;
-      transform:translateY(-180%);
-      padding:10px 14px;
-      border-radius:999px;
-      background:var(--yellow);
-      color:var(--navy-dark);
-      font-weight:950;
-      text-decoration:none;
-      transition:.16s transform;
-    }
-
-    .skip-link:focus{
-      transform:translateY(0);
-    }
-
-    .site-nav{
+    .site-nav {
       position:sticky;
       top:0;
       z-index:50;
@@ -90,7 +74,7 @@
       backdrop-filter:blur(16px);
     }
 
-    .site-nav__inner{
+    .site-nav__inner {
       min-height:70px;
       display:flex;
       align-items:center;
@@ -98,7 +82,7 @@
       gap:16px;
     }
 
-    .brand{
+    .brand {
       display:flex;
       align-items:center;
       gap:11px;
@@ -109,7 +93,7 @@
       white-space:nowrap;
     }
 
-    .brand__mark{
+    .brand__mark {
       width:44px;
       height:44px;
       flex:0 0 44px;
@@ -122,14 +106,14 @@
       transform:rotate(-2deg);
     }
 
-    .site-nav__links{
+    .site-nav__links {
       display:flex;
       justify-content:flex-end;
       flex-wrap:wrap;
       gap:7px;
     }
 
-    .site-nav__links a{
+    .site-nav__links a {
       padding:9px 11px;
       border-radius:999px;
       color:#2b3c62;
@@ -142,54 +126,40 @@
     }
 
     .site-nav__links a:hover,
-    .site-nav__links a:focus-visible{
+    .site-nav__links a:focus-visible {
       color:white;
       background:var(--navy);
       transform:translateY(-1px);
       outline:none;
     }
 
-    .site-nav__links a.highlight{
+    .site-nav__links a.highlight {
       color:var(--navy-dark);
       border:1px solid rgba(247,191,33,.55);
       background:rgba(247,191,33,.35);
     }
 
-    .site-header{
-      padding:24px 0 34px;
+    .hero {
+      padding:28px 0 24px;
     }
 
-    .hero{
-      display:grid;
-      grid-template-columns:minmax(0,1.15fr) minmax(330px,.85fr);
-      gap:18px;
-      align-items:stretch;
-    }
-
-    .hero__main,
-    .hero__side{
+    .hero-card {
       position:relative;
       overflow:hidden;
+      min-height:360px;
+      padding:clamp(32px,4.4vw,60px);
       border-radius:30px;
-      box-shadow:var(--shadow);
-    }
-
-    .hero__main{
-      min-height:440px;
-      padding:clamp(34px,4.4vw,60px);
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
       color:white;
       background:
         linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px),
         linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
-        radial-gradient(circle at 85% 8%, rgba(255,255,255,.10), transparent 16%),
+        radial-gradient(circle at 86% 12%, rgba(255,255,255,.12), transparent 18%),
         linear-gradient(135deg,var(--navy),var(--navy-dark));
       background-size:44px 44px,44px 44px,auto,auto;
+      box-shadow:var(--shadow);
     }
 
-    .hero__icon{
+    .hero-icon {
       position:absolute;
       top:24px;
       right:28px;
@@ -204,7 +174,7 @@
       transform:rotate(8deg);
     }
 
-    .eyebrow{
+    .eyebrow {
       width:max-content;
       max-width:100%;
       display:inline-flex;
@@ -221,7 +191,7 @@
       text-transform:uppercase;
     }
 
-    .eyebrow::before{
+    .eyebrow::before {
       content:"";
       width:8px;
       height:8px;
@@ -230,39 +200,39 @@
       box-shadow:0 0 0 6px rgba(247,191,33,.15);
     }
 
-    .hero h1{
-      max-width:780px;
+    h1 {
+      max-width:760px;
       margin:30px 0 0;
       color:white;
-      font-size:clamp(3.35rem,5.3vw,6.1rem);
+      font-size:clamp(3.3rem,6vw,6.2rem);
       line-height:.9;
       letter-spacing:-.065em;
     }
 
-    .hero__subtitle{
-      max-width:680px;
+    .subtitle {
+      max-width:650px;
       margin:22px 0 0;
       display:flex;
       align-items:flex-start;
       gap:17px;
       color:#dbe5ff;
-      font-size:clamp(1.55rem,2.9vw,3.05rem);
+      font-size:clamp(1.45rem,2.6vw,2.7rem);
       font-weight:300;
       line-height:1;
-      letter-spacing:-.06em;
+      letter-spacing:-.055em;
     }
 
-    .hero__subtitle::before{
+    .subtitle::before {
       content:"";
       width:8px;
-      height:74px;
+      height:68px;
       flex:0 0 8px;
       margin-top:4px;
       border-radius:999px;
       background:var(--yellow);
     }
 
-    .hero__kicker{
+    .kicker {
       margin:22px 0 0 25px;
       color:var(--yellow);
       font-size:clamp(1rem,1.4vw,1.18rem);
@@ -270,158 +240,18 @@
       font-weight:850;
     }
 
-    .hero__actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin:30px 0 0 25px;
+    .section {
+      padding:34px 0 58px;
     }
 
-    .button{
-      min-height:46px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding:0 15px;
-      border:1px solid rgba(255,255,255,.18);
-      border-radius:15px;
-      color:white;
-      background:rgba(255,255,255,.10);
-      font-size:.84rem;
-      font-weight:950;
-      text-decoration:none;
-      transition:.16s background,.16s color,.16s transform;
-      cursor:pointer;
-    }
-
-    .button:hover,
-    .button:focus-visible{
-      color:var(--navy-dark);
-      background:white;
-      transform:translateY(-2px);
-      outline:none;
-    }
-
-    .button--primary{
-      color:var(--navy-dark);
-      border-color:var(--yellow);
-      background:var(--yellow);
-    }
-
-    .button--teal{
-      color:white;
-      border-color:var(--teal);
-      background:var(--teal);
-    }
-
-    .button--teal:hover,
-    .button--teal:focus-visible{
-      color:white;
-      background:var(--navy);
-    }
-
-    .hero__side{
-      min-height:440px;
-      display:grid;
-      grid-template-rows:auto 1fr;
-      background:white;
-    }
-
-    .hero__side-top{
-      min-height:185px;
-      position:relative;
-      overflow:hidden;
-      padding:34px 30px 28px;
-      color:white;
-      background:
-        radial-gradient(circle at 18% 24%, rgba(255,255,255,.33), transparent 15%),
-        linear-gradient(135deg,var(--teal),var(--teal-dark));
-    }
-
-    .hero__side-top::after{
-      content:"";
-      position:absolute;
-      top:-78px;
-      right:-76px;
-      width:190px;
-      height:190px;
-      border:2px solid rgba(255,255,255,.23);
-      border-radius:50%;
-    }
-
-    .hero__side-title{
-      position:relative;
-      z-index:1;
-      margin:0;
-      color:white;
-      font-size:clamp(2rem,3.4vw,3.2rem);
-      line-height:1.03;
-      letter-spacing:-.075em;
-    }
-
-    .hero__side-body{
-      padding:28px;
-      display:grid;
-      gap:14px;
-      align-content:start;
-    }
-
-    .hero__intro{
-      margin:0;
-      color:var(--muted);
-      font-size:1rem;
-      line-height:1.62;
-      font-weight:700;
-    }
-
-    .stat-grid{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:10px;
-      margin-top:12px;
-    }
-
-    .stat-card{
-      padding:14px;
-      border-radius:18px;
-      border:1px solid var(--line);
-      background:#f6f9fc;
-    }
-
-    .stat-card b{
-      display:block;
-      color:var(--navy);
-      font-size:1.55rem;
-      line-height:.95;
-      letter-spacing:-.05em;
-    }
-
-    .stat-card span{
-      display:block;
-      margin-top:6px;
-      color:var(--muted);
-      font-size:.83rem;
-      font-weight:800;
-      line-height:1.3;
-    }
-
-    .section{
-      padding:52px 0;
-      scroll-margin-top:86px;
-    }
-
-    .section__header{
-      margin-bottom:20px;
-    }
-
-    .section__title{
+    .section-title {
       display:flex;
       align-items:flex-start;
       gap:15px;
+      margin-bottom:20px;
     }
 
-    .section__title::before{
+    .section-title::before {
       content:"";
       width:8px;
       height:64px;
@@ -431,7 +261,7 @@
       background:var(--yellow);
     }
 
-    .section__title h2{
+    .section-title h2 {
       margin:0;
       color:var(--navy);
       font-size:clamp(2.25rem,4.7vw,4.7rem);
@@ -439,30 +269,17 @@
       letter-spacing:-.078em;
     }
 
-    .section__lead{
-      max-width:900px;
-      margin:12px 0 0 23px;
-      color:#536689;
-      font-size:1.02rem;
-      line-height:1.55;
-      font-weight:700;
-    }
-
-    .panel,
-    .faq-item{
+    .panel {
+      position:relative;
+      overflow:hidden;
+      padding:24px;
       border:1px solid var(--line);
+      border-radius:var(--radius);
       background:white;
       box-shadow:var(--shadow-card);
     }
 
-    .panel{
-      position:relative;
-      overflow:hidden;
-      border-radius:var(--radius);
-      padding:24px;
-    }
-
-    .panel::before{
+    .panel::before {
       content:"";
       position:absolute;
       inset:0 0 auto;
@@ -470,17 +287,13 @@
       background:linear-gradient(90deg,var(--yellow),var(--teal),var(--coral));
     }
 
-    .toolbar{
-      display:grid;
-      grid-template-columns:minmax(0,1fr);
-      gap:12px;
-      align-items:center;
-      margin-bottom:16px;
+    .toolbar {
+      margin-bottom:18px;
     }
 
-    .search-box{
+    .search-box {
       width:100%;
-      min-height:48px;
+      min-height:50px;
       padding:0 15px;
       border:1px solid var(--line);
       border-radius:16px;
@@ -490,121 +303,76 @@
       font-weight:750;
     }
 
-    .search-box:focus{
+    .search-box:focus {
       border-color:rgba(20,140,155,.50);
       box-shadow:0 0 0 4px rgba(20,140,155,.12);
       background:white;
     }
 
-    .table-wrap{
-      overflow:auto;
+    .sandwich-grid {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+    }
+
+    .sandwich-card {
+      display:grid;
+      grid-template-columns:44px minmax(0,1fr);
+      gap:12px;
+      align-items:start;
+      padding:14px;
       border:1px solid var(--line);
-      border-radius:20px;
+      border-radius:18px;
+      background:#f6f9fc;
+      transition:.16s transform,.16s border-color,.16s box-shadow;
+    }
+
+    .sandwich-card:hover {
+      transform:translateY(-2px);
+      border-color:rgba(20,140,155,.35);
+      box-shadow:0 12px 26px rgba(20,140,155,.10);
       background:white;
     }
 
-    table{
-      width:100%;
-      min-width:760px;
-      border-collapse:collapse;
-    }
-
-    th,
-    td{
-      padding:13px 14px;
-      border-bottom:1px solid rgba(16,32,68,.09);
-      text-align:left;
-      vertical-align:top;
-    }
-
-    th{
-      position:sticky;
-      top:0;
-      z-index:1;
-      color:var(--navy);
-      background:#f6f9fc;
-      font-size:.74rem;
-      letter-spacing:.055em;
-      text-transform:uppercase;
-      font-weight:1000;
-    }
-
-    tbody tr:hover{
-      background:#fbfdff;
-    }
-
-    tbody tr.is-hidden{
+    .sandwich-card.is-hidden {
       display:none;
     }
 
-    .number-pill{
-      width:32px;
-      height:32px;
+    .sandwich-number {
+      width:38px;
+      height:38px;
       display:grid;
       place-items:center;
-      border-radius:999px;
+      border-radius:14px;
       color:var(--navy-dark);
       background:var(--yellow);
       font-weight:1000;
-      font-size:.85rem;
+      font-size:.88rem;
     }
 
-    .name-cell{
+    .sandwich-card h3 {
+      margin:0 0 5px;
       color:var(--navy);
-      font-weight:950;
-      white-space:nowrap;
+      font-size:1rem;
+      line-height:1.1;
+      letter-spacing:-.025em;
     }
 
-    .faq{
-      max-width:920px;
-      display:grid;
-      gap:10px;
+    .sandwich-card p {
+      margin:0;
+      color:#52627e;
+      line-height:1.38;
+      font-weight:750;
     }
 
-    .faq-item{
-      overflow:hidden;
-      border-radius:19px;
-    }
-
-    .faq-item__question{
-      width:100%;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:18px;
-      padding:17px 18px;
-      border:0;
-      color:var(--navy);
-      background:white;
-      font-weight:950;
-      text-align:left;
-      cursor:pointer;
-    }
-
-    .faq-item__answer{
-      display:none;
-      padding:0 18px 17px;
-      color:var(--muted);
-      line-height:1.58;
-      font-weight:650;
-    }
-
-    .faq-item.is-open .faq-item__answer{
-      display:block;
-    }
-
-    .faq-item.is-open .faq-item__question i{
-      transform:rotate(180deg);
-    }
-
-    .site-footer{
-      margin-top:46px;
-      padding:34px 0;
+    .site-footer {
+      margin-top:26px;
+      padding:30px 0;
       color:#dfe8ff;
       background:var(--navy-dark);
     }
 
-    .footer-inner{
+    .footer-inner {
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -613,37 +381,26 @@
       font-weight:700;
     }
 
-    .footer-inner a{
+    .footer-inner a {
       color:white;
       font-weight:1000;
       text-decoration:none;
     }
 
-    .footer-inner a:hover{
+    .footer-inner a:hover {
       text-decoration:underline;
     }
 
-    @media(max-width:1080px){
-      .hero{
-        grid-template-columns:1fr;
-      }
-
-      .hero__main,
-      .hero__side{
-        min-height:auto;
-      }
-    }
-
-    @media(max-width:760px){
-      :root{
+    @media(max-width:800px) {
+      :root {
         --gutter:20px;
       }
 
-      body{
+      body {
         background-size:36px 36px,36px 36px,auto,auto,auto;
       }
 
-      .site-nav__inner{
+      .site-nav__inner {
         min-height:auto;
         flex-direction:column;
         align-items:flex-start;
@@ -651,11 +408,11 @@
         padding:10px 0;
       }
 
-      .brand{
+      .brand {
         font-size:.98rem;
       }
 
-      .brand__mark{
+      .brand__mark {
         width:40px;
         height:40px;
         flex-basis:40px;
@@ -663,7 +420,7 @@
         box-shadow:5px 5px 0 rgba(20,140,155,.16);
       }
 
-      .site-nav__links{
+      .site-nav__links {
         width:100%;
         flex-wrap:nowrap;
         justify-content:flex-start;
@@ -674,11 +431,11 @@
         -webkit-overflow-scrolling:touch;
       }
 
-      .site-nav__links::-webkit-scrollbar{
+      .site-nav__links::-webkit-scrollbar {
         display:none;
       }
 
-      .site-nav__links a{
+      .site-nav__links a {
         flex:0 0 auto;
         padding:8px 10px;
         border:1px solid rgba(16,32,68,.08);
@@ -686,162 +443,86 @@
         font-size:.62rem;
       }
 
-      .site-header{
-        padding:16px 0 20px;
+      .hero {
+        padding:16px 0 16px;
       }
 
-      .hero{
-        gap:12px;
-      }
-
-      .hero__main,
-      .hero__side{
+      .hero-card {
+        min-height:auto;
+        padding:26px 20px 24px;
         border-radius:23px;
       }
 
-      .hero__main{
-        padding:26px 20px 24px;
-      }
-
-      .hero__icon{
+      .hero-icon {
         display:none;
       }
 
-      .eyebrow{
-        padding:7px 10px;
-        font-size:.61rem;
-        letter-spacing:.13em;
-      }
-
-      .hero h1{
-        margin-top:22px;
+      h1 {
         font-size:clamp(2.45rem,13vw,3.65rem);
         line-height:.94;
         letter-spacing:-.046em;
       }
 
-      .hero__subtitle{
-        margin-top:18px;
+      .subtitle {
         gap:11px;
         font-size:clamp(1.32rem,8.2vw,2.32rem);
         line-height:1.02;
         letter-spacing:-.05em;
       }
 
-      .hero__subtitle::before{
+      .subtitle::before {
         width:7px;
         height:52px;
         flex-basis:7px;
       }
 
-      .hero__kicker,
-      .hero__actions{
+      .kicker {
         margin-left:18px;
       }
 
-      .hero__actions{
-        display:grid;
-        grid-template-columns:1fr;
-        gap:8px;
-        margin-top:22px;
+      .section {
+        padding:30px 0 40px;
       }
 
-      .button{
-        width:100%;
-        min-height:44px;
-        border-radius:14px;
-      }
-
-      .hero__side-top{
-        min-height:auto;
-        padding:22px 20px;
-      }
-
-      .hero__side-title{
-        font-size:clamp(1.85rem,10.4vw,2.8rem);
-        line-height:1.05;
-      }
-
-      .hero__side-body{
-        padding:20px;
-        gap:16px;
-      }
-
-      .section{
-        padding:34px 0;
-        scroll-margin-top:118px;
-      }
-
-      .section__header{
-        margin-bottom:16px;
-      }
-
-      .section__title{
+      .section-title {
         gap:11px;
       }
 
-      .section__title::before{
+      .section-title::before {
         width:7px;
         height:50px;
         flex-basis:7px;
-        margin-top:3px;
       }
 
-      .section__title h2{
+      .section-title h2 {
         font-size:clamp(2.05rem,11vw,3.45rem);
         line-height:.94;
       }
 
-      .section__lead{
-        margin-left:18px;
-        font-size:.95rem;
-      }
-
-      .panel{
-        padding:20px;
+      .panel {
+        padding:18px;
         border-radius:21px;
       }
 
-      .stat-grid{
+      .sandwich-grid {
         grid-template-columns:1fr;
       }
 
-      th,
-      td{
-        padding:11px 12px;
-      }
-
-      .footer-inner{
+      .footer-inner {
         align-items:flex-start;
         flex-direction:column;
         font-size:.92rem;
-      }
-    }
-
-    @media(max-width:380px){
-      :root{
-        --gutter:16px;
-      }
-
-      .hero h1{
-        font-size:clamp(2.25rem,12.6vw,3.15rem);
-      }
-
-      .site-nav__links a{
-        font-size:.59rem;
       }
     }
   </style>
 </head>
 
 <body>
-  <a class="skip-link" href="#main-content">Naar inhoud springen</a>
-
   <nav class="site-nav" aria-label="Hoofdnavigatie">
     <div class="page site-nav__inner">
       <a class="brand" href="index.html" aria-label="Terug naar startpagina">
         <span class="brand__mark" aria-hidden="true"><i class="fa-solid fa-bread-slice"></i></span>
-        <span>Broodjeslijst</span>
+        <span>Broodjeskeuzes</span>
       </a>
 
       <div class="site-nav__links">
@@ -853,452 +534,414 @@
     </div>
   </nav>
 
-  <header id="top" class="site-header">
-    <div class="page hero" aria-labelledby="page-title">
-      <div class="hero__main">
-        <div class="hero__icon" aria-hidden="true">🥪</div>
+  <header class="hero">
+    <div class="page">
+      <section class="hero-card" aria-labelledby="page-title">
+        <div class="hero-icon" aria-hidden="true">🥪</div>
 
         <p class="eyebrow">Broodjesmissie geslaagd</p>
 
-        <h1 id="page-title">Broodjes<br>lijst</h1>
+        <h1 id="page-title">Broodjes<br>keuzes</h1>
 
-        <p class="hero__subtitle">wie koos<br>wat?</p>
+        <p class="subtitle">wie koos<br>welk broodje?</p>
 
-        <p class="hero__kicker">Gewoon een duidelijke lijst om je keuze na te kijken.</p>
-
-        <div class="hero__actions">
-          <a class="button button--primary" href="#lijst">
-            <i class="fa-solid fa-table-list" aria-hidden="true"></i> Naar lijst
-          </a>
-          <a class="button button--teal" href="index.html">
-            <i class="fa-solid fa-house" aria-hidden="true"></i> Home
-          </a>
-        </div>
-      </div>
-
-      <aside class="hero__side" aria-label="Korte broodjesinfo">
-        <div class="hero__side-top">
-          <p class="hero__side-title">42 keuzes.<br>Geen betaling.<br>Geen gedoe.</p>
-        </div>
-
-        <div class="hero__side-body">
-          <p class="hero__intro">
-            Deze pagina is enkel voor de deelnemers: naam, broodje en type brood.
-            Info voor betaling, bestelling of broodjeszaak is hier bewust weggelaten.
-          </p>
-
-          <div class="stat-grid">
-            <article class="stat-card"><b>42</b><span>keuzes in de lijst</span></article>
-            <article class="stat-card"><b>0</b><span>betaalinfo op deze pagina</span></article>
-          </div>
-        </div>
-      </aside>
+        <p class="kicker">Alleen de keuze. Geen betaling, geen type brood, geen randinfo.</p>
+      </section>
     </div>
   </header>
 
-  <main id="main-content">
+  <main>
     <section id="lijst" class="section page" aria-labelledby="lijst-title">
-      <header class="section__header">
-        <div class="section__title"><h2 id="lijst-title">Wat koos iedereen?</h2></div>
-        <p class="section__lead">
-          Zoek op naam of broodje. Dit is enkel een nakijklijst voor de groep.
-        </p>
-      </header>
+      <div class="section-title">
+        <h2 id="lijst-title">Lijst</h2>
+      </div>
 
       <article class="panel">
         <div class="toolbar">
-          <input class="search-box" id="searchBox" type="search" placeholder="Zoek naam, broodje of type brood..." aria-label="Zoek in broodjeslijst">
+          <input class="search-box" id="searchBox" type="search" placeholder="Zoek naam of broodje..." aria-label="Zoek in broodjeskeuzes">
         </div>
 
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Naam</th>
-                <th>Broodje</th>
-                <th>Type brood</th>
-              </tr>
-            </thead>
-            <tbody id="orderTable">
-              
-      <tr data-search="amedeo gobyn boulet bicky - €5,50 gewoon wit broodje">
-        <td><span class="number-pill">1</span></td>
-        <td class="name-cell">Amedeo Gobyn</td>
-        <td>Boulet Bicky - €5,50</td>
-        <td>Gewoon wit broodje</td>
-      </tr>
+        <div class="sandwich-grid" id="sandwichGrid">
+          
+        <article class="sandwich-card" data-search="amedeo gobyn boulet bicky">
+          <div class="sandwich-number">1</div>
+          <div>
+            <h3>Amedeo Gobyn</h3>
+            <p>Boulet Bicky</p>
+          </div>
+        </article>
     
 
-      <tr data-search="an vankeirsbilck martino - €5,20 supplement groenten én meergranenbrood + €1,50">
-        <td><span class="number-pill">2</span></td>
-        <td class="name-cell">An Vankeirsbilck</td>
-        <td>Martino - €5,20</td>
-        <td>Supplement groenten én meergranenbrood + €1,50</td>
-      </tr>
+        <article class="sandwich-card" data-search="an vankeirsbilck martino">
+          <div class="sandwich-number">2</div>
+          <div>
+            <h3>An Vankeirsbilck</h3>
+            <p>Martino</p>
+          </div>
+        </article>
     
 
-      <tr data-search="ann de vree liam - €7,20 — italiaanse ham / mozzarella / rucola / zongedroogde tomaat meergranenbrood + €0,50">
-        <td><span class="number-pill">3</span></td>
-        <td class="name-cell">Ann De Vree</td>
-        <td>Liam - €7,20 — Italiaanse Ham / Mozzarella / Rucola / Zongedroogde Tomaat</td>
-        <td>Meergranenbrood + €0,50</td>
-      </tr>
+        <article class="sandwich-card" data-search="ann de vree liam — italiaanse ham / mozzarella / rucola / zongedroogde tomaat">
+          <div class="sandwich-number">3</div>
+          <div>
+            <h3>Ann De Vree</h3>
+            <p>Liam — Italiaanse Ham / Mozzarella / Rucola / Zongedroogde Tomaat</p>
+          </div>
+        </article>
     
 
-      <tr data-search="anna ulburghs liam - €7,20 — italiaanse ham / mozzarella / rucola / zongedroogde tomaat meergranenbrood + €0,50">
-        <td><span class="number-pill">4</span></td>
-        <td class="name-cell">Anna Ulburghs</td>
-        <td>Liam - €7,20 — Italiaanse Ham / Mozzarella / Rucola / Zongedroogde Tomaat</td>
-        <td>Meergranenbrood + €0,50</td>
-      </tr>
+        <article class="sandwich-card" data-search="anna ulburghs liam — italiaanse ham / mozzarella / rucola / zongedroogde tomaat">
+          <div class="sandwich-number">4</div>
+          <div>
+            <h3>Anna Ulburghs</h3>
+            <p>Liam — Italiaanse Ham / Mozzarella / Rucola / Zongedroogde Tomaat</p>
+          </div>
+        </article>
     
 
-      <tr data-search="bart de cocker stefnick - €7,20 (inhoud staat niet op menu) gewoon wit broodje">
-        <td><span class="number-pill">5</span></td>
-        <td class="name-cell">Bart De Cocker</td>
-        <td>Stefnick - €7,20 (Inhoud staat niet op menu)</td>
-        <td>Gewoon wit broodje</td>
-      </tr>
+        <article class="sandwich-card" data-search="bart de cocker stefnick">
+          <div class="sandwich-number">5</div>
+          <div>
+            <h3>Bart De Cocker</h3>
+            <p>Stefnick</p>
+          </div>
+        </article>
     
 
-      <tr data-search="bram beerden geitenkaas / rucola / serrano / zongedroogde tomaat - €7,20 gewoon wit broodje">
-        <td><span class="number-pill">6</span></td>
-        <td class="name-cell">Bram Beerden</td>
-        <td>Geitenkaas / Rucola / Serrano / Zongedroogde Tomaat - €7,20</td>
-        <td>Gewoon wit broodje</td>
-      </tr>
+        <article class="sandwich-card" data-search="bram beerden geitenkaas / rucola / serrano / zongedroogde tomaat">
+          <div class="sandwich-number">6</div>
+          <div>
+            <h3>Bram Beerden</h3>
+            <p>Geitenkaas / Rucola / Serrano / Zongedroogde Tomaat</p>
+          </div>
+        </article>
     
 
-      <tr data-search="charlotte mensaert kippenwit - €5,20 supplement groenten én meergranenbrood + €1,50">
-        <td><span class="number-pill">7</span></td>
-        <td class="name-cell">Charlotte Mensaert</td>
-        <td>Kippenwit - €5,20</td>
-        <td>Supplement groenten én meergranenbrood + €1,50</td>
-      </tr>
+        <article class="sandwich-card" data-search="charlotte mensaert kippenwit">
+          <div class="sandwich-number">7</div>
+          <div>
+            <h3>Charlotte Mensaert</h3>
+            <p>Kippenwit</p>
+          </div>
+        </article>
     
 
-      <tr data-search="david verbist boulet bicky - €5,50 gewoon wit broodje">
-        <td><span class="number-pill">8</span></td>
-        <td class="name-cell">David Verbist</td>
-        <td>Boulet Bicky - €5,50</td>
-        <td>Gewoon wit broodje</td>
-      </tr>
+        <article class="sandwich-card" data-search="david verbist boulet bicky">
+          <div class="sandwich-number">8</div>
+          <div>
+            <h3>David Verbist</h3>
+            <p>Boulet Bicky</p>
+          </div>
+        </article>
     
 
-      <tr data-search="davy truyers boulet - €5,00 supplement groenten + €1,00">
-        <td><span class="number-pill">9</span></td>
-        <td class="name-cell">Davy Truyers</td>
-        <td>Boulet - €5,00</td>
-        <td>Supplement groenten + €1,00</td>
-      </tr>
+        <article class="sandwich-card" data-search="davy truyers boulet">
+          <div class="sandwich-number">9</div>
+          <div>
+            <h3>Davy Truyers</h3>
+            <p>Boulet</p>
+          </div>
+        </article>
     
 
-      <tr data-search="didier lecluyse boulet bicky - €5,50 gewoon wit broodje">
-        <td><span class="number-pill">10</span></td>
-        <td class="name-cell">Didier Lecluyse</td>
-        <td>Boulet Bicky - €5,50</td>
-        <td>Gewoon wit broodje</td>
-      </tr>
+        <article class="sandwich-card" data-search="didier lecluyse boulet bicky">
+          <div class="sandwich-number">10</div>
+          <div>
+            <h3>Didier Lecluyse</h3>
+            <p>Boulet Bicky</p>
+          </div>
+        </article>
     
 
-      <tr data-search="dieter dobbels tonijn pikant - €5,00 meergranenbrood + €0,50">
-        <td><span class="number-pill">11</span></td>
-        <td class="name-cell">Dieter Dobbels</td>
-        <td>Tonijn Pikant - €5,00</td>
-        <td>Meergranenbrood + €0,50</td>
-      </tr>
+        <article class="sandwich-card" data-search="dieter dobbels tonijn pikant">
+          <div class="sandwich-number">11</div>
+          <div>
+            <h3>Dieter Dobbels</h3>
+            <p>Tonijn Pikant</p>
+          </div>
+        </article>
     
 
-      <tr data-search="dieter van bussel lex - €7,20 — geitenkaas / honing / spek / tomaat supplement groenten én meergranenbrood + €1,50">
-        <td><span class="number-pill">12</span></td>
-        <td class="name-cell">Dieter Van Bussel</td>
-        <td>Lex - €7,20 — Geitenkaas / Honing / Spek / Tomaat</td>
-        <td>Supplement groenten én meergranenbrood + €1,50</td>
-      </tr>
+        <article class="sandwich-card" data-search="dieter van bussel lex — geitenkaas / honing / spek / tomaat">
+          <div class="sandwich-number">12</div>
+          <div>
+            <h3>Dieter Van Bussel</h3>
+            <p>Lex — Geitenkaas / Honing / Spek / Tomaat</p>
+          </div>
+        </article>
     
 
-      <tr data-search="digna wevers brie / honing / noten / rucola - €7,00 meergranenbrood + €0,50">
-        <td><span class="number-pill">13</span></td>
-        <td class="name-cell">Digna Wevers</td>
-        <td>Brie / Honing / Noten / Rucola - €7,00</td>
-        <td>Meergranenbrood + €0,50</td>
-      </tr>
+        <article class="sandwich-card" data-search="digna wevers brie / honing / noten / rucola">
+          <div class="sandwich-number">13</div>
+          <div>
+            <h3>Digna Wevers</h3>
+            <p>Brie / Honing / Noten / Rucola</p>
+          </div>
+        </article>
     
 
-      <tr data-search="dirk geniesse mozzarella / pesto / tomaat - €5,00 gewoon wit broodje">
-        <td><span class="number-pill">14</span></td>
-        <td class="name-cell">Dirk Geniesse</td>
-        <td>Mozzarella / Pesto / Tomaat - €5,00</td>
-        <td>Gewoon wit broodje</td>
-      </tr>
+        <article class="sandwich-card" data-search="dirk geniesse mozzarella / pesto / tomaat">
+          <div class="sandwich-number">14</div>
+          <div>
+            <h3>Dirk Geniesse</h3>
+            <p>Mozzarella / Pesto / Tomaat</p>
+          </div>
+        </article>
     
 
-      <tr data-search="dominique inzé estelle - €6,50 — carpaccio / parmezaan / rucola / truffelmayo meergranenbrood + €0,50">
-        <td><span class="number-pill">15</span></td>
-        <td class="name-cell">Dominique Inzé</td>
-        <td>Estelle - €6,50 — Carpaccio / Parmezaan / Rucola / Truffelmayo</td>
-        <td>Meergranenbrood + €0,50</td>
-      </tr>
+        <article class="sandwich-card" data-search="dominique inzé estelle — carpaccio / parmezaan / rucola / truffelmayo">
+          <div class="sandwich-number">15</div>
+          <div>
+            <h3>Dominique Inzé</h3>
+            <p>Estelle — Carpaccio / Parmezaan / Rucola / Truffelmayo</p>
+          </div>
+        </article>
     
 
-      <tr data-search="dries de block kaas/hesp - €5,00 supplement groenten én meergranenbrood + €1,50">
-        <td><span class="number-pill">16</span></td>
-        <td class="name-cell">Dries De Block</td>
-        <td>Kaas/Hesp - €5,00</td>
-        <td>Supplement groenten én meergranenbrood + €1,50</td>
-      </tr>
+        <article class="sandwich-card" data-search="dries de block kaas/hesp">
+          <div class="sandwich-number">16</div>
+          <div>
+            <h3>Dries De Block</h3>
+            <p>Kaas/Hesp</p>
+          </div>
+        </article>
     
 
-      <tr data-search="fleur dely kaas/hesp - €5,00 supplement groenten + €1,00">
-        <td><span class="number-pill">17</span></td>
-        <td class="name-cell">Fleur Dely</td>
-        <td>Kaas/Hesp - €5,00</td>
-        <td>Supplement groenten + €1,00</td>
-      </tr>
+        <article class="sandwich-card" data-search="fleur dely kaas/hesp">
+          <div class="sandwich-number">17</div>
+          <div>
+            <h3>Fleur Dely</h3>
+            <p>Kaas/Hesp</p>
+          </div>
+        </article>
     
 
-      <tr data-search="frederick smeyers geitenkaas / honing / noten / rucola / zongedroogde tomaat - €7,20 meergranenbrood + €0,50">
-        <td><span class="number-pill">18</span></td>
-        <td class="name-cell">Frederick Smeyers</td>
-        <td>Geitenkaas / Honing / Noten / Rucola / Zongedroogde Tomaat - €7,20</td>
-        <td>Meergranenbrood + €0,50</td>
-      </tr>
+        <article class="sandwich-card" data-search="frederick smeyers geitenkaas / honing / noten / rucola / zongedroogde tomaat">
+          <div class="sandwich-number">18</div>
+          <div>
+            <h3>Frederick Smeyers</h3>
+            <p>Geitenkaas / Honing / Noten / Rucola / Zongedroogde Tomaat</p>
+          </div>
+        </article>
     
 
-      <tr data-search="gertjan vande kerkhof boulet - €5,00 supplement groenten + €1,00">
-        <td><span class="number-pill">19</span></td>
-        <td class="name-cell">Gertjan Vande Kerkhof</td>
-        <td>Boulet - €5,00</td>
-        <td>Supplement groenten + €1,00</td>
-      </tr>
+        <article class="sandwich-card" data-search="gertjan vande kerkhof boulet">
+          <div class="sandwich-number">19</div>
+          <div>
+            <h3>Gertjan Vande Kerkhof</h3>
+            <p>Boulet</p>
+          </div>
+        </article>
     
 
-      <tr data-search="gilles de wilde boulet bicky - €5,50 meergranenbrood + €0,50">
-        <td><span class="number-pill">20</span></td>
-        <td class="name-cell">Gilles De Wilde</td>
-        <td>Boulet Bicky - €5,50</td>
-        <td>Meergranenbrood + €0,50</td>
-      </tr>
+        <article class="sandwich-card" data-search="gilles de wilde boulet bicky">
+          <div class="sandwich-number">20</div>
+          <div>
+            <h3>Gilles De Wilde</h3>
+            <p>Boulet Bicky</p>
+          </div>
+        </article>
     
 
-      <tr data-search="helga van petegem stefnick - €7,20 (inhoud staat niet op menu) gewoon wit broodje">
-        <td><span class="number-pill">21</span></td>
-        <td class="name-cell">Helga Van Petegem</td>
-        <td>Stefnick - €7,20 (Inhoud staat niet op menu)</td>
-        <td>Gewoon wit broodje</td>
-      </tr>
+        <article class="sandwich-card" data-search="helga van petegem stefnick">
+          <div class="sandwich-number">21</div>
+          <div>
+            <h3>Helga Van Petegem</h3>
+            <p>Stefnick</p>
+          </div>
+        </article>
     
 
-      <tr data-search="jan vinck kaas/hesp - €5,00 gewoon wit broodje">
-        <td><span class="number-pill">22</span></td>
-        <td class="name-cell">Jan Vinck</td>
-        <td>Kaas/Hesp - €5,00</td>
-        <td>Gewoon wit broodje</td>
-      </tr>
+        <article class="sandwich-card" data-search="jan vinck kaas/hesp">
+          <div class="sandwich-number">22</div>
+          <div>
+            <h3>Jan Vinck</h3>
+            <p>Kaas/Hesp</p>
+          </div>
+        </article>
     
 
-      <tr data-search="jill van belle americain - €5,00 supplement groenten + €1,00">
-        <td><span class="number-pill">23</span></td>
-        <td class="name-cell">Jill Van Belle</td>
-        <td>Americain - €5,00</td>
-        <td>Supplement groenten + €1,00</td>
-      </tr>
+        <article class="sandwich-card" data-search="jill van belle americain">
+          <div class="sandwich-number">23</div>
+          <div>
+            <h3>Jill Van Belle</h3>
+            <p>Americain</p>
+          </div>
+        </article>
     
 
-      <tr data-search="jinse maus liam - €7,20 — italiaanse ham / mozzarella / rucola / zongedroogde tomaat meergranenbrood + €0,50">
-        <td><span class="number-pill">24</span></td>
-        <td class="name-cell">Jinse Maus</td>
-        <td>Liam - €7,20 — Italiaanse Ham / Mozzarella / Rucola / Zongedroogde Tomaat</td>
-        <td>Meergranenbrood + €0,50</td>
-      </tr>
+        <article class="sandwich-card" data-search="jinse maus liam — italiaanse ham / mozzarella / rucola / zongedroogde tomaat">
+          <div class="sandwich-number">24</div>
+          <div>
+            <h3>Jinse Maus</h3>
+            <p>Liam — Italiaanse Ham / Mozzarella / Rucola / Zongedroogde Tomaat</p>
+          </div>
+        </article>
     
 
-      <tr data-search="joachim heyvaert liam - €7,20 — italiaanse ham / mozzarella / rucola / zongedroogde tomaat gewoon wit broodje">
-        <td><span class="number-pill">25</span></td>
-        <td class="name-cell">Joachim Heyvaert</td>
-        <td>Liam - €7,20 — Italiaanse Ham / Mozzarella / Rucola / Zongedroogde Tomaat</td>
-        <td>Gewoon wit broodje</td>
-      </tr>
+        <article class="sandwich-card" data-search="joachim heyvaert liam — italiaanse ham / mozzarella / rucola / zongedroogde tomaat">
+          <div class="sandwich-number">25</div>
+          <div>
+            <h3>Joachim Heyvaert</h3>
+            <p>Liam — Italiaanse Ham / Mozzarella / Rucola / Zongedroogde Tomaat</p>
+          </div>
+        </article>
     
 
-      <tr data-search="kevin van roy steffen - €7,20 — effi / italiaanse ham / rucola / zongedroogde tomaat gewoon wit broodje">
-        <td><span class="number-pill">26</span></td>
-        <td class="name-cell">Kevin Van Roy</td>
-        <td>Steffen - €7,20 — Effi / Italiaanse Ham / Rucola / Zongedroogde Tomaat</td>
-        <td>Gewoon wit broodje</td>
-      </tr>
+        <article class="sandwich-card" data-search="kevin van roy steffen — effi / italiaanse ham / rucola / zongedroogde tomaat">
+          <div class="sandwich-number">26</div>
+          <div>
+            <h3>Kevin Van Roy</h3>
+            <p>Steffen — Effi / Italiaanse Ham / Rucola / Zongedroogde Tomaat</p>
+          </div>
+        </article>
     
 
-      <tr data-search="lieven delvaux italiaanse ham - €5,00 supplement groenten én meergranenbrood + €1,50">
-        <td><span class="number-pill">27</span></td>
-        <td class="name-cell">Lieven Delvaux</td>
-        <td>Italiaanse Ham - €5,00</td>
-        <td>Supplement groenten én meergranenbrood + €1,50</td>
-      </tr>
+        <article class="sandwich-card" data-search="lieven delvaux italiaanse ham">
+          <div class="sandwich-number">27</div>
+          <div>
+            <h3>Lieven Delvaux</h3>
+            <p>Italiaanse Ham</p>
+          </div>
+        </article>
     
 
-      <tr data-search="liselot verbruggen brie / honing / noten / rucola - €7,00 meergranenbrood + €0,50">
-        <td><span class="number-pill">28</span></td>
-        <td class="name-cell">Liselot Verbruggen</td>
-        <td>Brie / Honing / Noten / Rucola - €7,00</td>
-        <td>Meergranenbrood + €0,50</td>
-      </tr>
+        <article class="sandwich-card" data-search="liselot verbruggen brie / honing / noten / rucola">
+          <div class="sandwich-number">28</div>
+          <div>
+            <h3>Liselot Verbruggen</h3>
+            <p>Brie / Honing / Noten / Rucola</p>
+          </div>
+        </article>
     
 
-      <tr data-search="lode moens boulet bicky - €5,50 meergranenbrood + €0,50">
-        <td><span class="number-pill">29</span></td>
-        <td class="name-cell">Lode Moens</td>
-        <td>Boulet Bicky - €5,50</td>
-        <td>Meergranenbrood + €0,50</td>
-      </tr>
+        <article class="sandwich-card" data-search="lode moens boulet bicky">
+          <div class="sandwich-number">29</div>
+          <div>
+            <h3>Lode Moens</h3>
+            <p>Boulet Bicky</p>
+          </div>
+        </article>
     
 
-      <tr data-search="maarten wybo boulet bicky - €5,50 gewoon wit broodje">
-        <td><span class="number-pill">30</span></td>
-        <td class="name-cell">Maarten Wybo</td>
-        <td>Boulet Bicky - €5,50</td>
-        <td>Gewoon wit broodje</td>
-      </tr>
+        <article class="sandwich-card" data-search="maarten wybo boulet bicky">
+          <div class="sandwich-number">30</div>
+          <div>
+            <h3>Maarten Wybo</h3>
+            <p>Boulet Bicky</p>
+          </div>
+        </article>
     
 
-      <tr data-search="marc geukens stefnick - €7,20 (inhoud staat niet op menu) supplement groenten + €1,00">
-        <td><span class="number-pill">31</span></td>
-        <td class="name-cell">Marc Geukens</td>
-        <td>Stefnick - €7,20 (Inhoud staat niet op menu)</td>
-        <td>Supplement groenten + €1,00</td>
-      </tr>
+        <article class="sandwich-card" data-search="marc geukens stefnick">
+          <div class="sandwich-number">31</div>
+          <div>
+            <h3>Marc Geukens</h3>
+            <p>Stefnick</p>
+          </div>
+        </article>
     
 
-      <tr data-search="mario pettinato liam - €7,20 — italiaanse ham / mozzarella / rucola / zongedroogde tomaat gewoon wit broodje">
-        <td><span class="number-pill">32</span></td>
-        <td class="name-cell">Mario Pettinato</td>
-        <td>Liam - €7,20 — Italiaanse Ham / Mozzarella / Rucola / Zongedroogde Tomaat</td>
-        <td>Gewoon wit broodje</td>
-      </tr>
+        <article class="sandwich-card" data-search="mario pettinato liam — italiaanse ham / mozzarella / rucola / zongedroogde tomaat">
+          <div class="sandwich-number">32</div>
+          <div>
+            <h3>Mario Pettinato</h3>
+            <p>Liam — Italiaanse Ham / Mozzarella / Rucola / Zongedroogde Tomaat</p>
+          </div>
+        </article>
     
 
-      <tr data-search="nils jouret boulet bicky - €5,50 meergranenbrood + €0,50">
-        <td><span class="number-pill">33</span></td>
-        <td class="name-cell">Nils Jouret</td>
-        <td>Boulet Bicky - €5,50</td>
-        <td>Meergranenbrood + €0,50</td>
-      </tr>
+        <article class="sandwich-card" data-search="nils jouret boulet bicky">
+          <div class="sandwich-number">33</div>
+          <div>
+            <h3>Nils Jouret</h3>
+            <p>Boulet Bicky</p>
+          </div>
+        </article>
     
 
-      <tr data-search="sara de brandt estelle - €6,50 — carpaccio / parmezaan / rucola / truffelmayo meergranenbrood + €0,50">
-        <td><span class="number-pill">34</span></td>
-        <td class="name-cell">Sara De Brandt</td>
-        <td>Estelle - €6,50 — Carpaccio / Parmezaan / Rucola / Truffelmayo</td>
-        <td>Meergranenbrood + €0,50</td>
-      </tr>
+        <article class="sandwich-card" data-search="sara de brandt estelle — carpaccio / parmezaan / rucola / truffelmayo">
+          <div class="sandwich-number">34</div>
+          <div>
+            <h3>Sara De Brandt</h3>
+            <p>Estelle — Carpaccio / Parmezaan / Rucola / Truffelmayo</p>
+          </div>
+        </article>
     
 
-      <tr data-search="scott schippers estelle - €6,50 — carpaccio / parmezaan / rucola / truffelmayo gewoon wit broodje">
-        <td><span class="number-pill">35</span></td>
-        <td class="name-cell">Scott Schippers</td>
-        <td>Estelle - €6,50 — Carpaccio / Parmezaan / Rucola / Truffelmayo</td>
-        <td>Gewoon wit broodje</td>
-      </tr>
+        <article class="sandwich-card" data-search="scott schippers estelle — carpaccio / parmezaan / rucola / truffelmayo">
+          <div class="sandwich-number">35</div>
+          <div>
+            <h3>Scott Schippers</h3>
+            <p>Estelle — Carpaccio / Parmezaan / Rucola / Truffelmayo</p>
+          </div>
+        </article>
     
 
-      <tr data-search="sebastian verriest stefnick - €7,20 (inhoud staat niet op menu) gewoon wit broodje">
-        <td><span class="number-pill">36</span></td>
-        <td class="name-cell">Sebastian Verriest</td>
-        <td>Stefnick - €7,20 (Inhoud staat niet op menu)</td>
-        <td>Gewoon wit broodje</td>
-      </tr>
+        <article class="sandwich-card" data-search="sebastian verriest stefnick">
+          <div class="sandwich-number">36</div>
+          <div>
+            <h3>Sebastian Verriest</h3>
+            <p>Stefnick</p>
+          </div>
+        </article>
     
 
-      <tr data-search="stefanie vandenbrouck kaas/hesp - €5,00 meergranenbrood + €0,50">
-        <td><span class="number-pill">37</span></td>
-        <td class="name-cell">Stefanie Vandenbrouck</td>
-        <td>Kaas/Hesp - €5,00</td>
-        <td>Meergranenbrood + €0,50</td>
-      </tr>
+        <article class="sandwich-card" data-search="stefanie vandenbrouck kaas/hesp">
+          <div class="sandwich-number">37</div>
+          <div>
+            <h3>Stefanie Vandenbrouck</h3>
+            <p>Kaas/Hesp</p>
+          </div>
+        </article>
     
 
-      <tr data-search="steven engels lex - €7,20 — geitenkaas / honing / spek / tomaat gewoon wit broodje">
-        <td><span class="number-pill">38</span></td>
-        <td class="name-cell">Steven Engels</td>
-        <td>Lex - €7,20 — Geitenkaas / Honing / Spek / Tomaat</td>
-        <td>Gewoon wit broodje</td>
-      </tr>
+        <article class="sandwich-card" data-search="steven engels lex — geitenkaas / honing / spek / tomaat">
+          <div class="sandwich-number">38</div>
+          <div>
+            <h3>Steven Engels</h3>
+            <p>Lex — Geitenkaas / Honing / Spek / Tomaat</p>
+          </div>
+        </article>
     
 
-      <tr data-search="steven mahieu kaas - €4,00 supplement groenten én meergranenbrood + €1,50">
-        <td><span class="number-pill">39</span></td>
-        <td class="name-cell">Steven Mahieu</td>
-        <td>Kaas - €4,00</td>
-        <td>Supplement groenten én meergranenbrood + €1,50</td>
-      </tr>
+        <article class="sandwich-card" data-search="steven mahieu kaas">
+          <div class="sandwich-number">39</div>
+          <div>
+            <h3>Steven Mahieu</h3>
+            <p>Kaas</p>
+          </div>
+        </article>
     
 
-      <tr data-search="stijn bockstael kippenwit - €5,20 supplement groenten én meergranenbrood + €1,50">
-        <td><span class="number-pill">40</span></td>
-        <td class="name-cell">Stijn Bockstael</td>
-        <td>Kippenwit - €5,20</td>
-        <td>Supplement groenten én meergranenbrood + €1,50</td>
-      </tr>
+        <article class="sandwich-card" data-search="stijn bockstael kippenwit">
+          <div class="sandwich-number">40</div>
+          <div>
+            <h3>Stijn Bockstael</h3>
+            <p>Kippenwit</p>
+          </div>
+        </article>
     
 
-      <tr data-search="sven vispoel tonijn pikant - €5,00 supplement groenten + €1,00">
-        <td><span class="number-pill">41</span></td>
-        <td class="name-cell">Sven Vispoel</td>
-        <td>Tonijn Pikant - €5,00</td>
-        <td>Supplement groenten + €1,00</td>
-      </tr>
+        <article class="sandwich-card" data-search="sven vispoel tonijn pikant">
+          <div class="sandwich-number">41</div>
+          <div>
+            <h3>Sven Vispoel</h3>
+            <p>Tonijn Pikant</p>
+          </div>
+        </article>
     
 
-      <tr data-search="valerie helderweirt gerookte zalm - €6,40 meergranenbrood + €0,50">
-        <td><span class="number-pill">42</span></td>
-        <td class="name-cell">Valerie Helderweirt</td>
-        <td>Gerookte zalm - €6,40</td>
-        <td>Meergranenbrood + €0,50</td>
-      </tr>
+        <article class="sandwich-card" data-search="valerie helderweirt gerookte zalm">
+          <div class="sandwich-number">42</div>
+          <div>
+            <h3>Valerie Helderweirt</h3>
+            <p>Gerookte zalm</p>
+          </div>
+        </article>
     
-            </tbody>
-          </table>
         </div>
       </article>
-    </section>
-
-    <section id="faq" class="section page" aria-labelledby="faq-title">
-      <header class="section__header">
-        <div class="section__title"><h2 id="faq-title">FAQ</h2></div>
-      </header>
-
-      <div class="faq">
-        <article class="faq-item">
-          <button class="faq-item__question" type="button" aria-expanded="false">
-            <span>Moet het broodjesformulier nog ingevuld worden?</span>
-            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
-          </button>
-          <div class="faq-item__answer">
-            Nee. Iedereen heeft ingevuld. Hoera.
-          </div>
-        </article>
-
-        <article class="faq-item">
-          <button class="faq-item__question" type="button" aria-expanded="false">
-            <span>Waarom staat er geen prijs of betaling bij?</span>
-            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
-          </button>
-          <div class="faq-item__answer">
-            Omdat deze pagina alleen bedoeld is om je keuze na te kijken.
-          </div>
-        </article>
-
-        <article class="faq-item">
-          <button class="faq-item__question" type="button" aria-expanded="false">
-            <span>Wat als mijn keuze fout staat?</span>
-            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
-          </button>
-          <div class="faq-item__answer">
-            Spreek de organisator aan. Deze pagina is geen nieuw formulier, maar een overzicht.
-          </div>
-        </article>
-      </div>
     </section>
   </main>
 
@@ -1306,7 +949,7 @@
     <div class="page footer-inner">
       <div>
         <strong>Teambuilding Prom 23 Klas A</strong><br>
-        Broodjeslijst · enkel nakijken
+        Broodjeskeuzes
       </div>
 
       <a href="#top">
@@ -1318,27 +961,17 @@
   <script>
     (() => {
       const searchBox = document.getElementById("searchBox");
-      const rows = [...document.querySelectorAll("#orderTable tr")];
+      const cards = [...document.querySelectorAll(".sandwich-card")];
 
-      function applySearch(){
+      function applySearch() {
         const query = searchBox.value.trim().toLowerCase();
 
-        rows.forEach(row => {
-          row.classList.toggle("is-hidden", !row.dataset.search.includes(query));
+        cards.forEach(card => {
+          card.classList.toggle("is-hidden", !card.dataset.search.includes(query));
         });
       }
 
       searchBox.addEventListener("input", applySearch);
-    })();
-
-    (() => {
-      document.querySelectorAll(".faq-item__question").forEach(button => {
-        button.addEventListener("click", () => {
-          const item = button.closest(".faq-item");
-          const open = item.classList.toggle("is-open");
-          button.setAttribute("aria-expanded", String(open));
-        });
-      });
     })();
   </script>
 </body>
