@@ -4,8 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="description" content="Broodjeskeuzes voor de teambuilding van Prom 23 Klas A.">
-  <title>Broodjeskeuzes · Teambuilding Prom 23 Klas A</title>
+  <title>Broodjeslijst · Teambuilding Prom 23 Klas A</title>
 
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
@@ -17,26 +16,20 @@
       --navy:#1f3270;
       --navy-dark:#182655;
       --teal:#148c9b;
-      --teal-dark:#116f7d;
       --yellow:#f7bf21;
       --coral:#ff7365;
-      --white:#fff;
       --muted:#60708d;
       --line:rgba(16,32,68,.13);
       --shadow:0 18px 48px rgba(16,32,68,.12);
       --shadow-card:0 12px 30px rgba(16,32,68,.075);
-      --radius:24px;
       --page:1180px;
       --gutter:32px;
+      --radius:24px;
     }
 
-    *, *::before, *::after {
-      box-sizing:border-box;
-    }
+    *, *::before, *::after { box-sizing:border-box; }
 
-    html {
-      scroll-behavior:smooth;
-    }
+    html { scroll-behavior:smooth; }
 
     body {
       margin:0;
@@ -49,16 +42,10 @@
         radial-gradient(circle at 92% 9%, rgba(20,140,155,.14), transparent 24%),
         var(--bg);
       background-size:48px 48px,48px 48px,auto,auto,auto;
-      overflow-x:hidden;
     }
 
-    a {
-      color:inherit;
-    }
-
-    input {
-      font:inherit;
-    }
+    a { color:inherit; }
+    input { font:inherit; }
 
     .page {
       width:min(var(--page), calc(100% - var(--gutter)));
@@ -139,30 +126,29 @@
       background:rgba(247,191,33,.35);
     }
 
-    .hero {
-      padding:28px 0 24px;
+    header {
+      padding:28px 0 20px;
     }
 
-    .hero-card {
+    .hero {
       position:relative;
       overflow:hidden;
-      min-height:360px;
-      padding:clamp(32px,4.4vw,60px);
+      padding:clamp(28px,4vw,48px);
       border-radius:30px;
       color:white;
       background:
         linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px),
         linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
-        radial-gradient(circle at 86% 12%, rgba(255,255,255,.12), transparent 18%),
         linear-gradient(135deg,var(--navy),var(--navy-dark));
-      background-size:44px 44px,44px 44px,auto,auto;
+      background-size:44px 44px,44px 44px,auto;
       box-shadow:var(--shadow);
     }
 
-    .hero-icon {
+    .hero::after {
+      content:"🥪";
       position:absolute;
-      top:24px;
       right:28px;
+      top:24px;
       width:104px;
       height:104px;
       display:grid;
@@ -201,72 +187,16 @@
     }
 
     h1 {
-      max-width:760px;
-      margin:30px 0 0;
+      max-width:720px;
+      margin:28px 0 0;
       color:white;
-      font-size:clamp(3.3rem,6vw,6.2rem);
+      font-size:clamp(3rem,5.5vw,5.8rem);
       line-height:.9;
       letter-spacing:-.065em;
     }
 
-    .subtitle {
-      max-width:650px;
-      margin:22px 0 0;
-      display:flex;
-      align-items:flex-start;
-      gap:17px;
-      color:#dbe5ff;
-      font-size:clamp(1.45rem,2.6vw,2.7rem);
-      font-weight:300;
-      line-height:1;
-      letter-spacing:-.055em;
-    }
-
-    .subtitle::before {
-      content:"";
-      width:8px;
-      height:68px;
-      flex:0 0 8px;
-      margin-top:4px;
-      border-radius:999px;
-      background:var(--yellow);
-    }
-
-    .kicker {
-      margin:22px 0 0 25px;
-      color:var(--yellow);
-      font-size:clamp(1rem,1.4vw,1.18rem);
-      font-style:italic;
-      font-weight:850;
-    }
-
     .section {
       padding:34px 0 58px;
-    }
-
-    .section-title {
-      display:flex;
-      align-items:flex-start;
-      gap:15px;
-      margin-bottom:20px;
-    }
-
-    .section-title::before {
-      content:"";
-      width:8px;
-      height:64px;
-      flex:0 0 8px;
-      margin-top:5px;
-      border-radius:999px;
-      background:var(--yellow);
-    }
-
-    .section-title h2 {
-      margin:0;
-      color:var(--navy);
-      font-size:clamp(2.25rem,4.7vw,4.7rem);
-      line-height:.92;
-      letter-spacing:-.078em;
     }
 
     .panel {
@@ -309,63 +239,79 @@
       background:white;
     }
 
-    .sandwich-grid {
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:12px;
-    }
-
-    .sandwich-card {
-      display:grid;
-      grid-template-columns:44px minmax(0,1fr);
-      gap:12px;
-      align-items:start;
-      padding:14px;
+    .table-wrap {
+      overflow:auto;
       border:1px solid var(--line);
-      border-radius:18px;
-      background:#f6f9fc;
-      transition:.16s transform,.16s border-color,.16s box-shadow;
-    }
-
-    .sandwich-card:hover {
-      transform:translateY(-2px);
-      border-color:rgba(20,140,155,.35);
-      box-shadow:0 12px 26px rgba(20,140,155,.10);
+      border-radius:20px;
       background:white;
     }
 
-    .sandwich-card.is-hidden {
-      display:none;
+    table {
+      width:100%;
+      min-width:860px;
+      border-collapse:collapse;
     }
 
-    .sandwich-number {
-      width:38px;
-      height:38px;
+    th, td {
+      padding:13px 14px;
+      border-bottom:1px solid rgba(16,32,68,.09);
+      text-align:left;
+      vertical-align:top;
+    }
+
+    th {
+      position:sticky;
+      top:0;
+      z-index:1;
+      color:var(--navy);
+      background:#f6f9fc;
+      font-size:.74rem;
+      letter-spacing:.055em;
+      text-transform:uppercase;
+      font-weight:1000;
+    }
+
+    tbody tr:hover { background:#fbfdff; }
+    tbody tr.is-hidden { display:none; }
+
+    .nr {
+      width:32px;
+      height:32px;
       display:grid;
       place-items:center;
-      border-radius:14px;
+      border-radius:999px;
       color:var(--navy-dark);
       background:var(--yellow);
       font-weight:1000;
-      font-size:.88rem;
+      font-size:.85rem;
     }
 
-    .sandwich-card h3 {
-      margin:0 0 5px;
+    .name {
       color:var(--navy);
-      font-size:1rem;
-      line-height:1.1;
-      letter-spacing:-.025em;
+      font-weight:950;
+      white-space:nowrap;
     }
 
-    .sandwich-card p {
-      margin:0;
+    .pill {
+      display:inline-flex;
+      align-items:center;
+      min-height:30px;
+      padding:5px 10px;
+      border-radius:999px;
+      background:#eef3f8;
+      border:1px solid var(--line);
       color:#52627e;
-      line-height:1.38;
+      font-size:.82rem;
+      font-weight:900;
+      white-space:nowrap;
+    }
+
+    .special {
+      color:#52627e;
       font-weight:750;
     }
 
-    .site-footer {
+    footer {
       margin-top:26px;
       padding:30px 0;
       color:#dfe8ff;
@@ -387,14 +333,10 @@
       text-decoration:none;
     }
 
-    .footer-inner a:hover {
-      text-decoration:underline;
-    }
+    .footer-inner a:hover { text-decoration:underline; }
 
     @media(max-width:800px) {
-      :root {
-        --gutter:20px;
-      }
+      :root { --gutter:20px; }
 
       body {
         background-size:36px 36px,36px 36px,auto,auto,auto;
@@ -408,9 +350,7 @@
         padding:10px 0;
       }
 
-      .brand {
-        font-size:.98rem;
-      }
+      .brand { font-size:.98rem; }
 
       .brand__mark {
         width:40px;
@@ -431,9 +371,7 @@
         -webkit-overflow-scrolling:touch;
       }
 
-      .site-nav__links::-webkit-scrollbar {
-        display:none;
-      }
+      .site-nav__links::-webkit-scrollbar { display:none; }
 
       .site-nav__links a {
         flex:0 0 auto;
@@ -443,19 +381,14 @@
         font-size:.62rem;
       }
 
-      .hero {
-        padding:16px 0 16px;
-      }
+      header { padding:16px 0; }
 
-      .hero-card {
-        min-height:auto;
+      .hero {
         padding:26px 20px 24px;
         border-radius:23px;
       }
 
-      .hero-icon {
-        display:none;
-      }
+      .hero::after { display:none; }
 
       h1 {
         font-size:clamp(2.45rem,13vw,3.65rem);
@@ -463,49 +396,13 @@
         letter-spacing:-.046em;
       }
 
-      .subtitle {
-        gap:11px;
-        font-size:clamp(1.32rem,8.2vw,2.32rem);
-        line-height:1.02;
-        letter-spacing:-.05em;
-      }
-
-      .subtitle::before {
-        width:7px;
-        height:52px;
-        flex-basis:7px;
-      }
-
-      .kicker {
-        margin-left:18px;
-      }
-
-      .section {
-        padding:30px 0 40px;
-      }
-
-      .section-title {
-        gap:11px;
-      }
-
-      .section-title::before {
-        width:7px;
-        height:50px;
-        flex-basis:7px;
-      }
-
-      .section-title h2 {
-        font-size:clamp(2.05rem,11vw,3.45rem);
-        line-height:.94;
-      }
-
       .panel {
         padding:18px;
         border-radius:21px;
       }
 
-      .sandwich-grid {
-        grid-template-columns:1fr;
+      th, td {
+        padding:11px 12px;
       }
 
       .footer-inner {
@@ -522,7 +419,7 @@
     <div class="page site-nav__inner">
       <a class="brand" href="index.html" aria-label="Terug naar startpagina">
         <span class="brand__mark" aria-hidden="true"><i class="fa-solid fa-bread-slice"></i></span>
-        <span>Broodjeskeuzes</span>
+        <span>Broodjeslijst</span>
       </a>
 
       <div class="site-nav__links">
@@ -534,440 +431,435 @@
     </div>
   </nav>
 
-  <header class="hero">
+  <header>
     <div class="page">
-      <section class="hero-card" aria-labelledby="page-title">
-        <div class="hero-icon" aria-hidden="true">🥪</div>
-
-        <p class="eyebrow">Broodjesmissie geslaagd</p>
-
-        <h1 id="page-title">Broodjes<br>keuzes</h1>
-
-        <p class="subtitle">wie koos<br>welk broodje?</p>
-
-        <p class="kicker">Alleen de keuze. Geen betaling, geen type brood, geen randinfo.</p>
+      <section class="hero" aria-labelledby="page-title">
+        <p class="eyebrow">Broodjes</p>
+        <h1 id="page-title">Broodjeslijst</h1>
       </section>
     </div>
   </header>
 
   <main>
-    <section id="lijst" class="section page" aria-labelledby="lijst-title">
-      <div class="section-title">
-        <h2 id="lijst-title">Lijst</h2>
-      </div>
-
+    <section id="lijst" class="section page">
       <article class="panel">
         <div class="toolbar">
-          <input class="search-box" id="searchBox" type="search" placeholder="Zoek naam of broodje..." aria-label="Zoek in broodjeskeuzes">
+          <input class="search-box" id="searchBox" type="search" placeholder="Zoek naam, broodje, broodtype of request..." aria-label="Zoek in broodjeslijst">
         </div>
 
-        <div class="sandwich-grid" id="sandwichGrid">
-          
-        <article class="sandwich-card" data-search="amedeo gobyn boulet bicky">
-          <div class="sandwich-number">1</div>
-          <div>
-            <h3>Amedeo Gobyn</h3>
-            <p>Boulet Bicky</p>
-          </div>
-        </article>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Naam</th>
+                <th>Broodje</th>
+                <th>Type</th>
+                <th>Speciale request</th>
+              </tr>
+            </thead>
+            <tbody id="orderTable">
+              
+          <tr data-search="amedeo gobyn boulet bicky wit ">
+            <td><span class="nr">1</span></td>
+            <td class="name">Amedeo Gobyn</td>
+            <td>Boulet Bicky</td>
+            <td><span class="pill">Wit</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="an vankeirsbilck martino">
-          <div class="sandwich-number">2</div>
-          <div>
-            <h3>An Vankeirsbilck</h3>
-            <p>Martino</p>
-          </div>
-        </article>
+          <tr data-search="an vankeirsbilck martino meergranen + groenten ">
+            <td><span class="nr">2</span></td>
+            <td class="name">An Vankeirsbilck</td>
+            <td>Martino</td>
+            <td><span class="pill">Meergranen + groenten</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="ann de vree liam — italiaanse ham / mozzarella / rucola / zongedroogde tomaat">
-          <div class="sandwich-number">3</div>
-          <div>
-            <h3>Ann De Vree</h3>
-            <p>Liam — Italiaanse Ham / Mozzarella / Rucola / Zongedroogde Tomaat</p>
-          </div>
-        </article>
+          <tr data-search="ann de vree liam — italiaanse ham / mozzarella / rucola / zongedroogde tomaat meergranen ">
+            <td><span class="nr">3</span></td>
+            <td class="name">Ann De Vree</td>
+            <td>Liam — Italiaanse Ham / Mozzarella / Rucola / Zongedroogde Tomaat</td>
+            <td><span class="pill">Meergranen</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="anna ulburghs liam — italiaanse ham / mozzarella / rucola / zongedroogde tomaat">
-          <div class="sandwich-number">4</div>
-          <div>
-            <h3>Anna Ulburghs</h3>
-            <p>Liam — Italiaanse Ham / Mozzarella / Rucola / Zongedroogde Tomaat</p>
-          </div>
-        </article>
+          <tr data-search="anna ulburghs liam — italiaanse ham / mozzarella / rucola / zongedroogde tomaat meergranen ">
+            <td><span class="nr">4</span></td>
+            <td class="name">Anna Ulburghs</td>
+            <td>Liam — Italiaanse Ham / Mozzarella / Rucola / Zongedroogde Tomaat</td>
+            <td><span class="pill">Meergranen</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="bart de cocker stefnick">
-          <div class="sandwich-number">5</div>
-          <div>
-            <h3>Bart De Cocker</h3>
-            <p>Stefnick</p>
-          </div>
-        </article>
+          <tr data-search="bart de cocker stefnick wit ">
+            <td><span class="nr">5</span></td>
+            <td class="name">Bart De Cocker</td>
+            <td>Stefnick</td>
+            <td><span class="pill">Wit</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="bram beerden geitenkaas / rucola / serrano / zongedroogde tomaat">
-          <div class="sandwich-number">6</div>
-          <div>
-            <h3>Bram Beerden</h3>
-            <p>Geitenkaas / Rucola / Serrano / Zongedroogde Tomaat</p>
-          </div>
-        </article>
+          <tr data-search="bram beerden geitenkaas / rucola / serrano / zongedroogde tomaat wit ">
+            <td><span class="nr">6</span></td>
+            <td class="name">Bram Beerden</td>
+            <td>Geitenkaas / Rucola / Serrano / Zongedroogde Tomaat</td>
+            <td><span class="pill">Wit</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="charlotte mensaert kippenwit">
-          <div class="sandwich-number">7</div>
-          <div>
-            <h3>Charlotte Mensaert</h3>
-            <p>Kippenwit</p>
-          </div>
-        </article>
+          <tr data-search="charlotte mensaert kippenwit meergranen + groenten ">
+            <td><span class="nr">7</span></td>
+            <td class="name">Charlotte Mensaert</td>
+            <td>Kippenwit</td>
+            <td><span class="pill">Meergranen + groenten</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="david verbist boulet bicky">
-          <div class="sandwich-number">8</div>
-          <div>
-            <h3>David Verbist</h3>
-            <p>Boulet Bicky</p>
-          </div>
-        </article>
+          <tr data-search="david verbist boulet bicky wit ">
+            <td><span class="nr">8</span></td>
+            <td class="name">David Verbist</td>
+            <td>Boulet Bicky</td>
+            <td><span class="pill">Wit</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="davy truyers boulet">
-          <div class="sandwich-number">9</div>
-          <div>
-            <h3>Davy Truyers</h3>
-            <p>Boulet</p>
-          </div>
-        </article>
+          <tr data-search="davy truyers boulet wit + groenten ">
+            <td><span class="nr">9</span></td>
+            <td class="name">Davy Truyers</td>
+            <td>Boulet</td>
+            <td><span class="pill">Wit + groenten</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="didier lecluyse boulet bicky">
-          <div class="sandwich-number">10</div>
-          <div>
-            <h3>Didier Lecluyse</h3>
-            <p>Boulet Bicky</p>
-          </div>
-        </article>
+          <tr data-search="didier lecluyse boulet bicky wit ">
+            <td><span class="nr">10</span></td>
+            <td class="name">Didier Lecluyse</td>
+            <td>Boulet Bicky</td>
+            <td><span class="pill">Wit</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="dieter dobbels tonijn pikant">
-          <div class="sandwich-number">11</div>
-          <div>
-            <h3>Dieter Dobbels</h3>
-            <p>Tonijn Pikant</p>
-          </div>
-        </article>
+          <tr data-search="dieter dobbels tonijn pikant meergranen ">
+            <td><span class="nr">11</span></td>
+            <td class="name">Dieter Dobbels</td>
+            <td>Tonijn Pikant</td>
+            <td><span class="pill">Meergranen</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="dieter van bussel lex — geitenkaas / honing / spek / tomaat">
-          <div class="sandwich-number">12</div>
-          <div>
-            <h3>Dieter Van Bussel</h3>
-            <p>Lex — Geitenkaas / Honing / Spek / Tomaat</p>
-          </div>
-        </article>
+          <tr data-search="dieter van bussel lex — geitenkaas / honing / spek / tomaat meergranen + groenten ">
+            <td><span class="nr">12</span></td>
+            <td class="name">Dieter Van Bussel</td>
+            <td>Lex — Geitenkaas / Honing / Spek / Tomaat</td>
+            <td><span class="pill">Meergranen + groenten</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="digna wevers brie / honing / noten / rucola">
-          <div class="sandwich-number">13</div>
-          <div>
-            <h3>Digna Wevers</h3>
-            <p>Brie / Honing / Noten / Rucola</p>
-          </div>
-        </article>
+          <tr data-search="digna wevers brie / honing / noten / rucola meergranen ">
+            <td><span class="nr">13</span></td>
+            <td class="name">Digna Wevers</td>
+            <td>Brie / Honing / Noten / Rucola</td>
+            <td><span class="pill">Meergranen</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="dirk geniesse mozzarella / pesto / tomaat">
-          <div class="sandwich-number">14</div>
-          <div>
-            <h3>Dirk Geniesse</h3>
-            <p>Mozzarella / Pesto / Tomaat</p>
-          </div>
-        </article>
+          <tr data-search="dirk geniesse mozzarella / pesto / tomaat wit ">
+            <td><span class="nr">14</span></td>
+            <td class="name">Dirk Geniesse</td>
+            <td>Mozzarella / Pesto / Tomaat</td>
+            <td><span class="pill">Wit</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="dominique inzé estelle — carpaccio / parmezaan / rucola / truffelmayo">
-          <div class="sandwich-number">15</div>
-          <div>
-            <h3>Dominique Inzé</h3>
-            <p>Estelle — Carpaccio / Parmezaan / Rucola / Truffelmayo</p>
-          </div>
-        </article>
+          <tr data-search="dominique inzé estelle — carpaccio / parmezaan / rucola / truffelmayo meergranen ">
+            <td><span class="nr">15</span></td>
+            <td class="name">Dominique Inzé</td>
+            <td>Estelle — Carpaccio / Parmezaan / Rucola / Truffelmayo</td>
+            <td><span class="pill">Meergranen</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="dries de block kaas/hesp">
-          <div class="sandwich-number">16</div>
-          <div>
-            <h3>Dries De Block</h3>
-            <p>Kaas/Hesp</p>
-          </div>
-        </article>
+          <tr data-search="dries de block kaas/hesp meergranen + groenten ">
+            <td><span class="nr">16</span></td>
+            <td class="name">Dries De Block</td>
+            <td>Kaas/Hesp</td>
+            <td><span class="pill">Meergranen + groenten</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="fleur dely kaas/hesp">
-          <div class="sandwich-number">17</div>
-          <div>
-            <h3>Fleur Dely</h3>
-            <p>Kaas/Hesp</p>
-          </div>
-        </article>
+          <tr data-search="fleur dely kaas/hesp wit + groenten ">
+            <td><span class="nr">17</span></td>
+            <td class="name">Fleur Dely</td>
+            <td>Kaas/Hesp</td>
+            <td><span class="pill">Wit + groenten</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="frederick smeyers geitenkaas / honing / noten / rucola / zongedroogde tomaat">
-          <div class="sandwich-number">18</div>
-          <div>
-            <h3>Frederick Smeyers</h3>
-            <p>Geitenkaas / Honing / Noten / Rucola / Zongedroogde Tomaat</p>
-          </div>
-        </article>
+          <tr data-search="frederick smeyers geitenkaas / honing / noten / rucola / zongedroogde tomaat meergranen ">
+            <td><span class="nr">18</span></td>
+            <td class="name">Frederick Smeyers</td>
+            <td>Geitenkaas / Honing / Noten / Rucola / Zongedroogde Tomaat</td>
+            <td><span class="pill">Meergranen</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="gertjan vande kerkhof boulet">
-          <div class="sandwich-number">19</div>
-          <div>
-            <h3>Gertjan Vande Kerkhof</h3>
-            <p>Boulet</p>
-          </div>
-        </article>
+          <tr data-search="gertjan vande kerkhof boulet wit + groenten ">
+            <td><span class="nr">19</span></td>
+            <td class="name">Gertjan Vande Kerkhof</td>
+            <td>Boulet</td>
+            <td><span class="pill">Wit + groenten</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="gilles de wilde boulet bicky">
-          <div class="sandwich-number">20</div>
-          <div>
-            <h3>Gilles De Wilde</h3>
-            <p>Boulet Bicky</p>
-          </div>
-        </article>
+          <tr data-search="gilles de wilde boulet bicky meergranen ">
+            <td><span class="nr">20</span></td>
+            <td class="name">Gilles De Wilde</td>
+            <td>Boulet Bicky</td>
+            <td><span class="pill">Meergranen</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="helga van petegem stefnick">
-          <div class="sandwich-number">21</div>
-          <div>
-            <h3>Helga Van Petegem</h3>
-            <p>Stefnick</p>
-          </div>
-        </article>
+          <tr data-search="helga van petegem stefnick wit ">
+            <td><span class="nr">21</span></td>
+            <td class="name">Helga Van Petegem</td>
+            <td>Stefnick</td>
+            <td><span class="pill">Wit</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="jan vinck kaas/hesp">
-          <div class="sandwich-number">22</div>
-          <div>
-            <h3>Jan Vinck</h3>
-            <p>Kaas/Hesp</p>
-          </div>
-        </article>
+          <tr data-search="jan vinck kaas/hesp wit ">
+            <td><span class="nr">22</span></td>
+            <td class="name">Jan Vinck</td>
+            <td>Kaas/Hesp</td>
+            <td><span class="pill">Wit</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="jill van belle americain">
-          <div class="sandwich-number">23</div>
-          <div>
-            <h3>Jill Van Belle</h3>
-            <p>Americain</p>
-          </div>
-        </article>
+          <tr data-search="jill van belle americain wit + groenten ">
+            <td><span class="nr">23</span></td>
+            <td class="name">Jill Van Belle</td>
+            <td>Americain</td>
+            <td><span class="pill">Wit + groenten</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="jinse maus liam — italiaanse ham / mozzarella / rucola / zongedroogde tomaat">
-          <div class="sandwich-number">24</div>
-          <div>
-            <h3>Jinse Maus</h3>
-            <p>Liam — Italiaanse Ham / Mozzarella / Rucola / Zongedroogde Tomaat</p>
-          </div>
-        </article>
+          <tr data-search="jinse maus liam — italiaanse ham / mozzarella / rucola / zongedroogde tomaat meergranen ">
+            <td><span class="nr">24</span></td>
+            <td class="name">Jinse Maus</td>
+            <td>Liam — Italiaanse Ham / Mozzarella / Rucola / Zongedroogde Tomaat</td>
+            <td><span class="pill">Meergranen</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="joachim heyvaert liam — italiaanse ham / mozzarella / rucola / zongedroogde tomaat">
-          <div class="sandwich-number">25</div>
-          <div>
-            <h3>Joachim Heyvaert</h3>
-            <p>Liam — Italiaanse Ham / Mozzarella / Rucola / Zongedroogde Tomaat</p>
-          </div>
-        </article>
+          <tr data-search="joachim heyvaert liam — italiaanse ham / mozzarella / rucola / zongedroogde tomaat wit ">
+            <td><span class="nr">25</span></td>
+            <td class="name">Joachim Heyvaert</td>
+            <td>Liam — Italiaanse Ham / Mozzarella / Rucola / Zongedroogde Tomaat</td>
+            <td><span class="pill">Wit</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="kevin van roy steffen — effi / italiaanse ham / rucola / zongedroogde tomaat">
-          <div class="sandwich-number">26</div>
-          <div>
-            <h3>Kevin Van Roy</h3>
-            <p>Steffen — Effi / Italiaanse Ham / Rucola / Zongedroogde Tomaat</p>
-          </div>
-        </article>
+          <tr data-search="kevin van roy steffen — effi / italiaanse ham / rucola / zongedroogde tomaat wit ">
+            <td><span class="nr">26</span></td>
+            <td class="name">Kevin Van Roy</td>
+            <td>Steffen — Effi / Italiaanse Ham / Rucola / Zongedroogde Tomaat</td>
+            <td><span class="pill">Wit</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="lieven delvaux italiaanse ham">
-          <div class="sandwich-number">27</div>
-          <div>
-            <h3>Lieven Delvaux</h3>
-            <p>Italiaanse Ham</p>
-          </div>
-        </article>
+          <tr data-search="lieven delvaux italiaanse ham meergranen + groenten ">
+            <td><span class="nr">27</span></td>
+            <td class="name">Lieven Delvaux</td>
+            <td>Italiaanse Ham</td>
+            <td><span class="pill">Meergranen + groenten</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="liselot verbruggen brie / honing / noten / rucola">
-          <div class="sandwich-number">28</div>
-          <div>
-            <h3>Liselot Verbruggen</h3>
-            <p>Brie / Honing / Noten / Rucola</p>
-          </div>
-        </article>
+          <tr data-search="liselot verbruggen brie / honing / noten / rucola meergranen ">
+            <td><span class="nr">28</span></td>
+            <td class="name">Liselot Verbruggen</td>
+            <td>Brie / Honing / Noten / Rucola</td>
+            <td><span class="pill">Meergranen</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="lode moens boulet bicky">
-          <div class="sandwich-number">29</div>
-          <div>
-            <h3>Lode Moens</h3>
-            <p>Boulet Bicky</p>
-          </div>
-        </article>
+          <tr data-search="lode moens boulet bicky meergranen ">
+            <td><span class="nr">29</span></td>
+            <td class="name">Lode Moens</td>
+            <td>Boulet Bicky</td>
+            <td><span class="pill">Meergranen</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="maarten wybo boulet bicky">
-          <div class="sandwich-number">30</div>
-          <div>
-            <h3>Maarten Wybo</h3>
-            <p>Boulet Bicky</p>
-          </div>
-        </article>
+          <tr data-search="maarten wybo boulet bicky wit ">
+            <td><span class="nr">30</span></td>
+            <td class="name">Maarten Wybo</td>
+            <td>Boulet Bicky</td>
+            <td><span class="pill">Wit</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="marc geukens stefnick">
-          <div class="sandwich-number">31</div>
-          <div>
-            <h3>Marc Geukens</h3>
-            <p>Stefnick</p>
-          </div>
-        </article>
+          <tr data-search="marc geukens stefnick wit + groenten ">
+            <td><span class="nr">31</span></td>
+            <td class="name">Marc Geukens</td>
+            <td>Stefnick</td>
+            <td><span class="pill">Wit + groenten</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="mario pettinato liam — italiaanse ham / mozzarella / rucola / zongedroogde tomaat">
-          <div class="sandwich-number">32</div>
-          <div>
-            <h3>Mario Pettinato</h3>
-            <p>Liam — Italiaanse Ham / Mozzarella / Rucola / Zongedroogde Tomaat</p>
-          </div>
-        </article>
+          <tr data-search="mario pettinato liam — italiaanse ham / mozzarella / rucola / zongedroogde tomaat wit ">
+            <td><span class="nr">32</span></td>
+            <td class="name">Mario Pettinato</td>
+            <td>Liam — Italiaanse Ham / Mozzarella / Rucola / Zongedroogde Tomaat</td>
+            <td><span class="pill">Wit</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="nils jouret boulet bicky">
-          <div class="sandwich-number">33</div>
-          <div>
-            <h3>Nils Jouret</h3>
-            <p>Boulet Bicky</p>
-          </div>
-        </article>
+          <tr data-search="nils jouret boulet bicky meergranen ">
+            <td><span class="nr">33</span></td>
+            <td class="name">Nils Jouret</td>
+            <td>Boulet Bicky</td>
+            <td><span class="pill">Meergranen</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="sara de brandt estelle — carpaccio / parmezaan / rucola / truffelmayo">
-          <div class="sandwich-number">34</div>
-          <div>
-            <h3>Sara De Brandt</h3>
-            <p>Estelle — Carpaccio / Parmezaan / Rucola / Truffelmayo</p>
-          </div>
-        </article>
+          <tr data-search="sara de brandt estelle — carpaccio / parmezaan / rucola / truffelmayo meergranen ">
+            <td><span class="nr">34</span></td>
+            <td class="name">Sara De Brandt</td>
+            <td>Estelle — Carpaccio / Parmezaan / Rucola / Truffelmayo</td>
+            <td><span class="pill">Meergranen</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="scott schippers estelle — carpaccio / parmezaan / rucola / truffelmayo">
-          <div class="sandwich-number">35</div>
-          <div>
-            <h3>Scott Schippers</h3>
-            <p>Estelle — Carpaccio / Parmezaan / Rucola / Truffelmayo</p>
-          </div>
-        </article>
+          <tr data-search="scott schippers estelle — carpaccio / parmezaan / rucola / truffelmayo wit ">
+            <td><span class="nr">35</span></td>
+            <td class="name">Scott Schippers</td>
+            <td>Estelle — Carpaccio / Parmezaan / Rucola / Truffelmayo</td>
+            <td><span class="pill">Wit</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="sebastian verriest stefnick">
-          <div class="sandwich-number">36</div>
-          <div>
-            <h3>Sebastian Verriest</h3>
-            <p>Stefnick</p>
-          </div>
-        </article>
+          <tr data-search="sebastian verriest stefnick wit ">
+            <td><span class="nr">36</span></td>
+            <td class="name">Sebastian Verriest</td>
+            <td>Stefnick</td>
+            <td><span class="pill">Wit</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="stefanie vandenbrouck kaas/hesp">
-          <div class="sandwich-number">37</div>
-          <div>
-            <h3>Stefanie Vandenbrouck</h3>
-            <p>Kaas/Hesp</p>
-          </div>
-        </article>
+          <tr data-search="stefanie vandenbrouck kaas/hesp meergranen ">
+            <td><span class="nr">37</span></td>
+            <td class="name">Stefanie Vandenbrouck</td>
+            <td>Kaas/Hesp</td>
+            <td><span class="pill">Meergranen</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="steven engels lex — geitenkaas / honing / spek / tomaat">
-          <div class="sandwich-number">38</div>
-          <div>
-            <h3>Steven Engels</h3>
-            <p>Lex — Geitenkaas / Honing / Spek / Tomaat</p>
-          </div>
-        </article>
+          <tr data-search="steven engels lex — geitenkaas / honing / spek / tomaat wit ">
+            <td><span class="nr">38</span></td>
+            <td class="name">Steven Engels</td>
+            <td>Lex — Geitenkaas / Honing / Spek / Tomaat</td>
+            <td><span class="pill">Wit</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="steven mahieu kaas">
-          <div class="sandwich-number">39</div>
-          <div>
-            <h3>Steven Mahieu</h3>
-            <p>Kaas</p>
-          </div>
-        </article>
+          <tr data-search="steven mahieu kaas meergranen + groenten ">
+            <td><span class="nr">39</span></td>
+            <td class="name">Steven Mahieu</td>
+            <td>Kaas</td>
+            <td><span class="pill">Meergranen + groenten</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="stijn bockstael kippenwit">
-          <div class="sandwich-number">40</div>
-          <div>
-            <h3>Stijn Bockstael</h3>
-            <p>Kippenwit</p>
-          </div>
-        </article>
+          <tr data-search="stijn bockstael kippenwit meergranen + groenten ">
+            <td><span class="nr">40</span></td>
+            <td class="name">Stijn Bockstael</td>
+            <td>Kippenwit</td>
+            <td><span class="pill">Meergranen + groenten</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="sven vispoel tonijn pikant">
-          <div class="sandwich-number">41</div>
-          <div>
-            <h3>Sven Vispoel</h3>
-            <p>Tonijn Pikant</p>
-          </div>
-        </article>
+          <tr data-search="sven vispoel tonijn pikant wit + groenten ">
+            <td><span class="nr">41</span></td>
+            <td class="name">Sven Vispoel</td>
+            <td>Tonijn Pikant</td>
+            <td><span class="pill">Wit + groenten</span></td>
+            <td class="special">—</td>
+          </tr>
     
 
-        <article class="sandwich-card" data-search="valerie helderweirt gerookte zalm">
-          <div class="sandwich-number">42</div>
-          <div>
-            <h3>Valerie Helderweirt</h3>
-            <p>Gerookte zalm</p>
-          </div>
-        </article>
+          <tr data-search="valerie helderweirt gerookte zalm meergranen eventueel slaatje indien glutenvrije broodjes niet kunnen?">
+            <td><span class="nr">42</span></td>
+            <td class="name">Valerie Helderweirt</td>
+            <td>Gerookte zalm</td>
+            <td><span class="pill">Meergranen</span></td>
+            <td class="special">Eventueel slaatje indien glutenvrije broodjes niet kunnen?</td>
+          </tr>
     
+            </tbody>
+          </table>
         </div>
       </article>
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer>
     <div class="page footer-inner">
-      <div>
-        <strong>Teambuilding Prom 23 Klas A</strong><br>
-        Broodjeskeuzes
-      </div>
-
-      <a href="#top">
-        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i> Naar boven
-      </a>
+      <div><strong>Teambuilding Prom 23 Klas A</strong><br>Broodjeslijst</div>
+      <a href="#top"><i class="fa-solid fa-arrow-up"></i> Naar boven</a>
     </div>
   </footer>
 
   <script>
     (() => {
       const searchBox = document.getElementById("searchBox");
-      const cards = [...document.querySelectorAll(".sandwich-card")];
+      const rows = [...document.querySelectorAll("#orderTable tr")];
 
       function applySearch() {
         const query = searchBox.value.trim().toLowerCase();
-
-        cards.forEach(card => {
-          card.classList.toggle("is-hidden", !card.dataset.search.includes(query));
+        rows.forEach(row => {
+          row.classList.toggle("is-hidden", !row.dataset.search.includes(query));
         });
       }
 
