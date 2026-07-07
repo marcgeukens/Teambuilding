@@ -914,11 +914,140 @@
       line-height:1.48!important;
     }
 
+    .flex-highlight{
+      margin-top:16px;
+      padding:18px;
+      border-radius:20px;
+      background:rgba(255,255,255,.96);
+      border:1px solid rgba(255,255,255,.26);
+      box-shadow:0 10px 24px rgba(0,0,0,.08);
+      color:var(--navy-dark);
+    }
+
+    .flex-highlight strong{
+      display:block;
+      margin-bottom:10px;
+      color:var(--navy-dark);
+      font-size:1rem;
+      letter-spacing:-.02em;
+    }
+
+    .flex-highlight ul{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      gap:10px;
+    }
+
+    .flex-highlight li{
+      display:grid;
+      grid-template-columns:24px 1fr;
+      gap:10px;
+      align-items:start;
+      color:#314866;
+      font-weight:800;
+      line-height:1.45;
+    }
+
+    .flex-highlight li i{
+      width:24px;
+      height:24px;
+      display:grid;
+      place-items:center;
+      margin-top:1px;
+      border-radius:999px;
+      background:var(--yellow);
+      color:var(--navy-dark);
+      font-size:.75rem;
+    }
+
     .team-meta{
       margin-top:10px!important;
       font-size:.9rem;
       color:#60708d!important;
     }
+
+    .side-games-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:14px;
+      margin-top:16px;
+    }
+
+    .side-game-card{
+      position:relative;
+      overflow:hidden;
+      min-height:210px;
+      padding:22px;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:white;
+      box-shadow:var(--shadow-card);
+    }
+
+    .side-game-card::before{
+      content:"";
+      position:absolute;
+      inset:0 0 auto;
+      height:6px;
+      background:linear-gradient(90deg,var(--yellow),var(--teal),var(--coral));
+    }
+
+    .side-game-card h4{
+      margin:0 0 9px;
+      color:var(--navy);
+      font-size:1.22rem;
+      letter-spacing:-.04em;
+    }
+
+    .side-game-card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.52;
+      font-weight:700;
+    }
+
+    .side-game-card .icon-box{
+      width:48px;
+      height:48px;
+      margin-bottom:14px;
+      border-radius:16px;
+      font-size:1rem;
+      box-shadow:6px 6px 0 rgba(20,140,155,.13);
+    }
+
+    .side-game-card:nth-child(2) .icon-box{background:var(--teal)}
+    .side-game-card:nth-child(3) .icon-box{background:var(--coral)}
+    .side-game-card:nth-child(4) .icon-box{background:var(--green)}
+
+    .tussendoor-note{
+      margin-top:16px;
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:12px;
+    }
+
+    .tussendoor-note .panel{
+      padding:18px;
+      border-radius:20px;
+    }
+
+    .tussendoor-note h4{
+      margin:0 0 7px;
+      color:var(--navy);
+      font-size:1rem;
+      letter-spacing:-.02em;
+    }
+
+    .tussendoor-note p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.48;
+      font-weight:700;
+      font-size:.94rem;
+    }
+
 
     .attention{
       margin-top:14px;
@@ -1062,6 +1191,14 @@
         grid-template-columns:repeat(2,minmax(0,1fr));
       }
 
+      .side-games-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+
+      .tussendoor-note{
+        grid-template-columns:1fr;
+      }
+
       .personal-grid,
       .rules-grid{
         grid-template-columns:1fr;
@@ -1192,6 +1329,11 @@
         grid-template-columns:1fr;
       }
 
+      .side-games-grid,
+      .tussendoor-note{
+        grid-template-columns:1fr;
+      }
+
 
       .flex-grid{
         grid-template-columns:1fr;
@@ -1294,6 +1436,7 @@
         <a href="index.html">Home</a>
         <a href="#vind-jezelf" class="highlight">Vind jezelf</a>
         <a href="#flexregeling">Flexregeling</a>
+        <a href="#tussendoor">Tussendoor</a>
         <a href="#spelregels">Spelregels</a>
         <a href="#padel">Padel</a>
         <a href="#bumperball">Bumperball</a>
@@ -1341,14 +1484,14 @@
 
         <div class="hero__side-body">
           <p class="hero__intro">
-            De ploegen zijn startindelingen. Meedoen waar het lukt, wisselen waar nodig, niets forceren.
+            De ploegen zijn startindelingen. Meedoen waar het lukt, wisselen waar nodig, niets forceren. Voor rustmomenten zijn er ook rustige tussenspellen.
           </p>
 
           <div class="stat-grid">
             <article class="stat-card"><b>42</b><span>personen in de klaslijst</span></article>
             <article class="stat-card"><b>21</b><span>padelduo’s</span></article>
             <article class="stat-card"><b>flex</b><span>bumperballteams</span></article>
-            <article class="stat-card"><b>41</b><span>beachvolley startindeling</span></article>
+            <article class="stat-card"><b>4</b><span>rustige tussenspellen</span></article>
           </div>
         </div>
       </aside>
@@ -1430,6 +1573,14 @@
               <td>3 min</td>
               <td>Startindeling. Doorwisselen mag altijd.</td>
             </tr>
+            <tr>
+              <td><strong>Tussendoor</strong></td>
+              <td>doorlopend</td>
+              <td>vrij</td>
+              <td>naar keuze</td>
+              <td>geen</td>
+              <td>Frisbee, kubb, Mölkky en stokvangspel voor rusters of wie even niet meespeelt.</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -1440,31 +1591,91 @@
       <header class="section__header">
         <div class="section__title"><h2 id="flex-title">Flexregeling</h2></div>
         <p class="section__lead">
-          De ploegverdelingen zijn praktisch bedoeld, niet verplichtend. Wie door een blessure, ongemak of fysieke twijfel niet alles kan meedoen,
-          speelt mee op eigen tempo.
+          De indelingen zijn een leidraad, geen keurslijf. Als iets niet lukt, passen we het gewoon aan.
+          Wie rust nodig heeft of een activiteit overslaat, kan mee supporteren of een rustig tussenspel spelen.
         </p>
       </header>
 
       <div class="flex-grid">
         <article class="panel flex-panel">
-          <h3><i class="fa-solid fa-heart-pulse"></i> Niet forceren</h3>
+          <h3><i class="fa-solid fa-heart-pulse"></i> Duidelijke afspraak</h3>
           <p>
-            Een ronde overslaan, lichter meespelen, wisselen met iemand die rust heeft, coachen, timer zijn of supporteren:
-            het kan allemaal. Geef het gewoon even aan bij de start van de activiteit.
+            Je hoeft niets te forceren. Wie pijn heeft, twijfelt of zich liever wat spaart,
+            kiest zelf hoeveel hij of zij meedoet.
           </p>
-          <p class="soft-note">
-            Belangrijkste afspraak: liever slim meedoen dan iets forceren. Bumperball is uitdrukkelijk optioneel.
-          </p>
+
+          <div class="flex-highlight">
+            <strong>Wat bedoelen we daar concreet mee?</strong>
+            <ul>
+              <li><i class="fa-solid fa-check"></i><span><strong>Bumperball is volledig optioneel.</strong> Alleen wie zich daar goed bij voelt, speelt mee.</span></li>
+              <li><i class="fa-solid fa-check"></i><span><strong>Padel en beachvolley kunnen perfect flexibel.</strong> Korter meespelen, een beurt overslaan of doorwisselen is geen probleem.</span></li>
+              <li><i class="fa-solid fa-check"></i><span><strong>Niet meedoen is ook oké.</strong> Supporteren, coachen, timen, even rust nemen of een rustig tussenspel spelen telt evengoed.</span></li>
+            </ul>
+          </div>
         </article>
 
         <article class="panel">
-          <h3><i class="fa-solid fa-arrows-rotate"></i> Zo lossen we het op</h3>
+          <h3><i class="fa-solid fa-arrows-rotate"></i> Zo lossen we het ter plaatse op</h3>
           <ul class="flex-list">
-            <li><i class="fa-solid fa-table-tennis-paddle-ball"></i><span><strong>Padel:</strong> valt iemand uit, dan wisselen we met iemand die rust heeft of gebruiken we het vrije veld losser.</span></li>
-            <li><i class="fa-solid fa-person-falling-burst"></i><span><strong>Bumperball:</strong> optioneel flexspel. Wie niet meedoet, supportert, coacht, timet of sluit later aan als het toch lukt.</span></li>
-            <li><i class="fa-solid fa-volleyball"></i><span><strong>Beachvolley:</strong> doorwisselen mag altijd. Even uit het veld stappen is geen probleem.</span></li>
-            <li><i class="fa-solid fa-face-smile"></i><span><strong>Algemeen:</strong> geen gedoe, geen uitleg nodig. Zeg gewoon wat lukt en we passen het ter plaatse aan.</span></li>
+            <li><i class="fa-solid fa-table-tennis-paddle-ball"></i><span><strong>Padel:</strong> valt iemand uit of wil iemand rusten, dan wisselen we met iemand die even niet speelt of maken we de beurt gewoon wat korter.</span></li>
+            <li><i class="fa-solid fa-person-falling-burst"></i><span><strong>Bumperball:</strong> alleen wie wil en kan, doet mee. De rest supportert, coacht, timet of sluit eventueel later nog aan.</span></li>
+            <li><i class="fa-solid fa-volleyball"></i><span><strong>Beachvolley:</strong> doorwisselen mag altijd. Even uit het veld stappen of een ronde overslaan is geen probleem.</span></li>
+            <li><i class="fa-solid fa-face-smile"></i><span><strong>Algemeen:</strong> geen gedoe en geen lange uitleg nodig. Zeg gewoon even wat lukt, dan passen we het ter plaatse aan. Rusters kunnen frisbee, kubb, Mölkky of stokvangspel doen.</span></li>
           </ul>
+        </article>
+      </div>
+    </section>
+
+
+    <section id="tussendoor" class="section page" aria-labelledby="tussendoor-title">
+      <header class="section__header">
+        <div class="section__title"><h2 id="tussendoor-title">Tussendoor</h2></div>
+        <p class="section__lead">
+          Voor wie rust heeft, een ronde overslaat of liever iets rustiger doet, voorzien we enkele losse spellen.
+          Geen vaste ploegen, geen verplichting: gewoon aansluiten wanneer het past.
+        </p>
+      </header>
+
+      <div class="side-games-grid">
+        <article class="side-game-card">
+          <div class="icon-box"><i class="fa-solid fa-compact-disc"></i></div>
+          <h4>Frisbee</h4>
+          <p>Los gooien, rustig bewegen of een klein wedstrijdje. Ideaal als lichte activiteit zonder veel uitleg.</p>
+        </article>
+
+        <article class="side-game-card">
+          <div class="icon-box"><i class="fa-solid fa-cubes-stacked"></i></div>
+          <h4>Kubb</h4>
+          <p>Teams maken wanneer er volk genoeg is. Rustig, plezant en perfect om tussendoor in en uit te stappen.</p>
+        </article>
+
+        <article class="side-game-card">
+          <div class="icon-box"><i class="fa-solid fa-bowling-ball"></i></div>
+          <h4>Mölkky</h4>
+          <p>Gooi de kegels om en tel punten. Niet intensief, wel verrassend competitief als het moet.</p>
+        </article>
+
+        <article class="side-game-card">
+          <div class="icon-box"><i class="fa-solid fa-hand"></i></div>
+          <h4>Stokvangspel</h4>
+          <p>Kort, simpel en grappig. Goed voor wie erbij wil blijven zonder een zwaar sportblok mee te doen.</p>
+        </article>
+      </div>
+
+      <div class="tussendoor-note">
+        <article class="panel">
+          <h4><i class="fa-solid fa-person-walking"></i> Voor rusters</h4>
+          <p>Wie even niet aan de beurt is, kan hier aansluiten in plaats van te wachten.</p>
+        </article>
+
+        <article class="panel">
+          <h4><i class="fa-solid fa-heart-pulse"></i> Voor wie iets overslaat</h4>
+          <p>Padel, bumperball of beachvolley niet haalbaar? Dan is dit een rustige manier om toch mee in de sfeer te blijven.</p>
+        </article>
+
+        <article class="panel">
+          <h4><i class="fa-solid fa-shuffle"></i> Vrij systeem</h4>
+          <p>Geen schema nodig. Wie zin heeft, speelt. Wie wil kijken of rusten, doet dat ook gewoon.</p>
         </article>
       </div>
     </section>
@@ -1501,7 +1712,7 @@
             <li>Je mag botsen, duwen en omver rollen. Dat is eigenlijk heel het punt.</li>
             <li>Niet bewust vol op iemands hoofd, nek of rug knallen.</li>
             <li>Ligt iemand even niet goed of roept iemand stop, dan stopt het spel ook gewoon.</li>
-            <li>Wie niet wil of kan meedoen, moet niet meedoen. Supporteren, coachen of timer zijn is ook een taak.</li>
+            <li>Wie niet wil of kan meedoen, moet niet meedoen. Supporteren, coachen, timer zijn of een rustig tussenspel doen is ook een taak.</li>
           </ul>
           <p class="rule-tip">De beste tactiek is meestal: lachen, rechtkrabbelen en opnieuw proberen.</p>
         </article>
@@ -1764,7 +1975,7 @@
         <div class="section__title"><h2 id="bumper-title">Bumperball</h2></div>
         <p class="section__lead">
           90 minuten, 1 terrein en optionele flexteams. Er zijn 3 vaste startmatchen en daarna een vrije mixronde.
-          Bumperball is het fysiekste onderdeel: alleen meedoen als het goed voelt.
+          Bumperball is het fysiekste onderdeel: alleen meedoen als het goed voelt. Wie past, kan supporteren of een rustig tussenspel doen.
         </p>
       </header>
 
@@ -2110,6 +2321,16 @@
           </button>
           <div class="faq-item__answer">
             Nee. Bumperball is optioneel en het fysiekste onderdeel. Wie twijfelt, past beter. De eerste drie rondes hebben startteams; ronde 4 is een vrije mixronde voor wie nog wil.
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-item__question" type="button" aria-expanded="false">
+            <span>Wat kunnen rusters doen?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-item__answer">
+            Er zijn losse tussenspellen voorzien: frisbee, kubb, Mölkky en stokvangspel. Ideaal voor wie rust heeft, een ronde overslaat of iets lichter wil doen.
           </div>
         </article>
 
