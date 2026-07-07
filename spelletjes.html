@@ -848,6 +848,78 @@
       line-height:1.45!important;
     }
 
+
+    .flex-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+      gap:16px;
+      align-items:stretch;
+    }
+
+    .flex-panel{
+      color:white;
+      background:
+        radial-gradient(circle at 90% 10%, rgba(247,191,33,.22), transparent 22%),
+        linear-gradient(135deg,var(--navy),var(--navy-dark));
+      border-color:rgba(255,255,255,.10);
+    }
+
+    .flex-panel h3{color:white}
+    .flex-panel p{color:#dbe5ff}
+
+    .flex-list{
+      list-style:none;
+      margin:16px 0 0;
+      padding:0;
+      display:grid;
+      gap:10px;
+    }
+
+    .flex-list li{
+      display:grid;
+      grid-template-columns:34px 1fr;
+      gap:10px;
+      align-items:start;
+      padding:12px;
+      border-radius:16px;
+      background:#f6f9fc;
+      border:1px solid var(--line);
+      color:#52627e;
+      line-height:1.45;
+      font-weight:700;
+    }
+
+    .flex-list i{
+      width:34px;
+      height:34px;
+      display:grid;
+      place-items:center;
+      border-radius:13px;
+      background:var(--yellow);
+      color:var(--navy-dark);
+    }
+
+    .flex-list li:nth-child(2) i{background:var(--teal);color:white}
+    .flex-list li:nth-child(3) i{background:var(--coral);color:white}
+    .flex-list li:nth-child(4) i{background:var(--navy);color:white}
+
+    .soft-note{
+      margin-top:14px!important;
+      padding:14px 15px;
+      border-radius:18px;
+      border:1px solid rgba(20,140,155,.24);
+      background:rgba(20,140,155,.10);
+      color:#28435f!important;
+      font-weight:800!important;
+      line-height:1.48!important;
+    }
+
+    .team-meta{
+      margin-top:10px!important;
+      font-size:.9rem;
+      color:#60708d!important;
+    }
+
     .attention{
       margin-top:14px;
       padding:14px 15px;
@@ -1120,6 +1192,22 @@
         grid-template-columns:1fr;
       }
 
+
+      .flex-grid{
+        grid-template-columns:1fr;
+      }
+
+      .flex-list li{
+        grid-template-columns:30px 1fr;
+      }
+
+      .flex-list i{
+        width:30px;
+        height:30px;
+        border-radius:11px;
+      }
+
+
       .section{
         padding:34px 0;
         scroll-margin-top:118px;
@@ -1205,6 +1293,7 @@
       <div class="site-nav__links">
         <a href="index.html">Home</a>
         <a href="#vind-jezelf" class="highlight">Vind jezelf</a>
+        <a href="#flexregeling">Flexregeling</a>
         <a href="#spelregels">Spelregels</a>
         <a href="#padel">Padel</a>
         <a href="#bumperball">Bumperball</a>
@@ -1252,15 +1341,14 @@
 
         <div class="hero__side-body">
           <p class="hero__intro">
-            Bij elke sportwissel worden de teams volledig herverdeeld.
-            Je speelt padel, bumperball en beachvolley telkens met en tegen andere mensen.
+            De ploegen zijn startindelingen. We houden het vlot en flexibel: meedoen waar het lukt, wisselen waar nodig, niemand forceert iets.
           </p>
 
           <div class="stat-grid">
             <article class="stat-card"><b>42</b><span>personen in de klaslijst</span></article>
             <article class="stat-card"><b>21</b><span>padelduo’s</span></article>
-            <article class="stat-card"><b>6</b><span>bumperballteams</span></article>
-            <article class="stat-card"><b>41</b><span>actief bij beachvolley</span></article>
+            <article class="stat-card"><b>flex</b><span>bumperballteams</span></article>
+            <article class="stat-card"><b>41</b><span>beachvolley startindeling</span></article>
           </div>
         </div>
       </aside>
@@ -1272,14 +1360,14 @@
       <header class="section__header">
         <div class="section__title"><h2 id="vind-title">Vind jezelf</h2></div>
         <p class="section__lead">
-          Typ je naam of nummer. Je krijgt meteen je padelduo, bumperballteam en beachvolleyteam met rondes.
+          Typ je naam of nummer. Je krijgt je startindeling per sport. Kan iets fysiek niet, dan gebruik je de flexregeling.
         </p>
       </header>
 
       <div class="search-layout">
         <article class="person-panel">
           <h3><i class="fa-solid fa-magnifying-glass"></i> Persoonlijk overzicht</h3>
-          <p>Voor snel gebruik op de dag zelf.</p>
+          <p>Voor snel gebruik op de dag zelf. De indeling blijft praktisch: wisselen of overslaan mag.</p>
           <div style="margin-top:16px;">
             <input class="search-box" id="personSearch" list="peopleOptions" type="search" placeholder="Zoek naam of nummer..." aria-label="Zoek jezelf">
             <datalist id="peopleOptions">
@@ -1301,7 +1389,7 @@
       <header class="section__header">
         <div class="section__title"><h2 id="overzicht-title">Dagschema</h2></div>
         <p class="section__lead">
-          De drie schema’s laten telkens wat marge over als buffer voor uitloop, uitleg of een korte pauze.
+          De schema’s zijn startindelingen. Ze geven structuur, maar laten ruimte om te wisselen, over te slaan of rustiger mee te doen.
         </p>
       </header>
 
@@ -1324,15 +1412,15 @@
               <td>5</td>
               <td>20 min</td>
               <td>3 min</td>
-              <td>Iedereen speelt exact 2 keer.</td>
+              <td>Iedereen heeft een startduo. Valt iemand uit, dan wisselen we ter plaatse.</td>
             </tr>
             <tr>
               <td><strong>Bumperball</strong></td>
-              <td>90 min — 89 min gebruikt</td>
+              <td>90 min — flexibel blok</td>
               <td>4</td>
               <td>±20 min</td>
               <td>3 min</td>
-              <td>1 terrein, telkens 2 teams actief. Team A en B spelen 2 keer.</td>
+              <td>Flexibel: wie past, supportert. Teams mogen ongelijk zijn of doorwisselen.</td>
             </tr>
             <tr>
               <td><strong>Beachvolleybal</strong></td>
@@ -1340,10 +1428,44 @@
               <td>5</td>
               <td>20 min</td>
               <td>3 min</td>
-              <td>41 personen · 7 teams van 5 en 1 team van 6.</td>
+              <td>Startindeling. Doorwisselen mag altijd.</td>
             </tr>
           </tbody>
         </table>
+      </div>
+    </section>
+
+
+    <section id="flexregeling" class="section page" aria-labelledby="flex-title">
+      <header class="section__header">
+        <div class="section__title"><h2 id="flex-title">Flexregeling</h2></div>
+        <p class="section__lead">
+          De ploegverdelingen zijn praktisch bedoeld, niet verplichtend. Wie door een blessure, ongemak of fysieke twijfel niet alles kan meedoen,
+          speelt mee op eigen tempo.
+        </p>
+      </header>
+
+      <div class="flex-grid">
+        <article class="panel flex-panel">
+          <h3><i class="fa-solid fa-heart-pulse"></i> Niet forceren</h3>
+          <p>
+            Een ronde overslaan, lichter meespelen, wisselen met iemand die rust heeft, coachen, timer zijn of supporteren:
+            het kan allemaal. Geef het gewoon even aan bij de start van de activiteit.
+          </p>
+          <p class="soft-note">
+            Belangrijkste afspraak: liever slim meedoen dan iets forceren. Zeker bij bumperball is passen volledig oké.
+          </p>
+        </article>
+
+        <article class="panel">
+          <h3><i class="fa-solid fa-arrows-rotate"></i> Zo lossen we het op</h3>
+          <ul class="flex-list">
+            <li><i class="fa-solid fa-table-tennis-paddle-ball"></i><span><strong>Padel:</strong> valt iemand uit, dan wisselen we met iemand die rust heeft of gebruiken we het vrije veld losser.</span></li>
+            <li><i class="fa-solid fa-person-falling-burst"></i><span><strong>Bumperball:</strong> de teams zijn flexteams. Wie niet meedoet, blijft gewoon supporteren, coachen of timer zijn.</span></li>
+            <li><i class="fa-solid fa-volleyball"></i><span><strong>Beachvolley:</strong> doorwisselen mag altijd. Even uit het veld stappen is geen probleem.</span></li>
+            <li><i class="fa-solid fa-face-smile"></i><span><strong>Algemeen:</strong> geen gedoe, geen uitleg nodig. Zeg gewoon wat lukt en we passen het ter plaatse aan.</span></li>
+          </ul>
+        </article>
       </div>
     </section>
 
@@ -1360,7 +1482,7 @@
           <div class="icon-box"><i class="fa-solid fa-table-tennis-paddle-ball"></i></div>
           <span class="tag">Padel</span>
           <h3>Rustig starten, bal in het spel houden</h3>
-          <p>Padel speel je per twee. Het is geen Wimbledon: probeer vooral rally’s te maken en iedereen mee te krijgen.</p>
+          <p>Padel speel je per twee. Het is geen Wimbledon: probeer vooral rally’s te maken en iedereen mee te krijgen. Valt iemand uit, dan wisselen we gewoon.</p>
           <ul>
             <li>Opslag onderhands en diagonaal. Laat de bal eerst botsen en sla hem dan rustig over.</li>
             <li>De bal mag één keer botsen. Daarna mag je hem rechtstreeks spelen of via het glas terughalen.</li>
@@ -1379,7 +1501,7 @@
             <li>Je mag botsen, duwen en omver rollen. Dat is eigenlijk heel het punt.</li>
             <li>Niet bewust vol op iemands hoofd, nek of rug knallen.</li>
             <li>Ligt iemand even niet goed of roept iemand stop, dan stopt het spel ook gewoon.</li>
-            <li>Wie niet wil meedoen, moet niet meedoen. Supporteren is ook een taak.</li>
+            <li>Wie niet wil of kan meedoen, moet niet meedoen. Supporteren, coachen of timer zijn is ook een taak.</li>
           </ul>
           <p class="rule-tip">De beste tactiek is meestal: lachen, rechtkrabbelen en opnieuw proberen.</p>
         </article>
@@ -1388,7 +1510,7 @@
           <div class="icon-box"><i class="fa-solid fa-volleyball"></i></div>
           <span class="tag">Beachvolleybal</span>
           <h3>Bal over het net, punt gemaakt</h3>
-          <p>Beachvolley spelen we losjes. Het doel is niet perfect spelen, maar de bal zo lang mogelijk in leven houden.</p>
+          <p>Beachvolley spelen we losjes. Het doel is niet perfect spelen, maar de bal zo lang mogelijk in leven houden. Doorwisselen mag altijd.</p>
           <ul>
             <li>Probeer binnen je team maximaal drie keer te raken voor de bal terug over het net gaat.</li>
             <li>Met 5 of 6 spelers per ploeg zijn we daar niet kinderachtig in: liever een lange rally dan discussie.</li>
@@ -1405,19 +1527,19 @@
       <header class="section__header">
         <div class="section__title"><h2 id="padel-title">Padel</h2></div>
         <p class="section__lead">
-          2 uur, 5 velden, 42 personen en 21 duo’s. 5 rondes van 20 minuten speeltijd + 3 minuten wisseltijd.
-          Iedereen speelt exact 2 keer, nooit tweemaal tegen hetzelfde duo en niemand heeft 3 ronden na elkaar rust.
+          2 uur, 5 velden en 21 startduo’s. 5 rondes van 20 minuten speeltijd + 3 minuten wisseltijd.
+          De duo’s geven structuur, maar blijven flexibel: valt iemand uit, dan lossen we dat ter plaatse op met iemand die rust heeft.
         </p>
       </header>
 
       <div class="activity-header">
         <article class="panel">
           <h3><i class="fa-solid fa-table-tennis-paddle-ball"></i> Opzet</h3>
-          <p>5 rondes, maximaal 5 velden. In ronde 1 zijn alle 5 velden bezet; in rondes 2 tot 5 is veld 5 vrij. Niemand speelt back-to-back en niemand rust 3 rondes na elkaar.</p>
+          <p>5 rondes, maximaal 5 velden. In ronde 1 zijn alle 5 velden bezet; in rondes 2 tot 5 is veld 5 vrij. Dat vrije veld geeft ook ruimte om rustig in te slaan of flexibel te wisselen.</p>
         </article>
         <article class="panel">
           <h3><i class="fa-solid fa-circle-info"></i> Tip</h3>
-          <p>In de rondes waar veld 5 vrij is, kan je het gebruiken als inloop-/oefenveld voor rustende ploegen, of gewoon laten rusten. De veldkeuze is zo gezet dat duo’s niet tweemaal op hetzelfde veld spelen.</p>
+          <p>In de rondes waar veld 5 vrij is, kan je het gebruiken als inloop-/oefenveld, als rustmoment of om een wissel op te vangen. De planning is dus een startpunt, geen keurslijf.</p>
         </article>
       </div>
 
@@ -1641,59 +1763,65 @@
       <header class="section__header">
         <div class="section__title"><h2 id="bumper-title">Bumperball</h2></div>
         <p class="section__lead">
-          90 minuten, 1 terrein, 42 personen en 6 teams van 7. 4 rondes van ongeveer 20 minuten speeltijd + 3 minuten wisseltijd.
-          Door 1 terrein spelen telkens 2 teams en rusten de andere teams mee vanaf de kant.
+          90 minuten, 1 terrein en flexteams. 4 rondes van ongeveer 20 minuten speeltijd + 3 minuten wisseltijd.
+          Bumperball is het fysiekste onderdeel: wie twijfelt, past zonder probleem.
         </p>
       </header>
 
       <div class="activity-header">
         <article class="panel">
           <h3><i class="fa-solid fa-person-falling-burst"></i> Opzet</h3>
-          <p>Telkens 2 teams actief op 1 terrein. De andere teams rusten, kijken of supporteren.</p>
+          <p>Telkens 2 teams actief op 1 terrein. De andere teams rusten, kijken, coachen, timeren of supporteren.</p>
         </article>
         <article class="panel">
           <h3><i class="fa-solid fa-scale-balanced"></i> Verdeling</h3>
-          <p>Team A en Team B spelen 2 keer, met rust ertussen. De andere teams spelen 1 keer. Dat is het eerlijkst mogelijke schema binnen 4 rondes op 1 terrein.</p>
-          <p class="attention">Zo rust geen enkel bumperballteam 3 rondes na elkaar. Volledig gelijk kan alleen met een 6e teambeurt extra, maar dat past niet in 90 minuten.</p>
+          <p>De teams hieronder zijn actieve startteams. Als iemand op het moment zelf niet meedoet, spelen we gewoon met minder volk of wisselen we iemand in.</p>
+          <p class="attention">Teams hoeven hier niet exact even groot te zijn. Veilig en plezant spelen is belangrijker dan een perfect schema.</p>
         </article>
       </div>
 
       <h3 class="subheading">Bumperballteams</h3>
       <div class="teams-grid">
-        
+
       <article class="team-card ">
-        <h4>Team A <span>7 personen</span></h4>
-        <div class="person-list"><span class="person-chip" data-person="15" title="Helderweirt Valerie"><b>15</b>Helderweirt Valerie</span><span class="person-chip" data-person="6" title="De Vree Ann"><b>6</b>De Vree Ann</span><span class="person-chip" data-person="23" title="Mensaert Charlotte"><b>23</b>Mensaert Charlotte</span><span class="person-chip" data-person="42" title="Wybo Maarten"><b>42</b>Wybo Maarten</span><span class="person-chip" data-person="41" title="Wevers Digna"><b>41</b>Wevers Digna</span><span class="person-chip" data-person="17" title="An Vankeirsbilck (opleider)"><b>17</b>An Vankeirsbilck (opleider)</span><span class="person-chip" data-person="11" title="Engels Steven"><b>11</b>Engels Steven</span></div>
+        <h4>Team A <span>6 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="6" title="De Vree Ann"><b>6</b>De Vree Ann</span><span class="person-chip" data-person="23" title="Mensaert Charlotte"><b>23</b>Mensaert Charlotte</span><span class="person-chip" data-person="42" title="Wybo Maarten"><b>42</b>Wybo Maarten</span><span class="person-chip" data-person="17" title="An Vankeirsbilck (opleider)"><b>17</b>An Vankeirsbilck (opleider)</span><span class="person-chip" data-person="11" title="Engels Steven"><b>11</b>Engels Steven</span><span class="person-chip" data-person="30" title="Van Belle Jill"><b>30</b>Van Belle Jill</span></div>
+        <p class="team-meta">Startteam. Doorwisselen of met minder spelen kan.</p>
       </article>
     
 
       <article class="team-card ">
-        <h4>Team B <span>7 personen</span></h4>
-        <div class="person-list"><span class="person-chip" data-person="16" title="Heyvaert Joachim"><b>16</b>Heyvaert Joachim</span><span class="person-chip" data-person="12" title="Geniesse Dirk"><b>12</b>Geniesse Dirk</span><span class="person-chip" data-person="36" title="Verbist David"><b>36</b>Verbist David</span><span class="person-chip" data-person="38" title="Verriest Sebastian"><b>38</b>Verriest Sebastian</span><span class="person-chip" data-person="25" title="Pettinato Mario"><b>25</b>Pettinato Mario</span><span class="person-chip" data-person="9" title="Dely Fleur"><b>9</b>Dely Fleur</span><span class="person-chip" data-person="1" title="Beerden Bram"><b>1</b>Beerden Bram</span></div>
+        <h4>Team B <span>6 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="16" title="Heyvaert Joachim"><b>16</b>Heyvaert Joachim</span><span class="person-chip" data-person="12" title="Geniesse Dirk"><b>12</b>Geniesse Dirk</span><span class="person-chip" data-person="36" title="Verbist David"><b>36</b>Verbist David</span><span class="person-chip" data-person="38" title="Verriest Sebastian"><b>38</b>Verriest Sebastian</span><span class="person-chip" data-person="25" title="Pettinato Mario"><b>25</b>Pettinato Mario</span><span class="person-chip" data-person="9" title="Dely Fleur"><b>9</b>Dely Fleur</span></div>
+        <p class="team-meta">Startteam. Doorwisselen of met minder spelen kan.</p>
       </article>
     
 
       <article class="team-card ">
-        <h4>Team C <span>7 personen</span></h4>
-        <div class="person-list"><span class="person-chip" data-person="20" title="Lecluyse Didier"><b>20</b>Lecluyse Didier</span><span class="person-chip" data-person="37" title="Verbruggen Liselot"><b>37</b>Verbruggen Liselot</span><span class="person-chip" data-person="13" title="Geukens Marc"><b>13</b>Geukens Marc</span><span class="person-chip" data-person="22" title="Maus Jinse"><b>22</b>Maus Jinse</span><span class="person-chip" data-person="40" title="Vispoel Sven"><b>40</b>Vispoel Sven</span><span class="person-chip" data-person="34" title="Vande Kerkhof Gertjan"><b>34</b>Vande Kerkhof Gertjan</span><span class="person-chip" data-person="19" title="Jouret Nils"><b>19</b>Jouret Nils</span></div>
+        <h4>Team C <span>6 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="20" title="Lecluyse Didier"><b>20</b>Lecluyse Didier</span><span class="person-chip" data-person="37" title="Verbruggen Liselot"><b>37</b>Verbruggen Liselot</span><span class="person-chip" data-person="13" title="Geukens Marc"><b>13</b>Geukens Marc</span><span class="person-chip" data-person="22" title="Maus Jinse"><b>22</b>Maus Jinse</span><span class="person-chip" data-person="40" title="Vispoel Sven"><b>40</b>Vispoel Sven</span><span class="person-chip" data-person="34" title="Vande Kerkhof Gertjan"><b>34</b>Vande Kerkhof Gertjan</span></div>
+        <p class="team-meta">Startteam. Doorwisselen of met minder spelen kan.</p>
       </article>
     
 
       <article class="team-card ">
-        <h4>Team D <span>7 personen</span></h4>
-        <div class="person-list"><span class="person-chip" data-person="31" title="van Bussel Dieter"><b>31</b>van Bussel Dieter</span><span class="person-chip" data-person="28" title="Truyers Davy"><b>28</b>Truyers Davy</span><span class="person-chip" data-person="18" title="Inzé Dominique"><b>18</b>Inzé Dominique</span><span class="person-chip" data-person="27" title="Smeyers Frederick"><b>27</b>Smeyers Frederick</span><span class="person-chip" data-person="8" title="Delvaux Lieven"><b>8</b>Delvaux Lieven</span><span class="person-chip" data-person="30" title="Van Belle Jill"><b>30</b>Van Belle Jill</span><span class="person-chip" data-person="29" title="Ulburghs Anna"><b>29</b>Ulburghs Anna</span></div>
+        <h4>Team D <span>6 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="31" title="van Bussel Dieter"><b>31</b>van Bussel Dieter</span><span class="person-chip" data-person="18" title="Inzé Dominique"><b>18</b>Inzé Dominique</span><span class="person-chip" data-person="27" title="Smeyers Frederick"><b>27</b>Smeyers Frederick</span><span class="person-chip" data-person="8" title="Delvaux Lieven"><b>8</b>Delvaux Lieven</span><span class="person-chip" data-person="29" title="Ulburghs Anna"><b>29</b>Ulburghs Anna</span><span class="person-chip" data-person="32" title="Van Petegem Helga"><b>32</b>Van Petegem Helga</span></div>
+        <p class="team-meta">Startteam. Doorwisselen of met minder spelen kan.</p>
       </article>
     
 
       <article class="team-card ">
-        <h4>Team E <span>7 personen</span></h4>
-        <div class="person-list"><span class="person-chip" data-person="32" title="Van Petegem Helga"><b>32</b>Van Petegem Helga</span><span class="person-chip" data-person="3" title="De Block Dries"><b>3</b>De Block Dries</span><span class="person-chip" data-person="2" title="Bockstael Stijn"><b>2</b>Bockstael Stijn</span><span class="person-chip" data-person="14" title="Gobyn Amedeo"><b>14</b>Gobyn Amedeo</span><span class="person-chip" data-person="33" title="Van Roy Kevin"><b>33</b>Van Roy Kevin</span><span class="person-chip" data-person="39" title="Vinck Jan"><b>39</b>Vinck Jan</span><span class="person-chip" data-person="24" title="Moens Lode"><b>24</b>Moens Lode</span></div>
+        <h4>Team E <span>6 personen</span></h4>
+        <div class="person-list"><span class="person-chip" data-person="3" title="De Block Dries"><b>3</b>De Block Dries</span><span class="person-chip" data-person="2" title="Bockstael Stijn"><b>2</b>Bockstael Stijn</span><span class="person-chip" data-person="14" title="Gobyn Amedeo"><b>14</b>Gobyn Amedeo</span><span class="person-chip" data-person="33" title="Van Roy Kevin"><b>33</b>Van Roy Kevin</span><span class="person-chip" data-person="39" title="Vinck Jan"><b>39</b>Vinck Jan</span><span class="person-chip" data-person="24" title="Moens Lode"><b>24</b>Moens Lode</span></div>
+        <p class="team-meta">Startteam. Doorwisselen of met minder spelen kan.</p>
       </article>
     
 
       <article class="team-card ">
         <h4>Team F <span>7 personen</span></h4>
-        <div class="person-list"><span class="person-chip" data-person="7" title="De Wilde Gilles"><b>7</b>De Wilde Gilles</span><span class="person-chip" data-person="35" title="Vandenbrouck Stefanie"><b>35</b>Vandenbrouck Stefanie</span><span class="person-chip" data-person="5" title="De Cocker Bart"><b>5</b>De Cocker Bart</span><span class="person-chip" data-person="4" title="De Brandt Sara"><b>4</b>De Brandt Sara</span><span class="person-chip" data-person="26" title="Schippers Scott"><b>26</b>Schippers Scott</span><span class="person-chip" data-person="10" title="Dobbels Dieter"><b>10</b>Dobbels Dieter</span><span class="person-chip" data-person="21" title="Mahieu Steven"><b>21</b>Mahieu Steven</span></div>
+        <div class="person-list"><span class="person-chip" data-person="7" title="De Wilde Gilles"><b>7</b>De Wilde Gilles</span><span class="person-chip" data-person="35" title="Vandenbrouck Stefanie"><b>35</b>Vandenbrouck Stefanie</span><span class="person-chip" data-person="5" title="De Cocker Bart"><b>5</b>De Cocker Bart</span><span class="person-chip" data-person="4" title="De Brandt Sara"><b>4</b>De Brandt Sara</span><span class="person-chip" data-person="21" title="Mahieu Steven"><b>21</b>Mahieu Steven</span><span class="person-chip" data-person="1" title="Beerden Bram"><b>1</b>Beerden Bram</span><span class="person-chip" data-person="19" title="Jouret Nils"><b>19</b>Jouret Nils</span></div>
+        <p class="team-meta">Startteam. Doorwisselen of met minder spelen kan.</p>
       </article>
     
       </div>
@@ -1769,14 +1897,14 @@
       <header class="section__header">
         <div class="section__title"><h2 id="beach-title">Beachvolley</h2></div>
         <p class="section__lead">
-          2 uur, 4 velden en 41 actieve spelers: 7 teams van 5 en 1 team van 6. Alle 4 velden zijn steeds bezet; An Vankeirsbilck is niet actief bij beachvolley.
+          2 uur, 4 velden en een startindeling met 7 teams van 5 en 1 team van 6. Alle 4 velden zijn steeds bezet, maar doorwisselen mag altijd.
         </p>
       </header>
 
       <div class="activity-header">
         <article class="panel">
           <h3><i class="fa-solid fa-volleyball"></i> Opzet</h3>
-          <p>Elk team speelt 5 keer, telkens tegen een andere tegenstander. De velden zijn zo verdeeld dat elk team op alle 4 de velden speelt en maximaal 1 veld herhaalt.</p>
+          <p>Elk team speelt 5 keer, telkens tegen een andere tegenstander. De velden zijn zo verdeeld dat elk team op alle 4 de velden speelt. Als iemand even rust nodig heeft, wisselen we gewoon door.</p>
         </article>
       </div>
 
@@ -1953,25 +2081,46 @@
         <div class="section__title"><h2 id="faq-title">FAQ</h2></div>
       </header>
 
+
       <div class="faq">
 
         <article class="faq-item">
           <button class="faq-item__question" type="button" aria-expanded="false">
-            <span>Worden de teams per sport opnieuw verdeeld?</span>
+            <span>Zijn de ploegen definitief?</span>
             <i class="fa-solid fa-chevron-down"></i>
           </button>
           <div class="faq-item__answer">
-            Ja. Padel, bumperball en beachvolley hebben elk hun eigen ploegverdeling.
+            Nee. De ploegen zijn startindelingen. Ze zorgen dat we snel kunnen beginnen, maar wisselen of overslaan mag altijd.
           </div>
         </article>
 
         <article class="faq-item">
           <button class="faq-item__question" type="button" aria-expanded="false">
-            <span>Waarom spelen Team A en B twee keer bij bumperball?</span>
+            <span>Wat als ik iets fysiek niet kan meedoen?</span>
             <i class="fa-solid fa-chevron-down"></i>
           </button>
           <div class="faq-item__answer">
-            Omdat er maar 4 rondes zijn op 1 terrein. Met deze timing kunnen niet alle 6 teams exact even vaak spelen. Een 5e ronde zou ongeveer 23 minuten extra kosten.
+            Dan doe je dat onderdeel niet mee of speel je rustiger. Geen uitleg nodig. Je kan supporteren, coachen, timer zijn of later opnieuw aansluiten.
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-item__question" type="button" aria-expanded="false">
+            <span>Wat als iemand uitvalt bij padel?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-item__answer">
+            Dan wisselen we ter plaatse met iemand die rust heeft, of gebruiken we het vrije veld als rustige oplossing. Het schema is geen keurslijf.
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-item__question" type="button" aria-expanded="false">
+            <span>Moet ik bumperball meedoen?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-item__answer">
+            Nee. Bumperball is het fysiekste onderdeel. Wie twijfelt, past beter. Teams mogen ongelijk zijn en er mag doorgewisseld worden.
           </div>
         </article>
 
@@ -1981,10 +2130,11 @@
             <i class="fa-solid fa-chevron-down"></i>
           </button>
           <div class="faq-item__answer">
-            Nee. De regels zijn recreatief bedoeld. Bij twijfel: gewoon overdoen. Plezier gaat voor precisie.
+            Nee. De regels zijn recreatief bedoeld. Bij twijfel: gewoon overdoen. Plezier en veiligheid gaan voor precisie.
           </div>
         </article>
       </div>
+
     </section>
   </main>
 
@@ -1992,14 +2142,14 @@
     <div class="page footer-inner">
       <div>
         <strong>Teambuilding Prom 23 Klas A</strong><br>
-        Spelletjes, spelregels, ploegen en rondes
+        Spelletjes, spelregels, startindelingen en flexregeling
       </div>
       <a href="#top"><i class="fa-solid fa-arrow-up"></i> Naar boven</a>
     </div>
   </footer>
 
   <script>
-    const PERSON_SCHEDULE = {"1": {"number": 1, "name": "Beerden Bram", "padel": ["Ploeg 16 met De Block Dries.", "Ronde 2 · Veld 3: tegen ploeg 13 (van Bussel Dieter & Lecluyse Didier)", "Ronde 5 · Veld 4: tegen ploeg 19 (Helderweirt Valerie & Heyvaert Joachim)", "Rust: Ronde 1, Ronde 3, Ronde 4."], "bumperball": ["Team B.", "Ronde 1: tegen team A", "Ronde 4: tegen team A", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Team 6.", "Ronde 1 · Veld 3: tegen team 3", "Ronde 2 · Veld 3: tegen team 8", "Ronde 3 · Veld 4: tegen team 1", "Ronde 4 · Veld 1: tegen team 4", "Ronde 5 · Veld 2: tegen team 2"]}, "2": {"number": 2, "name": "Bockstael Stijn", "padel": ["Ploeg 20 met Inzé Dominique.", "Ronde 3 · Veld 3: tegen ploeg 2 (Engels Steven & Smeyers Frederick)", "Ronde 5 · Veld 1: tegen ploeg 21 (Delvaux Lieven & Wevers Digna)", "Rust: Ronde 1, Ronde 2, Ronde 4."], "bumperball": ["Team E.", "Ronde 3: tegen team F", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 4.", "Ronde 1 · Veld 4: tegen team 5", "Ronde 2 · Veld 2: tegen team 3", "Ronde 3 · Veld 2: tegen team 8", "Ronde 4 · Veld 1: tegen team 6", "Ronde 5 · Veld 3: tegen team 1"]}, "3": {"number": 3, "name": "De Block Dries", "padel": ["Ploeg 16 met Beerden Bram.", "Ronde 2 · Veld 3: tegen ploeg 13 (van Bussel Dieter & Lecluyse Didier)", "Ronde 5 · Veld 4: tegen ploeg 19 (Helderweirt Valerie & Heyvaert Joachim)", "Rust: Ronde 1, Ronde 3, Ronde 4."], "bumperball": ["Team E.", "Ronde 3: tegen team F", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 5.", "Ronde 1 · Veld 4: tegen team 4", "Ronde 2 · Veld 4: tegen team 2", "Ronde 3 · Veld 3: tegen team 7", "Ronde 4 · Veld 2: tegen team 1", "Ronde 5 · Veld 1: tegen team 3"]}, "4": {"number": 4, "name": "De Brandt Sara", "padel": ["Ploeg 1 met Dobbels Dieter.", "Ronde 1 · Veld 1: tegen ploeg 6 (Mensaert Charlotte & Geniesse Dirk)", "Ronde 3 · Veld 2: tegen ploeg 19 (Helderweirt Valerie & Heyvaert Joachim)", "Rust: Ronde 2, Ronde 4, Ronde 5."], "bumperball": ["Team F.", "Ronde 3: tegen team E", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 1.", "Ronde 1 · Veld 1: tegen team 8", "Ronde 2 · Veld 1: tegen team 7", "Ronde 3 · Veld 4: tegen team 6", "Ronde 4 · Veld 2: tegen team 5", "Ronde 5 · Veld 3: tegen team 4"]}, "5": {"number": 5, "name": "De Cocker Bart", "padel": ["Ploeg 5 met Vande Kerkhof Gertjan.", "Ronde 1 · Veld 5: tegen ploeg 10 (Van Roy Kevin & Gobyn Amedeo)", "Ronde 3 · Veld 1: tegen ploeg 4 (Vispoel Sven & Schippers Scott)", "Rust: Ronde 2, Ronde 4, Ronde 5."], "bumperball": ["Team F.", "Ronde 3: tegen team E", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 5.", "Ronde 1 · Veld 4: tegen team 4", "Ronde 2 · Veld 4: tegen team 2", "Ronde 3 · Veld 3: tegen team 7", "Ronde 4 · Veld 2: tegen team 1", "Ronde 5 · Veld 1: tegen team 3"]}, "6": {"number": 6, "name": "De Vree Ann", "padel": ["Ploeg 17 met Truyers Davy.", "Ronde 2 · Veld 4: tegen ploeg 18 (De Wilde Gilles & Dely Fleur)", "Ronde 5 · Veld 2: tegen ploeg 14 (An Vankeirsbilck (opleider) & Wybo Maarten)", "Rust: Ronde 1, Ronde 3, Ronde 4."], "bumperball": ["Team A.", "Ronde 1: tegen team B", "Ronde 4: tegen team B", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Team 2.", "Ronde 1 · Veld 2: tegen team 7", "Ronde 2 · Veld 4: tegen team 5", "Ronde 3 · Veld 1: tegen team 3", "Ronde 4 · Veld 3: tegen team 8", "Ronde 5 · Veld 2: tegen team 6"]}, "7": {"number": 7, "name": "De Wilde Gilles", "padel": ["Ploeg 18 met Dely Fleur.", "Ronde 2 · Veld 4: tegen ploeg 17 (Truyers Davy & De Vree Ann)", "Ronde 5 · Veld 3: tegen ploeg 15 (Vandenbrouck Stefanie & Van Petegem Helga)", "Rust: Ronde 1, Ronde 3, Ronde 4."], "bumperball": ["Team F.", "Ronde 3: tegen team E", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 1.", "Ronde 1 · Veld 1: tegen team 8", "Ronde 2 · Veld 1: tegen team 7", "Ronde 3 · Veld 4: tegen team 6", "Ronde 4 · Veld 2: tegen team 5", "Ronde 5 · Veld 3: tegen team 4"]}, "8": {"number": 8, "name": "Delvaux Lieven", "padel": ["Ploeg 21 met Wevers Digna.", "Ronde 3 · Veld 4: tegen ploeg 3 (Verriest Sebastian & Jouret Nils)", "Ronde 5 · Veld 1: tegen ploeg 20 (Inzé Dominique & Bockstael Stijn)", "Rust: Ronde 1, Ronde 2, Ronde 4."], "bumperball": ["Team D.", "Ronde 2: tegen team C", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 5.", "Ronde 1 · Veld 4: tegen team 4", "Ronde 2 · Veld 4: tegen team 2", "Ronde 3 · Veld 3: tegen team 7", "Ronde 4 · Veld 2: tegen team 1", "Ronde 5 · Veld 1: tegen team 3"]}, "9": {"number": 9, "name": "Dely Fleur", "padel": ["Ploeg 18 met De Wilde Gilles.", "Ronde 2 · Veld 4: tegen ploeg 17 (Truyers Davy & De Vree Ann)", "Ronde 5 · Veld 3: tegen ploeg 15 (Vandenbrouck Stefanie & Van Petegem Helga)", "Rust: Ronde 1, Ronde 3, Ronde 4."], "bumperball": ["Team B.", "Ronde 1: tegen team A", "Ronde 4: tegen team A", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Team 3.", "Ronde 1 · Veld 3: tegen team 6", "Ronde 2 · Veld 2: tegen team 4", "Ronde 3 · Veld 1: tegen team 2", "Ronde 4 · Veld 4: tegen team 7", "Ronde 5 · Veld 1: tegen team 5"]}, "10": {"number": 10, "name": "Dobbels Dieter", "padel": ["Ploeg 1 met De Brandt Sara.", "Ronde 1 · Veld 1: tegen ploeg 6 (Mensaert Charlotte & Geniesse Dirk)", "Ronde 3 · Veld 2: tegen ploeg 19 (Helderweirt Valerie & Heyvaert Joachim)", "Rust: Ronde 2, Ronde 4, Ronde 5."], "bumperball": ["Team F.", "Ronde 3: tegen team E", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 2.", "Ronde 1 · Veld 2: tegen team 7", "Ronde 2 · Veld 4: tegen team 5", "Ronde 3 · Veld 1: tegen team 3", "Ronde 4 · Veld 3: tegen team 8", "Ronde 5 · Veld 2: tegen team 6"]}, "11": {"number": 11, "name": "Engels Steven", "padel": ["Ploeg 2 met Smeyers Frederick.", "Ronde 1 · Veld 2: tegen ploeg 7 (Van Belle Jill & Maus Jinse)", "Ronde 3 · Veld 3: tegen ploeg 20 (Inzé Dominique & Bockstael Stijn)", "Rust: Ronde 2, Ronde 4, Ronde 5."], "bumperball": ["Team A.", "Ronde 1: tegen team B", "Ronde 4: tegen team B", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Team 8.", "Ronde 1 · Veld 1: tegen team 1", "Ronde 2 · Veld 3: tegen team 6", "Ronde 3 · Veld 2: tegen team 4", "Ronde 4 · Veld 3: tegen team 2", "Ronde 5 · Veld 4: tegen team 7"]}, "12": {"number": 12, "name": "Geniesse Dirk", "padel": ["Ploeg 6 met Mensaert Charlotte.", "Ronde 1 · Veld 1: tegen ploeg 1 (Dobbels Dieter & De Brandt Sara)", "Ronde 4 · Veld 2: tegen ploeg 11 (Moens Lode & Mahieu Steven)", "Rust: Ronde 2, Ronde 3, Ronde 5."], "bumperball": ["Team B.", "Ronde 1: tegen team A", "Ronde 4: tegen team A", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Team 7.", "Ronde 1 · Veld 2: tegen team 2", "Ronde 2 · Veld 1: tegen team 1", "Ronde 3 · Veld 3: tegen team 5", "Ronde 4 · Veld 4: tegen team 3", "Ronde 5 · Veld 4: tegen team 8"]}, "13": {"number": 13, "name": "Geukens Marc", "padel": ["Ploeg 8 met Pettinato Mario.", "Ronde 1 · Veld 3: tegen ploeg 3 (Verriest Sebastian & Jouret Nils)", "Ronde 4 · Veld 4: tegen ploeg 13 (van Bussel Dieter & Lecluyse Didier)", "Rust: Ronde 2, Ronde 3, Ronde 5."], "bumperball": ["Team C.", "Ronde 2: tegen team D", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 1.", "Ronde 1 · Veld 1: tegen team 8", "Ronde 2 · Veld 1: tegen team 7", "Ronde 3 · Veld 4: tegen team 6", "Ronde 4 · Veld 2: tegen team 5", "Ronde 5 · Veld 3: tegen team 4"]}, "14": {"number": 14, "name": "Gobyn Amedeo", "padel": ["Ploeg 10 met Van Roy Kevin.", "Ronde 1 · Veld 5: tegen ploeg 5 (De Cocker Bart & Vande Kerkhof Gertjan)", "Ronde 4 · Veld 1: tegen ploeg 9 (Verbist David & Verbruggen Liselot)", "Rust: Ronde 2, Ronde 3, Ronde 5."], "bumperball": ["Team E.", "Ronde 3: tegen team F", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 7.", "Ronde 1 · Veld 2: tegen team 2", "Ronde 2 · Veld 1: tegen team 1", "Ronde 3 · Veld 3: tegen team 5", "Ronde 4 · Veld 4: tegen team 3", "Ronde 5 · Veld 4: tegen team 8"]}, "15": {"number": 15, "name": "Helderweirt Valerie", "padel": ["Ploeg 19 met Heyvaert Joachim.", "Ronde 3 · Veld 2: tegen ploeg 1 (Dobbels Dieter & De Brandt Sara)", "Ronde 5 · Veld 4: tegen ploeg 16 (Beerden Bram & De Block Dries)", "Rust: Ronde 1, Ronde 2, Ronde 4."], "bumperball": ["Team A.", "Ronde 1: tegen team B", "Ronde 4: tegen team B", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Team 4.", "Ronde 1 · Veld 4: tegen team 5", "Ronde 2 · Veld 2: tegen team 3", "Ronde 3 · Veld 2: tegen team 8", "Ronde 4 · Veld 1: tegen team 6", "Ronde 5 · Veld 3: tegen team 1"]}, "16": {"number": 16, "name": "Heyvaert Joachim", "padel": ["Ploeg 19 met Helderweirt Valerie.", "Ronde 3 · Veld 2: tegen ploeg 1 (Dobbels Dieter & De Brandt Sara)", "Ronde 5 · Veld 4: tegen ploeg 16 (Beerden Bram & De Block Dries)", "Rust: Ronde 1, Ronde 2, Ronde 4."], "bumperball": ["Team B.", "Ronde 1: tegen team A", "Ronde 4: tegen team A", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Team 7.", "Ronde 1 · Veld 2: tegen team 2", "Ronde 2 · Veld 1: tegen team 1", "Ronde 3 · Veld 3: tegen team 5", "Ronde 4 · Veld 4: tegen team 3", "Ronde 5 · Veld 4: tegen team 8"]}, "17": {"number": 17, "name": "An Vankeirsbilck (opleider)", "padel": ["Ploeg 14 met Wybo Maarten.", "Ronde 2 · Veld 1: tegen ploeg 11 (Moens Lode & Mahieu Steven)", "Ronde 5 · Veld 2: tegen ploeg 17 (Truyers Davy & De Vree Ann)", "Rust: Ronde 1, Ronde 3, Ronde 4."], "bumperball": ["Team A.", "Ronde 1: tegen team B", "Ronde 4: tegen team B", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Niet actief bij beachvolley."]}, "18": {"number": 18, "name": "Inzé Dominique", "padel": ["Ploeg 20 met Bockstael Stijn.", "Ronde 3 · Veld 3: tegen ploeg 2 (Engels Steven & Smeyers Frederick)", "Ronde 5 · Veld 1: tegen ploeg 21 (Delvaux Lieven & Wevers Digna)", "Rust: Ronde 1, Ronde 2, Ronde 4."], "bumperball": ["Team D.", "Ronde 2: tegen team C", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 1.", "Ronde 1 · Veld 1: tegen team 8", "Ronde 2 · Veld 1: tegen team 7", "Ronde 3 · Veld 4: tegen team 6", "Ronde 4 · Veld 2: tegen team 5", "Ronde 5 · Veld 3: tegen team 4"]}, "19": {"number": 19, "name": "Jouret Nils", "padel": ["Ploeg 3 met Verriest Sebastian.", "Ronde 1 · Veld 3: tegen ploeg 8 (Geukens Marc & Pettinato Mario)", "Ronde 3 · Veld 4: tegen ploeg 21 (Delvaux Lieven & Wevers Digna)", "Rust: Ronde 2, Ronde 4, Ronde 5."], "bumperball": ["Team C.", "Ronde 2: tegen team D", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 8.", "Ronde 1 · Veld 1: tegen team 1", "Ronde 2 · Veld 3: tegen team 6", "Ronde 3 · Veld 2: tegen team 4", "Ronde 4 · Veld 3: tegen team 2", "Ronde 5 · Veld 4: tegen team 7"]}, "20": {"number": 20, "name": "Lecluyse Didier", "padel": ["Ploeg 13 met van Bussel Dieter.", "Ronde 2 · Veld 3: tegen ploeg 16 (Beerden Bram & De Block Dries)", "Ronde 4 · Veld 4: tegen ploeg 8 (Geukens Marc & Pettinato Mario)", "Rust: Ronde 1, Ronde 3, Ronde 5."], "bumperball": ["Team C.", "Ronde 2: tegen team D", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 4.", "Ronde 1 · Veld 4: tegen team 5", "Ronde 2 · Veld 2: tegen team 3", "Ronde 3 · Veld 2: tegen team 8", "Ronde 4 · Veld 1: tegen team 6", "Ronde 5 · Veld 3: tegen team 1"]}, "21": {"number": 21, "name": "Mahieu Steven", "padel": ["Ploeg 11 met Moens Lode.", "Ronde 2 · Veld 1: tegen ploeg 14 (An Vankeirsbilck (opleider) & Wybo Maarten)", "Ronde 4 · Veld 2: tegen ploeg 6 (Mensaert Charlotte & Geniesse Dirk)", "Rust: Ronde 1, Ronde 3, Ronde 5."], "bumperball": ["Team F.", "Ronde 3: tegen team E", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 4.", "Ronde 1 · Veld 4: tegen team 5", "Ronde 2 · Veld 2: tegen team 3", "Ronde 3 · Veld 2: tegen team 8", "Ronde 4 · Veld 1: tegen team 6", "Ronde 5 · Veld 3: tegen team 1"]}, "22": {"number": 22, "name": "Maus Jinse", "padel": ["Ploeg 7 met Van Belle Jill.", "Ronde 1 · Veld 2: tegen ploeg 2 (Engels Steven & Smeyers Frederick)", "Ronde 4 · Veld 3: tegen ploeg 12 (Ulburghs Anna & Vinck Jan)", "Rust: Ronde 2, Ronde 3, Ronde 5."], "bumperball": ["Team C.", "Ronde 2: tegen team D", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 3.", "Ronde 1 · Veld 3: tegen team 6", "Ronde 2 · Veld 2: tegen team 4", "Ronde 3 · Veld 1: tegen team 2", "Ronde 4 · Veld 4: tegen team 7", "Ronde 5 · Veld 1: tegen team 5"]}, "23": {"number": 23, "name": "Mensaert Charlotte", "padel": ["Ploeg 6 met Geniesse Dirk.", "Ronde 1 · Veld 1: tegen ploeg 1 (Dobbels Dieter & De Brandt Sara)", "Ronde 4 · Veld 2: tegen ploeg 11 (Moens Lode & Mahieu Steven)", "Rust: Ronde 2, Ronde 3, Ronde 5."], "bumperball": ["Team A.", "Ronde 1: tegen team B", "Ronde 4: tegen team B", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Team 5.", "Ronde 1 · Veld 4: tegen team 4", "Ronde 2 · Veld 4: tegen team 2", "Ronde 3 · Veld 3: tegen team 7", "Ronde 4 · Veld 2: tegen team 1", "Ronde 5 · Veld 1: tegen team 3"]}, "24": {"number": 24, "name": "Moens Lode", "padel": ["Ploeg 11 met Mahieu Steven.", "Ronde 2 · Veld 1: tegen ploeg 14 (An Vankeirsbilck (opleider) & Wybo Maarten)", "Ronde 4 · Veld 2: tegen ploeg 6 (Mensaert Charlotte & Geniesse Dirk)", "Rust: Ronde 1, Ronde 3, Ronde 5."], "bumperball": ["Team E.", "Ronde 3: tegen team F", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 1.", "Ronde 1 · Veld 1: tegen team 8", "Ronde 2 · Veld 1: tegen team 7", "Ronde 3 · Veld 4: tegen team 6", "Ronde 4 · Veld 2: tegen team 5", "Ronde 5 · Veld 3: tegen team 4"]}, "25": {"number": 25, "name": "Pettinato Mario", "padel": ["Ploeg 8 met Geukens Marc.", "Ronde 1 · Veld 3: tegen ploeg 3 (Verriest Sebastian & Jouret Nils)", "Ronde 4 · Veld 4: tegen ploeg 13 (van Bussel Dieter & Lecluyse Didier)", "Rust: Ronde 2, Ronde 3, Ronde 5."], "bumperball": ["Team B.", "Ronde 1: tegen team A", "Ronde 4: tegen team A", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Team 2.", "Ronde 1 · Veld 2: tegen team 7", "Ronde 2 · Veld 4: tegen team 5", "Ronde 3 · Veld 1: tegen team 3", "Ronde 4 · Veld 3: tegen team 8", "Ronde 5 · Veld 2: tegen team 6"]}, "26": {"number": 26, "name": "Schippers Scott", "padel": ["Ploeg 4 met Vispoel Sven.", "Ronde 1 · Veld 4: tegen ploeg 9 (Verbist David & Verbruggen Liselot)", "Ronde 3 · Veld 1: tegen ploeg 5 (De Cocker Bart & Vande Kerkhof Gertjan)", "Rust: Ronde 2, Ronde 4, Ronde 5."], "bumperball": ["Team F.", "Ronde 3: tegen team E", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 6.", "Ronde 1 · Veld 3: tegen team 3", "Ronde 2 · Veld 3: tegen team 8", "Ronde 3 · Veld 4: tegen team 1", "Ronde 4 · Veld 1: tegen team 4", "Ronde 5 · Veld 2: tegen team 2"]}, "27": {"number": 27, "name": "Smeyers Frederick", "padel": ["Ploeg 2 met Engels Steven.", "Ronde 1 · Veld 2: tegen ploeg 7 (Van Belle Jill & Maus Jinse)", "Ronde 3 · Veld 3: tegen ploeg 20 (Inzé Dominique & Bockstael Stijn)", "Rust: Ronde 2, Ronde 4, Ronde 5."], "bumperball": ["Team D.", "Ronde 2: tegen team C", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 8.", "Ronde 1 · Veld 1: tegen team 1", "Ronde 2 · Veld 3: tegen team 6", "Ronde 3 · Veld 2: tegen team 4", "Ronde 4 · Veld 3: tegen team 2", "Ronde 5 · Veld 4: tegen team 7"]}, "28": {"number": 28, "name": "Truyers Davy", "padel": ["Ploeg 17 met De Vree Ann.", "Ronde 2 · Veld 4: tegen ploeg 18 (De Wilde Gilles & Dely Fleur)", "Ronde 5 · Veld 2: tegen ploeg 14 (An Vankeirsbilck (opleider) & Wybo Maarten)", "Rust: Ronde 1, Ronde 3, Ronde 4."], "bumperball": ["Team D.", "Ronde 2: tegen team C", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 3.", "Ronde 1 · Veld 3: tegen team 6", "Ronde 2 · Veld 2: tegen team 4", "Ronde 3 · Veld 1: tegen team 2", "Ronde 4 · Veld 4: tegen team 7", "Ronde 5 · Veld 1: tegen team 5"]}, "29": {"number": 29, "name": "Ulburghs Anna", "padel": ["Ploeg 12 met Vinck Jan.", "Ronde 2 · Veld 2: tegen ploeg 15 (Vandenbrouck Stefanie & Van Petegem Helga)", "Ronde 4 · Veld 3: tegen ploeg 7 (Van Belle Jill & Maus Jinse)", "Rust: Ronde 1, Ronde 3, Ronde 5."], "bumperball": ["Team D.", "Ronde 2: tegen team C", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 2.", "Ronde 1 · Veld 2: tegen team 7", "Ronde 2 · Veld 4: tegen team 5", "Ronde 3 · Veld 1: tegen team 3", "Ronde 4 · Veld 3: tegen team 8", "Ronde 5 · Veld 2: tegen team 6"]}, "30": {"number": 30, "name": "Van Belle Jill", "padel": ["Ploeg 7 met Maus Jinse.", "Ronde 1 · Veld 2: tegen ploeg 2 (Engels Steven & Smeyers Frederick)", "Ronde 4 · Veld 3: tegen ploeg 12 (Ulburghs Anna & Vinck Jan)", "Rust: Ronde 2, Ronde 3, Ronde 5."], "bumperball": ["Team D.", "Ronde 2: tegen team C", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 6.", "Ronde 1 · Veld 3: tegen team 3", "Ronde 2 · Veld 3: tegen team 8", "Ronde 3 · Veld 4: tegen team 1", "Ronde 4 · Veld 1: tegen team 4", "Ronde 5 · Veld 2: tegen team 2"]}, "31": {"number": 31, "name": "van Bussel Dieter", "padel": ["Ploeg 13 met Lecluyse Didier.", "Ronde 2 · Veld 3: tegen ploeg 16 (Beerden Bram & De Block Dries)", "Ronde 4 · Veld 4: tegen ploeg 8 (Geukens Marc & Pettinato Mario)", "Rust: Ronde 1, Ronde 3, Ronde 5."], "bumperball": ["Team D.", "Ronde 2: tegen team C", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 8.", "Ronde 1 · Veld 1: tegen team 1", "Ronde 2 · Veld 3: tegen team 6", "Ronde 3 · Veld 2: tegen team 4", "Ronde 4 · Veld 3: tegen team 2", "Ronde 5 · Veld 4: tegen team 7"]}, "32": {"number": 32, "name": "Van Petegem Helga", "padel": ["Ploeg 15 met Vandenbrouck Stefanie.", "Ronde 2 · Veld 2: tegen ploeg 12 (Ulburghs Anna & Vinck Jan)", "Ronde 5 · Veld 3: tegen ploeg 18 (De Wilde Gilles & Dely Fleur)", "Rust: Ronde 1, Ronde 3, Ronde 4."], "bumperball": ["Team E.", "Ronde 3: tegen team F", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 2.", "Ronde 1 · Veld 2: tegen team 7", "Ronde 2 · Veld 4: tegen team 5", "Ronde 3 · Veld 1: tegen team 3", "Ronde 4 · Veld 3: tegen team 8", "Ronde 5 · Veld 2: tegen team 6"]}, "33": {"number": 33, "name": "Van Roy Kevin", "padel": ["Ploeg 10 met Gobyn Amedeo.", "Ronde 1 · Veld 5: tegen ploeg 5 (De Cocker Bart & Vande Kerkhof Gertjan)", "Ronde 4 · Veld 1: tegen ploeg 9 (Verbist David & Verbruggen Liselot)", "Rust: Ronde 2, Ronde 3, Ronde 5."], "bumperball": ["Team E.", "Ronde 3: tegen team F", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 7.", "Ronde 1 · Veld 2: tegen team 2", "Ronde 2 · Veld 1: tegen team 1", "Ronde 3 · Veld 3: tegen team 5", "Ronde 4 · Veld 4: tegen team 3", "Ronde 5 · Veld 4: tegen team 8"]}, "34": {"number": 34, "name": "Vande Kerkhof Gertjan", "padel": ["Ploeg 5 met De Cocker Bart.", "Ronde 1 · Veld 5: tegen ploeg 10 (Van Roy Kevin & Gobyn Amedeo)", "Ronde 3 · Veld 1: tegen ploeg 4 (Vispoel Sven & Schippers Scott)", "Rust: Ronde 2, Ronde 4, Ronde 5."], "bumperball": ["Team C.", "Ronde 2: tegen team D", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 6.", "Ronde 1 · Veld 3: tegen team 3", "Ronde 2 · Veld 3: tegen team 8", "Ronde 3 · Veld 4: tegen team 1", "Ronde 4 · Veld 1: tegen team 4", "Ronde 5 · Veld 2: tegen team 2"]}, "35": {"number": 35, "name": "Vandenbrouck Stefanie", "padel": ["Ploeg 15 met Van Petegem Helga.", "Ronde 2 · Veld 2: tegen ploeg 12 (Ulburghs Anna & Vinck Jan)", "Ronde 5 · Veld 3: tegen ploeg 18 (De Wilde Gilles & Dely Fleur)", "Rust: Ronde 1, Ronde 3, Ronde 4."], "bumperball": ["Team F.", "Ronde 3: tegen team E", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 4.", "Ronde 1 · Veld 4: tegen team 5", "Ronde 2 · Veld 2: tegen team 3", "Ronde 3 · Veld 2: tegen team 8", "Ronde 4 · Veld 1: tegen team 6", "Ronde 5 · Veld 3: tegen team 1"]}, "36": {"number": 36, "name": "Verbist David", "padel": ["Ploeg 9 met Verbruggen Liselot.", "Ronde 1 · Veld 4: tegen ploeg 4 (Vispoel Sven & Schippers Scott)", "Ronde 4 · Veld 1: tegen ploeg 10 (Van Roy Kevin & Gobyn Amedeo)", "Rust: Ronde 2, Ronde 3, Ronde 5."], "bumperball": ["Team B.", "Ronde 1: tegen team A", "Ronde 4: tegen team A", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Team 5.", "Ronde 1 · Veld 4: tegen team 4", "Ronde 2 · Veld 4: tegen team 2", "Ronde 3 · Veld 3: tegen team 7", "Ronde 4 · Veld 2: tegen team 1", "Ronde 5 · Veld 1: tegen team 3"]}, "37": {"number": 37, "name": "Verbruggen Liselot", "padel": ["Ploeg 9 met Verbist David.", "Ronde 1 · Veld 4: tegen ploeg 4 (Vispoel Sven & Schippers Scott)", "Ronde 4 · Veld 1: tegen ploeg 10 (Van Roy Kevin & Gobyn Amedeo)", "Rust: Ronde 2, Ronde 3, Ronde 5."], "bumperball": ["Team C.", "Ronde 2: tegen team D", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 7.", "Ronde 1 · Veld 2: tegen team 2", "Ronde 2 · Veld 1: tegen team 1", "Ronde 3 · Veld 3: tegen team 5", "Ronde 4 · Veld 4: tegen team 3", "Ronde 5 · Veld 4: tegen team 8"]}, "38": {"number": 38, "name": "Verriest Sebastian", "padel": ["Ploeg 3 met Jouret Nils.", "Ronde 1 · Veld 3: tegen ploeg 8 (Geukens Marc & Pettinato Mario)", "Ronde 3 · Veld 4: tegen ploeg 21 (Delvaux Lieven & Wevers Digna)", "Rust: Ronde 2, Ronde 4, Ronde 5."], "bumperball": ["Team B.", "Ronde 1: tegen team A", "Ronde 4: tegen team A", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Team 6.", "Ronde 1 · Veld 3: tegen team 3", "Ronde 2 · Veld 3: tegen team 8", "Ronde 3 · Veld 4: tegen team 1", "Ronde 4 · Veld 1: tegen team 4", "Ronde 5 · Veld 2: tegen team 2"]}, "39": {"number": 39, "name": "Vinck Jan", "padel": ["Ploeg 12 met Ulburghs Anna.", "Ronde 2 · Veld 2: tegen ploeg 15 (Vandenbrouck Stefanie & Van Petegem Helga)", "Ronde 4 · Veld 3: tegen ploeg 7 (Van Belle Jill & Maus Jinse)", "Rust: Ronde 1, Ronde 3, Ronde 5."], "bumperball": ["Team E.", "Ronde 3: tegen team F", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 1.", "Ronde 1 · Veld 1: tegen team 8", "Ronde 2 · Veld 1: tegen team 7", "Ronde 3 · Veld 4: tegen team 6", "Ronde 4 · Veld 2: tegen team 5", "Ronde 5 · Veld 3: tegen team 4"]}, "40": {"number": 40, "name": "Vispoel Sven", "padel": ["Ploeg 4 met Schippers Scott.", "Ronde 1 · Veld 4: tegen ploeg 9 (Verbist David & Verbruggen Liselot)", "Ronde 3 · Veld 1: tegen ploeg 5 (De Cocker Bart & Vande Kerkhof Gertjan)", "Rust: Ronde 2, Ronde 4, Ronde 5."], "bumperball": ["Team C.", "Ronde 2: tegen team D", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 8.", "Ronde 1 · Veld 1: tegen team 1", "Ronde 2 · Veld 3: tegen team 6", "Ronde 3 · Veld 2: tegen team 4", "Ronde 4 · Veld 3: tegen team 2", "Ronde 5 · Veld 4: tegen team 7"]}, "41": {"number": 41, "name": "Wevers Digna", "padel": ["Ploeg 21 met Delvaux Lieven.", "Ronde 3 · Veld 4: tegen ploeg 3 (Verriest Sebastian & Jouret Nils)", "Ronde 5 · Veld 1: tegen ploeg 20 (Inzé Dominique & Bockstael Stijn)", "Rust: Ronde 1, Ronde 2, Ronde 4."], "bumperball": ["Team A.", "Ronde 1: tegen team B", "Ronde 4: tegen team B", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Team 3.", "Ronde 1 · Veld 3: tegen team 6", "Ronde 2 · Veld 2: tegen team 4", "Ronde 3 · Veld 1: tegen team 2", "Ronde 4 · Veld 4: tegen team 7", "Ronde 5 · Veld 1: tegen team 5"]}, "42": {"number": 42, "name": "Wybo Maarten", "padel": ["Ploeg 14 met An Vankeirsbilck (opleider).", "Ronde 2 · Veld 1: tegen ploeg 11 (Moens Lode & Mahieu Steven)", "Ronde 5 · Veld 2: tegen ploeg 17 (Truyers Davy & De Vree Ann)", "Rust: Ronde 1, Ronde 3, Ronde 4."], "bumperball": ["Team A.", "Ronde 1: tegen team B", "Ronde 4: tegen team B", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Team 3.", "Ronde 1 · Veld 3: tegen team 6", "Ronde 2 · Veld 2: tegen team 4", "Ronde 3 · Veld 1: tegen team 2", "Ronde 4 · Veld 4: tegen team 7", "Ronde 5 · Veld 1: tegen team 5"]}};
+    const PERSON_SCHEDULE = {"1": {"number": 1, "name": "Beerden Bram", "padel": ["Ploeg 16 met De Block Dries.", "Ronde 2 · Veld 3: tegen ploeg 13 (van Bussel Dieter & Lecluyse Didier)", "Ronde 5 · Veld 4: tegen ploeg 19 (Helderweirt Valerie & Heyvaert Joachim)", "Rust: Ronde 1, Ronde 3, Ronde 4."], "bumperball": ["Team F.", "Ronde 3: tegen team E", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 6.", "Ronde 1 · Veld 3: tegen team 3", "Ronde 2 · Veld 3: tegen team 8", "Ronde 3 · Veld 4: tegen team 1", "Ronde 4 · Veld 1: tegen team 4", "Ronde 5 · Veld 2: tegen team 2"]}, "2": {"number": 2, "name": "Bockstael Stijn", "padel": ["Ploeg 20 met Inzé Dominique.", "Ronde 3 · Veld 3: tegen ploeg 2 (Engels Steven & Smeyers Frederick)", "Ronde 5 · Veld 1: tegen ploeg 21 (Delvaux Lieven & Wevers Digna)", "Rust: Ronde 1, Ronde 2, Ronde 4."], "bumperball": ["Team E.", "Ronde 3: tegen team F", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 4.", "Ronde 1 · Veld 4: tegen team 5", "Ronde 2 · Veld 2: tegen team 3", "Ronde 3 · Veld 2: tegen team 8", "Ronde 4 · Veld 1: tegen team 6", "Ronde 5 · Veld 3: tegen team 1"]}, "3": {"number": 3, "name": "De Block Dries", "padel": ["Ploeg 16 met Beerden Bram.", "Ronde 2 · Veld 3: tegen ploeg 13 (van Bussel Dieter & Lecluyse Didier)", "Ronde 5 · Veld 4: tegen ploeg 19 (Helderweirt Valerie & Heyvaert Joachim)", "Rust: Ronde 1, Ronde 3, Ronde 4."], "bumperball": ["Team E.", "Ronde 3: tegen team F", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 5.", "Ronde 1 · Veld 4: tegen team 4", "Ronde 2 · Veld 4: tegen team 2", "Ronde 3 · Veld 3: tegen team 7", "Ronde 4 · Veld 2: tegen team 1", "Ronde 5 · Veld 1: tegen team 3"]}, "4": {"number": 4, "name": "De Brandt Sara", "padel": ["Ploeg 1 met Dobbels Dieter.", "Ronde 1 · Veld 1: tegen ploeg 6 (Mensaert Charlotte & Geniesse Dirk)", "Ronde 3 · Veld 2: tegen ploeg 19 (Helderweirt Valerie & Heyvaert Joachim)", "Rust: Ronde 2, Ronde 4, Ronde 5."], "bumperball": ["Team F.", "Ronde 3: tegen team E", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 1.", "Ronde 1 · Veld 1: tegen team 8", "Ronde 2 · Veld 1: tegen team 7", "Ronde 3 · Veld 4: tegen team 6", "Ronde 4 · Veld 2: tegen team 5", "Ronde 5 · Veld 3: tegen team 4"]}, "5": {"number": 5, "name": "De Cocker Bart", "padel": ["Ploeg 5 met Vande Kerkhof Gertjan.", "Ronde 1 · Veld 5: tegen ploeg 10 (Van Roy Kevin & Gobyn Amedeo)", "Ronde 3 · Veld 1: tegen ploeg 4 (Vispoel Sven & Schippers Scott)", "Rust: Ronde 2, Ronde 4, Ronde 5."], "bumperball": ["Team F.", "Ronde 3: tegen team E", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 5.", "Ronde 1 · Veld 4: tegen team 4", "Ronde 2 · Veld 4: tegen team 2", "Ronde 3 · Veld 3: tegen team 7", "Ronde 4 · Veld 2: tegen team 1", "Ronde 5 · Veld 1: tegen team 3"]}, "6": {"number": 6, "name": "De Vree Ann", "padel": ["Ploeg 17 met Truyers Davy.", "Ronde 2 · Veld 4: tegen ploeg 18 (De Wilde Gilles & Dely Fleur)", "Ronde 5 · Veld 2: tegen ploeg 14 (An Vankeirsbilck (opleider) & Wybo Maarten)", "Rust: Ronde 1, Ronde 3, Ronde 4."], "bumperball": ["Team A.", "Ronde 1: tegen team B", "Ronde 4: tegen team B", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Team 2.", "Ronde 1 · Veld 2: tegen team 7", "Ronde 2 · Veld 4: tegen team 5", "Ronde 3 · Veld 1: tegen team 3", "Ronde 4 · Veld 3: tegen team 8", "Ronde 5 · Veld 2: tegen team 6"]}, "7": {"number": 7, "name": "De Wilde Gilles", "padel": ["Ploeg 18 met Dely Fleur.", "Ronde 2 · Veld 4: tegen ploeg 17 (Truyers Davy & De Vree Ann)", "Ronde 5 · Veld 3: tegen ploeg 15 (Vandenbrouck Stefanie & Van Petegem Helga)", "Rust: Ronde 1, Ronde 3, Ronde 4."], "bumperball": ["Team F.", "Ronde 3: tegen team E", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 1.", "Ronde 1 · Veld 1: tegen team 8", "Ronde 2 · Veld 1: tegen team 7", "Ronde 3 · Veld 4: tegen team 6", "Ronde 4 · Veld 2: tegen team 5", "Ronde 5 · Veld 3: tegen team 4"]}, "8": {"number": 8, "name": "Delvaux Lieven", "padel": ["Ploeg 21 met Wevers Digna.", "Ronde 3 · Veld 4: tegen ploeg 3 (Verriest Sebastian & Jouret Nils)", "Ronde 5 · Veld 1: tegen ploeg 20 (Inzé Dominique & Bockstael Stijn)", "Rust: Ronde 1, Ronde 2, Ronde 4."], "bumperball": ["Team D.", "Ronde 2: tegen team C", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 5.", "Ronde 1 · Veld 4: tegen team 4", "Ronde 2 · Veld 4: tegen team 2", "Ronde 3 · Veld 3: tegen team 7", "Ronde 4 · Veld 2: tegen team 1", "Ronde 5 · Veld 1: tegen team 3"]}, "9": {"number": 9, "name": "Dely Fleur", "padel": ["Ploeg 18 met De Wilde Gilles.", "Ronde 2 · Veld 4: tegen ploeg 17 (Truyers Davy & De Vree Ann)", "Ronde 5 · Veld 3: tegen ploeg 15 (Vandenbrouck Stefanie & Van Petegem Helga)", "Rust: Ronde 1, Ronde 3, Ronde 4."], "bumperball": ["Team B.", "Ronde 1: tegen team A", "Ronde 4: tegen team A", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Team 3.", "Ronde 1 · Veld 3: tegen team 6", "Ronde 2 · Veld 2: tegen team 4", "Ronde 3 · Veld 1: tegen team 2", "Ronde 4 · Veld 4: tegen team 7", "Ronde 5 · Veld 1: tegen team 5"]}, "10": {"number": 10, "name": "Dobbels Dieter", "padel": ["Ploeg 1 met De Brandt Sara.", "Ronde 1 · Veld 1: tegen ploeg 6 (Mensaert Charlotte & Geniesse Dirk)", "Ronde 3 · Veld 2: tegen ploeg 19 (Helderweirt Valerie & Heyvaert Joachim)", "Rust: Ronde 2, Ronde 4, Ronde 5."], "bumperball": [], "beachvolley": ["Team 2.", "Ronde 1 · Veld 2: tegen team 7", "Ronde 2 · Veld 4: tegen team 5", "Ronde 3 · Veld 1: tegen team 3", "Ronde 4 · Veld 3: tegen team 8", "Ronde 5 · Veld 2: tegen team 6"]}, "11": {"number": 11, "name": "Engels Steven", "padel": ["Ploeg 2 met Smeyers Frederick.", "Ronde 1 · Veld 2: tegen ploeg 7 (Van Belle Jill & Maus Jinse)", "Ronde 3 · Veld 3: tegen ploeg 20 (Inzé Dominique & Bockstael Stijn)", "Rust: Ronde 2, Ronde 4, Ronde 5."], "bumperball": ["Team A.", "Ronde 1: tegen team B", "Ronde 4: tegen team B", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Team 8.", "Ronde 1 · Veld 1: tegen team 1", "Ronde 2 · Veld 3: tegen team 6", "Ronde 3 · Veld 2: tegen team 4", "Ronde 4 · Veld 3: tegen team 2", "Ronde 5 · Veld 4: tegen team 7"]}, "12": {"number": 12, "name": "Geniesse Dirk", "padel": ["Ploeg 6 met Mensaert Charlotte.", "Ronde 1 · Veld 1: tegen ploeg 1 (Dobbels Dieter & De Brandt Sara)", "Ronde 4 · Veld 2: tegen ploeg 11 (Moens Lode & Mahieu Steven)", "Rust: Ronde 2, Ronde 3, Ronde 5."], "bumperball": ["Team B.", "Ronde 1: tegen team A", "Ronde 4: tegen team A", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Team 7.", "Ronde 1 · Veld 2: tegen team 2", "Ronde 2 · Veld 1: tegen team 1", "Ronde 3 · Veld 3: tegen team 5", "Ronde 4 · Veld 4: tegen team 3", "Ronde 5 · Veld 4: tegen team 8"]}, "13": {"number": 13, "name": "Geukens Marc", "padel": ["Ploeg 8 met Pettinato Mario.", "Ronde 1 · Veld 3: tegen ploeg 3 (Verriest Sebastian & Jouret Nils)", "Ronde 4 · Veld 4: tegen ploeg 13 (van Bussel Dieter & Lecluyse Didier)", "Rust: Ronde 2, Ronde 3, Ronde 5."], "bumperball": ["Team C.", "Ronde 2: tegen team D", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 1.", "Ronde 1 · Veld 1: tegen team 8", "Ronde 2 · Veld 1: tegen team 7", "Ronde 3 · Veld 4: tegen team 6", "Ronde 4 · Veld 2: tegen team 5", "Ronde 5 · Veld 3: tegen team 4"]}, "14": {"number": 14, "name": "Gobyn Amedeo", "padel": ["Ploeg 10 met Van Roy Kevin.", "Ronde 1 · Veld 5: tegen ploeg 5 (De Cocker Bart & Vande Kerkhof Gertjan)", "Ronde 4 · Veld 1: tegen ploeg 9 (Verbist David & Verbruggen Liselot)", "Rust: Ronde 2, Ronde 3, Ronde 5."], "bumperball": ["Team E.", "Ronde 3: tegen team F", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 7.", "Ronde 1 · Veld 2: tegen team 2", "Ronde 2 · Veld 1: tegen team 1", "Ronde 3 · Veld 3: tegen team 5", "Ronde 4 · Veld 4: tegen team 3", "Ronde 5 · Veld 4: tegen team 8"]}, "15": {"number": 15, "name": "Helderweirt Valerie", "padel": ["Ploeg 19 met Heyvaert Joachim.", "Ronde 3 · Veld 2: tegen ploeg 1 (Dobbels Dieter & De Brandt Sara)", "Ronde 5 · Veld 4: tegen ploeg 16 (Beerden Bram & De Block Dries)", "Rust: Ronde 1, Ronde 2, Ronde 4."], "bumperball": [], "beachvolley": ["Team 4.", "Ronde 1 · Veld 4: tegen team 5", "Ronde 2 · Veld 2: tegen team 3", "Ronde 3 · Veld 2: tegen team 8", "Ronde 4 · Veld 1: tegen team 6", "Ronde 5 · Veld 3: tegen team 1"]}, "16": {"number": 16, "name": "Heyvaert Joachim", "padel": ["Ploeg 19 met Helderweirt Valerie.", "Ronde 3 · Veld 2: tegen ploeg 1 (Dobbels Dieter & De Brandt Sara)", "Ronde 5 · Veld 4: tegen ploeg 16 (Beerden Bram & De Block Dries)", "Rust: Ronde 1, Ronde 2, Ronde 4."], "bumperball": ["Team B.", "Ronde 1: tegen team A", "Ronde 4: tegen team A", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Team 7.", "Ronde 1 · Veld 2: tegen team 2", "Ronde 2 · Veld 1: tegen team 1", "Ronde 3 · Veld 3: tegen team 5", "Ronde 4 · Veld 4: tegen team 3", "Ronde 5 · Veld 4: tegen team 8"]}, "17": {"number": 17, "name": "An Vankeirsbilck (opleider)", "padel": ["Ploeg 14 met Wybo Maarten.", "Ronde 2 · Veld 1: tegen ploeg 11 (Moens Lode & Mahieu Steven)", "Ronde 5 · Veld 2: tegen ploeg 17 (Truyers Davy & De Vree Ann)", "Rust: Ronde 1, Ronde 3, Ronde 4."], "bumperball": ["Team A.", "Ronde 1: tegen team B", "Ronde 4: tegen team B", "Rust: Ronde 2, Ronde 3."], "beachvolley": []}, "18": {"number": 18, "name": "Inzé Dominique", "padel": ["Ploeg 20 met Bockstael Stijn.", "Ronde 3 · Veld 3: tegen ploeg 2 (Engels Steven & Smeyers Frederick)", "Ronde 5 · Veld 1: tegen ploeg 21 (Delvaux Lieven & Wevers Digna)", "Rust: Ronde 1, Ronde 2, Ronde 4."], "bumperball": ["Team D.", "Ronde 2: tegen team C", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 1.", "Ronde 1 · Veld 1: tegen team 8", "Ronde 2 · Veld 1: tegen team 7", "Ronde 3 · Veld 4: tegen team 6", "Ronde 4 · Veld 2: tegen team 5", "Ronde 5 · Veld 3: tegen team 4"]}, "19": {"number": 19, "name": "Jouret Nils", "padel": ["Ploeg 3 met Verriest Sebastian.", "Ronde 1 · Veld 3: tegen ploeg 8 (Geukens Marc & Pettinato Mario)", "Ronde 3 · Veld 4: tegen ploeg 21 (Delvaux Lieven & Wevers Digna)", "Rust: Ronde 2, Ronde 4, Ronde 5."], "bumperball": ["Team F.", "Ronde 3: tegen team E", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 8.", "Ronde 1 · Veld 1: tegen team 1", "Ronde 2 · Veld 3: tegen team 6", "Ronde 3 · Veld 2: tegen team 4", "Ronde 4 · Veld 3: tegen team 2", "Ronde 5 · Veld 4: tegen team 7"]}, "20": {"number": 20, "name": "Lecluyse Didier", "padel": ["Ploeg 13 met van Bussel Dieter.", "Ronde 2 · Veld 3: tegen ploeg 16 (Beerden Bram & De Block Dries)", "Ronde 4 · Veld 4: tegen ploeg 8 (Geukens Marc & Pettinato Mario)", "Rust: Ronde 1, Ronde 3, Ronde 5."], "bumperball": ["Team C.", "Ronde 2: tegen team D", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 4.", "Ronde 1 · Veld 4: tegen team 5", "Ronde 2 · Veld 2: tegen team 3", "Ronde 3 · Veld 2: tegen team 8", "Ronde 4 · Veld 1: tegen team 6", "Ronde 5 · Veld 3: tegen team 1"]}, "21": {"number": 21, "name": "Mahieu Steven", "padel": ["Ploeg 11 met Moens Lode.", "Ronde 2 · Veld 1: tegen ploeg 14 (An Vankeirsbilck (opleider) & Wybo Maarten)", "Ronde 4 · Veld 2: tegen ploeg 6 (Mensaert Charlotte & Geniesse Dirk)", "Rust: Ronde 1, Ronde 3, Ronde 5."], "bumperball": ["Team F.", "Ronde 3: tegen team E", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 4.", "Ronde 1 · Veld 4: tegen team 5", "Ronde 2 · Veld 2: tegen team 3", "Ronde 3 · Veld 2: tegen team 8", "Ronde 4 · Veld 1: tegen team 6", "Ronde 5 · Veld 3: tegen team 1"]}, "22": {"number": 22, "name": "Maus Jinse", "padel": ["Ploeg 7 met Van Belle Jill.", "Ronde 1 · Veld 2: tegen ploeg 2 (Engels Steven & Smeyers Frederick)", "Ronde 4 · Veld 3: tegen ploeg 12 (Ulburghs Anna & Vinck Jan)", "Rust: Ronde 2, Ronde 3, Ronde 5."], "bumperball": ["Team C.", "Ronde 2: tegen team D", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 3.", "Ronde 1 · Veld 3: tegen team 6", "Ronde 2 · Veld 2: tegen team 4", "Ronde 3 · Veld 1: tegen team 2", "Ronde 4 · Veld 4: tegen team 7", "Ronde 5 · Veld 1: tegen team 5"]}, "23": {"number": 23, "name": "Mensaert Charlotte", "padel": ["Ploeg 6 met Geniesse Dirk.", "Ronde 1 · Veld 1: tegen ploeg 1 (Dobbels Dieter & De Brandt Sara)", "Ronde 4 · Veld 2: tegen ploeg 11 (Moens Lode & Mahieu Steven)", "Rust: Ronde 2, Ronde 3, Ronde 5."], "bumperball": ["Team A.", "Ronde 1: tegen team B", "Ronde 4: tegen team B", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Team 5.", "Ronde 1 · Veld 4: tegen team 4", "Ronde 2 · Veld 4: tegen team 2", "Ronde 3 · Veld 3: tegen team 7", "Ronde 4 · Veld 2: tegen team 1", "Ronde 5 · Veld 1: tegen team 3"]}, "24": {"number": 24, "name": "Moens Lode", "padel": ["Ploeg 11 met Mahieu Steven.", "Ronde 2 · Veld 1: tegen ploeg 14 (An Vankeirsbilck (opleider) & Wybo Maarten)", "Ronde 4 · Veld 2: tegen ploeg 6 (Mensaert Charlotte & Geniesse Dirk)", "Rust: Ronde 1, Ronde 3, Ronde 5."], "bumperball": ["Team E.", "Ronde 3: tegen team F", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 1.", "Ronde 1 · Veld 1: tegen team 8", "Ronde 2 · Veld 1: tegen team 7", "Ronde 3 · Veld 4: tegen team 6", "Ronde 4 · Veld 2: tegen team 5", "Ronde 5 · Veld 3: tegen team 4"]}, "25": {"number": 25, "name": "Pettinato Mario", "padel": ["Ploeg 8 met Geukens Marc.", "Ronde 1 · Veld 3: tegen ploeg 3 (Verriest Sebastian & Jouret Nils)", "Ronde 4 · Veld 4: tegen ploeg 13 (van Bussel Dieter & Lecluyse Didier)", "Rust: Ronde 2, Ronde 3, Ronde 5."], "bumperball": ["Team B.", "Ronde 1: tegen team A", "Ronde 4: tegen team A", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Team 2.", "Ronde 1 · Veld 2: tegen team 7", "Ronde 2 · Veld 4: tegen team 5", "Ronde 3 · Veld 1: tegen team 3", "Ronde 4 · Veld 3: tegen team 8", "Ronde 5 · Veld 2: tegen team 6"]}, "26": {"number": 26, "name": "Schippers Scott", "padel": ["Ploeg 4 met Vispoel Sven.", "Ronde 1 · Veld 4: tegen ploeg 9 (Verbist David & Verbruggen Liselot)", "Ronde 3 · Veld 1: tegen ploeg 5 (De Cocker Bart & Vande Kerkhof Gertjan)", "Rust: Ronde 2, Ronde 4, Ronde 5."], "bumperball": [], "beachvolley": ["Team 6.", "Ronde 1 · Veld 3: tegen team 3", "Ronde 2 · Veld 3: tegen team 8", "Ronde 3 · Veld 4: tegen team 1", "Ronde 4 · Veld 1: tegen team 4", "Ronde 5 · Veld 2: tegen team 2"]}, "27": {"number": 27, "name": "Smeyers Frederick", "padel": ["Ploeg 2 met Engels Steven.", "Ronde 1 · Veld 2: tegen ploeg 7 (Van Belle Jill & Maus Jinse)", "Ronde 3 · Veld 3: tegen ploeg 20 (Inzé Dominique & Bockstael Stijn)", "Rust: Ronde 2, Ronde 4, Ronde 5."], "bumperball": ["Team D.", "Ronde 2: tegen team C", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 8.", "Ronde 1 · Veld 1: tegen team 1", "Ronde 2 · Veld 3: tegen team 6", "Ronde 3 · Veld 2: tegen team 4", "Ronde 4 · Veld 3: tegen team 2", "Ronde 5 · Veld 4: tegen team 7"]}, "28": {"number": 28, "name": "Truyers Davy", "padel": ["Ploeg 17 met De Vree Ann.", "Ronde 2 · Veld 4: tegen ploeg 18 (De Wilde Gilles & Dely Fleur)", "Ronde 5 · Veld 2: tegen ploeg 14 (An Vankeirsbilck (opleider) & Wybo Maarten)", "Rust: Ronde 1, Ronde 3, Ronde 4."], "bumperball": [], "beachvolley": ["Team 3.", "Ronde 1 · Veld 3: tegen team 6", "Ronde 2 · Veld 2: tegen team 4", "Ronde 3 · Veld 1: tegen team 2", "Ronde 4 · Veld 4: tegen team 7", "Ronde 5 · Veld 1: tegen team 5"]}, "29": {"number": 29, "name": "Ulburghs Anna", "padel": ["Ploeg 12 met Vinck Jan.", "Ronde 2 · Veld 2: tegen ploeg 15 (Vandenbrouck Stefanie & Van Petegem Helga)", "Ronde 4 · Veld 3: tegen ploeg 7 (Van Belle Jill & Maus Jinse)", "Rust: Ronde 1, Ronde 3, Ronde 5."], "bumperball": ["Team D.", "Ronde 2: tegen team C", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 2.", "Ronde 1 · Veld 2: tegen team 7", "Ronde 2 · Veld 4: tegen team 5", "Ronde 3 · Veld 1: tegen team 3", "Ronde 4 · Veld 3: tegen team 8", "Ronde 5 · Veld 2: tegen team 6"]}, "30": {"number": 30, "name": "Van Belle Jill", "padel": ["Ploeg 7 met Maus Jinse.", "Ronde 1 · Veld 2: tegen ploeg 2 (Engels Steven & Smeyers Frederick)", "Ronde 4 · Veld 3: tegen ploeg 12 (Ulburghs Anna & Vinck Jan)", "Rust: Ronde 2, Ronde 3, Ronde 5."], "bumperball": ["Team A.", "Ronde 1: tegen team B", "Ronde 4: tegen team B", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Team 6.", "Ronde 1 · Veld 3: tegen team 3", "Ronde 2 · Veld 3: tegen team 8", "Ronde 3 · Veld 4: tegen team 1", "Ronde 4 · Veld 1: tegen team 4", "Ronde 5 · Veld 2: tegen team 2"]}, "31": {"number": 31, "name": "van Bussel Dieter", "padel": ["Ploeg 13 met Lecluyse Didier.", "Ronde 2 · Veld 3: tegen ploeg 16 (Beerden Bram & De Block Dries)", "Ronde 4 · Veld 4: tegen ploeg 8 (Geukens Marc & Pettinato Mario)", "Rust: Ronde 1, Ronde 3, Ronde 5."], "bumperball": ["Team D.", "Ronde 2: tegen team C", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 8.", "Ronde 1 · Veld 1: tegen team 1", "Ronde 2 · Veld 3: tegen team 6", "Ronde 3 · Veld 2: tegen team 4", "Ronde 4 · Veld 3: tegen team 2", "Ronde 5 · Veld 4: tegen team 7"]}, "32": {"number": 32, "name": "Van Petegem Helga", "padel": ["Ploeg 15 met Vandenbrouck Stefanie.", "Ronde 2 · Veld 2: tegen ploeg 12 (Ulburghs Anna & Vinck Jan)", "Ronde 5 · Veld 3: tegen ploeg 18 (De Wilde Gilles & Dely Fleur)", "Rust: Ronde 1, Ronde 3, Ronde 4."], "bumperball": ["Team D.", "Ronde 2: tegen team C", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 2.", "Ronde 1 · Veld 2: tegen team 7", "Ronde 2 · Veld 4: tegen team 5", "Ronde 3 · Veld 1: tegen team 3", "Ronde 4 · Veld 3: tegen team 8", "Ronde 5 · Veld 2: tegen team 6"]}, "33": {"number": 33, "name": "Van Roy Kevin", "padel": ["Ploeg 10 met Gobyn Amedeo.", "Ronde 1 · Veld 5: tegen ploeg 5 (De Cocker Bart & Vande Kerkhof Gertjan)", "Ronde 4 · Veld 1: tegen ploeg 9 (Verbist David & Verbruggen Liselot)", "Rust: Ronde 2, Ronde 3, Ronde 5."], "bumperball": ["Team E.", "Ronde 3: tegen team F", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 7.", "Ronde 1 · Veld 2: tegen team 2", "Ronde 2 · Veld 1: tegen team 1", "Ronde 3 · Veld 3: tegen team 5", "Ronde 4 · Veld 4: tegen team 3", "Ronde 5 · Veld 4: tegen team 8"]}, "34": {"number": 34, "name": "Vande Kerkhof Gertjan", "padel": ["Ploeg 5 met De Cocker Bart.", "Ronde 1 · Veld 5: tegen ploeg 10 (Van Roy Kevin & Gobyn Amedeo)", "Ronde 3 · Veld 1: tegen ploeg 4 (Vispoel Sven & Schippers Scott)", "Rust: Ronde 2, Ronde 4, Ronde 5."], "bumperball": ["Team C.", "Ronde 2: tegen team D", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 6.", "Ronde 1 · Veld 3: tegen team 3", "Ronde 2 · Veld 3: tegen team 8", "Ronde 3 · Veld 4: tegen team 1", "Ronde 4 · Veld 1: tegen team 4", "Ronde 5 · Veld 2: tegen team 2"]}, "35": {"number": 35, "name": "Vandenbrouck Stefanie", "padel": ["Ploeg 15 met Van Petegem Helga.", "Ronde 2 · Veld 2: tegen ploeg 12 (Ulburghs Anna & Vinck Jan)", "Ronde 5 · Veld 3: tegen ploeg 18 (De Wilde Gilles & Dely Fleur)", "Rust: Ronde 1, Ronde 3, Ronde 4."], "bumperball": ["Team F.", "Ronde 3: tegen team E", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 4.", "Ronde 1 · Veld 4: tegen team 5", "Ronde 2 · Veld 2: tegen team 3", "Ronde 3 · Veld 2: tegen team 8", "Ronde 4 · Veld 1: tegen team 6", "Ronde 5 · Veld 3: tegen team 1"]}, "36": {"number": 36, "name": "Verbist David", "padel": ["Ploeg 9 met Verbruggen Liselot.", "Ronde 1 · Veld 4: tegen ploeg 4 (Vispoel Sven & Schippers Scott)", "Ronde 4 · Veld 1: tegen ploeg 10 (Van Roy Kevin & Gobyn Amedeo)", "Rust: Ronde 2, Ronde 3, Ronde 5."], "bumperball": ["Team B.", "Ronde 1: tegen team A", "Ronde 4: tegen team A", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Team 5.", "Ronde 1 · Veld 4: tegen team 4", "Ronde 2 · Veld 4: tegen team 2", "Ronde 3 · Veld 3: tegen team 7", "Ronde 4 · Veld 2: tegen team 1", "Ronde 5 · Veld 1: tegen team 3"]}, "37": {"number": 37, "name": "Verbruggen Liselot", "padel": ["Ploeg 9 met Verbist David.", "Ronde 1 · Veld 4: tegen ploeg 4 (Vispoel Sven & Schippers Scott)", "Ronde 4 · Veld 1: tegen ploeg 10 (Van Roy Kevin & Gobyn Amedeo)", "Rust: Ronde 2, Ronde 3, Ronde 5."], "bumperball": ["Team C.", "Ronde 2: tegen team D", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 7.", "Ronde 1 · Veld 2: tegen team 2", "Ronde 2 · Veld 1: tegen team 1", "Ronde 3 · Veld 3: tegen team 5", "Ronde 4 · Veld 4: tegen team 3", "Ronde 5 · Veld 4: tegen team 8"]}, "38": {"number": 38, "name": "Verriest Sebastian", "padel": ["Ploeg 3 met Jouret Nils.", "Ronde 1 · Veld 3: tegen ploeg 8 (Geukens Marc & Pettinato Mario)", "Ronde 3 · Veld 4: tegen ploeg 21 (Delvaux Lieven & Wevers Digna)", "Rust: Ronde 2, Ronde 4, Ronde 5."], "bumperball": ["Team B.", "Ronde 1: tegen team A", "Ronde 4: tegen team A", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Team 6.", "Ronde 1 · Veld 3: tegen team 3", "Ronde 2 · Veld 3: tegen team 8", "Ronde 3 · Veld 4: tegen team 1", "Ronde 4 · Veld 1: tegen team 4", "Ronde 5 · Veld 2: tegen team 2"]}, "39": {"number": 39, "name": "Vinck Jan", "padel": ["Ploeg 12 met Ulburghs Anna.", "Ronde 2 · Veld 2: tegen ploeg 15 (Vandenbrouck Stefanie & Van Petegem Helga)", "Ronde 4 · Veld 3: tegen ploeg 7 (Van Belle Jill & Maus Jinse)", "Rust: Ronde 1, Ronde 3, Ronde 5."], "bumperball": ["Team E.", "Ronde 3: tegen team F", "Rust: Ronde 1, Ronde 2, Ronde 4."], "beachvolley": ["Team 1.", "Ronde 1 · Veld 1: tegen team 8", "Ronde 2 · Veld 1: tegen team 7", "Ronde 3 · Veld 4: tegen team 6", "Ronde 4 · Veld 2: tegen team 5", "Ronde 5 · Veld 3: tegen team 4"]}, "40": {"number": 40, "name": "Vispoel Sven", "padel": ["Ploeg 4 met Schippers Scott.", "Ronde 1 · Veld 4: tegen ploeg 9 (Verbist David & Verbruggen Liselot)", "Ronde 3 · Veld 1: tegen ploeg 5 (De Cocker Bart & Vande Kerkhof Gertjan)", "Rust: Ronde 2, Ronde 4, Ronde 5."], "bumperball": ["Team C.", "Ronde 2: tegen team D", "Rust: Ronde 1, Ronde 3, Ronde 4."], "beachvolley": ["Team 8.", "Ronde 1 · Veld 1: tegen team 1", "Ronde 2 · Veld 3: tegen team 6", "Ronde 3 · Veld 2: tegen team 4", "Ronde 4 · Veld 3: tegen team 2", "Ronde 5 · Veld 4: tegen team 7"]}, "41": {"number": 41, "name": "Wevers Digna", "padel": ["Ploeg 21 met Delvaux Lieven.", "Ronde 3 · Veld 4: tegen ploeg 3 (Verriest Sebastian & Jouret Nils)", "Ronde 5 · Veld 1: tegen ploeg 20 (Inzé Dominique & Bockstael Stijn)", "Rust: Ronde 1, Ronde 2, Ronde 4."], "bumperball": [], "beachvolley": ["Team 3.", "Ronde 1 · Veld 3: tegen team 6", "Ronde 2 · Veld 2: tegen team 4", "Ronde 3 · Veld 1: tegen team 2", "Ronde 4 · Veld 4: tegen team 7", "Ronde 5 · Veld 1: tegen team 5"]}, "42": {"number": 42, "name": "Wybo Maarten", "padel": ["Ploeg 14 met An Vankeirsbilck (opleider).", "Ronde 2 · Veld 1: tegen ploeg 11 (Moens Lode & Mahieu Steven)", "Ronde 5 · Veld 2: tegen ploeg 17 (Truyers Davy & De Vree Ann)", "Rust: Ronde 1, Ronde 3, Ronde 4."], "bumperball": ["Team A.", "Ronde 1: tegen team B", "Ronde 4: tegen team B", "Rust: Ronde 2, Ronde 3."], "beachvolley": ["Team 3.", "Ronde 1 · Veld 3: tegen team 6", "Ronde 2 · Veld 2: tegen team 4", "Ronde 3 · Veld 1: tegen team 2", "Ronde 4 · Veld 4: tegen team 7", "Ronde 5 · Veld 1: tegen team 5"]}};
 
     function escapeHtml(value) {
       return String(value)
@@ -2055,7 +2205,7 @@
 
         result.innerHTML = `
           <h3>${person.number} · ${escapeHtml(person.name)}</h3>
-          <p>Persoonlijk overzicht voor deze teambuilding.</p>
+          <p>Startindeling voor deze teambuilding. Kan iets niet, dan gebruik je de flexregeling.</p>
           <div class="personal-grid">
             ${renderList("Padel", person.padel)}
             ${renderList("Bumperball", person.bumperball)}
