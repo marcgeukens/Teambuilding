@@ -222,6 +222,50 @@
     .klein { color: #685f73; font-size: .88rem; }
     footer { padding: 16px; background: #eee0c7; color: #675269; text-align: center; font-size: .9rem; }
 
+
+    .site-actions {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 11px 14px;
+      border-bottom: 1px solid #dfc9a6;
+      background: #fff6e5ee;
+      backdrop-filter: blur(10px);
+    }
+
+    .site-knop {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 8px 15px;
+      border: 2px solid #d9c5a5;
+      border-radius: 999px;
+      color: #4b3658;
+      background: white;
+      font: inherit;
+      font-weight: 850;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .site-knop:hover,
+    .site-knop:focus-visible {
+      border-color: #df7442;
+      background: #fff1cf;
+      outline: 3px solid #ffe57d;
+      outline-offset: 2px;
+    }
+
+    .site-knop--reset {
+      color: #8d2538;
+      border-color: #e3a3ad;
+      background: #fff3f5;
+    }
+
     @media (max-width: 540px) {
       body { padding: 6px; }
       .boek { border-radius: 19px; }
@@ -237,6 +281,11 @@
 </head>
 <body>
   <main class="boek">
+    <nav class="site-actions" aria-label="Testbediening">
+      <a class="site-knop" href="./">🏠 Home</a>
+      <button id="reset-test" class="site-knop site-knop--reset" type="button">↻ Reset</button>
+    </nav>
+
     <header>
       <div class="feniks" aria-hidden="true">🔥🦜</div>
       <h1>Het schaduwlaboratorium</h1>
@@ -409,6 +458,14 @@
       bewaar();
       startReeks(gemisteIndices());
       window.scrollTo({top: 0, behavior: "smooth"});
+    });
+
+
+    document.getElementById("reset-test").addEventListener("click", () => {
+      const zeker = window.confirm("Wil je alle antwoorden van vandaag wissen en opnieuw beginnen bij vraag 1?");
+      if (!zeker) return;
+      try { localStorage.removeItem(sleutel); } catch (_) {}
+      window.location.reload();
     });
 
     if (voortgang.fase === "uitslag" || voortgang.fase === "klaar") toonResultaat();
