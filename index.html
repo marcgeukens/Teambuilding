@@ -3,813 +3,420 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#5b3cc4">
-  <meta name="robots" content="noindex, nofollow">
-  <meta name="description" content="Elke dag een nieuwe, korte oefentest voor Liam.">
-  <title>Liams Dagtest</title>
+  <meta name="theme-color" content="#674e79">
+  <title>Liams dagtest – Het schaduwlaboratorium</title>
   <style>
     :root {
-      --ink: #22203a;
-      --muted: #6d6a82;
-      --purple: #5b3cc4;
-      --purple-dark: #392382;
-      --yellow: #ffd84a;
-      --aqua: #56d7ce;
-      --pink: #ff7190;
-      --green: #2dad72;
-      --red: #d94d5c;
-      --paper: #fffefa;
-      --line: #e7e1f5;
-      --shadow: 0 22px 60px rgba(57, 35, 130, .16);
+      --nacht: #343f64;
+      --pruim: #785283;
+      --vlam: #e36d45;
+      --mango: #f1b94d;
+      --goud: #ffe57d;
+      --oase: #589789;
+      --papier: #fffaf0;
+      --inkt: #332d43;
+      --goed: #176c45;
+      --fout: #a52f49;
     }
 
     * { box-sizing: border-box; }
 
-    html { min-height: 100%; }
-
     body {
-      min-height: 100vh;
       margin: 0;
-      color: var(--ink);
-      font-family: ui-rounded, "Arial Rounded MT Bold", "Trebuchet MS", system-ui, sans-serif;
+      min-height: 100vh;
+      padding: 18px;
+      color: var(--inkt);
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
       background:
-        radial-gradient(circle at 8% 8%, rgba(255, 216, 74, .62) 0 5%, transparent 5.2%),
-        radial-gradient(circle at 91% 14%, rgba(86, 215, 206, .45) 0 7%, transparent 7.2%),
-        linear-gradient(145deg, #f7f3ff 0%, #edfaff 52%, #fff8df 100%);
-      overflow-x: hidden;
+        radial-gradient(circle at 14% 15%, #fff8b7 0 3px, transparent 4px),
+        radial-gradient(circle at 76% 12%, #ffffff 0 2px, transparent 3px),
+        radial-gradient(circle at 86% 74%, #ffd46a 0 3px, transparent 4px),
+        linear-gradient(145deg, var(--nacht), #725681 43%, #d47350 72%, #438a81);
+      background-size: 92px 92px, 126px 126px, 112px 112px, auto;
     }
 
-    body::before,
-    body::after {
-      position: fixed;
-      z-index: -1;
-      content: "";
-      width: 290px;
-      height: 290px;
-      border-radius: 45% 55% 60% 40%;
-      filter: blur(2px);
-      opacity: .18;
-      transform: rotate(18deg);
+    .boek {
+      width: min(820px, 100%);
+      margin: auto;
+      overflow: hidden;
+      border: 4px solid var(--goud);
+      border-radius: 30px;
+      background: var(--papier);
+      box-shadow: 0 22px 60px #17182d99;
     }
 
-    body::before { left: -120px; bottom: -100px; background: var(--pink); }
-    body::after { right: -130px; bottom: -70px; background: var(--purple); }
-
-    button { font: inherit; }
-
-    .shell {
-      width: min(760px, calc(100% - 28px));
-      margin: 0 auto;
-      padding: 28px 0 40px;
-    }
-
-    .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 18px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 1000;
-      letter-spacing: -.035em;
-    }
-
-    .brand-mark {
-      width: 50px;
-      height: 50px;
-      display: grid;
-      place-items: center;
-      border-radius: 18px;
-      color: white;
-      background: linear-gradient(145deg, var(--purple), var(--purple-dark));
-      box-shadow: 6px 6px 0 rgba(255, 216, 74, .85);
-      font-size: 1.5rem;
-      transform: rotate(-4deg);
-    }
-
-    .brand span:last-child { font-size: clamp(1.05rem, 4vw, 1.35rem); }
-
-    .date-pill {
-      padding: 9px 13px;
-      border: 1px solid rgba(91, 60, 196, .12);
-      border-radius: 999px;
-      color: var(--purple-dark);
-      background: rgba(255, 255, 255, .72);
-      font-size: .78rem;
-      font-weight: 900;
-      white-space: nowrap;
-    }
-
-    .card {
+    header {
       position: relative;
       overflow: hidden;
-      border: 1px solid rgba(91, 60, 196, .12);
-      border-radius: 30px;
-      background: rgba(255, 254, 250, .95);
-      box-shadow: var(--shadow);
-    }
-
-    .card::before {
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-      height: 9px;
-      content: "";
-      background: linear-gradient(90deg, var(--yellow), var(--aqua), var(--pink), var(--purple));
-    }
-
-    .intro,
-    .quiz,
-    .result { padding: clamp(28px, 6vw, 52px); }
-
-    .intro { text-align: center; }
-
-    .mascot {
-      width: 104px;
-      height: 104px;
-      display: grid;
-      place-items: center;
-      margin: 4px auto 20px;
-      border: 4px solid white;
-      border-radius: 34px;
-      background: linear-gradient(145deg, var(--yellow), #ffb93e);
-      box-shadow: 0 12px 0 rgba(91, 60, 196, .12);
-      font-size: 3.4rem;
-      transform: rotate(3deg);
-    }
-
-    h1,
-    h2,
-    p { margin-top: 0; }
-
-    h1 {
-      margin-bottom: 12px;
-      color: var(--purple-dark);
-      font-size: clamp(2.25rem, 9vw, 4.6rem);
-      line-height: .92;
-      letter-spacing: -.07em;
-    }
-
-    .lead {
-      max-width: 520px;
-      margin: 0 auto 26px;
-      color: var(--muted);
-      font-family: system-ui, sans-serif;
-      font-size: 1.05rem;
-      line-height: 1.55;
-    }
-
-    .today-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 9px;
-      margin: 24px 0;
-    }
-
-    .today-item {
-      padding: 13px 8px;
-      border: 1px solid var(--line);
-      border-radius: 17px;
-      background: #faf8ff;
-      font-size: .82rem;
-      font-weight: 900;
-    }
-
-    .today-item b {
-      display: block;
-      margin-bottom: 5px;
-      font-size: 1.35rem;
-    }
-
-    .primary-button,
-    .next-button,
-    .again-button {
-      min-height: 54px;
-      padding: 0 24px;
-      border: 0;
-      border-radius: 18px;
+      padding: 26px 20px 23px;
+      text-align: center;
       color: white;
-      background: linear-gradient(145deg, var(--purple), var(--purple-dark));
-      box-shadow: 0 7px 0 #281863;
-      font-weight: 1000;
-      cursor: pointer;
-      transition: transform .14s, box-shadow .14s;
+      background: linear-gradient(125deg, #3c4e73, #835586 52%, #dc8f47);
     }
 
-    .primary-button:hover,
-    .primary-button:focus-visible,
-    .next-button:hover,
-    .next-button:focus-visible,
-    .again-button:hover,
-    .again-button:focus-visible {
-      transform: translateY(-2px);
-      outline: 3px solid rgba(255, 216, 74, .75);
-      outline-offset: 3px;
+    header::before,
+    header::after {
+      position: absolute;
+      bottom: -18px;
+      opacity: .38;
+      font-size: 5.2rem;
     }
 
-    .primary-button:active,
-    .next-button:active,
-    .again-button:active {
-      transform: translateY(4px);
-      box-shadow: 0 3px 0 #281863;
-    }
+    header::before { content: "🪶"; left: 3px; transform: rotate(-18deg); }
+    header::after { content: "🔦"; right: 4px; transform: rotate(9deg); }
 
-    .tiny-note {
-      margin: 18px 0 0;
-      color: var(--muted);
-      font-family: system-ui, sans-serif;
-      font-size: .78rem;
-    }
-
-    .quiz-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      margin-bottom: 13px;
-    }
-
-    .category {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 8px 11px;
-      border-radius: 999px;
-      color: var(--purple-dark);
-      background: #eee9ff;
-      font-size: .76rem;
-      font-weight: 1000;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-    }
-
-    .counter {
-      color: var(--muted);
-      font-size: .85rem;
-      font-weight: 900;
-    }
-
-    .progress {
-      height: 12px;
-      overflow: hidden;
-      margin-bottom: 28px;
-      border-radius: 999px;
-      background: #ece8f5;
-    }
-
-    .progress-bar {
-      width: 10%;
-      height: 100%;
-      border-radius: inherit;
-      background: linear-gradient(90deg, var(--aqua), var(--purple));
-      transition: width .3s ease;
-    }
-
-    .passage {
-      margin-bottom: 18px;
-      padding: 17px 19px;
-      border-left: 6px solid var(--yellow);
-      border-radius: 0 17px 17px 0;
-      color: #47435d;
-      background: #fff9da;
-      font-family: system-ui, sans-serif;
-      font-size: 1rem;
-      line-height: 1.55;
-    }
-
-    .question {
-      margin-bottom: 22px;
-      color: var(--ink);
-      font-size: clamp(1.45rem, 5vw, 2rem);
-      line-height: 1.2;
-      letter-spacing: -.035em;
-    }
-
-    .answers {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .answer {
-      min-height: 62px;
-      padding: 12px 15px;
-      border: 2px solid var(--line);
-      border-radius: 18px;
-      color: var(--ink);
-      background: white;
-      font-weight: 900;
-      cursor: pointer;
-      transition: border-color .14s, transform .14s, background .14s;
-    }
-
-    .answer:hover:not(:disabled),
-    .answer:focus-visible:not(:disabled) {
-      border-color: var(--purple);
-      background: #f6f2ff;
-      transform: translateY(-2px);
-      outline: none;
-    }
-
-    .answer:disabled { cursor: default; opacity: .72; }
-    .answer.correct { border-color: var(--green); color: #12653e; background: #e7f8ef; opacity: 1; }
-    .answer.wrong { border-color: var(--red); color: #8a2633; background: #fff0f2; opacity: 1; }
-
-    .feedback {
-      display: none;
-      margin-top: 20px;
-      padding: 16px 18px;
-      border-radius: 18px;
-      font-family: system-ui, sans-serif;
-      font-weight: 750;
-      line-height: 1.45;
-    }
-
-    .feedback.show { display: block; }
-    .feedback.good { color: #155f3d; background: #e7f8ef; }
-    .feedback.try { color: #792936; background: #fff0f2; }
-
-    .next-row {
-      display: none;
-      justify-content: flex-end;
-      margin-top: 17px;
-    }
-
-    .next-row.show { display: flex; }
-    .next-button { min-height: 48px; }
-
-    .result { text-align: center; }
-
-    .result-badge {
-      width: 120px;
-      height: 120px;
-      display: grid;
+    .feniks {
+      display: inline-grid;
+      width: 105px;
+      height: 82px;
       place-items: center;
-      margin: 0 auto 20px;
+      border: 3px solid #fff3a8;
       border-radius: 50%;
-      color: var(--purple-dark);
-      background: var(--yellow);
-      box-shadow: 0 0 0 12px rgba(255, 216, 74, .23);
-      font-size: 2rem;
-      font-weight: 1000;
+      background: #ffffff1e;
+      font-size: 3.8rem;
+      line-height: 1;
+      filter: drop-shadow(0 7px 7px #31163388);
+      animation: zweef 2.8s ease-in-out infinite;
     }
 
-    .result h2 {
-      margin-bottom: 10px;
-      color: var(--purple-dark);
-      font-size: clamp(2rem, 8vw, 3.7rem);
-      letter-spacing: -.06em;
-    }
+    @keyframes zweef { 50% { transform: translateY(-5px) rotate(2deg); } }
+    h1 { margin: 8px 0 4px; font-size: clamp(1.55rem, 5vw, 2.45rem); }
+    header p { margin: 0; font-weight: 750; }
+    .fonkels { margin-top: 8px; color: #fff2a4; letter-spacing: .5rem; }
 
-    .result-message {
-      max-width: 470px;
-      margin: 0 auto 23px;
-      color: var(--muted);
-      font-family: system-ui, sans-serif;
-      font-size: 1.05rem;
+    .intro {
+      margin: 0;
+      padding: 18px 24px 2px;
+      text-align: center;
+      font-size: 1.04rem;
       line-height: 1.5;
     }
 
-    .score-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      max-width: 420px;
-      margin: 0 auto 25px;
+    .intro strong { color: #7b3166; }
+
+    .balkrand {
+      height: 14px;
+      margin: 15px 24px 5px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #e8dde8;
     }
 
-    .score-card {
-      padding: 16px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: #faf8ff;
+    #balk {
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, var(--oase), var(--goud), var(--vlam));
+      transition: width .3s ease;
     }
 
-    .score-card strong { display: block; color: var(--purple); font-size: 1.7rem; }
-    .score-card span { color: var(--muted); font-family: system-ui, sans-serif; font-size: .8rem; }
+    #teller {
+      margin: 10px 0 -2px;
+      text-align: center;
+      color: #713366;
+      font-weight: 900;
+    }
 
-    .hidden { display: none !important; }
+    #quiz { padding: 9px 20px 3px; }
 
-    @media (max-width: 560px) {
-      .shell { width: min(100% - 18px, 760px); padding-top: 14px; }
-      .topbar { align-items: flex-start; }
-      .brand-mark { width: 44px; height: 44px; border-radius: 15px; }
-      .date-pill { padding: 8px 10px; font-size: .68rem; }
-      .card { border-radius: 24px; }
-      .intro, .quiz, .result { padding: 28px 19px; }
-      .today-grid { grid-template-columns: 1fr 1fr; }
-      .answers { grid-template-columns: 1fr; }
-      .answer { min-height: 56px; }
+    .kaart {
+      margin: 14px 0;
+      padding: 20px;
+      border: 2px solid #ead7bb;
+      border-radius: 20px;
+      background: white;
+      box-shadow: 0 5px 0 #ddc5a4;
+    }
+
+    .kaart.goed { border-color: #62b68a; background: #f0fff6; }
+    .kaart.fout { border-color: #db7b8b; background: #fff3f5; }
+    .vraag { margin-bottom: 14px; font-size: 1.12rem; font-weight: 850; line-height: 1.52; }
+
+    .nummer {
+      display: inline-grid;
+      width: 35px;
+      height: 35px;
+      margin-right: 8px;
+      place-items: center;
+      border-radius: 50%;
+      color: white;
+      background: #70366c;
+      vertical-align: middle;
+    }
+
+    .leeskaart {
+      display: block;
+      margin: 12px 0 8px;
+      padding: 13px 15px;
+      border-left: 6px solid var(--mango);
+      border-radius: 9px;
+      background: #fff5cf;
+      color: #44364b;
+      font-weight: 720;
+    }
+
+    .keuze {
+      display: block;
+      width: 100%;
+      margin: 9px 0;
+      padding: 13px 15px;
+      border: 2px solid #e8dfd2;
+      border-radius: 14px;
+      background: #fffdfa;
+      color: var(--inkt);
+      font: inherit;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .keuze:hover:not(:disabled), .keuze:focus-visible {
+      border-color: #df7442;
+      background: #fff4d5;
+      outline: none;
+    }
+
+    .keuze:disabled { opacity: 1; cursor: default; }
+    .keuze.juist { border-color: var(--goed); background: #e4f7ec; color: #105938; }
+    .keuze.mis { border-color: var(--fout); background: #ffe7ec; color: #8d2439; }
+
+    #feedback {
+      margin: 4px 20px 13px;
+      padding: 15px 18px;
+      border-radius: 17px;
+      text-align: center;
+    }
+
+    #feedback.goed { border: 2px solid #65b987; background: #e7f8ee; color: #105c39; }
+    #feedback.fout { border: 2px solid #dd808c; background: #fff0f3; color: #8d2538; }
+    #feedback strong { display: block; margin-bottom: 4px; font-size: 1.35rem; }
+
+    .acties { padding: 3px 0 20px; text-align: center; }
+
+    .hoofdknop {
+      padding: 14px 24px;
+      border: 0;
+      border-radius: 999px;
+      color: white;
+      background: linear-gradient(90deg, #e9553a, #f2a23c);
+      box-shadow: 0 5px 0 #a54330;
+      font-size: 1.05rem;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .hoofdknop:active { transform: translateY(3px); box-shadow: 0 2px 0 #a54330; }
+    #opnieuw { color: #38274e; background: linear-gradient(90deg, #9ee2c5, #ffe07b); box-shadow: 0 5px 0 #6c9d82; }
+
+    #resultaat {
+      display: none;
+      margin: 8px 20px 25px;
+      padding: 23px;
+      border: 3px solid #eab43e;
+      border-radius: 21px;
+      background: linear-gradient(145deg, #fff8d8, #ffe7a1);
+      text-align: center;
+    }
+
+    #score { color: #6c2e6c; font-size: 2.2rem; font-weight: 950; }
+    #boodschap { font-weight: 730; line-height: 1.45; }
+    .klein { color: #685f73; font-size: .88rem; }
+    footer { padding: 16px; background: #eee0c7; color: #675269; text-align: center; font-size: .9rem; }
+
+    @media (max-width: 540px) {
+      body { padding: 6px; }
+      .boek { border-radius: 19px; }
+      #quiz { padding: 7px 10px; }
+      .kaart { padding: 15px; }
+      .feniks { width: 90px; height: 72px; font-size: 3.3rem; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+      * { scroll-behavior: auto !important; animation: none !important; }
     }
   </style>
 </head>
 <body>
-  <main class="shell">
-    <header class="topbar">
-      <div class="brand">
-        <span class="brand-mark" aria-hidden="true">🔥</span>
-        <span>Liams Dagtest</span>
-      </div>
-      <time class="date-pill" id="today"></time>
+  <main class="boek">
+    <header>
+      <div class="feniks" aria-hidden="true">🔥🦜</div>
+      <h1>Het schaduwlaboratorium</h1>
+      <p>Fonkelende Feniksen · dinsdag 22 september</p>
+      <div class="fonkels" aria-hidden="true">✦ ✧ ✦ ✧ ✦</div>
     </header>
 
-    <section class="card intro" id="intro" aria-labelledby="intro-title">
-      <div class="mascot" aria-hidden="true">🦅</div>
-      <h1 id="intro-title">Klaar, Liam?</h1>
-      <p class="lead">Vandaag krijg je 10 korte vragen. Kies rustig je antwoord: zodra je gekozen hebt, ligt het vast.</p>
-
-      <div class="today-grid" aria-label="Onderdelen van de test">
-        <div class="today-item"><b aria-hidden="true">➕</b>Rekenen</div>
-        <div class="today-item"><b aria-hidden="true">✏️</b>Taal</div>
-        <div class="today-item"><b aria-hidden="true">📖</b>Lezen</div>
-        <div class="today-item"><b aria-hidden="true">⚡</b>Denkvraag</div>
-      </div>
-
-      <button class="primary-button" id="start-button" type="button">Start de test!</button>
-      <p class="tiny-note">Morgen staat hier vanzelf een nieuwe test.</p>
+    <p class="intro"><strong>Dag Liam!</strong> Fenix Fonk opent een fantasielab vol zaklampen, schaduwen en fonkelende veren. Help Miraidon met lezen, rekenen en onderzoeken. Je eerste tik telt!</p>
+    <div class="balkrand" aria-label="Voortgang"><div id="balk"></div></div>
+    <div id="teller"></div>
+    <section id="quiz" aria-live="polite"></section>
+    <section id="feedback" hidden aria-live="assertive"><strong id="feedback-titel"></strong><span id="feedback-tekst"></span></section>
+    <div class="acties">
+      <button id="volgende" class="hoofdknop" type="button" hidden>Volgende vraag →</button>
+      <button id="opnieuw" class="hoofdknop" type="button" hidden>Oefen alleen de gemiste vragen</button>
+    </div>
+    <section id="resultaat" aria-live="polite">
+      <div id="score"></div>
+      <p id="boodschap"></p>
+      <div class="klein">Alles wordt alleen op dit toestel nagekeken. Er worden geen antwoorden verstuurd.</div>
     </section>
-
-    <section class="card quiz hidden" id="quiz" aria-live="polite">
-      <div class="quiz-head">
-        <span class="category" id="category"></span>
-        <span class="counter" id="counter"></span>
-      </div>
-      <div class="progress" aria-label="Voortgang">
-        <div class="progress-bar" id="progress"></div>
-      </div>
-
-      <div class="passage hidden" id="passage"></div>
-      <h2 class="question" id="question"></h2>
-      <div class="answers" id="answers"></div>
-      <div class="feedback" id="feedback" role="status"></div>
-      <div class="next-row" id="next-row">
-        <button class="next-button" id="next-button" type="button">Volgende vraag →</button>
-      </div>
-    </section>
-
-    <section class="card result hidden" id="result" aria-labelledby="result-title">
-      <div class="result-badge" id="result-badge"></div>
-      <h2 id="result-title">Test klaar!</h2>
-      <p class="result-message" id="result-message"></p>
-      <div class="score-row">
-        <div class="score-card"><strong id="final-score"></strong><span>juiste antwoorden</span></div>
-        <div class="score-card"><strong id="streak"></strong><span>dagen geoefend</span></div>
-      </div>
-      <button class="again-button" id="review-button" type="button">Bekijk mijn uitslag</button>
-      <p class="tiny-note" id="tomorrow-note"></p>
-    </section>
+    <footer>🪶🔦 Voor Liam van de Fonkelende Feniksen — jouw denklicht laat nieuwe ideeën verschijnen!</footer>
   </main>
 
   <script>
-    (() => {
-      "use strict";
+    const questions = [
+      {cat:"rekenen",q:"Miraidon verzamelt 28 lichtkaartjes en vindt er nog 7. Hoeveel kaartjes heeft hij nu?",o:["34","35","36"],a:1,e:"28 + 7 = 35 lichtkaartjes."},
+      {cat:"rekenen",q:"In het lab liggen 52 papieren sterren. Fenix gebruikt er 20. Hoeveel blijven er over?",o:["22","30","32"],a:2,e:"52 − 20 = 32 sterren."},
+      {cat:"rekenen",q:"Welke som geeft precies 30?",o:["18 + 12","16 + 12","20 + 12"],a:0,e:"18 + 12 = 30."},
+      {cat:"rekenen",q:"De pipi-professor telt zaklampen per vijf: 5, 10, 15, 20, … Welk getal komt daarna?",o:["21","24","25"],a:2,e:"Er komt telkens 5 bij, dus na 20 komt 25."},
+      {cat:"nederlands",q:"Lees het proefkaartje.<span class=\"leeskaart\">Zet de zaklamp aan.<br>Zet een speelgoedboom voor het licht.<br>Teken de schaduw op het papier.</span>Wat teken je op het papier?",o:["De schaduw","De zaklamp","Een regenboog"],a:0,e:"Op het kaartje staat dat je de schaduw tekent."},
+      {cat:"nederlands",q:"Lees het opruimbriefje.<span class=\"leeskaart\">De zaklamp komt uit de gele doos.<br>Het papier ligt in de blauwe lade.<br>Leg de zaklamp na de proef terug in de gele doos.</span>Waar leg je de zaklamp terug?",o:["In de blauwe lade","In de gele doos","Onder de tafel"],a:1,e:"De laatste zin zegt: terug in de gele doos."},
+      {cat:"nederlands",q:"Welk woord is juist geschreven?",o:["schaduw","schaduuw","sgaduw"],a:0,e:"Je schrijft schaduw met sch aan het begin."},
+      {cat:"nederlands",q:"Welk woord rijmt op ‘maan’?",o:["staan","man","map"],a:0,e:"Maan en staan eindigen op dezelfde klank: aan."},
+      {cat:"denken",q:"Wanneer ontstaat een schaduw?",o:["Als een voorwerp het licht tegenhoudt","Als alle lampen uit zijn","Als je alleen geluid maakt"],a:0,e:"Een schaduw ontstaat wanneer een voorwerp licht tegenhoudt."},
+      {cat:"denken",q:"De proef begint om 15:00 en duurt een kwartier. Wanneer is ze klaar?",o:["15:15","15:30","16:00"],a:0,e:"Een kwartier na 15:00 is 15:15."},
+      {cat:"denken",q:"Je tekent de platte omtrek van een ronde bal. Welke vorm lijkt daar het meest op?",o:["Een cirkel ○","Een vierkant □","Een driehoek △"],a:0,e:"De platte omtrek van een ronde bal lijkt op een cirkel."},
+      {cat:"denken",q:"Eerst gaat de lamp aan. Daarna zet Fenix de pop ervoor. Dan verschijnt de schaduw. Wat gebeurt als tweede?",o:["De schaduw verschijnt","Fenix zet de pop voor de lamp","De lamp gaat uit"],a:1,e:"Na het aanzetten van de lamp zet Fenix de pop ervoor."}
+    ];
 
-      const TOTAL = 10;
-      const today = new Date();
-      const dateKey = [today.getFullYear(), String(today.getMonth() + 1).padStart(2, "0"), String(today.getDate()).padStart(2, "0")].join("-");
-      const storageKey = `liam-dagtest-${dateKey}`;
-      const historyKey = "liam-dagtest-dagen";
+    const quiz = document.getElementById("quiz");
+    const balk = document.getElementById("balk");
+    const teller = document.getElementById("teller");
+    const feedback = document.getElementById("feedback");
+    const feedbackTitel = document.getElementById("feedback-titel");
+    const feedbackTekst = document.getElementById("feedback-tekst");
+    const volgende = document.getElementById("volgende");
+    const opnieuw = document.getElementById("opnieuw");
+    const resultaat = document.getElementById("resultaat");
+    const sleutel = "liams-dagtest-2026-09-22-v1";
+    const leeg = () => ({fase:"eerste", positie:0, antwoorden:Array(12).fill(null), herkansing:{}});
+    let voortgang;
+    try {
+      voortgang = JSON.parse(localStorage.getItem(sleutel)) || leeg();
+      if (!Array.isArray(voortgang.antwoorden) || voortgang.antwoorden.length !== questions.length ||
+          !["eerste","uitslag","herkansing","klaar"].includes(voortgang.fase)) voortgang = leeg();
+    } catch (_) { voortgang = leeg(); }
+    const bewaar = () => { try { localStorage.setItem(sleutel, JSON.stringify(voortgang)); } catch (_) {} };
+    const gemisteIndices = () => questions.map((_, i) => i).filter(i => voortgang.antwoorden[i] !== questions[i].a);
+    let reeks = [];
+    let vergrendeld = false;
 
-      const $ = id => document.getElementById(id);
-      const screens = { intro: $("intro"), quiz: $("quiz"), result: $("result") };
+    function startReeks(indices) {
+      reeks = [...indices];
+      resultaat.style.display = "none";
+      opnieuw.hidden = true;
+      toonVraag();
+    }
 
-      $("today").dateTime = dateKey;
-      $("today").textContent = new Intl.DateTimeFormat("nl-BE", {
-        weekday: "long", day: "numeric", month: "long"
-      }).format(today);
+    function toonVraag() {
+      const positie = voortgang.positie;
+      const index = reeks[positie];
+      const vraag = questions[index];
+      vergrendeld = false;
+      teller.textContent = `Vraag ${positie + 1} van ${reeks.length}`;
+      balk.style.width = `${(positie / reeks.length) * 100}%`;
+      feedback.hidden = true;
+      feedback.className = "";
+      volgende.hidden = true;
+      quiz.innerHTML = `<article class="kaart"><div class="vraag"><span class="nummer">${index + 1}</span>${vraag.q}</div>${vraag.o.map((keuze, i) => `<button class="keuze" type="button" data-keuze="${i}">${keuze}</button>`).join("")}</article>`;
+      const vorig = voortgang.fase === "eerste" ? voortgang.antwoorden[index] : voortgang.herkansing[index];
+      if (Number.isInteger(vorig)) toonAntwoord(vorig);
+    }
 
-      function hash(text) {
-        let value = 2166136261;
-        for (let i = 0; i < text.length; i++) {
-          value ^= text.charCodeAt(i);
-          value = Math.imul(value, 16777619);
-        }
-        return value >>> 0;
+    function toonAntwoord(gekozen) {
+      vergrendeld = true;
+      const index = reeks[voortgang.positie];
+      const vraag = questions[index];
+      const kaart = quiz.querySelector(".kaart");
+      const knop = kaart.querySelector(`[data-keuze="${gekozen}"]`);
+      const juist = gekozen === vraag.a;
+
+      kaart.querySelectorAll(".keuze").forEach(k => { k.disabled = true; });
+      kaart.querySelector(`[data-keuze="${vraag.a}"]`).classList.add("juist");
+
+      if (juist) {
+        kaart.classList.add("goed");
+        feedback.className = "goed";
+        feedbackTitel.textContent = "Juist! 🌟";
+        feedbackTekst.textContent = `Knap gelezen of gerekend, Liam! ${vraag.e}`;
+      } else {
+        knop.classList.add("mis");
+        kaart.classList.add("fout");
+        feedback.className = "fout";
+        feedbackTitel.textContent = "Goed geprobeerd! 💪";
+        feedbackTekst.textContent = `Het juiste antwoord is: ${vraag.o[vraag.a]}. ${vraag.e}`;
       }
 
-      function randomFactory(seed) {
-        return () => {
-          seed |= 0;
-          seed = seed + 0x6D2B79F5 | 0;
-          let n = Math.imul(seed ^ seed >>> 15, 1 | seed);
-          n = n + Math.imul(n ^ n >>> 7, 61 | n) ^ n;
-          return ((n ^ n >>> 14) >>> 0) / 4294967296;
-        };
+      feedback.hidden = false;
+      balk.style.width = `${((voortgang.positie + 1) / reeks.length) * 100}%`;
+      volgende.textContent = voortgang.positie === reeks.length - 1 ? "Bekijk mijn uitslag →" : "Volgende vraag →";
+      volgende.hidden = false;
+    }
+
+    quiz.addEventListener("click", event => {
+      const knop = event.target.closest(".keuze");
+      if (!knop || vergrendeld) return;
+      vergrendeld = true;
+      const index = reeks[voortgang.positie];
+      const gekozen = Number(knop.dataset.keuze);
+      if (voortgang.fase === "eerste") voortgang.antwoorden[index] = gekozen;
+      else voortgang.herkansing[index] = gekozen;
+      bewaar();
+      toonAntwoord(gekozen);
+      feedback.scrollIntoView({behavior: "smooth", block: "center"});
+    });
+
+    volgende.addEventListener("click", () => {
+      if (!vergrendeld) return;
+      voortgang.positie += 1;
+      if (voortgang.positie < reeks.length) {
+        bewaar();
+        toonVraag();
+        window.scrollTo({top: 0, behavior: "smooth"});
+      } else {
+        voortgang.fase = voortgang.fase === "eerste" ? "uitslag" : "klaar";
+        bewaar();
+        toonResultaat();
       }
+    });
 
-      const rnd = randomFactory(hash(dateKey + "-liam-feniks"));
-      const pick = list => list[Math.floor(rnd() * list.length)];
-      const number = (min, max) => Math.floor(rnd() * (max - min + 1)) + min;
+    function toonResultaat() {
+      quiz.innerHTML = "";
+      teller.textContent = "Alle labopdrachten voltooid!";
+      balk.style.width = "100%";
+      feedback.hidden = true;
+      volgende.hidden = true;
+      const totaal = questions.filter((vraag, i) => voortgang.antwoorden[i] === vraag.a).length;
+      document.getElementById("score").textContent = `${totaal} op 12`;
+      const boodschap = totaal === 12
+        ? "Fantastisch, Liam! Alle twaalf denklichtjes stralen. 🏆"
+        : totaal >= 9
+          ? "Heel sterk gewerkt! Je feniksvlam brandt prachtig. 🔥"
+          : totaal >= 6
+            ? "Knap doorgezet! Met een rustige herkansing vind je nog meer vonken. ✨"
+            : "Dapper geprobeerd! Elke vraag die je oefent, maakt je sterker. 🪶";
+      const extra = voortgang.fase === "klaar"
+        ? ` Je hebt bij de herkansing ${gemisteIndices().filter(i => voortgang.herkansing[i] === questions[i].a).length} van je ${gemisteIndices().length} gemiste vragen nu ook juist. Goed volgehouden!`
+        : "";
+      document.getElementById("boodschap").textContent = boodschap + extra;
+      resultaat.style.display = "block";
+      opnieuw.hidden = voortgang.fase !== "uitslag" || totaal === 12;
+      resultaat.scrollIntoView({behavior: "smooth", block: "center"});
+    }
 
-      function shuffle(list) {
-        const copy = [...list];
-        for (let i = copy.length - 1; i > 0; i--) {
-          const j = Math.floor(rnd() * (i + 1));
-          [copy[i], copy[j]] = [copy[j], copy[i]];
-        }
-        return copy;
-      }
+    opnieuw.addEventListener("click", () => {
+      if (voortgang.fase !== "uitslag") return;
+      voortgang.fase = "herkansing";
+      voortgang.positie = 0;
+      bewaar();
+      startReeks(gemisteIndices());
+      window.scrollTo({top: 0, behavior: "smooth"});
+    });
 
-      function uniqueOptions(correct, candidates) {
-        const values = [String(correct), ...candidates.map(String)].filter((value, index, all) => all.indexOf(value) === index);
-        let filler = Number(correct) || 1;
-        while (values.length < 4) {
-          filler += number(1, 4);
-          if (!values.includes(String(filler))) values.push(String(filler));
-        }
-        return shuffle(values.slice(0, 4));
-      }
-
-      const passages = [
-        {
-          text: "In de klas bouwt Liam een nest voor de Fonkelende Feniks. Hij gebruikt zes takjes en drie rode veren. Juf Barbara zet het nest voorzichtig op de vensterbank.",
-          questions: [
-            ["Waar zet juf Barbara het nest?", "op de vensterbank", ["in de kast", "onder de tafel", "op de speelplaats"], "In de tekst staat dat het nest op de vensterbank komt."],
-            ["Hoeveel takjes gebruikt Liam?", "6", ["3", "7", "9"], "Liam gebruikt zes takjes."]
-          ]
-        },
-        {
-          text: "Pikachu hoort een zacht geluid in de tuin. Achter de struik zit een kleine Pidgey. Zijn vleugel is nat van de regen, maar hij kan nog vliegen.",
-          questions: [
-            ["Waar zit Pidgey?", "achter de struik", ["in een boom", "op het dak", "naast de vijver"], "Pidgey zit achter de struik."],
-            ["Waarom is zijn vleugel nat?", "door de regen", ["door de vijver", "door het bad", "door een waterpistool"], "De tekst zegt dat zijn vleugel nat is van de regen."]
-          ]
-        },
-        {
-          text: "Na school rijdt Noor met haar step naar het plein. Ze draagt een gele helm. Om halfvier komt haar papa haar ophalen.",
-          questions: [
-            ["Waar rijdt Noor naartoe?", "naar het plein", ["naar het bos", "naar de winkel", "naar het zwembad"], "Noor rijdt met haar step naar het plein."],
-            ["Wanneer wordt Noor opgehaald?", "om halfvier", ["om drie uur", "om vier uur", "om halfvijf"], "Haar papa komt om halfvier." ]
-          ]
-        },
-        {
-          text: "De kat van Milo heet Muis. Dat is grappig, want Muis jaagt nooit op muizen. Hij slaapt het liefst in de blauwe wasmand.",
-          questions: [
-            ["Hoe heet de kat?", "Muis", ["Milo", "Blauw", "Wasmand"], "De kat van Milo heet Muis."],
-            ["Wat doet de kat het liefst?", "slapen", ["jagen", "zwemmen", "klimmen"], "Muis slaapt het liefst in de wasmand."]
-          ]
-        },
-        {
-          text: "Liam neemt een appel en een banaan mee naar school. Tijdens de speeltijd eet hij de appel. De banaan bewaart hij voor na de turnles.",
-          questions: [
-            ["Wat eet Liam tijdens de speeltijd?", "de appel", ["de banaan", "een koek", "een boterham"], "Tijdens de speeltijd eet Liam de appel."],
-            ["Wanneer eet hij de banaan?", "na de turnles", ["voor school", "tijdens de speeltijd", "bij het ontbijt"], "Hij bewaart de banaan voor na de turnles."]
-          ]
-        }
-      ];
-
-      const spelling = [
-        ["Welk woord is juist geschreven?", "trein", ["trijn", "trejn", "trijnn"], "Trein schrijf je met ei."],
-        ["Welk woord is juist geschreven?", "konijn", ["konein", "konyn", "koonijn"], "Konijn schrijf je met ij."],
-        ["Welk woord is juist geschreven?", "school", ["schol", "sgoel", "schoool"], "School schrijf je met sch en oo."],
-        ["Welk woord is juist geschreven?", "goud", ["gaut", "gout", "gaud"], "Goud schrijf je met ou en een d."],
-        ["Welk woord is juist geschreven?", "vriend", ["vrient", "vried", "vriemd"], "Vriend eindigt op nd."],
-        ["Welk woord is juist geschreven?", "feest", ["vest", "feestt", "veest"], "Feest begint met f en heeft ee."],
-        ["Welk woord is juist geschreven?", "blauw", ["blou", "blau", "blauuw"], "Blauw schrijf je met auw."],
-        ["Welk woord is juist geschreven?", "paard", ["paart", "pard", "paardt"], "Paard schrijf je met aa en eindigt op d."]
-      ];
-
-      const language = [
-        ["Wat is het tegenovergestelde van ‘hoog’?", "laag", ["groot", "ver", "dik"], "Het tegenovergestelde van hoog is laag."],
-        ["Welk woord rijmt op ‘maan’?", "haan", ["boom", "muis", "jas"], "Maan en haan eindigen met dezelfde klank."],
-        ["Welk woord hoort niet in het rijtje?", "lepel", ["hond", "kat", "paard"], "Een lepel is geen dier."],
-        ["Maak de zin juist: ‘Morgen … ik naar school.’", "ga", ["ging", "gaat", "gaan"], "Je zegt: morgen ga ik naar school."],
-        ["Wat is het meervoud van ‘boek’?", "boeken", ["boeks", "boekenes", "boeksels"], "Meer dan één boek zijn boeken."],
-        ["Welk woord begint met dezelfde klank als ‘vis’?", "vijf", ["feest", "was", "bus"], "Vis en vijf beginnen allebei met de v-klank."],
-        ["Welke zin eindigt met een vraagteken?", "Kom je mee?", ["Ik kom mee.", "Wat een feest!", "Liam leest."], "Een vraag eindigt met een vraagteken." ]
-      ];
-
-      const logic = [
-        ["Wat komt hierna? 2, 4, 6, 8, …", "10", ["9", "11", "12"], "Er komt telkens 2 bij."],
-        ["Welke dag komt na woensdag?", "donderdag", ["dinsdag", "vrijdag", "zondag"], "Na woensdag komt donderdag."],
-        ["Wat is het zwaarst?", "een olifant", ["een veer", "een appel", "een potlood"], "Een olifant is veel zwaarder dan de andere dingen."],
-        ["Je kijkt naar het noorden. Je draait een halve draai. Waar kijk je nu naartoe?", "het zuiden", ["het oosten", "het westen", "het noorden"], "Een halve draai brengt je naar de tegenovergestelde richting: het zuiden."],
-        ["Welke vorm heeft geen hoeken?", "een cirkel", ["een vierkant", "een driehoek", "een rechthoek"], "Een cirkel heeft geen hoeken."],
-        ["Welke maand komt na september?", "oktober", ["augustus", "november", "december"], "Na september komt oktober."]
-      ];
-
-      function makeQuiz() {
-        const first = number(24, 58);
-        const second = number(11, Math.min(39, 92 - first));
-        const sum = first + second;
-
-        const start = number(51, 89);
-        const take = number(12, Math.min(38, start - 10));
-        const difference = start - take;
-
-        const coinA = pick([20, 50, 100, 200]);
-        const coinB = pick([10, 20, 50, 100]);
-        const cents = coinA + coinB;
-        const moneyText = cents >= 100 ? `${Math.floor(cents / 100)} euro${cents % 100 ? ` en ${cents % 100} cent` : ""}` : `${cents} cent`;
-
-        const packs = number(3, 6);
-        const perPack = number(2, 5);
-        const totalCards = packs * perPack;
-
-        const spell = pick(spelling);
-        const lang = pick(language);
-        const think = pick(logic);
-        const reading = pick(passages);
-
-        return [
-          {
-            category: "➕ Rekenen", question: `Hoeveel is ${first} + ${second}?`, correct: String(sum),
-            options: uniqueOptions(sum, [sum - 10, sum + 1, sum - 1]), explanation: `${first} + ${second} = ${sum}.`
-          },
-          {
-            category: "➖ Rekenen", question: `Hoeveel is ${start} − ${take}?`, correct: String(difference),
-            options: uniqueOptions(difference, [difference + 10, difference + 2, difference - 1]), explanation: `${start} − ${take} = ${difference}.`
-          },
-          {
-            category: "💰 Rekenen", question: `Je hebt ${coinA} cent en krijgt er ${coinB} cent bij. Hoeveel heb je samen?`, correct: moneyText,
-            options: uniqueOptions(moneyText, [`${Math.abs(coinA - coinB)} cent`, `${cents + 10} cent`, `${cents - 10} cent`]), explanation: `${coinA} + ${coinB} = ${cents} cent. Dat is ${moneyText}.`
-          },
-          {
-            category: "✏️ Spelling", question: spell[0], correct: spell[1], options: shuffle([spell[1], ...spell[2]]), explanation: spell[3]
-          },
-          {
-            category: "💬 Taal", question: lang[0], correct: lang[1], options: shuffle([lang[1], ...lang[2]]), explanation: lang[3]
-          },
-          {
-            category: "📖 Begrijpend lezen", passage: reading.text, question: reading.questions[0][0], correct: reading.questions[0][1],
-            options: shuffle([reading.questions[0][1], ...reading.questions[0][2]]), explanation: reading.questions[0][3]
-          },
-          {
-            category: "📖 Begrijpend lezen", passage: reading.text, question: reading.questions[1][0], correct: reading.questions[1][1],
-            options: shuffle([reading.questions[1][1], ...reading.questions[1][2]]), explanation: reading.questions[1][3]
-          },
-          {
-            category: "🧠 Denkvraag", question: think[0], correct: think[1], options: shuffle([think[1], ...think[2]]), explanation: think[3]
-          },
-          {
-            category: "⚡ Pokémonrekenen", question: `Liam heeft ${packs} pakjes met telkens ${perPack} kaarten. Hoeveel kaarten zijn dat samen?`, correct: String(totalCards),
-            options: uniqueOptions(totalCards, [packs + perPack, totalCards + packs, totalCards - perPack]), explanation: `${packs} groepjes van ${perPack} zijn samen ${totalCards}.`
-          },
-          {
-            category: "🌟 Uitdaging", question: `Welk getal ontbreekt? ${number(2, 7)}, ${number(2, 7)} … grapje! Welke som is precies 20?`, correct: "13 + 7",
-            options: shuffle(["13 + 7", "12 + 6", "15 + 4", "11 + 8"]), explanation: "13 + 7 is precies 20. Je liet je toch niet foppen door de eerste getallen? 😄"
-          }
-        ];
-      }
-
-      const questions = makeQuiz();
-      let state = loadState();
-
-      function loadState() {
-        try {
-          const saved = JSON.parse(localStorage.getItem(storageKey));
-          if (saved && Array.isArray(saved.answers)) return saved;
-        } catch (_) { /* begin opnieuw bij ongeldige opslag */ }
-        return { index: 0, score: 0, answers: [], completed: false };
-      }
-
-      function saveState() {
-        localStorage.setItem(storageKey, JSON.stringify(state));
-      }
-
-      function showScreen(name) {
-        Object.entries(screens).forEach(([key, element]) => element.classList.toggle("hidden", key !== name));
-      }
-
-      function renderQuestion() {
-        showScreen("quiz");
-        const item = questions[state.index];
-        const previous = state.answers[state.index];
-        $("category").textContent = item.category;
-        $("counter").textContent = `Vraag ${state.index + 1} van ${TOTAL}`;
-        $("progress").style.width = `${((state.index + 1) / TOTAL) * 100}%`;
-        $("question").textContent = item.question;
-
-        $("passage").classList.toggle("hidden", !item.passage);
-        $("passage").textContent = item.passage || "";
-        $("answers").replaceChildren();
-
-        item.options.forEach(option => {
-          const button = document.createElement("button");
-          button.type = "button";
-          button.className = "answer";
-          button.textContent = option;
-          button.dataset.value = option;
-          button.addEventListener("click", () => chooseAnswer(option));
-          $("answers").appendChild(button);
-        });
-
-        $("feedback").className = "feedback";
-        $("feedback").textContent = "";
-        $("next-row").className = "next-row";
-        $("next-button").textContent = state.index === TOTAL - 1 ? "Bekijk mijn score →" : "Volgende vraag →";
-
-        if (previous) revealAnswer(previous.selected, previous.correct);
-      }
-
-      function chooseAnswer(selected) {
-        if (state.answers[state.index]) return;
-        const item = questions[state.index];
-        const correct = selected === item.correct;
-        state.answers[state.index] = { selected, correct };
-        if (correct) state.score += 1;
-        saveState();
-        revealAnswer(selected, correct);
-      }
-
-      function revealAnswer(selected, isCorrect) {
-        const item = questions[state.index];
-        [...$("answers").children].forEach(button => {
-          button.disabled = true;
-          if (button.dataset.value === item.correct) button.classList.add("correct");
-          if (button.dataset.value === selected && !isCorrect) button.classList.add("wrong");
-        });
-
-        $("feedback").className = `feedback show ${isCorrect ? "good" : "try"}`;
-        $("feedback").textContent = `${isCorrect ? pickPraise(state.index) : "Nog niet juist."} ${item.explanation}`;
-        $("next-row").classList.add("show");
-        $("next-button").focus();
-      }
-
-      function pickPraise(index) {
-        const praise = ["Juist!", "Knap gedaan!", "Yes, helemaal goed!", "Sterk!", "Bingo!"];
-        return praise[(hash(dateKey) + index) % praise.length];
-      }
-
-      function finishQuiz() {
-        state.completed = true;
-        saveState();
-        const days = registerDay();
-        showResult(days);
-      }
-
-      function registerDay() {
-        let days = [];
-        try { days = JSON.parse(localStorage.getItem(historyKey)) || []; } catch (_) { days = []; }
-        if (!days.includes(dateKey)) days.push(dateKey);
-        days = days.slice(-100);
-        localStorage.setItem(historyKey, JSON.stringify(days));
-        return days.length;
-      }
-
-      function showResult(days = null) {
-        showScreen("result");
-        if (days === null) {
-          try { days = (JSON.parse(localStorage.getItem(historyKey)) || []).length; } catch (_) { days = 1; }
-        }
-        $("result-badge").textContent = `${state.score}/10`;
-        $("final-score").textContent = `${state.score}/10`;
-        $("streak").textContent = String(Math.max(days, 1));
-
-        const message = state.score === 10
-          ? "Perfect! De Fonkelende Feniks is onder de indruk. 🔥"
-          : state.score >= 8
-            ? "Heel sterk gewerkt! Je bent bijna niet te stoppen."
-            : state.score >= 6
-              ? "Goed gewerkt! Elke oefendag maakt je sterker."
-              : "Flink dat je de hele test hebt gemaakt. Morgen proberen we opnieuw!";
-        $("result-message").textContent = message;
-
-        const tomorrow = new Date(today);
-        tomorrow.setDate(tomorrow.getDate() + 1);
-        $("tomorrow-note").textContent = `De volgende test staat klaar op ${new Intl.DateTimeFormat("nl-BE", { weekday: "long" }).format(tomorrow)}.`;
-      }
-
-      $("start-button").addEventListener("click", () => {
-        if (state.completed) showResult();
-        else renderQuestion();
-      });
-
-      $("next-button").addEventListener("click", () => {
-        if (!state.answers[state.index]) return;
-        if (state.index >= TOTAL - 1) finishQuiz();
-        else {
-          state.index += 1;
-          saveState();
-          renderQuestion();
-        }
-      });
-
-      $("review-button").addEventListener("click", () => {
-        const missed = state.answers.reduce((sum, answer) => sum + (answer && !answer.correct ? 1 : 0), 0);
-        alert(missed === 0 ? "Alles juist. Super gedaan, Liam!" : `Je had ${missed} ${missed === 1 ? "vraag" : "vragen"} fout. Morgen krijg je een nieuwe kans!`);
-      });
-
-      if (state.completed) {
-        $("start-button").textContent = "Bekijk mijn score";
-        $("intro-title").textContent = "Goed gewerkt, Liam!";
-        $("intro").querySelector(".lead").textContent = "Je hebt de test van vandaag al afgewerkt. Je antwoorden blijven bewaard.";
-      } else if (state.answers.length) {
-        $("start-button").textContent = "Ga verder";
-        $("intro-title").textContent = "Welkom terug, Liam!";
-        $("intro").querySelector(".lead").textContent = `Je was bij vraag ${state.index + 1}. Je antwoorden zijn veilig bewaard.`;
-      }
-    })();
+    if (voortgang.fase === "uitslag" || voortgang.fase === "klaar") toonResultaat();
+    else {
+      const indices = voortgang.fase === "eerste" ? questions.map((_, i) => i) : gemisteIndices();
+      if (voortgang.positie < 0 || voortgang.positie >= indices.length) voortgang.positie = 0;
+      startReeks(indices);
+    }
   </script>
 </body>
 </html>
