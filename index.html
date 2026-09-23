@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#674e79">
-  <title>Liams dagtest – Het schaduwlaboratorium</title>
+  <meta name="theme-color" content="#246f7a">
+  <title>Liams dagtest – Het herfstweerstation</title>
   <style>
     :root {
-      --nacht: #343f64;
-      --pruim: #785283;
-      --vlam: #e36d45;
-      --mango: #f1b94d;
+      --nacht: #225d69;
+      --pruim: #397d87;
+      --vlam: #df6b38;
+      --mango: #eaa941;
       --goud: #ffe57d;
       --oase: #589789;
       --papier: #fffaf0;
@@ -31,7 +31,7 @@
         radial-gradient(circle at 14% 15%, #fff8b7 0 3px, transparent 4px),
         radial-gradient(circle at 76% 12%, #ffffff 0 2px, transparent 3px),
         radial-gradient(circle at 86% 74%, #ffd46a 0 3px, transparent 4px),
-        linear-gradient(145deg, var(--nacht), #725681 43%, #d47350 72%, #438a81);
+        linear-gradient(145deg, var(--nacht), #4f8890 43%, #d8733f 72%, #6b8b53);
       background-size: 92px 92px, 126px 126px, 112px 112px, auto;
     }
 
@@ -51,7 +51,7 @@
       padding: 26px 20px 23px;
       text-align: center;
       color: white;
-      background: linear-gradient(125deg, #3c4e73, #835586 52%, #dc8f47);
+      background: linear-gradient(125deg, #226674, #4b8c91 48%, #df8546);
     }
 
     header::before,
@@ -63,7 +63,7 @@
     }
 
     header::before { content: "🪶"; left: 3px; transform: rotate(-18deg); }
-    header::after { content: "🔦"; right: 4px; transform: rotate(9deg); }
+    header::after { content: "🌦️"; right: 4px; transform: rotate(9deg); }
 
     .feniks {
       display: inline-grid;
@@ -93,6 +93,35 @@
     }
 
     .intro strong { color: #7b3166; }
+
+    .site-actions {
+      position: sticky;
+      z-index: 4;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 14px;
+      background: #fffaf0ee;
+      border-bottom: 2px solid #ecd493;
+      backdrop-filter: blur(8px);
+    }
+
+    .site-knop {
+      min-height: 44px;
+      padding: 10px 16px;
+      border: 2px solid #287684;
+      border-radius: 999px;
+      color: #174e58;
+      background: #e8fbff;
+      font: inherit;
+      font-weight: 900;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .site-knop--reset { border-color: #d56b3b; color: #8d3b1f; background: #fff0df; }
+    .site-knop:focus-visible { outline: 4px solid #ffd85f; outline-offset: 2px; }
 
     .balkrand {
       height: 14px;
@@ -222,53 +251,11 @@
     .klein { color: #685f73; font-size: .88rem; }
     footer { padding: 16px; background: #eee0c7; color: #675269; text-align: center; font-size: .9rem; }
 
-
-    .site-actions {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 11px 14px;
-      border-bottom: 1px solid #dfc9a6;
-      background: #fff6e5ee;
-      backdrop-filter: blur(10px);
-    }
-
-    .site-knop {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 42px;
-      padding: 8px 15px;
-      border: 2px solid #d9c5a5;
-      border-radius: 999px;
-      color: #4b3658;
-      background: white;
-      font: inherit;
-      font-weight: 850;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .site-knop:hover,
-    .site-knop:focus-visible {
-      border-color: #df7442;
-      background: #fff1cf;
-      outline: 3px solid #ffe57d;
-      outline-offset: 2px;
-    }
-
-    .site-knop--reset {
-      color: #8d2538;
-      border-color: #e3a3ad;
-      background: #fff3f5;
-    }
-
     @media (max-width: 540px) {
       body { padding: 6px; }
       .boek { border-radius: 19px; }
+      .site-actions { padding: 8px; }
+      .site-knop { flex: 1; padding: 9px 10px; }
       #quiz { padding: 7px 10px; }
       .kaart { padding: 15px; }
       .feniks { width: 90px; height: 72px; font-size: 3.3rem; }
@@ -285,15 +272,14 @@
       <a class="site-knop" href="./">🏠 Home</a>
       <button id="reset-test" class="site-knop site-knop--reset" type="button">↻ Reset</button>
     </nav>
-
     <header>
       <div class="feniks" aria-hidden="true">🔥🦜</div>
-      <h1>Het schaduwlaboratorium</h1>
-      <p>Fonkelende Feniksen · dinsdag 22 september</p>
+      <h1>Het herfstweerstation</h1>
+      <p>Fonkelende Feniksen · woensdag 23 september</p>
       <div class="fonkels" aria-hidden="true">✦ ✧ ✦ ✧ ✦</div>
     </header>
 
-    <p class="intro"><strong>Dag Liam!</strong> Fenix Fonk opent een fantasielab vol zaklampen, schaduwen en fonkelende veren. Help Miraidon met lezen, rekenen en onderzoeken. Je eerste tik telt!</p>
+    <p class="intro"><strong>Dag Liam!</strong> Fenix Fonk opent een vrolijk weerstation tussen dwarrelende bladeren. Help Pikachu met meten, lezen en slim nadenken. Je eerste tik telt!</p>
     <div class="balkrand" aria-label="Voortgang"><div id="balk"></div></div>
     <div id="teller"></div>
     <section id="quiz" aria-live="polite"></section>
@@ -307,23 +293,23 @@
       <p id="boodschap"></p>
       <div class="klein">Alles wordt alleen op dit toestel nagekeken. Er worden geen antwoorden verstuurd.</div>
     </section>
-    <footer>🪶🔦 Voor Liam van de Fonkelende Feniksen — jouw denklicht laat nieuwe ideeën verschijnen!</footer>
+    <footer>🪶🌦️ Voor Liam van de Fonkelende Feniksen — jouw denkvlam trotseert elke bui!</footer>
   </main>
 
   <script>
     const questions = [
-      {cat:"rekenen",q:"Miraidon verzamelt 28 lichtkaartjes en vindt er nog 7. Hoeveel kaartjes heeft hij nu?",o:["34","35","36"],a:1,e:"28 + 7 = 35 lichtkaartjes."},
-      {cat:"rekenen",q:"In het lab liggen 52 papieren sterren. Fenix gebruikt er 20. Hoeveel blijven er over?",o:["22","30","32"],a:2,e:"52 − 20 = 32 sterren."},
-      {cat:"rekenen",q:"Welke som geeft precies 30?",o:["18 + 12","16 + 12","20 + 12"],a:0,e:"18 + 12 = 30."},
-      {cat:"rekenen",q:"De pipi-professor telt zaklampen per vijf: 5, 10, 15, 20, … Welk getal komt daarna?",o:["21","24","25"],a:2,e:"Er komt telkens 5 bij, dus na 20 komt 25."},
-      {cat:"nederlands",q:"Lees het proefkaartje.<span class=\"leeskaart\">Zet de zaklamp aan.<br>Zet een speelgoedboom voor het licht.<br>Teken de schaduw op het papier.</span>Wat teken je op het papier?",o:["De schaduw","De zaklamp","Een regenboog"],a:0,e:"Op het kaartje staat dat je de schaduw tekent."},
-      {cat:"nederlands",q:"Lees het opruimbriefje.<span class=\"leeskaart\">De zaklamp komt uit de gele doos.<br>Het papier ligt in de blauwe lade.<br>Leg de zaklamp na de proef terug in de gele doos.</span>Waar leg je de zaklamp terug?",o:["In de blauwe lade","In de gele doos","Onder de tafel"],a:1,e:"De laatste zin zegt: terug in de gele doos."},
-      {cat:"nederlands",q:"Welk woord is juist geschreven?",o:["schaduw","schaduuw","sgaduw"],a:0,e:"Je schrijft schaduw met sch aan het begin."},
-      {cat:"nederlands",q:"Welk woord rijmt op ‘maan’?",o:["staan","man","map"],a:0,e:"Maan en staan eindigen op dezelfde klank: aan."},
-      {cat:"denken",q:"Wanneer ontstaat een schaduw?",o:["Als een voorwerp het licht tegenhoudt","Als alle lampen uit zijn","Als je alleen geluid maakt"],a:0,e:"Een schaduw ontstaat wanneer een voorwerp licht tegenhoudt."},
-      {cat:"denken",q:"De proef begint om 15:00 en duurt een kwartier. Wanneer is ze klaar?",o:["15:15","15:30","16:00"],a:0,e:"Een kwartier na 15:00 is 15:15."},
-      {cat:"denken",q:"Je tekent de platte omtrek van een ronde bal. Welke vorm lijkt daar het meest op?",o:["Een cirkel ○","Een vierkant □","Een driehoek △"],a:0,e:"De platte omtrek van een ronde bal lijkt op een cirkel."},
-      {cat:"denken",q:"Eerst gaat de lamp aan. Daarna zet Fenix de pop ervoor. Dan verschijnt de schaduw. Wat gebeurt als tweede?",o:["De schaduw verschijnt","Fenix zet de pop voor de lamp","De lamp gaat uit"],a:1,e:"Na het aanzetten van de lamp zet Fenix de pop ervoor."}
+      {cat:"rekenen",q:"In de regenmeter zitten 26 druppels. Er vallen nog 8 druppels bij. Hoeveel druppels zijn er nu?",o:["32","34","36"],a:1,e:"26 + 8 = 34 druppels."},
+      {cat:"rekenen",q:"Fenix heeft 60 windlinten. Hij gebruikt er 15. Hoeveel windlinten blijven over?",o:["45","35","55"],a:0,e:"60 − 15 = 45 windlinten."},
+      {cat:"rekenen",q:"Pikachu legt 4 groepjes van 5 energiestenen. Hoeveel energiestenen zijn dat samen?",o:["9","15","20"],a:2,e:"5 + 5 + 5 + 5 = 20 energiestenen."},
+      {cat:"rekenen",q:"De kaka-wolk wil 40 regendruppels verzamelen. Hij heeft er al 33. Hoeveel ontbreken er nog?",o:["6","7","8"],a:1,e:"33 + 7 = 40, dus er ontbreken 7 druppels."},
+      {cat:"nederlands",q:"Lees het weerkaartje.<span class=\"leeskaart\">Kijk naar de wolken.<br>Zet een streepje bij ‘bewolkt’.<br>Neem daarna je jas.</span>Waar zet je een streepje?",o:["Bij ‘bewolkt’","Bij ‘zon’","Bij ‘jas’"],a:0,e:"Op het kaartje staat: zet een streepje bij ‘bewolkt’."},
+      {cat:"nederlands",q:"Lees het briefje.<span class=\"leeskaart\">De regenmeter staat naast de rode paal.<br>Lees het getal en schrijf het op je blad.<br>Laat de meter staan.</span>Waar staat de regenmeter?",o:["Naast de rode paal","In de kast","Onder je blad"],a:0,e:"De eerste zin vertelt dat de regenmeter naast de rode paal staat."},
+      {cat:"nederlands",q:"Welk woord is juist geschreven?",o:["paraploe","paraplu","parapluu"],a:1,e:"Je schrijft paraplu met u op het einde."},
+      {cat:"nederlands",q:"Welk woord heeft de klank ‘ui’?",o:["bui","boom","wind"],a:0,e:"In bui hoor en lees je de klank ui."},
+      {cat:"denken",q:"Het regent buiten. Wat trek je het best aan om droog te blijven?",o:["Een regenjas","Een zwembroek","Een feesthoed"],a:0,e:"Een regenjas helpt je droog te blijven."},
+      {cat:"denken",q:"De weerploeg begint om 09:00 en werkt een halfuur. Wanneer is ze klaar?",o:["09:15","09:30","10:00"],a:1,e:"Een halfuur na 09:00 is 09:30."},
+      {cat:"denken",q:"Eerst kijkt Liam naar de lucht. Dan leest hij de regenmeter. Daarna schrijft hij het getal op. Wat doet hij als tweede?",o:["Hij schrijft het getal op","Hij leest de regenmeter","Hij kijkt naar de lucht"],a:1,e:"Na het kijken naar de lucht leest hij de regenmeter."},
+      {cat:"denken",q:"De ene thermometer toont 12 graden. De andere toont 17 graden. Welke temperatuur is warmer?",o:["12 graden","17 graden","Ze zijn even warm"],a:1,e:"17 is meer dan 12, dus 17 graden is warmer."}
     ];
 
     const quiz = document.getElementById("quiz");
@@ -335,7 +321,14 @@
     const volgende = document.getElementById("volgende");
     const opnieuw = document.getElementById("opnieuw");
     const resultaat = document.getElementById("resultaat");
-    const sleutel = "liams-dagtest-2026-09-22-v1";
+    const sleutel = "liams-dagtest-2026-09-23-v1";
+    const resetTest = document.getElementById("reset-test");
+    resetTest.addEventListener("click", () => {
+      const bevestigd = window.confirm("Wil je echt alle antwoorden van vandaag wissen en opnieuw beginnen bij vraag 1?");
+      if (!bevestigd) return;
+      try { localStorage.removeItem(sleutel); } catch (_) {}
+      window.location.reload();
+    });
     const leeg = () => ({fase:"eerste", positie:0, antwoorden:Array(12).fill(null), herkansing:{}});
     let voortgang;
     try {
@@ -429,7 +422,7 @@
 
     function toonResultaat() {
       quiz.innerHTML = "";
-      teller.textContent = "Alle labopdrachten voltooid!";
+      teller.textContent = "Alle weeropdrachten voltooid!";
       balk.style.width = "100%";
       feedback.hidden = true;
       volgende.hidden = true;
@@ -458,14 +451,6 @@
       bewaar();
       startReeks(gemisteIndices());
       window.scrollTo({top: 0, behavior: "smooth"});
-    });
-
-
-    document.getElementById("reset-test").addEventListener("click", () => {
-      const zeker = window.confirm("Wil je alle antwoorden van vandaag wissen en opnieuw beginnen bij vraag 1?");
-      if (!zeker) return;
-      try { localStorage.removeItem(sleutel); } catch (_) {}
-      window.location.reload();
     });
 
     if (voortgang.fase === "uitslag" || voortgang.fase === "klaar") toonResultaat();
