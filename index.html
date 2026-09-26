@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#276b65">
-  <title>Liams dagtest – De feniksfietstocht</title>
+  <meta name="theme-color" content="#6d3a2b">
+  <title>Liams dagtest – De kastanjewerkplaats</title>
   <style>
     :root {
-      --nacht: #225e5a;
-      --pruim: #397e78;
-      --vlam: #df6638;
-      --mango: #efad3e;
+      --nacht: #5a2f2b;
+      --pruim: #8b4c35;
+      --vlam: #dc5b32;
+      --mango: #eda43b;
       --goud: #ffe57d;
-      --oase: #589789;
+      --oase: #789451;
       --papier: #fffaf0;
       --inkt: #332d43;
       --goed: #176c45;
@@ -31,7 +31,7 @@
         radial-gradient(circle at 14% 15%, #fff8b7 0 3px, transparent 4px),
         radial-gradient(circle at 76% 12%, #ffffff 0 2px, transparent 3px),
         radial-gradient(circle at 86% 74%, #ffd46a 0 3px, transparent 4px),
-        linear-gradient(145deg, var(--nacht), #3b8178 43%, #d76b3c 72%, #4f7390);
+        linear-gradient(145deg, var(--nacht), #8d5137 43%, #d76b3c 72%, #697d49);
       background-size: 92px 92px, 126px 126px, 112px 112px, auto;
     }
 
@@ -51,7 +51,7 @@
       padding: 26px 20px 23px;
       text-align: center;
       color: white;
-      background: linear-gradient(125deg, #245f5b, #39827a 48%, #df8140);
+      background: linear-gradient(125deg, #5a2f2b, #925037 48%, #df8140);
     }
 
     header::before,
@@ -63,7 +63,7 @@
     }
 
     header::before { content: "🪶"; left: 3px; transform: rotate(-18deg); }
-    header::after { content: "🚲"; right: 4px; transform: rotate(9deg); }
+    header::after { content: "🌰"; right: 4px; transform: rotate(9deg); }
 
     .feniks {
       display: inline-grid;
@@ -110,10 +110,10 @@
     .site-knop {
       min-height: 44px;
       padding: 10px 16px;
-      border: 2px solid #2d756e;
+      border: 2px solid #6d7740;
       border-radius: 999px;
-      color: #1d5752;
-      background: #e8fbf7;
+      color: #526029;
+      background: #f3f8df;
       font: inherit;
       font-weight: 900;
       text-decoration: none;
@@ -274,12 +274,12 @@
     </nav>
     <header>
       <div class="feniks" aria-hidden="true">🔥🦜</div>
-      <h1>De feniksfietstocht</h1>
-      <p>Fonkelende Feniksen · vrijdag 25 september</p>
+      <h1>De kastanjewerkplaats</h1>
+      <p>Fonkelende Feniksen · zaterdag 26 september</p>
       <div class="fonkels" aria-hidden="true">✦ ✧ ✦ ✧ ✦</div>
     </header>
 
-    <p class="intro"><strong>Dag Liam!</strong> Fenix Fonk maakt zich klaar voor een vrolijke fietstocht langs lichtjes, pijlen en herfstbomen. Help Miraidon veilig rekenen, lezen en kiezen. Je eerste tik telt!</p>
+    <p class="intro"><strong>Dag Liam!</strong> Fenix Fonk opent een warme kastanjewerkplaats vol veren, blaadjes en denkvonken. Pikachu helpt veilig verzamelen, tellen en lezen. Je eerste tik telt!</p>
     <div class="balkrand" aria-label="Voortgang"><div id="balk"></div></div>
     <div id="teller"></div>
     <section id="quiz" aria-live="polite"></section>
@@ -293,23 +293,23 @@
       <p id="boodschap"></p>
       <div class="klein">Alles wordt alleen op dit toestel nagekeken. Er worden geen antwoorden verstuurd.</div>
     </section>
-    <footer>🪶🚲 Voor Liam van de Fonkelende Feniksen — trap rustig door en laat je denkvlam schitteren!</footer>
+    <footer>🪶🌰 Voor Liam van de Fonkelende Feniksen — denk rustig en laat je herfstvlam schitteren!</footer>
   </main>
 
   <script>
     const questions = [
-      {cat:"rekenen",q:"Bij de start staan 48 fietsers. Er komen nog 7 fietsers bij. Hoeveel fietsers zijn er nu?",o:["53","55","57"],a:1,e:"48 + 7 = 55 fietsers."},
-      {cat:"rekenen",q:"Pipi-Piet heeft 67 reflecterende stickers. Hij plakt er 9 op fietsen. Hoeveel stickers blijven over?",o:["56","58","60"],a:1,e:"67 − 9 = 58 stickers."},
-      {cat:"rekenen",q:"Fenix heeft 38 kilometer gereden. Zijn doel is 50 kilometer. Hoeveel kilometer ontbreken nog?",o:["10","12","18"],a:1,e:"38 + 12 = 50, dus er ontbreken 12 kilometer."},
-      {cat:"rekenen",q:"Er staan 6 fietsen. Elke fiets heeft 2 wielen. Hoeveel wielen zijn dat samen?",o:["8","10","12"],a:2,e:"2 + 2 + 2 + 2 + 2 + 2 = 12 wielen."},
-      {cat:"nederlands",q:"Lees het herstelkaartje.<span class=\"leeskaart\">Pomp de band op.<br>Draai het dopje terug op het ventiel.<br>Zet de fiets in het rek.</span>Wat doe je na het oppompen?",o:["Het dopje terugdraaien","De fiets schilderen","De bel afnemen"],a:0,e:"Na het pompen draai je het dopje terug op het ventiel."},
-      {cat:"nederlands",q:"Lees het routebriefje.<span class=\"leeskaart\">Rijd tot aan de rode poort.<br>Stop bij het zebrapad.<br>Stap daar met je fiets aan de hand over.</span>Waar moet je stoppen?",o:["Bij het zebrapad","Bij een blauwe deur","Midden op de weg"],a:0,e:"Op het briefje staat dat je bij het zebrapad stopt."},
-      {cat:"nederlands",q:"Welke schrijfwijze van het woord klopt?",o:["fiets bel","fietsbell","fietsbel"],a:2,e:"Je schrijft fietsbel als één woord en met één l."},
-      {cat:"nederlands",q:"In welk woord hoor je de klank ‘ie’?",o:["fiets","bus","tram"],a:0,e:"In fiets hoor je de lange klank ie."},
-      {cat:"denken",q:"Het verkeerslicht springt op rood. Wat moet een fietser doen?",o:["Stoppen","Sneller rijden","De ogen sluiten"],a:0,e:"Bij rood licht moet je stoppen."},
-      {cat:"denken",q:"De fietstocht start om 08:10 en duurt 20 minuten. Wanneer komt de groep aan?",o:["08:20","08:30","09:10"],a:1,e:"Twintig minuten na 08:10 is 08:30."},
-      {cat:"denken",q:"Een fietswiel is rond. Welke platte vorm past daar het best bij?",o:["Een cirkel ○","Een vierkant □","Een driehoek △"],a:0,e:"Een rond wiel lijkt van opzij op een cirkel."},
-      {cat:"denken",q:"Route A duurt 6 minuten, route B 9 minuten en route C 12 minuten. Welke route duurt het kortst?",o:["Route A","Route B","Route C"],a:0,e:"6 minuten is minder dan 9 en 12 minuten, dus route A duurt het kortst."}
+      {cat:"rekenen",q:"Pikachu vindt 39 kastanjes. Fenix geeft er nog 6 bij. Hoeveel kastanjes zijn er samen?",o:["43","45","46"],a:1,e:"39 + 6 = 45 kastanjes."},
+      {cat:"rekenen",q:"Pipi-Piet verzamelt 74 herfstblaadjes. Hij gebruikt er 30. Hoeveel blaadjes blijven over?",o:["34","44","54"],a:1,e:"74 − 30 = 44 blaadjes."},
+      {cat:"rekenen",q:"In een doos liggen 32 kastanjes. Er kunnen er 50 in. Hoeveel kastanjes ontbreken nog?",o:["12","18","22"],a:1,e:"32 + 18 = 50, dus er ontbreken 18 kastanjes."},
+      {cat:"rekenen",q:"Er staan 2 potjes. In elk potje zitten 8 eikels. Hoeveel eikels zijn dat samen?",o:["10","16","18"],a:1,e:"8 + 8 = 16 eikels."},
+      {cat:"nederlands",q:"Lees het maakkaartje.<span class=\"leeskaart\">Kies drie kastanjes.<br>Leg ze op het plankje.<br>Vraag een volwassene om een gaatje te maken.</span>Wie maakt het gaatje?",o:["Een volwassene","Pikachu","Niemand"],a:0,e:"Op het kaartje staat dat een volwassene het gaatje maakt."},
+      {cat:"nederlands",q:"Lees het werkplaatsbriefje.<span class=\"leeskaart\">Hang je natte jas aan de kapstok.<br>Zet je tas onder de bank.<br>Was je handen voor je begint.</span>Waar zet je je tas?",o:["Op de tafel","Onder de bank","Buiten"],a:1,e:"Op het briefje staat: zet je tas onder de bank."},
+      {cat:"nederlands",q:"Welke schrijfwijze is juist?",o:["herfstblat","herfst blad","herfstblad"],a:2,e:"Je schrijft herfstblad als één woord en met een d op het einde."},
+      {cat:"nederlands",q:"Welke twee woorden rijmen?",o:["noot – boot","noot – net","noot – nat"],a:0,e:"Noot en boot hebben allebei de klank oot."},
+      {cat:"denken",q:"Je wilt een hard gaatje in een kastanje maken. Wat is de veiligste keuze?",o:["Een volwassene om hulp vragen","Zelf met een scherp mes prikken","De kastanje naar iemand gooien"],a:0,e:"Een volwassene kan veilig helpen met scherp gereedschap."},
+      {cat:"denken",q:"De werkplaats opent om half elf. Welke tijd is dat op een digitale klok?",o:["10:30","11:30","10:05"],a:0,e:"Half elf betekent 10:30: een halfuur vóór elf uur."},
+      {cat:"denken",q:"Kastanje A is 3 cm breed, B is 5 cm en C is 4 cm. Welke kastanje is het breedst?",o:["Kastanje A","Kastanje B","Kastanje C"],a:1,e:"5 cm is meer dan 4 cm en 3 cm, dus kastanje B is het breedst."},
+      {cat:"denken",q:"Waar groeien kastanjes voordat ze op de grond vallen?",o:["Aan een boom","In de zee","In een kast"],a:0,e:"Kastanjes groeien aan een kastanjeboom."}
     ];
 
     const quiz = document.getElementById("quiz");
@@ -321,7 +321,7 @@
     const volgende = document.getElementById("volgende");
     const opnieuw = document.getElementById("opnieuw");
     const resultaat = document.getElementById("resultaat");
-    const sleutel = "liams-dagtest-2026-09-25-v1";
+    const sleutel = "liams-dagtest-2026-09-26-v1";
     const resetTest = document.getElementById("reset-test");
     resetTest.addEventListener("click", () => {
       const bevestigd = window.confirm("Wil je echt alle antwoorden van vandaag wissen en opnieuw beginnen bij vraag 1?");
@@ -422,7 +422,7 @@
 
     function toonResultaat() {
       quiz.innerHTML = "";
-      teller.textContent = "Alle fietsopdrachten voltooid!";
+      teller.textContent = "Alle kastanjeopdrachten voltooid!";
       balk.style.width = "100%";
       feedback.hidden = true;
       volgende.hidden = true;
