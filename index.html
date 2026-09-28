@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#3f5361">
-  <title>Liams dagtest – Het paddenstoelenpad</title>
+  <meta name="theme-color" content="#4a3775">
+  <title>Liams dagtest – De slimme schermspeurders</title>
   <style>
     :root {
-      --nacht: #344c58;
-      --pruim: #694b72;
-      --vlam: #da563b;
-      --mango: #ef9f38;
+      --nacht: #303968;
+      --pruim: #6c3f82;
+      --vlam: #e45a3a;
+      --mango: #f0a338;
       --goud: #ffe57d;
-      --oase: #668c67;
+      --oase: #42a59a;
       --papier: #fffaf0;
       --inkt: #332d43;
       --goed: #176c45;
@@ -31,7 +31,7 @@
         radial-gradient(circle at 14% 15%, #fff8b7 0 3px, transparent 4px),
         radial-gradient(circle at 76% 12%, #ffffff 0 2px, transparent 3px),
         radial-gradient(circle at 86% 74%, #ffd46a 0 3px, transparent 4px),
-        linear-gradient(145deg, var(--nacht), #62566f 43%, #c85f42 72%, #58745b);
+        linear-gradient(145deg, var(--nacht), #65427d 43%, #d65d42 72%, #367f86);
       background-size: 92px 92px, 126px 126px, 112px 112px, auto;
     }
 
@@ -51,7 +51,7 @@
       padding: 26px 20px 23px;
       text-align: center;
       color: white;
-      background: linear-gradient(125deg, #344c58, #694b72 48%, #d56b42);
+      background: linear-gradient(125deg, #303968, #704287 48%, #df7040);
     }
 
     header::before,
@@ -63,7 +63,7 @@
     }
 
     header::before { content: "🪶"; left: 3px; transform: rotate(-18deg); }
-    header::after { content: "🍄"; right: 4px; transform: rotate(9deg); }
+    header::after { content: "💻"; right: 4px; transform: rotate(9deg); }
 
     .feniks {
       display: inline-grid;
@@ -110,10 +110,10 @@
     .site-knop {
       min-height: 44px;
       padding: 10px 16px;
-      border: 2px solid #55745b;
+      border: 2px solid #467e88;
       border-radius: 999px;
-      color: #3d6448;
-      background: #eaf7ed;
+      color: #315f74;
+      background: #e8f8fb;
       font: inherit;
       font-weight: 900;
       text-decoration: none;
@@ -274,12 +274,12 @@
     </nav>
     <header>
       <div class="feniks" aria-hidden="true">🔥🦜</div>
-      <h1>Het paddenstoelenpad</h1>
-      <p>Fonkelende Feniksen · zondag 27 september</p>
+      <h1>De slimme schermspeurders</h1>
+      <p>Fonkelende Feniksen · maandag 28 september</p>
       <div class="fonkels" aria-hidden="true">✦ ✧ ✦ ✧ ✦</div>
     </header>
 
-    <p class="intro"><strong>Dag Liam!</strong> Fenix Fonk volgt een kronkelend bospad vol stippen, pijlen en denkvonken. Squirtle helpt veilig rekenen, lezen en speuren. Je eerste tik telt!</p>
+    <p class="intro"><strong>Dag Liam!</strong> Fenix Fonk opent een digitaal atelier vol lichtknoppen en slimme keuzes. Pikachu helpt veilig rekenen, lezen en speuren op het scherm. Je eerste tik telt!</p>
     <div class="balkrand" aria-label="Voortgang"><div id="balk"></div></div>
     <div id="teller"></div>
     <section id="quiz" aria-live="polite"></section>
@@ -293,23 +293,23 @@
       <p id="boodschap"></p>
       <div class="klein">Alles wordt alleen op dit toestel nagekeken. Er worden geen antwoorden verstuurd.</div>
     </section>
-    <footer>🪶🍄 Voor Liam van de Fonkelende Feniksen — speur rustig en laat je denkvlam schitteren!</footer>
+    <footer>🪶💻 Voor Liam van de Fonkelende Feniksen — klik rustig en laat je denkvlam schitteren!</footer>
   </main>
 
   <script>
     const questions = [
-      {cat:"rekenen",q:"Squirtle ziet 47 stippen. Fenix tekent er 8 bij. Hoeveel stippen zijn er nu?",o:["53","55","56"],a:1,e:"47 + 8 = 55 stippen."},
-      {cat:"rekenen",q:"Op het pad liggen 72 dennenappels. Pipi-Piet legt er 8 in een mand. Hoeveel blijven er liggen?",o:["62","64","66"],a:1,e:"72 − 8 = 64 dennenappels."},
-      {cat:"rekenen",q:"In de bruine mand liggen 18 kaartjes en in de rode mand 11. Hoeveel kaartjes liggen er meer in de bruine mand?",o:["6","7","8"],a:1,e:"18 − 11 = 7 kaartjes meer."},
-      {cat:"rekenen",q:"Kijk naar de getallenrij: 10, 15, 20, ... Welk getal komt daarna?",o:["21","24","25"],a:2,e:"De rij gaat telkens 5 verder, dus na 20 komt 25."},
-      {cat:"nederlands",q:"Lees het bord aan het pad.<span class=\"leeskaart\">Volg de gele pijlen.<br>Blijf op het pad.<br>Raak de paddenstoelen niet aan.</span>Wat mag je niet doen?",o:["De gele pijlen volgen","Op het pad blijven","De paddenstoelen aanraken"],a:2,e:"Op het bord staat dat je de paddenstoelen niet mag aanraken."},
-      {cat:"nederlands",q:"Lees het programma.<span class=\"leeskaart\">10:00 — start bij de vijver<br>10:30 — fruit eten op de bank<br>11:00 — tekenen in de boshut</span>Waar eet de groep fruit?",o:["Bij de vijver","Op de bank","In de boshut"],a:1,e:"Om 10:30 eet de groep fruit op de bank."},
-      {cat:"nederlands",q:"Hoe schrijf je de naam van dit bosding juist?",o:["padestoel","paddenstoel","paddestoel"],a:1,e:"Je schrijft paddenstoel met dubbel d en met en."},
-      {cat:"nederlands",q:"In welk woord hoor je de klank ‘oe’?",o:["stoel","stap","stip"],a:0,e:"In stoel hoor je de klank oe."},
-      {cat:"denken",q:"Je vindt een onbekende paddenstoel. Wat is de veiligste keuze?",o:["Niet eten en een volwassene roepen","Een klein hapje proeven","Hem in je jaszak stoppen"],a:0,e:"Onbekende paddenstoelen raak of eet je niet; vraag hulp aan een volwassene."},
-      {cat:"denken",q:"De speurtocht start om 10:00 en duurt 45 minuten. Wanneer is hij klaar?",o:["10:30","10:45","11:45"],a:1,e:"Vijfenveertig minuten na 10:00 is 10:45."},
-      {cat:"denken",q:"De route toont: ↑ ↑ →. Welke pijl komt als laatste?",o:["←","↑","→"],a:2,e:"In de reeks staat als laatste een pijl naar rechts: →."},
-      {cat:"denken",q:"Waar vind je in de herfst het meest waarschijnlijk paddenstoelen?",o:["Op een vochtige bosgrond","In een hete oven","In een droge boekenkast"],a:0,e:"Veel paddenstoelen groeien graag op een vochtige bosgrond."}
+      {cat:"rekenen",q:"Pikachu verzamelt 36 digitale sterren. Eevee stuurt er 17 bij. Hoeveel sterren zijn er samen?",o:["51","53","55"],a:1,e:"36 + 17 = 53 sterren."},
+      {cat:"rekenen",q:"Op een scherm staan 68 lichtjes. Er gaan er 9 uit. Hoeveel lichtjes blijven branden?",o:["57","59","61"],a:1,e:"68 − 9 = 59 lichtjes."},
+      {cat:"rekenen",q:"Kaka-Kees zet 4 rijen met telkens 5 lachende drol-emoji’s. Hoeveel emoji’s zijn dat samen?",o:["9","15","20"],a:2,e:"5 + 5 + 5 + 5 = 20 emoji’s."},
+      {cat:"rekenen",q:"Welk getal ligt precies in het midden tussen 40 en 50?",o:["44","45","46"],a:1,e:"45 ligt 5 verder dan 40 en 5 vóór 50."},
+      {cat:"nederlands",q:"Lees het veilige bericht.<span class=\"leeskaart\">Een onbekende vraagt om je naam en adres.<br>Stuur niets terug.<br>Laat het bericht aan een volwassene zien.</span>Wat moet je doen?",o:["Je adres sturen","Het aan een volwassene tonen","Op elke link klikken"],a:1,e:"Het bericht zegt dat je niets terugstuurt en een volwassene erbij haalt."},
+      {cat:"nederlands",q:"Lees het inlogkaartje.<span class=\"leeskaart\">Open de oefenpagina van de juf.<br>Typ de code 4821.<br>Hou de code voor jezelf.</span>Welke informatie heb je nodig om in te loggen?",o:["De code 4821","Je huisadres","De naam van Pikachu"],a:0,e:"Op het kaartje staat dat je de code 4821 moet typen."},
+      {cat:"nederlands",q:"Welk woord voor een geheime toegang is juist geschreven?",o:["wacht woord","wagtwoord","wachtwoord"],a:2,e:"Je schrijft wachtwoord als één woord en met ch."},
+      {cat:"nederlands",q:"In welk woord hoor je aan het begin ‘sch’?",o:["scherm","ster","som"],a:0,e:"Scherm begint met de letters en klanken sch."},
+      {cat:"denken",q:"Je wilt een foto van een vriend online zetten. Wat doe je eerst?",o:["Toestemming vragen","De foto meteen delen","De naam erbij schrijven zonder te vragen"],a:0,e:"Vraag eerst toestemming voordat je een foto van iemand deelt."},
+      {cat:"denken",q:"De oefening start om 15:20 en duurt 25 minuten. Wanneer is ze klaar?",o:["15:35","15:45","16:05"],a:1,e:"Twintig minuten na 15:20 is 15:40 en nog 5 minuten is 15:45."},
+      {cat:"denken",q:"De laptop staat links van de tablet. De telefoon staat rechts van de tablet. Wat staat in het midden?",o:["De laptop","De tablet","De telefoon"],a:1,e:"De tablet staat tussen de laptop en de telefoon."},
+      {cat:"denken",q:"Welk wachtwoord is het moeilijkst te raden?",o:["1234","kat123","Z7!maan"],a:2,e:"Z7!maan gebruikt verschillende soorten tekens en is daardoor moeilijker te raden."}
     ];
 
     const quiz = document.getElementById("quiz");
@@ -321,7 +321,7 @@
     const volgende = document.getElementById("volgende");
     const opnieuw = document.getElementById("opnieuw");
     const resultaat = document.getElementById("resultaat");
-    const sleutel = "liams-dagtest-2026-09-27-v1";
+    const sleutel = "liams-dagtest-2026-09-28-v1";
     const resetTest = document.getElementById("reset-test");
     resetTest.addEventListener("click", () => {
       const bevestigd = window.confirm("Wil je echt alle antwoorden van vandaag wissen en opnieuw beginnen bij vraag 1?");
@@ -422,7 +422,7 @@
 
     function toonResultaat() {
       quiz.innerHTML = "";
-      teller.textContent = "Alle bosopdrachten voltooid!";
+      teller.textContent = "Alle schermopdrachten voltooid!";
       balk.style.width = "100%";
       feedback.hidden = true;
       volgende.hidden = true;
