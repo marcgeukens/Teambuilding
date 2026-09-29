@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#4a3775">
-  <title>Liams dagtest – De slimme schermspeurders</title>
+  <meta name="theme-color" content="#42652f">
+  <title>Liams dagtest – De fonkelende fruitkar</title>
   <style>
     :root {
-      --nacht: #303968;
-      --pruim: #6c3f82;
-      --vlam: #e45a3a;
-      --mango: #f0a338;
+      --nacht: #35552f;
+      --pruim: #7a3f58;
+      --vlam: #e14f36;
+      --mango: #f1a43a;
       --goud: #ffe57d;
-      --oase: #42a59a;
+      --oase: #74a34e;
       --papier: #fffaf0;
       --inkt: #332d43;
       --goed: #176c45;
@@ -31,7 +31,7 @@
         radial-gradient(circle at 14% 15%, #fff8b7 0 3px, transparent 4px),
         radial-gradient(circle at 76% 12%, #ffffff 0 2px, transparent 3px),
         radial-gradient(circle at 86% 74%, #ffd46a 0 3px, transparent 4px),
-        linear-gradient(145deg, var(--nacht), #65427d 43%, #d65d42 72%, #367f86);
+        linear-gradient(145deg, var(--nacht), #6f8040 43%, #d65b3d 72%, #a15a69);
       background-size: 92px 92px, 126px 126px, 112px 112px, auto;
     }
 
@@ -51,7 +51,7 @@
       padding: 26px 20px 23px;
       text-align: center;
       color: white;
-      background: linear-gradient(125deg, #303968, #704287 48%, #df7040);
+      background: linear-gradient(125deg, #35552f, #769441 48%, #df7040);
     }
 
     header::before,
@@ -63,7 +63,7 @@
     }
 
     header::before { content: "🪶"; left: 3px; transform: rotate(-18deg); }
-    header::after { content: "💻"; right: 4px; transform: rotate(9deg); }
+    header::after { content: "🍎"; right: 4px; transform: rotate(9deg); }
 
     .feniks {
       display: inline-grid;
@@ -110,10 +110,10 @@
     .site-knop {
       min-height: 44px;
       padding: 10px 16px;
-      border: 2px solid #467e88;
+      border: 2px solid #668840;
       border-radius: 999px;
-      color: #315f74;
-      background: #e8f8fb;
+      color: #4d6b2d;
+      background: #eff8e3;
       font: inherit;
       font-weight: 900;
       text-decoration: none;
@@ -274,12 +274,12 @@
     </nav>
     <header>
       <div class="feniks" aria-hidden="true">🔥🦜</div>
-      <h1>De slimme schermspeurders</h1>
-      <p>Fonkelende Feniksen · maandag 28 september</p>
+      <h1>De fonkelende fruitkar</h1>
+      <p>Fonkelende Feniksen · dinsdag 29 september</p>
       <div class="fonkels" aria-hidden="true">✦ ✧ ✦ ✧ ✦</div>
     </header>
 
-    <p class="intro"><strong>Dag Liam!</strong> Fenix Fonk opent een digitaal atelier vol lichtknoppen en slimme keuzes. Pikachu helpt veilig rekenen, lezen en speuren op het scherm. Je eerste tik telt!</p>
+    <p class="intro"><strong>Dag Liam!</strong> Fenix Fonk rolt een kleurrijke fruitkar binnen vol appels, peren en denkvonken. Pikachu helpt rekenen, lezen en slim kiezen. Je eerste tik telt!</p>
     <div class="balkrand" aria-label="Voortgang"><div id="balk"></div></div>
     <div id="teller"></div>
     <section id="quiz" aria-live="polite"></section>
@@ -293,23 +293,23 @@
       <p id="boodschap"></p>
       <div class="klein">Alles wordt alleen op dit toestel nagekeken. Er worden geen antwoorden verstuurd.</div>
     </section>
-    <footer>🪶💻 Voor Liam van de Fonkelende Feniksen — klik rustig en laat je denkvlam schitteren!</footer>
+    <footer>🪶🍎 Voor Liam van de Fonkelende Feniksen — proef met je ogen en laat je denkvlam schitteren!</footer>
   </main>
 
   <script>
     const questions = [
-      {cat:"rekenen",q:"Pikachu verzamelt 36 digitale sterren. Eevee stuurt er 17 bij. Hoeveel sterren zijn er samen?",o:["51","53","55"],a:1,e:"36 + 17 = 53 sterren."},
-      {cat:"rekenen",q:"Op een scherm staan 68 lichtjes. Er gaan er 9 uit. Hoeveel lichtjes blijven branden?",o:["57","59","61"],a:1,e:"68 − 9 = 59 lichtjes."},
-      {cat:"rekenen",q:"Kaka-Kees zet 4 rijen met telkens 5 lachende drol-emoji’s. Hoeveel emoji’s zijn dat samen?",o:["9","15","20"],a:2,e:"5 + 5 + 5 + 5 = 20 emoji’s."},
-      {cat:"rekenen",q:"Welk getal ligt precies in het midden tussen 40 en 50?",o:["44","45","46"],a:1,e:"45 ligt 5 verder dan 40 en 5 vóór 50."},
-      {cat:"nederlands",q:"Lees het veilige bericht.<span class=\"leeskaart\">Een onbekende vraagt om je naam en adres.<br>Stuur niets terug.<br>Laat het bericht aan een volwassene zien.</span>Wat moet je doen?",o:["Je adres sturen","Het aan een volwassene tonen","Op elke link klikken"],a:1,e:"Het bericht zegt dat je niets terugstuurt en een volwassene erbij haalt."},
-      {cat:"nederlands",q:"Lees het inlogkaartje.<span class=\"leeskaart\">Open de oefenpagina van de juf.<br>Typ de code 4821.<br>Hou de code voor jezelf.</span>Welke informatie heb je nodig om in te loggen?",o:["De code 4821","Je huisadres","De naam van Pikachu"],a:0,e:"Op het kaartje staat dat je de code 4821 moet typen."},
-      {cat:"nederlands",q:"Welk woord voor een geheime toegang is juist geschreven?",o:["wacht woord","wagtwoord","wachtwoord"],a:2,e:"Je schrijft wachtwoord als één woord en met ch."},
-      {cat:"nederlands",q:"In welk woord hoor je aan het begin ‘sch’?",o:["scherm","ster","som"],a:0,e:"Scherm begint met de letters en klanken sch."},
-      {cat:"denken",q:"Je wilt een foto van een vriend online zetten. Wat doe je eerst?",o:["Toestemming vragen","De foto meteen delen","De naam erbij schrijven zonder te vragen"],a:0,e:"Vraag eerst toestemming voordat je een foto van iemand deelt."},
-      {cat:"denken",q:"De oefening start om 15:20 en duurt 25 minuten. Wanneer is ze klaar?",o:["15:35","15:45","16:05"],a:1,e:"Twintig minuten na 15:20 is 15:40 en nog 5 minuten is 15:45."},
-      {cat:"denken",q:"De laptop staat links van de tablet. De telefoon staat rechts van de tablet. Wat staat in het midden?",o:["De laptop","De tablet","De telefoon"],a:1,e:"De tablet staat tussen de laptop en de telefoon."},
-      {cat:"denken",q:"Welk wachtwoord is het moeilijkst te raden?",o:["1234","kat123","Z7!maan"],a:2,e:"Z7!maan gebruikt verschillende soorten tekens en is daardoor moeilijker te raden."}
+      {cat:"rekenen",q:"Pikachu legt 28 appels op de kar. Fenix legt er 16 peren bij. Hoeveel stukken fruit zijn er samen?",o:["42","44","46"],a:1,e:"28 + 16 = 44 stukken fruit."},
+      {cat:"rekenen",q:"Kaka-Kees heeft 63 mandarijnen. Hij deelt er 27 uit. Hoeveel mandarijnen blijven over?",o:["34","36","46"],a:1,e:"63 − 27 = 36 mandarijnen."},
+      {cat:"rekenen",q:"Er liggen 22 druiven in een kom. Hoeveel moeten erbij om er 30 te hebben?",o:["8","10","12"],a:0,e:"22 + 8 = 30, dus er moeten 8 druiven bij."},
+      {cat:"rekenen",q:"Van 16 aardbeien wordt precies de helft gebruikt. Hoeveel aardbeien zijn dat?",o:["6","8","10"],a:1,e:"De helft van 16 is 8."},
+      {cat:"nederlands",q:"Lees het bord bij de fruitkar.<span class=\"leeskaart\">Kies één stuk fruit.<br>Was het als dat nodig is.<br>Gooi de schil in de groene bak.</span>Waar hoort een fruitschil?",o:["In de groene bak","Onder de tafel","In je boekentas"],a:0,e:"Op het bord staat dat de schil in de groene bak hoort."},
+      {cat:"nederlands",q:"Lees het briefje bij de fruitsalade.<span class=\"leeskaart\">In deze schaal zitten geen noten.<br>Heb je een allergie? Vertel het vóór het eten aan de juf.<br>De lepels liggen naast de schaal.</span>Wat doe je als je een allergie hebt?",o:["Niets zeggen","Het vóór het eten aan de juf vertellen","Alle lepels meenemen"],a:1,e:"Het briefje zegt dat je een allergie vóór het eten aan de juf vertelt."},
+      {cat:"nederlands",q:"Welk fruitwoord is juist geschreven?",o:["bannan","banaan","banaam"],a:1,e:"Je schrijft banaan met één n in het midden en aa vóór de laatste n."},
+      {cat:"nederlands",q:"Welk woord begint met dezelfde klank als ‘fruit’?",o:["fles","peer","druif"],a:0,e:"Fruit en fles beginnen allebei met de klank f."},
+      {cat:"denken",q:"De fruitpauze begint om 10:20 en duurt 15 minuten. Wanneer is ze klaar?",o:["10:30","10:35","10:45"],a:1,e:"Vijftien minuten na 10:20 is 10:35."},
+      {cat:"denken",q:"Welke kleur krijg je als je rood en geel mengt bij het schilderen van een sinaasappel?",o:["Groen","Oranje","Paars"],a:1,e:"Rood en geel samen geven oranje."},
+      {cat:"denken",q:"Welk eten hoort niet bij de fruitsoorten?",o:["Een banaan","Een peer","Een wortel"],a:2,e:"Een wortel is een groente; banaan en peer zijn fruit."},
+      {cat:"denken",q:"Wat doe je vóór je fruit voor anderen in stukjes snijdt?",o:["Je handen wassen","Op de grond gaan zitten","Je vingers aflikken"],a:0,e:"Was eerst je handen als je eten klaarmaakt."}
     ];
 
     const quiz = document.getElementById("quiz");
@@ -321,7 +321,7 @@
     const volgende = document.getElementById("volgende");
     const opnieuw = document.getElementById("opnieuw");
     const resultaat = document.getElementById("resultaat");
-    const sleutel = "liams-dagtest-2026-09-28-v1";
+    const sleutel = "liams-dagtest-2026-09-29-v1";
     const resetTest = document.getElementById("reset-test");
     resetTest.addEventListener("click", () => {
       const bevestigd = window.confirm("Wil je echt alle antwoorden van vandaag wissen en opnieuw beginnen bij vraag 1?");
@@ -422,7 +422,7 @@
 
     function toonResultaat() {
       quiz.innerHTML = "";
-      teller.textContent = "Alle schermopdrachten voltooid!";
+      teller.textContent = "Alle fruitopdrachten voltooid!";
       balk.style.width = "100%";
       feedback.hidden = true;
       volgende.hidden = true;
