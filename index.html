@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#42652f">
-  <title>Liams dagtest – De fonkelende fruitkar</title>
+  <meta name="theme-color" content="#244f6b">
+  <title>Liams dagtest – De sportclubparade</title>
   <style>
     :root {
-      --nacht: #35552f;
-      --pruim: #7a3f58;
-      --vlam: #e14f36;
-      --mango: #f1a43a;
+      --nacht: #203d5f;
+      --pruim: #315c84;
+      --vlam: #e35b34;
+      --mango: #f2a43d;
       --goud: #ffe57d;
-      --oase: #74a34e;
+      --oase: #38a28f;
       --papier: #fffaf0;
       --inkt: #332d43;
       --goed: #176c45;
@@ -31,7 +31,7 @@
         radial-gradient(circle at 14% 15%, #fff8b7 0 3px, transparent 4px),
         radial-gradient(circle at 76% 12%, #ffffff 0 2px, transparent 3px),
         radial-gradient(circle at 86% 74%, #ffd46a 0 3px, transparent 4px),
-        linear-gradient(145deg, var(--nacht), #6f8040 43%, #d65b3d 72%, #a15a69);
+        linear-gradient(145deg, var(--nacht), #2e7784 43%, #d65b3d 72%, #834b73);
       background-size: 92px 92px, 126px 126px, 112px 112px, auto;
     }
 
@@ -51,7 +51,7 @@
       padding: 26px 20px 23px;
       text-align: center;
       color: white;
-      background: linear-gradient(125deg, #35552f, #769441 48%, #df7040);
+      background: linear-gradient(125deg, #203d5f, #2f7b89 48%, #df7040);
     }
 
     header::before,
@@ -63,7 +63,7 @@
     }
 
     header::before { content: "🪶"; left: 3px; transform: rotate(-18deg); }
-    header::after { content: "🍎"; right: 4px; transform: rotate(9deg); }
+    header::after { content: "🏅"; right: 4px; transform: rotate(9deg); }
 
     .feniks {
       display: inline-grid;
@@ -92,7 +92,7 @@
       line-height: 1.5;
     }
 
-    .intro strong { color: #7b3166; }
+    .intro strong { color: #265f79; }
 
     .site-actions {
       position: sticky;
@@ -110,10 +110,10 @@
     .site-knop {
       min-height: 44px;
       padding: 10px 16px;
-      border: 2px solid #668840;
+      border: 2px solid #3a8290;
       border-radius: 999px;
-      color: #4d6b2d;
-      background: #eff8e3;
+      color: #24596b;
+      background: #e8f8f6;
       font: inherit;
       font-weight: 900;
       text-decoration: none;
@@ -274,12 +274,12 @@
     </nav>
     <header>
       <div class="feniks" aria-hidden="true">🔥🦜</div>
-      <h1>De fonkelende fruitkar</h1>
-      <p>Fonkelende Feniksen · dinsdag 29 september</p>
+      <h1>De sportclubparade</h1>
+      <p>Fonkelende Feniksen · woensdag 30 september</p>
       <div class="fonkels" aria-hidden="true">✦ ✧ ✦ ✧ ✦</div>
     </header>
 
-    <p class="intro"><strong>Dag Liam!</strong> Fenix Fonk rolt een kleurrijke fruitkar binnen vol appels, peren en denkvonken. Pikachu helpt rekenen, lezen en slim kiezen. Je eerste tik telt!</p>
+    <p class="intro"><strong>Dag Liam!</strong> Vandaag paradeert Fenix Fonk in een sporttrui door de K’doase. Pikachu brengt clubstickers mee en jij traint je reken-, lees- en denkkracht. Je eerste tik telt!</p>
     <div class="balkrand" aria-label="Voortgang"><div id="balk"></div></div>
     <div id="teller"></div>
     <section id="quiz" aria-live="polite"></section>
@@ -293,23 +293,23 @@
       <p id="boodschap"></p>
       <div class="klein">Alles wordt alleen op dit toestel nagekeken. Er worden geen antwoorden verstuurd.</div>
     </section>
-    <footer>🪶🍎 Voor Liam van de Fonkelende Feniksen — proef met je ogen en laat je denkvlam schitteren!</footer>
+    <footer>🪶🏅 Voor Liam van de Fonkelende Feniksen — lees scherp, denk rustig en laat je sportvlam schitteren!</footer>
   </main>
 
   <script>
     const questions = [
-      {cat:"rekenen",q:"Pikachu legt 28 appels op de kar. Fenix legt er 16 peren bij. Hoeveel stukken fruit zijn er samen?",o:["42","44","46"],a:1,e:"28 + 16 = 44 stukken fruit."},
-      {cat:"rekenen",q:"Kaka-Kees heeft 63 mandarijnen. Hij deelt er 27 uit. Hoeveel mandarijnen blijven over?",o:["34","36","46"],a:1,e:"63 − 27 = 36 mandarijnen."},
-      {cat:"rekenen",q:"Er liggen 22 druiven in een kom. Hoeveel moeten erbij om er 30 te hebben?",o:["8","10","12"],a:0,e:"22 + 8 = 30, dus er moeten 8 druiven bij."},
-      {cat:"rekenen",q:"Van 16 aardbeien wordt precies de helft gebruikt. Hoeveel aardbeien zijn dat?",o:["6","8","10"],a:1,e:"De helft van 16 is 8."},
-      {cat:"nederlands",q:"Lees het bord bij de fruitkar.<span class=\"leeskaart\">Kies één stuk fruit.<br>Was het als dat nodig is.<br>Gooi de schil in de groene bak.</span>Waar hoort een fruitschil?",o:["In de groene bak","Onder de tafel","In je boekentas"],a:0,e:"Op het bord staat dat de schil in de groene bak hoort."},
-      {cat:"nederlands",q:"Lees het briefje bij de fruitsalade.<span class=\"leeskaart\">In deze schaal zitten geen noten.<br>Heb je een allergie? Vertel het vóór het eten aan de juf.<br>De lepels liggen naast de schaal.</span>Wat doe je als je een allergie hebt?",o:["Niets zeggen","Het vóór het eten aan de juf vertellen","Alle lepels meenemen"],a:1,e:"Het briefje zegt dat je een allergie vóór het eten aan de juf vertelt."},
-      {cat:"nederlands",q:"Welk fruitwoord is juist geschreven?",o:["bannan","banaan","banaam"],a:1,e:"Je schrijft banaan met één n in het midden en aa vóór de laatste n."},
-      {cat:"nederlands",q:"Welk woord begint met dezelfde klank als ‘fruit’?",o:["fles","peer","druif"],a:0,e:"Fruit en fles beginnen allebei met de klank f."},
-      {cat:"denken",q:"De fruitpauze begint om 10:20 en duurt 15 minuten. Wanneer is ze klaar?",o:["10:30","10:35","10:45"],a:1,e:"Vijftien minuten na 10:20 is 10:35."},
-      {cat:"denken",q:"Welke kleur krijg je als je rood en geel mengt bij het schilderen van een sinaasappel?",o:["Groen","Oranje","Paars"],a:1,e:"Rood en geel samen geven oranje."},
-      {cat:"denken",q:"Welk eten hoort niet bij de fruitsoorten?",o:["Een banaan","Een peer","Een wortel"],a:2,e:"Een wortel is een groente; banaan en peer zijn fruit."},
-      {cat:"denken",q:"Wat doe je vóór je fruit voor anderen in stukjes snijdt?",o:["Je handen wassen","Op de grond gaan zitten","Je vingers aflikken"],a:0,e:"Was eerst je handen als je eten klaarmaakt."}
+      {cat:"rekenen",q:"Pikachu heeft 34 clubstickers. Hij krijgt er 18 bij. Hoeveel stickers heeft hij nu?",o:["50","52","54"],a:1,e:"34 + 18 = 52 stickers."},
+      {cat:"rekenen",q:"Pipi-Piet legt 76 sporthesjes klaar. Hij deelt er 20 uit. Hoeveel hesjes blijven over?",o:["46","56","66"],a:1,e:"76 − 20 = 56 sporthesjes."},
+      {cat:"rekenen",q:"Bij de estafette staan 5 groepjes met telkens 3 kegels. Hoeveel kegels zijn dat samen?",o:["8","15","18"],a:1,e:"5 groepjes van 3 zijn samen 15 kegels."},
+      {cat:"rekenen",q:"Een scorebord toont 6 tientallen en 4 eenheden. Welk getal staat er?",o:["46","60","64"],a:2,e:"6 tientallen zijn 60. Met 4 eenheden erbij krijg je 64."},
+      {cat:"nederlands",q:"Lees het briefje voor de sportclubdag.<span class=\"leeskaart\">Trek een trui of T-shirt van je sportclub aan.<br>Verzamel om 08:35 op de speelplaats.<br>Zet je sporttas bij de klasdeur.</span>Waar zet je je sporttas?",o:["Bij de klasdeur","Op het dak","Midden op de speelplaats"],a:0,e:"Op het briefje staat: zet je sporttas bij de klasdeur."},
+      {cat:"nederlands",q:"Lees het trainingsbriefje.<span class=\"leeskaart\">De training start om 14:00.<br>Kom om 13:40 aan.<br>Breng een gevulde drinkbus mee.</span>Hoe laat moet je aankomen?",o:["13:40","14:00","14:40"],a:0,e:"Je moet om 13:40 aankomen, vóór de training begint."},
+      {cat:"nederlands",q:"Welk sportwoord is juist geschreven?",o:["sport tas","sporttass","sporttas"],a:2,e:"Je schrijft sporttas aan elkaar en met één s op het einde."},
+      {cat:"nederlands",q:"Welk woord begint met dezelfde klank als ‘sport’?",o:["spel","sok","poort"],a:0,e:"Sport en spel beginnen allebei met de klank sp."},
+      {cat:"denken",q:"Wat doe je vóór een training om je lichaam klaar te maken?",o:["Een rustige opwarming","Meteen zo hard mogelijk sprinten","Stil op de grond blijven zitten"],a:0,e:"Met een rustige opwarming maak je je lichaam klaar om te bewegen."},
+      {cat:"denken",q:"De training begint om 16:10 en duurt 40 minuten. Wanneer is ze klaar?",o:["16:40","16:50","17:10"],a:1,e:"Veertig minuten na 16:10 is 16:50."},
+      {cat:"denken",q:"Eerst sprint je, daarna spring je en als laatste werp je. Wat doe je op de tweede plaats?",o:["Sprinten","Springen","Werpen"],a:1,e:"Na sprinten komt springen, dus springen staat op de tweede plaats."},
+      {cat:"denken",q:"Wat heb je nodig om badminton te spelen?",o:["Een racket","Een zwembril","Een schaats"],a:0,e:"Bij badminton sla je het pluimpje met een racket."}
     ];
 
     const quiz = document.getElementById("quiz");
@@ -321,7 +321,7 @@
     const volgende = document.getElementById("volgende");
     const opnieuw = document.getElementById("opnieuw");
     const resultaat = document.getElementById("resultaat");
-    const sleutel = "liams-dagtest-2026-09-29-v1";
+    const sleutel = "liams-dagtest-2026-09-30-v1";
     const resetTest = document.getElementById("reset-test");
     resetTest.addEventListener("click", () => {
       const bevestigd = window.confirm("Wil je echt alle antwoorden van vandaag wissen en opnieuw beginnen bij vraag 1?");
@@ -422,7 +422,7 @@
 
     function toonResultaat() {
       quiz.innerHTML = "";
-      teller.textContent = "Alle fruitopdrachten voltooid!";
+      teller.textContent = "Alle sportopdrachten voltooid!";
       balk.style.width = "100%";
       feedback.hidden = true;
       volgende.hidden = true;
