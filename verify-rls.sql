@@ -23,8 +23,16 @@ do $$begin
   raise exception 'History deletion allowed';
  exception when insufficient_privilege then null; end;
 end$$;
+update public.exercise_runs set deleted_at=now(),active=false where id='00000000-0000-4000-8000-000000000003';
+do $$begin
+ if not exists(select 1 from public.exercise_runs where id='00000000-0000-4000-8000-000000000003' and deleted_at is not null) then raise exception 'Trash move failed'; end if;
+ if (select count(*) from public.exercise_answers where run_id='00000000-0000-4000-8000-000000000003')<>1 then raise exception 'Answers lost in trash'; end if;
+end$$;
+update public.exercise_runs set deleted_at=null where id='00000000-0000-4000-8000-000000000003';
 select set_config('request.jwt.claims','{"sub":"00000000-0000-4000-8000-000000000002","role":"authenticated"}',true);
 do $$begin
+ update public.exercise_runs set deleted_at=now() where id='00000000-0000-4000-8000-000000000003';
+ if found then raise exception 'Other account changed trash'; end if;
  if exists(select 1 from public.exercise_runs where id='00000000-0000-4000-8000-000000000003') or exists(select 1 from public.exercise_answers where run_id='00000000-0000-4000-8000-000000000003') then raise exception 'Other account can read'; end if;
  begin
   insert into public.exercise_answers(run_id,question_index,phase,selected_index,category,question_text,chosen_answer,correct_answer,is_correct) values('00000000-0000-4000-8000-000000000003',1,'first',0,'test','Test','1','1',true);
@@ -43,4 +51,4 @@ do $$begin
  exception when insufficient_privilege then null; end;
 end$$;
 rollback;
-select 'PASS: own read/write, account isolation, anonymous denial, immutable answers, concurrent revision, retained history' as verification;
+select 'PASS: own read/write, account isolation, anonymous denial, immutable answers, concurrent revision, retained history, trash and restore' as verification;

@@ -4,7 +4,7 @@ De bestaande GitHub Pages-site gebruikt Supabase voor oefenrondes, onveranderbar
 
 ## Zonder aanmelden
 
-Met de knop Oefenen zonder aanmelden kan Liam direct oefenen. Deze voortgang wordt uitsluitend in de browser op dat toestel bewaard, los van de online rondes. Eerste antwoorden blijven vergrendeld. Een gast kan opnieuw beginnen; daarbij wordt de lokale gastvoortgang vervangen. Gastresultaten worden niet automatisch naar een ouderaccount overgezet.
+De site opent direct de oefening zonder aanmelding. De knop Aanmelden staat rechtsboven. Deze voortgang wordt uitsluitend in de browser op dat toestel bewaard, los van de online rondes. Eerste antwoorden blijven vergrendeld. Een gast kan opnieuw beginnen; daarbij wordt de lokale gastvoortgang vervangen. Gastresultaten worden niet automatisch naar een ouderaccount overgezet.
 
 ## Aanmelden
 
@@ -35,3 +35,7 @@ De browser bewaart de aanmeldsessie; oefenresultaten staan online. Bij volledig 
 ## Afhankelijkheid
 
 `supabase-2.57.4.js` is de vastgelegde UMD-versie van @supabase/supabase-js 2.57.4, afkomstig van https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.js. De site laadt deze kopie rechtstreeks van dezelfde GitHub Pages-host.
+
+## Resultaten wissen
+
+In Mijn resultaten kun je één ronde of alle rondes wissen, na een bevestiging. Deze rondes worden verborgen via deleted_at en komen in een prullenbak. Via Herstellen krijg je een ronde terug in het overzicht, inclusief de oorspronkelijke antwoorden. Er worden geen rijen fysiek verwijderd. Alleen de eigenaar kan de markering wijzigen. Een gewiste actieve ronde wordt vervangen door een nieuwe lege ronde. Andere toestellen kunnen niet verder schrijven in een gewiste ronde. Gastvoortgang kan via Nieuwe ronde opnieuw worden gestart; hiervoor is geen online prullenbak.

@@ -23,7 +23,7 @@ async function newRun() {
 }
 async function loadRun() {
  status('Je voortgang wordt opgehaald…');
- const {data,error}=await db.from('exercise_runs').select('*,exercise_answers(*)').eq('quiz_key',sleutel).eq('active',true).order('started_at',{ascending:false}).limit(1).maybeSingle();
+ const {data,error}=await db.from('exercise_runs').select('*,exercise_answers(*)').eq('quiz_key',sleutel).eq('active',true).is('deleted_at',null).order('started_at',{ascending:false}).limit(1).maybeSingle();
  if(error) throw error;
  if(!data) return newRun();
  run=data; voortgang=validateState(data.progress);
@@ -122,14 +122,52 @@ $('reset-test').addEventListener('click',async()=>{
  busy=true;
  try {const {error}=await db.from('exercise_runs').update({active:false}).eq('id',run.id);if(error)throw error;await newRun();status('Nieuwe ronde gestart. Je vorige ronde blijft bewaard.');}catch(error){fail(error);}finally{busy=false;}
 });
-$('history-toggle').addEventListener('click',async()=>{
- $('history').hidden=!$('history').hidden;if($('history').hidden)return;
+let trashVisible=false;
+async function showHistory(){
+ if(!user)return;
  $('history-content').textContent='Je resultaten worden opgehaald…';
- try {
-  const {data,error}=await db.from('exercise_runs').select('quiz_title,quiz_date,total_questions,completed_at,started_at,exercise_answers(category,is_correct,phase)').order('started_at',{ascending:false}).limit(100);if(error)throw error;
-  $('history-content').innerHTML=data.length?data.map(r=>{const a=(r.exercise_answers||[]).filter(a=>a.phase==='first'),score=a.filter(a=>a.is_correct).length;const cats=[...new Set(a.map(a=>a.category))].map(c=>`${escapeHtml(c)}: ${a.filter(a=>a.category===c&&a.is_correct).length}/${a.filter(a=>a.category===c).length}`).join(' · ');return `<article class="kaart"><strong>${escapeHtml(r.quiz_title)}</strong><p>${escapeHtml(new Date(r.started_at).toLocaleString('nl-BE'))} · ${score}/${r.total_questions} ${a.length<r.total_questions?`(${a.length} beantwoord)`:'✓'}</p><p class="klein">${cats}</p></article>`;}).join(''):'Nog geen oefenrondes.';
+ $('history-title').textContent=trashVisible?'Prullenbak':'Mijn resultaten';
+ $('trash-toggle').textContent=trashVisible?'📚 Terug naar resultaten':'🗑️ Prullenbak';
+ $('delete-all').hidden=trashVisible;
+ try{
+  let query=db.from('exercise_runs').select('id,quiz_title,quiz_date,total_questions,completed_at,started_at,deleted_at,exercise_answers(category,is_correct,phase)').order('started_at',{ascending:false}).limit(100);
+  query=trashVisible?query.not('deleted_at','is',null):query.is('deleted_at',null);
+  const {data:rows,error}=await query;if(error)throw error;
+  const data=trashVisible?rows:rows.filter(r=>r.exercise_answers?.length||r.completed_at);
+  $('delete-all').disabled=!data.length;
+  $('history-content').innerHTML=data.length?data.map(r=>{
+   const a=(r.exercise_answers||[]).filter(a=>a.phase==='first'),score=a.filter(a=>a.is_correct).length;
+   const cats=[...new Set(a.map(a=>a.category))].map(c=>`${escapeHtml(c)}: ${a.filter(a=>a.category===c&&a.is_correct).length}/${a.filter(a=>a.category===c).length}`).join(' · ');
+   return `<article class="kaart"><strong>${escapeHtml(r.quiz_title)}</strong><p>${escapeHtml(new Date(r.started_at).toLocaleString('nl-BE'))} · ${score}/${r.total_questions} ${a.length<r.total_questions?`(${a.length} beantwoord)`:'✓'}</p><p class="klein">${cats}</p><button class="site-knop" type="button" data-${trashVisible?'restore':'delete'}="${escapeHtml(r.id)}">${trashVisible?'↩ Herstellen':'🗑️ Deze ronde wissen'}</button></article>`;
+  }).join(''):trashVisible?'De prullenbak is leeg.':'Nog geen oefenrondes.';
  }catch(error){$('history-content').textContent='Ophalen mislukt. Sluit dit overzicht en probeer opnieuw.';}
+}
+$('history-toggle').addEventListener('click',async()=>{
+ $('history').hidden=!$('history').hidden;if(!$('history').hidden){trashVisible=false;await showHistory();}
 });
+$('trash-toggle').addEventListener('click',async()=>{if(busy)return;trashVisible=!trashVisible;await showHistory();});
+async function changeHistory(id,restore=false){
+ if(!user||busy||pending)return;
+ if(!restore&&!confirm(id?'Deze oefenronde wissen? Je kunt ze terughalen via de prullenbak.':'Alle opgeslagen oefenrondes wissen? Je kunt ze terughalen via de prullenbak.'))return;
+ busy=true;
+ try{
+  let query=db.from('exercise_runs').update(restore?{deleted_at:null}:{deleted_at:new Date().toISOString(),active:false});
+  query=id?query.eq('id',id):query.is('deleted_at',null);
+  const {data,error}=await query.select('id');if(error)throw error;
+  if(!data?.length)throw new Error('Geen ronde gewijzigd');
+  if(!restore&&data.some(r=>r.id===run?.id)){
+   await newRun();
+  }
+  status(restore?'Oefenronde hersteld.':'Resultaten gewist. Je kunt ze herstellen via de prullenbak.');
+  await showHistory();
+ }catch(error){status('De wijziging is niet gelukt. Probeer opnieuw.');}
+ finally{busy=false;}
+}
+$('history-content').addEventListener('click',event=>{
+ const button=event.target.closest('[data-delete],[data-restore]');if(!button)return;
+ changeHistory(button.dataset.delete||button.dataset.restore,!!button.dataset.restore);
+});
+$('delete-all').addEventListener('click',()=>changeHistory(null));
 $('import-local').addEventListener('click',async()=>{
  if(busy||pending||voortgang.antwoorden.some(Number.isInteger))return;
  let old;try{old=JSON.parse(localStorage.getItem(sleutel));}catch(_){return;}

@@ -315,7 +315,7 @@
     </section>
     <p id="cloud-status" role="status"></p>
     <button id="save-retry" class="site-knop" type="button" hidden>Opnieuw verbinden / bewaren</button>
-    <section id="history" hidden aria-label="Eerdere oefenrondes"><h2>Mijn resultaten</h2><div id="history-content"></div></section>
+    <section id="history" hidden aria-label="Eerdere oefenrondes"><h2 id="history-title">Mijn resultaten</h2><button id="delete-all" class="site-knop site-knop--reset" type="button">Alle resultaten wissen</button> <button id="trash-toggle" class="site-knop" type="button">🗑️ Prullenbak</button><div id="history-content"></div></section>
     <section id="practice" hidden>
     <div class="balkrand" aria-label="Voortgang"><div id="balk"></div></div>
     <div id="teller"></div>
@@ -336,6 +336,6 @@
 
   <script src="supabase-2.57.4.js"></script>
   <script src="questions.js"></script>
-  <script src="app.js?v=20261001-default-guest"></script>
+  <script src="app.js?v=20261001-trash"></script>
 </body>
 </html>
