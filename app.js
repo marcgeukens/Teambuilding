@@ -42,6 +42,7 @@ function answerRow(index,choice,phase) {
 }
 async function save(next,answers=[]) {
  if(guest) {
+  guestTouched=true;
   voortgang=structuredClone(next);
   try{localStorage.setItem(guestKey,JSON.stringify(voortgang));status('Op dit toestel bewaard. Meld je aan voor online opslag.');}
   catch(_){status('Je oefent zonder aanmelden. Je voortgang blijft alleen in deze geopende pagina.');}
@@ -143,21 +144,26 @@ $('login-form').addEventListener('submit',async event=>{
  try{const {error}=await db.auth.signInWithOtp({email:$('login-email').value.trim(),options:{emailRedirectTo:'https://www.teambuildingprom23klasa.be/'}});if(error)throw error;$('login-message').textContent='Open de aanmeldlink in je e-mail op dit toestel. Daarna kun je oefenen.';}catch(error){$('login-message').textContent=error?.status===429?'Er zijn te veel aanvragen. Wacht even en probeer later opnieuw.':'Aanmeldmail kon niet worden verstuurd. Probeer later opnieuw of laat papa de aanmelding nakijken.';}finally{button.disabled=false;}
 });
 $('logout').addEventListener('click',async()=>{if(busy||pending)return;await db.auth.signOut({scope:'local'});location.reload();});
-$('guest-start').addEventListener('click',()=>{
+let guestTouched=false;
+function startGuest(){
  guest=true;user=null;run=null;
  try{voortgang=validateState(JSON.parse(localStorage.getItem(guestKey)));}catch(_){voortgang=leeg();}
- $('login-panel').hidden=true;$('account-bar').hidden=true;$('guest-bar').hidden=false;
- $('storage-note').textContent='Je oefent zonder aanmelden. Resultaten worden alleen op dit toestel bewaard.';
- render();status('Je oefent zonder aanmelden. Geen online opslag.');
-});
+ $('login-panel').hidden=true;$('account-bar').hidden=true;
+ $('storage-note').textContent='Zonder aanmelden worden je resultaten alleen op dit toestel bewaard.';
+ render();status('');
+}
+$('guest-start').addEventListener('click',()=>{ $('login-panel').hidden=true; });
 $('guest-login').addEventListener('click',()=>{
- guest=false;$('guest-bar').hidden=true;$('practice').hidden=true;$('login-panel').hidden=false;status('Meld je aan om je online oefenrondes op te halen.');
+ if(user){$('account-bar').hidden=!$('account-bar').hidden;}
+ else{$('login-panel').hidden=!$('login-panel').hidden;}
 });
+startGuest();
 async function boot(){
- if(!db){$('login-message').textContent='De verbinding kon niet laden. Herlaad de pagina met een internetverbinding.';return;}
+ if(!db){$('login-message').textContent='Online aanmelden is momenteel niet beschikbaar. Je kunt wel gewoon oefenen.';return;}
  const {data,error}=await db.auth.getUser();
- if(error||!data.user||guest)return;
- user=data.user;$('login-panel').hidden=true;$('account-bar').hidden=false;$('account-email').textContent=user.email;
+ if(error||!data.user||guestTouched)return;
+ guest=false;
+ user=data.user;$('login-panel').hidden=true;$('account-bar').hidden=true;$('account-email').textContent=user.email;$('guest-login').textContent='Account';$('storage-note').textContent='Je eerste antwoorden en score blijven online bewaard. Een herkansing verandert je oorspronkelijke score niet.';
  try{await loadRun();let old;try{old=JSON.parse(localStorage.getItem(sleutel));}catch(_){}$('import-local').hidden=!(old?.antwoorden?.some(Number.isInteger))||voortgang.antwoorden.some(Number.isInteger);}catch(error){fail(error);}
 }
 boot();

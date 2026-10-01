@@ -132,6 +132,7 @@
       cursor: pointer;
     }
 
+    #guest-login { margin-left:auto; }
     .site-knop--reset { border-color: #d56b3b; color: #8d3b1f; background: #fff0df; }
     .site-knop:focus-visible { outline: 4px solid #ffd85f; outline-offset: 2px; }
 
@@ -283,6 +284,7 @@
     <nav class="site-actions" aria-label="Testbediening">
       <a class="site-knop" href="./">🏠 Home</a>
       <button id="reset-test" class="site-knop site-knop--reset" type="button">↻ Nieuwe ronde</button>
+      <button id="guest-login" class="site-knop" type="button">Aanmelden</button>
     </nav>
     <header>
       <div class="feniks" aria-hidden="true">🔥🦜</div>
@@ -292,10 +294,10 @@
     </header>
 
     <p class="intro"><strong>Dag Liam!</strong> Vandaag paradeert Fenix Fonk in een sporttrui door de K’doase. Pikachu brengt clubstickers mee en jij traint je reken-, lees- en denkkracht. Je eerste tik telt!</p>
-    <section id="login-panel" class="account-panel">
-      <h2>Bewaar je oefenavonturen ☁️</h2>
+    <section id="login-panel" class="account-panel" hidden>
+      <h2>Aanmelden ☁️</h2>
       <p>Je kunt meteen oefenen zonder aanmelden. Wil je je antwoorden en scores online bewaren? Laat papa of mama je dan aanmelden.</p>
-      <button id="guest-start" class="hoofdknop" type="button">🎮 Oefenen zonder aanmelden</button>
+      <button id="guest-start" class="hoofdknop" type="button">Verder oefenen zonder aanmelden</button>
       <p>Of bewaar je resultaten online:</p>
       <form id="login-form">
         <label for="login-email">E-mailadres van je ouder</label>
@@ -304,10 +306,6 @@
       </form>
       <p id="login-message" role="status"></p>
       <p class="klein">Gebruik op elk toestel hetzelfde ouderaccount om Liams voortgang te zien. Open de link uit de e-mail op het toestel waarop je wilt oefenen.</p>
-    </section>
-    <section id="guest-bar" class="account-panel" hidden>
-      <p>🎮 Je oefent zonder aanmelden. Je resultaten blijven alleen op dit toestel.</p>
-      <button id="guest-login" class="site-knop" type="button">☁️ Aanmelden voor online opslag</button>
     </section>
     <section id="account-bar" class="account-panel" hidden>
       <p>Aangemeld: <strong id="account-email"></strong></p>
@@ -338,6 +336,6 @@
 
   <script src="supabase-2.57.4.js"></script>
   <script src="questions.js"></script>
-  <script src="app.js?v=20261001-guest"></script>
+  <script src="app.js?v=20261001-default-guest"></script>
 </body>
 </html>
