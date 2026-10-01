@@ -294,7 +294,9 @@
     <p class="intro"><strong>Dag Liam!</strong> Vandaag paradeert Fenix Fonk in een sporttrui door de K’doase. Pikachu brengt clubstickers mee en jij traint je reken-, lees- en denkkracht. Je eerste tik telt!</p>
     <section id="login-panel" class="account-panel">
       <h2>Bewaar je oefenavonturen ☁️</h2>
-      <p>Laat papa of mama je aanmelden. Dan blijven je antwoorden en scores bewaard, ook op een andere tablet.</p>
+      <p>Je kunt meteen oefenen zonder aanmelden. Wil je je antwoorden en scores online bewaren? Laat papa of mama je dan aanmelden.</p>
+      <button id="guest-start" class="hoofdknop" type="button">🎮 Oefenen zonder aanmelden</button>
+      <p>Of bewaar je resultaten online:</p>
       <form id="login-form">
         <label for="login-email">E-mailadres van je ouder</label>
         <input id="login-email" type="email" autocomplete="email" required>
@@ -302,6 +304,10 @@
       </form>
       <p id="login-message" role="status"></p>
       <p class="klein">Gebruik op elk toestel hetzelfde ouderaccount om Liams voortgang te zien. Open de link uit de e-mail op het toestel waarop je wilt oefenen.</p>
+    </section>
+    <section id="guest-bar" class="account-panel" hidden>
+      <p>🎮 Je oefent zonder aanmelden. Je resultaten blijven alleen op dit toestel.</p>
+      <button id="guest-login" class="site-knop" type="button">☁️ Aanmelden voor online opslag</button>
     </section>
     <section id="account-bar" class="account-panel" hidden>
       <p>Aangemeld: <strong id="account-email"></strong></p>
@@ -324,7 +330,7 @@
     <section id="resultaat" aria-live="polite">
       <div id="score"></div>
       <p id="boodschap"></p>
-      <div class="klein">Je eerste antwoorden en score blijven online bewaard. Een herkansing verandert je oorspronkelijke score niet.</div>
+      <div id="storage-note" class="klein">Je eerste antwoorden en score blijven online bewaard. Een herkansing verandert je oorspronkelijke score niet.</div>
     </section>
     </section>
     <footer>🪶🏅 Voor Liam van de Fonkelende Feniksen — lees scherp, denk rustig en laat je sportvlam schitteren!</footer>

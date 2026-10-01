@@ -2,6 +2,10 @@
 
 De bestaande GitHub Pages-site gebruikt Supabase voor oefenrondes, onveranderbare eerste antwoorden en hervatbare voortgang. Antwoorden worden online bewaard voordat verdergaan mogelijk wordt. Een netwerkfout toont een knop om opnieuw te bewaren. Een nieuwe ronde bewaart de vorige ronde.
 
+## Zonder aanmelden
+
+Met de knop Oefenen zonder aanmelden kan Liam direct oefenen. Deze voortgang wordt uitsluitend in de browser op dat toestel bewaard, los van de online rondes. Eerste antwoorden blijven vergrendeld. Een gast kan opnieuw beginnen; daarbij wordt de lokale gastvoortgang vervangen. Gastresultaten worden niet automatisch naar een ouderaccount overgezet.
+
 ## Aanmelden
 
 Vraag op de site een aanmeldlink aan en open de e-mail op het toestel waarop je wilt oefenen. Gebruik op verschillende toestellen hetzelfde ouderaccount om dezelfde voortgang en resultaten te zien. Een ander e-mailadres krijgt een eigen geschiedenis; er is nog geen koppeling tussen twee afzonderlijke ouderaccounts.

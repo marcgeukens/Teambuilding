@@ -3,6 +3,8 @@ const db = window.supabase?.createClient('https://rrsoralrmfvqnvxsoxie.supabase.
 const $ = id => document.getElementById(id);
 const sleutel = quizMeta.key;
 const leeg = () => ({fase:'eerste',positie:0,antwoorden:questions.map(()=>null),herkansing:{}});
+let guest=false;
+const guestKey='liam-guest:'+sleutel;
 let user, run, voortgang=leeg(), busy=false, pending=null, reeks=[], vergrendeld=false;
 const status = text => { $('cloud-status').textContent=text; };
 const escapeHtml = text => String(text).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -39,6 +41,13 @@ function answerRow(index,choice,phase) {
  return {question_index:index,selected_index:choice,phase,category:q.cat,question_text:q.q.replace(/<[^>]*>/g,' '),chosen_answer:q.o[choice],correct_answer:q.o[q.a],is_correct:choice===q.a};
 }
 async function save(next,answers=[]) {
+ if(guest) {
+  voortgang=structuredClone(next);
+  try{localStorage.setItem(guestKey,JSON.stringify(voortgang));status('Op dit toestel bewaard. Meld je aan voor online opslag.');}
+  catch(_){status('Je oefent zonder aanmelden. Je voortgang blijft alleen in deze geopende pagina.');}
+  busy=false;pending=null;$('volgende').disabled=false;return true;
+ }
+
  busy=true; pending={next:structuredClone(next),answers}; $('volgende').disabled=true;
  status('☁️ Even bewaren…');
  const {data,error}=await db.rpc('save_exercise_progress',{p_run_id:run.id,p_revision:run.revision,p_progress:next,p_answers:answers});
@@ -105,7 +114,9 @@ $('save-retry').addEventListener('click',async()=>{
  try {if(pending){const p=pending;if(await save(p.next,p.answers))render();}else await loadRun();}catch(error){busy=false;fail(error);}
 });
 $('reset-test').addEventListener('click',async()=>{
- if(!user||busy||pending)return;
+ if(busy||pending)return;
+ if(guest){if(!confirm('Zonder aanmelden opnieuw beginnen? De antwoorden van deze ronde op dit toestel worden vervangen.'))return;voortgang=leeg();await save(voortgang);render();return;}
+ if(!user)return;
  if(!confirm('Een nieuwe ronde starten? Je eerdere antwoorden en score blijven online bewaard.'))return;
  busy=true;
  try {const {error}=await db.from('exercise_runs').update({active:false}).eq('id',run.id);if(error)throw error;await newRun();status('Nieuwe ronde gestart. Je vorige ronde blijft bewaard.');}catch(error){fail(error);}finally{busy=false;}
@@ -132,10 +143,20 @@ $('login-form').addEventListener('submit',async event=>{
  try{const {error}=await db.auth.signInWithOtp({email:$('login-email').value.trim(),options:{emailRedirectTo:'https://www.teambuildingprom23klasa.be/'}});if(error)throw error;$('login-message').textContent='Open de aanmeldlink in je e-mail op dit toestel. Daarna kun je oefenen.';}catch(error){$('login-message').textContent=error?.status===429?'Er zijn te veel aanvragen. Wacht even en probeer later opnieuw.':'Aanmeldmail kon niet worden verstuurd. Probeer later opnieuw of laat papa de aanmelding nakijken.';}finally{button.disabled=false;}
 });
 $('logout').addEventListener('click',async()=>{if(busy||pending)return;await db.auth.signOut({scope:'local'});location.reload();});
+$('guest-start').addEventListener('click',()=>{
+ guest=true;user=null;run=null;
+ try{voortgang=validateState(JSON.parse(localStorage.getItem(guestKey)));}catch(_){voortgang=leeg();}
+ $('login-panel').hidden=true;$('account-bar').hidden=true;$('guest-bar').hidden=false;
+ $('storage-note').textContent='Je oefent zonder aanmelden. Resultaten worden alleen op dit toestel bewaard.';
+ render();status('Je oefent zonder aanmelden. Geen online opslag.');
+});
+$('guest-login').addEventListener('click',()=>{
+ guest=false;$('guest-bar').hidden=true;$('practice').hidden=true;$('login-panel').hidden=false;status('Meld je aan om je online oefenrondes op te halen.');
+});
 async function boot(){
  if(!db){$('login-message').textContent='De verbinding kon niet laden. Herlaad de pagina met een internetverbinding.';return;}
  const {data,error}=await db.auth.getUser();
- if(error||!data.user)return;
+ if(error||!data.user||guest)return;
  user=data.user;$('login-panel').hidden=true;$('account-bar').hidden=false;$('account-email').textContent=user.email;
  try{await loadRun();let old;try{old=JSON.parse(localStorage.getItem(sleutel));}catch(_){}$('import-local').hidden=!(old?.antwoorden?.some(Number.isInteger))||voortgang.antwoorden.some(Number.isInteger);}catch(error){fail(error);}
 }
