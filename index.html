@@ -3,28 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#244f6b">
-  <title>Liams dagtest – De sportclubparade</title>
-  <script>if(location.protocol==='http:' && location.hostname==='www.teambuildingprom23klasa.be')location.replace('https:'+location.href.slice(5));</script>
+  <meta name="theme-color" content="#5b376f">
+  <title>Liams dagtest – Het verhalenpodium</title>
   <style>
-    [hidden] { display: none !important; }
-    .account-panel { margin:20px; padding:20px; border:2px solid #3a8290; border-radius:18px; background:#e8f8f6; }
-    .account-panel h2 { margin-top:0; }
-    .account-panel input { width:100%; margin:10px 0 16px; min-height:48px; padding:12px; border:2px solid #3a8290; border-radius:10px; font:inherit; }
-    .account-panel button { margin:5px; }
-    #cloud-status { margin:12px 20px; text-align:center; font-weight:700; }
-    #save-retry { display:block; margin:10px auto; }
-    #account-email { overflow-wrap:anywhere; }
-    button:disabled { cursor:wait; }
-    #history { margin:20px; }
-
     :root {
-      --nacht: #203d5f;
-      --pruim: #315c84;
-      --vlam: #e35b34;
-      --mango: #f2a43d;
+      --nacht: #352853;
+      --pruim: #70447f;
+      --vlam: #d84e6f;
+      --mango: #efa34a;
       --goud: #ffe57d;
-      --oase: #38a28f;
+      --oase: #4c9b91;
       --papier: #fffaf0;
       --inkt: #332d43;
       --goed: #176c45;
@@ -43,7 +31,7 @@
         radial-gradient(circle at 14% 15%, #fff8b7 0 3px, transparent 4px),
         radial-gradient(circle at 76% 12%, #ffffff 0 2px, transparent 3px),
         radial-gradient(circle at 86% 74%, #ffd46a 0 3px, transparent 4px),
-        linear-gradient(145deg, var(--nacht), #2e7784 43%, #d65b3d 72%, #834b73);
+        linear-gradient(145deg, var(--nacht), #674581 43%, #c34c72 72%, #d17a4e);
       background-size: 92px 92px, 126px 126px, 112px 112px, auto;
     }
 
@@ -63,7 +51,7 @@
       padding: 26px 20px 23px;
       text-align: center;
       color: white;
-      background: linear-gradient(125deg, #203d5f, #2f7b89 48%, #df7040);
+      background: linear-gradient(125deg, #352853, #70447f 48%, #d75c66);
     }
 
     header::before,
@@ -75,7 +63,7 @@
     }
 
     header::before { content: "🪶"; left: 3px; transform: rotate(-18deg); }
-    header::after { content: "🏅"; right: 4px; transform: rotate(9deg); }
+    header::after { content: "🎭"; right: 4px; transform: rotate(9deg); }
 
     .feniks {
       display: inline-grid;
@@ -104,7 +92,7 @@
       line-height: 1.5;
     }
 
-    .intro strong { color: #265f79; }
+    .intro strong { color: #743a72; }
 
     .site-actions {
       position: sticky;
@@ -122,17 +110,16 @@
     .site-knop {
       min-height: 44px;
       padding: 10px 16px;
-      border: 2px solid #3a8290;
+      border: 2px solid #7d5592;
       border-radius: 999px;
-      color: #24596b;
-      background: #e8f8f6;
+      color: #623974;
+      background: #f4eafa;
       font: inherit;
       font-weight: 900;
       text-decoration: none;
       cursor: pointer;
     }
 
-    #guest-login { margin-left:auto; }
     .site-knop--reset { border-color: #d56b3b; color: #8d3b1f; background: #fff0df; }
     .site-knop:focus-visible { outline: 4px solid #ffd85f; outline-offset: 2px; }
 
@@ -283,40 +270,16 @@
   <main class="boek">
     <nav class="site-actions" aria-label="Testbediening">
       <a class="site-knop" href="./">🏠 Home</a>
-      <button id="reset-test" class="site-knop site-knop--reset" type="button">↻ Nieuwe ronde</button>
-      <button id="guest-login" class="site-knop" type="button">Aanmelden</button>
+      <button id="reset-test" class="site-knop site-knop--reset" type="button">↻ Reset</button>
     </nav>
     <header>
       <div class="feniks" aria-hidden="true">🔥🦜</div>
-      <h1>De sportclubparade</h1>
-      <p>Fonkelende Feniksen · woensdag 30 september</p>
+      <h1>Het verhalenpodium</h1>
+      <p>Fonkelende Feniksen · vrijdag 2 oktober</p>
       <div class="fonkels" aria-hidden="true">✦ ✧ ✦ ✧ ✦</div>
     </header>
 
-    <p class="intro"><strong>Dag Liam!</strong> Vandaag paradeert Fenix Fonk in een sporttrui door de K’doase. Pikachu brengt clubstickers mee en jij traint je reken-, lees- en denkkracht. Je eerste tik telt!</p>
-    <section id="login-panel" class="account-panel" hidden>
-      <h2>Aanmelden ☁️</h2>
-      <p>Je kunt meteen oefenen zonder aanmelden. Wil je je antwoorden en scores online bewaren? Laat papa of mama je dan aanmelden.</p>
-      <button id="guest-start" class="hoofdknop" type="button">Verder oefenen zonder aanmelden</button>
-      <p>Of bewaar je resultaten online:</p>
-      <form id="login-form">
-        <label for="login-email">E-mailadres van je ouder</label>
-        <input id="login-email" type="email" autocomplete="email" required>
-        <button id="login-submit" class="hoofdknop" type="submit">Stuur een aanmeldlink</button>
-      </form>
-      <p id="login-message" role="status"></p>
-      <p class="klein">Gebruik op elk toestel hetzelfde ouderaccount om Liams voortgang te zien. Open de link uit de e-mail op het toestel waarop je wilt oefenen.</p>
-    </section>
-    <section id="account-bar" class="account-panel" hidden>
-      <p>Aangemeld: <strong id="account-email"></strong></p>
-      <button id="history-toggle" class="site-knop" type="button">📚 Mijn resultaten</button>
-      <button id="logout" class="site-knop" type="button">Afmelden</button>
-      <button id="import-local" class="site-knop" type="button" hidden>Oude antwoorden van dit toestel bewaren</button>
-    </section>
-    <p id="cloud-status" role="status"></p>
-    <button id="save-retry" class="site-knop" type="button" hidden>Opnieuw verbinden / bewaren</button>
-    <section id="history" hidden aria-label="Eerdere oefenrondes"><h2 id="history-title">Mijn resultaten</h2><button id="delete-all" class="site-knop site-knop--reset" type="button">Alle resultaten wissen</button> <button id="trash-toggle" class="site-knop" type="button">🗑️ Prullenbak</button><div id="history-content"></div></section>
-    <section id="practice" hidden>
+    <p class="intro"><strong>Dag Liam!</strong> Fenix Fonk opent het gordijn van een klein verhalenpodium. Pikachu brengt vertelkaarten mee en jij helpt met rekenen, lezen en slim nadenken. Je eerste tik telt!</p>
     <div class="balkrand" aria-label="Voortgang"><div id="balk"></div></div>
     <div id="teller"></div>
     <section id="quiz" aria-live="polite"></section>
@@ -328,14 +291,174 @@
     <section id="resultaat" aria-live="polite">
       <div id="score"></div>
       <p id="boodschap"></p>
-      <div id="storage-note" class="klein">Je eerste antwoorden en score blijven online bewaard. Een herkansing verandert je oorspronkelijke score niet.</div>
+      <div class="klein">Alles wordt alleen op dit toestel nagekeken. Er worden geen antwoorden verstuurd.</div>
     </section>
-    </section>
-    <footer>🪶🏅 Voor Liam van de Fonkelende Feniksen — lees scherp, denk rustig en laat je sportvlam schitteren!</footer>
+    <footer>🪶🎭 Voor Liam van de Fonkelende Feniksen — lees met aandacht en laat je verbeeldingsvlam schitteren!</footer>
   </main>
 
-  <script src="supabase-2.57.4.js"></script>
-  <script src="questions.js"></script>
-  <script src="app.js?v=20261001-trash"></script>
+  <script>
+    const questions = [
+      {cat:"rekenen",q:"Pikachu heeft 27 vertelkaarten. Hij krijgt er 16 bij. Hoeveel kaarten heeft hij nu?",o:["41","43","45"],a:1,e:"27 + 16 = 43 vertelkaarten."},
+      {cat:"rekenen",q:"Pipi-Puk maakt 65 papieren sterren voor het decor. Hij hangt er 23 op. Hoeveel sterren blijven over?",o:["32","42","48"],a:1,e:"65 − 23 = 42 sterren."},
+      {cat:"rekenen",q:"Op het achterdoek moeten 40 lichtjes komen. Er hangen er al 33. Hoeveel lichtjes ontbreken nog?",o:["7","13","17"],a:0,e:"33 + 7 = 40, dus er ontbreken nog 7 lichtjes."},
+      {cat:"rekenen",q:"Noor behaalt 51 punten bij een vertelspel. Liam behaalt 48 punten. Wie heeft er meer en hoeveel meer?",o:["Noor, 3 meer","Liam, 3 meer","Noor, 9 meer"],a:0,e:"51 is 3 meer dan 48, dus Noor heeft 3 punten meer."},
+      {cat:"nederlands",q:"Lees de affiche van het theateratelier.<span class=\"leeskaart\">Vrijdag start het atelier om 15:30.<br>We spelen in de muziekzaal.<br>Ouders halen de kinderen om 16:30 op aan de schoolpoort.</span>Waar word je opgehaald?",o:["Aan de schoolpoort","In de muziekzaal","Bij de bushalte"],a:0,e:"Op de affiche staat dat ouders de kinderen aan de schoolpoort ophalen."},
+      {cat:"nederlands",q:"Lees het briefje achter het podium.<span class=\"leeskaart\">Hang je kostuum aan kapstok 4.<br>Leg je tekst onder je stoel.<br>Is het rode lampje aan? Dan ben je stil.</span>Wat doe je als het rode lampje aan is?",o:["Je zingt luid","Je bent stil","Je loopt naar buiten"],a:1,e:"Het briefje zegt dat je stil bent wanneer het rode lampje aan is."},
+      {cat:"nederlands",q:"Welk woord is juist geschreven?",o:["toneelspel","toneel spel","tonneelspel"],a:0,e:"Je schrijft toneelspel aan elkaar en toneel met één n."},
+      {cat:"nederlands",q:"Welk woord rijmt op ‘stem’?",o:["rem","stoel","raam"],a:0,e:"Stem en rem hebben aan het einde dezelfde klank."},
+      {cat:"denken",q:"Een acteur groet eerst, vertelt daarna een mop en buigt als laatste. Wat doet hij op het einde?",o:["Hij groet","Hij vertelt een mop","Hij buigt"],a:2,e:"Als laatste buigt de acteur."},
+      {cat:"denken",q:"De repetitie begint om 14:25 en duurt 20 minuten. Wanneer is ze klaar?",o:["14:35","14:45","15:05"],a:1,e:"Twintig minuten na 14:25 is 14:45."},
+      {cat:"denken",q:"Een podiumtegel heeft 4 even lange zijden en 4 rechte hoeken. Welke vorm is dit?",o:["Een driehoek","Een cirkel","Een vierkant"],a:2,e:"Een vierkant heeft 4 even lange zijden en 4 rechte hoeken."},
+      {cat:"denken",q:"Fenix staat links van Pikachu. Squirtle staat rechts van Pikachu. Wie staat in het midden?",o:["Fenix","Pikachu","Squirtle"],a:1,e:"Pikachu staat tussen Fenix en Squirtle in."}
+    ];
+
+    const quiz = document.getElementById("quiz");
+    const balk = document.getElementById("balk");
+    const teller = document.getElementById("teller");
+    const feedback = document.getElementById("feedback");
+    const feedbackTitel = document.getElementById("feedback-titel");
+    const feedbackTekst = document.getElementById("feedback-tekst");
+    const volgende = document.getElementById("volgende");
+    const opnieuw = document.getElementById("opnieuw");
+    const resultaat = document.getElementById("resultaat");
+    const sleutel = "liams-dagtest-2026-10-02-v1";
+    const resetTest = document.getElementById("reset-test");
+    resetTest.addEventListener("click", () => {
+      const bevestigd = window.confirm("Wil je echt alle antwoorden van vandaag wissen en opnieuw beginnen bij vraag 1?");
+      if (!bevestigd) return;
+      try { localStorage.removeItem(sleutel); } catch (_) {}
+      window.location.reload();
+    });
+    const leeg = () => ({fase:"eerste", positie:0, antwoorden:Array(12).fill(null), herkansing:{}});
+    let voortgang;
+    try {
+      voortgang = JSON.parse(localStorage.getItem(sleutel)) || leeg();
+      if (!Array.isArray(voortgang.antwoorden) || voortgang.antwoorden.length !== questions.length ||
+          !["eerste","uitslag","herkansing","klaar"].includes(voortgang.fase)) voortgang = leeg();
+    } catch (_) { voortgang = leeg(); }
+    const bewaar = () => { try { localStorage.setItem(sleutel, JSON.stringify(voortgang)); } catch (_) {} };
+    const gemisteIndices = () => questions.map((_, i) => i).filter(i => voortgang.antwoorden[i] !== questions[i].a);
+    let reeks = [];
+    let vergrendeld = false;
+
+    function startReeks(indices) {
+      reeks = [...indices];
+      resultaat.style.display = "none";
+      opnieuw.hidden = true;
+      toonVraag();
+    }
+
+    function toonVraag() {
+      const positie = voortgang.positie;
+      const index = reeks[positie];
+      const vraag = questions[index];
+      vergrendeld = false;
+      teller.textContent = `Vraag ${positie + 1} van ${reeks.length}`;
+      balk.style.width = `${(positie / reeks.length) * 100}%`;
+      feedback.hidden = true;
+      feedback.className = "";
+      volgende.hidden = true;
+      quiz.innerHTML = `<article class="kaart"><div class="vraag"><span class="nummer">${index + 1}</span>${vraag.q}</div>${vraag.o.map((keuze, i) => `<button class="keuze" type="button" data-keuze="${i}">${keuze}</button>`).join("")}</article>`;
+      const vorig = voortgang.fase === "eerste" ? voortgang.antwoorden[index] : voortgang.herkansing[index];
+      if (Number.isInteger(vorig)) toonAntwoord(vorig);
+    }
+
+    function toonAntwoord(gekozen) {
+      vergrendeld = true;
+      const index = reeks[voortgang.positie];
+      const vraag = questions[index];
+      const kaart = quiz.querySelector(".kaart");
+      const knop = kaart.querySelector(`[data-keuze="${gekozen}"]`);
+      const juist = gekozen === vraag.a;
+
+      kaart.querySelectorAll(".keuze").forEach(k => { k.disabled = true; });
+      kaart.querySelector(`[data-keuze="${vraag.a}"]`).classList.add("juist");
+
+      if (juist) {
+        kaart.classList.add("goed");
+        feedback.className = "goed";
+        feedbackTitel.textContent = "Juist! 🌟";
+        feedbackTekst.textContent = `Knap gelezen of gerekend, Liam! ${vraag.e}`;
+      } else {
+        knop.classList.add("mis");
+        kaart.classList.add("fout");
+        feedback.className = "fout";
+        feedbackTitel.textContent = "Goed geprobeerd! 💪";
+        feedbackTekst.textContent = `Het juiste antwoord is: ${vraag.o[vraag.a]}. ${vraag.e}`;
+      }
+
+      feedback.hidden = false;
+      balk.style.width = `${((voortgang.positie + 1) / reeks.length) * 100}%`;
+      volgende.textContent = voortgang.positie === reeks.length - 1 ? "Bekijk mijn uitslag →" : "Volgende vraag →";
+      volgende.hidden = false;
+    }
+
+    quiz.addEventListener("click", event => {
+      const knop = event.target.closest(".keuze");
+      if (!knop || vergrendeld) return;
+      vergrendeld = true;
+      const index = reeks[voortgang.positie];
+      const gekozen = Number(knop.dataset.keuze);
+      if (voortgang.fase === "eerste") voortgang.antwoorden[index] = gekozen;
+      else voortgang.herkansing[index] = gekozen;
+      bewaar();
+      toonAntwoord(gekozen);
+      feedback.scrollIntoView({behavior: "smooth", block: "center"});
+    });
+
+    volgende.addEventListener("click", () => {
+      if (!vergrendeld) return;
+      voortgang.positie += 1;
+      if (voortgang.positie < reeks.length) {
+        bewaar();
+        toonVraag();
+        window.scrollTo({top: 0, behavior: "smooth"});
+      } else {
+        voortgang.fase = voortgang.fase === "eerste" ? "uitslag" : "klaar";
+        bewaar();
+        toonResultaat();
+      }
+    });
+
+    function toonResultaat() {
+      quiz.innerHTML = "";
+      teller.textContent = "Alle podiumopdrachten voltooid!";
+      balk.style.width = "100%";
+      feedback.hidden = true;
+      volgende.hidden = true;
+      const totaal = questions.filter((vraag, i) => voortgang.antwoorden[i] === vraag.a).length;
+      document.getElementById("score").textContent = `${totaal} op 12`;
+      const boodschap = totaal === 12
+        ? "Fantastisch, Liam! Alle twaalf denklichtjes stralen. 🏆"
+        : totaal >= 9
+          ? "Heel sterk gewerkt! Je feniksvlam brandt prachtig. 🔥"
+          : totaal >= 6
+            ? "Knap doorgezet! Met een rustige herkansing vind je nog meer vonken. ✨"
+            : "Dapper geprobeerd! Elke vraag die je oefent, maakt je sterker. 🪶";
+      const extra = voortgang.fase === "klaar"
+        ? ` Je hebt bij de herkansing ${gemisteIndices().filter(i => voortgang.herkansing[i] === questions[i].a).length} van je ${gemisteIndices().length} gemiste vragen nu ook juist. Goed volgehouden!`
+        : "";
+      document.getElementById("boodschap").textContent = boodschap + extra;
+      resultaat.style.display = "block";
+      opnieuw.hidden = voortgang.fase !== "uitslag" || totaal === 12;
+      resultaat.scrollIntoView({behavior: "smooth", block: "center"});
+    }
+
+    opnieuw.addEventListener("click", () => {
+      if (voortgang.fase !== "uitslag") return;
+      voortgang.fase = "herkansing";
+      voortgang.positie = 0;
+      bewaar();
+      startReeks(gemisteIndices());
+      window.scrollTo({top: 0, behavior: "smooth"});
+    });
+
+    if (voortgang.fase === "uitslag" || voortgang.fase === "klaar") toonResultaat();
+    else {
+      const indices = voortgang.fase === "eerste" ? questions.map((_, i) => i) : gemisteIndices();
+      if (voortgang.positie < 0 || voortgang.positie >= indices.length) voortgang.positie = 0;
+      startReeks(indices);
+    }
+  </script>
 </body>
 </html>
