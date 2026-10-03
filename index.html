@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#5b376f">
-  <title>Liams dagtest – Het verhalenpodium</title>
+  <meta name="theme-color" content="#49643d">
+  <title>Liams dagtest – De complimentenboom</title>
   <style>
     :root {
-      --nacht: #352853;
-      --pruim: #70447f;
-      --vlam: #d84e6f;
-      --mango: #efa34a;
+      --nacht: #344c38;
+      --pruim: #78515f;
+      --vlam: #dc6547;
+      --mango: #efa83f;
       --goud: #ffe57d;
-      --oase: #4c9b91;
+      --oase: #6f944b;
       --papier: #fffaf0;
       --inkt: #332d43;
       --goed: #176c45;
@@ -31,7 +31,7 @@
         radial-gradient(circle at 14% 15%, #fff8b7 0 3px, transparent 4px),
         radial-gradient(circle at 76% 12%, #ffffff 0 2px, transparent 3px),
         radial-gradient(circle at 86% 74%, #ffd46a 0 3px, transparent 4px),
-        linear-gradient(145deg, var(--nacht), #674581 43%, #c34c72 72%, #d17a4e);
+        linear-gradient(145deg, var(--nacht), #69804a 43%, #c85b42 72%, #a64e62);
       background-size: 92px 92px, 126px 126px, 112px 112px, auto;
     }
 
@@ -51,7 +51,7 @@
       padding: 26px 20px 23px;
       text-align: center;
       color: white;
-      background: linear-gradient(125deg, #352853, #70447f 48%, #d75c66);
+      background: linear-gradient(125deg, #344c38, #718d48 48%, #d26a43);
     }
 
     header::before,
@@ -63,7 +63,7 @@
     }
 
     header::before { content: "🪶"; left: 3px; transform: rotate(-18deg); }
-    header::after { content: "🎭"; right: 4px; transform: rotate(9deg); }
+    header::after { content: "🌳"; right: 4px; transform: rotate(9deg); }
 
     .feniks {
       display: inline-grid;
@@ -92,7 +92,7 @@
       line-height: 1.5;
     }
 
-    .intro strong { color: #743a72; }
+    .intro strong { color: #536d37; }
 
     .site-actions {
       position: sticky;
@@ -110,10 +110,10 @@
     .site-knop {
       min-height: 44px;
       padding: 10px 16px;
-      border: 2px solid #7d5592;
+      border: 2px solid #758f4b;
       border-radius: 999px;
-      color: #623974;
-      background: #f4eafa;
+      color: #526c35;
+      background: #f0f7e5;
       font: inherit;
       font-weight: 900;
       text-decoration: none;
@@ -274,12 +274,12 @@
     </nav>
     <header>
       <div class="feniks" aria-hidden="true">🔥🦜</div>
-      <h1>Het verhalenpodium</h1>
-      <p>Fonkelende Feniksen · vrijdag 2 oktober</p>
+      <h1>De complimentenboom</h1>
+      <p>Fonkelende Feniksen · zaterdag 3 oktober</p>
       <div class="fonkels" aria-hidden="true">✦ ✧ ✦ ✧ ✦</div>
     </header>
 
-    <p class="intro"><strong>Dag Liam!</strong> Fenix Fonk opent het gordijn van een klein verhalenpodium. Pikachu brengt vertelkaarten mee en jij helpt met rekenen, lezen en slim nadenken. Je eerste tik telt!</p>
+    <p class="intro"><strong>Dag Liam!</strong> Fenix Fonk plant een boom vol lieve woorden voor de Ouderdag. Pikachu verzamelt fonkelblaadjes en jij helpt met rekenen, lezen en slim nadenken. Je eerste tik telt!</p>
     <div class="balkrand" aria-label="Voortgang"><div id="balk"></div></div>
     <div id="teller"></div>
     <section id="quiz" aria-live="polite"></section>
@@ -293,23 +293,23 @@
       <p id="boodschap"></p>
       <div class="klein">Alles wordt alleen op dit toestel nagekeken. Er worden geen antwoorden verstuurd.</div>
     </section>
-    <footer>🪶🎭 Voor Liam van de Fonkelende Feniksen — lees met aandacht en laat je verbeeldingsvlam schitteren!</footer>
+    <footer>🪶🌳 Voor Liam van de Fonkelende Feniksen — laat je denkvlam én je lieve woorden schitteren!</footer>
   </main>
 
   <script>
     const questions = [
-      {cat:"rekenen",q:"Pikachu heeft 27 vertelkaarten. Hij krijgt er 16 bij. Hoeveel kaarten heeft hij nu?",o:["41","43","45"],a:1,e:"27 + 16 = 43 vertelkaarten."},
-      {cat:"rekenen",q:"Pipi-Puk maakt 65 papieren sterren voor het decor. Hij hangt er 23 op. Hoeveel sterren blijven over?",o:["32","42","48"],a:1,e:"65 − 23 = 42 sterren."},
-      {cat:"rekenen",q:"Op het achterdoek moeten 40 lichtjes komen. Er hangen er al 33. Hoeveel lichtjes ontbreken nog?",o:["7","13","17"],a:0,e:"33 + 7 = 40, dus er ontbreken nog 7 lichtjes."},
-      {cat:"rekenen",q:"Noor behaalt 51 punten bij een vertelspel. Liam behaalt 48 punten. Wie heeft er meer en hoeveel meer?",o:["Noor, 3 meer","Liam, 3 meer","Noor, 9 meer"],a:0,e:"51 is 3 meer dan 48, dus Noor heeft 3 punten meer."},
-      {cat:"nederlands",q:"Lees de affiche van het theateratelier.<span class=\"leeskaart\">Vrijdag start het atelier om 15:30.<br>We spelen in de muziekzaal.<br>Ouders halen de kinderen om 16:30 op aan de schoolpoort.</span>Waar word je opgehaald?",o:["Aan de schoolpoort","In de muziekzaal","Bij de bushalte"],a:0,e:"Op de affiche staat dat ouders de kinderen aan de schoolpoort ophalen."},
-      {cat:"nederlands",q:"Lees het briefje achter het podium.<span class=\"leeskaart\">Hang je kostuum aan kapstok 4.<br>Leg je tekst onder je stoel.<br>Is het rode lampje aan? Dan ben je stil.</span>Wat doe je als het rode lampje aan is?",o:["Je zingt luid","Je bent stil","Je loopt naar buiten"],a:1,e:"Het briefje zegt dat je stil bent wanneer het rode lampje aan is."},
-      {cat:"nederlands",q:"Welk woord is juist geschreven?",o:["toneelspel","toneel spel","tonneelspel"],a:0,e:"Je schrijft toneelspel aan elkaar en toneel met één n."},
-      {cat:"nederlands",q:"Welk woord rijmt op ‘stem’?",o:["rem","stoel","raam"],a:0,e:"Stem en rem hebben aan het einde dezelfde klank."},
-      {cat:"denken",q:"Een acteur groet eerst, vertelt daarna een mop en buigt als laatste. Wat doet hij op het einde?",o:["Hij groet","Hij vertelt een mop","Hij buigt"],a:2,e:"Als laatste buigt de acteur."},
-      {cat:"denken",q:"De repetitie begint om 14:25 en duurt 20 minuten. Wanneer is ze klaar?",o:["14:35","14:45","15:05"],a:1,e:"Twintig minuten na 14:25 is 14:45."},
-      {cat:"denken",q:"Een podiumtegel heeft 4 even lange zijden en 4 rechte hoeken. Welke vorm is dit?",o:["Een driehoek","Een cirkel","Een vierkant"],a:2,e:"Een vierkant heeft 4 even lange zijden en 4 rechte hoeken."},
-      {cat:"denken",q:"Fenix staat links van Pikachu. Squirtle staat rechts van Pikachu. Wie staat in het midden?",o:["Fenix","Pikachu","Squirtle"],a:1,e:"Pikachu staat tussen Fenix en Squirtle in."}
+      {cat:"rekenen",q:"Pikachu heeft 36 blaadjes voor de complimentenboom. Hij krijgt er 27 bij. Hoeveel blaadjes heeft hij nu?",o:["53","63","73"],a:1,e:"36 + 27 = 63 blaadjes."},
+      {cat:"rekenen",q:"Kaka-Koen schrijft 80 complimentkaartjes. Hij deelt er 35 uit. Hoeveel kaartjes blijven over?",o:["35","45","55"],a:1,e:"80 − 35 = 45 kaartjes."},
+      {cat:"rekenen",q:"Er zijn 24 kleine ontbijtkoekjes. Ze worden eerlijk verdeeld over 2 schalen. Hoeveel koekjes liggen op elke schaal?",o:["10","12","14"],a:1,e:"De helft van 24 is 12, dus op elke schaal liggen 12 koekjes."},
+      {cat:"rekenen",q:"Welke getal ontbreekt? 42, 44, __, 48",o:["45","46","47"],a:1,e:"De rij telt telkens 2 verder: 42, 44, 46, 48."},
+      {cat:"nederlands",q:"Lees het bericht over de Ouderdag.<span class=\"leeskaart\">Op vrijdag 9 oktober zijn ouders welkom vanaf 08:30.<br>Breng eerst je kind naar de klas.<br>Ga daarna naar het ontbijt op de patio.</span>Wat doe je eerst?",o:["Je kind naar de klas brengen","Ontbijten op de patio","Meteen weer naar huis gaan"],a:0,e:"In het bericht staat dat je eerst je kind naar de klas brengt."},
+      {cat:"nederlands",q:"Lees het briefje bij de complimentenboom.<span class=\"leeskaart\">Schrijf bovenaan de naam van je ouder.<br>Schrijf daarna één lieve zin.<br>Hang het blaadje aan de boom.</span>Wat doe je na de lieve zin?",o:["Het blaadje weggooien","Het blaadje aan de boom hangen","Een nieuwe naam verzinnen"],a:1,e:"Na de lieve zin hang je het blaadje aan de boom."},
+      {cat:"nederlands",q:"Welk lieve woord is juist geschreven?",o:["liev","liif","lief"],a:2,e:"Je schrijft lief met ie en een f."},
+      {cat:"nederlands",q:"Welk woord begint met dezelfde klank als ‘bloem’?",o:["blauw","boom","roos"],a:0,e:"Bloem en blauw beginnen allebei met de klank bl."},
+      {cat:"denken",q:"De Ouderdag start om half negen. Welke tijd is dat?",o:["08:00","08:30","09:30"],a:1,e:"Half negen betekent 08:30."},
+      {cat:"denken",q:"Vandaag is het 3 oktober. De Ouderdag is op 9 oktober. Hoeveel dagen is dat nog?",o:["5 dagen","6 dagen","7 dagen"],a:1,e:"Van 3 oktober tot 9 oktober zijn nog 6 dagen."},
+      {cat:"denken",q:"Fenix kiest een blaadje dat niet rood en niet geel is. Hij kan kiezen uit rood, geel en groen. Welke kleur kiest hij?",o:["Rood","Geel","Groen"],a:2,e:"Als rood en geel niet mogen, blijft groen over."},
+      {cat:"denken",q:"Welke zin is een fijn compliment?",o:["Jij helpt heel goed.","Ga weg!","Ik pak alles zelf."],a:0,e:"‘Jij helpt heel goed’ zegt iets liefs en positiefs over iemand."}
     ];
 
     const quiz = document.getElementById("quiz");
@@ -321,7 +321,7 @@
     const volgende = document.getElementById("volgende");
     const opnieuw = document.getElementById("opnieuw");
     const resultaat = document.getElementById("resultaat");
-    const sleutel = "liams-dagtest-2026-10-02-v1";
+    const sleutel = "liams-dagtest-2026-10-03-v1";
     const resetTest = document.getElementById("reset-test");
     resetTest.addEventListener("click", () => {
       const bevestigd = window.confirm("Wil je echt alle antwoorden van vandaag wissen en opnieuw beginnen bij vraag 1?");
@@ -422,7 +422,7 @@
 
     function toonResultaat() {
       quiz.innerHTML = "";
-      teller.textContent = "Alle podiumopdrachten voltooid!";
+      teller.textContent = "Alle boomopdrachten voltooid!";
       balk.style.width = "100%";
       feedback.hidden = true;
       volgende.hidden = true;
