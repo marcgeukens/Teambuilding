@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#49643d">
-  <title>Liams dagtest – De complimentenboom</title>
+  <title>Liams dagtest – De patio-ontbijtmissie</title>
   <style>
     :root {
-      --nacht: #344c38;
-      --pruim: #78515f;
+      --nacht: #324c64;
+      --pruim: #7b536e;
       --vlam: #dc6547;
       --mango: #efa83f;
       --goud: #ffe57d;
-      --oase: #6f944b;
+      --oase: #4f9289;
       --papier: #fffaf0;
       --inkt: #332d43;
       --goed: #176c45;
@@ -31,7 +31,7 @@
         radial-gradient(circle at 14% 15%, #fff8b7 0 3px, transparent 4px),
         radial-gradient(circle at 76% 12%, #ffffff 0 2px, transparent 3px),
         radial-gradient(circle at 86% 74%, #ffd46a 0 3px, transparent 4px),
-        linear-gradient(145deg, var(--nacht), #69804a 43%, #c85b42 72%, #a64e62);
+        linear-gradient(145deg, var(--nacht), #498b83 43%, #cf6947 72%, #925778);
       background-size: 92px 92px, 126px 126px, 112px 112px, auto;
     }
 
@@ -51,7 +51,7 @@
       padding: 26px 20px 23px;
       text-align: center;
       color: white;
-      background: linear-gradient(125deg, #344c38, #718d48 48%, #d26a43);
+      background: linear-gradient(125deg, #324c64, #4f9289 48%, #d06b48);
     }
 
     header::before,
@@ -63,7 +63,7 @@
     }
 
     header::before { content: "🪶"; left: 3px; transform: rotate(-18deg); }
-    header::after { content: "🌳"; right: 4px; transform: rotate(9deg); }
+    header::after { content: "☕"; right: 4px; transform: rotate(9deg); }
 
     .feniks {
       display: inline-grid;
@@ -92,7 +92,7 @@
       line-height: 1.5;
     }
 
-    .intro strong { color: #536d37; }
+    .intro strong { color: #356d68; }
 
     .site-actions {
       position: sticky;
@@ -110,10 +110,10 @@
     .site-knop {
       min-height: 44px;
       padding: 10px 16px;
-      border: 2px solid #758f4b;
+      border: 2px solid #4f8d85;
       border-radius: 999px;
-      color: #526c35;
-      background: #f0f7e5;
+      color: #356d68;
+      background: #e7f7f4;
       font: inherit;
       font-weight: 900;
       text-decoration: none;
@@ -274,12 +274,12 @@
     </nav>
     <header>
       <div class="feniks" aria-hidden="true">🔥🦜</div>
-      <h1>De complimentenboom</h1>
-      <p>Fonkelende Feniksen · zaterdag 3 oktober</p>
+      <h1>De patio-ontbijtmissie</h1>
+      <p>Fonkelende Feniksen · zondag 4 oktober</p>
       <div class="fonkels" aria-hidden="true">✦ ✧ ✦ ✧ ✦</div>
     </header>
 
-    <p class="intro"><strong>Dag Liam!</strong> Fenix Fonk plant een boom vol lieve woorden voor de Ouderdag. Pikachu verzamelt fonkelblaadjes en jij helpt met rekenen, lezen en slim nadenken. Je eerste tik telt!</p>
+    <p class="intro"><strong>Dag Liam!</strong> Fenix Fonk maakt de patio klaar voor een vrolijk ontbijt. Squirtle schenkt water in, Pikachu telt het fruit en jij helpt met rekenen, lezen en slim nadenken. Je eerste tik telt!</p>
     <div class="balkrand" aria-label="Voortgang"><div id="balk"></div></div>
     <div id="teller"></div>
     <section id="quiz" aria-live="polite"></section>
@@ -293,23 +293,23 @@
       <p id="boodschap"></p>
       <div class="klein">Alles wordt alleen op dit toestel nagekeken. Er worden geen antwoorden verstuurd.</div>
     </section>
-    <footer>🪶🌳 Voor Liam van de Fonkelende Feniksen — laat je denkvlam én je lieve woorden schitteren!</footer>
+    <footer>🪶☕ Voor Liam van de Fonkelende Feniksen — laat je denkvlam stralen bij het patio-ontbijt!</footer>
   </main>
 
   <script>
     const questions = [
-      {cat:"rekenen",q:"Pikachu heeft 36 blaadjes voor de complimentenboom. Hij krijgt er 27 bij. Hoeveel blaadjes heeft hij nu?",o:["53","63","73"],a:1,e:"36 + 27 = 63 blaadjes."},
-      {cat:"rekenen",q:"Kaka-Koen schrijft 80 complimentkaartjes. Hij deelt er 35 uit. Hoeveel kaartjes blijven over?",o:["35","45","55"],a:1,e:"80 − 35 = 45 kaartjes."},
-      {cat:"rekenen",q:"Er zijn 24 kleine ontbijtkoekjes. Ze worden eerlijk verdeeld over 2 schalen. Hoeveel koekjes liggen op elke schaal?",o:["10","12","14"],a:1,e:"De helft van 24 is 12, dus op elke schaal liggen 12 koekjes."},
-      {cat:"rekenen",q:"Welke getal ontbreekt? 42, 44, __, 48",o:["45","46","47"],a:1,e:"De rij telt telkens 2 verder: 42, 44, 46, 48."},
-      {cat:"nederlands",q:"Lees het bericht over de Ouderdag.<span class=\"leeskaart\">Op vrijdag 9 oktober zijn ouders welkom vanaf 08:30.<br>Breng eerst je kind naar de klas.<br>Ga daarna naar het ontbijt op de patio.</span>Wat doe je eerst?",o:["Je kind naar de klas brengen","Ontbijten op de patio","Meteen weer naar huis gaan"],a:0,e:"In het bericht staat dat je eerst je kind naar de klas brengt."},
-      {cat:"nederlands",q:"Lees het briefje bij de complimentenboom.<span class=\"leeskaart\">Schrijf bovenaan de naam van je ouder.<br>Schrijf daarna één lieve zin.<br>Hang het blaadje aan de boom.</span>Wat doe je na de lieve zin?",o:["Het blaadje weggooien","Het blaadje aan de boom hangen","Een nieuwe naam verzinnen"],a:1,e:"Na de lieve zin hang je het blaadje aan de boom."},
-      {cat:"nederlands",q:"Welk lieve woord is juist geschreven?",o:["liev","liif","lief"],a:2,e:"Je schrijft lief met ie en een f."},
-      {cat:"nederlands",q:"Welk woord begint met dezelfde klank als ‘bloem’?",o:["blauw","boom","roos"],a:0,e:"Bloem en blauw beginnen allebei met de klank bl."},
-      {cat:"denken",q:"De Ouderdag start om half negen. Welke tijd is dat?",o:["08:00","08:30","09:30"],a:1,e:"Half negen betekent 08:30."},
-      {cat:"denken",q:"Vandaag is het 3 oktober. De Ouderdag is op 9 oktober. Hoeveel dagen is dat nog?",o:["5 dagen","6 dagen","7 dagen"],a:1,e:"Van 3 oktober tot 9 oktober zijn nog 6 dagen."},
-      {cat:"denken",q:"Fenix kiest een blaadje dat niet rood en niet geel is. Hij kan kiezen uit rood, geel en groen. Welke kleur kiest hij?",o:["Rood","Geel","Groen"],a:2,e:"Als rood en geel niet mogen, blijft groen over."},
-      {cat:"denken",q:"Welke zin is een fijn compliment?",o:["Jij helpt heel goed.","Ga weg!","Ik pak alles zelf."],a:0,e:"‘Jij helpt heel goed’ zegt iets liefs en positiefs over iemand."}
+      {cat:"rekenen",q:"Op de patio staan 28 bekers. Fenix zet er 35 bij. Hoeveel bekers staan er nu?",o:["53","63","73"],a:1,e:"28 + 35 = 63 bekers."},
+      {cat:"rekenen",q:"Er zijn 74 servetten. Na het ontbijt zijn er 29 gebruikt. Hoeveel servetten blijven over?",o:["35","45","55"],a:1,e:"74 − 29 = 45 servetten."},
+      {cat:"rekenen",q:"Pipi-Piet verdeelt 21 stukjes appel eerlijk over 3 bordjes. Hoeveel stukjes liggen op elk bordje?",o:["6","7","8"],a:1,e:"21 verdeeld over 3 bordjes is 7 op elk bordje."},
+      {cat:"rekenen",q:"Welk getal heeft 6 tientallen en 4 eenheden?",o:["46","60","64"],a:2,e:"6 tientallen zijn 60 en 4 eenheden erbij maakt 64."},
+      {cat:"nederlands",q:"Lees het bericht voor maandag.<span class=\"leeskaart\">Maandag 5 oktober deelt de school fruit uit.<br>Je hoeft die dag zelf geen fruit mee te brengen.<br>Neem wel je drinkfles mee.</span>Wat moet Liam maandag wél meenemen?",o:["Fruit van thuis","Zijn drinkfles","Een koekenpan"],a:1,e:"In het bericht staat dat Liam wel zijn drinkfles meeneemt."},
+      {cat:"nederlands",q:"Lees het briefje over de Ouderdag.<span class=\"leeskaart\">Kom op vrijdag 9 oktober om 08:30 naar school.<br>Breng eerst je kind naar de klas.<br>Ga daarna naar het ontbijt op de patio.</span>Waar ga je na de klas naartoe?",o:["Naar de patio","Naar de speelstraat","Naar huis"],a:0,e:"Na de klas ga je naar het ontbijt op de patio."},
+      {cat:"nederlands",q:"Welk woord is juist geschreven?",o:["ontbijt","ondbeit","ontbeid"],a:0,e:"Je schrijft ontbijt met ont en bijt."},
+      {cat:"nederlands",q:"Welk woord rijmt op ‘peer’?",o:["meer","sap","bord"],a:0,e:"Peer en meer eindigen allebei op eer."},
+      {cat:"denken",q:"Welke dag komt na zondag 4 oktober?",o:["Maandag 5 oktober","Zaterdag 5 oktober","Dinsdag 5 oktober"],a:0,e:"Na zondag komt maandag. Morgen is het maandag 5 oktober."},
+      {cat:"denken",q:"Een rond bord heeft dezelfde vorm als welke figuur?",o:["Een driehoek","Een cirkel","Een rechthoek"],a:1,e:"Een rond bord heeft de vorm van een cirkel."},
+      {cat:"denken",q:"Wat doe je het best vlak vóór je gaat eten?",o:["Je handen wassen","Je schoenen verstoppen","Je beker omdraaien"],a:0,e:"Voor het eten was je je handen. Dat is netjes en gezond."},
+      {cat:"denken",q:"De placemats liggen zo: rood, blauw, geel, rood, blauw, __. Welke kleur komt nu?",o:["Geel","Groen","Rood"],a:0,e:"Het patroon herhaalt rood, blauw, geel. Dus nu komt geel."}
     ];
 
     const quiz = document.getElementById("quiz");
@@ -321,7 +321,7 @@
     const volgende = document.getElementById("volgende");
     const opnieuw = document.getElementById("opnieuw");
     const resultaat = document.getElementById("resultaat");
-    const sleutel = "liams-dagtest-2026-10-03-v1";
+    const sleutel = "liams-dagtest-2026-10-04-v1";
     const resetTest = document.getElementById("reset-test");
     resetTest.addEventListener("click", () => {
       const bevestigd = window.confirm("Wil je echt alle antwoorden van vandaag wissen en opnieuw beginnen bij vraag 1?");
@@ -422,7 +422,7 @@
 
     function toonResultaat() {
       quiz.innerHTML = "";
-      teller.textContent = "Alle boomopdrachten voltooid!";
+      teller.textContent = "Alle ontbijtopdrachten voltooid!";
       balk.style.width = "100%";
       feedback.hidden = true;
       volgende.hidden = true;
@@ -462,3 +462,4 @@
   </script>
 </body>
 </html>
+
