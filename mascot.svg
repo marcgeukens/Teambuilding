@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" role="img" aria-label="Een vrolijk fantasiewezentje">
+            <path d="M44 83C36 57 52 44 76 56C89 37 118 35 135 53C165 43 184 63 173 89C191 111 178 145 157 157C147 184 116 192 96 177C68 186 43 168 47 145C27 127 29 101 44 83Z" fill="#8AD7B1" stroke="#55B887" stroke-width="5" stroke-linejoin="round"/>
+            <path d="M61 58C59 40 68 27 83 25C94 42 91 52 82 62M137 51C142 32 158 25 171 33C174 49 165 60 151 66" fill="#B9EDD0" stroke="#55B887" stroke-width="5" stroke-linejoin="round"/>
+            <ellipse cx="82" cy="104" rx="8" ry="11" fill="#27364A"/><ellipse cx="139" cy="104" rx="8" ry="11" fill="#27364A"/>
+            <circle cx="79" cy="100" r="2.5" fill="#fff"/><circle cx="136" cy="100" r="2.5" fill="#fff"/>
+            <path d="M99 123C106 132 116 132 123 123" fill="none" stroke="#347B5D" stroke-width="5" stroke-linecap="round"/>
+            <ellipse cx="65" cy="121" rx="9" ry="5" fill="#F5A5A0" opacity=".75"/><ellipse cx="156" cy="121" rx="9" ry="5" fill="#F5A5A0" opacity=".75"/>
+            <path d="M107 68L116 80L104 84L96 76Z" fill="#FFE078" stroke="#E5B943" stroke-width="3" stroke-linejoin="round"/>
+          </svg>
