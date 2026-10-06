@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#49643d">
-  <title>Liams dagtest – De maandagse schilbrigade</title>
+  <title>Liams dagtest – De veilige schoolstraat</title>
   <style>
     :root {
-      --nacht: #3f563c;
-      --pruim: #744e66;
+      --nacht: #263e61;
+      --pruim: #6d506e;
       --vlam: #dc6547;
       --mango: #efa83f;
       --goud: #ffe57d;
-      --oase: #6d9b45;
+      --oase: #3d8f84;
       --papier: #fffaf0;
       --inkt: #332d43;
       --goed: #176c45;
@@ -31,7 +31,7 @@
         radial-gradient(circle at 14% 15%, #fff8b7 0 3px, transparent 4px),
         radial-gradient(circle at 76% 12%, #ffffff 0 2px, transparent 3px),
         radial-gradient(circle at 86% 74%, #ffd46a 0 3px, transparent 4px),
-        linear-gradient(145deg, var(--nacht), #729b49 43%, #e2883e 72%, #a94d65);
+        linear-gradient(145deg, var(--nacht), #3d8f84 43%, #df7d3f 72%, #994d6b);
       background-size: 92px 92px, 126px 126px, 112px 112px, auto;
     }
 
@@ -51,7 +51,7 @@
       padding: 26px 20px 23px;
       text-align: center;
       color: white;
-      background: linear-gradient(125deg, #3f563c, #79a34c 48%, #dc743e);
+      background: linear-gradient(125deg, #263e61, #3d8f84 48%, #d9703e);
     }
 
     header::before,
@@ -63,7 +63,7 @@
     }
 
     header::before { content: "🪶"; left: 3px; transform: rotate(-18deg); }
-    header::after { content: "🍎"; right: 4px; transform: rotate(9deg); }
+    header::after { content: "🚦"; right: 4px; transform: rotate(9deg); }
 
     .feniks {
       display: inline-grid;
@@ -92,7 +92,7 @@
       line-height: 1.5;
     }
 
-    .intro strong { color: #4e7035; }
+    .intro strong { color: #276f69; }
 
     .site-actions {
       position: sticky;
@@ -110,10 +110,10 @@
     .site-knop {
       min-height: 44px;
       padding: 10px 16px;
-      border: 2px solid #6c9547;
+      border: 2px solid #3d8f84;
       border-radius: 999px;
-      color: #4e7035;
-      background: #edf7df;
+      color: #276f69;
+      background: #e5f7f4;
       font: inherit;
       font-weight: 900;
       text-decoration: none;
@@ -274,12 +274,12 @@
     </nav>
     <header>
       <div class="feniks" aria-hidden="true">🔥🦜</div>
-      <h1>De maandagse schilbrigade</h1>
-      <p>Fonkelende Feniksen · maandag 5 oktober</p>
+      <h1>De veilige schoolstraat</h1>
+      <p>Fonkelende Feniksen · dinsdag 6 oktober</p>
       <div class="fonkels" aria-hidden="true">✦ ✧ ✦ ✧ ✦</div>
     </header>
 
-    <p class="intro"><strong>Dag Liam!</strong> Fenix Fonk helpt de schilbrigade op school. Bulbasaur draagt de fruitmanden en jij helpt met tellen, lezen, sorteren en slim nadenken. Je eerste tik telt!</p>
+    <p class="intro"><strong>Dag Liam!</strong> Fenix Fonk maakt de weg naar school veilig. Miraidon telt fietsen, Pikachu zoekt het zebrapad en jij helpt met rekenen, lezen en slim nadenken. Je eerste tik telt!</p>
     <div class="balkrand" aria-label="Voortgang"><div id="balk"></div></div>
     <div id="teller"></div>
     <section id="quiz" aria-live="polite"></section>
@@ -293,23 +293,23 @@
       <p id="boodschap"></p>
       <div class="klein">Alles wordt alleen op dit toestel nagekeken. Er worden geen antwoorden verstuurd.</div>
     </section>
-    <footer>🪶🍎 Voor Liam van de Fonkelende Feniksen — laat je denkvlam stralen bij de schilbrigade!</footer>
+    <footer>🪶🚦 Voor Liam van de Fonkelende Feniksen — laat je denkvlam stralen in de veilige schoolstraat!</footer>
   </main>
 
   <script>
     const questions = [
-      {cat:"rekenen",q:"Bulbasaur brengt 47 peren. De schilbrigade legt er 18 appels bij. Hoeveel stukken fruit zijn er samen?",o:["55","65","75"],a:1,e:"47 + 18 = 65 stukken fruit."},
-      {cat:"rekenen",q:"Kaka-Karel heeft 90 grappige wc-stickers. Hij deelt er 37 uit. Hoeveel stickers houdt hij over?",o:["43","53","63"],a:1,e:"90 − 37 = 53 stickers."},
-      {cat:"rekenen",q:"Op elke schaal liggen 5 appelstukjes. Er zijn 4 schalen. Hoeveel appelstukjes zijn dat samen?",o:["9","15","20"],a:2,e:"4 groepjes van 5 zijn samen 20 appelstukjes."},
-      {cat:"rekenen",q:"Welk getal ontbreekt? 68, 69, __, 71",o:["60","70","72"],a:1,e:"Na 69 komt 70 en daarna 71."},
-      {cat:"nederlands",q:"Lees de werkinstructie.<span class=\"leeskaart\">Was eerst je handen.<br>Spoel daarna de appel.<br>Snijd hem pas dan in stukjes.</span>Wat doe je vlak vóór je de appel spoelt?",o:["Je handen wassen","De appel snijden","De schaal wegzetten"],a:0,e:"Eerst was je je handen. Daarna spoel je de appel."},
-      {cat:"nederlands",q:"Lees het bordje bij de fruitbak.<span class=\"leeskaart\">Neem één stuk fruit.<br>Leg de schil in de groene bak.<br>Zet je beker na het eten op het rek.</span>Waar hoort de schil?",o:["Op het bekerrek","In de groene bak","In je boekentas"],a:1,e:"Op het bordje staat dat de schil in de groene bak hoort."},
-      {cat:"nederlands",q:"De schilbrigade maakt een woordkaart. Welke spelling klopt?",o:["groente","groemte","gronte"],a:0,e:"Je schrijft groente met oe en nt."},
-      {cat:"nederlands",q:"Welk woord begint met dezelfde klank als ‘schil’?",o:["schaal","stoel","sap"],a:0,e:"Schil en schaal beginnen allebei met sch."},
-      {cat:"denken",q:"Vandaag is het maandag 5 oktober. Welke dag is het morgen?",o:["Zondag","Dinsdag","Woensdag"],a:1,e:"Na maandag komt dinsdag."},
-      {cat:"denken",q:"Welke hoort niet in het rijtje: appel, peer, wortel?",o:["Appel","Peer","Wortel"],a:2,e:"Appel en peer zijn fruit. Wortel is een groente."},
-      {cat:"denken",q:"Het fruitmoment begint om 10 uur. Welke digitale klok past?",o:["09:30","10:00","10:30"],a:1,e:"Tien uur schrijf je digitaal als 10:00."},
-      {cat:"denken",q:"De schaaltjes staan zo: groot, klein, klein, groot, klein, klein, __. Wat komt nu?",o:["Een groot schaaltje","Een klein schaaltje","Geen schaaltje"],a:0,e:"Het patroon herhaalt groot, klein, klein. Dus nu komt groot."}
+      {cat:"rekenen",q:"Miraidon ziet 38 fietsen aan de ene kant van de speelplaats en 26 aan de andere kant. Hoeveel fietsen zijn dat samen?",o:["54","64","74"],a:1,e:"38 + 26 = 64 fietsen."},
+      {cat:"rekenen",q:"Pipi-Piet heeft 85 blinkende verkeersstickers. Hij deelt er 27 uit. Hoeveel stickers blijven over?",o:["48","58","68"],a:1,e:"85 − 27 = 58 stickers."},
+      {cat:"rekenen",q:"Er zijn 4 fietsenrekken. Aan elk rek staan 6 fietsen. Hoeveel fietsen staan er in totaal?",o:["10","20","24"],a:2,e:"4 groepjes van 6 zijn samen 24 fietsen."},
+      {cat:"rekenen",q:"Een rij kinderen telt 31 leerlingen. Er komen nog 9 leerlingen bij. Welk rond tiental krijg je?",o:["30","40","50"],a:1,e:"31 + 9 = 40. Dat is een rond tiental."},
+      {cat:"nederlands",q:"Lees het verkeersbericht.<span class=\"leeskaart\">De Jan Vanhoenackersstraat is een brandweg.<br>Parkeren mag daar nooit.<br>Hulpdiensten moeten altijd kunnen passeren.</span>Waarom mag je daar niet parkeren?",o:["Omdat hulpdiensten moeten kunnen passeren","Omdat er geen bomen staan","Omdat fietsen sneller zijn"],a:0,e:"De brandweg moet vrij blijven voor hulpdiensten."},
+      {cat:"nederlands",q:"Lees het fietsbriefje.<span class=\"leeskaart\">Zet (bak)fietsen aan de buitenzijden van de natuurspeelplaats.<br>Laat de ingang en het midden vrij.<br>Zo kunnen voetgangers veilig door.</span>Waar zet je de bakfiets?",o:["Midden op straat","Voor de ingang","Aan de buitenzijde"],a:2,e:"Het briefje zegt dat fietsen aan de buitenzijden horen."},
+      {cat:"nederlands",q:"Op een verkeerskaart moet het woord goed staan. Welke spelling klopt?",o:["sebrapat","zebrapad","zebbrapad"],a:1,e:"Je schrijft zebrapad met z, één b en een d op het einde."},
+      {cat:"nederlands",q:"Welk woord eindigt met dezelfde klank als ‘fiets’?",o:["iets","voet","bel"],a:0,e:"Fiets en iets eindigen allebei met de klank iets."},
+      {cat:"denken",q:"Het verkeerslicht springt op rood. Wat moet je doen?",o:["Stoppen","Sneller gaan","Achteruit springen"],a:0,e:"Bij rood stop je en wacht je veilig."},
+      {cat:"denken",q:"Waar steek je een drukke straat het veiligst over?",o:["Op het zebrapad","Tussen geparkeerde auto's","In een bocht"],a:0,e:"Een zebrapad is bedoeld om veilig over te steken."},
+      {cat:"denken",q:"Vandaag is het dinsdag 6 oktober. Welke dag is het morgen?",o:["Maandag","Woensdag","Donderdag"],a:1,e:"Na dinsdag komt woensdag."},
+      {cat:"denken",q:"Een route herhaalt: stap, stap, stop, stap, stap, stop, __. Wat komt nu?",o:["Stap","Stop","Draai"],a:0,e:"Het patroon is twee keer stap en één keer stop. Daarna begint het opnieuw met stap."}
     ];
 
     const quiz = document.getElementById("quiz");
@@ -321,7 +321,7 @@
     const volgende = document.getElementById("volgende");
     const opnieuw = document.getElementById("opnieuw");
     const resultaat = document.getElementById("resultaat");
-    const sleutel = "liams-dagtest-2026-10-05-v1";
+    const sleutel = "liams-dagtest-2026-10-06-v1";
     const resetTest = document.getElementById("reset-test");
     resetTest.addEventListener("click", () => {
       const bevestigd = window.confirm("Wil je echt alle antwoorden van vandaag wissen en opnieuw beginnen bij vraag 1?");
@@ -422,7 +422,7 @@
 
     function toonResultaat() {
       quiz.innerHTML = "";
-      teller.textContent = "Alle schilbrigade-opdrachten voltooid!";
+      teller.textContent = "Alle verkeersopdrachten voltooid!";
       balk.style.width = "100%";
       feedback.hidden = true;
       volgende.hidden = true;
@@ -462,4 +462,5 @@
   </script>
 </body>
 </html>
+
 
