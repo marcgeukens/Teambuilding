@@ -1,4 +1,12 @@
-import {ACTIVE_DATE,DAILY_CONTENT} from './daily.mjs';
+// Geef de dagelijks vervangen inhoud een datumgebonden URL. Zo kan de vaste
+// app in de browser blijven staan, terwijl GitHub Pages toch meteen de nieuwe
+// dagmissie ophaalt in plaats van een oude module uit de cache te gebruiken.
+const revisionParts = new Intl.DateTimeFormat('en-CA', {
+  timeZone:'Europe/Brussels', year:'numeric', month:'2-digit', day:'2-digit'
+}).formatToParts(new Date());
+const revisionPart = type => revisionParts.find(part => part.type === type).value;
+const dailyRevision = `${revisionPart('year')}-${revisionPart('month')}-${revisionPart('day')}`;
+const {ACTIVE_DATE,DAILY_CONTENT} = await import(`./daily.mjs?date=${dailyRevision}`);
 
 export const VERSION = 3;
 export const AREAS = {
