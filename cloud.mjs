@@ -16,6 +16,7 @@ export class Cloud {
   async logout(){try{if(this.session)await this.request('/auth/v1/logout',{method:'POST',auth:true});}finally{this.store(null);}}
   async validate(){if(!this.session)return;try{const user=await this.request('/auth/v1/user',{auth:true});this.session.user=user;this.store(this.session);}catch(error){if(error.status===401)this.store(null);throw error;}}
   async listRuns(){return this.request('/rest/v1/exercise_runs?select=id,progress,revision&quiz_key=like.dagmissie-v*&deleted_at=is.null&order=started_at.desc',{auth:true});}
+  async deleteRun(id){return this.request('/rest/v1/exercise_runs?id=eq.'+encodeURIComponent(id),{method:'PATCH',auth:true,headers:{Prefer:'return=minimal'},body:{active:false,deleted_at:new Date().toISOString()}});}
   async syncRun(input){
     const uid=this.session.user.id;
     if(input.ownerId&&input.ownerId!==uid)return input;
