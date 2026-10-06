@@ -1,4 +1,4 @@
-import {AREAS,missionKey,makeQuestions,newRun,answer,advance,summary,mergeRun} from './engine.mjs';
+import {AREAS,missionKey,makeQuestions,newRun,answer,advance,summary,mergeRun} from './engine.mjs?v=20261006-2';
 import {Cloud,friendlyError} from './cloud.mjs';
 const QA=window.self!==window.top&&new URL(location.href).searchParams.get('qa')==='1';
 const KEY=QA?'liam-dagmissie-qa-v3':'liam-dagmissie-v3';
