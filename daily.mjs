@@ -1,23 +1,20 @@
-// Alleen dit bestand wordt door de dagelijkse update vervangen.
-// De vaste oefensite, opslag, aanmelding en resultatenhistoriek blijven onaangeroerd.
-export const ACTIVE_DATE = '2026-10-07';
-
+export const ACTIVE_DATE = '2026-10-08';
 export const DAILY_CONTENT = {
-  '2026-10-07': {
-    title: 'De geheime boomcode',
+  '2026-10-08': {
+    title: 'De K’doase-vriendschapsroute',
     questions: [
-      {area:'math',prompt:'Liam verzamelt 14 eikenblaadjes en 5 berkenblaadjes. Hoeveel blaadjes zijn dat samen?',options:['18','19','20'],correct:'19',explanation:'14 + 5 = 19 blaadjes.'},
-      {area:'language',prompt:'Wanneer kunnen ouders helpen bij de uitstap?',options:['Van 08.30 uur tot 12.00 uur.','Na 16.00 uur.','Alleen tijdens de middagpauze.'],correct:'Van 08.30 uur tot 12.00 uur.',explanation:'In het bericht staat precies van wanneer tot wanneer hulp nodig is.',storyTitle:'Bericht van de juf',passage:'Op donderdag 15 oktober trekken de kinderen naar Hof van Leysen. Ouders die mee kunnen wandelen, mogen helpen van 08.30 uur tot 12.00 uur.'},
-      {area:'explore',prompt:'Kraak de boomcode: eik, berk, berk, eik, berk, berk, … Wat komt nu?',options:['Eik','Berk','Beuk'],correct:'Eik',explanation:'Het groepje eik, berk, berk herhaalt zich. Daarna begint het opnieuw met eik.'},
-      {area:'math',prompt:'Kaka-Karel bouwt een wc-rollenbos met 20 lege rolletjes. Hij gebruikt er 6. Hoeveel blijven er over?',options:['12','14','16'],correct:'14',explanation:'20 − 6 = 14 rolletjes. Dat is nog een flinke wc-rollenboom!'},
-      {area:'language',prompt:'Welke schrijfwijze is juist?',options:['takken','taken','takkenn'],correct:'takken',explanation:'Na de korte a schrijf je twee k’s: takken.'},
-      {area:'explore',prompt:'Welke volgorde is handig voor je naar het bos vertrekt?',options:['Schoenen aan – jas aan – rugzak nemen – vertrekken.','Vertrekken – rugzak nemen – schoenen zoeken.','Jas uitdoen – slapen – vertrekken.'],correct:'Schoenen aan – jas aan – rugzak nemen – vertrekken.',explanation:'Je maakt je eerst klaar en vertrekt pas daarna.'},
-      {area:'math',prompt:'Pikachu heeft 17 energiekaartjes en wil er 25. Hoeveel kaartjes heeft hij nog nodig?',options:['7','8','9'],correct:'8',explanation:'Van 17 naar 20 is 3 en van 20 naar 25 is 5. Samen is dat 8.'},
-      {area:'language',prompt:'Waarom nemen de Fonkelende Feniksen geen bus naar Hof van Leysen?',options:['Omdat het dichtbij genoeg is om te wandelen.','Omdat er geen wegen zijn.','Omdat de bus alleen ’s nachts rijdt.'],correct:'Omdat het dichtbij genoeg is om te wandelen.',explanation:'“Op wandelafstand” betekent dat het dichtbij genoeg is om te voet te gaan.',storyTitle:'Een stadsbos dichtbij',passage:'Hof van Leysen voelt als een stadsbos. Het park ligt op wandelafstand van de school. Daarom gaat de klas te voet.'},
-      {area:'explore',prompt:'Squirtle staat links van Pikachu. Eevee staat rechts van Pikachu. Wie staat het verst links?',options:['Squirtle','Pikachu','Eevee'],correct:'Squirtle',explanation:'Squirtle staat links van Pikachu en dus ook links van Eevee.'},
-      {area:'math',prompt:'Een feniks vindt 18 kastanjes en daarna nog 7. Hoeveel kastanjes heeft hij samen?',options:['24','25','26'],correct:'25',explanation:'18 + 7 = 25. Denk: eerst 2 erbij tot 20 en daarna nog 5.'},
-      {area:'language',prompt:'Welke zin is netjes geschreven?',options:['Liam zoekt een oude eik.','liam zoekt een oude eik.','Liam zoekt een oude eik'],correct:'Liam zoekt een oude eik.',explanation:'Een zin begint met een hoofdletter en eindigt met een punt.'},
-      {area:'explore',prompt:'Welk deel van een boom neemt water op uit de grond?',options:['De wortels.','De takken.','De blaadjes.'],correct:'De wortels.',explanation:'De wortels halen water uit de bodem en houden de boom stevig vast.'}
+      {area:'math',prompt:'Pikachu brengt 11 gele kaartjes en 7 blauwe kaartjes naar de K’doase. Hoeveel kaartjes zijn dat samen?',options:['17','18','19'],correct:'18',explanation:'11 + 7 = 18 kaartjes. Tel zeven verder vanaf 11.'},
+      {area:'language',prompt:'Wat kan een ouder doen met een goed idee voor de school?',options:['Een bericht naar de schoolraad sturen.','Het idee in de vuilnisbak gooien.','Wachten tot volgend schooljaar.'],correct:'Een bericht naar de schoolraad sturen.',explanation:'Op het briefje staat dat ouders hun idee naar de schoolraad mogen sturen.',storyTitle:'Ideeën voor de K’doase',passage:'De schoolraad praat over de K’doase. Ouders met een goed idee mogen een bericht naar de schoolraad sturen. Zo kan de school samen groeien.'},
+      {area:'explore',prompt:'Sam staat alleen op de speelplaats. Wat helpt het best om hem te laten meedoen?',options:['Vragen of hij wil meespelen.','Hem uitlachen.','Doen alsof je hem niet ziet.'],correct:'Vragen of hij wil meespelen.',explanation:'Een vriendelijke uitnodiging helpt Sam om zich welkom te voelen.'},
+      {area:'math',prompt:'Er hangen 20 papieren veren. De wind blaast er 6 weg. Hoeveel veren blijven hangen?',options:['12','14','16'],correct:'14',explanation:'20 − 6 = 14 veren.'},
+      {area:'language',prompt:'Welk woord is juist geschreven voor op het vriendschapsbord?',options:['samen','saamen','samenm'],correct:'samen',explanation:'Je schrijft samen met één a en één m.'},
+      {area:'explore',prompt:'Een knutselatelier begint om 10 uur en duurt één uur. Wanneer is het klaar?',options:['Om 11 uur.','Om 12 uur.','Om 9 uur.'],correct:'Om 11 uur.',explanation:'Eén uur na 10 uur is 11 uur.'},
+      {area:'math',prompt:'Squirtle wil 20 waterdruppels verzamelen. Hij heeft er al 13. Hoeveel ontbreken er nog?',options:['6','7','8'],correct:'7',explanation:'13 + 7 = 20. Er ontbreken dus 7 waterdruppels.'},
+      {area:'language',prompt:'Waarom dragen Liam en Noor de verfpotten om de beurt?',options:['Omdat één kind ze niet allemaal tegelijk kan dragen.','Omdat de verfpotten kunnen praten.','Omdat niemand wil schilderen.'],correct:'Omdat één kind ze niet allemaal tegelijk kan dragen.',explanation:'Er zijn te veel potten voor één kind. Door af te wisselen lukt het samen wel.',storyTitle:'Samen naar het atelier',passage:'Liam en Noor brengen verf naar het atelier. Er zijn veel potten. Eerst draagt Liam er twee. Daarna is Noor aan de beurt.'},
+      {area:'explore',prompt:'De versiering gaat zo: veer, ster, veer, ster, veer, … Wat komt daarna?',options:['Ster','Veer','Maan'],correct:'Ster',explanation:'Veer en ster wisselen elkaar steeds af. Na een veer komt een ster.'},
+      {area:'math',prompt:'In de ene doos zitten 20 krijtjes en in de andere 10. Hoeveel krijtjes zijn dat samen?',options:['20','30','40'],correct:'30',explanation:'20 + 10 = 30 krijtjes.'},
+      {area:'language',prompt:'Pip stapt in een plas. Welk woord rijmt op “plas”?',options:['jas','boom','vis'],correct:'jas',explanation:'Plas en jas eindigen op dezelfde klank. Gelukkig bleef zijn jas droog!'},
+      {area:'explore',prompt:'Welke afspraak helpt om rustig samen te werken?',options:['Luisteren wanneer iemand praat.','Door iedereen heen roepen.','Materiaal verstoppen.'],correct:'Luisteren wanneer iemand praat.',explanation:'Als je luistert, begrijpt iedereen elkaar beter en kan de groep rustig samenwerken.'}
     ]
   }
 };
