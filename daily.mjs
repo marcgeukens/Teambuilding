@@ -2,97 +2,114 @@
 // De vaste oefensite, opslag, aanmelding en resultatenhistoriek blijven onaangeroerd.
 export const ACTIVE_DATE = '2026-10-11';
 
+const LISTENING_TEXT = 'Hallo, met Noor. Ik bel Milan om hem uit te nodigen voor de voetbalshow van de Fonkelende Feniksen. Die vindt plaats op zaterdag zeventien oktober in het cultuurcentrum. De deuren gaan open om halfdrie. De voorstelling begint om drie uur in de namiddag. Tijdens de show doet Cristiano Ronaldo een grappige baltruc en danst Pikachu mee als mascotte. Milan moet thuis nog toestemming vragen. Na de voorstelling wacht zijn papa aan de grote poort.';
+
 export const DAILY_CONTENT = {
   '2026-10-11': {
-    title: 'De Feniksen Tafelcup',
+    title: 'De grote luister- en rekenmissie',
     questions: [
       {
-        area: 'math',
-        prompt: 'Cristiano Ronaldo legt 3 groepjes van 2 ballen klaar. Hoeveel ballen zijn dat samen?',
-        options: ['5', '6', '8'],
-        correct: '6',
-        explanation: '2 + 2 + 2 = 6 ballen. Zo ontdek je rustig een eerste tafelgroepje.'
+        area: 'language',
+        storyTitle: 'Luistertest: de voetbalshow',
+        listenGroup: 'voetbalshow',
+        listenText: LISTENING_TEXT,
+        prompt: 'Waarom belt Noor naar Milan?',
+        options: ['Ze wil hem uitnodigen voor de voetbalshow.', 'Ze wil zijn huiswerk vragen.', 'Ze wil met hem gaan winkelen.'],
+        correct: 'Ze wil hem uitnodigen voor de voetbalshow.',
+        explanation: 'Noor belt om Milan uit te nodigen voor de voetbalshow.'
       },
       {
         area: 'language',
-        storyTitle: 'Bericht voor de training',
-        passage: 'De training begint om 10 uur. Neem je drinkbus en sportschoenen mee. We verzamelen bij de grote poort.',
-        prompt: 'Wat moet je volgens het bericht meenemen?',
-        options: ['Je drinkbus en sportschoenen.', 'Je zwembroek en handdoek.', 'Je kussen en pyjama.'],
-        correct: 'Je drinkbus en sportschoenen.',
-        explanation: 'In het bericht staat dat je een drinkbus en sportschoenen moet meenemen.'
-      },
-      {
-        area: 'explore',
-        prompt: 'Pikachu hangt vlaggen op: rood, blauw, blauw, rood, blauw, blauw, … Welke kleur komt nu?',
-        options: ['Rood', 'Blauw', 'Geel'],
-        correct: 'Rood',
-        explanation: 'Het groepje rood, blauw, blauw herhaalt zich. Daarna begint het opnieuw met rood.'
+        type: 'text',
+        storyTitle: 'Luistertest: de voetbalshow',
+        listenGroup: 'voetbalshow',
+        listenText: LISTENING_TEXT,
+        prompt: 'Wanneer is de voetbalshow? Vul de dag én de datum zelf in.',
+        placeholder: 'bijvoorbeeld: maandag 4 mei',
+        accepted: ['zaterdag 17 oktober', 'zaterdag zeventien oktober', 'zaterdag 17/10', 'zaterdag 17-10', '17 oktober zaterdag', 'zaterdag 17 oktober 2026'],
+        correct: 'zaterdag 17 oktober',
+        explanation: 'Je hoorde: zaterdag zeventien oktober.'
       },
       {
         area: 'math',
-        prompt: 'Pipi-Piet stapelt 18 lege wc-rolletjes. Er rollen er 7 weg. Hoeveel blijven er staan?',
-        options: ['10', '11', '12'],
-        correct: '11',
-        explanation: '18 − 7 = 11 rolletjes. Hopelijk rolt de toren niet de wc in!'
+        storyTitle: 'Luistertest: de voetbalshow',
+        listenGroup: 'voetbalshow',
+        listenText: LISTENING_TEXT,
+        prompt: 'Om hoe laat begint de voorstelling? Kies de juiste klok.',
+        options: ['14:30', '15:00', '15:30'],
+        correct: '15:00',
+        clockOptions: {
+          '14:30': {hour: 2, minute: 30, label: 'halfdrie'},
+          '15:00': {hour: 3, minute: 0, label: 'drie uur'},
+          '15:30': {hour: 3, minute: 30, label: 'halfvier'}
+        },
+        explanation: 'De deuren openen om halfdrie, maar de voorstelling begint om drie uur. De grote wijzer staat op 12 en de kleine op 3.'
+      },
+      {
+        area: 'explore',
+        storyTitle: 'Luistertest: de voetbalshow',
+        listenGroup: 'voetbalshow',
+        listenText: LISTENING_TEXT,
+        prompt: 'Wie moet thuis nog toestemming vragen?',
+        options: ['Milan.', 'Noor.', 'Ronaldo.'],
+        correct: 'Milan.',
+        explanation: 'In het bericht hoor je dat Milan thuis nog toestemming moet vragen.'
+      },
+      {
+        area: 'math',
+        prompt: 'Ronaldo heeft 8 ballen en krijgt er 7 bij. Hoeveel zijn dat samen?',
+        options: ['14', '15', '16'],
+        correct: '15',
+        explanation: 'Splits 7 in 2 en 5: 8 + 2 = 10 en 10 + 5 = 15.'
+      },
+      {
+        area: 'language',
+        prompt: 'Welk MKMM-woord maak je met “poe” + “ts”?',
+        options: ['poets', 'poes', 'poest'],
+        correct: 'poets',
+        explanation: 'Poe + ts vormt het MKMM-woord poets: p-oe-t-s.'
+      },
+      {
+        area: 'explore',
+        prompt: '“___ belt Milan? Antwoord: Noor.” Welk vraagwoord past op de streep?',
+        options: ['Wie', 'Waar', 'Wanneer'],
+        correct: 'Wie',
+        explanation: 'Het antwoord is een persoon: Noor. Daarom vraag je: Wie belt Milan?'
+      },
+      {
+        area: 'math',
+        prompt: 'Haal 7 af van 16. Hoeveel blijft er over?',
+        options: ['8', '9', '10'],
+        correct: '9',
+        explanation: 'Splits 7 in 6 en 1: 16 − 6 = 10 en 10 − 1 = 9.'
       },
       {
         area: 'language',
         prompt: 'Welk woord is juist geschreven?',
-        options: ['ballen', 'balen', 'ballenn'],
-        correct: 'ballen',
-        explanation: 'Na de korte a schrijf je twee l’en: ballen.'
+        options: ['kaars', 'kaar', 'kaarss'],
+        correct: 'kaars',
+        explanation: 'Het woord kaars eindigt op rs: k-aa-r-s.'
       },
       {
         area: 'explore',
-        prompt: 'De oefening start om 11 uur en duurt één uur. Wanneer is ze klaar?',
-        options: ['Om 12 uur.', 'Om 10 uur.', 'Om half 12.'],
-        correct: 'Om 12 uur.',
-        explanation: 'Eén uur na 11 uur is 12 uur.'
+        prompt: 'Kaka-Karel tekent de kortste weg naar de wc: ●────●. Hoe noem je deze figuur?',
+        options: ['Een lijnstuk.', 'Een rechte zonder einde.', 'Een kromme lijn.'],
+        correct: 'Een lijnstuk.',
+        explanation: 'Een lijnstuk is recht en heeft twee duidelijke eindpunten.'
       },
       {
         area: 'math',
-        prompt: 'Erling Haaland zet 4 groepjes van 2 kegels. Hoeveel kegels zet hij in totaal?',
-        options: ['6', '8', '10'],
-        correct: '8',
-        explanation: '2 + 2 + 2 + 2 = 8 kegels. Vier groepjes van twee zijn samen acht.'
-      },
-      {
-        area: 'language',
-        storyTitle: 'Natte schoenen',
-        passage: 'Aan de ingang ligt een droge mat. Noor veegt haar natte schoenen goed af. Daarna blijft de vloer in de zaal droog.',
-        prompt: 'Waarom veegt Noor haar schoenen af?',
-        options: ['Om de vloer droog te houden.', 'Om sneller te kunnen lezen.', 'Om haar schoenen groter te maken.'],
-        correct: 'Om de vloer droog te houden.',
-        explanation: 'Door haar natte schoenen af te vegen, maakt Noor de vloer niet nat.'
+        prompt: 'Pikachu telt 16 kaarten. Hoeveel tientallen en hoeveel eenheden zijn dat?',
+        options: ['1 tiental en 6 eenheden.', '6 tientallen en 1 eenheid.', '1 tiental en 5 eenheden.'],
+        correct: '1 tiental en 6 eenheden.',
+        explanation: '16 bestaat uit 10 en 6: één tiental en zes eenheden.'
       },
       {
         area: 'explore',
-        prompt: 'Miraidon staat links van de bal. Squirtle staat rechts van de bal. Wat staat in het midden?',
-        options: ['De bal.', 'Miraidon.', 'Squirtle.'],
-        correct: 'De bal.',
-        explanation: 'De bal staat tussen Miraidon links en Squirtle rechts.'
-      },
-      {
-        area: 'math',
-        prompt: 'In een map zitten 9 tafelkaartjes. Er moeten er 15 in. Hoeveel kaartjes ontbreken nog?',
-        options: ['5', '6', '7'],
-        correct: '6',
-        explanation: '9 + 6 = 15. Denk: 1 erbij tot 10 en daarna nog 5; samen 6.'
-      },
-      {
-        area: 'language',
-        prompt: 'Welke zin is netjes geschreven?',
-        options: ['Liam oefent met de bal.', 'liam oefent met de bal.', 'Liam oefent met de bal'],
-        correct: 'Liam oefent met de bal.',
-        explanation: 'De zin begint met een hoofdletter en eindigt met een punt.'
-      },
-      {
-        area: 'explore',
-        prompt: 'Waarom warm je je spieren op vóór je snel gaat lopen?',
-        options: ['Om je lichaam klaar te maken voor het bewegen.', 'Om je schoenen zwaarder te maken.', 'Om de klok sneller te laten gaan.'],
-        correct: 'Om je lichaam klaar te maken voor het bewegen.',
-        explanation: 'Een rustige opwarming maakt je lichaam klaar om daarna sneller en veiliger te bewegen.'
+        prompt: 'Zes spelers staan op een rij: Ronaldo, Noor, Liam, Haaland, Milan en Pikachu. Wie staat voorlaatste?',
+        options: ['Milan.', 'Haaland.', 'Pikachu.'],
+        correct: 'Milan.',
+        explanation: 'Pikachu staat laatste. De speler net ervoor is Milan, dus Milan staat voorlaatste.'
       }
     ]
   }
