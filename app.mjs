@@ -1,11 +1,12 @@
-import {AREAS,missionKey,makeQuestions,newRun,answer,advance,summary,mergeRun} from './engine.mjs?v=20261007-1';
+import {AREAS,missionKey,makeQuestions,newRun,answer,advance,summary,mergeRun} from './engine.mjs?v=20261011-2';
 import {Cloud,friendlyError} from './cloud.mjs';
 const QA=window.self!==window.top&&new URL(location.href).searchParams.get('qa')==='1';
 const KEY=QA?'liam-dagmissie-qa-v3':'liam-dagmissie-v3';
 const SESSION_KEY=QA?'liam-dagmissie-qa-session-v2':'liam-dagmissie-session-v2';
 const $=id=>document.getElementById(id);
 const cloud=new Cloud(SESSION_KEY);
-let state=load(), view='home',selected=null,authMode='login',syncing=false,syncAgain=false,storageOk=true,toastTimer,pendingDeleteId=null;
+let state=load(), view='home',selected=null,authMode='login',syncing=false,syncAgain=false,storageOk=true,toastTimer,pendingDeleteId=null,currentSpeech=null;
+const listenCounts=new Map();
 function load(){try{const current=JSON.parse(localStorage.getItem(KEY));if(current?.version===3&&Array.isArray(current.runs))return current;const old=JSON.parse(localStorage.getItem(QA?'liam-dagmissie-qa-v2':'liam-dagmissie-v2'));return old?.version===2&&Array.isArray(old.runs)?{version:3,runs:old.runs,activeId:old.activeId}:{version:3,runs:[],activeId:null};}catch{return {version:3,runs:[],activeId:null};}}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(state));storageOk=true;}catch{storageOk=false;}storageStatus();}
 function visibleRuns(){return state.runs.filter(r=>!r.ownerId||r.ownerId===cloud.session?.user?.id);}
@@ -22,7 +23,71 @@ function storageStatus(){
 function renderHome(){const today=missionKey();$('date-label').textContent=dateLabel(today);$('mission-title').textContent=makeQuestions(today).title;const run=active()?.date===today?active():null,todayRuns=visibleRuns().filter(r=>r.date===today&&r.finished);const first=todayRuns.slice().sort((a,b)=>a.startedAt.localeCompare(b.startedAt))[0];$('start-button').textContent=run&&!run.finished&&!run.abandoned?'Verder met mijn missie →':todayRuns.length?'Nog eens oefenen →':'Start mijn dagmissie →';$('stats-text').textContent=todayRuns.length?`Vandaag ${todayRuns.length} ${todayRuns.length===1?'missie':'missies'} voltooid · eerste score ${summary(first).score}/${first.questions.length}.`:run&&!run.finished&&!run.abandoned?`${run.answers.filter(Boolean).length} van ${run.questions.length} antwoorden bewaard. Ga verder wanneer je wil.`:'Elke dag een beetje slimmer.';storageStatus();}
 function start(force=false){const today=missionKey();let r=active();if(force||!r||r.finished||r.abandoned||r.date!==today){const attempt=1+Math.max(0,...visibleRuns().filter(x=>x.date===today).map(x=>x.attempt));r=newRun(today,attempt);r.ownerId=cloud.session?.user?.id||null;state.runs.push(r);state.activeId=r.id;save();queueSync();}selected=null;show('quiz');renderQuestion();}
 function home(){selected=null;show('home');renderHome();}
-function renderQuestion(){const run=active();if(!run){home();return;}if(run.finished){renderResult(run);return;}const q=run.questions[run.index],saved=run.answers[run.index],area=AREAS[q.area];$('question-area').className='area-tag '+area.color;$('question-area').textContent=area.name;$('quiz-counter').textContent=`Vraag ${run.index+1} van ${run.questions.length}`;const count=run.answers.filter(Boolean).length;$('progress-value').style.width=(count/run.questions.length*100)+'%';$('progress').setAttribute('aria-valuemax',run.questions.length);$('progress').setAttribute('aria-valuenow',count);const content=$('question-content');content.replaceChildren();if(q.passage){const passage=el('div','passage');passage.append(el('span','story-title',q.storyTitle),el('span','',q.passage));content.append(passage);}const title=el('h2','question-title',q.prompt);content.append(title);if(q.chunks)content.append(el('div','chunks',q.chunks));const options=$('answer-options');options.replaceChildren();q.options.forEach((value,i)=>{const b=el('button','answer');b.type='button';b.append(el('span','answer-key',saved?(saved.value===value?(saved.correct?'✓':'×'):value===q.correct?'✓':String.fromCharCode(65+i)):String.fromCharCode(65+i)),el('span','answer-text',value));b.setAttribute('aria-pressed',String((saved?.value||selected)===value));b.disabled=!!saved;if(saved){if(value===q.correct)b.classList.add('correct');if(saved.value===value&&!saved.correct)b.classList.add('wrong');}else if(value===selected)b.classList.add('selected');b.addEventListener('click',()=>{if(active().answers[active().index])return;selected=value;renderQuestion();$('answer-options').children[i].focus({preventScroll:true});});options.append(b);});$('confirm-button').classList.toggle('hidden',!!saved);$('confirm-button').disabled=selected===null;$('next-button').classList.toggle('hidden',!saved);$('next-button').textContent=run.index===run.questions.length-1?'Bekijk mijn eindscore →':'Volgende vraag →';$('question-hint').textContent=saved?'Je antwoord staat vast. Goed gewerkt!':'Kies een antwoord. Bevestig als je zeker bent.';const feedback=$('feedback');feedback.className=saved?'feedback '+(saved.correct?'good':'try'):'hidden';feedback.replaceChildren();if(saved){feedback.append(el('strong','',saved.correct?'✓ Helemaal juist!':'✦ Dit was niet juist. Je leert het!'),el('small','',saved.correct?q.explanation:`Het juiste antwoord is: ${q.correct}. ${q.explanation}`));}}
+function addListenCard(content,q,run,saved){const card=el('div','listen-card'),head=el('div','listen-head');head.append(el('span','listen-icon','♪'),el('div','',q.storyTitle||'Luister goed'));card.append(head,el('p','',q.listenGroup?'Luister naar het hele bericht en onthoud dag, datum én uur. Je mag het bericht in totaal twee keer afspelen.':'Speel het korte fragment af. Je mag twee keer luisteren.'));const key=`${run.id}:${q.listenGroup||run.index}`,used=listenCounts.get(key)||0;if(!('speechSynthesis' in window)||!('SpeechSynthesisUtterance' in window)){card.append(el('p','listen-fallback',`Laat een volwassene dit rustig voorlezen: ${q.listenText}`));}else{const button=el('button','secondary listen-button',saved?'Fragment beluisterd':used>=2?'Twee keer beluisterd':used===1?'Nog één keer luisteren':'Luister naar het fragment');button.type='button';button.disabled=!!saved||used>=2;button.onclick=()=>{const count=(listenCounts.get(key)||0)+1;listenCounts.set(key,count);window.speechSynthesis.cancel();currentSpeech=new SpeechSynthesisUtterance(q.listenText);currentSpeech.lang='nl-BE';currentSpeech.rate=.82;currentSpeech.pitch=1;const voices=window.speechSynthesis.getVoices();currentSpeech.voice=voices.find(v=>v.lang.toLowerCase()==='nl-be')||voices.find(v=>v.lang.toLowerCase().startsWith('nl'))||null;window.speechSynthesis.speak(currentSpeech);button.textContent=count>=2?'Twee keer beluisterd':'Nog één keer luisteren';button.disabled=count>=2;};card.append(button);}content.append(card);}
+function drawClock(meta){const face=el('span','clock-face');for(const [text,place]of [['12','top'],['3','right'],['6','bottom'],['9','left']])face.append(el('span','clock-number '+place,text));const hour=el('span','clock-hand hour-hand'),minute=el('span','clock-hand minute-hand');hour.style.transform=`translateX(-50%) rotate(${(meta.hour%12)*30+meta.minute/2}deg)`;minute.style.transform=`translateX(-50%) rotate(${meta.minute*6}deg)`;face.append(hour,minute,el('span','clock-pin'));return face;}
+function renderQuestion(){
+  if('speechSynthesis' in window)window.speechSynthesis.cancel();
+  const run=active();
+  if(!run){home();return;}
+  if(run.finished){renderResult(run);return;}
+  const q=run.questions[run.index],saved=run.answers[run.index],area=AREAS[q.area];
+  $('question-area').className='area-tag '+area.color;
+  $('question-area').textContent=area.name;
+  $('quiz-counter').textContent=`Vraag ${run.index+1} van ${run.questions.length}`;
+  const count=run.answers.filter(Boolean).length;
+  $('progress-value').style.width=(count/run.questions.length*100)+'%';
+  $('progress').setAttribute('aria-valuemax',run.questions.length);
+  $('progress').setAttribute('aria-valuenow',count);
+  const content=$('question-content');
+  content.replaceChildren();
+  if(q.passage){const passage=el('div','passage');passage.append(el('span','story-title',q.storyTitle),el('span','',q.passage));content.append(passage);}
+  if(q.listenText)addListenCard(content,q,run,saved);
+  const title=el('h2','question-title',q.prompt);
+  content.append(title);
+  if(q.chunks)content.append(el('div','chunks',q.chunks));
+  const options=$('answer-options');
+  options.replaceChildren();
+  options.classList.toggle('text-answer-grid',q.type==='text');
+  if(q.type==='text'){
+    const wrap=el('div','text-answer-wrap');
+    const label=el('label','text-answer-label','Schrijf je antwoord');
+    label.htmlFor='typed-answer';
+    const input=el('input','text-answer');
+    input.id='typed-answer';
+    input.type='text';
+    input.placeholder=q.placeholder||'Typ hier je antwoord';
+    input.autocomplete='off';
+    input.spellcheck=false;
+    input.value=saved?.value??selected??'';
+    input.disabled=!!saved;
+    if(saved)input.classList.add(saved.correct?'correct':'wrong');
+    input.addEventListener('input',()=>{selected=input.value;$('confirm-button').disabled=!input.value.trim();});
+    input.addEventListener('keydown',event=>{if(event.key==='Enter'&&input.value.trim()){event.preventDefault();confirm();}});
+    wrap.append(label,input);
+    options.append(wrap);
+  }else{
+    q.options.forEach((value,i)=>{
+      const b=el('button','answer');
+      b.type='button';
+      b.append(el('span','answer-key',saved?(saved.value===value?(saved.correct?'✓':'×'):value===q.correct?'✓':String.fromCharCode(65+i)):String.fromCharCode(65+i)));
+      if(q.clockOptions?.[value]){b.classList.add('clock-answer');b.append(drawClock(q.clockOptions[value]));b.setAttribute('aria-label',`${String.fromCharCode(65+i)}. ${q.clockOptions[value].label}`);}else b.append(el('span','answer-text',value));
+      b.setAttribute('aria-pressed',String((saved?.value||selected)===value));
+      b.disabled=!!saved;
+      if(saved){if(value===q.correct)b.classList.add('correct');if(saved.value===value&&!saved.correct)b.classList.add('wrong');}else if(value===selected)b.classList.add('selected');
+      b.addEventListener('click',()=>{if(active().answers[active().index])return;selected=value;renderQuestion();$('answer-options').children[i].focus({preventScroll:true});});
+      options.append(b);
+    });
+  }
+  $('confirm-button').classList.toggle('hidden',!!saved);
+  $('confirm-button').disabled=q.type==='text'?!String(selected??'').trim():selected===null;
+  $('next-button').classList.toggle('hidden',!saved);
+  $('next-button').textContent=run.index===run.questions.length-1?'Bekijk mijn eindscore →':'Volgende vraag →';
+  $('question-hint').textContent=saved?'Je antwoord staat vast. Goed gewerkt!':q.type==='text'?'Typ je antwoord en bevestig als je zeker bent.':'Kies een antwoord. Bevestig als je zeker bent.';
+  const feedback=$('feedback');
+  feedback.className=saved?'feedback '+(saved.correct?'good':'try'):'hidden';
+  feedback.replaceChildren();
+  if(saved)feedback.append(el('strong','',saved.correct?'✓ Helemaal juist!':'✦ Dit was niet juist. Je leert het!'),el('small','',saved.correct?q.explanation:`Het juiste antwoord is: ${q.correct}. ${q.explanation}`));
+}
 function confirm(){const r=active();if(!r||selected===null||!answer(r,selected))return;selected=null;save();renderQuestion();$('next-button').focus({preventScroll:true});queueSync();}
 function next(){const r=active();if(!r||!advance(r))return;selected=null;save();if(r.finished)renderResult(r);else{renderQuestion();window.scrollTo({top:0,behavior:'instant'});const t=$('question-content').querySelector('h2');t.tabIndex=-1;t.focus({preventScroll:true});}queueSync();}
 function retryMissed(r){const missed=r.questions.filter((_,i)=>!r.answers[i]?.correct);if(!missed.length){start(true);return;}const attempt=1+Math.max(0,...visibleRuns().filter(x=>x.date===r.date).map(x=>x.attempt));const next=newRun(r.date,attempt);next.title=r.title+' · herkansing';next.questions=structuredClone(missed);next.answers=Array(missed.length).fill(null);next.index=0;next.finished=false;next.completedAt=null;next.ownerId=cloud.session?.user?.id||null;next.retryOf=r.id;state.runs.push(next);state.activeId=next.id;selected=null;save();queueSync();show('quiz');renderQuestion();}
