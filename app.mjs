@@ -23,8 +23,54 @@ function storageStatus(){
 function renderHome(){const today=missionKey();$('date-label').textContent=dateLabel(today);$('mission-title').textContent=makeQuestions(today).title;const run=active()?.date===today?active():null,todayRuns=visibleRuns().filter(r=>r.date===today&&r.finished);const first=todayRuns.slice().sort((a,b)=>a.startedAt.localeCompare(b.startedAt))[0];$('start-button').textContent=run&&!run.finished&&!run.abandoned?'Verder met mijn missie →':todayRuns.length?'Nog eens oefenen →':'Start mijn dagmissie →';$('stats-text').textContent=todayRuns.length?`Vandaag ${todayRuns.length} ${todayRuns.length===1?'missie':'missies'} voltooid · eerste score ${summary(first).score}/${first.questions.length}.`:run&&!run.finished&&!run.abandoned?`${run.answers.filter(Boolean).length} van ${run.questions.length} antwoorden bewaard. Ga verder wanneer je wil.`:'Elke dag een beetje slimmer.';storageStatus();}
 function start(force=false){const today=missionKey();let r=active();if(force||!r||r.finished||r.abandoned||r.date!==today){const attempt=1+Math.max(0,...visibleRuns().filter(x=>x.date===today).map(x=>x.attempt));r=newRun(today,attempt);r.ownerId=cloud.session?.user?.id||null;state.runs.push(r);state.activeId=r.id;save();queueSync();}selected=null;show('quiz');renderQuestion();}
 function home(){selected=null;show('home');renderHome();}
-function warmDutchVoice(voices){const dutch=voices.filter(v=>v.lang.toLowerCase().startsWith('nl')||/nederlands|dutch/i.test(v.name)),warmNames=/female|woman|femke|ellen|hanna|lotte|colette|claire|xanthe|sofie|ria|lara|sabina|google nederlands/i;return dutch.find(v=>v.lang.toLowerCase()==='nl-be'&&warmNames.test(v.name))||dutch.find(v=>warmNames.test(v.name))||dutch.find(v=>v.lang.toLowerCase()==='nl-be')||dutch[0]||null;}
-function addListenCard(content,q,run,saved){const card=el('div','listen-card'),head=el('div','listen-head');head.append(el('span','listen-icon','♪'),el('div','',q.storyTitle||'Luister goed'));card.append(head,el('p','',q.listenGroup?'Luister naar het hele bericht en onthoud de belangrijke informatie. Je mag het bericht in totaal drie keer afspelen.':'Speel het korte fragment af. Je mag drie keer luisteren.'));const key=`${run.id}:${q.listenGroup||run.index}`,used=listenCounts.get(key)||0;if(!('speechSynthesis' in window)||!('SpeechSynthesisUtterance' in window)){card.append(el('p','listen-fallback',`Laat een volwassene dit rustig voorlezen: ${q.listenText}`));}else{const buttonText=count=>count>=3?'Drie keer beluisterd':count===2?'Nog één keer luisteren':count===1?'Nog twee keer luisteren':'Luister naar het fragment',button=el('button','secondary listen-button',saved?'Fragment beluisterd':buttonText(used));button.type='button';button.disabled=!!saved||used>=3;button.onclick=()=>{const count=(listenCounts.get(key)||0)+1;listenCounts.set(key,count);window.speechSynthesis.cancel();currentSpeech=new SpeechSynthesisUtterance(q.listenText);currentSpeech.lang='nl-BE';currentSpeech.rate=.74;currentSpeech.pitch=1.04;currentSpeech.volume=1;currentSpeech.voice=warmDutchVoice(window.speechSynthesis.getVoices());window.speechSynthesis.speak(currentSpeech);button.textContent=buttonText(count);button.disabled=count>=3;};card.append(button);}content.append(card);}
+// Kies eerst een echt Vlaamse stem (nl-BE), vóór eender welke Nederlandse stem (nl-NL).
+// De gebruiker kan op dit toestel ook zelf een stem selecteren.
+const VOICE_KEY='liam-voorleesstem-nl-be-v1';
+const belgianVoice=v=>/^(nl[-_]be)(?:$|[-_])/i.test(v.lang)||/vlaams|flemish|dutch\s*\(belgium\)|belgisch/i.test(v.name);
+const dutchVoices=voices=>voices.filter(v=>/^(nl)(?:$|[-_])/i.test(v.lang)||/nederlands|dutch|vlaams|flemish/i.test(v.name));
+function warmDutchVoice(voices){
+  const dutch=dutchVoices(voices), female=/female|woman|vrouw|femke|ellen|hanna|lotte|colette|claire|xanthe|sofie|ria|lara|sabina|dena|google nederlands/i;
+  let chosen='';
+  try{chosen=localStorage.getItem(VOICE_KEY)||'';}catch{}
+  if(chosen){const match=dutch.find(v=>v.voiceURI===chosen);if(match)return match;}
+  const belgian=dutch.filter(belgianVoice);
+  return belgian.find(v=>female.test(v.name))||belgian[0]||dutch.find(v=>female.test(v.name))||dutch[0]||null;
+}
+function addVoiceSettings(card){
+  const details=el('details','voice-settings'),summary=el('summary','','Voorleesstem instellen (ouders)'),body=el('div','voice-settings-body');
+  details.append(summary,body);
+  details.addEventListener('toggle',()=>{
+    if(!details.open)return;
+    const voices=dutchVoices(window.speechSynthesis.getVoices());
+    body.replaceChildren();
+    if(!voices.length){
+      body.append(el('p','voice-note','Dit toestel geeft nog geen Nederlandstalige stemmen door. Probeer opnieuw nadat de pagina is herladen.'));
+      return;
+    }
+    const label=el('label','voice-label','Kies de stem die je het mooist vindt:');
+    const select=el('select','voice-select');
+    const auto=el('option','','Automatisch (liefst Vlaams)');
+    auto.value='';
+    select.append(auto);
+    const belgian=voices.filter(belgianVoice),others=voices.filter(v=>!belgianVoice(v));
+    for(const [group,items]of [['Vlaams – België',belgian],['Andere Nederlandse stemmen',others]]){
+      if(!items.length)continue;
+      const optgroup=document.createElement('optgroup');
+      optgroup.label=group;
+      for(const v of items){const opt=el('option','',v.name+' ('+v.lang+')');opt.value=v.voiceURI;optgroup.append(opt);}
+      select.append(optgroup);
+    }
+    try{const stored=localStorage.getItem(VOICE_KEY)||'';select.value=voices.some(v=>v.voiceURI===stored)?stored:'';}catch{select.value='';}
+    select.addEventListener('change',()=>{try{if(select.value)localStorage.setItem(VOICE_KEY,select.value);else localStorage.removeItem(VOICE_KEY);}catch{}});
+    label.htmlFor='voice-choice';
+    select.id='voice-choice';
+    body.append(label,select);
+    body.append(el('p','voice-note',belgian.length?'Vlaamse stemmen staan bovenaan. De gekozen stem blijft bewaard op dit toestel.':'Er staat op dit toestel nog geen Vlaamse (nl-BE) stem in de lijst. De site kan een Nederlandse stem niet zelf in een Vlaamse veranderen. Voeg indien mogelijk Nederlands (België) toe bij de spraakinstellingen van het toestel.'));
+  });
+  card.append(details);
+}
+
+function addListenCard(content,q,run,saved){const card=el('div','listen-card'),head=el('div','listen-head');head.append(el('span','listen-icon','♪'),el('div','',q.storyTitle||'Luister goed'));card.append(head,el('p','',q.listenGroup?'Luister naar het hele bericht en onthoud de belangrijke informatie. Je mag het bericht in totaal drie keer afspelen.':'Speel het korte fragment af. Je mag drie keer luisteren.'));const key=`${run.id}:${q.listenGroup||run.index}`,used=listenCounts.get(key)||0;if(!('speechSynthesis' in window)||!('SpeechSynthesisUtterance' in window)){card.append(el('p','listen-fallback',`Laat een volwassene dit rustig voorlezen: ${q.listenText}`));}else{const buttonText=count=>count>=3?'Drie keer beluisterd':count===2?'Nog één keer luisteren':count===1?'Nog twee keer luisteren':'Luister naar het fragment',button=el('button','secondary listen-button',saved?'Fragment beluisterd':buttonText(used));button.type='button';button.disabled=!!saved||used>=3;button.onclick=()=>{const count=(listenCounts.get(key)||0)+1;listenCounts.set(key,count);window.speechSynthesis.cancel();currentSpeech=new SpeechSynthesisUtterance(q.listenText);currentSpeech.lang='nl-BE';currentSpeech.rate=.79;currentSpeech.pitch=1;currentSpeech.volume=1;currentSpeech.voice=warmDutchVoice(window.speechSynthesis.getVoices());window.speechSynthesis.speak(currentSpeech);button.textContent=buttonText(count);button.disabled=count>=3;};card.append(button);addVoiceSettings(card);}content.append(card);}
 function drawClock(meta){const face=el('span','clock-face');for(const [text,place]of [['12','top'],['3','right'],['6','bottom'],['9','left']])face.append(el('span','clock-number '+place,text));const hour=el('span','clock-hand hour-hand'),minute=el('span','clock-hand minute-hand');hour.style.transform=`translateX(-50%) rotate(${(meta.hour%12)*30+meta.minute/2}deg)`;minute.style.transform=`translateX(-50%) rotate(${meta.minute*6}deg)`;face.append(hour,minute,el('span','clock-pin'));return face;}
 function drawSock(meta,reveal=false){const card=el('div','sock-card'),head=el('div','sock-head');head.append(el('span','sock-badge','DE SOK'),el('strong','',`Splits ${meta.splitTotal}. Ga eerst naar 10.`));card.append(head);const ns='http://www.w3.org/2000/svg',svg=document.createElementNS(ns,'svg'),add=(tag,attrs,text)=>{const node=document.createElementNS(ns,tag);for(const [key,value]of Object.entries(attrs))node.setAttribute(key,String(value));if(text!==undefined)node.textContent=text;svg.append(node);return node;};svg.setAttribute('viewBox','0 0 520 220');svg.setAttribute('class','sock-svg');svg.setAttribute('role','img');svg.setAttribute('aria-label',reveal?`De sok: splits ${meta.splitTotal} in ${meta.first} en ${meta.second}. Eerst ${meta.start} ${meta.operator} ${meta.first} is 10. Daarna reken je verder tot ${meta.result}.`:`De sok bij ${meta.start} ${meta.operator} ${meta.splitTotal}. Splits ${meta.splitTotal} en maak eerst 10.`);add('text',{x:75,y:48,class:'sock-main'},meta.start);add('text',{x:150,y:48,class:'sock-operator'},meta.operator);add('text',{x:230,y:48,class:'sock-main'},meta.splitTotal);add('text',{x:323,y:48,class:'sock-operator'},'=');add('text',{x:405,y:48,class:'sock-main'},reveal?meta.result:'?');add('path',{d:'M240 64 L195 112 M240 64 L285 112',class:'sock-branches'});add('circle',{cx:195,cy:135,r:25,class:'sock-split'});add('circle',{cx:285,cy:135,r:25,class:'sock-split'});add('text',{x:195,y:143,class:'sock-small'},reveal?meta.first:'?');add('text',{x:285,y:143,class:'sock-small'},reveal?meta.second:'?');add('path',{d:'M77 65 C48 92 52 155 91 169 C126 182 165 169 192 154',class:'sock-curve'});add('text',{x:94,y:148,class:'sock-ten'},'10');add('text',{x:260,y:202,class:'sock-step'},reveal?meta.step:'Splits het tweede getal en maak eerst 10.');card.append(svg);return card;}
 function renderQuestion(){
