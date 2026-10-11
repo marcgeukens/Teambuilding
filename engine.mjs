@@ -88,7 +88,7 @@ function mathQ(prompt, answer, explanation, rng) {
 }
 export function makeQuestions(date) {
   const special=DAILY_CONTENT[date];
-  if(special&&Array.isArray(special.questions)&&special.questions.length===12&&special.questions.every(q=>AREAS[q.area]&&Array.isArray(q.options)&&q.options.length>=3&&q.options.includes(q.correct)))return structuredClone(special);
+  if(special&&Array.isArray(special.questions)&&special.questions.length===12&&special.questions.every(q=>AREAS[q.area]&&(q.type==='text'?Array.isArray(q.accepted)&&q.accepted.length>0&&typeof q.correct==='string':Array.isArray(q.options)&&q.options.length>=3&&q.options.includes(q.correct))))return structuredClone(special);
   const rng=random('liam-v2-'+date), integer=(min,max)=>min+Math.floor(rng()*(max-min+1));
   const day=Math.floor(Date.parse(date+'T12:00:00Z')/86400000);
   const story=STORIES[day%STORIES.length];
@@ -106,9 +106,18 @@ export function newRun(date, attempt=1) {
   return {id:crypto.randomUUID(),version:VERSION,date,title:quiz.title,questions:quiz.questions,attempt,startedAt:new Date().toISOString(),answers:Array(quiz.questions.length).fill(null),index:0,finished:false,completedAt:null,ownerId:null,synced:false};
 }
 export function answer(run, value) {
-  if(run.finished||run.answers[run.index]||!run.questions[run.index].options.includes(value))return false;
   const q=run.questions[run.index];
-  run.answers[run.index]={value,correct:value===q.correct,selectedIndex:q.options.indexOf(value),at:new Date().toISOString()};
+  if(run.finished||run.answers[run.index])return false;
+  if(q.type==='text'){
+    const typed=String(value??'').trim();
+    if(!typed)return false;
+    const normalize=text=>String(text).toLocaleLowerCase('nl-BE').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[.,!?]/g,'').replace(/\s+/g,' ').trim();
+    const correct=q.accepted.some(candidate=>normalize(candidate)===normalize(typed));
+    run.answers[run.index]={value:typed,correct,selectedIndex:-1,at:new Date().toISOString()};
+  }else{
+    if(!q.options.includes(value))return false;
+    run.answers[run.index]={value,correct:value===q.correct,selectedIndex:q.options.indexOf(value),at:new Date().toISOString()};
+  }
   run.synced=false; return true;
 }
 export function advance(run) {
