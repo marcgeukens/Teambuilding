@@ -57,9 +57,10 @@ export const DAILY_CONTENT = {
       },
       {
         area: 'math',
-        prompt: 'Ronaldo heeft 8 ballen en krijgt er 7 bij. Hoeveel zijn dat samen?',
+        prompt: 'Ronaldo heeft 8 ballen en krijgt er 7 bij. Gebruik de sok: hoeveel zijn dat samen?',
         options: ['14', '15', '16'],
         correct: '15',
+        sock: {operator: '+', start: 8, splitTotal: 7, first: 2, second: 5, result: 15, step: '8 + 2 = 10, daarna 10 + 5 = 15.'},
         explanation: 'Splits 7 in 2 en 5: 8 + 2 = 10 en 10 + 5 = 15.'
       },
       {
@@ -78,9 +79,10 @@ export const DAILY_CONTENT = {
       },
       {
         area: 'math',
-        prompt: 'Haal 7 af van 16. Hoeveel blijft er over?',
+        prompt: 'Haal 7 af van 16. Gebruik de sok: hoeveel blijft er over?',
         options: ['8', '9', '10'],
         correct: '9',
+        sock: {operator: '−', start: 16, splitTotal: 7, first: 6, second: 1, result: 9, step: '16 − 6 = 10, daarna 10 − 1 = 9.'},
         explanation: 'Splits 7 in 6 en 1: 16 − 6 = 10 en 10 − 1 = 9.'
       },
       {
