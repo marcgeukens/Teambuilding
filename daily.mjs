@@ -1,116 +1,110 @@
-// Dagelijkse missie: alleen de inhoud verandert. Accounts, scores en opslag blijven onaangeroerd.
-export const ACTIVE_DATE = '2026-10-11';
-
-const LISTENING_TEXT = 'Dag Liam, hier spreekt juf Barbara. Ik heb groot nieuws voor de Fonkelende Feniksen! Op woensdag veertien oktober organiseren we een speurtocht in het Stadspark. We verzamelen om drie uur aan de grote fontein. De speurtocht begint om halfvier in de namiddag. We zoeken zes kaartjes met een gouden feniks erop. Breng stevige schoenen en een drinkfles mee. Liam mag samen met Noor de eerste aanwijzing zoeken. De ouders kunnen de kinderen om vijf uur ophalen bij de ingang van het park. Tot dan!';
-
+export const ACTIVE_DATE = '2026-10-12';
 export const DAILY_CONTENT = {
-  '2026-10-11': {
-    title: 'Het geheim van de gouden feniks',
+  '2026-10-12': {
+    title: 'De oudercontact-klokmissie',
     questions: [
       {
         area: 'language',
-        storyTitle: 'Luistertest: de geheime speurtocht',
-        listenGroup: 'gouden-feniks',
-        listenText: LISTENING_TEXT,
-        prompt: 'Waar gaan de Fonkelende Feniksen op speurtocht?',
-        options: ['In het Stadspark.', 'In de bibliotheek.', 'Op het voetbalveld.'],
-        correct: 'In het Stadspark.',
-        explanation: 'Juf Barbara vertelt dat de speurtocht in het Stadspark plaatsvindt.'
+        storyTitle: 'Luistertest: papa gaat naar de klas',
+        listenGroup: 'oudercontact-klok',
+        listenText: 'Dag Liam, luister goed naar dit bericht. Noors papa gaat naar het oudercontact in de klas. Hij kiest dinsdag twintig oktober. Het gesprek begint om half vijf in de namiddag en duurt een kwartier. Hij neemt Noors agenda mee. Vijf minuten vooraf wacht hij bij de deur van de klas. Daarna vertelt de juf hoe Noor leert en speelt.',
+        prompt: 'Waar gaat Noors papa naartoe?',
+        options: ['Naar het oudercontact in de klas.', 'Naar de bakker.', 'Naar het zwembad.'],
+        correct: 'Naar het oudercontact in de klas.',
+        explanation: 'In het bericht hoor je dat Noors papa naar het oudercontact in de klas gaat.'
       },
       {
-        area: 'language',
+        area: 'explore',
         type: 'text',
-        storyTitle: 'Luistertest: de geheime speurtocht',
-        listenGroup: 'gouden-feniks',
-        listenText: LISTENING_TEXT,
-        prompt: 'Op welke dag en datum is de speurtocht? Schrijf ze allebei zelf.',
+        storyTitle: 'Luistertest: papa gaat naar de klas',
+        listenGroup: 'oudercontact-klok',
+        listenText: 'Dag Liam, luister goed naar dit bericht. Noors papa gaat naar het oudercontact in de klas. Hij kiest dinsdag twintig oktober. Het gesprek begint om half vijf in de namiddag en duurt een kwartier. Hij neemt Noors agenda mee. Vijf minuten vooraf wacht hij bij de deur van de klas. Daarna vertelt de juf hoe Noor leert en speelt.',
+        prompt: 'Op welke dag en datum gaat Noors papa? Schrijf ze allebei zelf.',
         placeholder: 'bijvoorbeeld: maandag 4 mei',
-        accepted: ['woensdag 14 oktober', 'woensdag veertien oktober', 'woensdag 14/10', 'woensdag 14-10', 'woensdag 14 oktober 2026', '14 oktober woensdag'],
-        correct: 'woensdag 14 oktober',
-        explanation: 'In het bericht zegt de juf: woensdag veertien oktober.'
+        accepted: ['dinsdag 20 oktober', 'dinsdag twintig oktober', 'dinsdag 20/10', 'dinsdag 20-10', 'dinsdag 20 oktober 2026', '20 oktober dinsdag'],
+        correct: 'dinsdag 20 oktober',
+        explanation: 'In het bericht hoor je: dinsdag twintig oktober.'
       },
       {
         area: 'math',
-        storyTitle: 'Luistertest: de geheime speurtocht',
-        listenGroup: 'gouden-feniks',
-        listenText: LISTENING_TEXT,
-        prompt: 'Hoe laat begint de speurtocht? Duid de juiste klok aan.',
-        options: ['15:00', '15:30', '16:30'],
-        correct: '15:30',
+        storyTitle: 'Luistertest: papa gaat naar de klas',
+        listenGroup: 'oudercontact-klok',
+        listenText: 'Dag Liam, luister goed naar dit bericht. Noors papa gaat naar het oudercontact in de klas. Hij kiest dinsdag twintig oktober. Het gesprek begint om half vijf in de namiddag en duurt een kwartier. Hij neemt Noors agenda mee. Vijf minuten vooraf wacht hij bij de deur van de klas. Daarna vertelt de juf hoe Noor leert en speelt.',
+        prompt: 'Hoe laat begint het gesprek? Duid de juiste klok aan.',
+        options: ['16:00', '16:30', '17:30'],
+        correct: '16:30',
         clockOptions: {
-          '15:00': {hour: 3, minute: 0, label: 'drie uur'},
-          '15:30': {hour: 3, minute: 30, label: 'halfvier'},
-          '16:30': {hour: 4, minute: 30, label: 'halfvijf'}
+          '16:00': {hour: 4, minute: 0, label: 'vier uur'},
+          '16:30': {hour: 4, minute: 30, label: 'half vijf'},
+          '17:30': {hour: 5, minute: 30, label: 'half zes'}
         },
-        explanation: 'Ze verzamelen om drie uur, maar beginnen pas om halfvier. De grote wijzer staat op de 6 en de kleine tussen de 3 en de 4.'
-      },
-      {
-        area: 'explore',
-        storyTitle: 'Luistertest: de geheime speurtocht',
-        listenGroup: 'gouden-feniks',
-        listenText: LISTENING_TEXT,
-        prompt: 'Wat moeten de kinderen meebrengen?',
-        options: ['Stevige schoenen en een drinkfles.', 'Een zwembroek en een handdoek.', 'Een voetbal en een helm.'],
-        correct: 'Stevige schoenen en een drinkfles.',
-        explanation: 'De juf vraagt om stevige schoenen en een drinkfles mee te brengen.'
-      },
-      {
-        area: 'math',
-        prompt: 'Pikachu vindt 9 gouden sterren en krijgt er 6 bij. Gebruik de sok. Hoeveel sterren heeft hij samen?',
-        options: ['14', '15', '16'],
-        correct: '15',
-        sock: {operator: '+', start: 9, splitTotal: 6, first: 1, second: 5, result: 15, step: '9 + 1 = 10, daarna 10 + 5 = 15.'},
-        explanation: 'Splits de 6 in 1 en 5. Eerst maak je 10 en daarna tel je er 5 bij: 15.'
+        explanation: 'Half vijf is 16.30 uur. De grote wijzer staat op de 6 en de kleine wijzer tussen de 4 en de 5.'
       },
       {
         area: 'language',
-        prompt: 'Welk woord is juist geschreven?',
-        options: ['herfst', 'herfs', 'herfstt'],
-        correct: 'herfst',
-        explanation: 'Herfst schrijf je met r, f, s en t achteraan: h-e-r-f-s-t.'
+        prompt: 'Welk woord is een MKMM-woord?',
+        options: ['help', 'boom', 'vis'],
+        correct: 'help',
+        explanation: 'Help bestaat uit medeklinker, klinker, medeklinker, medeklinker: h-e-l-p.'
       },
       {
         area: 'explore',
-        prompt: 'De Feniksen verzamelen om drie uur en vertrekken om halfvier. Hoelang wachten ze?',
-        options: ['Een halfuur.', 'Een kwartier.', 'Een heel uur.'],
-        correct: 'Een halfuur.',
-        explanation: 'Van drie uur tot halfvier is dertig minuten, dus een halfuur.'
+        prompt: 'Squirtle tekent met een lat. Welke soort lijn krijgt hij?',
+        options: ['Een rechte lijn.', 'Een kromme lijn.', 'Een cirkel.'],
+        correct: 'Een rechte lijn.',
+        explanation: 'Langs de rand van een lat teken je een rechte lijn.'
       },
       {
         area: 'math',
-        prompt: 'Liam heeft 14 aanwijzingen. Hij geeft er 6 aan Noor. Gebruik de sok. Hoeveel houdt hij over?',
-        options: ['7', '8', '9'],
-        correct: '8',
-        sock: {operator: '−', start: 14, splitTotal: 6, first: 4, second: 2, result: 8, step: '14 − 4 = 10, daarna 10 − 2 = 8.'},
-        explanation: 'Splits 6 in 4 en 2. Eerst 14 − 4 = 10. Daarna 10 − 2 = 8.'
+        prompt: 'Liam heeft 8 feniksveren en vindt er 5 bij. Gebruik de sok. Hoeveel veren heeft hij samen?',
+        options: ['12', '13', '14'],
+        correct: '13',
+        sock: {operator: '+', start: 8, splitTotal: 5, first: 2, second: 3, result: 13, step: '8 + 2 = 10, daarna 10 + 3 = 13.'},
+        explanation: 'Splits 5 in 2 en 3. Eerst maak je 10 met 8 + 2. Daarna tel je nog 3 erbij: 13.'
       },
       {
         area: 'language',
-        prompt: 'Welke zin is helemaal juist geschreven?',
-        options: ['De feniks vliegt hoog.', 'de feniks vliegt hoog.', 'De feniks vliegt hoog'],
-        correct: 'De feniks vliegt hoog.',
-        explanation: 'De zin begint met een hoofdletter en eindigt met een punt.'
+        prompt: 'Welk vraagwoord past? “___ begint het gesprek?”',
+        options: ['Wanneer', 'Wie', 'Waar'],
+        correct: 'Wanneer',
+        explanation: 'Met wanneer vraag je naar een tijdstip.'
       },
       {
         area: 'explore',
-        prompt: 'Op de schatkaart staat het patroon: vlam, ster, ster, vlam, ster, ster, … Wat komt daarna?',
-        options: ['Vlam.', 'Ster.', 'Maan.'],
-        correct: 'Vlam.',
-        explanation: 'Het patroon herhaalt telkens één vlam en twee sterren.'
+        prompt: 'Kevin De Bruyne volgt drie stappen: eerst naar de bal, dan naar de kegel en ten slotte naar de bank. Waar gaat hij als tweede naartoe?',
+        options: ['Naar de kegel.', 'Naar de bank.', 'Naar de bal.'],
+        correct: 'Naar de kegel.',
+        explanation: 'De volgorde is bal, kegel, bank. De kegel staat dus op de tweede plaats.'
       },
       {
         area: 'math',
-        prompt: 'Er zijn 6 gouden kaartjes. Liam vindt er 2 en Noor vindt er 3. Hoeveel kaartjes moeten ze nog vinden?',
-        options: ['1', '2', '3'],
-        correct: '1',
-        explanation: 'Liam en Noor vinden samen 2 + 3 = 5 kaartjes. Van de 6 blijft er dus 1 over.'
+        prompt: 'Uit hoeveel tientallen en eenheden bestaat het getal 17?',
+        options: ['1 tiental en 7 eenheden.', '7 tientallen en 1 eenheid.', '1 tiental en 6 eenheden.'],
+        correct: '1 tiental en 7 eenheden.',
+        explanation: '17 bestaat uit 10 en 7: één tiental en zeven eenheden.'
+      },
+      {
+        area: 'language',
+        storyTitle: 'Een duidelijk wc-briefje',
+        passage: 'Op de deur staat: “Deze wc is buiten dienst. Gebruik de wc op de eerste verdieping.” Pipi-Piet leest het briefje goed.',
+        prompt: 'Wat moet Pipi-Piet doen?',
+        options: ['De wc op de eerste verdieping gebruiken.', 'Bij de kapotte wc blijven wachten.', 'Naar de speelplaats rennen.'],
+        correct: 'De wc op de eerste verdieping gebruiken.',
+        explanation: 'Het briefje vertelt precies welke andere wc hij moet gebruiken.'
       },
       {
         area: 'explore',
-        prompt: 'Vandaag is het zondag. Welke dag is het over drie dagen?',
-        options: ['Woensdag.', 'Dinsdag.', 'Donderdag.'],
-        correct: 'Woensdag.',
-        explanation: 'Maandag is over één dag, dinsdag over twee en woensdag over drie dagen.'
+        prompt: 'Welke figuur heeft precies twee eindpunten?',
+        options: ['Een lijnstuk.', 'Een punt.', 'Een kromme lijn zonder einde.'],
+        correct: 'Een lijnstuk.',
+        explanation: 'Een lijnstuk begint in één punt en eindigt in een tweede punt.'
+      },
+      {
+        area: 'math',
+        prompt: 'Cristiano Ronaldo heeft 18 oefenballen. Hij legt er 6 in een net. Hoeveel ballen blijven buiten het net?',
+        options: ['11', '12', '13'],
+        correct: '12',
+        explanation: '18 − 6 = 12. Je hoeft niets over voetbal te weten om dit uit te rekenen.'
       }
     ]
   }
