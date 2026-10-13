@@ -1,110 +1,110 @@
-export const ACTIVE_DATE = '2026-10-12';
+export const ACTIVE_DATE = '2026-10-13';
 export const DAILY_CONTENT = {
-  '2026-10-12': {
-    title: 'De oudercontact-klokmissie',
+  '2026-10-13': {
+    title: 'De kwartierplanner',
     questions: [
       {
         area: 'language',
-        storyTitle: 'Luistertest: papa gaat naar de klas',
-        listenGroup: 'oudercontact-klok',
-        listenText: 'Dag Liam, luister goed naar dit bericht. Noors papa gaat naar het oudercontact in de klas. Hij kiest dinsdag twintig oktober. Het gesprek begint om half vijf in de namiddag en duurt een kwartier. Hij neemt Noors agenda mee. Vijf minuten vooraf wacht hij bij de deur van de klas. Daarna vertelt de juf hoe Noor leert en speelt.',
-        prompt: 'Waar gaat Noors papa naartoe?',
-        options: ['Naar het oudercontact in de klas.', 'Naar de bakker.', 'Naar het zwembad.'],
-        correct: 'Naar het oudercontact in de klas.',
-        explanation: 'In het bericht hoor je dat Noors papa naar het oudercontact in de klas gaat.'
+        storyTitle: 'Luistertest: Mila kiest een afspraak',
+        listenGroup: 'kwartierplanner',
+        listenText: 'Dag Liam, luister goed naar dit bericht. Mila kiest samen met haar mama een afspraak voor het oudercontact. Ze kiezen donderdag tweeëntwintig oktober. Het gesprek begint om kwart over vijf in de namiddag en duurt een kwartier. Mama schrijft het uur op een gele kaart. Ze komen tien minuten vroeger naar school. Bij de klas wachten ze rustig op de juf.',
+        prompt: 'Met wie kiest Mila de afspraak?',
+        options: ['Met haar mama.', 'Met de bakker.', 'Met haar buurjongen.'],
+        correct: 'Met haar mama.',
+        explanation: 'In het bericht hoor je dat Mila samen met haar mama een afspraak kiest.'
       },
       {
         area: 'explore',
         type: 'text',
-        storyTitle: 'Luistertest: papa gaat naar de klas',
-        listenGroup: 'oudercontact-klok',
-        listenText: 'Dag Liam, luister goed naar dit bericht. Noors papa gaat naar het oudercontact in de klas. Hij kiest dinsdag twintig oktober. Het gesprek begint om half vijf in de namiddag en duurt een kwartier. Hij neemt Noors agenda mee. Vijf minuten vooraf wacht hij bij de deur van de klas. Daarna vertelt de juf hoe Noor leert en speelt.',
-        prompt: 'Op welke dag en datum gaat Noors papa? Schrijf ze allebei zelf.',
+        storyTitle: 'Luistertest: Mila kiest een afspraak',
+        listenGroup: 'kwartierplanner',
+        listenText: 'Dag Liam, luister goed naar dit bericht. Mila kiest samen met haar mama een afspraak voor het oudercontact. Ze kiezen donderdag tweeëntwintig oktober. Het gesprek begint om kwart over vijf in de namiddag en duurt een kwartier. Mama schrijft het uur op een gele kaart. Ze komen tien minuten vroeger naar school. Bij de klas wachten ze rustig op de juf.',
+        prompt: 'Op welke dag en datum is de afspraak? Schrijf ze allebei zelf.',
         placeholder: 'bijvoorbeeld: maandag 4 mei',
-        accepted: ['dinsdag 20 oktober', 'dinsdag twintig oktober', 'dinsdag 20/10', 'dinsdag 20-10', 'dinsdag 20 oktober 2026', '20 oktober dinsdag'],
-        correct: 'dinsdag 20 oktober',
-        explanation: 'In het bericht hoor je: dinsdag twintig oktober.'
+        accepted: ['donderdag 22 oktober', 'donderdag tweeëntwintig oktober', 'donderdag 22/10', 'donderdag 22-10', 'donderdag 22 oktober 2026', '22 oktober donderdag'],
+        correct: 'donderdag 22 oktober',
+        explanation: 'In het bericht hoor je: donderdag tweeëntwintig oktober.'
       },
       {
         area: 'math',
-        storyTitle: 'Luistertest: papa gaat naar de klas',
-        listenGroup: 'oudercontact-klok',
-        listenText: 'Dag Liam, luister goed naar dit bericht. Noors papa gaat naar het oudercontact in de klas. Hij kiest dinsdag twintig oktober. Het gesprek begint om half vijf in de namiddag en duurt een kwartier. Hij neemt Noors agenda mee. Vijf minuten vooraf wacht hij bij de deur van de klas. Daarna vertelt de juf hoe Noor leert en speelt.',
-        prompt: 'Hoe laat begint het gesprek? Duid de juiste klok aan.',
-        options: ['16:00', '16:30', '17:30'],
-        correct: '16:30',
+        storyTitle: 'Luistertest: Mila kiest een afspraak',
+        listenGroup: 'kwartierplanner',
+        listenText: 'Dag Liam, luister goed naar dit bericht. Mila kiest samen met haar mama een afspraak voor het oudercontact. Ze kiezen donderdag tweeëntwintig oktober. Het gesprek begint om kwart over vijf in de namiddag en duurt een kwartier. Mama schrijft het uur op een gele kaart. Ze komen tien minuten vroeger naar school. Bij de klas wachten ze rustig op de juf.',
+        prompt: 'Welke klok toont het beginuur van het gesprek?',
+        options: ['17:15', '17:30', '16:15'],
+        correct: '17:15',
         clockOptions: {
-          '16:00': {hour: 4, minute: 0, label: 'vier uur'},
-          '16:30': {hour: 4, minute: 30, label: 'half vijf'},
-          '17:30': {hour: 5, minute: 30, label: 'half zes'}
+          '17:15': {hour: 5, minute: 15, label: 'kwart over vijf'},
+          '17:30': {hour: 5, minute: 30, label: 'half zes'},
+          '16:15': {hour: 4, minute: 15, label: 'kwart over vier'}
         },
-        explanation: 'Half vijf is 16.30 uur. De grote wijzer staat op de 6 en de kleine wijzer tussen de 4 en de 5.'
+        explanation: 'Kwart over vijf is 17.15 uur. De grote wijzer staat op de 3 en de kleine wijzer net voorbij de 5.'
       },
       {
         area: 'language',
-        prompt: 'Welk woord is een MKMM-woord?',
-        options: ['help', 'boom', 'vis'],
-        correct: 'help',
-        explanation: 'Help bestaat uit medeklinker, klinker, medeklinker, medeklinker: h-e-l-p.'
+        prompt: 'Welk woord volgt het patroon MKMM?',
+        options: ['melk', 'maan', 'koe'],
+        correct: 'melk',
+        explanation: 'Melk heeft het patroon medeklinker, klinker, medeklinker, medeklinker: m-e-l-k.'
       },
       {
         area: 'explore',
-        prompt: 'Squirtle tekent met een lat. Welke soort lijn krijgt hij?',
-        options: ['Een rechte lijn.', 'Een kromme lijn.', 'Een cirkel.'],
-        correct: 'Een rechte lijn.',
-        explanation: 'Langs de rand van een lat teken je een rechte lijn.'
-      },
-      {
-        area: 'math',
-        prompt: 'Liam heeft 8 feniksveren en vindt er 5 bij. Gebruik de sok. Hoeveel veren heeft hij samen?',
-        options: ['12', '13', '14'],
-        correct: '13',
-        sock: {operator: '+', start: 8, splitTotal: 5, first: 2, second: 3, result: 13, step: '8 + 2 = 10, daarna 10 + 3 = 13.'},
-        explanation: 'Splits 5 in 2 en 3. Eerst maak je 10 met 8 + 2. Daarna tel je nog 3 erbij: 13.'
-      },
-      {
-        area: 'language',
-        prompt: 'Welk vraagwoord past? “___ begint het gesprek?”',
-        options: ['Wanneer', 'Wie', 'Waar'],
-        correct: 'Wanneer',
-        explanation: 'Met wanneer vraag je naar een tijdstip.'
-      },
-      {
-        area: 'explore',
-        prompt: 'Kevin De Bruyne volgt drie stappen: eerst naar de bal, dan naar de kegel en ten slotte naar de bank. Waar gaat hij als tweede naartoe?',
-        options: ['Naar de kegel.', 'Naar de bank.', 'Naar de bal.'],
-        correct: 'Naar de kegel.',
-        explanation: 'De volgorde is bal, kegel, bank. De kegel staat dus op de tweede plaats.'
-      },
-      {
-        area: 'math',
-        prompt: 'Uit hoeveel tientallen en eenheden bestaat het getal 17?',
-        options: ['1 tiental en 7 eenheden.', '7 tientallen en 1 eenheid.', '1 tiental en 6 eenheden.'],
-        correct: '1 tiental en 7 eenheden.',
-        explanation: '17 bestaat uit 10 en 7: één tiental en zeven eenheden.'
-      },
-      {
-        area: 'language',
-        storyTitle: 'Een duidelijk wc-briefje',
-        passage: 'Op de deur staat: “Deze wc is buiten dienst. Gebruik de wc op de eerste verdieping.” Pipi-Piet leest het briefje goed.',
-        prompt: 'Wat moet Pipi-Piet doen?',
-        options: ['De wc op de eerste verdieping gebruiken.', 'Bij de kapotte wc blijven wachten.', 'Naar de speelplaats rennen.'],
-        correct: 'De wc op de eerste verdieping gebruiken.',
-        explanation: 'Het briefje vertelt precies welke andere wc hij moet gebruiken.'
-      },
-      {
-        area: 'explore',
-        prompt: 'Welke figuur heeft precies twee eindpunten?',
-        options: ['Een lijnstuk.', 'Een punt.', 'Een kromme lijn zonder einde.'],
+        prompt: 'Miraidon zet twee punten en verbindt ze met een rechte streep. Wat tekent Miraidon?',
+        options: ['Een lijnstuk.', 'Alleen een punt.', 'Een kromme lijn.'],
         correct: 'Een lijnstuk.',
-        explanation: 'Een lijnstuk begint in één punt en eindigt in een tweede punt.'
+        explanation: 'Een rechte streep tussen twee eindpunten is een lijnstuk.'
       },
       {
         area: 'math',
-        prompt: 'Cristiano Ronaldo heeft 18 oefenballen. Hij legt er 6 in een net. Hoeveel ballen blijven buiten het net?',
-        options: ['11', '12', '13'],
-        correct: '12',
-        explanation: '18 − 6 = 12. Je hoeft niets over voetbal te weten om dit uit te rekenen.'
+        prompt: 'Erling Haaland heeft 15 oefenkegels. Hij ruimt er 7 op. Gebruik de sok. Hoeveel kegels blijven staan?',
+        options: ['7', '8', '9'],
+        correct: '8',
+        sock: {operator: '-', start: 15, splitTotal: 7, first: 5, second: 2, result: 8, step: '15 - 5 = 10, daarna 10 - 2 = 8.'},
+        explanation: 'Splits 7 in 5 en 2. Eerst ga je met 15 - 5 naar 10. Daarna doe je 10 - 2 = 8.'
+      },
+      {
+        area: 'language',
+        prompt: 'Welk vraagwoord past? “___ schrijft mama op de gele kaart?”',
+        options: ['Wat', 'Wie', 'Waar'],
+        correct: 'Wat',
+        explanation: 'Met wat vraag je naar het ding dat mama opschrijft: het uur.'
+      },
+      {
+        area: 'explore',
+        prompt: 'Pikachu volgt de pijlen: eerst één stap naar rechts, dan één stap omhoog en daarna weer één stap naar rechts. Welke richting hoort bij de laatste stap?',
+        options: ['Naar rechts.', 'Naar links.', 'Naar beneden.'],
+        correct: 'Naar rechts.',
+        explanation: 'De stappen zijn rechts, omhoog, rechts. De laatste stap gaat dus naar rechts.'
+      },
+      {
+        area: 'math',
+        prompt: 'Welk getal ontbreekt? 10 + ___ = 16',
+        options: ['5', '6', '7'],
+        correct: '6',
+        explanation: 'Van 10 naar 16 tel je 6 erbij. Dus 10 + 6 = 16.'
+      },
+      {
+        area: 'language',
+        storyTitle: 'Het afspraakkaartje',
+        passage: 'Op het kaartje staat: “Oudercontact: donderdag 22 oktober om 17.15 uur. Wacht bij lokaal 4.” Mila leest het kaartje voordat ze vertrekt.',
+        prompt: 'Bij welk lokaal moet Mila wachten?',
+        options: ['Bij lokaal 4.', 'Bij lokaal 2.', 'Bij de fietsenstalling.'],
+        correct: 'Bij lokaal 4.',
+        explanation: 'Op het kaartje staat duidelijk dat Mila bij lokaal 4 moet wachten.'
+      },
+      {
+        area: 'explore',
+        prompt: 'Pipi-Piet doet drie dingen: eerst spoelt hij door, daarna wast hij zijn handen en ten slotte droogt hij ze. Wat doet hij als tweede?',
+        options: ['Hij wast zijn handen.', 'Hij droogt zijn handen.', 'Hij spoelt door.'],
+        correct: 'Hij wast zijn handen.',
+        explanation: 'De volgorde is doorspoelen, handen wassen, handen drogen. Handen wassen komt als tweede.'
+      },
+      {
+        area: 'math',
+        prompt: 'Lionel Messi legt 10 blauwe kaartjes en 8 rode kaartjes klaar. Hoeveel kaartjes zijn dat samen?',
+        options: ['17', '18', '19'],
+        correct: '18',
+        explanation: '10 + 8 = 18. Je hoeft niets over voetbal te weten om dit uit te rekenen.'
       }
     ]
   }
