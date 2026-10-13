@@ -101,10 +101,10 @@ export const DAILY_CONTENT = {
       },
       {
         area: 'math',
-        prompt: 'Lionel Messi legt 10 blauwe kaartjes en 8 rode kaartjes klaar. Hoeveel kaartjes zijn dat samen?',
-        options: ['17', '18', '19'],
-        correct: '18',
-        explanation: '10 + 8 = 18. Je hoeft niets over voetbal te weten om dit uit te rekenen.'
+        prompt: 'Lionel Messi legt 2 groepjes van 2 oefenkaartjes klaar. Hoeveel kaartjes zijn dat samen?',
+        options: ['2', '4', '6'],
+        correct: '4',
+        explanation: 'Twee groepjes van 2 zijn 2 + 2 = 4. Dat is de keersom 2 × 2 = 4. Je hoeft niets over voetbal te weten.'
       }
     ]
   }
