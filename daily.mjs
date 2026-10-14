@@ -1,110 +1,108 @@
-export const ACTIVE_DATE = '2026-10-13';
+export const ACTIVE_DATE = '2026-10-14';
 export const DAILY_CONTENT = {
-  '2026-10-13': {
-    title: 'De kwartierplanner',
+  '2026-10-14': {
+    title: 'De herfstvondsten',
     questions: [
       {
         area: 'language',
-        storyTitle: 'Luistertest: Mila kiest een afspraak',
-        listenGroup: 'kwartierplanner',
-        listenText: 'Dag Liam, luister goed naar dit bericht. Mila kiest samen met haar mama een afspraak voor het oudercontact. Ze kiezen donderdag tweeëntwintig oktober. Het gesprek begint om kwart over vijf in de namiddag en duurt een kwartier. Mama schrijft het uur op een gele kaart. Ze komen tien minuten vroeger naar school. Bij de klas wachten ze rustig op de juf.',
-        prompt: 'Met wie kiest Mila de afspraak?',
-        options: ['Met haar mama.', 'Met de bakker.', 'Met haar buurjongen.'],
-        correct: 'Met haar mama.',
-        explanation: 'In het bericht hoor je dat Mila samen met haar mama een afspraak kiest.'
+        storyTitle: 'Luistertest: klaar voor de herfstwandeling',
+        listenGroup: 'herfstwandeling',
+        listenText: 'Dag Liam, luister goed naar dit bericht. Morgen gaat de klas op herfstwandeling naar het Hof van Leysen. Je laat je boekentas, agenda en kaft thuis. Neem een rugzakje mee met water, je middagmaal, fruit en een plastic zakje. Het plastic zakje is voor herfstvondsten. Trek schoenen aan waarmee je goed kunt stappen. Leg vanavond alles klaar. Zo kan je morgen rustig vertrekken.',
+        prompt: 'Waar gaat de klas op herfstwandeling?',
+        options: ['Naar het Hof van Leysen.', 'Naar het zwembad.', 'Naar de bibliotheek.'],
+        correct: 'Naar het Hof van Leysen.',
+        explanation: 'In het bericht hoor je dat de klas naar het Hof van Leysen gaat.'
       },
       {
         area: 'explore',
-        type: 'text',
-        storyTitle: 'Luistertest: Mila kiest een afspraak',
-        listenGroup: 'kwartierplanner',
-        listenText: 'Dag Liam, luister goed naar dit bericht. Mila kiest samen met haar mama een afspraak voor het oudercontact. Ze kiezen donderdag tweeëntwintig oktober. Het gesprek begint om kwart over vijf in de namiddag en duurt een kwartier. Mama schrijft het uur op een gele kaart. Ze komen tien minuten vroeger naar school. Bij de klas wachten ze rustig op de juf.',
-        prompt: 'Op welke dag en datum is de afspraak? Schrijf ze allebei zelf.',
-        placeholder: 'bijvoorbeeld: maandag 4 mei',
-        accepted: ['donderdag 22 oktober', 'donderdag tweeëntwintig oktober', 'donderdag 22/10', 'donderdag 22-10', 'donderdag 22 oktober 2026', '22 oktober donderdag'],
-        correct: 'donderdag 22 oktober',
-        explanation: 'In het bericht hoor je: donderdag tweeëntwintig oktober.'
+        storyTitle: 'Luistertest: klaar voor de herfstwandeling',
+        listenGroup: 'herfstwandeling',
+        listenText: 'Dag Liam, luister goed naar dit bericht. Morgen gaat de klas op herfstwandeling naar het Hof van Leysen. Je laat je boekentas, agenda en kaft thuis. Neem een rugzakje mee met water, je middagmaal, fruit en een plastic zakje. Het plastic zakje is voor herfstvondsten. Trek schoenen aan waarmee je goed kunt stappen. Leg vanavond alles klaar. Zo kan je morgen rustig vertrekken.',
+        prompt: 'Welke spullen moeten thuisblijven?',
+        options: ['Boekentas, agenda en kaft.', 'Water, fruit en middagmaal.', 'Rugzak, schoenen en jas.'],
+        correct: 'Boekentas, agenda en kaft.',
+        explanation: 'Het bericht zegt dat de boekentas, agenda en kaft thuisblijven.'
       },
       {
         area: 'math',
-        storyTitle: 'Luistertest: Mila kiest een afspraak',
-        listenGroup: 'kwartierplanner',
-        listenText: 'Dag Liam, luister goed naar dit bericht. Mila kiest samen met haar mama een afspraak voor het oudercontact. Ze kiezen donderdag tweeëntwintig oktober. Het gesprek begint om kwart over vijf in de namiddag en duurt een kwartier. Mama schrijft het uur op een gele kaart. Ze komen tien minuten vroeger naar school. Bij de klas wachten ze rustig op de juf.',
-        prompt: 'Welke klok toont het beginuur van het gesprek?',
-        options: ['17:15', '17:30', '16:15'],
-        correct: '17:15',
+        prompt: 'Pikachu verzamelt 3 groepjes van 2 gele blaadjes. Hoeveel blaadjes zijn dat samen?',
+        options: ['4', '6', '8'],
+        correct: '6',
+        explanation: 'Drie groepjes van 2 zijn 2 + 2 + 2 = 6. De keersom is 3 × 2 = 6.'
+      },
+      {
+        area: 'language',
+        storyTitle: 'Luistertest: klaar voor de herfstwandeling',
+        listenGroup: 'herfstwandeling',
+        listenText: 'Dag Liam, luister goed naar dit bericht. Morgen gaat de klas op herfstwandeling naar het Hof van Leysen. Je laat je boekentas, agenda en kaft thuis. Neem een rugzakje mee met water, je middagmaal, fruit en een plastic zakje. Het plastic zakje is voor herfstvondsten. Trek schoenen aan waarmee je goed kunt stappen. Leg vanavond alles klaar. Zo kan je morgen rustig vertrekken.',
+        prompt: 'Waarom neem je een plastic zakje mee?',
+        options: ['Om herfstvondsten in te stoppen.', 'Om je schoenen in te wassen.', 'Om een boek in te lezen.'],
+        correct: 'Om herfstvondsten in te stoppen.',
+        explanation: 'Het plastic zakje dient om blaadjes of andere herfstvondsten in te bewaren.'
+      },
+      {
+        area: 'explore',
+        prompt: 'Tussen punt A en punt B staat één rechte streep met twee eindpunten. Wat zie je?',
+        options: ['Een lijnstuk.', 'Een kromme lijn.', 'Alleen een punt.'],
+        correct: 'Een lijnstuk.',
+        explanation: 'Een rechte streep tussen twee eindpunten heet een lijnstuk.'
+      },
+      {
+        area: 'math',
+        prompt: 'Kevin De Bruyne heeft 8 oefenkegels en krijgt er 7 bij. Gebruik de sok. Hoeveel kegels zijn er samen?',
+        options: ['14', '15', '16'],
+        correct: '15',
+        sock: {operator: '+', start: 8, splitTotal: 7, first: 2, second: 5, result: 15, step: '8 + 2 = 10, daarna 10 + 5 = 15.'},
+        explanation: 'Splits 7 in 2 en 5. Eerst maak je 10 met 8 + 2. Daarna doe je 10 + 5 = 15.'
+      },
+      {
+        area: 'language',
+        prompt: 'Welk woord heeft het patroon MKMM?',
+        options: ['tent', 'maan', 'koe'],
+        correct: 'tent',
+        explanation: 'Tent heeft medeklinker, klinker, medeklinker, medeklinker: t-e-n-t.'
+      },
+      {
+        area: 'explore',
+        prompt: 'Cristiano Ronaldo begint een oefening om half vijf in de namiddag. Welke klok toont dat uur?',
+        options: ['16:30', '17:30', '16:15'],
+        correct: '16:30',
         clockOptions: {
-          '17:15': {hour: 5, minute: 15, label: 'kwart over vijf'},
+          '16:30': {hour: 4, minute: 30, label: 'half vijf'},
           '17:30': {hour: 5, minute: 30, label: 'half zes'},
           '16:15': {hour: 4, minute: 15, label: 'kwart over vier'}
         },
-        explanation: 'Kwart over vijf is 17.15 uur. De grote wijzer staat op de 3 en de kleine wijzer net voorbij de 5.'
-      },
-      {
-        area: 'language',
-        prompt: 'Welk woord volgt het patroon MKMM?',
-        options: ['melk', 'maan', 'koe'],
-        correct: 'melk',
-        explanation: 'Melk heeft het patroon medeklinker, klinker, medeklinker, medeklinker: m-e-l-k.'
-      },
-      {
-        area: 'explore',
-        prompt: 'Miraidon zet twee punten en verbindt ze met een rechte streep. Wat tekent Miraidon?',
-        options: ['Een lijnstuk.', 'Alleen een punt.', 'Een kromme lijn.'],
-        correct: 'Een lijnstuk.',
-        explanation: 'Een rechte streep tussen twee eindpunten is een lijnstuk.'
+        explanation: 'Half vijf is 16.30 uur. De grote wijzer staat op de 6 en de kleine wijzer tussen 4 en 5.'
       },
       {
         area: 'math',
-        prompt: 'Erling Haaland heeft 15 oefenkegels. Hij ruimt er 7 op. Gebruik de sok. Hoeveel kegels blijven staan?',
-        options: ['7', '8', '9'],
-        correct: '8',
-        sock: {operator: '-', start: 15, splitTotal: 7, first: 5, second: 2, result: 8, step: '15 - 5 = 10, daarna 10 - 2 = 8.'},
-        explanation: 'Splits 7 in 5 en 2. Eerst ga je met 15 - 5 naar 10. Daarna doe je 10 - 2 = 8.'
+        prompt: 'Welk getal ontbreekt? 17 - ___ = 10',
+        options: ['6', '7', '8'],
+        correct: '7',
+        explanation: 'Van 17 terug naar 10 zijn 7 stapjes. Dus 17 - 7 = 10.'
       },
       {
         area: 'language',
-        prompt: 'Welk vraagwoord past? “___ schrijft mama op de gele kaart?”',
-        options: ['Wat', 'Wie', 'Waar'],
-        correct: 'Wat',
-        explanation: 'Met wat vraag je naar het ding dat mama opschrijft: het uur.'
+        storyTitle: 'Het rugzakbriefje',
+        passage: 'Leg vanavond je rugzak klaar. Stop er water, fruit en een plastic zakje in.',
+        prompt: 'Wat moet je vanavond doen volgens het briefje?',
+        options: ['Je rugzak klaarleggen.', 'Je boekentas vullen.', 'Je fruit thuislaten.'],
+        correct: 'Je rugzak klaarleggen.',
+        explanation: 'De eerste zin zegt dat je vanavond je rugzak moet klaarleggen.'
       },
       {
         area: 'explore',
-        prompt: 'Pikachu volgt de pijlen: eerst één stap naar rechts, dan één stap omhoog en daarna weer één stap naar rechts. Welke richting hoort bij de laatste stap?',
-        options: ['Naar rechts.', 'Naar links.', 'Naar beneden.'],
-        correct: 'Naar rechts.',
-        explanation: 'De stappen zijn rechts, omhoog, rechts. De laatste stap gaat dus naar rechts.'
+        prompt: 'Pipi-Piet legt blaadjes in een patroon: rood, geel, geel, rood, geel, geel, ... Welke kleur komt nu?',
+        options: ['Rood.', 'Geel.', 'Blauw.'],
+        correct: 'Rood.',
+        explanation: 'Het groepje rood, geel, geel herhaalt zich. Na twee gele blaadjes komt weer rood.'
       },
       {
         area: 'math',
-        prompt: 'Welk getal ontbreekt? 10 + ___ = 16',
-        options: ['5', '6', '7'],
-        correct: '6',
-        explanation: 'Van 10 naar 16 tel je 6 erbij. Dus 10 + 6 = 16.'
-      },
-      {
-        area: 'language',
-        storyTitle: 'Het afspraakkaartje',
-        passage: 'Op het kaartje staat: “Oudercontact: donderdag 22 oktober om 17.15 uur. Wacht bij lokaal 4.” Mila leest het kaartje voordat ze vertrekt.',
-        prompt: 'Bij welk lokaal moet Mila wachten?',
-        options: ['Bij lokaal 4.', 'Bij lokaal 2.', 'Bij de fietsenstalling.'],
-        correct: 'Bij lokaal 4.',
-        explanation: 'Op het kaartje staat duidelijk dat Mila bij lokaal 4 moet wachten.'
-      },
-      {
-        area: 'explore',
-        prompt: 'Pipi-Piet doet drie dingen: eerst spoelt hij door, daarna wast hij zijn handen en ten slotte droogt hij ze. Wat doet hij als tweede?',
-        options: ['Hij wast zijn handen.', 'Hij droogt zijn handen.', 'Hij spoelt door.'],
-        correct: 'Hij wast zijn handen.',
-        explanation: 'De volgorde is doorspoelen, handen wassen, handen drogen. Handen wassen komt als tweede.'
-      },
-      {
-        area: 'math',
-        prompt: 'Lionel Messi legt 2 groepjes van 2 oefenkaartjes klaar. Hoeveel kaartjes zijn dat samen?',
-        options: ['2', '4', '6'],
-        correct: '4',
-        explanation: 'Twee groepjes van 2 zijn 2 + 2 = 4. Dat is de keersom 2 × 2 = 4. Je hoeft niets over voetbal te weten.'
+        prompt: 'In het gekke toiletkastje liggen 3 tientallen wc-papiervelletjes en 4 losse velletjes. Hoeveel zijn dat er samen?',
+        options: ['24', '34', '43'],
+        correct: '34',
+        explanation: 'Drie tientallen zijn 30. Met 4 eenheden erbij krijg je 30 + 4 = 34.'
       }
     ]
   }
