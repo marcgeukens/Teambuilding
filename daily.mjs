@@ -1,113 +1,110 @@
-export const ACTIVE_DATE = '2026-10-16';
+export const ACTIVE_DATE = '2026-10-17';
 export const DAILY_CONTENT = {
-  '2026-10-16': {
-    title: 'De vrijdagse lichtjesroute',
+  '2026-10-17': {
+    title: 'Het Donkerduisterbos',
     questions: [
       {
         area: 'language',
-        storyTitle: 'Luistertest: de lichtjesroute',
-        listenGroup: 'lichtjesroute',
-        listenText: 'Dag Liam, dit is een oefenbericht voor de lichtjesroute. Op vrijdag drieëntwintig oktober start de tocht aan de schoolpoort. Iedereen brengt een lampion en een geel lint mee. De groep vertrekt om half vier. De kinderen wandelen samen naar het kleine park. Ze dragen het gele lint zodat iedereen goed bij de groep blijft. Na de wandeling krijgen ze warme appelsap.',
-        prompt: 'Wat brengt ieder kind mee voor de lichtjesroute?',
-        options: ['Een lampion en een geel lint.', 'Een boekentas en een bal.', 'Een zwembroek en een handdoek.'],
-        correct: 'Een lampion en een geel lint.',
-        explanation: 'In het oefenbericht hoor je dat ieder kind een lampion en een geel lint meebrengt.'
+        storyTitle: 'Luistertest: Donkerduisterdag',
+        listenGroup: 'donkerduisterdag',
+        listenText: 'Dag Liam, luister goed naar dit bericht. Op woensdag achtentwintig oktober viert de school Donkerduisterdag. De kinderen trekken in hun fantasie het mysterieuze donkerduisterbos in. Ze ontdekken er bomen, planten, dieren en paddenstoelen. Tijdens speelse workshops werken kinderen uit verschillende klassen samen. Je mag je verkleden als kabouter, boself, heks, trol of bosdier. Verkleedkleren zijn leuk, maar niet verplicht.',
+        prompt: 'Wat ontdekken de kinderen in het donkerduisterbos?',
+        options: ['Bomen, planten, dieren en paddenstoelen.', 'Auto’s, treinen en vliegtuigen.', 'Enkel boeken en potloden.'],
+        correct: 'Bomen, planten, dieren en paddenstoelen.',
+        explanation: 'In het bericht hoor je dat de kinderen bomen, planten, dieren en paddenstoelen ontdekken.'
       },
       {
         area: 'explore',
         type: 'text',
-        storyTitle: 'Luistertest: de lichtjesroute',
-        listenGroup: 'lichtjesroute',
-        listenText: 'Dag Liam, dit is een oefenbericht voor de lichtjesroute. Op vrijdag drieëntwintig oktober start de tocht aan de schoolpoort. Iedereen brengt een lampion en een geel lint mee. De groep vertrekt om half vier. De kinderen wandelen samen naar het kleine park. Ze dragen het gele lint zodat iedereen goed bij de groep blijft. Na de wandeling krijgen ze warme appelsap.',
-        prompt: 'Op welke dag en datum is de lichtjesroute? Schrijf ze allebei zelf.',
+        storyTitle: 'Luistertest: Donkerduisterdag',
+        listenGroup: 'donkerduisterdag',
+        listenText: 'Dag Liam, luister goed naar dit bericht. Op woensdag achtentwintig oktober viert de school Donkerduisterdag. De kinderen trekken in hun fantasie het mysterieuze donkerduisterbos in. Ze ontdekken er bomen, planten, dieren en paddenstoelen. Tijdens speelse workshops werken kinderen uit verschillende klassen samen. Je mag je verkleden als kabouter, boself, heks, trol of bosdier. Verkleedkleren zijn leuk, maar niet verplicht.',
+        prompt: 'Op welke dag en datum is Donkerduisterdag? Schrijf ze allebei zelf.',
         placeholder: 'bijvoorbeeld: maandag 4 mei',
-        accepted: ['vrijdag 23 oktober', 'vrijdag drieëntwintig oktober', 'vrijdag 23/10', 'vrijdag 23-10', 'vrijdag 23 oktober 2026', '23 oktober vrijdag'],
-        correct: 'vrijdag 23 oktober',
-        explanation: 'In het oefenbericht hoor je: vrijdag drieëntwintig oktober.'
+        accepted: ['woensdag 28 oktober', 'woensdag achtentwintig oktober', 'woensdag 28/10', 'woensdag 28-10', 'woensdag 28 oktober 2026', '28 oktober woensdag'],
+        correct: 'woensdag 28 oktober',
+        explanation: 'In het bericht hoor je: woensdag achtentwintig oktober.'
       },
       {
         area: 'math',
-        storyTitle: 'Luistertest: de lichtjesroute',
-        listenGroup: 'lichtjesroute',
-        listenText: 'Dag Liam, dit is een oefenbericht voor de lichtjesroute. Op vrijdag drieëntwintig oktober start de tocht aan de schoolpoort. Iedereen brengt een lampion en een geel lint mee. De groep vertrekt om half vier. De kinderen wandelen samen naar het kleine park. Ze dragen het gele lint zodat iedereen goed bij de groep blijft. Na de wandeling krijgen ze warme appelsap.',
-        prompt: 'Welke klok toont het vertrekuur van de lichtjesroute?',
-        options: ['15:30', '15:00', '16:30'],
-        correct: '15:30',
+        prompt: 'De kabouterworkshop begint om half tien. Welke klok past daarbij?',
+        options: ['09:30', '09:00', '10:30'],
+        correct: '09:30',
         clockOptions: {
-          '15:30': {hour: 3, minute: 30, label: 'half vier'},
-          '15:00': {hour: 3, minute: 0, label: 'drie uur'},
-          '16:30': {hour: 4, minute: 30, label: 'half vijf'}
+          '09:30': {hour: 9, minute: 30, label: 'half tien'},
+          '09:00': {hour: 9, minute: 0, label: 'negen uur'},
+          '10:30': {hour: 10, minute: 30, label: 'half elf'}
         },
-        explanation: 'Half vier is 15.30 uur. De grote wijzer staat op 6 en de kleine wijzer tussen 3 en 4.'
+        explanation: 'Half tien is 09.30 uur. De grote wijzer staat op 6 en de kleine wijzer tussen 9 en 10.'
       },
       {
         area: 'language',
-        storyTitle: 'Luistertest: de lichtjesroute',
-        listenGroup: 'lichtjesroute',
-        listenText: 'Dag Liam, dit is een oefenbericht voor de lichtjesroute. Op vrijdag drieëntwintig oktober start de tocht aan de schoolpoort. Iedereen brengt een lampion en een geel lint mee. De groep vertrekt om half vier. De kinderen wandelen samen naar het kleine park. Ze dragen het gele lint zodat iedereen goed bij de groep blijft. Na de wandeling krijgen ze warme appelsap.',
-        prompt: 'Waarom dragen de kinderen een geel lint?',
-        options: ['Zodat iedereen goed bij de groep blijft.', 'Omdat het lint licht geeft.', 'Om er een bal mee te vangen.'],
-        correct: 'Zodat iedereen goed bij de groep blijft.',
-        explanation: 'Het gele lint helpt om de kinderen van de groep goed te herkennen. Dat moet je uit het bericht afleiden.'
+        storyTitle: 'Luistertest: Donkerduisterdag',
+        listenGroup: 'donkerduisterdag',
+        listenText: 'Dag Liam, luister goed naar dit bericht. Op woensdag achtentwintig oktober viert de school Donkerduisterdag. De kinderen trekken in hun fantasie het mysterieuze donkerduisterbos in. Ze ontdekken er bomen, planten, dieren en paddenstoelen. Tijdens speelse workshops werken kinderen uit verschillende klassen samen. Je mag je verkleden als kabouter, boself, heks, trol of bosdier. Verkleedkleren zijn leuk, maar niet verplicht.',
+        prompt: 'Moet ieder kind verkleed naar Donkerduisterdag komen?',
+        options: ['Nee, verkleden mag maar moet niet.', 'Ja, iedereen moet een heks zijn.', 'Ja, iedereen moet een trol zijn.'],
+        correct: 'Nee, verkleden mag maar moet niet.',
+        explanation: 'Het bericht zegt dat verkleedkleren leuk zijn, maar niet verplicht.'
       },
       {
         area: 'explore',
-        prompt: 'Tussen punt A en punt B staat één recht stukje getekend. Hoe heet dat?',
-        options: ['Een lijnstuk.', 'Een kromme lijn.', 'Een losse punt.'],
-        correct: 'Een lijnstuk.',
-        explanation: 'Een recht stukje met een beginpunt en een eindpunt heet een lijnstuk.'
+        prompt: 'Een heks tekent een pad dat zachtjes buigt. Welke wiskundetaal past daarbij?',
+        options: ['Een kromme lijn.', 'Een rechte lijn.', 'Een punt.'],
+        correct: 'Een kromme lijn.',
+        explanation: 'Een lijn die buigt, noem je een kromme lijn.'
       },
       {
         area: 'math',
-        prompt: 'Squirtle vult 5 zakjes met telkens 2 lichtjes. Hoeveel lichtjes zijn dat samen?',
-        options: ['7', '10', '12'],
-        correct: '10',
-        explanation: 'Vijf groepjes van 2 zijn 2 + 2 + 2 + 2 + 2 = 10. De keersom is 5 × 2 = 10.'
+        prompt: 'Pikachu zet 6 mandjes klaar met telkens 2 lichtstenen. Hoeveel lichtstenen zijn dat samen?',
+        options: ['8', '12', '14'],
+        correct: '12',
+        explanation: 'Zes groepjes van 2 zijn 2 + 2 + 2 + 2 + 2 + 2 = 12. De keersom is 6 × 2 = 12.'
       },
       {
         area: 'language',
         prompt: 'Welk woord heeft het patroon MKMM?',
-        options: ['lamp', 'maan', 'koe'],
-        correct: 'lamp',
-        explanation: 'Lamp heeft medeklinker, klinker, medeklinker, medeklinker: l-a-m-p.'
+        options: ['heks', 'boom', 'fee'],
+        correct: 'heks',
+        explanation: 'Heks heeft medeklinker, klinker, medeklinker, medeklinker: h-e-k-s.'
       },
       {
         area: 'explore',
-        prompt: 'Kevin De Bruyne volgt de pijlen: rechts, rechts, omlaag, rechts, rechts, omlaag, ... Welke pijl komt nu?',
-        options: ['Rechts.', 'Omlaag.', 'Links.'],
-        correct: 'Rechts.',
-        explanation: 'Het groepje rechts, rechts, omlaag herhaalt zich. Na omlaag begint het opnieuw met rechts.'
+        prompt: 'Lionel Messi kijkt naar het noorden. Hij draait één kwartslag naar rechts. Naar welke windrichting kijkt hij nu?',
+        options: ['Naar het oosten.', 'Naar het westen.', 'Naar het zuiden.'],
+        correct: 'Naar het oosten.',
+        explanation: 'Als je naar het noorden kijkt en naar rechts draait, kijk je naar het oosten.'
       },
       {
         area: 'math',
-        prompt: 'Een lampion heeft 8 gouden en 6 rode sterren. Gebruik de sok. Hoeveel sterren zijn dat samen?',
-        options: ['13', '14', '15'],
-        correct: '14',
-        sock: {operator: '+', start: 8, splitTotal: 6, first: 2, second: 4, result: 14, step: '8 + 2 = 10, daarna 10 + 4 = 14.'},
-        explanation: 'Splits 6 in 2 en 4. Eerst maak je 10 met 8 + 2. Daarna doe je 10 + 4 = 14.'
+        prompt: 'Een trol heeft 14 kastanjes. Hij geeft er 6 weg. Gebruik de sok. Hoeveel houdt hij over?',
+        options: ['7', '8', '9'],
+        correct: '8',
+        sock: {operator: '-', start: 14, splitTotal: 6, first: 4, second: 2, result: 8, step: '14 - 4 = 10, daarna 10 - 2 = 8.'},
+        explanation: 'Splits 6 in 4 en 2. Eerst ga je met 14 - 4 naar 10. Daarna doe je 10 - 2 = 8.'
       },
       {
         area: 'language',
-        storyTitle: 'Het briefje aan de deur',
-        passage: 'Lampions uit vóór je binnenkomt. Zet je lampion daarna op de tafel.',
-        prompt: 'Wat moet je eerst doen als je naar binnen gaat?',
-        options: ['De lampion uitdoen.', 'De lampion meenemen naar huis.', 'De lampion onder de tafel zetten.'],
-        correct: 'De lampion uitdoen.',
-        explanation: 'Het briefje zegt eerst dat je de lampion moet uitdoen. Daarna zet je hem op de tafel.'
+        storyTitle: 'Het bord bij de donkere kamer',
+        passage: 'Wacht bij de groene paddenstoel. Ga pas naar binnen wanneer de juf je naam noemt.',
+        prompt: 'Wat moet je eerst doen bij de donkere kamer?',
+        options: ['Bij de groene paddenstoel wachten.', 'Meteen naar binnen lopen.', 'Een rode paddenstoel zoeken.'],
+        correct: 'Bij de groene paddenstoel wachten.',
+        explanation: 'Op het bord staat eerst dat je bij de groene paddenstoel moet wachten.'
       },
       {
         area: 'explore',
-        prompt: 'Pipi-Piet versiert het toilet: wc-rol, ster, ster, wc-rol, ster, ster, ... Wat komt nu?',
-        options: ['Een wc-rol.', 'Een ster.', 'Een maan.'],
-        correct: 'Een wc-rol.',
-        explanation: 'Het groepje wc-rol, ster, ster herhaalt zich. Daarna komt opnieuw een wc-rol.'
+        prompt: 'Kaka-Kabouter legt bladeren: rood, geel, geel, rood, geel, geel, ... Welke kleur komt nu?',
+        options: ['Rood.', 'Geel.', 'Groen.'],
+        correct: 'Rood.',
+        explanation: 'Het groepje rood, geel, geel herhaalt zich. Daarna komt opnieuw rood.'
       },
       {
         area: 'math',
-        prompt: 'Een doos bevat 4 tientallen en 3 eenheden. Welk getal is dat?',
-        options: ['34', '43', '47'],
-        correct: '43',
-        explanation: 'Vier tientallen zijn 40. Met 3 eenheden erbij krijg je 43.'
+        prompt: 'Een boself denkt aan een getal: 10 + ___ = 17. Welk getal ontbreekt?',
+        options: ['5', '7', '9'],
+        correct: '7',
+        explanation: 'Van 10 naar 17 zijn 7 stappen. Dus 10 + 7 = 17.'
       }
     ]
   }
