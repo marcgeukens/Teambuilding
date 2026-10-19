@@ -39,7 +39,8 @@ function tcgIds(c){
  return [...new Set([set+'-'+padded,set+'-'+simple])];
 }
 function cardLink(c){
- // Link naar de exacte kaarteditie, niet alleen de Pokémonsoort.
+ // McDonald's promos zijn niet in elke toernooidatabase opgenomen.
+ if(c[2]==='MCD')return 'https://pokemoncard.io/card/'+(c[0]==='Quagsire'?'quaqsire':'koraidon')+'-mcd24-'+parseInt(cardNum(c),10);
  return 'https://limitlesstcg.com/cards/'+encodeURIComponent(c[2])+'/'+encodeURIComponent(String(parseInt(cardNum(c),10)));
 }
 function imageCandidates(c){
@@ -47,7 +48,10 @@ function imageCandidates(c){
  const list=[];
  if(m.image&&m.image.startsWith('https://assets.tcgdex.net/'))list.push(m.image+'/high.webp');
  if(serie!=='2024sv')list.push('https://assets.tcgdex.net/en/'+serie+'/'+set+'/'+cardNum(c).padStart(3,'0')+'/high.webp');
+ if(c[2]==='MCD')list.push('https://images.pokemoncard.io/images/mcd24/mcd24-'+parseInt(cardNum(c),10)+'.png');
  if(POKEMONIO[c[2]])list.push('https://images.pokemontcg.io/'+POKEMONIO[c[2]]+'/'+parseInt(cardNum(c),10)+'_hires.png');
+ const altSet=c[2]==='CRI'?'me4':(c[4]||'');
+ if(altSet)list.push('https://images.pokemoncard.io/images/'+altSet+'/'+altSet+'-'+parseInt(cardNum(c),10)+'.png');
  return [...new Set(list)];
 }
 function drawPicture(anchor,c){
@@ -59,8 +63,8 @@ function drawPicture(anchor,c){
 function currentPrice(c){
  const p=market.data[id(c)];return p&&Number.isFinite(p.price)&&p.price>=0?p:null;
 }
-function oldPrice(p){if(!p?.sourceDate)return true;const t=new Date(p.sourceDate).getTime();return !Number.isFinite(t)||Date.now()-t>14*86400000}
-function dateLabel(d){if(!d)return 'datum onbekend';const n=new Date(d);return Number.isFinite(n.getTime())?n.toLocaleDateString('nl-BE',{day:'2-digit',month:'2-digit',year:'numeric'}):'datum onbekend'}
+function oldPrice(p){if(!p?.sourceDate)return true;const raw=p.sourceDate;const t=typeof raw==='number'?(raw<100000000000?raw*1000:raw):new Date(raw).getTime();return !Number.isFinite(t)||Date.now()-t>14*86400000}
+function dateLabel(d){if(!d)return 'datum onbekend';const n=new Date(typeof d==='number'?(d<100000000000?d*1000:d):d);return Number.isFinite(n.getTime())?n.toLocaleDateString('nl-BE',{day:'2-digit',month:'2-digit',year:'numeric'}):'datum onbekend'}
 function render(){
  const term=$('search').value.toLocaleLowerCase().trim(),filter=$('filter').value,sort=$('sort').value;
  const visible=cards.filter(c=>(c[0]+' '+c[1]+' '+c[2]).toLocaleLowerCase().includes(term))
