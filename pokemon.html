@@ -6,7 +6,7 @@
 <header><a class="back" href="./index.html">← Dagtest</a><span class="brand">✦ Liams Pokémonboek</span></header>
 <main><section class="hero"><div class="eyebrow">Mijn verzameling</div><h1>Pokémon-kaarten ✨</h1><p>Bekijk je kaarten, klik op een afbeelding voor de kaartinformatie en houd bij hoeveel exemplaren je hebt. Je verzameling wordt op dit toestel onthouden.</p><div class="stats"><div class="stat"><strong id="unique">0</strong><div>verschillende kaarten</div></div><div class="stat"><strong id="total">0</strong><div>kaarten in totaal</div></div><div class="stat"><strong id="types">0</strong><div>in de catalogus</div></div><div class="stat"><strong id="collection-value">—</strong><div>geschatte waarde (bekende prijzen)</div></div></div></section>
 <div class="tools"><input id="search" type="search" placeholder="Zoek naam of nummer…" aria-label="Zoek kaart"><select id="filter" aria-label="Toon kaarten"><option value="all">Alle kaarten</option><option value="owned">In mijn verzameling</option><option value="missing">Niet in mijn verzameling</option><option value="pokemon">Alleen Pokémon</option></select><select id="sort" aria-label="Sorteren"><option value="hp">HP: hoog naar laag</option><option value="price">Waarde: hoog naar laag</option><option value="name">Naam: A-Z</option><option value="number">Kaartnummer</option></select><button id="refresh-prices" title="Vernieuw de marktprijzen">↻ Prijzen vernieuwen</button><button id="reset">Aantallen herstellen</button></div><p id="price-status" class="muted" role="status" aria-live="polite" style="margin:-8px 0 19px">Marktprijzen worden opgehaald…</p>
-<div id="grid" class="grid"></div><p id="empty">Geen kaarten gevonden.</p><p class="note">De afbeeldingen worden opgehaald bij TCGdex (echte kaartscans), met alternatieve bron waar beschikbaar. Prijzen zijn een indicatie op basis van Europese Cardmarket-trendgegevens via TCGdex, niet de gegarandeerde verkoopwaarde. Taal, staat, holo-variant en verzendkosten beïnvloeden de waarde. Ontbrekende of oude prijzen worden eerlijk aangeduid. Elke dag worden de prijzen bij een bezoek ververst; handmatig vernieuwen kan ook. De verzameling blijft enkel op dit toestel bewaard en is niet automatisch gesynchroniseerd met het ouderaccount.</p></main>
+<div id="grid" class="grid"></div><p id="empty">Geen kaarten gevonden.</p><p class="note">De foto's komen van de Pokémon-kaartendatabases. Richtprijzen zijn Europese Cardmarket-indicaties, gecontroleerd op 19/10/2026 via Cardmarket/Kiraset, en worden waar beschikbaar vervangen door liveprijzen via TCGdex. Let op: speciale stamps, holo-varianten, taal en conditie veranderen de waarde sterk. Dagelijks vernieuwen gebeurt bij het openen van het Pokémonboek. Aantallen worden enkel op dit toestel bewaard.</p></main>
 <script>
 const cards=[["Meowscarada ex","033","SVP",310,"svp","33"],["Palossand ex","091/191","SSP",280,"sv8","91"],["Mega Floette ex","035/086","CRI",250,null,null],["Cinccino ex","073/086","CRI",240,null,null],["Team Rocket's Moltres ex","031/182","DRI",220,"sv10","31"],["Zapdos ex","192/165","MEW",200,"sv3pt5","192"],["Snorlax","136/167","TWM",160,"sv6","136"],["Donphan","045/086","CRI",150,null,null],["Golisopod","026/086","CRI",140,null,null],["Iron Thorns","062/162","TEF",140,"sv5","62"],["Alakazam","082/167","TWM",140,"sv6","82"],["Koraidon","008/015","MCD",130,null,null],["Radiant Greninja","046/189","ASR",130,"swsh10","46"],["Terrakion","097/195","SIT",130,"swsh12","97"],["Glimmora","109/167","TWM",130,"sv6","109"],["Quagsire","007/015","MCD",120,null,null],["Deoxys","032/086","CRI",120,null,null],["Azumarill","034/142","SCR",120,"sv7","34"],["Lokix","122/182","PAR",120,"sv4","122"],["Iron Bundle","056/182","PAR",100,"sv4","56"],["Girafarig","066/162","TEF",90,"sv5","66"],["Snorlax Doll","175/182","PAR",120,"sv4","175"],["Ancient Booster Energy Capsule","140/162","TEF",null,"sv5","140"],["Morty's Conviction","155/162","TEF",null,"sv5","155"],["Basic Grass Energy","001","SVE",null,"sve","1"]];
 
@@ -28,6 +28,8 @@ const SETS={SVP:'svp',SSP:'sv08',CRI:'me04',DRI:'sv10',MEW:'sv03.5',TWM:'sv06',T
 const SERIES={SVP:'sv',SSP:'sv',CRI:'me',DRI:'sv',MEW:'sv',TWM:'sv',TEF:'sv',PAR:'sv',ASR:'swsh',SIT:'swsh',SCR:'sv',MCD:'2024sv',SVE:'sv'};
 const POKEMONIO={SVP:'svp',SSP:'sv8',DRI:'sv10',MEW:'sv3pt5',TWM:'sv6',TEF:'sv5',PAR:'sv4',ASR:'swsh10',SIT:'swsh12',SCR:'sv7',SVE:'sve'};
 const HOLO=new Set(['SVP-033','SSP-091/191','CRI-035/086','CRI-073/086','DRI-031/182','MEW-192/165','CRI-026/086','TEF-062/162','TWM-082/167','MCD-008/015','ASR-046/189','SIT-097/195','PAR-122/182']);
+const REFERENCE_PRICES={"SVP-033":0.85,"SSP-091/191":0.53,"CRI-035/086":0.48,"CRI-073/086":0.46,"DRI-031/182":0.59,"MEW-192/165":13.28,"TWM-136/167":0.08,"CRI-045/086":0.04,"CRI-026/086":0.02,"TEF-062/162":0.18,"TWM-082/167":0.16,"MCD-008/015":0.27,"ASR-046/189":2.76,"SIT-097/195":0.24,"TWM-109/167":0.02,"MCD-007/015":0.06,"CRI-032/086":0.03,"SCR-034/142":0.03,"PAR-122/182":0.05,"PAR-056/182":0.05,"TEF-066/162":0.03,"PAR-175/182":0.06,"TEF-140/162":0.04,"TEF-155/162":0.09,"SVE-001":0.06};
+const REFERENCE_CHECKED='2026-10-19';
 let isUpdating=false;
 function id(c){return c[2]+'-'+c[1]}
 function persist(){try{localStorage.setItem(KEY,JSON.stringify(saved))}catch(e){}}
@@ -39,9 +41,8 @@ function tcgIds(c){
  return [...new Set([set+'-'+padded,set+'-'+simple])];
 }
 function cardLink(c){
- // McDonald's promos zijn niet in elke toernooidatabase opgenomen.
- if(c[2]==='MCD')return 'https://pokemoncard.io/card/'+(c[0]==='Quagsire'?'quaqsire':'koraidon')+'-mcd24-'+parseInt(cardNum(c),10);
- return 'https://limitlesstcg.com/cards/'+encodeURIComponent(c[2])+'/'+encodeURIComponent(String(parseInt(cardNum(c),10)));
+ const set=SETS[c[2]],num=c[2]==='MCD'?String(parseInt(cardNum(c),10)):cardNum(c).padStart(3,'0');
+ return 'https://kiraset.com/cards/'+encodeURIComponent(set+'-'+num);
 }
 function imageCandidates(c){
  const m=market.data[id(c)]||{},set=SETS[c[2]],serie=SERIES[c[2]];
@@ -61,7 +62,12 @@ function drawPicture(anchor,c){
  if(candidates.length){image.src=candidates[idx++];anchor.append(image)}else anchor.append(label);
 }
 function currentPrice(c){
- const p=market.data[id(c)];return p&&Number.isFinite(p.price)&&p.price>=0?p:null;
+ const p=market.data[id(c)];
+ if(p&&Number.isFinite(p.price)&&p.price>0&&!oldPrice(p))return {...p,mode:'live'};
+ const baseline=REFERENCE_PRICES[id(c)];
+ if(Number.isFinite(baseline)&&baseline>0)return {price:baseline,sourceDate:REFERENCE_CHECKED,variant:'referentie',mode:'reference'};
+ if(p&&Number.isFinite(p.price)&&p.price>0)return {...p,mode:'old'};
+ return null;
 }
 function oldPrice(p){if(!p?.sourceDate)return true;const raw=p.sourceDate;const t=typeof raw==='number'?(raw<100000000000?raw*1000:raw):new Date(raw).getTime();return !Number.isFinite(t)||Date.now()-t>14*86400000}
 function dateLabel(d){if(!d)return 'datum onbekend';const n=new Date(typeof d==='number'?(d<100000000000?d*1000:d):d);return Number.isFinite(n.getTime())?n.toLocaleDateString('nl-BE',{day:'2-digit',month:'2-digit',year:'numeric'}):'datum onbekend'}
@@ -74,7 +80,7 @@ function render(){
  $('total').textContent=cards.reduce((s,c)=>s+(saved[id(c)]||0),0);
  $('types').textContent=cards.length;
  let value=0,missing=0;
- for(const c of cards){const qty=saved[id(c)]||0;if(!qty)continue;const p=currentPrice(c);if(p&&!oldPrice(p))value+=p.price*qty;else missing+=qty}
+ for(const c of cards){const qty=saved[id(c)]||0;if(!qty)continue;const p=currentPrice(c);if(p)value+=p.price*qty;else missing+=qty}
  $('collection-value').textContent=value?money.format(value):'—';
  $('collection-value').title=missing?'Voor '+missing+' kaarten ontbreekt een recente betrouwbare prijs; totaal is onvolledig.':'Gebaseerd op gekende richtprijzen.';
  $('empty').style.display=visible.length?'none':'block';
@@ -89,7 +95,11 @@ function render(){
   const pr=document.createElement('div');pr.className='price-line';
   const price=currentPrice(c),val=document.createElement('strong'),hint=document.createElement('small');
   val.textContent=price?money.format(price.price):'Prijs onbekend';
-  if(price){hint.textContent='Cardmarket '+price.variant+' · '+dateLabel(price.sourceDate);if(oldPrice(price)){val.className='old';hint.textContent+=' · oudere richtprijs'}}
+  if(price){
+  if(price.mode==='reference')hint.textContent='Marktindicatie · geraadpleegd '+dateLabel(REFERENCE_CHECKED);
+  else {hint.textContent='Cardmarket '+price.variant+' · bron '+dateLabel(price.sourceDate);
+    if(oldPrice(price)){val.className='old';hint.textContent+=' · oudere prijs';}}
+ }
   else hint.textContent='Geen betrouwbare EUR-prijs beschikbaar';
   pr.append(val,hint);article.append(pr);
   const ctl=document.createElement('div');ctl.className='controls';
@@ -99,7 +109,7 @@ function render(){
   const plus=document.createElement('button');plus.type='button';plus.textContent='+';plus.setAttribute('aria-label','Voeg toe: '+c[0]);
   plus.addEventListener('click',()=>{saved[id(c)]=(saved[id(c)]||0)+1;persist();render()});
   ctl.append(minus,count,plus);article.append(ctl);
-  const detail=document.createElement('a');detail.className='detail';detail.href=cardLink(c);detail.target='_blank';detail.rel='noopener noreferrer';detail.textContent='Bekijk de kaart ↗';article.append(detail);
+  const detail=document.createElement('a');detail.className='detail';detail.href=cardLink(c);detail.target='_blank';detail.rel='noopener noreferrer';detail.textContent='Foto, prijs en uitgave ↗';article.append(detail);
   grid.append(article);
  }
  if(missing){$('price-status').dataset.missing=String(missing)}
@@ -117,9 +127,9 @@ async function retrieve(c){
    if(data.name.toLowerCase()!==correct&&c[2]!=='SVE')continue;
    const p=data.pricing&&data.pricing.cardmarket;
    const holo=HOLO.has(id(c));
-   const relevant=holo?['trend-holo','avg7-holo','avg-holo','trend','avg7','avg']:['trend','avg7','avg','trend-holo'];
-   const kind=holo?'holo':'normaal';
-   const amount=p?relevant.map(k=>p[k]).find(v=>typeof v==='number'&&Number.isFinite(v)&&v>=0):undefined;
+   const relevant=['trend','avg7','avg','trend-holo','avg7-holo','avg-holo'];
+   const amount=p?relevant.map(k=>p[k]).find(v=>typeof v==='number'&&Number.isFinite(v)&&v>0):undefined;
+   const kind=holo?'holo-kaart (richtprijs)':'reguliere kaart';
    return {image:data.image||null,price:amount??null,sourceDate:p?.updated||null,variant:kind,ref:data.id};
   }catch(e){return null}
  }
@@ -137,9 +147,10 @@ async function refreshPrices(force=false){
  isUpdating=false;$('refresh-prices').disabled=false;render();showStatus(success===0);
 }
 function showStatus(failed=false){
- const matched=cards.filter(c=>currentPrice(c)&&!oldPrice(currentPrice(c))).length;
- const when=market.day?market.day.split('-').reverse().join('/'): 'nog niet opgehaald';
- $('price-status').textContent=(failed?'Bron tijdelijk onbereikbaar. ':'')+'Dagelijkse controle: '+when+' · '+matched+'/'+cards.length+' recente EUR-prijzen beschikbaar. '+(isUpdating?'Bezig met vernieuwen…':'');
+ const live=cards.filter(c=>currentPrice(c)?.mode==='live').length;
+ const refs=cards.filter(c=>currentPrice(c)?.mode==='reference').length;
+ const when=market.day?market.day.split('-').reverse().join('/'): 'nog niet geslaagd';
+ $('price-status').textContent=(failed?'Livebron tijdelijk onbereikbaar. ':'')+'Livecontrole: '+when+' · '+live+' liveprijzen, '+refs+' gecontroleerde richtprijzen. Prijzen zijn indicatief.';
 }
 ['search','filter','sort'].forEach(k=>$(k).addEventListener(k==='search'?'input':'change',render));
 $('reset').addEventListener('click',()=>{if(confirm('Alle aantallen opnieuw op 1 zetten?')){saved=Object.fromEntries(cards.map(c=>[id(c),1]));persist();render()}});
