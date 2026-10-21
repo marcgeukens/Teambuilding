@@ -1,107 +1,107 @@
-export const ACTIVE_DATE = '2026-10-20';
+export const ACTIVE_DATE = '2026-10-21';
 export const DAILY_CONTENT = {
-  '2026-10-20': {
-    title: 'De paddenstoelenkaart',
+  '2026-10-21': {
+    title: 'Het lichtsporenpad',
     questions: [
       {
         area: 'math',
         challenge: true,
-        prompt: 'Miraidon vindt 8 blauwe lichtjes en daarna 7 gele lichtjes. Gebruik de sok. Hoeveel lichtjes zijn dat samen?',
-        options: ['14', '15', '16'],
-        correct: '15',
-        sock: {operator: '+', start: 8, splitTotal: 7, first: 2, second: 5, result: 15, step: '8 + 2 = 10, daarna 10 + 5 = 15.'},
-        explanation: 'Splits 7 in 2 en 5. Eerst maak je 10 met 8 + 2. Daarna doe je 10 + 5 = 15.'
+        tableOf2: true,
+        prompt: 'Op het lichtsporenpad liggen 14 steentjes in groepjes van 2. Hoeveel groepjes zijn er? Welke factor ontbreekt in ? × 2 = 14?',
+        options: ['6', '7', '8'],
+        correct: '7',
+        explanation: 'Maak groepjes van 2: 2 + 2 + 2 + 2 + 2 + 2 + 2 = 14. Dat zijn 7 groepjes. De keersom is 7 × 2 = 14.'
       },
       {
         area: 'language',
-        storyTitle: 'Het kaartje bij de bakken',
-        passage: 'Stop droge bladeren in de groene bak. Natte bladeren horen in de blauwe bak. Sluit daarna beide deksels.',
-        prompt: 'Je hebt een nat blad. Wat moet je ermee doen?',
-        options: ['In de blauwe bak leggen.', 'In de groene bak leggen.', 'In je jaszak stoppen.'],
-        correct: 'In de blauwe bak leggen.',
-        explanation: 'Op het kaartje staat dat natte bladeren in de blauwe bak horen.'
+        prompt: 'Welk woord is juist geschreven?',
+        options: ['wolf', 'wolv', 'wlof'],
+        correct: 'wolf',
+        explanation: 'Wolf schrijf je w-o-l-f. Het is een MKMM-woord: medeklinker, klinker, medeklinker, medeklinker.'
       },
       {
         area: 'explore',
-        prompt: 'Welke beschrijving past bij een kromme lijn?',
-        options: ['Een lijn die buigt.', 'Een lijn die overal recht blijft.', 'Eén klein punt.'],
-        correct: 'Een lijn die buigt.',
-        explanation: 'Een kromme lijn verandert van richting en buigt. Ze is niet overal recht.'
+        prompt: 'Welke beschrijving past bij een lijnstuk?',
+        options: ['Een rechte lijn tussen twee punten.', 'Een kromme lijn zonder eindpunten.', 'Eén los punt.'],
+        correct: 'Een rechte lijn tussen twee punten.',
+        explanation: 'Een lijnstuk is recht en heeft twee eindpunten.'
       },
       {
         area: 'math',
-        tableOf2: true,
-        prompt: 'Een boself verdeelt 18 lichtsteentjes eerlijk over 2 manden. Hoeveel lichtsteentjes komen in elke mand?',
+        prompt: 'Een trol heeft 16 kastanjes. Hij geeft er 7 weg. Gebruik de minsok. Hoeveel kastanjes houdt hij over?',
         options: ['8', '9', '10'],
         correct: '9',
-        explanation: 'Verdeel om de beurt: elke mand krijgt 9 lichtsteentjes. De deelsom is 18 : 2 = 9. De controlesom is 2 × 9 = 18.'
+        sock: {operator: '-', start: 16, splitTotal: 7, first: 6, second: 1, result: 9, step: '16 - 6 = 10, daarna 10 - 1 = 9.'},
+        explanation: 'Splits 7 in 6 en 1. Eerst ga je van 16 naar 10: 16 - 6 = 10. Daarna doe je 10 - 1 = 9.'
       },
       {
         area: 'language',
-        prompt: 'Welk woord heeft het patroon MKMM?',
-        options: ['lamp', 'maan', 'uil'],
-        correct: 'lamp',
-        explanation: 'Lamp heeft medeklinker, klinker, medeklinker, medeklinker: l-a-m-p.'
+        challenge: true,
+        storyTitle: 'De lampenworkshop',
+        passage: 'De lampenworkshop start om 13.30 uur in de muziekklas. Breng een rood potlood en één droog blad mee. Liam staat om 13.25 uur in de refter. Hij heeft beide spullen al bij zich.',
+        prompt: 'Wat moet Liam nog doen om op tijd klaar te zijn voor de workshop?',
+        options: ['Naar de muziekklas gaan.', 'Een nat blad zoeken.', 'Naar huis gaan.'],
+        correct: 'Naar de muziekklas gaan.',
+        explanation: 'Liam heeft het rode potlood en het droge blad al. Hij is vijf minuten te vroeg, maar staat nog in de refter. Hij moet dus naar de muziekklas gaan.'
       },
       {
         area: 'explore',
-        challenge: true,
-        prompt: 'Het knutselen begint om twee uur en duurt één uur. Daarna ruimen de kinderen nog een halfuur op. Wanneer zijn ze helemaal klaar?',
-        options: ['14:30', '15:00', '15:30'],
-        correct: '15:30',
+        prompt: 'De boswandeling begint om 16.00 uur en duurt een halfuur. Hoe laat eindigt ze?',
+        options: ['16:15', '16:30', '17:00'],
+        correct: '16:30',
         clockOptions: {
-          '14:30': {hour: 2, minute: 30, label: 'half drie'},
-          '15:00': {hour: 3, minute: 0, label: 'drie uur'},
-          '15:30': {hour: 3, minute: 30, label: 'half vier'}
+          '16:15': {hour: 4, minute: 15, label: 'kwart over vier'},
+          '16:30': {hour: 4, minute: 30, label: 'half vijf'},
+          '17:00': {hour: 5, minute: 0, label: 'vijf uur'}
         },
-        explanation: 'Na één uur is het 15.00 uur. Tel daar nog een halfuur opruimen bij: ze zijn klaar om 15.30 uur, half vier.'
+        explanation: 'Een halfuur na 16.00 uur is het 16.30 uur, of half vijf.'
       },
       {
         area: 'math',
-        prompt: 'Een doos bevat 4 tientallen. Hoeveel eenheden moet je erbij leggen om 47 te maken?',
-        options: ['4', '7', '40'],
-        correct: '7',
-        explanation: 'Vier tientallen zijn 40. Je hebt nog 7 eenheden nodig: 40 + 7 = 47.'
+        prompt: 'Welk getal bestaat uit 5 tientallen en 3 eenheden?',
+        options: ['35', '50', '53'],
+        correct: '53',
+        explanation: 'Vijf tientallen zijn 50. Met 3 eenheden erbij krijg je 53.'
       },
       {
         area: 'language',
-        storyTitle: 'Waarom brandt het lampje?',
-        passage: 'Het pad is donker. Daarom zet Noor het lampje aan.',
-        prompt: 'Met welk vraagwoord vraag je naar de reden waarom Noor het lampje aanzet?',
-        options: ['Waarom', 'Wie', 'Waar'],
-        correct: 'Waarom',
-        explanation: 'Met waarom vraag je naar een reden. De reden is dat het pad donker is.'
+        storyTitle: 'Voorzichtig bij het doel',
+        passage: 'Kevin De Bruyne schopt de bal zacht. Naast het doel loopt een kleine egel.',
+        prompt: 'Welke vraag zoekt naar de reden waarom Kevin zacht schopt?',
+        options: ['Waarom schopt Kevin zacht?', 'Wie schopt de bal?', 'Waar staat het doel?'],
+        correct: 'Waarom schopt Kevin zacht?',
+        explanation: 'Met waarom vraag je naar een reden. Kevin schopt zacht omdat er een egel naast het doel loopt.'
       },
       {
         area: 'explore',
         challenge: true,
-        prompt: 'Cristiano Ronaldo, Pikachu en Squirtle kiezen elk een ander teken: maan, ster of blad. Pikachu kiest de ster. Squirtle kiest de maan. Welk teken blijft over voor Cristiano Ronaldo?',
-        options: ['Het blad.', 'De maan.', 'De ster.'],
-        correct: 'Het blad.',
-        explanation: 'De ster is al van Pikachu en de maan is al van Squirtle. Alleen het blad blijft over voor Cristiano Ronaldo.'
+        prompt: 'De lichtjes volgen twee sprongen die telkens terugkomen: +2, dan +3. Welke twee getallen komen na 2, 4, 7, 9, 12?',
+        options: ['14 en 17', '15 en 18', '14 en 16'],
+        correct: '14 en 17',
+        explanation: 'Na 12 komt de sprong van 2: 12 + 2 = 14. Daarna komt de sprong van 3: 14 + 3 = 17.'
       },
       {
         area: 'math',
-        prompt: 'Pipi-Piet heeft 17 propere toiletrolletjes voor een knutselwerk. Hij gebruikt er 5. Hoeveel blijven er over?',
-        options: ['11', '12', '13'],
-        correct: '12',
-        explanation: '17 - 5 = 12. Er blijven 12 propere rolletjes over.'
+        prompt: 'Squirtle verzamelt 9 blauwe kaartjes en Pikachu brengt er 6 gele bij. Hoeveel kaartjes zijn er samen?',
+        options: ['14', '15', '16'],
+        correct: '15',
+        explanation: '9 + 6 = 15. Je kunt eerst 1 van de 6 bij 9 doen om 10 te maken, en daarna nog 5: 10 + 5 = 15.'
       },
       {
         area: 'language',
-        storyTitle: 'De workshopkaart',
-        passage: 'Om 14.00 uur knutselen de kinderen in de klas. Om 14.30 uur zoeken ze vormen op de speelplaats. Om 15.00 uur drinken ze water in de refter.',
-        prompt: 'Liam komt om 14.40 uur aan. Waar moet hij volgens de kaart naartoe?',
-        options: ['Naar de speelplaats.', 'Naar de klas.', 'Naar de refter.'],
-        correct: 'Naar de speelplaats.',
-        explanation: 'Om 14.40 uur is de activiteit van 14.30 uur bezig. Liam moet dus naar de speelplaats.'
+        storyTitle: 'Het bord bij de poort',
+        passage: 'Doe bij donker weer je fluohesje aan. Zet je fietslicht aan. Stap af zodra je aan de schoolpoort komt.',
+        prompt: 'Je komt met de fiets aan de schoolpoort. Wat zegt het bord dat je daar moet doen?',
+        options: ['Afstappen.', 'Sneller fietsen.', 'Je fietslicht uitzetten.'],
+        correct: 'Afstappen.',
+        explanation: 'De laatste zin zegt dat je aan de schoolpoort moet afstappen.'
       },
       {
         area: 'explore',
-        prompt: 'Een kabouter legt kaarten in dit patroon: paddenstoel, blad, blad, paddenstoel, blad, blad, ... Welke kaart komt daarna?',
-        options: ['Paddenstoel.', 'Blad.', 'Maan.'],
-        correct: 'Paddenstoel.',
-        explanation: 'Het patroon herhaalt steeds paddenstoel, blad, blad. Na twee bladeren begint het opnieuw met een paddenstoel.'
+        prompt: 'Welke twee dingen vind je allebei in de natuur?',
+        options: ['Een eikel en een paddenstoel.', 'Een verkeerslicht en een lepel.', 'Een toiletrol en een wekker.'],
+        correct: 'Een eikel en een paddenstoel.',
+        explanation: 'Eikels groeien aan eiken en paddenstoelen groeien in de natuur. Een toiletrol in het bos? Dat zou pas kaka-grappig én rommelig zijn!'
       }
     ]
   }
