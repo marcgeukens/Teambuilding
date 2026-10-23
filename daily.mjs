@@ -1,100 +1,105 @@
-export const ACTIVE_DATE = '2026-10-22';
+export const ACTIVE_DATE = '2026-10-23';
 export const DAILY_CONTENT = {
-  '2026-10-22': {
-    title: 'De herfstdrinkkaart',
+  '2026-10-23': {
+    title: 'De stormveilige windroute',
     questions: [
       {
         area: 'math',
+        prompt: 'Er hangen 15 papieren veren. Door de wind worden er 7 veilig binnengelegd. Hoeveel veren blijven hangen?',
+        options: ['8', '9', '7'],
+        correct: '8',
+        explanation: 'Splits 7 in 5 en 2. Eerst 15 − 5 = 10, daarna 10 − 2 = 8. Er blijven 8 veren hangen.',
         challenge: true,
-        prompt: 'Bij de herfstdrink staan 9 bekers appelsap klaar. Er komen 8 bekers bij. Gebruik de plussok. Hoeveel bekers zijn er samen?',
-        options: ['16', '17', '18'],
-        correct: '17',
-        sock: {operator: '+', start: 9, splitTotal: 8, first: 1, second: 7, result: 17, step: '9 + 1 = 10, daarna 10 + 7 = 17.'},
-        explanation: 'Splits 8 in 1 en 7. Eerst maak je 10 met 9 + 1. Daarna doe je 10 + 7 = 17.'
+        sock: { operator: '-', start: 15, splitTotal: 7, first: 5, second: 2, result: 8, step: '15 − 5 = 10, daarna 10 − 2 = 8.' }
+      },
+      {
+        area: 'language',
+        storyTitle: 'Veilig spelen',
+        passage: 'Door de rukwind zijn de speelplaatsen buiten niet veilig. De kinderen van de lagere school spelen tijdens de middagpauze in de Dome. Wie stilte nodig heeft, kan naar een rustige ruimte.',
+        prompt: 'Liam zit in de lagere school. Waar kan hij tijdens de middagpauze spelen?',
+        options: ['In de Dome', 'In de tuin', 'Op de plaza'],
+        correct: 'In de Dome',
+        explanation: 'In het bericht staat dat de kinderen van de lagere school tijdens de middagpauze in de Dome spelen.'
+      },
+      {
+        area: 'explore',
+        prompt: 'Welke wandelroute past het best bij stormweer als je het bos moet vermijden?',
+        options: ['Een straatroute weg van hoge bomen', 'Een smal pad door het bos', 'Een pad onder losse takken'],
+        correct: 'Een straatroute weg van hoge bomen',
+        explanation: 'Bij stevige wind kies je een route weg van het bos en van losse of hoge takken.'
+      },
+      {
+        area: 'math',
+        prompt: 'Er liggen 16 herfstblaadjes. Je verdeelt ze eerlijk over 2 dozen. Hoeveel blaadjes zitten in elke doos?',
+        options: ['8', '6', '9'],
+        correct: '8',
+        explanation: 'Je verdeelt 16 blaadjes in 2 gelijke groepen. In elke groep zitten 8 blaadjes: 16 : 2 = 8.',
+        tableOf2: true
+      },
+      {
+        area: 'language',
+        storyTitle: 'Naar het zwembad',
+        passage: 'De zwemactiviteit gaat door. De klas wandelt naar het zwembad, maar de route loopt niet door of langs een bos. Zo blijft de groep uit de buurt van gevaarlijke takken.',
+        prompt: 'Wat verandert er door de storm?',
+        options: ['De wandelroute verandert', 'De zwemactiviteit wordt geschrapt', 'De klas zwemt in de Dome'],
+        correct: 'De wandelroute verandert',
+        explanation: 'De zwemactiviteit gaat door, maar de klas kiest een andere wandelroute die het bos vermijdt.',
+        challenge: true
+      },
+      {
+        area: 'explore',
+        prompt: 'De weerscontrole is om half elf in de voormiddag. Welke klok toont half elf?',
+        options: ['10:30', '11:30', '10:00'],
+        correct: '10:30',
+        explanation: 'Half elf is 30 minuten na tien uur. Dat is 10:30.',
+        clockOptions: {
+          '10:30': { hour: 10, minute: 30, label: 'half elf' },
+          '11:30': { hour: 11, minute: 30, label: 'half twaalf' },
+          '10:00': { hour: 10, minute: 0, label: 'tien uur' }
+        }
+      },
+      {
+        area: 'math',
+        prompt: 'Welk getal ontbreekt? 20 − ? = 14',
+        options: ['6', '5', '7'],
+        correct: '6',
+        explanation: 'Van 20 terug naar 14 zijn 6 stapjes. Dus 20 − 6 = 14.'
       },
       {
         area: 'language',
         prompt: 'Welk woord is juist geschreven?',
-        options: ['tent', 'tend', 'tnet'],
-        correct: 'tent',
-        explanation: 'Tent schrijf je t-e-n-t. Het is een MKMM-woord: medeklinker, klinker, medeklinker, medeklinker.'
+        options: ['wind', 'wint', 'wintt'],
+        correct: 'wind',
+        explanation: 'Je schrijft wind met w-i-n-d. Je hoort de d bijna als een t, maar je schrijft een d.'
       },
       {
         area: 'explore',
-        prompt: 'Welke vorm heeft vier even lange zijden?',
-        options: ['Een vierkant.', 'Een cirkel.', 'Een driehoek.'],
-        correct: 'Een vierkant.',
-        explanation: 'Een vierkant heeft vier zijden die allemaal even lang zijn.'
+        prompt: 'Een strak touw loopt recht van punt A naar punt B. Hoe noem je dit?',
+        options: ['Een lijnstuk', 'Een kromme lijn', 'Een punt'],
+        correct: 'Een lijnstuk',
+        explanation: 'Een recht stuk tussen twee vaste punten heet een lijnstuk.'
       },
       {
         area: 'math',
-        tableOf2: true,
-        prompt: 'Pikachu maakt 6 fruitspiesjes. Op elk spiesje zitten 2 druiven. Hoeveel druiven gebruikt hij?',
-        options: ['10', '12', '14'],
+        prompt: 'Kylian Mbappé zet 7 oranje en 5 gele pionnen klaar. Hoeveel pionnen zijn dat samen?',
+        options: ['12', '11', '13'],
         correct: '12',
-        explanation: 'Er zijn 6 groepjes van 2 druiven: 2 + 2 + 2 + 2 + 2 + 2 = 12. De keersom is 6 × 2 = 12.'
+        explanation: 'Maak eerst 10: 7 + 3 = 10. Er blijven nog 2 pionnen over, dus 10 + 2 = 12.'
       },
       {
         area: 'language',
-        challenge: true,
-        storyTitle: 'De herfstdrink',
-        passage: 'De herfstdrink is op vrijdag van 15.30 tot 17.00 uur. Koop eerst een consumptiekaart aan de tafel. Soep haal je bij de rode kraam en cake bij de groene kraam.',
-        prompt: 'Noor komt om 16.20 uur en wil cake, maar heeft nog geen kaart. Welke twee stappen zet ze in de juiste volgorde?',
-        options: ['Eerst een kaart kopen, daarna naar de groene kraam.', 'Eerst naar de rode kraam, daarna een kaart kopen.', 'Eerst naar de groene kraam, daarna naar huis.'],
-        correct: 'Eerst een kaart kopen, daarna naar de groene kraam.',
-        explanation: 'Om 16.20 uur is de herfstdrink bezig. Noor moet eerst een kaart kopen en gaat daarna voor cake naar de groene kraam.'
+        prompt: 'Pikachu laat een piepklein scheetje in de wind. Welk woord rijmt op wind?',
+        options: ['kind', 'hond', 'hand'],
+        correct: 'kind',
+        explanation: 'Wind en kind eindigen allebei op de klank -ind. Daarom rijmen ze.'
       },
       {
         area: 'explore',
-        challenge: true,
-        prompt: 'De herfstdrink begint om half vier en eindigt om vijf uur. Hoe lang duurt de herfstdrink?',
-        options: ['1 uur', '1 uur en 30 minuten', '2 uur'],
-        correct: '1 uur en 30 minuten',
-        explanation: 'Van 15.30 tot 16.30 is één uur. Van 16.30 tot 17.00 is nog een halfuur. Samen is dat 1 uur en 30 minuten.'
-      },
-      {
-        area: 'math',
-        prompt: 'Welk getal is 10 meer dan 34?',
-        options: ['35', '44', '54'],
-        correct: '44',
-        explanation: 'Tien meer betekent één tiental erbij. 34 + 10 = 44.'
-      },
-      {
-        area: 'language',
-        storyTitle: 'De warme soep',
-        passage: 'De soep is nog heet. Mila wacht even voor ze proeft.',
-        prompt: 'Welke zin vertelt waarom Mila wacht?',
-        options: ['Omdat de soep nog heet is.', 'Omdat haar jas groen is.', 'Omdat de tafel rond is.'],
-        correct: 'Omdat de soep nog heet is.',
-        explanation: 'Mila wacht door de hete soep. Dat is de reden.'
-      },
-      {
-        area: 'explore',
-        prompt: 'Welke keuze past het best bij een natte herfstdag?',
-        options: ['Een regenjas en laarzen.', 'Een zwembroek en duikbril.', 'Een dikke sjaal en slee.'],
-        correct: 'Een regenjas en laarzen.',
-        explanation: 'Een regenjas en laarzen houden je droog wanneer het regent.'
-      },
-      {
-        area: 'math',
-        prompt: 'Lionel Messi zet 18 oefenbekers klaar. Hij haalt er 6 weg. Hoeveel bekers blijven staan?',
-        options: ['11', '12', '13'],
-        correct: '12',
-        explanation: '18 - 6 = 12. Er blijven 12 bekers staan; je hoeft niets over voetbal te weten om dit uit te rekenen.'
-      },
-      {
-        area: 'language',
-        prompt: 'Pipi-Piet morst sap op zijn broek. Welk woord rijmt op broek?',
-        options: ['koek', 'soep', 'kaart'],
-        correct: 'koek',
-        explanation: 'Broek en koek eindigen allebei met de klank “oek”.'
-      },
-      {
-        area: 'explore',
-        prompt: 'Squirtle, Miraidon en de feniks kiezen elk een andere beker: rood, blauw of geel. Squirtle kiest blauw. Miraidon kiest niet rood. Welke kleur blijft over voor de feniks?',
-        options: ['Rood.', 'Blauw.', 'Geel.'],
-        correct: 'Rood.',
-        explanation: 'Blauw is al van Squirtle. Miraidon kiest niet rood en moet dus geel kiezen. Voor de feniks blijft rood over.'
+        prompt: 'Pikachu, Squirtle en Miraidon kiezen elk een andere plek: de Dome, de patio of de rustige ruimte. Squirtle kiest de patio. Miraidon kiest de Dome. Welke plek blijft over voor Pikachu?',
+        options: ['De rustige ruimte', 'De patio', 'De Dome'],
+        correct: 'De rustige ruimte',
+        explanation: 'De patio is al van Squirtle en de Dome van Miraidon. Daardoor blijft alleen de rustige ruimte over voor Pikachu.',
+        challenge: true
       }
     ]
   }
