@@ -1,104 +1,104 @@
-export const ACTIVE_DATE = '2026-10-23';
+export const ACTIVE_DATE = '2026-10-24';
 export const DAILY_CONTENT = {
-  '2026-10-23': {
-    title: 'De stormveilige windroute',
+  '2026-10-24': {
+    title: 'De herfstschat na de wind',
     questions: [
       {
         area: 'math',
-        prompt: 'Er hangen 15 papieren veren. Door de wind worden er 7 veilig binnengelegd. Hoeveel veren blijven hangen?',
-        options: ['8', '9', '7'],
-        correct: '8',
-        explanation: 'Splits 7 in 5 en 2. Eerst 15 − 5 = 10, daarna 10 − 2 = 8. Er blijven 8 veren hangen.',
+        prompt: 'De feniks vindt 8 rode veren en 7 gouden veren. Gebruik de sok. Hoeveel veren zijn dat samen?',
+        options: ['15', '14', '16'],
+        correct: '15',
+        explanation: 'Splits 7 in 2 en 5. Eerst 8 + 2 = 10, daarna 10 + 5 = 15. Samen zijn er 15 veren.',
         challenge: true,
-        sock: { operator: '-', start: 15, splitTotal: 7, first: 5, second: 2, result: 8, step: '15 − 5 = 10, daarna 10 − 2 = 8.' }
+        sock: { operator: '+', start: 8, splitTotal: 7, first: 2, second: 5, result: 15, step: '8 + 2 = 10, daarna 10 + 5 = 15.' }
       },
       {
         area: 'language',
-        storyTitle: 'Veilig spelen',
-        passage: 'Door de rukwind zijn de speelplaatsen buiten niet veilig. De kinderen van de lagere school spelen tijdens de middagpauze in de Dome. Wie stilte nodig heeft, kan naar een rustige ruimte.',
-        prompt: 'Liam zit in de lagere school. Waar kan hij tijdens de middagpauze spelen?',
-        options: ['In de Dome', 'In de tuin', 'Op de plaza'],
-        correct: 'In de Dome',
-        explanation: 'In het bericht staat dat de kinderen van de lagere school tijdens de middagpauze in de Dome spelen.'
+        storyTitle: 'Het briefje aan de poort',
+        passage: 'Na de harde wind blijft de kleine poort dicht. Bezoekers gaan door de brede poort naast de fietsenstalling. Gevallen takken blijven in de aangeduide hoek liggen.',
+        prompt: 'Door welke poort moet Liam naar binnen?',
+        options: ['Door de brede poort', 'Door de kleine poort', 'Door het hek bij de takken'],
+        correct: 'Door de brede poort',
+        explanation: 'Op het briefje staat dat bezoekers door de brede poort naast de fietsenstalling gaan.'
       },
       {
         area: 'explore',
-        prompt: 'Welke wandelroute past het best bij stormweer als je het bos moet vermijden?',
-        options: ['Een straatroute weg van hoge bomen', 'Een smal pad door het bos', 'Een pad onder losse takken'],
-        correct: 'Een straatroute weg van hoge bomen',
-        explanation: 'Bij stevige wind kies je een route weg van het bos en van losse of hoge takken.'
+        prompt: 'Welk voorwerp blaast het gemakkelijkst weg bij een stevige wind?',
+        options: ['Een droge veer', 'Een zware steen', 'Een volle drinkfles'],
+        correct: 'Een droge veer',
+        explanation: 'Een droge veer is veel lichter dan een steen of een volle drinkfles en blaast daarom het gemakkelijkst weg.'
       },
       {
         area: 'math',
-        prompt: 'Er liggen 16 herfstblaadjes. Je verdeelt ze eerlijk over 2 dozen. Hoeveel blaadjes zitten in elke doos?',
-        options: ['8', '6', '9'],
-        correct: '8',
-        explanation: 'Je verdeelt 16 blaadjes in 2 gelijke groepen. In elke groep zitten 8 blaadjes: 16 : 2 = 8.',
+        prompt: 'Squirtle springt 8 keer telkens 2 tegels vooruit. Op hoeveel tegels komt hij uit?',
+        options: ['16', '14', '18'],
+        correct: '16',
+        explanation: 'Acht sprongen van 2 zijn 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 = 16. De keersom is 8 × 2 = 16.',
         tableOf2: true
       },
       {
         area: 'language',
-        storyTitle: 'Naar het zwembad',
-        passage: 'De zwemactiviteit gaat door. De klas wandelt naar het zwembad, maar de route loopt niet door of langs een bos. Zo blijft de groep uit de buurt van gevaarlijke takken.',
-        prompt: 'Wat verandert er door de storm?',
-        options: ['De wandelroute verandert', 'De zwemactiviteit wordt geschrapt', 'De klas zwemt in de Dome'],
-        correct: 'De wandelroute verandert',
-        explanation: 'De zwemactiviteit gaat door, maar de klas kiest een andere wandelroute die het bos vermijdt.',
+        storyTitle: 'De bladerenwerkplaats',
+        passage: 'De werkplaats begint om twee uur. Elk kind brengt vier droge bladeren mee. Natte bladeren leg je in de schaal bij de deur. Liam heeft drie droge bladeren en één nat blad.',
+        prompt: 'Wat heeft Liam nog nodig om mee te doen?',
+        options: ['Eén droog blad', 'Eén nat blad', 'Vier natte bladeren'],
+        correct: 'Eén droog blad',
+        explanation: 'Liam heeft vier droge bladeren nodig en heeft er al drie. Het natte blad telt niet mee, dus hij mist nog één droog blad.',
         challenge: true
       },
       {
         area: 'explore',
-        prompt: 'De weerscontrole is om half elf in de voormiddag. Welke klok toont half elf?',
-        options: ['10:30', '11:30', '10:00'],
-        correct: '10:30',
-        explanation: 'Half elf is 30 minuten na tien uur. Dat is 10:30.',
+        prompt: 'De herfstwandeling start om half twee en duurt een halfuur. Hoe laat eindigt ze?',
+        options: ['14:00', '13:00', '14:30'],
+        correct: '14:00',
+        explanation: 'Half twee is 13:30. Een halfuur later is het 14:00.',
         clockOptions: {
-          '10:30': { hour: 10, minute: 30, label: 'half elf' },
-          '11:30': { hour: 11, minute: 30, label: 'half twaalf' },
-          '10:00': { hour: 10, minute: 0, label: 'tien uur' }
+          '14:00': { hour: 14, minute: 0, label: 'twee uur' },
+          '13:00': { hour: 13, minute: 0, label: 'één uur' },
+          '14:30': { hour: 14, minute: 30, label: 'half drie' }
         }
       },
       {
         area: 'math',
-        prompt: 'Welk getal ontbreekt? 20 − ? = 14',
-        options: ['6', '5', '7'],
-        correct: '6',
-        explanation: 'Van 20 terug naar 14 zijn 6 stapjes. Dus 20 − 6 = 14.'
+        prompt: 'Welk getal bestaat uit 4 tientallen en 6 eenheden?',
+        options: ['46', '64', '40'],
+        correct: '46',
+        explanation: 'Vier tientallen zijn 40 en zes eenheden zijn 6. Samen is dat 46.'
       },
       {
         area: 'language',
-        prompt: 'Welk woord is juist geschreven?',
-        options: ['wind', 'wint', 'wintt'],
-        correct: 'wind',
-        explanation: 'Je schrijft wind met w-i-n-d. Je hoort de d bijna als een t, maar je schrijft een d.'
+        prompt: 'De mand staat in de houten ... Welk woord vult de zin juist aan?',
+        options: ['kast', 'kats', 'kasst'],
+        correct: 'kast',
+        explanation: 'Kast is juist geschreven met de letters k-a-s-t. Het is een MKMM-woord.'
       },
       {
         area: 'explore',
-        prompt: 'Een strak touw loopt recht van punt A naar punt B. Hoe noem je dit?',
-        options: ['Een lijnstuk', 'Een kromme lijn', 'Een punt'],
-        correct: 'Een lijnstuk',
-        explanation: 'Een recht stuk tussen twee vaste punten heet een lijnstuk.'
+        prompt: 'Welke vorm heeft geen hoeken en geen rechte zijden?',
+        options: ['Een cirkel', 'Een driehoek', 'Een vierkant'],
+        correct: 'Een cirkel',
+        explanation: 'Een cirkel is helemaal rond. Hij heeft geen hoeken en geen rechte zijden.'
       },
       {
         area: 'math',
-        prompt: 'Kylian Mbappé zet 7 oranje en 5 gele pionnen klaar. Hoeveel pionnen zijn dat samen?',
-        options: ['12', '11', '13'],
-        correct: '12',
-        explanation: 'Maak eerst 10: 7 + 3 = 10. Er blijven nog 2 pionnen over, dus 10 + 2 = 12.'
+        prompt: 'Kevin De Bruyne heeft 19 oefenkegels. Hij legt er 10 terug in de kast. Hoeveel kegels blijven er staan?',
+        options: ['9', '10', '8'],
+        correct: '9',
+        explanation: 'Negentien min één tiental is 9: 19 − 10 = 9.'
       },
       {
         area: 'language',
-        prompt: 'Pikachu laat een piepklein scheetje in de wind. Welk woord rijmt op wind?',
-        options: ['kind', 'hond', 'hand'],
-        correct: 'kind',
-        explanation: 'Wind en kind eindigen allebei op de klank -ind. Daarom rijmen ze.'
+        prompt: 'Een wc-rol rolt door de gang. Met welk vraagwoord vraag je naar de plek waar hij stopt?',
+        options: ['Waar', 'Wie', 'Wanneer'],
+        correct: 'Waar',
+        explanation: 'Met waar vraag je naar een plek: Waar stopt de wc-rol?'
       },
       {
         area: 'explore',
-        prompt: 'Pikachu, Squirtle en Miraidon kiezen elk een andere plek: de Dome, de patio of de rustige ruimte. Squirtle kiest de patio. Miraidon kiest de Dome. Welke plek blijft over voor Pikachu?',
-        options: ['De rustige ruimte', 'De patio', 'De Dome'],
-        correct: 'De rustige ruimte',
-        explanation: 'De patio is al van Squirtle en de Dome van Miraidon. Daardoor blijft alleen de rustige ruimte over voor Pikachu.',
+        prompt: 'Pikachu, Squirtle en Miraidon laten elk een vlieger op. Pikachu zijn vlieger hangt hoger dan die van Squirtle. Miraidon zijn vlieger hangt lager dan die van Squirtle. Welke vlieger hangt het hoogst?',
+        options: ['Die van Pikachu', 'Die van Squirtle', 'Die van Miraidon'],
+        correct: 'Die van Pikachu',
+        explanation: 'Pikachu hangt hoger dan Squirtle. Miraidon hangt zelfs lager dan Squirtle. Daarom hangt Pikachu zijn vlieger het hoogst.',
         challenge: true
       }
     ]
