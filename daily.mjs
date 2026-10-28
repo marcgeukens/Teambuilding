@@ -1,113 +1,107 @@
-export const ACTIVE_DATE = '2026-10-27';
+export const ACTIVE_DATE = '2026-10-28';
 export const DAILY_CONTENT = {
-  '2026-10-27': {
-    title: 'De veilige brooddoos',
+  '2026-10-28': {
+    title: 'De boselfenroute',
     questions: [
       {
         area: 'math',
-        prompt: 'Squirtle heeft 14 druiven. Hij eet er 6 op. Gebruik de sok. Hoeveel druiven blijven over?',
-        options: ['8', '7', '9'],
-        correct: '8',
-        explanation: 'Splits 6 in 4 en 2. Eerst 14 − 4 = 10, daarna 10 − 2 = 8. Er blijven 8 druiven over.',
+        prompt: 'Een boself vindt 9 lichtsteentjes en daarna nog 6. Hoeveel lichtsteentjes heeft de boself samen?',
+        options: ['15', '14', '16'],
+        correct: '15',
+        explanation: 'Splits 6 in 1 en 5. Eerst 9 + 1 = 10, daarna 10 + 5 = 15.',
         challenge: true,
-        sock: {operator: '-', start: 14, splitTotal: 6, first: 4, second: 2, result: 8, step: '14 − 4 = 10, daarna 10 − 2 = 8.'}
+        sock: {
+          operator: '+',
+          start: 9,
+          splitTotal: 6,
+          first: 1,
+          second: 5,
+          result: 15,
+          step: '9 + 1 = 10, daarna 10 + 5 = 15.'
+        }
       },
       {
         area: 'language',
-        storyTitle: 'Luisterbericht: de veilige brooddoos',
-        listenGroup: 'veilige-brooddoos',
-        listenText: 'Dag Liam, luister goed naar dit bericht over de lunch. Vandaag is het dinsdag zevenentwintig oktober. De kinderen van het eerste en tweede leerjaar eten samen in Studio Cosmo. Neem geen noten mee naar school, ook niet als tussendoortje. Noor kiest een boterham met kaas en een appel. Om twaalf uur zet ze haar brooddoos op tafel. Zo helpt iedereen mee om de lunch veilig te houden.',
-        prompt: 'Waar eten de kinderen van het eerste en tweede leerjaar samen?',
-        options: ['In Studio Cosmo', 'In de schooltuin', 'In de turnzaal'],
-        correct: 'In Studio Cosmo',
-        explanation: 'In het luisterbericht hoor je dat de kinderen samen in Studio Cosmo eten.'
+        storyTitle: 'Vandaag in het donkerduisterbos',
+        passage: 'Vandaag is het Donkerduisterdag op school. De kinderen volgen speelse workshops over natuur, licht en donker. Wie wil, mag verkleed komen als boswezen, maar dat hoeft niet.',
+        prompt: 'Welk bericht past het best bij de tekst?',
+        options: ['Je mag je verkleden, maar het is niet verplicht.', 'Iedereen moet als heks verkleed komen.', 'De workshops zijn alleen buiten.'],
+        correct: 'Je mag je verkleden, maar het is niet verplicht.',
+        explanation: 'In de tekst staat dat verkleden mag, maar niet hoeft.'
       },
       {
         area: 'explore',
-        type: 'text',
-        storyTitle: 'Luisterbericht: de veilige brooddoos',
-        listenGroup: 'veilige-brooddoos',
-        listenText: 'Dag Liam, luister goed naar dit bericht over de lunch. Vandaag is het dinsdag zevenentwintig oktober. De kinderen van het eerste en tweede leerjaar eten samen in Studio Cosmo. Neem geen noten mee naar school, ook niet als tussendoortje. Noor kiest een boterham met kaas en een appel. Om twaalf uur zet ze haar brooddoos op tafel. Zo helpt iedereen mee om de lunch veilig te houden.',
-        prompt: 'Welke dag en datum hoor je? Schrijf ze allebei.',
-        placeholder: 'bijvoorbeeld: dinsdag 4 mei',
-        accepted: ['dinsdag 27 oktober', 'dinsdag zevenentwintig oktober', 'dinsdag 27/10', 'dinsdag 27-10', 'dinsdag 27 oktober 2026', '27 oktober dinsdag'],
-        correct: 'dinsdag 27 oktober',
-        explanation: 'In het bericht hoor je: dinsdag zevenentwintig oktober.'
+        prompt: 'Wat hoort echt bij de natuur in een bos?',
+        options: ['Een paddenstoel', 'Een verkeerslicht', 'Een lift'],
+        correct: 'Een paddenstoel',
+        explanation: 'Paddenstoelen groeien in de natuur en kunnen in een bos voorkomen.'
       },
       {
         area: 'math',
-        prompt: 'Er liggen 18 stukjes fruit. Je verdeelt ze eerlijk over 2 kommen. Hoeveel stukjes liggen in elke kom?',
-        options: ['9', '8', '10'],
-        correct: '9',
-        explanation: 'Verdeel 18 stukjes in 2 gelijke groepen. Elke kom krijgt 9 stukjes: 18 : 2 = 9.',
-        tableOf2: true
+        prompt: 'Squirtle legt 6 groepjes van 2 waterdruppels. Hoeveel druppels zijn dat samen?',
+        options: ['12', '8', '14'],
+        correct: '12',
+        explanation: 'Zes groepjes van 2 zijn 2 + 2 + 2 + 2 + 2 + 2 = 12. De keersom is 6 × 2 = 12.',
+        tableOfTwo: true
       },
       {
         area: 'language',
-        storyTitle: 'Kies voor de brooddoos',
-        passage: 'Op het briefje staat: “Neem geen noten mee. Fruit en brood mogen wel.” Liam heeft een appel, een boterham en een zakje noten klaarstaan. Hij kiest twee dingen.',
-        prompt: 'Welke twee dingen kan Liam samen meenemen?',
-        options: ['De appel en de boterham', 'De boterham en het zakje noten', 'De appel en het zakje noten'],
-        correct: 'De appel en de boterham',
-        explanation: 'Noten mogen niet mee. De appel is fruit en de boterham is brood, dus die twee passen bij het briefje.',
+        storyTitle: 'De workshopkaart',
+        passage: 'Begin bij de bladerenworkshop. Ga daarna naar de lichtworkshop. De dierenworkshop komt als laatste. Liam heeft de bladerenworkshop al gedaan.',
+        prompt: 'Naar welke workshop gaat Liam nu?',
+        options: ['De lichtworkshop', 'De dierenworkshop', 'De bladerenworkshop'],
+        correct: 'De lichtworkshop',
+        explanation: 'De bladerenworkshop is klaar. Op de kaart staat dat daarna de lichtworkshop komt. De dierenworkshop is pas als laatste.',
         challenge: true
       },
       {
         area: 'explore',
-        storyTitle: 'Luisterbericht: de veilige brooddoos',
-        listenGroup: 'veilige-brooddoos',
-        listenText: 'Dag Liam, luister goed naar dit bericht over de lunch. Vandaag is het dinsdag zevenentwintig oktober. De kinderen van het eerste en tweede leerjaar eten samen in Studio Cosmo. Neem geen noten mee naar school, ook niet als tussendoortje. Noor kiest een boterham met kaas en een appel. Om twaalf uur zet ze haar brooddoos op tafel. Zo helpt iedereen mee om de lunch veilig te houden.',
-        prompt: 'Welke klok toont wanneer Noor haar brooddoos op tafel zet?',
-        options: ['12:00', '11:30', '12:30'],
-        correct: '12:00',
-        explanation: 'In het bericht hoor je om twaalf uur. Dan staan beide wijzers op twaalf: 12.00 uur.',
-        clockOptions: {
-          '12:00': {hour: 12, minute: 0, label: 'twaalf uur'},
-          '11:30': {hour: 11, minute: 30, label: 'halftwaalf'},
-          '12:30': {hour: 12, minute: 30, label: 'halféén'}
-        }
+        prompt: 'Een rechte lijn tussen twee punten heeft een begin en een einde. Hoe heet die?',
+        options: ['Een lijnstuk', 'Een kromme lijn', 'Een cirkel'],
+        correct: 'Een lijnstuk',
+        explanation: 'Een lijnstuk is het rechte stukje tussen twee punten.'
       },
       {
         area: 'math',
-        prompt: 'Welk getal ontbreekt op de getallenlijn? 27, 28, __, 30',
-        options: ['29', '26', '31'],
-        correct: '29',
-        explanation: 'De getallen stijgen telkens met 1: na 28 komt 29 en daarna 30.'
+        prompt: 'Welk getal bestaat uit 3 tientallen en 4 eenheden?',
+        options: ['34', '43', '30'],
+        correct: '34',
+        explanation: '3 tientallen zijn 30 en 4 eenheden zijn 4. Samen is dat 34.'
       },
       {
         area: 'language',
         prompt: 'Welk MKMM-woord is juist geschreven?',
-        options: ['melk', 'mellk', 'mekl'],
-        correct: 'melk',
-        explanation: 'Melk bestaat uit medeklinker m, klinker e en de twee medeklinkers l en k: MKMM.'
+        options: ['vonk', 'vonkk', 'vokn'],
+        correct: 'vonk',
+        explanation: 'Vonk heeft een medeklinker v, een klinker o en daarna twee medeklinkers n en k: MKMM.'
       },
       {
         area: 'explore',
-        prompt: 'Bij welk voorwerp zie je vooral een kromme lijn?',
-        options: ['Aan de rand van een ronde appel', 'Langs de rand van een rechte meetlat', 'Langs de zijkant van een vierkant bord'],
-        correct: 'Aan de rand van een ronde appel',
-        explanation: 'De rand van een ronde appel buigt. Dat is een kromme lijn.'
+        prompt: 'Welke rij gaat op dezelfde manier verder? blad, paddenstoel, blad, paddenstoel, ...',
+        options: ['blad', 'steen', 'tak'],
+        correct: 'blad',
+        explanation: 'De rij wisselt steeds af: blad, paddenstoel. Na een paddenstoel komt dus weer een blad.'
       },
       {
         area: 'math',
-        prompt: 'Kevin De Bruyne heeft 7 rode en 6 blauwe bekers. Hoeveel bekers zijn dat samen?',
-        options: ['13', '12', '14'],
-        correct: '13',
-        explanation: 'Maak eerst 10: 7 + 3 = 10. Van de 6 blijven dan nog 3 over. Dus 10 + 3 = 13.'
+        prompt: 'Kylian Mbappé zet 16 oefenkegels klaar. Hij ruimt er 6 op. Hoeveel kegels blijven staan?',
+        options: ['10', '9', '11'],
+        correct: '10',
+        explanation: '16 - 6 = 10. Er blijven 10 oefenkegels staan.'
       },
       {
         area: 'language',
-        prompt: 'Pipi-Piet zoekt het toilet. Welk vraagwoord past? “___ is het toilet?”',
-        options: ['Waar', 'Wie', 'Waarom'],
-        correct: 'Waar',
-        explanation: 'Je vraagt naar een plaats. Daarvoor gebruik je het vraagwoord waar.'
+        prompt: 'Kaka-Kabouter wil weten om welke reden de trol lacht. Welk vraagwoord gebruikt hij?',
+        options: ['Waarom', 'Waar', 'Wie'],
+        correct: 'Waarom',
+        explanation: 'Met waarom vraag je naar een reden.'
       },
       {
         area: 'explore',
-        prompt: 'Er zijn een rode, blauwe en groene brooddoos. In elke doos zit één ander ding: brood, een appel of yoghurt. Het brood zit in de blauwe doos. De appel zit niet in de rode doos. Wat zit in de groene doos?',
-        options: ['De appel', 'Het brood', 'De yoghurt'],
-        correct: 'De appel',
-        explanation: 'Het brood zit al in de blauwe doos. Voor rood en groen blijven appel en yoghurt over. De appel zit niet rood, dus de appel moet in de groene doos zitten.',
+        prompt: 'Drie boswezens staan in een rij: een elf, een trol en een kabouter. De trol staat achter de elf. De kabouter staat achter de trol. Wie staat in het midden?',
+        options: ['De trol', 'De elf', 'De kabouter'],
+        correct: 'De trol',
+        explanation: 'De elf staat voor de trol. De kabouter staat achter de trol. De volgorde is dus elf, trol, kabouter. De trol staat in het midden.',
         challenge: true
       }
     ]
