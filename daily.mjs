@@ -1,107 +1,107 @@
-export const ACTIVE_DATE = '2026-10-28';
+export const ACTIVE_DATE = '2026-10-29';
 export const DAILY_CONTENT = {
-  '2026-10-28': {
-    title: 'De boselfenroute',
+  '2026-10-29': {
+    title: 'De herfstpostroute',
     questions: [
       {
         area: 'math',
-        prompt: 'Een boself vindt 9 lichtsteentjes en daarna nog 6. Hoeveel lichtsteentjes heeft de boself samen?',
-        options: ['15', '14', '16'],
-        correct: '15',
-        explanation: 'Splits 6 in 1 en 5. Eerst 9 + 1 = 10, daarna 10 + 5 = 15.',
+        prompt: 'Een eekhoorn heeft 15 kastanjes en verstopt er 7. Hoeveel kastanjes blijven zichtbaar?',
+        options: ['8', '7', '9'],
+        correct: '8',
+        explanation: 'Splits 7 in 5 en 2. Eerst 15 - 5 = 10, daarna 10 - 2 = 8.',
         challenge: true,
         sock: {
-          operator: '+',
-          start: 9,
-          splitTotal: 6,
-          first: 1,
-          second: 5,
-          result: 15,
-          step: '9 + 1 = 10, daarna 10 + 5 = 15.'
+          operator: '-',
+          start: 15,
+          splitTotal: 7,
+          first: 5,
+          second: 2,
+          result: 8,
+          step: '15 - 5 = 10, daarna 10 - 2 = 8.'
         }
       },
       {
         area: 'language',
-        storyTitle: 'Vandaag in het donkerduisterbos',
-        passage: 'Vandaag is het Donkerduisterdag op school. De kinderen volgen speelse workshops over natuur, licht en donker. Wie wil, mag verkleed komen als boswezen, maar dat hoeft niet.',
-        prompt: 'Welk bericht past het best bij de tekst?',
-        options: ['Je mag je verkleden, maar het is niet verplicht.', 'Iedereen moet als heks verkleed komen.', 'De workshops zijn alleen buiten.'],
-        correct: 'Je mag je verkleden, maar het is niet verplicht.',
-        explanation: 'In de tekst staat dat verkleden mag, maar niet hoeft.'
+        storyTitle: 'Het blaadjesbriefje',
+        passage: 'Leg één droog herfstblad in de blauwe doos. Een nat blad laat je eerst drogen. Schrijf je naam op een klein kaartje en leg het bij je blad.',
+        prompt: 'Wat doe je met een droog herfstblad?',
+        options: ['Je legt het in de blauwe doos.', 'Je laat het buiten in de regen.', 'Je gooit het meteen weg.'],
+        correct: 'Je legt het in de blauwe doos.',
+        explanation: 'Op het briefje staat dat een droog herfstblad in de blauwe doos hoort.'
       },
       {
         area: 'explore',
-        prompt: 'Wat hoort echt bij de natuur in een bos?',
-        options: ['Een paddenstoel', 'Een verkeerslicht', 'Een lift'],
-        correct: 'Een paddenstoel',
-        explanation: 'Paddenstoelen groeien in de natuur en kunnen in een bos voorkomen.'
+        prompt: 'Welk deel van een boom neemt water op uit de grond?',
+        options: ['De wortels', 'De bladeren', 'De takken'],
+        correct: 'De wortels',
+        explanation: 'De wortels zitten in de grond en nemen daar water op.'
       },
       {
         area: 'math',
-        prompt: 'Squirtle legt 6 groepjes van 2 waterdruppels. Hoeveel druppels zijn dat samen?',
-        options: ['12', '8', '14'],
-        correct: '12',
-        explanation: 'Zes groepjes van 2 zijn 2 + 2 + 2 + 2 + 2 + 2 = 12. De keersom is 6 × 2 = 12.',
+        prompt: 'Pikachu verdeelt 14 energiefiches eerlijk over 2 doosjes. Hoeveel fiches komen in elk doosje?',
+        options: ['7', '6', '8'],
+        correct: '7',
+        explanation: 'Maak 2 gelijke groepjes met 14 fiches. In elk groepje liggen 7 fiches. De deelsom is 14 : 2 = 7.',
         tableOfTwo: true
       },
       {
         area: 'language',
-        storyTitle: 'De workshopkaart',
-        passage: 'Begin bij de bladerenworkshop. Ga daarna naar de lichtworkshop. De dierenworkshop komt als laatste. Liam heeft de bladerenworkshop al gedaan.',
-        prompt: 'Naar welke workshop gaat Liam nu?',
-        options: ['De lichtworkshop', 'De dierenworkshop', 'De bladerenworkshop'],
-        correct: 'De lichtworkshop',
-        explanation: 'De bladerenworkshop is klaar. Op de kaart staat dat daarna de lichtworkshop komt. De dierenworkshop is pas als laatste.',
+        storyTitle: 'De herfstpost',
+        passage: 'De posttafel sluit om halfvier. Eerst kleurt Liam zijn kaart. Daarna schrijft hij zijn naam. Om twintig over drie is zijn kaart gekleurd, maar zijn naam staat er nog niet op.',
+        prompt: 'Wat moet Liam nu doen om zijn kaart op tijd af te maken?',
+        options: ['Zijn naam schrijven en de kaart vóór halfvier brengen.', 'Opnieuw beginnen met kleuren.', 'Wachten tot na halfvier.'],
+        correct: 'Zijn naam schrijven en de kaart vóór halfvier brengen.',
+        explanation: 'Het kleuren is al klaar. Liam moet nog zijn naam schrijven en heeft daarvoor nog tien minuten tot halfvier.',
         challenge: true
       },
       {
         area: 'explore',
-        prompt: 'Een rechte lijn tussen twee punten heeft een begin en een einde. Hoe heet die?',
-        options: ['Een lijnstuk', 'Een kromme lijn', 'Een cirkel'],
-        correct: 'Een lijnstuk',
-        explanation: 'Een lijnstuk is het rechte stukje tussen twee punten.'
+        prompt: 'Een bospad buigt naar links en daarna naar rechts. Welke soort lijn past daarbij?',
+        options: ['Een kromme lijn', 'Een rechte lijn', 'Een punt'],
+        correct: 'Een kromme lijn',
+        explanation: 'Een lijn die buigt, noemen we een kromme lijn.'
       },
       {
         area: 'math',
-        prompt: 'Welk getal bestaat uit 3 tientallen en 4 eenheden?',
-        options: ['34', '43', '30'],
-        correct: '34',
-        explanation: '3 tientallen zijn 30 en 4 eenheden zijn 4. Samen is dat 34.'
+        prompt: 'Welk getal ontbreekt? 20, 30, __, 50',
+        options: ['40', '35', '60'],
+        correct: '40',
+        explanation: 'De rij gaat telkens 10 verder: 20, 30, 40, 50.'
       },
       {
         area: 'language',
         prompt: 'Welk MKMM-woord is juist geschreven?',
-        options: ['vonk', 'vonkk', 'vokn'],
-        correct: 'vonk',
-        explanation: 'Vonk heeft een medeklinker v, een klinker o en daarna twee medeklinkers n en k: MKMM.'
+        options: ['lamp', 'lamm', 'lapm'],
+        correct: 'lamp',
+        explanation: 'Lamp heeft een medeklinker l, een klinker a en daarna twee medeklinkers m en p: MKMM.'
       },
       {
         area: 'explore',
-        prompt: 'Welke rij gaat op dezelfde manier verder? blad, paddenstoel, blad, paddenstoel, ...',
-        options: ['blad', 'steen', 'tak'],
-        correct: 'blad',
-        explanation: 'De rij wisselt steeds af: blad, paddenstoel. Na een paddenstoel komt dus weer een blad.'
+        prompt: 'Vandaag is het donderdag. Welke dag is het morgen?',
+        options: ['Vrijdag', 'Woensdag', 'Zaterdag'],
+        correct: 'Vrijdag',
+        explanation: 'Na donderdag komt vrijdag.'
       },
       {
         area: 'math',
-        prompt: 'Kylian Mbappé zet 16 oefenkegels klaar. Hij ruimt er 6 op. Hoeveel kegels blijven staan?',
-        options: ['10', '9', '11'],
-        correct: '10',
-        explanation: '16 - 6 = 10. Er blijven 10 oefenkegels staan.'
+        prompt: 'Erling Haaland zet 12 oefenkegels neer en voegt er 6 toe. Hoeveel kegels staan er nu?',
+        options: ['18', '17', '19'],
+        correct: '18',
+        explanation: '12 + 6 = 18. Er staan nu 18 oefenkegels.'
       },
       {
         area: 'language',
-        prompt: 'Kaka-Kabouter wil weten om welke reden de trol lacht. Welk vraagwoord gebruikt hij?',
-        options: ['Waarom', 'Waar', 'Wie'],
-        correct: 'Waarom',
-        explanation: 'Met waarom vraag je naar een reden.'
+        prompt: 'Kaka-Koen wil het aantal wc-rollen weten. Welk vraagwoord past? “___ wc-rollen liggen er?”',
+        options: ['Hoeveel', 'Wie', 'Waarom'],
+        correct: 'Hoeveel',
+        explanation: 'Met hoeveel vraag je naar een aantal.'
       },
       {
         area: 'explore',
-        prompt: 'Drie boswezens staan in een rij: een elf, een trol en een kabouter. De trol staat achter de elf. De kabouter staat achter de trol. Wie staat in het midden?',
-        options: ['De trol', 'De elf', 'De kabouter'],
-        correct: 'De trol',
-        explanation: 'De elf staat voor de trol. De kabouter staat achter de trol. De volgorde is dus elf, trol, kabouter. De trol staat in het midden.',
+        prompt: 'Noor, Amir en Liam hebben elk één ander blad: rood, geel of bruin. Amir heeft het bruine blad. Noor heeft niet het gele blad. Welke kleur heeft Liam?',
+        options: ['Geel', 'Rood', 'Bruin'],
+        correct: 'Geel',
+        explanation: 'Amir heeft bruin. Rood en geel blijven over. Noor heeft niet geel, dus Noor heeft rood en Liam heeft geel.',
         challenge: true
       }
     ]
