@@ -1,107 +1,112 @@
-export const ACTIVE_DATE = '2026-10-30';
+export const ACTIVE_DATE = '2026-10-31';
 export const DAILY_CONTENT = {
-  '2026-10-30': {
-    title: 'De plazaroute',
+  '2026-10-31': {
+    title: 'De lachende pompoen',
     questions: [
       {
         area: 'math',
-        prompt: 'De Feniksen hangen 9 oranje veren en 6 gele veren op. Hoeveel veren zijn dat samen?',
-        options: ['15', '14', '16'],
-        correct: '15',
-        explanation: 'Splits 6 in 1 en 5. Eerst 9 + 1 = 10, daarna 10 + 5 = 15.',
+        prompt: 'Een lampion heeft 16 sterretjes. Er vallen 7 sterretjes af. Hoeveel blijven er over?',
+        options: ['9', '8', '10'],
+        correct: '9',
+        explanation: 'Splits 7 in 6 en 1. Eerst 16 - 6 = 10, daarna 10 - 1 = 9.',
         challenge: true,
         sock: {
-          operator: '+',
-          start: 9,
-          splitTotal: 6,
-          first: 1,
-          second: 5,
-          result: 15,
-          step: '9 + 1 = 10, daarna 10 + 5 = 15.'
+          operator: '-',
+          start: 16,
+          splitTotal: 7,
+          first: 6,
+          second: 1,
+          result: 9,
+          step: '16 - 6 = 10, daarna 10 - 1 = 9.'
         }
       },
       {
         area: 'language',
-        storyTitle: 'Het bericht over de nabewaking',
-        passage: 'Tijdens de herfstdrink is de nabewaking op de plazaspeelplaats op de eerste verdieping. Na de drink gaan de kinderen met de begeleiders terug naar de vaste plek naast de eetzaal. Ouders volgen de pijlen naar de juiste plek.',
-        prompt: 'De herfstdrink is nog bezig. Waar wordt Liam opgehaald?',
-        options: ['Op de plazaspeelplaats op de eerste verdieping.', 'Op de vaste plek naast de eetzaal.', 'Aan de schoolpoort.'],
-        correct: 'Op de plazaspeelplaats op de eerste verdieping.',
-        explanation: 'Tijdens de herfstdrink is de nabewaking op de plazaspeelplaats op de eerste verdieping.'
+        storyTitle: 'Het pompoenatelier',
+        passage: 'Neem een oranje kaart. Teken eerst een gezicht op de pompoen. Knip daarna langs de stippellijn en zet de schaar terug in de blauwe beker.',
+        prompt: 'Wat moet je doen voordat je langs de stippellijn knipt?',
+        options: ['Een gezicht op de pompoen tekenen.', 'De schaar in de blauwe beker zetten.', 'De kaart dubbelvouwen.'],
+        correct: 'Een gezicht op de pompoen tekenen.',
+        explanation: 'Op het briefje staat: teken eerst het gezicht en knip daarna.'
       },
       {
         area: 'explore',
-        prompt: 'Op een plattegrond staat een rechte verbinding van punt A naar punt B. Hoe heet het stukje tussen die twee punten?',
-        options: ['Een lijnstuk', 'Een kromme lijn', 'Een losse punt'],
-        correct: 'Een lijnstuk',
-        explanation: 'Een lijnstuk is een recht stukje lijn met een beginpunt en een eindpunt.'
+        prompt: 'Door welk voorwerp kan het licht van een zaklamp het best schijnen?',
+        options: ['Een helder glazen potje', 'Een kartonnen doos', 'Een houten plank'],
+        correct: 'Een helder glazen potje',
+        explanation: 'Helder glas laat veel licht door. Karton en hout houden het licht tegen.'
       },
       {
         area: 'math',
-        prompt: 'Op 8 tafeltjes staan telkens 2 bekers. Hoeveel bekers staan er samen?',
-        options: ['16', '14', '18'],
-        correct: '16',
-        explanation: 'Er zijn 8 groepjes van 2 bekers: 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 = 16. De keersom is 8 × 2 = 16.',
+        prompt: 'Er liggen 20 snoepogen. Liam verdeelt ze eerlijk over 2 doosjes. Hoeveel snoepogen komen in elk doosje?',
+        options: ['10', '8', '12'],
+        correct: '10',
+        explanation: 'Verdeel 20 snoepogen in 2 gelijke groepjes. Elk doosje krijgt 10 snoepogen. De deelsom is 20 : 2 = 10.',
         tableOfTwo: true
       },
       {
         area: 'language',
-        storyTitle: 'Het bericht over de nabewaking',
-        passage: 'Tijdens de herfstdrink is de nabewaking op de plazaspeelplaats op de eerste verdieping. Na de drink gaan de kinderen met de begeleiders terug naar de vaste plek naast de eetzaal. Ouders volgen de pijlen naar de juiste plek.',
-        prompt: 'De herfstdrink is voorbij en mama komt wat later. Waar kan ze Liam dan vinden?',
-        options: ['Op de vaste plek naast de eetzaal.', 'Nog op de plazaspeelplaats.', 'In de turnzaal.'],
-        correct: 'Op de vaste plek naast de eetzaal.',
-        explanation: 'Na de drink vertrekken de kinderen met de begeleiders van de plaza naar de vaste nabewakingsplek naast de eetzaal.',
+        storyTitle: 'De snoepjestocht',
+        passage: 'Bij de blauwe deur haalt Liam eerst een sticker. Daarna lost hij bij de oranje deur een raadsel op. Pas na beide opdrachten mag hij naar de groene tafel voor een snoepje.',
+        prompt: 'Liam heeft zijn sticker al, maar het raadsel nog niet. Waar moet hij nu naartoe?',
+        options: ['Naar de oranje deur.', 'Naar de groene tafel.', 'Terug naar de blauwe deur.'],
+        correct: 'Naar de oranje deur.',
+        explanation: 'Na de sticker komt het raadsel bij de oranje deur. De groene tafel mag pas na beide opdrachten.',
         challenge: true
       },
       {
         area: 'explore',
-        prompt: 'Welk voorwerp helpt je het best om in het donker zichtbaar te zijn?',
-        options: ['Een reflecterend bandje', 'Een zwart papiertje', 'Een houten blokje'],
-        correct: 'Een reflecterend bandje',
-        explanation: 'Een reflecterend bandje kaatst licht terug en maakt je beter zichtbaar.'
+        prompt: 'De griezelwandeling begint om halfzeven in de avond. Welke klok toont de juiste tijd?',
+        options: ['18:30', '18:00', '19:30'],
+        correct: '18:30',
+        explanation: 'Halfzeven is een halfuur vóór zeven uur. In de avond is dat 18:30.',
+        clockOptions: {
+          '18:30': {hour: 18, minute: 30, label: 'halfzeven in de avond'},
+          '18:00': {hour: 18, minute: 0, label: 'zes uur in de avond'},
+          '19:30': {hour: 19, minute: 30, label: 'halfacht in de avond'}
+        }
       },
       {
         area: 'math',
-        prompt: 'Kevin De Bruyne zet 17 oefenkegels klaar. Hij haalt er 5 weg. Hoeveel kegels blijven staan?',
-        options: ['12', '11', '13'],
-        correct: '12',
-        explanation: '17 - 5 = 12. Er blijven 12 kegels staan.'
+        prompt: 'Welk getal bestaat uit 2 tientallen en 4 eenheden?',
+        options: ['24', '42', '14'],
+        correct: '24',
+        explanation: '2 tientallen zijn 20 en 4 eenheden zijn 4. Samen is dat 24.'
       },
       {
         area: 'language',
         prompt: 'Welk MKMM-woord is juist geschreven?',
-        options: ['wolk', 'wokl', 'woll'],
-        correct: 'wolk',
-        explanation: 'Wolk heeft één medeklinker w, één klinker o en daarna twee medeklinkers l en k: MKMM.'
+        options: ['heks', 'hesk', 'hexx'],
+        correct: 'heks',
+        explanation: 'Heks heeft één medeklinker h, één klinker e en daarna twee medeklinkers k en s: MKMM.'
       },
       {
         area: 'explore',
-        prompt: 'Vandaag is het vrijdag 30 oktober. Welke dag en datum is het morgen?',
-        options: ['Zaterdag 31 oktober', 'Donderdag 29 oktober', 'Zondag 1 november'],
-        correct: 'Zaterdag 31 oktober',
-        explanation: 'Na vrijdag komt zaterdag en na 30 oktober komt 31 oktober.'
+        prompt: 'In welk seizoen valt 31 oktober in België?',
+        options: ['De herfst', 'De lente', 'De zomer'],
+        correct: 'De herfst',
+        explanation: 'Oktober valt in België in de herfst.'
       },
       {
         area: 'math',
-        prompt: 'Pikachu heeft 20 energiefiches en gebruikt er 6. Hoeveel fiches blijven over?',
-        options: ['14', '13', '15'],
-        correct: '14',
-        explanation: '20 - 6 = 14. Pikachu houdt 14 energiefiches over.'
+        prompt: 'Lionel Messi heeft 13 oefenballen en wil er 18. Hoeveel ballen heeft hij nog nodig?',
+        options: ['5', '4', '6'],
+        correct: '5',
+        explanation: '13 + 5 = 18. Hij heeft nog 5 ballen nodig.'
       },
       {
         area: 'language',
-        prompt: 'Een giechelende wc-rol ligt op de plank. Welk vraagwoord past? “___ ligt de wc-rol?”',
-        options: ['Waar', 'Wie', 'Waarom'],
-        correct: 'Waar',
-        explanation: 'Met waar vraag je naar een plaats.'
+        prompt: 'De wc-pot giechelt omdat hij een gekke hoed draagt. Welk vraagwoord gebruik je om naar de reden te vragen?',
+        options: ['Waarom', 'Wie', 'Waar'],
+        correct: 'Waarom',
+        explanation: 'Met waarom vraag je naar een reden: waarom giechelt de wc-pot?'
       },
       {
         area: 'explore',
-        prompt: 'Drie tekens staan in een rij: een veer, een bal en een lampion. De lampion staat niet eerst. De bal staat na de veer. Welke volgorde kan kloppen?',
-        options: ['Veer – bal – lampion', 'Bal – veer – lampion', 'Lampion – veer – bal'],
-        correct: 'Veer – bal – lampion',
-        explanation: 'De bal moet na de veer staan en de lampion mag niet eerst staan. Alleen veer – bal – lampion voldoet aan beide aanwijzingen.',
+        prompt: 'Liam, Pikachu en Squirtle dragen elk een andere badge: een ster, een maan of een pompoen. Liam draagt de maan. Pikachu draagt niet de pompoen. Welke badge draagt Squirtle?',
+        options: ['De pompoen', 'De ster', 'De maan'],
+        correct: 'De pompoen',
+        explanation: 'Liam heeft de maan. Ster en pompoen blijven over. Pikachu heeft niet de pompoen, dus Pikachu heeft de ster en Squirtle de pompoen.',
         challenge: true
       }
     ]
