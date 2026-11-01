@@ -1,112 +1,120 @@
-export const ACTIVE_DATE = '2026-10-31';
+export const ACTIVE_DATE = '2026-11-01';
 export const DAILY_CONTENT = {
-  '2026-10-31': {
-    title: 'De lachende pompoen',
+  '2026-11-01': {
+    title: 'De zondagsbibliotheek',
     questions: [
       {
         area: 'math',
-        prompt: 'Een lampion heeft 16 sterretjes. Er vallen 7 sterretjes af. Hoeveel blijven er over?',
-        options: ['9', '8', '10'],
-        correct: '9',
-        explanation: 'Splits 7 in 6 en 1. Eerst 16 - 6 = 10, daarna 10 - 1 = 9.',
+        prompt: 'Liam legt 8 boeken op de tafel en oma legt er 5 bij. Hoeveel boeken liggen er samen?',
+        options: ['13', '12', '14'],
+        correct: '13',
+        explanation: 'Splits 5 in 2 en 3. Eerst 8 + 2 = 10, daarna 10 + 3 = 13.',
         challenge: true,
         sock: {
-          operator: '-',
-          start: 16,
-          splitTotal: 7,
-          first: 6,
-          second: 1,
-          result: 9,
-          step: '16 - 6 = 10, daarna 10 - 1 = 9.'
+          operator: '+',
+          start: 8,
+          splitTotal: 5,
+          first: 2,
+          second: 3,
+          result: 13,
+          step: '8 + 2 = 10, daarna 10 + 3 = 13.'
         }
       },
       {
         area: 'language',
-        storyTitle: 'Het pompoenatelier',
-        passage: 'Neem een oranje kaart. Teken eerst een gezicht op de pompoen. Knip daarna langs de stippellijn en zet de schaar terug in de blauwe beker.',
-        prompt: 'Wat moet je doen voordat je langs de stippellijn knipt?',
-        options: ['Een gezicht op de pompoen tekenen.', 'De schaar in de blauwe beker zetten.', 'De kaart dubbelvouwen.'],
-        correct: 'Een gezicht op de pompoen tekenen.',
-        explanation: 'Op het briefje staat: teken eerst het gezicht en knip daarna.'
+        storyTitle: 'Het bibliotheekplan',
+        listenGroup: 'bibliotheekplan-2026-11-01',
+        listenText: 'Hallo Liam, luister goed naar het plan voor zondag. Vandaag is het zondag 1 november. Om halfdrie komt oma aan bij de bibliotheek. Ze wacht op de rode bank naast de ingang. Neem je blauwe leesmap mee. Eerst kiezen jullie samen een boek. Daarna drinken jullie thuis warme chocomelk.',
+        prompt: 'Waar wacht oma op Liam?',
+        options: ['Op de rode bank naast de ingang.', 'Bij de groene tafel in de bibliotheek.', 'Aan de bushalte.'],
+        correct: 'Op de rode bank naast de ingang.',
+        explanation: 'In het bericht hoor je dat oma op de rode bank naast de ingang wacht.'
       },
       {
         area: 'explore',
-        prompt: 'Door welk voorwerp kan het licht van een zaklamp het best schijnen?',
-        options: ['Een helder glazen potje', 'Een kartonnen doos', 'Een houten plank'],
-        correct: 'Een helder glazen potje',
-        explanation: 'Helder glas laat veel licht door. Karton en hout houden het licht tegen.'
+        storyTitle: 'Het bibliotheekplan',
+        listenGroup: 'bibliotheekplan-2026-11-01',
+        listenText: 'Hallo Liam, luister goed naar het plan voor zondag. Vandaag is het zondag 1 november. Om halfdrie komt oma aan bij de bibliotheek. Ze wacht op de rode bank naast de ingang. Neem je blauwe leesmap mee. Eerst kiezen jullie samen een boek. Daarna drinken jullie thuis warme chocomelk.',
+        prompt: 'Welke klok toont het tijdstip waarop oma aankomt?',
+        options: ['14:30', '14:00', '15:30'],
+        correct: '14:30',
+        explanation: 'Halfdrie is een halfuur vóór drie uur. In de namiddag is dat 14:30.',
+        clockOptions: {
+          '14:30': {hour: 14, minute: 30, label: 'halfdrie in de namiddag'},
+          '14:00': {hour: 14, minute: 0, label: 'twee uur in de namiddag'},
+          '15:30': {hour: 15, minute: 30, label: 'halfvier in de namiddag'}
+        }
       },
       {
         area: 'math',
-        prompt: 'Er liggen 20 snoepogen. Liam verdeelt ze eerlijk over 2 doosjes. Hoeveel snoepogen komen in elk doosje?',
-        options: ['10', '8', '12'],
-        correct: '10',
-        explanation: 'Verdeel 20 snoepogen in 2 gelijke groepjes. Elk doosje krijgt 10 snoepogen. De deelsom is 20 : 2 = 10.',
+        prompt: 'Squirtle springt van 0 naar 12 met sprongen van 2. Hoeveel sprongen maakt hij?',
+        options: ['6', '5', '7'],
+        correct: '6',
+        explanation: 'De sprongen zijn 0, 2, 4, 6, 8, 10 en 12. Dat zijn 6 groepjes van 2. De keersom is 6 × 2 = 12.',
         tableOfTwo: true
       },
       {
         area: 'language',
-        storyTitle: 'De snoepjestocht',
-        passage: 'Bij de blauwe deur haalt Liam eerst een sticker. Daarna lost hij bij de oranje deur een raadsel op. Pas na beide opdrachten mag hij naar de groene tafel voor een snoepje.',
-        prompt: 'Liam heeft zijn sticker al, maar het raadsel nog niet. Waar moet hij nu naartoe?',
-        options: ['Naar de oranje deur.', 'Naar de groene tafel.', 'Terug naar de blauwe deur.'],
-        correct: 'Naar de oranje deur.',
-        explanation: 'Na de sticker komt het raadsel bij de oranje deur. De groene tafel mag pas na beide opdrachten.',
+        storyTitle: 'Het bibliotheekplan',
+        listenGroup: 'bibliotheekplan-2026-11-01',
+        listenText: 'Hallo Liam, luister goed naar het plan voor zondag. Vandaag is het zondag 1 november. Om halfdrie komt oma aan bij de bibliotheek. Ze wacht op de rode bank naast de ingang. Neem je blauwe leesmap mee. Eerst kiezen jullie samen een boek. Daarna drinken jullie thuis warme chocomelk.',
+        prompt: 'Typ de dag en datum van het bibliotheekbezoek.',
+        type: 'text',
+        accepted: ['zondag 1 november', 'zondag 01 november', 'zondag 1/11', 'zondag 01/11', 'zondag 1-11', 'zondag 01-11'],
+        correct: 'zondag 1 november',
+        explanation: 'In het bericht hoor je: vandaag is het zondag 1 november.',
         challenge: true
       },
       {
         area: 'explore',
-        prompt: 'De griezelwandeling begint om halfzeven in de avond. Welke klok toont de juiste tijd?',
-        options: ['18:30', '18:00', '19:30'],
-        correct: '18:30',
-        explanation: 'Halfzeven is een halfuur vóór zeven uur. In de avond is dat 18:30.',
-        clockOptions: {
-          '18:30': {hour: 18, minute: 30, label: 'halfzeven in de avond'},
-          '18:00': {hour: 18, minute: 0, label: 'zes uur in de avond'},
-          '19:30': {hour: 19, minute: 30, label: 'halfacht in de avond'}
-        }
+        prompt: 'Welk teken op een plattegrond stelt het best één punt voor?',
+        options: ['Een klein stipje', 'Een lange kromme lijn', 'Een brede rechthoek'],
+        correct: 'Een klein stipje',
+        explanation: 'Een punt tekenen we als een klein stipje op een blad of plattegrond.'
       },
       {
         area: 'math',
-        prompt: 'Welk getal bestaat uit 2 tientallen en 4 eenheden?',
-        options: ['24', '42', '14'],
-        correct: '24',
-        explanation: '2 tientallen zijn 20 en 4 eenheden zijn 4. Samen is dat 24.'
+        prompt: 'Er staan 18 prentenboeken in een rek. Vier boeken worden uitgeleend. Hoeveel blijven er staan?',
+        options: ['14', '13', '15'],
+        correct: '14',
+        explanation: '18 - 4 = 14. Er blijven 14 prentenboeken in het rek staan.'
       },
       {
         area: 'language',
         prompt: 'Welk MKMM-woord is juist geschreven?',
-        options: ['heks', 'hesk', 'hexx'],
-        correct: 'heks',
-        explanation: 'Heks heeft één medeklinker h, één klinker e en daarna twee medeklinkers k en s: MKMM.'
+        options: ['park', 'prak', 'parr'],
+        correct: 'park',
+        explanation: 'Park heeft één medeklinker p, één klinker a en daarna twee medeklinkers r en k: MKMM.'
       },
       {
         area: 'explore',
-        prompt: 'In welk seizoen valt 31 oktober in België?',
-        options: ['De herfst', 'De lente', 'De zomer'],
-        correct: 'De herfst',
-        explanation: 'Oktober valt in België in de herfst.'
+        prompt: 'Welk afval hoort bij het groente-, fruit- en tuinafval?',
+        options: ['Een appelklokhuis', 'Een plastic zakje', 'Een lege batterij'],
+        correct: 'Een appelklokhuis',
+        explanation: 'Een appelklokhuis is organisch afval en hoort bij het groente-, fruit- en tuinafval.'
       },
       {
         area: 'math',
-        prompt: 'Lionel Messi heeft 13 oefenballen en wil er 18. Hoeveel ballen heeft hij nog nodig?',
-        options: ['5', '4', '6'],
-        correct: '5',
-        explanation: '13 + 5 = 18. Hij heeft nog 5 ballen nodig.'
+        prompt: 'Cristiano Ronaldo heeft 14 oefenkegels en wil er 20. Hoeveel kegels heeft hij nog nodig?',
+        options: ['6', '5', '7'],
+        correct: '6',
+        explanation: '14 + 6 = 20. Hij heeft nog 6 oefenkegels nodig.'
       },
       {
         area: 'language',
-        prompt: 'De wc-pot giechelt omdat hij een gekke hoed draagt. Welk vraagwoord gebruik je om naar de reden te vragen?',
-        options: ['Waarom', 'Wie', 'Waar'],
-        correct: 'Waarom',
-        explanation: 'Met waarom vraag je naar een reden: waarom giechelt de wc-pot?'
+        storyTitle: 'Het koninklijke toiletbriefje',
+        passage: 'De wc-rol draagt vandaag een kartonnen kroon. Trek eerst door. Was daarna je handen met zeep en gooi het gebruikte doekje in de vuilnisbak.',
+        prompt: 'Wat doe je meteen nadat je hebt doorgespoeld?',
+        options: ['Je wast je handen met zeep.', 'Je zet de wc-rol op de grond.', 'Je neemt de kartonnen kroon mee.'],
+        correct: 'Je wast je handen met zeep.',
+        explanation: 'Op het briefje staat: trek eerst door en was daarna je handen met zeep.'
       },
       {
         area: 'explore',
-        prompt: 'Liam, Pikachu en Squirtle dragen elk een andere badge: een ster, een maan of een pompoen. Liam draagt de maan. Pikachu draagt niet de pompoen. Welke badge draagt Squirtle?',
-        options: ['De pompoen', 'De ster', 'De maan'],
-        correct: 'De pompoen',
-        explanation: 'Liam heeft de maan. Ster en pompoen blijven over. Pikachu heeft niet de pompoen, dus Pikachu heeft de ster en Squirtle de pompoen.',
+        prompt: 'Liam vertrekt om 14:10. Hij wandelt 10 minuten naar de bibliotheek en leest daar 20 minuten. Hoe laat is hij klaar met lezen?',
+        options: ['14:40', '14:30', '15:00'],
+        correct: '14:40',
+        explanation: 'Na 10 minuten wandelen is het 14:20. Tel daarna 20 minuten leestijd: Liam is om 14:40 klaar.',
         challenge: true
       }
     ]
