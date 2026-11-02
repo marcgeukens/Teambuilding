@@ -1,120 +1,107 @@
-export const ACTIVE_DATE = '2026-11-01';
+export const ACTIVE_DATE = '2026-11-02';
 export const DAILY_CONTENT = {
-  '2026-11-01': {
-    title: 'De zondagsbibliotheek',
+  '2026-11-02': {
+    title: 'De nieuwe-weektas',
     questions: [
       {
         area: 'math',
-        prompt: 'Liam legt 8 boeken op de tafel en oma legt er 5 bij. Hoeveel boeken liggen er samen?',
-        options: ['13', '12', '14'],
-        correct: '13',
-        explanation: 'Splits 5 in 2 en 3. Eerst 8 + 2 = 10, daarna 10 + 3 = 13.',
+        prompt: 'In de knutseldoos liggen 14 wasco’s. Liam gebruikt er 6. Hoeveel wasco’s blijven in de doos?',
+        options: ['8', '7', '9'],
+        correct: '8',
+        explanation: 'Splits 6 in 4 en 2. Eerst 14 - 4 = 10, daarna 10 - 2 = 8.',
         challenge: true,
         sock: {
-          operator: '+',
-          start: 8,
-          splitTotal: 5,
-          first: 2,
-          second: 3,
-          result: 13,
-          step: '8 + 2 = 10, daarna 10 + 3 = 13.'
+          operator: '-',
+          start: 14,
+          splitTotal: 6,
+          first: 4,
+          second: 2,
+          result: 8,
+          step: '14 - 4 = 10, daarna 10 - 2 = 8.'
         }
       },
       {
         area: 'language',
-        storyTitle: 'Het bibliotheekplan',
-        listenGroup: 'bibliotheekplan-2026-11-01',
-        listenText: 'Hallo Liam, luister goed naar het plan voor zondag. Vandaag is het zondag 1 november. Om halfdrie komt oma aan bij de bibliotheek. Ze wacht op de rode bank naast de ingang. Neem je blauwe leesmap mee. Eerst kiezen jullie samen een boek. Daarna drinken jullie thuis warme chocomelk.',
-        prompt: 'Waar wacht oma op Liam?',
-        options: ['Op de rode bank naast de ingang.', 'Bij de groene tafel in de bibliotheek.', 'Aan de bushalte.'],
-        correct: 'Op de rode bank naast de ingang.',
-        explanation: 'In het bericht hoor je dat oma op de rode bank naast de ingang wacht.'
+        storyTitle: 'De tas met drie vakken',
+        passage: 'Liam stopt zijn rekenmap in het blauwe vak. Zijn leesboek legt hij in het rode vak. De brooddoos gaat in het groene vak.',
+        prompt: 'In welk vak zit Liams leesboek?',
+        options: ['In het rode vak.', 'In het blauwe vak.', 'In het groene vak.'],
+        correct: 'In het rode vak.',
+        explanation: 'In de tekst staat dat Liam zijn leesboek in het rode vak legt.'
       },
       {
         area: 'explore',
-        storyTitle: 'Het bibliotheekplan',
-        listenGroup: 'bibliotheekplan-2026-11-01',
-        listenText: 'Hallo Liam, luister goed naar het plan voor zondag. Vandaag is het zondag 1 november. Om halfdrie komt oma aan bij de bibliotheek. Ze wacht op de rode bank naast de ingang. Neem je blauwe leesmap mee. Eerst kiezen jullie samen een boek. Daarna drinken jullie thuis warme chocomelk.',
-        prompt: 'Welke klok toont het tijdstip waarop oma aankomt?',
-        options: ['14:30', '14:00', '15:30'],
-        correct: '14:30',
-        explanation: 'Halfdrie is een halfuur vóór drie uur. In de namiddag is dat 14:30.',
-        clockOptions: {
-          '14:30': {hour: 14, minute: 30, label: 'halfdrie in de namiddag'},
-          '14:00': {hour: 14, minute: 0, label: 'twee uur in de namiddag'},
-          '15:30': {hour: 15, minute: 30, label: 'halfvier in de namiddag'}
-        }
+        prompt: 'Welke beschrijving past bij een lijnstuk?',
+        options: ['Een rechte lijn met een punt aan elk uiteinde.', 'Een kromme lijn zonder eindpunten.', 'Eén losse stip.'],
+        correct: 'Een rechte lijn met een punt aan elk uiteinde.',
+        explanation: 'Een lijnstuk is een recht stukje lijn tussen twee eindpunten.'
       },
       {
         area: 'math',
-        prompt: 'Squirtle springt van 0 naar 12 met sprongen van 2. Hoeveel sprongen maakt hij?',
-        options: ['6', '5', '7'],
-        correct: '6',
-        explanation: 'De sprongen zijn 0, 2, 4, 6, 8, 10 en 12. Dat zijn 6 groepjes van 2. De keersom is 6 × 2 = 12.',
+        prompt: 'Pikachu verdeelt 18 energiekaartjes eerlijk over 2 doosjes. Hoeveel kaartjes komen in elk doosje?',
+        options: ['9', '8', '10'],
+        correct: '9',
+        explanation: 'Maak 2 gelijke groepjes. In elk groepje komen 9 kaartjes, want 9 + 9 = 18. De deelsom is 18 : 2 = 9.',
         tableOfTwo: true
       },
       {
         area: 'language',
-        storyTitle: 'Het bibliotheekplan',
-        listenGroup: 'bibliotheekplan-2026-11-01',
-        listenText: 'Hallo Liam, luister goed naar het plan voor zondag. Vandaag is het zondag 1 november. Om halfdrie komt oma aan bij de bibliotheek. Ze wacht op de rode bank naast de ingang. Neem je blauwe leesmap mee. Eerst kiezen jullie samen een boek. Daarna drinken jullie thuis warme chocomelk.',
-        prompt: 'Typ de dag en datum van het bibliotheekbezoek.',
-        type: 'text',
-        accepted: ['zondag 1 november', 'zondag 01 november', 'zondag 1/11', 'zondag 01/11', 'zondag 1-11', 'zondag 01-11'],
-        correct: 'zondag 1 november',
-        explanation: 'In het bericht hoor je: vandaag is het zondag 1 november.',
+        storyTitle: 'Het bord bij de deur',
+        passage: 'Na het lezen stopt Liam de blauwe map in zijn tas. Daarna zet hij de tas bij de deur. Pas dan trekt hij zijn jas aan.',
+        prompt: 'Liam is klaar met lezen en de blauwe map zit al in zijn tas. Wat doet hij nu?',
+        options: ['Hij zet de tas bij de deur.', 'Hij trekt meteen zijn jas aan.', 'Hij haalt de blauwe map weer uit zijn tas.'],
+        correct: 'Hij zet de tas bij de deur.',
+        explanation: 'De map zit al in de tas. De volgende stap in de tekst is de tas bij de deur zetten; daarna komt pas de jas.',
         challenge: true
       },
       {
         area: 'explore',
-        prompt: 'Welk teken op een plattegrond stelt het best één punt voor?',
-        options: ['Een klein stipje', 'Een lange kromme lijn', 'Een brede rechthoek'],
-        correct: 'Een klein stipje',
-        explanation: 'Een punt tekenen we als een klein stipje op een blad of plattegrond.'
+        prompt: 'Vandaag is het maandag. Over twee dagen is er een klasactiviteit. Op welke dag is die activiteit?',
+        options: ['Woensdag', 'Dinsdag', 'Donderdag'],
+        correct: 'Woensdag',
+        explanation: 'Eén dag na maandag is dinsdag en twee dagen na maandag is woensdag.'
       },
       {
         area: 'math',
-        prompt: 'Er staan 18 prentenboeken in een rek. Vier boeken worden uitgeleend. Hoeveel blijven er staan?',
-        options: ['14', '13', '15'],
-        correct: '14',
-        explanation: '18 - 4 = 14. Er blijven 14 prentenboeken in het rek staan.'
+        prompt: 'Welk getal ontbreekt op deze getallenlijn: 26, 28, __, 32?',
+        options: ['30', '29', '31'],
+        correct: '30',
+        explanation: 'De getallen gaan telkens 2 verder: 26, 28, 30, 32.'
       },
       {
         area: 'language',
         prompt: 'Welk MKMM-woord is juist geschreven?',
-        options: ['park', 'prak', 'parr'],
-        correct: 'park',
-        explanation: 'Park heeft één medeklinker p, één klinker a en daarna twee medeklinkers r en k: MKMM.'
+        options: ['vest', 'vets', 'ves'],
+        correct: 'vest',
+        explanation: 'Vest heeft één medeklinker v, één klinker e en daarna twee medeklinkers s en t: MKMM.'
       },
       {
         area: 'explore',
-        prompt: 'Welk afval hoort bij het groente-, fruit- en tuinafval?',
-        options: ['Een appelklokhuis', 'Een plastic zakje', 'Een lege batterij'],
-        correct: 'Een appelklokhuis',
-        explanation: 'Een appelklokhuis is organisch afval en hoort bij het groente-, fruit- en tuinafval.'
+        prompt: 'Wat beschermt een schrift het best tegen regen in een schooltas?',
+        options: ['Een gesloten plastic map.', 'Een open papieren zak.', 'Een natte wollen muts.'],
+        correct: 'Een gesloten plastic map.',
+        explanation: 'Een gesloten plastic map houdt regendruppels weg van het papier.'
       },
       {
         area: 'math',
-        prompt: 'Cristiano Ronaldo heeft 14 oefenkegels en wil er 20. Hoeveel kegels heeft hij nog nodig?',
-        options: ['6', '5', '7'],
-        correct: '6',
-        explanation: '14 + 6 = 20. Hij heeft nog 6 oefenkegels nodig.'
+        prompt: 'Kylian Mbappé zet 13 oefenkegels klaar en plaatst er nog 5 bij. Hoeveel kegels staan er nu?',
+        options: ['18', '17', '19'],
+        correct: '18',
+        explanation: '13 + 5 = 18. Er staan nu 18 oefenkegels.'
       },
       {
         area: 'language',
-        storyTitle: 'Het koninklijke toiletbriefje',
-        passage: 'De wc-rol draagt vandaag een kartonnen kroon. Trek eerst door. Was daarna je handen met zeep en gooi het gebruikte doekje in de vuilnisbak.',
-        prompt: 'Wat doe je meteen nadat je hebt doorgespoeld?',
-        options: ['Je wast je handen met zeep.', 'Je zet de wc-rol op de grond.', 'Je neemt de kartonnen kroon mee.'],
-        correct: 'Je wast je handen met zeep.',
-        explanation: 'Op het briefje staat: trek eerst door en was daarna je handen met zeep.'
+        prompt: 'Welk vraagwoord past? “___ ligt de gekke wc-rol met zijn kartonnen hoed?”',
+        options: ['Waar', 'Wie', 'Wanneer'],
+        correct: 'Waar',
+        explanation: 'Je vraagt naar een plaats. Daarom past het vraagwoord “waar”.'
       },
       {
         area: 'explore',
-        prompt: 'Liam vertrekt om 14:10. Hij wandelt 10 minuten naar de bibliotheek en leest daar 20 minuten. Hoe laat is hij klaar met lezen?',
-        options: ['14:40', '14:30', '15:00'],
-        correct: '14:40',
-        explanation: 'Na 10 minuten wandelen is het 14:20. Tel daarna 20 minuten leestijd: Liam is om 14:40 klaar.',
+        prompt: 'Er zijn een rood, blauw en groen kastje. De bal ligt in het rode kastje. De brooddoos ligt niet in het groene kastje. Elk kastje bevat precies één voorwerp. Waar liggen de Pokémonkaartjes?',
+        options: ['In het groene kastje.', 'In het blauwe kastje.', 'In het rode kastje.'],
+        correct: 'In het groene kastje.',
+        explanation: 'Het rode kastje is voor de bal. De brooddoos kan niet groen zijn en moet dus blauw zijn. Daarom blijven de Pokémonkaartjes voor het groene kastje over.',
         challenge: true
       }
     ]
