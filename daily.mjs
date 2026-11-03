@@ -1,107 +1,117 @@
-export const ACTIVE_DATE = '2026-11-02';
+export const ACTIVE_DATE = '2026-11-03';
 export const DAILY_CONTENT = {
-  '2026-11-02': {
-    title: 'De nieuwe-weektas',
+  '2026-11-03': {
+    title: 'De drogende herfstkaart',
     questions: [
       {
         area: 'math',
-        prompt: 'In de knutseldoos liggen 14 wasco’s. Liam gebruikt er 6. Hoeveel wasco’s blijven in de doos?',
-        options: ['8', '7', '9'],
-        correct: '8',
-        explanation: 'Splits 6 in 4 en 2. Eerst 14 - 4 = 10, daarna 10 - 2 = 8.',
+        prompt: 'Liam heeft 7 rode bladeren en vindt er 6 gele bij. Hoeveel bladeren heeft hij samen?',
+        options: ['13', '12', '14'],
+        correct: '13',
+        explanation: 'Splits 6 in 3 en 3. Eerst 7 + 3 = 10, daarna 10 + 3 = 13.',
         challenge: true,
         sock: {
-          operator: '-',
-          start: 14,
+          operator: '+',
+          start: 7,
           splitTotal: 6,
-          first: 4,
-          second: 2,
-          result: 8,
-          step: '14 - 4 = 10, daarna 10 - 2 = 8.'
+          first: 3,
+          second: 3,
+          result: 13,
+          step: '7 + 3 = 10, daarna 10 + 3 = 13.'
         }
       },
       {
         area: 'language',
-        storyTitle: 'De tas met drie vakken',
-        passage: 'Liam stopt zijn rekenmap in het blauwe vak. Zijn leesboek legt hij in het rode vak. De brooddoos gaat in het groene vak.',
-        prompt: 'In welk vak zit Liams leesboek?',
-        options: ['In het rode vak.', 'In het blauwe vak.', 'In het groene vak.'],
-        correct: 'In het rode vak.',
-        explanation: 'In de tekst staat dat Liam zijn leesboek in het rode vak legt.'
+        storyTitle: 'Het plan voor de herfstkaart',
+        listenGroup: 'herfstkaart-2026-11-03',
+        listenText: 'Goedemorgen Liam. Vandaag is het dinsdag 3 november. Om kwart voor negen legt juf Noor een mand met herfstbladeren op de tekentafel. De blauwe schaar ligt naast de lijm. Eerst kiest elk kind twee bladeren. Daarna maakt de klas een herfstkaart. Om halftien worden de kaarten op de vensterbank gezet om te drogen.',
+        prompt: 'Wat ligt naast de lijm?',
+        options: ['De blauwe schaar.', 'De mand met bladeren.', 'Een rood kleurpotlood.'],
+        correct: 'De blauwe schaar.',
+        explanation: 'In het bericht hoor je dat de blauwe schaar naast de lijm ligt.'
       },
       {
         area: 'explore',
-        prompt: 'Welke beschrijving past bij een lijnstuk?',
-        options: ['Een rechte lijn met een punt aan elk uiteinde.', 'Een kromme lijn zonder eindpunten.', 'Eén losse stip.'],
-        correct: 'Een rechte lijn met een punt aan elk uiteinde.',
-        explanation: 'Een lijnstuk is een recht stukje lijn tussen twee eindpunten.'
+        storyTitle: 'Het plan voor de herfstkaart',
+        listenGroup: 'herfstkaart-2026-11-03',
+        listenText: 'Goedemorgen Liam. Vandaag is het dinsdag 3 november. Om kwart voor negen legt juf Noor een mand met herfstbladeren op de tekentafel. De blauwe schaar ligt naast de lijm. Eerst kiest elk kind twee bladeren. Daarna maakt de klas een herfstkaart. Om halftien worden de kaarten op de vensterbank gezet om te drogen.',
+        prompt: 'Welke klok toont het tijdstip waarop de kaarten op de vensterbank worden gezet?',
+        options: ['09:30', '08:45', '10:30'],
+        correct: '09:30',
+        explanation: 'Halftien is een halfuur vóór tien uur. Dat is 09:30.',
+        clockOptions: {
+          '09:30': {hour: 9, minute: 30, label: 'halftien'},
+          '08:45': {hour: 8, minute: 45, label: 'kwart voor negen'},
+          '10:30': {hour: 10, minute: 30, label: 'halfelf'}
+        }
       },
       {
         area: 'math',
-        prompt: 'Pikachu verdeelt 18 energiekaartjes eerlijk over 2 doosjes. Hoeveel kaartjes komen in elk doosje?',
-        options: ['9', '8', '10'],
-        correct: '9',
-        explanation: 'Maak 2 gelijke groepjes. In elk groepje komen 9 kaartjes, want 9 + 9 = 18. De deelsom is 18 : 2 = 9.',
+        prompt: 'Er liggen 16 kastanjes in groepjes van 2. Hoeveel groepjes zijn er en welke keersom past?',
+        options: ['8 groepjes; 8 × 2 = 16', '7 groepjes; 7 × 2 = 14', '9 groepjes; 9 × 2 = 18'],
+        correct: '8 groepjes; 8 × 2 = 16',
+        explanation: 'Je maakt de groepjes 2, 4, 6, 8, 10, 12, 14 en 16. Dat zijn 8 groepjes van 2. De keersom is 8 × 2 = 16.',
         tableOfTwo: true
       },
       {
         area: 'language',
-        storyTitle: 'Het bord bij de deur',
-        passage: 'Na het lezen stopt Liam de blauwe map in zijn tas. Daarna zet hij de tas bij de deur. Pas dan trekt hij zijn jas aan.',
-        prompt: 'Liam is klaar met lezen en de blauwe map zit al in zijn tas. Wat doet hij nu?',
-        options: ['Hij zet de tas bij de deur.', 'Hij trekt meteen zijn jas aan.', 'Hij haalt de blauwe map weer uit zijn tas.'],
-        correct: 'Hij zet de tas bij de deur.',
-        explanation: 'De map zit al in de tas. De volgende stap in de tekst is de tas bij de deur zetten; daarna komt pas de jas.',
+        storyTitle: 'Het plan voor de herfstkaart',
+        listenGroup: 'herfstkaart-2026-11-03',
+        listenText: 'Goedemorgen Liam. Vandaag is het dinsdag 3 november. Om kwart voor negen legt juf Noor een mand met herfstbladeren op de tekentafel. De blauwe schaar ligt naast de lijm. Eerst kiest elk kind twee bladeren. Daarna maakt de klas een herfstkaart. Om halftien worden de kaarten op de vensterbank gezet om te drogen.',
+        prompt: 'Waarom stopt Liam zijn pas gemaakte herfstkaart beter nog niet meteen in zijn schooltas?',
+        options: ['De lijm moet eerst drogen.', 'De schooltas is te zwaar.', 'De kaart hoort in de vuilnisbak.'],
+        correct: 'De lijm moet eerst drogen.',
+        explanation: 'De kaarten worden op de vensterbank gezet om te drogen. In de schooltas kan de natte lijm nog vlekken maken.',
         challenge: true
       },
       {
         area: 'explore',
-        prompt: 'Vandaag is het maandag. Over twee dagen is er een klasactiviteit. Op welke dag is die activiteit?',
-        options: ['Woensdag', 'Dinsdag', 'Donderdag'],
-        correct: 'Woensdag',
-        explanation: 'Eén dag na maandag is dinsdag en twee dagen na maandag is woensdag.'
+        prompt: 'Liam kijkt naar het noorden en draait een kwartslag naar rechts. Naar welke richting kijkt hij nu?',
+        options: ['Naar het oosten.', 'Naar het westen.', 'Naar het zuiden.'],
+        correct: 'Naar het oosten.',
+        explanation: 'Op een windroos ligt het oosten rechts van het noorden.'
       },
       {
         area: 'math',
-        prompt: 'Welk getal ontbreekt op deze getallenlijn: 26, 28, __, 32?',
-        options: ['30', '29', '31'],
-        correct: '30',
-        explanation: 'De getallen gaan telkens 2 verder: 26, 28, 30, 32.'
+        prompt: 'Welk getal bestaat uit 4 tientallen en 2 eenheden?',
+        options: ['42', '24', '40'],
+        correct: '42',
+        explanation: 'Vier tientallen zijn 40. Met 2 eenheden erbij krijg je 42.'
       },
       {
         area: 'language',
         prompt: 'Welk MKMM-woord is juist geschreven?',
-        options: ['vest', 'vets', 'ves'],
-        correct: 'vest',
-        explanation: 'Vest heeft één medeklinker v, één klinker e en daarna twee medeklinkers s en t: MKMM.'
+        options: ['hand', 'hant', 'had'],
+        correct: 'hand',
+        explanation: 'Hand heeft één medeklinker h, één klinker a en daarna twee medeklinkers n en d: MKMM.'
       },
       {
         area: 'explore',
-        prompt: 'Wat beschermt een schrift het best tegen regen in een schooltas?',
-        options: ['Een gesloten plastic map.', 'Een open papieren zak.', 'Een natte wollen muts.'],
-        correct: 'Een gesloten plastic map.',
-        explanation: 'Een gesloten plastic map houdt regendruppels weg van het papier.'
+        prompt: 'Welk hulpmiddel gebruik je om de lengte van twee bladeren precies te vergelijken?',
+        options: ['Een meetlat.', 'Een lijmstift.', 'Een drinkbeker.'],
+        correct: 'Een meetlat.',
+        explanation: 'Met een meetlat kun je de lengte van elk blad in centimeter meten en vergelijken.'
       },
       {
         area: 'math',
-        prompt: 'Kylian Mbappé zet 13 oefenkegels klaar en plaatst er nog 5 bij. Hoeveel kegels staan er nu?',
-        options: ['18', '17', '19'],
-        correct: '18',
-        explanation: '13 + 5 = 18. Er staan nu 18 oefenkegels.'
+        prompt: 'Lionel Messi legt 15 oefenhesjes klaar en krijgt er nog 4 bij. Hoeveel hesjes zijn er nu?',
+        options: ['19', '18', '20'],
+        correct: '19',
+        explanation: '15 + 4 = 19. Er zijn nu 19 oefenhesjes.'
       },
       {
         area: 'language',
-        prompt: 'Welk vraagwoord past? “___ ligt de gekke wc-rol met zijn kartonnen hoed?”',
-        options: ['Waar', 'Wie', 'Wanneer'],
-        correct: 'Waar',
-        explanation: 'Je vraagt naar een plaats. Daarom past het vraagwoord “waar”.'
+        prompt: 'Welke zin is helemaal juist geschreven?',
+        options: ['De wc-pot maakt een grappige plons.', 'de wc-pot maakt een grappige plons.', 'De wc-pot maakt een grappige plons'],
+        correct: 'De wc-pot maakt een grappige plons.',
+        explanation: 'Een zin begint met een hoofdletter en eindigt met een punt.'
       },
       {
         area: 'explore',
-        prompt: 'Er zijn een rood, blauw en groen kastje. De bal ligt in het rode kastje. De brooddoos ligt niet in het groene kastje. Elk kastje bevat precies één voorwerp. Waar liggen de Pokémonkaartjes?',
-        options: ['In het groene kastje.', 'In het blauwe kastje.', 'In het rode kastje.'],
-        correct: 'In het groene kastje.',
-        explanation: 'Het rode kastje is voor de bal. De brooddoos kan niet groen zijn en moet dus blauw zijn. Daarom blijven de Pokémonkaartjes voor het groene kastje over.',
+        prompt: 'Squirtle, Pikachu en Miraidon kiezen elk een ander kleurpotlood: rood, blauw of geel. Squirtle kiest blauw. Miraidon kiest niet rood. Welke kleur kiest Pikachu?',
+        options: ['Rood', 'Geel', 'Blauw'],
+        correct: 'Rood',
+        explanation: 'Blauw is al voor Squirtle. Miraidon kiest niet rood en moet dus geel kiezen. Daardoor blijft rood over voor Pikachu.',
         challenge: true
       }
     ]
