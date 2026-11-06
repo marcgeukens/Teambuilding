@@ -1,108 +1,113 @@
-export const ACTIVE_DATE = '2026-11-05';
+export const ACTIVE_DATE = '2026-11-06';
 export const DAILY_CONTENT = {
-  '2026-11-05': {
-    title: 'De warme sjaalcode',
+  '2026-11-06': {
+    title: 'De regendruppelcode',
     questions: [
       {
         area: 'math',
-        prompt: 'De Fonkelende Feniksen hebben 6 gestreepte sjaals en 7 effen sjaals. Hoeveel sjaals zijn dat samen?',
-        options: ['13', '12', '14'],
-        correct: '13',
-        explanation: 'Splits 7 in 4 en 3. Eerst 6 + 4 = 10, daarna 10 + 3 = 13.',
+        prompt: 'Op het raam kleven 14 regendruppelstickers. Liam haalt er 6 weg. Hoeveel stickers blijven kleven?',
+        options: ['8', '7', '9'],
+        correct: '8',
+        explanation: 'Splits 6 in 4 en 2. Eerst 14 - 4 = 10, daarna 10 - 2 = 8.',
         challenge: true,
         sock: {
-          operator: '+',
-          start: 6,
-          splitTotal: 7,
+          operator: '-',
+          start: 14,
+          splitTotal: 6,
           first: 4,
-          second: 3,
-          result: 13,
-          step: '6 + 4 = 10, daarna 10 + 3 = 13.'
+          second: 2,
+          result: 8,
+          step: '14 - 4 = 10, daarna 10 - 2 = 8.'
         }
       },
       {
         area: 'language',
-        storyTitle: 'Het kaartje bij de kapstok',
-        passage: 'Hang eerst je jas aan de haak. Stop daarna je muts in de mouw. Leg tot slot je sjaal op de plank.',
-        prompt: 'Waar leg je de sjaal nadat je de muts in de mouw hebt gestopt?',
-        options: ['Op de plank.', 'In de boekentas.', 'Onder de kapstok.'],
-        correct: 'Op de plank.',
-        explanation: 'Na de muts komt de laatste stap: de sjaal op de plank leggen.'
+        storyTitle: 'Het briefje aan de deur',
+        passage: 'Klap je paraplu buiten dicht. Veeg daarna je laarzen op de mat. Hang je natte jas aan de kapstok.',
+        prompt: 'Wat doe je meteen nadat je de paraplu hebt dichtgeklapt?',
+        options: ['Je laarzen op de mat vegen.', 'Je jas in de boekentas stoppen.', 'De deur weer openen.'],
+        correct: 'Je laarzen op de mat vegen.',
+        explanation: 'Na het dichtklappen van de paraplu komt de tweede stap: de laarzen op de mat vegen.'
       },
       {
         area: 'explore',
-        prompt: 'Welk voorwerp houdt je hals het best warm op een koude ochtend?',
-        options: ['Een wollen sjaal.', 'Een metalen ketting.', 'Een papieren strook.'],
-        correct: 'Een wollen sjaal.',
-        explanation: 'Wol houdt lucht en warmte goed vast. Daarom helpt een wollen sjaal tegen de kou.'
+        prompt: 'Een speelplaats helt een beetje af. Naar welke kant stroomt het regenwater?',
+        options: ['Naar de laagste kant.', 'Naar de hoogste kant.', 'Altijd naar het midden.'],
+        correct: 'Naar de laagste kant.',
+        explanation: 'Water stroomt door de zwaartekracht van een hogere plek naar een lagere plek.'
       },
       {
         area: 'math',
-        prompt: 'Er liggen 5 paren wanten klaar. Elk paar heeft 2 wanten. Hoeveel wanten zijn dat?',
-        options: ['10', '7', '12'],
-        correct: '10',
-        explanation: 'Je maakt 5 groepjes van 2: 2 + 2 + 2 + 2 + 2 = 10. De keersom is 5 × 2 = 10.',
+        prompt: 'Pikachu verdeelt 16 blauwe druppelkaartjes eerlijk over 2 bakjes. Hoeveel kaartjes komen in elk bakje?',
+        options: ['8', '6', '9'],
+        correct: '8',
+        explanation: 'Maak 2 gelijke groepjes. In elk bakje komen 8 kaartjes, want 8 + 8 = 16. De deelsom is 16 : 2 = 8.',
         tableOfTwo: true
       },
       {
         area: 'language',
-        storyTitle: 'Drie sjaals',
-        passage: 'Aan de kapstok hangen een rode, een gele en een blauwe sjaal. Amir neemt de rode sjaal. Liam neemt niet de blauwe sjaal. Noor krijgt de sjaal die overblijft.',
-        prompt: 'Welke kleur sjaal krijgt Noor?',
-        options: ['Blauw', 'Geel', 'Rood'],
-        correct: 'Blauw',
-        explanation: 'Rood is voor Amir. Liam neemt niet blauw en kiest dus geel. Daardoor blijft blauw over voor Noor.',
+        storyTitle: 'Binnen na de regen',
+        passage: 'Milan komt als eerste binnen. Liam komt na Milan. Sara komt pas na Liam. Alleen de tweede leerling mag het weerkaartje omdraaien.',
+        prompt: 'Wie mag het weerkaartje omdraaien?',
+        options: ['Liam', 'Milan', 'Sara'],
+        correct: 'Liam',
+        explanation: 'Milan is eerste. Liam komt na Milan en vóór Sara, dus Liam is tweede. Daarom mag Liam het kaartje omdraaien.',
         challenge: true
       },
       {
         area: 'explore',
-        prompt: 'Een sjaal ligt als een grote boog op de tafel. Welke soort lijn zie je vooral?',
-        options: ['Een kromme lijn.', 'Een rechte lijn.', 'Een punt.'],
-        correct: 'Een kromme lijn.',
-        explanation: 'Een boog buigt en is dus een kromme lijn.'
+        prompt: 'Welke vorm heeft geen rechte zijden?',
+        options: ['Een cirkel.', 'Een vierkant.', 'Een driehoek.'],
+        correct: 'Een cirkel.',
+        explanation: 'De rand van een cirkel is helemaal krom. Een vierkant en een driehoek hebben rechte zijden.'
       },
       {
         area: 'math',
-        prompt: 'In de mand liggen 20 mutsen. Er worden 3 mutsen uitgenomen. Hoeveel mutsen blijven in de mand?',
-        options: ['17', '16', '18'],
-        correct: '17',
-        explanation: '20 - 3 = 17. Er blijven 17 mutsen in de mand.'
+        prompt: 'Welk getal bestaat uit 2 tientallen en 6 eenheden?',
+        options: ['26', '62', '16'],
+        correct: '26',
+        explanation: 'Twee tientallen zijn 20 en zes eenheden zijn 6. Samen is dat 26.'
       },
       {
         area: 'language',
         prompt: 'Welk MKMM-woord is juist geschreven?',
-        options: ['muts', 'mstu', 'mut'],
-        correct: 'muts',
-        explanation: 'Muts heeft één medeklinker m, één klinker u en daarna twee medeklinkers t en s: MKMM.'
+        options: ['kant', 'knta', 'kan'],
+        correct: 'kant',
+        explanation: 'Kant heeft één medeklinker k, één klinker a en daarna twee medeklinkers n en t: MKMM.'
       },
       {
         area: 'explore',
-        prompt: 'Squirtle legt een natte sjaal open bij de verwarming. Waarom droogt die sneller dan een opgerolde sjaal?',
-        options: ['Meer van de sjaal raakt de warme lucht.', 'De sjaal krijgt er meer kleuren door.', 'De sjaal wordt zwaarder.'],
-        correct: 'Meer van de sjaal raakt de warme lucht.',
-        explanation: 'Bij een open sjaal kan warme lucht langs een groter deel komen. Daardoor kan het water sneller verdampen.'
+        prompt: 'De thermometer toont ’s middags 10 graden en ’s avonds 6 graden. Wanneer is het kouder?',
+        options: ['’s Avonds.', '’s Middags.', 'Het is even koud.'],
+        correct: '’s Avonds.',
+        explanation: '6 graden is minder dan 10 graden. Daarom is het ’s avonds kouder.'
       },
       {
         area: 'math',
-        prompt: 'Cristiano Ronaldo legt 12 blauwe hesjes en 5 gele hesjes klaar voor een oefenspel. Hoeveel hesjes liggen er samen?',
-        options: ['17', '16', '18'],
-        correct: '17',
-        explanation: '12 + 5 = 17. Er liggen samen 17 hesjes klaar.'
+        prompt: 'Erling Haaland legt 15 oefenkegels klaar en zet er nog 4 bij. Hoeveel kegels staan er nu?',
+        options: ['19', '18', '20'],
+        correct: '19',
+        explanation: '15 + 4 = 19. Er staan nu 19 oefenkegels.'
       },
       {
         area: 'language',
-        prompt: 'Welk woord heeft twee klankstukjes?',
-        options: ['pipi', 'muts', 'sjaal'],
-        correct: 'pipi',
-        explanation: 'Je kunt pi-pi in twee klankstukjes zeggen. Muts en sjaal hebben elk één klankstukje.'
+        prompt: 'De wc-rol rolt door de regen naar een ... Welk woord rijmt op “rol”?',
+        options: ['bol', 'jas', 'plas'],
+        correct: 'bol',
+        explanation: 'Rol en bol eindigen met dezelfde klank “ol” en rijmen dus.'
       },
       {
         area: 'explore',
-        prompt: 'Liam staat op een vak. Hij stapt 2 vakken naar rechts en daarna 1 vak naar links. Waar staat hij nu vergeleken met zijn startvak?',
-        options: ['1 vak naar rechts.', 'Op zijn startvak.', '1 vak naar links.'],
-        correct: '1 vak naar rechts.',
-        explanation: 'Na 2 vakken naar rechts ga je 1 vak terug naar links. Er blijft nog 1 vak naar rechts over.',
-        challenge: true
+        prompt: 'De regenwandeling start om halfvier. Na 20 minuten is ze klaar. Hoe laat is het dan?',
+        options: ['15:50', '15:40', '16:00'],
+        correct: '15:50',
+        explanation: 'Halfvier is 15:30. Tien minuten later is het 15:40 en nog tien minuten later 15:50.',
+        challenge: true,
+        clockOptions: {
+          '15:50': {hour: 15, minute: 50, label: 'tien voor vier'},
+          '15:40': {hour: 15, minute: 40, label: 'tien over halfvier'},
+          '16:00': {hour: 16, minute: 0, label: 'vier uur'}
+        }
       }
     ]
   }
