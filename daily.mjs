@@ -1,113 +1,108 @@
-export const ACTIVE_DATE = '2026-11-06';
+export const ACTIVE_DATE = '2026-11-07';
 export const DAILY_CONTENT = {
-  '2026-11-06': {
-    title: 'De regendruppelcode',
+  '2026-11-07': {
+    title: 'De kastanjekist',
     questions: [
       {
         area: 'math',
-        prompt: 'Op het raam kleven 14 regendruppelstickers. Liam haalt er 6 weg. Hoeveel stickers blijven kleven?',
-        options: ['8', '7', '9'],
-        correct: '8',
-        explanation: 'Splits 6 in 4 en 2. Eerst 14 - 4 = 10, daarna 10 - 2 = 8.',
+        prompt: 'Liam vindt 7 kastanjes bij de boom en daarna nog 8. Hoeveel kastanjes heeft hij samen?',
+        options: ['15', '14', '16'],
+        correct: '15',
+        explanation: 'Splits 8 in 3 en 5. Eerst 7 + 3 = 10, daarna 10 + 5 = 15.',
         challenge: true,
         sock: {
-          operator: '-',
-          start: 14,
-          splitTotal: 6,
-          first: 4,
-          second: 2,
-          result: 8,
-          step: '14 - 4 = 10, daarna 10 - 2 = 8.'
+          operator: '+',
+          start: 7,
+          splitTotal: 8,
+          first: 3,
+          second: 5,
+          result: 15,
+          step: '7 + 3 = 10, daarna 10 + 5 = 15.'
         }
       },
       {
         area: 'language',
-        storyTitle: 'Het briefje aan de deur',
-        passage: 'Klap je paraplu buiten dicht. Veeg daarna je laarzen op de mat. Hang je natte jas aan de kapstok.',
-        prompt: 'Wat doe je meteen nadat je de paraplu hebt dichtgeklapt?',
-        options: ['Je laarzen op de mat vegen.', 'Je jas in de boekentas stoppen.', 'De deur weer openen.'],
-        correct: 'Je laarzen op de mat vegen.',
-        explanation: 'Na het dichtklappen van de paraplu komt de tweede stap: de laarzen op de mat vegen.'
+        storyTitle: 'Het kaartje bij de kastanjekist',
+        passage: 'Veeg eerst het zand van de kastanjes. Tel ze daarna. Leg ze tot slot voorzichtig in de houten kist.',
+        prompt: 'Wat doe je nadat het zand is weggeveegd en vóór de kastanjes in de kist gaan?',
+        options: ['De kastanjes tellen.', 'De kist schilderen.', 'De kastanjes terug buiten leggen.'],
+        correct: 'De kastanjes tellen.',
+        explanation: 'Tussen het schoonvegen en het opbergen staat de stap: de kastanjes tellen.'
       },
       {
         area: 'explore',
-        prompt: 'Een speelplaats helt een beetje af. Naar welke kant stroomt het regenwater?',
-        options: ['Naar de laagste kant.', 'Naar de hoogste kant.', 'Altijd naar het midden.'],
-        correct: 'Naar de laagste kant.',
-        explanation: 'Water stroomt door de zwaartekracht van een hogere plek naar een lagere plek.'
+        prompt: 'Waarom zit een kastanje eerst in een stekelige bolster?',
+        options: ['De bolster beschermt de kastanje.', 'De bolster maakt muziek.', 'De bolster laat de kastanje vliegen.'],
+        correct: 'De bolster beschermt de kastanje.',
+        explanation: 'De harde stekelige bolster helpt de kastanje te beschermen terwijl ze groeit.'
       },
       {
         area: 'math',
-        prompt: 'Pikachu verdeelt 16 blauwe druppelkaartjes eerlijk over 2 bakjes. Hoeveel kaartjes komen in elk bakje?',
-        options: ['8', '6', '9'],
-        correct: '8',
-        explanation: 'Maak 2 gelijke groepjes. In elk bakje komen 8 kaartjes, want 8 + 8 = 16. De deelsom is 16 : 2 = 8.',
+        prompt: 'Miraidon legt 9 groepjes van 2 energiekaartjes klaar. Hoeveel kaartjes zijn dat?',
+        options: ['18', '16', '20'],
+        correct: '18',
+        explanation: 'Je maakt 9 groepjes van 2: 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 = 18. De keersom is 9 × 2 = 18.',
         tableOfTwo: true
       },
       {
         area: 'language',
-        storyTitle: 'Binnen na de regen',
-        passage: 'Milan komt als eerste binnen. Liam komt na Milan. Sara komt pas na Liam. Alleen de tweede leerling mag het weerkaartje omdraaien.',
-        prompt: 'Wie mag het weerkaartje omdraaien?',
-        options: ['Liam', 'Milan', 'Sara'],
-        correct: 'Liam',
-        explanation: 'Milan is eerste. Liam komt na Milan en vóór Sara, dus Liam is tweede. Daarom mag Liam het kaartje omdraaien.',
+        storyTitle: 'Twee doosjes',
+        passage: 'Juf geeft Liam een blauw doosje en Noor een geel doosje. Liam legt twee kastanjes in zijn doosje. Daarna geeft Noor hem nog één kastanje. Zij bewaart zelf vier kastanjes.',
+        prompt: 'Welk doosje bevat nu drie kastanjes?',
+        options: ['Het blauwe doosje.', 'Het gele doosje.', 'Beide doosjes.'],
+        correct: 'Het blauwe doosje.',
+        explanation: 'Liam heeft het blauwe doosje. Hij had 2 kastanjes en krijgt er 1 bij: 2 + 1 = 3. Het blauwe doosje bevat dus drie kastanjes.',
         challenge: true
       },
       {
         area: 'explore',
-        prompt: 'Welke vorm heeft geen rechte zijden?',
-        options: ['Een cirkel.', 'Een vierkant.', 'Een driehoek.'],
-        correct: 'Een cirkel.',
-        explanation: 'De rand van een cirkel is helemaal krom. Een vierkant en een driehoek hebben rechte zijden.'
+        prompt: 'Welk hulpmiddel gebruik je om de nerven van een herfstblad groter te bekijken?',
+        options: ['Een vergrootglas.', 'Een meetlat.', 'Een kompas.'],
+        correct: 'Een vergrootglas.',
+        explanation: 'Een vergrootglas laat kleine details, zoals bladnerven, groter lijken.'
       },
       {
         area: 'math',
-        prompt: 'Welk getal bestaat uit 2 tientallen en 6 eenheden?',
-        options: ['26', '62', '16'],
-        correct: '26',
-        explanation: 'Twee tientallen zijn 20 en zes eenheden zijn 6. Samen is dat 26.'
+        prompt: 'Welk getal ontbreekt: __ + 6 = 20?',
+        options: ['14', '13', '15'],
+        correct: '14',
+        explanation: 'Denk omgekeerd: 20 - 6 = 14. Dus 14 + 6 = 20.'
       },
       {
         area: 'language',
         prompt: 'Welk MKMM-woord is juist geschreven?',
-        options: ['kant', 'knta', 'kan'],
-        correct: 'kant',
-        explanation: 'Kant heeft één medeklinker k, één klinker a en daarna twee medeklinkers n en t: MKMM.'
+        options: ['kast', 'kats', 'kas'],
+        correct: 'kast',
+        explanation: 'Kast heeft één medeklinker k, één klinker a en daarna twee medeklinkers s en t: MKMM.'
       },
       {
         area: 'explore',
-        prompt: 'De thermometer toont ’s middags 10 graden en ’s avonds 6 graden. Wanneer is het kouder?',
-        options: ['’s Avonds.', '’s Middags.', 'Het is even koud.'],
-        correct: '’s Avonds.',
-        explanation: '6 graden is minder dan 10 graden. Daarom is het ’s avonds kouder.'
+        prompt: 'Een krijtstreep begint bij punt A en stopt bij punt B. Hoe heet die begrensde rechte verbinding?',
+        options: ['Een lijnstuk.', 'Een kromme lijn.', 'Eén punt.'],
+        correct: 'Een lijnstuk.',
+        explanation: 'Een lijnstuk is recht en heeft twee eindpunten. Hier zijn dat punt A en punt B.'
       },
       {
         area: 'math',
-        prompt: 'Erling Haaland legt 15 oefenkegels klaar en zet er nog 4 bij. Hoeveel kegels staan er nu?',
-        options: ['19', '18', '20'],
-        correct: '19',
-        explanation: '15 + 4 = 19. Er staan nu 19 oefenkegels.'
+        prompt: 'Lionel Messi zet 13 oefenkegels neer en voegt er nog 4 toe. Hoeveel kegels staan er nu?',
+        options: ['17', '16', '18'],
+        correct: '17',
+        explanation: '13 + 4 = 17. Er staan nu 17 oefenkegels.'
       },
       {
         area: 'language',
-        prompt: 'De wc-rol rolt door de regen naar een ... Welk woord rijmt op “rol”?',
-        options: ['bol', 'jas', 'plas'],
-        correct: 'bol',
-        explanation: 'Rol en bol eindigen met dezelfde klank “ol” en rijmen dus.'
+        prompt: 'Welk vraagwoord past? “___ ligt de speelgoed-drol?” Het antwoord is: “In de kastanjekist.”',
+        options: ['Waar', 'Wie', 'Wanneer'],
+        correct: 'Waar',
+        explanation: 'Het antwoord noemt een plaats. Daarom hoort het vraagwoord “waar” in de zin.'
       },
       {
         area: 'explore',
-        prompt: 'De regenwandeling start om halfvier. Na 20 minuten is ze klaar. Hoe laat is het dan?',
-        options: ['15:50', '15:40', '16:00'],
-        correct: '15:50',
-        explanation: 'Halfvier is 15:30. Tien minuten later is het 15:40 en nog tien minuten later 15:50.',
-        challenge: true,
-        clockOptions: {
-          '15:50': {hour: 15, minute: 50, label: 'tien voor vier'},
-          '15:40': {hour: 15, minute: 40, label: 'tien over halfvier'},
-          '16:00': {hour: 16, minute: 0, label: 'vier uur'}
-        }
+        prompt: 'De Fonkelende Feniksen picknicken de dag na zaterdag. Eén dag na de picknick verzamelen ze bladeren. Op welke dag verzamelen ze bladeren?',
+        options: ['Maandag', 'Zondag', 'Dinsdag'],
+        correct: 'Maandag',
+        explanation: 'De dag na zaterdag is zondag, dus de picknick is op zondag. Eén dag later is het maandag.',
+        challenge: true
       }
     ]
   }
