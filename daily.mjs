@@ -1,107 +1,117 @@
-export const ACTIVE_DATE = '2026-11-07';
+export const ACTIVE_DATE = '2026-11-08';
 export const DAILY_CONTENT = {
-  '2026-11-07': {
-    title: 'De kastanjekist',
+  '2026-11-08': {
+    title: 'De stille egelwandeling',
     questions: [
       {
         area: 'math',
-        prompt: 'Liam vindt 7 kastanjes bij de boom en daarna nog 8. Hoeveel kastanjes heeft hij samen?',
-        options: ['15', '14', '16'],
-        correct: '15',
-        explanation: 'Splits 8 in 3 en 5. Eerst 7 + 3 = 10, daarna 10 + 5 = 15.',
+        prompt: 'In een mand liggen 16 noten. Liam geeft er 7 aan de egelhoek. Hoeveel noten blijven in de mand?',
+        options: ['9', '8', '10'],
+        correct: '9',
+        explanation: 'Splits 7 in 6 en 1. Eerst 16 - 6 = 10, daarna 10 - 1 = 9.',
         challenge: true,
         sock: {
-          operator: '+',
-          start: 7,
-          splitTotal: 8,
-          first: 3,
-          second: 5,
-          result: 15,
-          step: '7 + 3 = 10, daarna 10 + 5 = 15.'
+          operator: '-',
+          start: 16,
+          splitTotal: 7,
+          first: 6,
+          second: 1,
+          result: 9,
+          step: '16 - 6 = 10, daarna 10 - 1 = 9.'
         }
       },
       {
         area: 'language',
-        storyTitle: 'Het kaartje bij de kastanjekist',
-        passage: 'Veeg eerst het zand van de kastanjes. Tel ze daarna. Leg ze tot slot voorzichtig in de houten kist.',
-        prompt: 'Wat doe je nadat het zand is weggeveegd en vóór de kastanjes in de kist gaan?',
-        options: ['De kastanjes tellen.', 'De kist schilderen.', 'De kastanjes terug buiten leggen.'],
-        correct: 'De kastanjes tellen.',
-        explanation: 'Tussen het schoonvegen en het opbergen staat de stap: de kastanjes tellen.'
+        storyTitle: 'De stille zondagstocht',
+        listenGroup: 'egelwandeling-2026-11-08',
+        listenText: 'Goedemorgen Liam. Vandaag is het zondag 8 november. Om negen uur zet mama een kleine mand bij de achterdeur. Liam legt daarin een appel, een rode sjaal en een briefje voor oma. Om halftien vertrekken ze te voet. Onderweg zien ze een egel onder een hoop bladeren. Ze wandelen stil verder zodat het dier niet schrikt.',
+        prompt: 'Wat legt Liam naast de appel en de rode sjaal in de mand?',
+        options: ['Een briefje voor oma.', 'Een blauwe muts.', 'Een zak kastanjes.'],
+        correct: 'Een briefje voor oma.',
+        explanation: 'In het bericht hoor je dat Liam een appel, een rode sjaal en een briefje voor oma in de mand legt.'
       },
       {
         area: 'explore',
-        prompt: 'Waarom zit een kastanje eerst in een stekelige bolster?',
-        options: ['De bolster beschermt de kastanje.', 'De bolster maakt muziek.', 'De bolster laat de kastanje vliegen.'],
-        correct: 'De bolster beschermt de kastanje.',
-        explanation: 'De harde stekelige bolster helpt de kastanje te beschermen terwijl ze groeit.'
+        storyTitle: 'De stille zondagstocht',
+        listenGroup: 'egelwandeling-2026-11-08',
+        listenText: 'Goedemorgen Liam. Vandaag is het zondag 8 november. Om negen uur zet mama een kleine mand bij de achterdeur. Liam legt daarin een appel, een rode sjaal en een briefje voor oma. Om halftien vertrekken ze te voet. Onderweg zien ze een egel onder een hoop bladeren. Ze wandelen stil verder zodat het dier niet schrikt.',
+        prompt: 'Welke klok toont het tijdstip waarop Liam en mama vertrekken?',
+        options: ['09:30', '09:00', '10:30'],
+        correct: '09:30',
+        explanation: 'Halftien is een halfuur vóór tien uur. Dat is 09:30.',
+        clockOptions: {
+          '09:30': {hour: 9, minute: 30, label: 'halftien'},
+          '09:00': {hour: 9, minute: 0, label: 'negen uur'},
+          '10:30': {hour: 10, minute: 30, label: 'halfelf'}
+        }
       },
       {
         area: 'math',
-        prompt: 'Miraidon legt 9 groepjes van 2 energiekaartjes klaar. Hoeveel kaartjes zijn dat?',
-        options: ['18', '16', '20'],
-        correct: '18',
-        explanation: 'Je maakt 9 groepjes van 2: 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 = 18. De keersom is 9 × 2 = 18.',
+        prompt: 'Pikachu maakt 6 kleine pakjes met telkens 2 nootkaartjes. Hoeveel nootkaartjes zijn dat samen?',
+        options: ['12', '10', '14'],
+        correct: '12',
+        explanation: 'Je maakt 6 groepjes van 2: 2 + 2 + 2 + 2 + 2 + 2 = 12. De keersom is 6 × 2 = 12.',
         tableOfTwo: true
       },
       {
         area: 'language',
-        storyTitle: 'Twee doosjes',
-        passage: 'Juf geeft Liam een blauw doosje en Noor een geel doosje. Liam legt twee kastanjes in zijn doosje. Daarna geeft Noor hem nog één kastanje. Zij bewaart zelf vier kastanjes.',
-        prompt: 'Welk doosje bevat nu drie kastanjes?',
-        options: ['Het blauwe doosje.', 'Het gele doosje.', 'Beide doosjes.'],
-        correct: 'Het blauwe doosje.',
-        explanation: 'Liam heeft het blauwe doosje. Hij had 2 kastanjes en krijgt er 1 bij: 2 + 1 = 3. Het blauwe doosje bevat dus drie kastanjes.',
+        storyTitle: 'De stille zondagstocht',
+        listenGroup: 'egelwandeling-2026-11-08',
+        listenText: 'Goedemorgen Liam. Vandaag is het zondag 8 november. Om negen uur zet mama een kleine mand bij de achterdeur. Liam legt daarin een appel, een rode sjaal en een briefje voor oma. Om halftien vertrekken ze te voet. Onderweg zien ze een egel onder een hoop bladeren. Ze wandelen stil verder zodat het dier niet schrikt.',
+        prompt: 'Liam wil vlak bij de bladeren luid roepen. Waarom kiest hij beter een zachte stem?',
+        options: ['Anders kan de egel schrikken.', 'Anders wordt de rode sjaal blauw.', 'Anders verdwijnt de mand.'],
+        correct: 'Anders kan de egel schrikken.',
+        explanation: 'Het bericht zegt dat ze stil verder wandelen zodat de egel niet schrikt. Een zachte stem past dus bij hun bedoeling.',
         challenge: true
       },
       {
         area: 'explore',
-        prompt: 'Welk hulpmiddel gebruik je om de nerven van een herfstblad groter te bekijken?',
-        options: ['Een vergrootglas.', 'Een meetlat.', 'Een kompas.'],
-        correct: 'Een vergrootglas.',
-        explanation: 'Een vergrootglas laat kleine details, zoals bladnerven, groter lijken.'
+        prompt: 'Liam kijkt naar het oosten en draait een halve draai. Naar welke richting kijkt hij daarna?',
+        options: ['Naar het westen.', 'Naar het noorden.', 'Naar het zuiden.'],
+        correct: 'Naar het westen.',
+        explanation: 'Na een halve draai kijk je precies de andere kant op. Tegenover het oosten ligt het westen.'
       },
       {
         area: 'math',
-        prompt: 'Welk getal ontbreekt: __ + 6 = 20?',
-        options: ['14', '13', '15'],
-        correct: '14',
-        explanation: 'Denk omgekeerd: 20 - 6 = 14. Dus 14 + 6 = 20.'
+        prompt: 'Squirtle telt 3 tientallen en 4 losse steentjes. Welk getal telt hij?',
+        options: ['34', '43', '30'],
+        correct: '34',
+        explanation: 'Drie tientallen zijn 30. Met 4 eenheden erbij krijg je 34.'
       },
       {
         area: 'language',
         prompt: 'Welk MKMM-woord is juist geschreven?',
-        options: ['kast', 'kats', 'kas'],
-        correct: 'kast',
-        explanation: 'Kast heeft één medeklinker k, één klinker a en daarna twee medeklinkers s en t: MKMM.'
+        options: ['worm', 'wrom', 'wor'],
+        correct: 'worm',
+        explanation: 'Worm heeft één medeklinker w, één klinker o en daarna twee medeklinkers r en m: MKMM.'
       },
       {
         area: 'explore',
-        prompt: 'Een krijtstreep begint bij punt A en stopt bij punt B. Hoe heet die begrensde rechte verbinding?',
-        options: ['Een lijnstuk.', 'Een kromme lijn.', 'Eén punt.'],
-        correct: 'Een lijnstuk.',
-        explanation: 'Een lijnstuk is recht en heeft twee eindpunten. Hier zijn dat punt A en punt B.'
+        prompt: 'Een recht paadje begint bij punt P en eindigt bij punt Q. Hoeveel eindpunten heeft dit lijnstuk?',
+        options: ['2 eindpunten.', '1 eindpunt.', 'Geen eindpunten.'],
+        correct: '2 eindpunten.',
+        explanation: 'Een lijnstuk heeft altijd twee eindpunten. Hier zijn dat punt P en punt Q.'
       },
       {
         area: 'math',
-        prompt: 'Lionel Messi zet 13 oefenkegels neer en voegt er nog 4 toe. Hoeveel kegels staan er nu?',
-        options: ['17', '16', '18'],
-        correct: '17',
-        explanation: '13 + 4 = 17. Er staan nu 17 oefenkegels.'
+        prompt: 'Kevin De Bruyne legt 14 oefenhoedjes klaar en zet er nog 5 bij. Hoeveel oefenhoedjes liggen er nu?',
+        options: ['19', '18', '20'],
+        correct: '19',
+        explanation: '14 + 5 = 19. Er liggen nu 19 oefenhoedjes.'
       },
       {
         area: 'language',
-        prompt: 'Welk vraagwoord past? “___ ligt de speelgoed-drol?” Het antwoord is: “In de kastanjekist.”',
-        options: ['Waar', 'Wie', 'Wanneer'],
-        correct: 'Waar',
-        explanation: 'Het antwoord noemt een plaats. Daarom hoort het vraagwoord “waar” in de zin.'
+        prompt: 'Welke zin vertelt dat er meer dan één wc-rol is?',
+        options: ['Er liggen drie wc-rollen.', 'Er ligt één wc-rol.', 'De wc-rol is wit.'],
+        correct: 'Er liggen drie wc-rollen.',
+        explanation: 'Het woord “drie” en de meervoudsvorm “wc-rollen” tonen dat het over meer dan één wc-rol gaat.'
       },
       {
         area: 'explore',
-        prompt: 'De Fonkelende Feniksen picknicken de dag na zaterdag. Eén dag na de picknick verzamelen ze bladeren. Op welke dag verzamelen ze bladeren?',
-        options: ['Maandag', 'Zondag', 'Dinsdag'],
-        correct: 'Maandag',
-        explanation: 'De dag na zaterdag is zondag, dus de picknick is op zondag. Eén dag later is het maandag.',
+        prompt: 'Een eekhoorn, een egel en een vogel zitten elk op een andere plek: laag, midden of hoog. De eekhoorn zit hoog. De egel zit niet laag. De vogel zit niet in het midden. Waar zit de egel?',
+        options: ['In het midden.', 'Laag.', 'Hoog.'],
+        correct: 'In het midden.',
+        explanation: 'Hoog is al voor de eekhoorn. De vogel zit niet in het midden en moet dus laag zitten. Daardoor blijft het midden over voor de egel.',
         challenge: true
       }
     ]
