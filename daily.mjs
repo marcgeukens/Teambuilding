@@ -1,117 +1,107 @@
-export const ACTIVE_DATE = '2026-11-08';
+export const ACTIVE_DATE = '2026-11-09';
 export const DAILY_CONTENT = {
-  '2026-11-08': {
-    title: 'De stille egelwandeling',
+  '2026-11-09': {
+    title: 'De boekenkringcode',
     questions: [
       {
         area: 'math',
-        prompt: 'In een mand liggen 16 noten. Liam geeft er 7 aan de egelhoek. Hoeveel noten blijven in de mand?',
-        options: ['9', '8', '10'],
-        correct: '9',
-        explanation: 'Splits 7 in 6 en 1. Eerst 16 - 6 = 10, daarna 10 - 1 = 9.',
+        prompt: 'Liam legt 9 boeken op een tafel en zet er nog 6 bij. Hoeveel boeken liggen er samen?',
+        options: ['15', '14', '16'],
+        correct: '15',
+        explanation: 'Splits 6 in 1 en 5. Eerst 9 + 1 = 10, daarna 10 + 5 = 15.',
         challenge: true,
         sock: {
-          operator: '-',
-          start: 16,
-          splitTotal: 7,
-          first: 6,
-          second: 1,
-          result: 9,
-          step: '16 - 6 = 10, daarna 10 - 1 = 9.'
+          operator: '+',
+          start: 9,
+          splitTotal: 6,
+          first: 1,
+          second: 5,
+          result: 15,
+          step: '9 + 1 = 10, daarna 10 + 5 = 15.'
         }
       },
       {
         area: 'language',
-        storyTitle: 'De stille zondagstocht',
-        listenGroup: 'egelwandeling-2026-11-08',
-        listenText: 'Goedemorgen Liam. Vandaag is het zondag 8 november. Om negen uur zet mama een kleine mand bij de achterdeur. Liam legt daarin een appel, een rode sjaal en een briefje voor oma. Om halftien vertrekken ze te voet. Onderweg zien ze een egel onder een hoop bladeren. Ze wandelen stil verder zodat het dier niet schrikt.',
-        prompt: 'Wat legt Liam naast de appel en de rode sjaal in de mand?',
-        options: ['Een briefje voor oma.', 'Een blauwe muts.', 'Een zak kastanjes.'],
-        correct: 'Een briefje voor oma.',
-        explanation: 'In het bericht hoor je dat Liam een appel, een rode sjaal en een briefje voor oma in de mand legt.'
+        storyTitle: 'Klaar voor de boekenkring',
+        passage: 'Kies eerst een boek. Leg daarna een bladwijzer bij je lievelingsbladzijde. Stop het boek tot slot voorzichtig in je tas.',
+        prompt: 'Wat doe je nadat je een boek hebt gekozen en vóór het boek in de tas gaat?',
+        options: ['Een bladwijzer bij je lievelingsbladzijde leggen.', 'Het boek terug in de kast zetten.', 'De boekentas leegmaken.'],
+        correct: 'Een bladwijzer bij je lievelingsbladzijde leggen.',
+        explanation: 'Tussen het kiezen en het opbergen staat de stap met de bladwijzer.'
       },
       {
         area: 'explore',
-        storyTitle: 'De stille zondagstocht',
-        listenGroup: 'egelwandeling-2026-11-08',
-        listenText: 'Goedemorgen Liam. Vandaag is het zondag 8 november. Om negen uur zet mama een kleine mand bij de achterdeur. Liam legt daarin een appel, een rode sjaal en een briefje voor oma. Om halftien vertrekken ze te voet. Onderweg zien ze een egel onder een hoop bladeren. Ze wandelen stil verder zodat het dier niet schrikt.',
-        prompt: 'Welke klok toont het tijdstip waarop Liam en mama vertrekken?',
-        options: ['09:30', '09:00', '10:30'],
-        correct: '09:30',
-        explanation: 'Halftien is een halfuur vóór tien uur. Dat is 09:30.',
-        clockOptions: {
-          '09:30': {hour: 9, minute: 30, label: 'halftien'},
-          '09:00': {hour: 9, minute: 0, label: 'negen uur'},
-          '10:30': {hour: 10, minute: 30, label: 'halfelf'}
-        }
+        prompt: 'Waarom heeft een boek meestal een stevige kaft?',
+        options: ['De kaft helpt de bladzijden beschermen.', 'De kaft maakt het boek vanzelf leesbaar.', 'De kaft laat het boek zweven.'],
+        correct: 'De kaft helpt de bladzijden beschermen.',
+        explanation: 'Een stevige kaft vangt stoten en vuil op en helpt zo de bladzijden netjes te houden.'
       },
       {
         area: 'math',
-        prompt: 'Pikachu maakt 6 kleine pakjes met telkens 2 nootkaartjes. Hoeveel nootkaartjes zijn dat samen?',
-        options: ['12', '10', '14'],
-        correct: '12',
-        explanation: 'Je maakt 6 groepjes van 2: 2 + 2 + 2 + 2 + 2 + 2 = 12. De keersom is 6 × 2 = 12.',
+        prompt: 'Er liggen 7 paren boekenkaartjes. Elk paar heeft 2 kaartjes. Welke ontbrekende factor past: ? × 2 = 14?',
+        options: ['7', '6', '8'],
+        correct: '7',
+        explanation: 'Je telt 7 groepjes van 2: 2 + 2 + 2 + 2 + 2 + 2 + 2 = 14. De keersom is 7 × 2 = 14.',
         tableOfTwo: true
       },
       {
         area: 'language',
-        storyTitle: 'De stille zondagstocht',
-        listenGroup: 'egelwandeling-2026-11-08',
-        listenText: 'Goedemorgen Liam. Vandaag is het zondag 8 november. Om negen uur zet mama een kleine mand bij de achterdeur. Liam legt daarin een appel, een rode sjaal en een briefje voor oma. Om halftien vertrekken ze te voet. Onderweg zien ze een egel onder een hoop bladeren. Ze wandelen stil verder zodat het dier niet schrikt.',
-        prompt: 'Liam wil vlak bij de bladeren luid roepen. Waarom kiest hij beter een zachte stem?',
-        options: ['Anders kan de egel schrikken.', 'Anders wordt de rode sjaal blauw.', 'Anders verdwijnt de mand.'],
-        correct: 'Anders kan de egel schrikken.',
-        explanation: 'Het bericht zegt dat ze stil verder wandelen zodat de egel niet schrikt. Een zachte stem past dus bij hun bedoeling.',
+        storyTitle: 'Drie boeken voor de kring',
+        passage: 'Op tafel liggen een rood, een blauw en een groen boek. Noor kiest rood. Amir kiest niet groen. Liam krijgt het boek dat overblijft.',
+        prompt: 'Welke kleur boek krijgt Liam?',
+        options: ['Groen', 'Blauw', 'Rood'],
+        correct: 'Groen',
+        explanation: 'Rood is al voor Noor. Amir kiest niet groen en moet dus blauw kiezen. Daardoor blijft groen over voor Liam.',
         challenge: true
       },
       {
         area: 'explore',
-        prompt: 'Liam kijkt naar het oosten en draait een halve draai. Naar welke richting kijkt hij daarna?',
-        options: ['Naar het westen.', 'Naar het noorden.', 'Naar het zuiden.'],
-        correct: 'Naar het westen.',
-        explanation: 'Na een halve draai kijk je precies de andere kant op. Tegenover het oosten ligt het westen.'
+        prompt: 'De rechte rand van een bladzijde loopt van punt A tot punt B. Hoe heet dit rechte stukje tussen twee eindpunten?',
+        options: ['Een lijnstuk.', 'Een kromme lijn.', 'Een losse punt.'],
+        correct: 'Een lijnstuk.',
+        explanation: 'Een lijnstuk is recht en heeft twee eindpunten. Hier zijn dat A en B.'
       },
       {
         area: 'math',
-        prompt: 'Squirtle telt 3 tientallen en 4 losse steentjes. Welk getal telt hij?',
-        options: ['34', '43', '30'],
-        correct: '34',
-        explanation: 'Drie tientallen zijn 30. Met 4 eenheden erbij krijg je 34.'
+        prompt: 'Welk getal ontbreekt op de boekenlijn: 35, 37, __, 41?',
+        options: ['39', '38', '40'],
+        correct: '39',
+        explanation: 'De getallen gaan telkens 2 verder: 35, 37, 39, 41.'
       },
       {
         area: 'language',
         prompt: 'Welk MKMM-woord is juist geschreven?',
-        options: ['worm', 'wrom', 'wor'],
-        correct: 'worm',
-        explanation: 'Worm heeft één medeklinker w, één klinker o en daarna twee medeklinkers r en m: MKMM.'
+        options: ['film', 'flim', 'fil'],
+        correct: 'film',
+        explanation: 'Film heeft één medeklinker f, één klinker i en daarna twee medeklinkers l en m: MKMM.'
       },
       {
         area: 'explore',
-        prompt: 'Een recht paadje begint bij punt P en eindigt bij punt Q. Hoeveel eindpunten heeft dit lijnstuk?',
-        options: ['2 eindpunten.', '1 eindpunt.', 'Geen eindpunten.'],
-        correct: '2 eindpunten.',
-        explanation: 'Een lijnstuk heeft altijd twee eindpunten. Hier zijn dat punt P en punt Q.'
+        prompt: 'Vandaag is het maandag. De boekenkring is over twee dagen. Op welke dag is dat?',
+        options: ['Woensdag', 'Dinsdag', 'Donderdag'],
+        correct: 'Woensdag',
+        explanation: 'Eén dag na maandag is dinsdag en twee dagen na maandag is woensdag.'
       },
       {
         area: 'math',
-        prompt: 'Kevin De Bruyne legt 14 oefenhoedjes klaar en zet er nog 5 bij. Hoeveel oefenhoedjes liggen er nu?',
-        options: ['19', '18', '20'],
-        correct: '19',
-        explanation: '14 + 5 = 19. Er liggen nu 19 oefenhoedjes.'
+        prompt: 'Cristiano Ronaldo heeft 18 bladwijzers en deelt er 5 uit. Hoeveel bladwijzers houdt hij over?',
+        options: ['13', '12', '14'],
+        correct: '13',
+        explanation: '18 - 5 = 13. Hij houdt 13 bladwijzers over.'
       },
       {
         area: 'language',
-        prompt: 'Welke zin vertelt dat er meer dan één wc-rol is?',
-        options: ['Er liggen drie wc-rollen.', 'Er ligt één wc-rol.', 'De wc-rol is wit.'],
-        correct: 'Er liggen drie wc-rollen.',
-        explanation: 'Het woord “drie” en de meervoudsvorm “wc-rollen” tonen dat het over meer dan één wc-rol gaat.'
+        prompt: 'Welk woord rijmt op “boek”?',
+        options: ['koek', 'blad', 'kast'],
+        correct: 'koek',
+        explanation: 'Boek en koek eindigen met dezelfde klank “oek” en rijmen dus.'
       },
       {
         area: 'explore',
-        prompt: 'Een eekhoorn, een egel en een vogel zitten elk op een andere plek: laag, midden of hoog. De eekhoorn zit hoog. De egel zit niet laag. De vogel zit niet in het midden. Waar zit de egel?',
-        options: ['In het midden.', 'Laag.', 'Hoog.'],
-        correct: 'In het midden.',
-        explanation: 'Hoog is al voor de eekhoorn. De vogel zit niet in het midden en moet dus laag zitten. Daardoor blijft het midden over voor de egel.',
+        prompt: 'Drie boeken staan elk op een andere plank: laag, midden of hoog. Het dierenboek staat in het midden. Het moppenboek staat niet laag. Het Pokémonboek staat niet hoog. Waar staat het Pokémonboek?',
+        options: ['Op de lage plank.', 'Op de middelste plank.', 'Op de hoge plank.'],
+        correct: 'Op de lage plank.',
+        explanation: 'Midden is al voor het dierenboek. Het moppenboek staat niet laag en moet dus hoog staan. Daardoor blijft de lage plank over voor het Pokémonboek.',
         challenge: true
       }
     ]
