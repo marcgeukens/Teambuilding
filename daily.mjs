@@ -1,7 +1,7 @@
 export const ACTIVE_DATE = '2026-11-11';
 export const DAILY_CONTENT = {
   "2026-11-11": {
-    "title": "Tafel-van-10-kampioenstraining",
+    "title": "Maal-en-deel-door-10-kampioenstraining",
     "questions": [
       {
         "area": "math",
@@ -24,7 +24,7 @@ export const DAILY_CONTENT = {
           "30"
         ],
         "correct": "40",
-        "explanation": "Vier groepjes van 10 zijn 10 + 10 + 10 + 10 = 40. Dus 4 × 10 = 40.",
+        "explanation": "Vier groepjes van 10 zijn 40. Dus 4 × 10 = 40.",
         "tableOfTen": true
       },
       {
@@ -36,96 +36,110 @@ export const DAILY_CONTENT = {
           "65"
         ],
         "correct": "60",
-        "explanation": "Je maakt telkens een sprong van 10. Na 50 komt 60. Zo zie je alle uitkomsten van 0 × 10 tot en met 10 × 10.",
+        "explanation": "Je maakt telkens een sprong van 10. Na 50 komt 60. De rij toont de uitkomsten van de tafel van 10.",
         "challenge": true,
         "tableOfTen": true
       },
       {
         "area": "math",
-        "prompt": "Welk getal hoort op de plaats van het vraagteken? ? × 10 = 70",
+        "prompt": "Welk getal hoort op de plaats van het vraagteken? ? × 10 = 90",
+        "options": [
+          "9",
+          "8",
+          "10"
+        ],
+        "correct": "9",
+        "explanation": "Negen groepjes van 10 zijn 90. Dus 9 × 10 = 90.",
+        "challenge": true,
+        "tableOfTen": true
+      },
+      {
+        "area": "math",
+        "prompt": "Ronaldo legt 7 rijen van telkens 10 ballen klaar. Hoeveel ballen zijn dat?",
+        "options": [
+          "70",
+          "17",
+          "60"
+        ],
+        "correct": "70",
+        "explanation": "Zeven rijen van 10 zijn samen 70. Dus 7 × 10 = 70.",
+        "tableOfTen": true
+      },
+      {
+        "area": "math",
+        "prompt": "Pikachu verdeelt 70 energiekaartjes in pakjes van 10. Hoeveel pakjes kan hij maken?",
         "options": [
           "7",
           "6",
           "8"
         ],
         "correct": "7",
-        "explanation": "Zeven groepjes van 10 zijn 70. Dus 7 × 10 = 70.",
-        "challenge": true,
+        "explanation": "In 70 zitten 7 groepjes van 10. Dus 70 : 10 = 7.",
         "tableOfTen": true
       },
       {
         "area": "math",
-        "prompt": "Pikachu vindt 6 pakjes met telkens 10 energiekaartjes. Hoeveel kaartjes vindt hij?",
+        "prompt": "Welk getal ontbreekt? ? : 10 = 6",
         "options": [
           "60",
           "16",
-          "50"
+          "600"
         ],
         "correct": "60",
-        "explanation": "Zes pakjes van 10 geven 10 + 10 + 10 + 10 + 10 + 10 = 60. Dus 6 × 10 = 60.",
-        "tableOfTen": true
-      },
-      {
-        "area": "math",
-        "prompt": "Welke uitspraak klopt: 8 × 10 of 7 × 10 + 10?",
-        "options": [
-          "Ze zijn evenveel.",
-          "8 × 10 is meer.",
-          "7 × 10 + 10 is meer."
-        ],
-        "correct": "Ze zijn evenveel.",
-        "explanation": "8 × 10 = 80. Ook 7 × 10 + 10 = 70 + 10 = 80. Ze zijn dus evenveel.",
+        "explanation": "Zestig verdeeld in groepjes van 10 geeft 6 groepjes. Dus 60 : 10 = 6.",
         "challenge": true,
         "tableOfTen": true
       },
       {
         "area": "math",
-        "prompt": "Liam zegt: 9 × 10 = 90. Ronaldo zegt: 9 × 10 = 99. Wie heeft gelijk?",
+        "prompt": "Er liggen 80 Pokémonkaartjes. In elke map passen 10 kaartjes. Hoeveel mappen worden volledig gevuld?",
         "options": [
-          "Liam",
-          "Ronaldo",
-          "Ze hebben allebei gelijk."
+          "8",
+          "7",
+          "9"
         ],
-        "correct": "Liam",
-        "explanation": "Negen groepjes van 10 zijn 90. Bij de tafel van 10 eindigt de uitkomst op nul: 9 × 10 = 90.",
+        "correct": "8",
+        "explanation": "Je verdeelt 80 in groepjes van 10. Dat zijn 8 groepjes: 80 : 10 = 8.",
         "tableOfTen": true
       },
       {
         "area": "math",
-        "prompt": "Haaland heeft 10 zakken met telkens 10 ballen. Hij gebruikt 20 ballen. Hoeveel ballen blijven over?",
+        "prompt": "Welke twee sommen horen precies bij elkaar?",
         "options": [
-          "80",
-          "90",
-          "70"
+          "3 × 10 = 30 en 30 : 10 = 3",
+          "3 × 10 = 13 en 30 : 10 = 3",
+          "3 × 10 = 30 en 30 : 10 = 30"
         ],
-        "correct": "80",
-        "explanation": "Eerst: 10 × 10 = 100 ballen. Daarna: 100 − 20 = 80 ballen. Er blijven 80 ballen over.",
+        "correct": "3 × 10 = 30 en 30 : 10 = 3",
+        "explanation": "Maal 10 en gedeeld door 10 zijn elkaars omgekeerde: 3 × 10 = 30 en 30 : 10 = 3.",
+        "challenge": true,
+        "tableOfTen": true
+      },
+      {
+        "area": "math",
+        "prompt": "Haaland heeft 10 zakken met telkens 10 ballen. Daarna verdeelt hij alle ballen in groepjes van 10. Hoeveel groepjes krijgt hij?",
+        "options": [
+          "10",
+          "100",
+          "20"
+        ],
+        "correct": "10",
+        "explanation": "Eerst: 10 × 10 = 100 ballen. Daarna: 100 : 10 = 10 groepjes.",
         "challenge": true,
         "tableOfTen": true
       },
       {
         "area": "language",
         "storyTitle": "Het trainingsbriefje",
-        "passage": "Liam oefent vanavond de tafel van 10. Eerst maakt hij de vragen rustig. Daarna controleert hij zijn fouten. Donderdag neemt hij een potlood en een gom mee.",
+        "passage": "Liam oefent vanavond maal 10 en gedeeld door 10. Eerst maakt hij de vragen rustig. Daarna bekijkt hij zijn fouten opnieuw. Donderdag neemt hij een potlood en een gom mee.",
         "prompt": "Wat doet Liam nadat hij de vragen heeft gemaakt?",
         "options": [
-          "Hij controleert zijn fouten.",
-          "Hij begint meteen opnieuw.",
+          "Hij bekijkt zijn fouten opnieuw.",
+          "Hij begint meteen te voetballen.",
           "Hij legt zijn potlood weg."
         ],
-        "correct": "Hij controleert zijn fouten.",
-        "explanation": "In het briefje staat: eerst maakt Liam de vragen, daarna controleert hij zijn fouten."
-      },
-      {
-        "area": "language",
-        "prompt": "Welke zin is juist geschreven?",
-        "options": [
-          "Liam oefent de tafel van tien.",
-          "liam oefent de tafel van tien.",
-          "Liam oefend de tafel van tien."
-        ],
-        "correct": "Liam oefent de tafel van tien.",
-        "explanation": "Een zin begint met een hoofdletter. Het werkwoord is ‘oefent’ met een t."
+        "correct": "Hij bekijkt zijn fouten opnieuw.",
+        "explanation": "In het briefje staat: eerst maakt Liam de vragen, daarna bekijkt hij zijn fouten opnieuw."
       },
       {
         "area": "explore",
@@ -138,17 +152,6 @@ export const DAILY_CONTENT = {
         "correct": "Het vierkant",
         "explanation": "De volgorde is cirkel – vierkant – ster. Het vierkant ligt dus in het midden.",
         "challenge": true
-      },
-      {
-        "area": "explore",
-        "prompt": "Squirtle verstopt zich achter een deur. Je ziet alleen een plasje water en hoort: ‘Ik was het niet!’ Wat is de beste conclusie?",
-        "options": [
-          "Squirtle kan er iets mee te maken hebben.",
-          "De deur heeft het plasje gemaakt.",
-          "Een plasje kan praten."
-        ],
-        "correct": "Squirtle kan er iets mee te maken hebben.",
-        "explanation": "Een plasje water is een aanwijzing, maar geen volledig bewijs. Daarom is ‘kan ermee te maken hebben’ de beste conclusie."
       }
     ]
   }
