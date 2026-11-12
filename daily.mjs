@@ -1,157 +1,111 @@
-export const ACTIVE_DATE = '2026-11-11';
+export const ACTIVE_DATE = '2026-11-12';
 export const DAILY_CONTENT = {
-  "2026-11-11": {
-    "title": "Maal-en-deel-door-10-kampioenstraining",
-    "questions": [
+  '2026-11-12': {
+    title: 'De donderdagse ontdektocht',
+    questions: [
       {
-        "area": "math",
-        "prompt": "De training begint bij nul. Hoeveel is 0 × 10?",
-        "options": [
-          "0",
-          "10",
-          "100"
-        ],
-        "correct": "0",
-        "explanation": "Nul groepjes van 10 zijn samen 0. Dus 0 × 10 = 0.",
-        "tableOfTen": true
+        area: 'math',
+        prompt: 'De Fonkelende Feniksen vinden 8 gouden blaadjes en daarna nog 6. Hoeveel blaadjes hebben ze samen?',
+        options: ['14', '13', '15'],
+        correct: '14',
+        explanation: 'Splits 6 in 2 en 4. Eerst 8 + 2 = 10, daarna 10 + 4 = 14.',
+        challenge: true,
+        sock: {
+          operator: '+',
+          start: 8,
+          splitTotal: 6,
+          first: 2,
+          second: 4,
+          result: 14,
+          step: '8 + 2 = 10, daarna 10 + 4 = 14.'
+        }
       },
       {
-        "area": "math",
-        "prompt": "Er staan 4 dozen met telkens 10 voetbalkaartjes. Hoeveel kaartjes zijn dat samen?",
-        "options": [
-          "40",
-          "14",
-          "30"
-        ],
-        "correct": "40",
-        "explanation": "Vier groepjes van 10 zijn 40. Dus 4 × 10 = 40.",
-        "tableOfTen": true
+        area: 'language',
+        prompt: 'Welk MKMM-woord is juist geschreven?',
+        options: ['wolk', 'wokl', 'wol'],
+        correct: 'wolk',
+        explanation: 'Wolk heeft één medeklinker w, één klinker o en daarna twee medeklinkers l en k: MKMM.'
       },
       {
-        "area": "math",
-        "prompt": "Welk getal ontbreekt? 0, 10, 20, 30, 40, 50, __, 70, 80, 90, 100",
-        "options": [
-          "60",
-          "55",
-          "65"
-        ],
-        "correct": "60",
-        "explanation": "Je maakt telkens een sprong van 10. Na 50 komt 60. De rij toont de uitkomsten van de tafel van 10.",
-        "challenge": true,
-        "tableOfTen": true
+        area: 'explore',
+        prompt: 'Liam wil tussen punt A en punt B een rechte lijn tekenen. Welk hulpmiddel kiest hij het best?',
+        options: ['Een lat', 'Een gom', 'Een drinkfles'],
+        correct: 'Een lat',
+        explanation: 'Langs de rechte rand van een lat kun je netjes een rechte lijn tekenen.'
       },
       {
-        "area": "math",
-        "prompt": "Welk getal hoort op de plaats van het vraagteken? ? × 10 = 90",
-        "options": [
-          "9",
-          "8",
-          "10"
-        ],
-        "correct": "9",
-        "explanation": "Negen groepjes van 10 zijn 90. Dus 9 × 10 = 90.",
-        "challenge": true,
-        "tableOfTen": true
+        area: 'math',
+        prompt: 'Pikachu legt 8 paren energiekaartjes neer. Elk paar heeft 2 kaartjes. Welk getal ontbreekt in ? × 2 = 16?',
+        options: ['8', '7', '9'],
+        correct: '8',
+        explanation: 'Je ziet 8 groepjes van 2 kaartjes: 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 = 16. De passende som is 8 × 2 = 16.',
+        tableOfTwo: true
       },
       {
-        "area": "math",
-        "prompt": "Ronaldo legt 7 rijen van telkens 10 ballen klaar. Hoeveel ballen zijn dat?",
-        "options": [
-          "70",
-          "17",
-          "60"
-        ],
-        "correct": "70",
-        "explanation": "Zeven rijen van 10 zijn samen 70. Dus 7 × 10 = 70.",
-        "tableOfTen": true
+        area: 'language',
+        storyTitle: 'Het verplaatste schatbriefje',
+        passage: 'Voor de speeltijd stopt Liam een schatbriefje in de blauwe doos op de tafel. Na de speeltijd zet Noor de blauwe doos in de boekenkast. Het briefje blijft in de doos. In de namiddag wil Liam het briefje terug.',
+        prompt: 'Waar moet Liam in de namiddag zoeken om zijn schatbriefje terug te vinden?',
+        options: ['In de blauwe doos in de boekenkast', 'Los op de tafel', 'Onder de boekenkast'],
+        correct: 'In de blauwe doos in de boekenkast',
+        explanation: 'Het briefje blijft in de blauwe doos. Noor verplaatst die doos van de tafel naar de boekenkast, dus daar moet Liam zoeken.',
+        challenge: true
       },
       {
-        "area": "math",
-        "prompt": "Pikachu verdeelt 70 energiekaartjes in pakjes van 10. Hoeveel pakjes kan hij maken?",
-        "options": [
-          "7",
-          "6",
-          "8"
-        ],
-        "correct": "7",
-        "explanation": "In 70 zitten 7 groepjes van 10. Dus 70 : 10 = 7.",
-        "tableOfTen": true
+        area: 'explore',
+        prompt: 'Welk teken komt hierna in het patroon: blad, eikel, eikel, blad, eikel, eikel, ...?',
+        options: ['blad', 'eikel', 'kastanje'],
+        correct: 'blad',
+        explanation: 'Het groepje blad – eikel – eikel herhaalt zich. Na twee eikels begint het groepje opnieuw met een blad.'
       },
       {
-        "area": "math",
-        "prompt": "Welk getal ontbreekt? ? : 10 = 6",
-        "options": [
-          "60",
-          "16",
-          "600"
-        ],
-        "correct": "60",
-        "explanation": "Zestig verdeeld in groepjes van 10 geeft 6 groepjes. Dus 60 : 10 = 6.",
-        "challenge": true,
-        "tableOfTen": true
+        area: 'math',
+        prompt: 'In een doos zitten 17 schatstenen. Na het uitdelen blijven er 9 over. Welk getal ontbreekt in 17 - ? = 9?',
+        options: ['8', '7', '9'],
+        correct: '8',
+        explanation: 'Van 17 naar 9 is 8 minder. Je kunt controleren met 9 + 8 = 17, dus 17 - 8 = 9.'
       },
       {
-        "area": "math",
-        "prompt": "Er liggen 80 Pokémonkaartjes. In elke map passen 10 kaartjes. Hoeveel mappen worden volledig gevuld?",
-        "options": [
-          "8",
-          "7",
-          "9"
-        ],
-        "correct": "8",
-        "explanation": "Je verdeelt 80 in groepjes van 10. Dat zijn 8 groepjes: 80 : 10 = 8.",
-        "tableOfTen": true
+        area: 'language',
+        prompt: 'Welke vraag past bij het antwoord: “Omdat het regent, draagt Noor laarzen.”?',
+        options: ['Waarom draagt Noor laarzen?', 'Waar staan Noors laarzen?', 'Wanneer koopt Noor laarzen?'],
+        correct: 'Waarom draagt Noor laarzen?',
+        explanation: 'Het antwoord geeft een reden met “omdat”. Daarom begint de passende vraag met “waarom”.'
       },
       {
-        "area": "math",
-        "prompt": "Welke twee sommen horen precies bij elkaar?",
-        "options": [
-          "3 × 10 = 30 en 30 : 10 = 3",
-          "3 × 10 = 13 en 30 : 10 = 3",
-          "3 × 10 = 30 en 30 : 10 = 30"
-        ],
-        "correct": "3 × 10 = 30 en 30 : 10 = 3",
-        "explanation": "Maal 10 en gedeeld door 10 zijn elkaars omgekeerde: 3 × 10 = 30 en 30 : 10 = 3.",
-        "challenge": true,
-        "tableOfTen": true
+        area: 'explore',
+        prompt: 'De ontdektocht begint om 16:00. Liam komt een halfuur vroeger aan. Welke klok toont zijn aankomsttijd?',
+        options: ['15:30', '16:30', '15:00'],
+        correct: '15:30',
+        explanation: 'Een halfuur vóór 16:00 is 15:30, of halfvier.',
+        clockOptions: {
+          '15:30': {hour: 3, minute: 30, label: 'halfvier'},
+          '16:30': {hour: 4, minute: 30, label: 'halfvijf'},
+          '15:00': {hour: 3, minute: 0, label: 'drie uur'}
+        }
       },
       {
-        "area": "math",
-        "prompt": "Haaland heeft 10 zakken met telkens 10 ballen. Daarna verdeelt hij alle ballen in groepjes van 10. Hoeveel groepjes krijgt hij?",
-        "options": [
-          "10",
-          "100",
-          "20"
-        ],
-        "correct": "10",
-        "explanation": "Eerst: 10 × 10 = 100 ballen. Daarna: 100 : 10 = 10 groepjes.",
-        "challenge": true,
-        "tableOfTen": true
+        area: 'math',
+        prompt: 'Een schatkist bevat 2 tientallen munten en 4 losse munten. Welk getal hoort daarbij?',
+        options: ['24', '42', '20'],
+        correct: '24',
+        explanation: 'Twee tientallen zijn 20. Met 4 eenheden erbij krijg je 24.'
       },
       {
-        "area": "language",
-        "storyTitle": "Het trainingsbriefje",
-        "passage": "Liam oefent vanavond maal 10 en gedeeld door 10. Eerst maakt hij de vragen rustig. Daarna bekijkt hij zijn fouten opnieuw. Donderdag neemt hij een potlood en een gom mee.",
-        "prompt": "Wat doet Liam nadat hij de vragen heeft gemaakt?",
-        "options": [
-          "Hij bekijkt zijn fouten opnieuw.",
-          "Hij begint meteen te voetballen.",
-          "Hij legt zijn potlood weg."
-        ],
-        "correct": "Hij bekijkt zijn fouten opnieuw.",
-        "explanation": "In het briefje staat: eerst maakt Liam de vragen, daarna bekijkt hij zijn fouten opnieuw."
+        area: 'language',
+        prompt: 'Welke zin is juist geschreven als vraag over een grappig kaka-pipi-moment?',
+        options: ['Wie liet die piepende scheet?', 'Wie liet die piepende scheet.', 'wie liet die piepende scheet?'],
+        correct: 'Wie liet die piepende scheet?',
+        explanation: 'Een vraag begint met een hoofdletter en eindigt met een vraagteken.'
       },
       {
-        "area": "explore",
-        "prompt": "Op drie kaartjes staan een cirkel, een vierkant en een ster. De ster ligt rechts van het vierkant. De cirkel ligt links van het vierkant. Welke vorm ligt in het midden?",
-        "options": [
-          "Het vierkant",
-          "De cirkel",
-          "De ster"
-        ],
-        "correct": "Het vierkant",
-        "explanation": "De volgorde is cirkel – vierkant – ster. Het vierkant ligt dus in het midden.",
-        "challenge": true
+        area: 'explore',
+        prompt: 'Kevin De Bruyne, Lionel Messi en Kylian Mbappé kiezen elk een andere bal: rood, blauw of geel. Messi kiest blauw. Mbappé kiest niet geel. Welke kleur kiest Kevin?',
+        options: ['Geel', 'Rood', 'Blauw'],
+        correct: 'Geel',
+        explanation: 'Blauw is al voor Messi. Mbappé kan dan niet geel kiezen en neemt rood. Voor Kevin blijft geel over.',
+        challenge: true
       }
     ]
   }
