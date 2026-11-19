@@ -1,111 +1,100 @@
-export const ACTIVE_DATE = '2026-11-18';
+export const ACTIVE_DATE = '2026-11-19';
 export const DAILY_CONTENT = {
-  '2026-11-18': {
-    title: 'De stamboomexpeditie',
+  '2026-11-19': {
+    title: 'De familie-interviewcode',
     questions: [
       {
         area: 'math',
-        prompt: 'Pikachu heeft 14 energiekaartjes en geeft er 6 weg. Hoeveel kaartjes houdt Pikachu over?',
-        options: ['8', '7', '9'],
-        correct: '8',
-        explanation: 'Ga via 10: splits 6 in 4 en 2. Eerst 14 − 4 = 10, daarna 10 − 2 = 8.',
-        sock: {operator: '-', start: 14, splitTotal: 6, first: 4, second: 2, result: 8, step: '14 − 4 = 10, daarna 10 − 2 = 8.'}
+        prompt: 'Squirtle legt 8 familiefoto’s klaar en vindt er nog 5. Hoeveel foto’s zijn er samen?',
+        options: ['13', '12', '14'],
+        correct: '13',
+        explanation: 'Ga via 10: splits 5 in 2 en 3. Eerst 8 + 2 = 10, daarna 10 + 3 = 13.',
+        sock: {operator: '+', start: 8, splitTotal: 5, first: 2, second: 3, result: 13, step: '8 + 2 = 10, daarna 10 + 3 = 13.'}
       },
       {
         area: 'language',
-        storyTitle: 'De kaartjes voor morgen',
-        listenGroup: 'stamboom-2026-11-18',
-        listenText: 'Vandaag is het woensdag 18 november. Liam legt de stamboomkaartjes op de keukentafel. De kaartjes moeten morgen mee naar school. Om halfzes stopt Liam ze in de roze map. Daarna belt hij oma voor een kort interview. Het ingevulde interview hoeft pas maandag 23 november mee.',
-        prompt: 'Wie belt Liam na het inpakken van de kaartjes?',
-        options: ['oma', 'de juf', 'Kevin De Bruyne'],
-        correct: 'oma',
-        explanation: 'Na het inpakken belt Liam oma voor een kort interview.'
+        storyTitle: 'Liams interviewplan',
+        passage: 'Donderdag legt Liam de stamboomkaartjes in de roze map. Vrijdag kiest hij samen met papa vier vragen. Zondag praat hij met oma. Maandag 23 november neemt hij het ingevulde interview mee naar school.',
+        prompt: 'Wat doet Liam vlak vóór het gesprek met oma, en wanneer neemt hij het ingevulde interview mee?',
+        options: ['Hij kiest vragen op vrijdag en neemt het interview maandag mee.', 'Hij legt kaartjes klaar op donderdag en neemt het interview zondag mee.', 'Hij praat met oma op vrijdag en neemt het interview donderdag mee.'],
+        correct: 'Hij kiest vragen op vrijdag en neemt het interview maandag mee.',
+        explanation: 'Zoek beide stukjes in de tekst. Vlak vóór zondag komt vrijdag: dan kiest Liam de vragen. Het ingevulde interview neemt hij maandag mee.',
+        challenge: true
       },
       {
         area: 'explore',
-        storyTitle: 'De kaartjes voor morgen',
-        listenGroup: 'stamboom-2026-11-18',
-        listenText: 'Vandaag is het woensdag 18 november. Liam legt de stamboomkaartjes op de keukentafel. De kaartjes moeten morgen mee naar school. Om halfzes stopt Liam ze in de roze map. Daarna belt hij oma voor een kort interview. Het ingevulde interview hoeft pas maandag 23 november mee.',
-        prompt: 'Welke klok toont wanneer Liam de kaartjes in de roze map stopt?',
-        options: ['17:30', '17:00', '18:30'],
-        correct: '17:30',
-        explanation: 'Halfzes is een halfuur vóór zes uur. Dat is 17:30.',
-        clockOptions: {
-          '17:30': {hour: 5, minute: 30, label: 'halfzes'},
-          '17:00': {hour: 5, minute: 0, label: 'vijf uur'},
-          '18:30': {hour: 6, minute: 30, label: 'halfzeven'}
-        }
+        prompt: 'Twee rechte lijnen kruisen elkaar zoals een groot plusteken. Hoe noem je die lijnen?',
+        options: ['loodrecht snijdende lijnen', 'evenwijdige lijnen', 'gebogen lijnen'],
+        correct: 'loodrecht snijdende lijnen',
+        explanation: 'De lijnen snijden elkaar en maken vier rechte hoeken. Daarom zijn het loodrecht snijdende lijnen.'
       },
       {
         area: 'math',
-        prompt: 'Oma legt 20 knopen in groepjes van 2 voor een stamboomknutselwerk. Hoeveel groepjes maakt ze?',
-        options: ['10', '9', '8'],
-        correct: '10',
-        explanation: 'Met 20 knopen maak je 10 groepjes van 2. De passende deelsom is 20 : 2 = 10. Het quotiënt is 10.',
+        prompt: 'Kylian Mbappé zet 7 paren kegels klaar. In elk paar staan 2 kegels. Hoeveel kegels zijn dat?',
+        options: ['14', '12', '16'],
+        correct: '14',
+        explanation: 'Zeven groepjes van 2 zijn 2 + 2 + 2 + 2 + 2 + 2 + 2 = 14. De passende maalsom is 7 × 2 = 14. Het product is 14.',
         tableOfTwo: true
       },
       {
         area: 'language',
-        storyTitle: 'De kaartjes voor morgen',
-        listenGroup: 'stamboom-2026-11-18',
-        listenText: 'Vandaag is het woensdag 18 november. Liam legt de stamboomkaartjes op de keukentafel. De kaartjes moeten morgen mee naar school. Om halfzes stopt Liam ze in de roze map. Daarna belt hij oma voor een kort interview. Het ingevulde interview hoeft pas maandag 23 november mee.',
-        prompt: 'Schrijf de dag en datum waarop de stamboomkaartjes mee naar school moeten.',
-        type: 'text',
-        accepted: ['donderdag 19 november', '19 november', 'donderdag 19 november 2026', '19 november 2026'],
-        correct: 'donderdag 19 november',
-        explanation: 'Vandaag is woensdag 18 november en de kaartjes moeten morgen mee. Morgen is donderdag 19 november.',
-        challenge: true
+        prompt: 'Welk woord past in de zin? “Aan het ___ van het gesprek bedankt Liam oma.”',
+        options: ['eind', 'ijnd', 'eijnt'],
+        correct: 'eind',
+        explanation: 'Je schrijft eind met ei. Aan het eind betekent: wanneer iets bijna klaar is.'
       },
       {
         area: 'explore',
-        prompt: 'Noor tekent vanuit één punt twee lijnstukken die uit elkaar lopen. Wat heeft zij getekend?',
-        options: ['een hoek', 'een gebogen lijn', 'twee evenwijdige lijnen'],
-        correct: 'een hoek',
-        explanation: 'De twee lijnstukken zijn de benen van de hoek. Het punt waar ze samenkomen is het hoekpunt.'
-      },
-      {
-        area: 'math',
-        prompt: 'Liam ziet 18 vakjes gevuld in een twintigveld. Hoe kun je 18 splitsen in tientallen en eenheden?',
-        options: ['1 tiental en 8 eenheden', '8 tientallen en 1 eenheid', '2 tientallen en 8 eenheden'],
-        correct: '1 tiental en 8 eenheden',
-        explanation: 'Achttien bestaat uit één volle groep van 10 en nog 8 losse eenheden: 10 + 8 = 18.'
-      },
-      {
-        area: 'language',
-        prompt: 'Welk woord past in de zin? “De koe staat in de ___.”',
-        options: ['wei', 'wij', 'weij'],
-        correct: 'wei',
-        explanation: 'Een grasveld voor dieren heet een wei. Je schrijft wei met ei.'
-      },
-      {
-        area: 'explore',
-        prompt: 'Welk getal komt daarna? 2, 5, 9, 14, ...',
-        options: ['20', '19', '18'],
-        correct: '20',
-        explanation: 'De sprongen worden telkens één groter: +3, +4, +5 en daarna +6. Dus 14 + 6 = 20.',
+        prompt: 'Er zijn drie fotokaders: rood, blauw en groen. Opa’s foto staat in groen. Liams foto staat in rood. Welke kleur blijft over voor oma’s foto?',
+        options: ['blauw', 'rood', 'groen'],
+        correct: 'blauw',
+        explanation: 'Groen is al voor opa en rood is al voor Liam. Dan blijft alleen blauw over voor oma.',
         challenge: true
       },
       {
         area: 'math',
-        prompt: 'Kevin De Bruyne heeft 9 oefenballen. Hoeveel ballen krijgt hij erbij om er 17 te hebben?',
-        options: ['8', '7', '9'],
-        correct: '8',
-        explanation: 'Zoek het ontbrekende getal in 9 + ? = 17. Ga via 10: eerst +1 en daarna nog +7. Samen is dat +8, want 9 + 8 = 17.',
+        prompt: 'Liam heeft 11 interviewkaartjes. Hij maakt er 6 bij en geeft daarna 3 kaartjes aan papa. Hoeveel kaartjes houdt Liam over?',
+        options: ['14', '17', '8'],
+        correct: '14',
+        explanation: 'Reken in twee stappen: 11 + 6 = 17. Daarna 17 − 3 = 14. Liam houdt 14 kaartjes over.',
         challenge: true
       },
       {
         area: 'language',
-        prompt: 'Welk woord is een zelfstandig naamwoord in de zin “De fiets rijdt snel”?',
-        options: ['fiets', 'rijdt', 'snel'],
-        correct: 'fiets',
-        explanation: 'Een fiets is een ding en dus een zelfstandig naamwoord. Rijdt is een werkwoord en snel zegt hoe iets gebeurt.'
+        prompt: 'Welke twee woorden zijn zelfstandige naamwoorden in de zin “Opa vertelt een grappig verhaal”?',
+        options: ['opa en verhaal', 'vertelt en grappig', 'opa en vertelt'],
+        correct: 'opa en verhaal',
+        explanation: 'Opa is een persoon en een verhaal is een ding. Vertelt is een werkwoord en grappig is een eigenschap.'
       },
       {
         area: 'explore',
-        prompt: 'Oma is de moeder van papa. Liam is het kind van papa. Wie staat in de stamboom tussen oma en Liam?',
-        options: ['papa', 'oma', 'Liam'],
-        correct: 'papa',
-        explanation: 'Oma is de moeder van papa en papa is de vader van Liam. Daarom staat papa tussen oma en Liam.'
+        prompt: 'Liam kijkt naar het noorden en draait een kwartslag naar rechts. Naar welke richting kijkt hij nu?',
+        options: ['het oosten', 'het westen', 'het zuiden'],
+        correct: 'het oosten',
+        explanation: 'Als je naar het noorden kijkt, wijst rechts naar het oosten. Een kwartslag naar rechts brengt je dus naar het oosten.'
+      },
+      {
+        area: 'math',
+        prompt: 'Welk getal is even én bestaat uit 1 tiental en 6 eenheden?',
+        options: ['16', '15', '17'],
+        correct: '16',
+        explanation: 'Eén tiental en 6 eenheden is 10 + 6 = 16. Zestien is even, want je kunt het in paren verdelen.'
+      },
+      {
+        area: 'language',
+        storyTitle: 'Een bericht van oma',
+        passage: 'Oma stuurt Liam een bericht: “Ik zit zondag om drie uur klaar voor ons gesprek. Breng je vragen mee.”',
+        prompt: 'Wie is de ontvanger van oma’s bericht?',
+        options: ['Liam', 'oma', 'de juf'],
+        correct: 'Liam',
+        explanation: 'Oma is de zender: zij stuurt het bericht. Liam ontvangt het bericht en is dus de ontvanger.'
+      },
+      {
+        area: 'explore',
+        prompt: 'Miraidon volgt een bord: personen naar links, dieren naar rechts en dingen rechtdoor. Waar moet een wc-rol heen?',
+        options: ['rechtdoor', 'naar links', 'naar rechts'],
+        correct: 'rechtdoor',
+        explanation: 'Een wc-rol is een ding. Volgens het bord gaan dingen rechtdoor. Piep-piep, daar rolt hij al!'
       }
     ]
   }
