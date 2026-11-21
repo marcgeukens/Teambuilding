@@ -1,100 +1,100 @@
-export const ACTIVE_DATE = '2026-11-20';
+export const ACTIVE_DATE = '2026-11-21';
 export const DAILY_CONTENT = {
-  '2026-11-20': {
-    title: 'Het familievragenpad',
+  '2026-11-21': {
+    title: 'De natuurkoorkoffer',
     questions: [
       {
         area: 'math',
-        prompt: 'Pikachu heeft 16 fotostickers en gebruikt er 7 voor een familiekaart. Hoeveel stickers blijven over?',
-        options: ['9', '8', '10'],
-        correct: '9',
-        explanation: 'Ga via 10: splits 7 in 6 en 1. Eerst 16 − 6 = 10, daarna 10 − 1 = 9.',
-        sock: {operator: '-', start: 16, splitTotal: 7, first: 6, second: 1, result: 9, step: '16 − 6 = 10, daarna 10 − 1 = 9.'}
-      },
-      {
-        area: 'language',
-        storyTitle: 'Liams vragenpad',
-        passage: 'Vrijdag schrijft Liam drie vragen op een kaart. Zaterdag oefent hij het gesprek met papa. Zondag om drie uur praat hij met oma. Maandag stopt hij het ingevulde blad in de roze map en neemt hij het mee naar school.',
-        prompt: 'Wat doet Liam vlak vóór het gesprek met oma, en wat doet hij de dag erna?',
-        options: ['Hij oefent met papa en stopt daarna het blad in de roze map.', 'Hij schrijft vragen en praat daarna met papa.', 'Hij stopt het blad in de map en schrijft daarna vragen.'],
-        correct: 'Hij oefent met papa en stopt daarna het blad in de roze map.',
-        explanation: 'Vlak vóór zondag komt zaterdag: dan oefent Liam met papa. De dag na zondag is maandag: dan stopt hij het ingevulde blad in de roze map.',
+        prompt: 'Squirtle heeft 9 blaadjes voor een natuurkroon en vindt er nog 6. Hoeveel blaadjes heeft hij samen?',
+        options: ['15', '14', '16'],
+        correct: '15',
+        explanation: 'Ga via 10: splits 6 in 1 en 5. Eerst 9 + 1 = 10, daarna 10 + 5 = 15.',
+        sock: {operator: '+', start: 9, splitTotal: 6, first: 1, second: 5, result: 15, step: '9 + 1 = 10, daarna 10 + 5 = 15.'},
         challenge: true
       },
       {
+        area: 'language',
+        prompt: 'Welk woord past in de zin? “Het koor zingt op het grote ___.”',
+        options: ['plein', 'plijn', 'plejn'],
+        correct: 'plein',
+        explanation: 'De open plaats bij een gebouw heet een plein. Je schrijft plein met ei.'
+      },
+      {
         area: 'explore',
-        prompt: 'Twee treinsporen lopen recht naast elkaar en komen nooit samen. Hoe noem je zulke lijnen?',
-        options: ['evenwijdige lijnen', 'loodrecht snijdende lijnen', 'gebogen lijnen'],
-        correct: 'evenwijdige lijnen',
-        explanation: 'Evenwijdige lijnen blijven overal even ver van elkaar en snijden elkaar niet.'
+        prompt: 'Welk deel van een boom neemt water op uit de grond?',
+        options: ['de wortels', 'de takken', 'de bloemen'],
+        correct: 'de wortels',
+        explanation: 'De wortels zitten in de grond en nemen daar water op voor de boom.'
       },
       {
         area: 'math',
-        prompt: 'Tante maakt 8 paren van telkens 2 fotokaartjes. Welk getal hoort op de lege plaats: ? : 2 = 8?',
-        options: ['16', '14', '18'],
-        correct: '16',
-        explanation: 'Acht paren zijn 8 groepjes van 2: samen 16 kaartjes. De passende deelsom is 16 : 2 = 8. Het quotiënt is 8.',
+        prompt: 'Erling Haaland legt 4 groepjes van telkens 2 dennenappels bij oefenkegels. Hoeveel dennenappels zijn dat?',
+        options: ['8', '6', '10'],
+        correct: '8',
+        explanation: 'Vier groepjes van 2 zijn samen 8 dennenappels: 2 + 2 + 2 + 2 = 8. De passende maalsom is 4 × 2 = 8. Het product is 8.',
         tableOfTwo: true
       },
       {
         area: 'language',
-        prompt: 'Welk woord past in de zin? “Na het gesprek eten Liam en oma een bolletje ___.”',
-        options: ['ijs', 'eis', 'ijss'],
-        correct: 'ijs',
-        explanation: 'Het koude hapje schrijf je als ijs, met ij.'
+        storyTitle: 'Noors natuurconcert',
+        passage: 'Zaterdag maakt Noor een uitnodiging voor oma. Zij schrijft dat iedereen om kwart voor vier aan de schoolpoort wacht. Om vier uur begint het natuurkoor. Eerst zingen de kinderen over de wind. Daarna klinkt een lied over bomen. Na afloop drinken Noor en oma warme chocolademelk.',
+        prompt: 'Wie stuurt de uitnodiging, en voor wie is ze bedoeld?',
+        options: ['Noor stuurt ze naar oma.', 'Oma stuurt ze naar Noor.', 'Het koor stuurt ze naar de schoolpoort.'],
+        correct: 'Noor stuurt ze naar oma.',
+        explanation: 'Noor maakt en schrijft de uitnodiging. Oma is de persoon voor wie de uitnodiging bedoeld is.'
       },
       {
         area: 'explore',
-        prompt: 'Het gesprek begint om 14:30. Liam praat 20 minuten en ruimt daarna 10 minuten op. Wanneer is alles klaar?',
-        options: ['15:00', '14:50', '15:10'],
-        correct: '15:00',
-        explanation: 'Eerst 20 minuten erbij: 14:30 wordt 14:50. Daarna nog 10 minuten: 14:50 wordt 15:00.',
+        prompt: 'Een hoek bestaat uit een hoekpunt en nog twee delen. Hoe heten die twee delen?',
+        options: ['de benen', 'de wortels', 'de cirkels'],
+        correct: 'de benen',
+        explanation: 'De twee lijnen die bij het hoekpunt samenkomen, noem je de benen van de hoek.'
+      },
+      {
+        area: 'math',
+        prompt: 'Cristiano Ronaldo heeft 20 vlaggetjes. Zeven zijn blauw en de rest is groen. Hoeveel vlaggetjes zijn groen?',
+        options: ['13', '12', '14'],
+        correct: '13',
+        explanation: 'Trek de 7 blauwe vlaggetjes van 20 af: 20 − 7 = 13. Er zijn dus 13 groene vlaggetjes.'
+      },
+      {
+        area: 'language',
+        storyTitle: 'Noors natuurconcert',
+        passage: 'Zaterdag maakt Noor een uitnodiging voor oma. Zij schrijft dat iedereen om kwart voor vier aan de schoolpoort wacht. Om vier uur begint het natuurkoor. Eerst zingen de kinderen over de wind. Daarna klinkt een lied over bomen. Na afloop drinken Noor en oma warme chocolademelk.',
+        prompt: 'Welke twee dingen gebeuren na het wachten aan de schoolpoort, maar vóór de warme chocolademelk?',
+        options: ['Eerst het windlied en daarna het bomenlied.', 'Eerst de chocolademelk en daarna de uitnodiging.', 'Eerst het bomenlied en daarna het wachten.'],
+        correct: 'Eerst het windlied en daarna het bomenlied.',
+        explanation: 'Lees de volgorde terug: wachten, het lied over de wind, het lied over bomen en pas daarna warme chocolademelk.',
+        challenge: true
+      },
+      {
+        area: 'explore',
+        prompt: 'Miraidon, Pikachu en Squirtle hebben elk iets anders: een blad, een dennenappel of een veer. Squirtle heeft de veer. Miraidon heeft geen dennenappel. Wat heeft Pikachu?',
+        options: ['de dennenappel', 'het blad', 'de veer'],
+        correct: 'de dennenappel',
+        explanation: 'Squirtle heeft de veer. Dan blijven het blad en de dennenappel over. Miraidon heeft geen dennenappel, dus Miraidon heeft het blad en Pikachu de dennenappel.',
         challenge: true
       },
       {
         area: 'math',
-        prompt: 'Som A is 6 + 8. Som B is 17 − 5. Welke uitspraak klopt?',
-        options: ['Som A is 2 groter dan som B.', 'Som B is 2 groter dan som A.', 'De twee sommen zijn even groot.'],
-        correct: 'Som A is 2 groter dan som B.',
-        explanation: 'Som A: 6 + 8 = 14. Je kunt via 10 gaan: 6 + 4 + 4 = 14. Som B: 17 − 5 = 12. Dus 14 is 2 groter dan 12.',
-        challenge: true
+        prompt: 'Welk getal bestaat uit 1 tiental en 7 eenheden?',
+        options: ['17', '71', '10'],
+        correct: '17',
+        explanation: 'Eén tiental is 10. Met 7 eenheden erbij krijg je 10 + 7 = 17.'
       },
       {
         area: 'language',
-        prompt: 'Welke rij is helemaal juist?',
-        options: ['het interview – de interviews', 'de interview – de interviews', 'het oma – de oma’s'],
-        correct: 'het interview – de interviews',
-        explanation: 'Je zegt het interview. Het meervoud is de interviews.'
+        prompt: 'Welke rij bevat het juiste lidwoord én het juiste meervoud?',
+        options: ['de boom – de bomen', 'het boom – de boomen', 'de zingen – de zingens'],
+        correct: 'de boom – de bomen',
+        explanation: 'Boom is een zelfstandig naamwoord. Je zegt de boom en in het meervoud de bomen.'
       },
       {
         area: 'explore',
-        prompt: 'Een foto is 8 centimeter breed. Welke meetlat gebruik je om dat het best te controleren?',
-        options: ['een meetlat met centimeters', 'een klok met wijzers', 'een weegschaal met kilogrammen'],
-        correct: 'een meetlat met centimeters',
-        explanation: 'Breedte is een lengte. Lengte in centimeters meet je met een meetlat.'
-      },
-      {
-        area: 'math',
-        prompt: 'Lionel Messi kiest het getal met 3 tientallen en 4 eenheden. Welk getal is dat?',
-        options: ['34', '43', '30'],
-        correct: '34',
-        explanation: 'Drie tientallen zijn 30. Met 4 eenheden erbij krijg je 30 + 4 = 34.'
-      },
-      {
-        area: 'language',
-        storyTitle: 'Liams vragenpad',
-        passage: 'Vrijdag schrijft Liam drie vragen op een kaart. Zaterdag oefent hij het gesprek met papa. Zondag om drie uur praat hij met oma. Maandag stopt hij het ingevulde blad in de roze map en neemt hij het mee naar school.',
-        prompt: 'Welke vraagzin krijgt als antwoord “Zondag om drie uur”?',
-        options: ['Wanneer praat Liam met oma?', 'Wie praat met oma?', 'Waar ligt de roze map?'],
-        correct: 'Wanneer praat Liam met oma?',
-        explanation: 'Zondag om drie uur zegt wanneer iets gebeurt. Daarom begint de juiste vraag met wanneer.'
-      },
-      {
-        area: 'explore',
-        prompt: 'De wc-robot rijdt volgens dit patroon: links, rechts, links, rechts. Welke kant volgt daarna?',
-        options: ['links', 'rechts', 'rechtdoor'],
-        correct: 'links',
-        explanation: 'De richtingen wisselen telkens: links, rechts, links, rechts. Daarna komt weer links. Gelukkig rijdt hij niet in de pot!'
+        prompt: 'Met welk instrument meet je hoe warm of koud de lucht is?',
+        options: ['een thermometer', 'een meetlat', 'een klok'],
+        correct: 'een thermometer',
+        explanation: 'Een thermometer meet de temperatuur en toont hoe warm of koud het is.'
       }
     ]
   }
