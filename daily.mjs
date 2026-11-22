@@ -1,100 +1,111 @@
-export const ACTIVE_DATE = '2026-11-21';
+export const ACTIVE_DATE = '2026-11-22';
 export const DAILY_CONTENT = {
-  '2026-11-21': {
-    title: 'De natuurkoorkoffer',
+  '2026-11-22': {
+    title: 'De winterkoorcode',
     questions: [
       {
         area: 'math',
-        prompt: 'Squirtle heeft 9 blaadjes voor een natuurkroon en vindt er nog 6. Hoeveel blaadjes heeft hij samen?',
-        options: ['15', '14', '16'],
-        correct: '15',
-        explanation: 'Ga via 10: splits 6 in 1 en 5. Eerst 9 + 1 = 10, daarna 10 + 5 = 15.',
-        sock: {operator: '+', start: 9, splitTotal: 6, first: 1, second: 5, result: 15, step: '9 + 1 = 10, daarna 10 + 5 = 15.'},
-        challenge: true
+        prompt: 'Squirtle heeft 15 muzieksterretjes en geeft er 7 aan het natuurkoor. Hoeveel sterretjes houdt Squirtle over?',
+        options: ['8', '7', '9'],
+        correct: '8',
+        explanation: 'Ga via 10: splits 7 in 5 en 2. Eerst 15 − 5 = 10, daarna 10 − 2 = 8.',
+        sock: {operator: '-', start: 15, splitTotal: 7, first: 5, second: 2, result: 8, step: '15 − 5 = 10, daarna 10 − 2 = 8.'}
       },
       {
         area: 'language',
-        prompt: 'Welk woord past in de zin? “Het koor zingt op het grote ___.”',
-        options: ['plein', 'plijn', 'plejn'],
-        correct: 'plein',
-        explanation: 'De open plaats bij een gebouw heet een plein. Je schrijft plein met ei.'
+        storyTitle: 'Bericht voor het winterkoor',
+        listenGroup: 'winterkoor-2026-11-22',
+        listenText: 'Juf Barbara heeft een bericht voor de Fonkelende Feniksen. Op donderdag 17 december is er een winterconcert op school. De kinderen verzamelen om twintig voor vijf op de speelplaats. Om vijf uur begint het concert. Het optreden is buiten en Liam trekt voor hij vertrekt een warme jas aan. Na het zingen drinkt hij met mama warme chocolademelk.',
+        prompt: 'Waarom trekt Liam een warme jas aan?',
+        options: ['Omdat het optreden buiten is.', 'Omdat hij de jas wil zingen.', 'Omdat de chocolademelk koud is.'],
+        correct: 'Omdat het optreden buiten is.',
+        explanation: 'Je combineert twee stukjes uit het bericht: het optreden is buiten en daarom trekt Liam een warme jas aan.',
+        challenge: true
       },
       {
         area: 'explore',
-        prompt: 'Welk deel van een boom neemt water op uit de grond?',
-        options: ['de wortels', 'de takken', 'de bloemen'],
-        correct: 'de wortels',
-        explanation: 'De wortels zitten in de grond en nemen daar water op voor de boom.'
+        storyTitle: 'Bericht voor het winterkoor',
+        listenGroup: 'winterkoor-2026-11-22',
+        listenText: 'Juf Barbara heeft een bericht voor de Fonkelende Feniksen. Op donderdag 17 december is er een winterconcert op school. De kinderen verzamelen om twintig voor vijf op de speelplaats. Om vijf uur begint het concert. Het optreden is buiten en Liam trekt voor hij vertrekt een warme jas aan. Na het zingen drinkt hij met mama warme chocolademelk.',
+        prompt: 'Welke klok toont wanneer de kinderen verzamelen?',
+        options: ['16:40', '16:20', '17:00'],
+        correct: '16:40',
+        explanation: 'Twintig voor vijf is twintig minuten vóór vijf uur. Dat is 16:40.',
+        clockOptions: {
+          '16:40': {hour: 4, minute: 40, label: 'twintig voor vijf'},
+          '16:20': {hour: 4, minute: 20, label: 'twintig over vier'},
+          '17:00': {hour: 5, minute: 0, label: 'vijf uur'}
+        }
       },
       {
         area: 'math',
-        prompt: 'Erling Haaland legt 4 groepjes van telkens 2 dennenappels bij oefenkegels. Hoeveel dennenappels zijn dat?',
-        options: ['8', '6', '10'],
-        correct: '8',
-        explanation: 'Vier groepjes van 2 zijn samen 8 dennenappels: 2 + 2 + 2 + 2 = 8. De passende maalsom is 4 × 2 = 8. Het product is 8.',
+        prompt: 'Liam legt 12 belletjes in groepjes van telkens 2. Hoeveel groepjes maakt hij?',
+        options: ['6', '5', '7'],
+        correct: '6',
+        explanation: 'Twaalf belletjes worden eerlijk verdeeld in groepjes van 2. Je maakt 6 groepjes. De passende deelsom is 12 : 2 = 6. Het quotiënt is 6.',
         tableOfTwo: true
       },
       {
         area: 'language',
-        storyTitle: 'Noors natuurconcert',
-        passage: 'Zaterdag maakt Noor een uitnodiging voor oma. Zij schrijft dat iedereen om kwart voor vier aan de schoolpoort wacht. Om vier uur begint het natuurkoor. Eerst zingen de kinderen over de wind. Daarna klinkt een lied over bomen. Na afloop drinken Noor en oma warme chocolademelk.',
-        prompt: 'Wie stuurt de uitnodiging, en voor wie is ze bedoeld?',
-        options: ['Noor stuurt ze naar oma.', 'Oma stuurt ze naar Noor.', 'Het koor stuurt ze naar de schoolpoort.'],
-        correct: 'Noor stuurt ze naar oma.',
-        explanation: 'Noor maakt en schrijft de uitnodiging. Oma is de persoon voor wie de uitnodiging bedoeld is.'
+        storyTitle: 'Bericht voor het winterkoor',
+        listenGroup: 'winterkoor-2026-11-22',
+        listenText: 'Juf Barbara heeft een bericht voor de Fonkelende Feniksen. Op donderdag 17 december is er een winterconcert op school. De kinderen verzamelen om twintig voor vijf op de speelplaats. Om vijf uur begint het concert. Het optreden is buiten en Liam trekt voor hij vertrekt een warme jas aan. Na het zingen drinkt hij met mama warme chocolademelk.',
+        prompt: 'Schrijf de dag en datum van het winterconcert.',
+        type: 'text',
+        accepted: ['donderdag 17 december', '17 december', 'donderdag 17 december 2026', '17 december 2026'],
+        correct: 'donderdag 17 december',
+        explanation: 'In het bericht hoor je dat het winterconcert op donderdag 17 december is.'
       },
       {
         area: 'explore',
-        prompt: 'Een hoek bestaat uit een hoekpunt en nog twee delen. Hoe heten die twee delen?',
-        options: ['de benen', 'de wortels', 'de cirkels'],
-        correct: 'de benen',
-        explanation: 'De twee lijnen die bij het hoekpunt samenkomen, noem je de benen van de hoek.'
+        prompt: 'Liam legt een kurk en een metalen sleutel in een kom water. Wat gebeurt er meestal?',
+        options: ['De kurk drijft en de sleutel zinkt.', 'De kurk zinkt en de sleutel drijft.', 'Ze blijven allebei boven drijven.'],
+        correct: 'De kurk drijft en de sleutel zinkt.',
+        explanation: 'Kurk is licht en blijft meestal drijven. Een metalen sleutel is zwaarder dan water en zinkt.'
       },
       {
         area: 'math',
-        prompt: 'Cristiano Ronaldo heeft 20 vlaggetjes. Zeven zijn blauw en de rest is groen. Hoeveel vlaggetjes zijn groen?',
-        options: ['13', '12', '14'],
-        correct: '13',
-        explanation: 'Trek de 7 blauwe vlaggetjes van 20 af: 20 − 7 = 13. Er zijn dus 13 groene vlaggetjes.'
-      },
-      {
-        area: 'language',
-        storyTitle: 'Noors natuurconcert',
-        passage: 'Zaterdag maakt Noor een uitnodiging voor oma. Zij schrijft dat iedereen om kwart voor vier aan de schoolpoort wacht. Om vier uur begint het natuurkoor. Eerst zingen de kinderen over de wind. Daarna klinkt een lied over bomen. Na afloop drinken Noor en oma warme chocolademelk.',
-        prompt: 'Welke twee dingen gebeuren na het wachten aan de schoolpoort, maar vóór de warme chocolademelk?',
-        options: ['Eerst het windlied en daarna het bomenlied.', 'Eerst de chocolademelk en daarna de uitnodiging.', 'Eerst het bomenlied en daarna het wachten.'],
-        correct: 'Eerst het windlied en daarna het bomenlied.',
-        explanation: 'Lees de volgorde terug: wachten, het lied over de wind, het lied over bomen en pas daarna warme chocolademelk.',
+        prompt: 'Kylian Mbappé zet 18 oefenkegels neer. Hij haalt er 6 weg en zet daarna 3 kegels terug. Hoeveel kegels staan er nu?',
+        options: ['15', '12', '9'],
+        correct: '15',
+        explanation: 'Reken in twee stappen: 18 − 6 = 12. Daarna 12 + 3 = 15. Er staan nu 15 kegels.',
         challenge: true
       },
       {
+        area: 'language',
+        prompt: 'Welk woord past in de zin? “De zangers staan netjes in een ___.”',
+        options: ['rij', 'rei', 'rijj'],
+        correct: 'rij',
+        explanation: 'Mensen die achter elkaar staan, vormen een rij. Je schrijft rij met ij.'
+      },
+      {
         area: 'explore',
-        prompt: 'Miraidon, Pikachu en Squirtle hebben elk iets anders: een blad, een dennenappel of een veer. Squirtle heeft de veer. Miraidon heeft geen dennenappel. Wat heeft Pikachu?',
-        options: ['de dennenappel', 'het blad', 'de veer'],
-        correct: 'de dennenappel',
-        explanation: 'Squirtle heeft de veer. Dan blijven het blad en de dennenappel over. Miraidon heeft geen dennenappel, dus Miraidon heeft het blad en Pikachu de dennenappel.',
+        prompt: 'De fluit klinkt vóór de trom. De bel klinkt na de trom. Welke volgorde klopt?',
+        options: ['fluit – trom – bel', 'trom – bel – fluit', 'bel – fluit – trom'],
+        correct: 'fluit – trom – bel',
+        explanation: 'De fluit komt eerst. De trom komt daarna. Omdat de bel na de trom klinkt, komt de bel als laatste.',
         challenge: true
       },
       {
         area: 'math',
-        prompt: 'Welk getal bestaat uit 1 tiental en 7 eenheden?',
-        options: ['17', '71', '10'],
-        correct: '17',
-        explanation: 'Eén tiental is 10. Met 7 eenheden erbij krijg je 10 + 7 = 17.'
+        prompt: 'Welk getal is groter dan 14, kleiner dan 18 én even?',
+        options: ['16', '15', '17'],
+        correct: '16',
+        explanation: 'Tussen 14 en 18 liggen 15, 16 en 17. Alleen 16 is even.'
       },
       {
         area: 'language',
-        prompt: 'Welke rij bevat het juiste lidwoord én het juiste meervoud?',
-        options: ['de boom – de bomen', 'het boom – de boomen', 'de zingen – de zingens'],
-        correct: 'de boom – de bomen',
-        explanation: 'Boom is een zelfstandig naamwoord. Je zegt de boom en in het meervoud de bomen.'
+        prompt: 'Welke rij bevat alleen zelfstandige naamwoorden?',
+        options: ['koor – boom – jas', 'zingt – loopt – drinkt', 'warm – groen – stil'],
+        correct: 'koor – boom – jas',
+        explanation: 'Een koor, een boom en een jas zijn dingen of groepen die je een naam kunt geven. De tweede rij bevat werkwoorden en de derde rij eigenschappen.'
       },
       {
         area: 'explore',
-        prompt: 'Met welk instrument meet je hoe warm of koud de lucht is?',
-        options: ['een thermometer', 'een meetlat', 'een klok'],
-        correct: 'een thermometer',
-        explanation: 'Een thermometer meet de temperatuur en toont hoe warm of koud het is.'
+        prompt: 'Welk afval hoort bij het groente-, fruit- en tuinafval?',
+        options: ['gevallen blaadjes', 'een plastic beker', 'een batterij'],
+        correct: 'gevallen blaadjes',
+        explanation: 'Gevallen blaadjes zijn natuurlijk tuinafval. Plastic en batterijen horen in een andere afvalstroom.'
       }
     ]
   }
