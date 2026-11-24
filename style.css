@@ -53,3 +53,13 @@ dialog{border-radius:14px}.auth-tabs{border-radius:8px}.auth-tabs button,input{b
 .voice-label{display:block;font-size:12px;margin-bottom:7px;font-weight:650;color:#35485c}
 .voice-select{display:block;width:100%;font:inherit;font-size:13px;padding:10px;border:1px solid #bdc9d6;border-radius:9px;background:#fff;color:#17263d}
 .voice-note{font-size:11px;line-height:1.6;color:#68758a;margin:8px 0 0}
+
+.marc-card{display:flex;align-items:center;gap:16px;margin:24px 0;padding:21px 23px;border-radius:20px;border:1px solid #cfd9ef;background:linear-gradient(110deg,#f0f4ff,#edf8f4);color:var(--ink);text-decoration:none;transition:transform .15s,box-shadow .15s}
+.marc-card:hover{transform:translateY(-2px);box-shadow:0 12px 30px #314e8b16}
+.marc-card-icon{width:49px;height:49px;display:grid;place-items:center;flex:none;border-radius:14px;background:#243a63;color:#fff;font-size:28px}
+.marc-card-copy{display:flex;flex-direction:column;gap:4px}
+.marc-card-copy small{font-size:10px;letter-spacing:.08em;color:#687b9e;font-weight:800}
+.marc-card-copy strong{font-size:18px;letter-spacing:-.02em}
+.marc-card-copy>span{font-size:12px;color:var(--muted)}
+.marc-card-cta{margin-left:auto;border-radius:99px;padding:10px 15px;background:#243a63;color:#fff;font-size:12px;font-weight:800}
+@media(max-width:560px){.marc-card{padding:18px 16px;gap:12px}.marc-card-icon{width:44px;height:44px}.marc-card-copy strong{font-size:16px}.marc-card-copy>span{font-size:11px}.marc-card-cta{padding:9px 12px}}
