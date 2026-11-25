@@ -1,100 +1,109 @@
-export const ACTIVE_DATE = '2026-11-24';
+export const ACTIVE_DATE = '2026-11-25';
 export const DAILY_CONTENT = {
-  '2026-11-24': {
-    title: 'De speelgoeddeelcode',
+  '2026-11-25': {
+    title: 'De geefkast-luistercode',
     questions: [
       {
         area: 'math',
-        prompt: 'Squirtle heeft 13 speelgoedsterren. Hij geeft er 6 weg. Hoeveel sterren houdt hij over?',
-        options: ['7', '6', '8'],
-        correct: '7',
-        explanation: 'Ga via 10: splits 6 in 3 en 3. Eerst 13 − 3 = 10, daarna 10 − 3 = 7.',
-        sock: {operator: '-', start: 13, splitTotal: 6, first: 3, second: 3, result: 7, step: '13 − 3 = 10, daarna 10 − 3 = 7.'},
+        prompt: 'Miraidon heeft 6 energiekaartjes en krijgt er 8 bij. Hoeveel kaartjes heeft hij nu?',
+        options: ['14', '13', '15'],
+        correct: '14',
+        explanation: 'Ga via 10: splits 8 in 4 en 4. Eerst 6 + 4 = 10, daarna 10 + 4 = 14.',
+        sock: {operator: '+', start: 6, splitTotal: 8, first: 4, second: 4, result: 14, step: '6 + 4 = 10, daarna 10 + 4 = 14.'},
         challenge: true
       },
       {
         area: 'language',
-        storyTitle: 'Het bericht van het feestteam',
-        passage: 'Beste ouders, Sinterklaas kan hulp gebruiken. Van vrijdag 27 november tot vrijdag 4 december staat er een geefkast op de speelplaats. Leg er alleen proper, volledig speelgoed in. Wie iets leuks vindt, mag ook speelgoed meenemen. Warme groetjes van het feestteam van K\'DO.',
-        prompt: 'Wat is de belangrijkste boodschap van het feestteam?',
-        options: ['Deel proper en volledig speelgoed via de geefkast.', 'Neem elke dag nieuw speelgoed mee naar huis.', 'Laat kapot speelgoed op de speelplaats liggen.'],
-        correct: 'Deel proper en volledig speelgoed via de geefkast.',
-        explanation: 'De tekst vraagt om goed speelgoed te delen via de geefkast. Het speelgoed moet proper en volledig zijn.'
+        storyTitle: 'Het bericht over de geefkast',
+        listenGroup: 'geefkast-25-november',
+        listenText: 'Juf Barbara heeft een bericht voor de Fonkelende Feniksen. Op vrijdag 27 november gaat de geefkast open op de speelplaats. Op donderdag om halfvier bekijkt Liam thuis samen met mama welk speelgoed hij kan delen. Hij kiest een proper spel met alle stukken. Een puzzel met een ontbrekend stukje blijft thuis, want een ander kind moet er meteen mee kunnen spelen. Liam brengt het volledige spel vrijdagmorgen mee naar school.',
+        prompt: 'Waarom blijft de puzzel met het ontbrekende stukje thuis?',
+        options: ['Omdat een ander kind er niet meteen volledig mee kan spelen.', 'Omdat Liam alleen nieuw speelgoed mag delen.', 'Omdat puzzels nooit in een geefkast mogen.'],
+        correct: 'Omdat een ander kind er niet meteen volledig mee kan spelen.',
+        explanation: 'In het bericht staat dat een ander kind meteen met het speelgoed moet kunnen spelen. Met een ontbrekend puzzelstukje lukt dat niet.',
+        challenge: true
       },
       {
         area: 'explore',
-        prompt: 'Een houten blok, een metalen autootje en een stoffen knuffel liggen klaar. Welk voorwerp is van textiel gemaakt?',
-        options: ['de stoffen knuffel', 'het houten blok', 'het metalen autootje'],
-        correct: 'de stoffen knuffel',
-        explanation: 'Textiel is stof. De knuffel is van stof gemaakt; de andere voorwerpen zijn van hout en metaal.'
+        storyTitle: 'Het bericht over de geefkast',
+        listenGroup: 'geefkast-25-november',
+        prompt: 'Welke klok toont wanneer Liam donderdag het speelgoed bekijkt?',
+        options: ['15:30', '15:00', '16:30'],
+        correct: '15:30',
+        explanation: 'Halfvier is een halfuur vóór vier uur. Dat is 15.30 uur.',
+        clockOptions: {
+          '15:30': {hour: 15, minute: 30, label: 'halfvier'},
+          '15:00': {hour: 15, minute: 0, label: 'drie uur'},
+          '16:30': {hour: 16, minute: 30, label: 'halfvijf'}
+        }
       },
       {
         area: 'math',
-        prompt: 'Er liggen 18 speelgoedautootjes. Liam zet ze per 2 naast elkaar. Hoeveel groepjes maakt hij?',
-        options: ['9', '8', '10'],
-        correct: '9',
-        explanation: 'Je verdeelt 18 autootjes eerlijk in groepjes van 2. Zo krijg je 9 groepjes. De passende deelsom is 18 : 2 = 9. Het quotiënt is 9.',
+        prompt: 'Liam legt 16 kaartjes in groepjes van 2. Hoeveel groepjes zijn dat? Vul de passende som aan: ? × 2 = 16.',
+        options: ['8', '7', '9'],
+        correct: '8',
+        explanation: 'Je maakt 8 groepjes van 2 kaartjes. Met herhaald optellen krijg je 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 = 16. De passende maalsom is 8 × 2 = 16; het product is 16.',
         tableOfTwo: true
       },
       {
         area: 'language',
-        prompt: 'Welk woord past in de zin? “Het is ___ om speelgoed te delen.”',
-        options: ['tijd', 'teid', 'tijt'],
-        correct: 'tijd',
-        explanation: 'Je schrijft tijd met ij.'
+        storyTitle: 'Het bericht over de geefkast',
+        listenGroup: 'geefkast-25-november',
+        type: 'text',
+        prompt: 'Op welke dag en datum gaat de geefkast open? Typ de dag en de datum.',
+        accepted: ['vrijdag 27 november', 'vrijdag 27 november 2026', 'vrijdag 27/11', 'vrijdag 27-11'],
+        correct: 'vrijdag 27 november',
+        explanation: 'Het bericht zegt dat de geefkast op vrijdag 27 november opengaat.'
       },
       {
         area: 'explore',
-        prompt: 'Welke lijn verandert plots van richting en heeft scherpe knikken?',
-        options: ['een gebroken lijn', 'een rechte lijn', 'een gebogen lijn'],
-        correct: 'een gebroken lijn',
-        explanation: 'Een gebroken lijn bestaat uit rechte lijnstukken die bij een knik van richting veranderen.'
+        prompt: 'Het is donker wanneer Liam naar huis wandelt. Welk voorwerp helpt een autobestuurder hem beter te zien?',
+        options: ['een reflecterend bandje', 'een donker papiertje', 'een houten blokje'],
+        correct: 'een reflecterend bandje',
+        explanation: 'Een reflecterend bandje kaatst licht terug. Daardoor valt Liam beter op in het donker.'
       },
       {
         area: 'math',
-        prompt: 'Cristiano Ronaldo heeft 12 oefenballen. Hoeveel ballen moet hij erbij leggen om er 19 te hebben?',
-        options: ['7', '6', '8'],
-        correct: '7',
-        explanation: 'Zoek het ontbrekende getal: 12 + ? = 19. Van 12 tot 19 tel je 7 verder, dus 12 + 7 = 19.'
+        prompt: 'Lionel Messi legt 11 kegels klaar en zet er nog 6 bij. Hoeveel kegels staan er samen?',
+        options: ['17', '16', '18'],
+        correct: '17',
+        explanation: 'Je telt 6 bij 11: 11 + 6 = 17. Je hoeft niets over voetbal te weten om dit uit te rekenen.'
       },
       {
         area: 'language',
-        storyTitle: 'Het bericht van het feestteam',
-        passage: 'Beste ouders, Sinterklaas kan hulp gebruiken. Van vrijdag 27 november tot vrijdag 4 december staat er een geefkast op de speelplaats. Leg er alleen proper, volledig speelgoed in. Wie iets leuks vindt, mag ook speelgoed meenemen. Warme groetjes van het feestteam van K\'DO.',
-        prompt: 'Wie is de zender en wie zijn de ontvangers van dit bericht?',
-        options: ['Het feestteam is de zender en de ouders zijn de ontvangers.', 'De ouders zijn de zender en Sinterklaas is de ontvanger.', 'De geefkast is de zender en het feestteam is de ontvanger.'],
-        correct: 'Het feestteam is de zender en de ouders zijn de ontvangers.',
-        explanation: 'Onderaan staat dat het bericht van het feestteam komt: dat is de zender. Bovenaan staat “Beste ouders”: zij zijn de ontvangers.',
-        challenge: true
+        prompt: 'Welk woord maakt de zin juist? “Aan het ___ van het spel zitten alle kaartjes weer in de doos.”',
+        options: ['eind', 'ijnd', 'eindt'],
+        correct: 'eind',
+        explanation: 'Je schrijft eind met ei en zonder t.'
       },
       {
         area: 'explore',
-        prompt: 'In de rode, blauwe en groene doos zit telkens één voorwerp: een puzzel, een bal en een Pikachukaart. De bal zit in de blauwe doos. De Pikachukaart zit niet in de rode doos. Wat zit in de rode doos?',
-        options: ['de puzzel', 'de bal', 'de Pikachukaart'],
-        correct: 'de puzzel',
-        explanation: 'De bal zit al in de blauwe doos. De Pikachukaart kan niet in de rode doos, dus die moet in de groene doos. Dan blijft de puzzel over voor de rode doos.',
+        prompt: 'Liam, Noor en Sam kiezen elk één ding: een boek, een puzzel en een bal. Liam kiest het boek. Noor kiest niet de bal. Wat kiest Sam?',
+        options: ['de bal', 'de puzzel', 'het boek'],
+        correct: 'de bal',
+        explanation: 'Liam heeft het boek al. Noor kiest niet de bal, dus Noor kiest de puzzel. Dan blijft de bal over voor Sam.',
         challenge: true
       },
       {
         area: 'math',
-        prompt: 'Welk getal komt daarna? 6, 9, 12, ...',
-        options: ['15', '14', '16'],
-        correct: '15',
-        explanation: 'Er komt telkens 3 bij: 6 + 3 = 9, 9 + 3 = 12 en 12 + 3 = 15.'
+        prompt: 'Welk getal bestaat uit 4 tientallen en 0 eenheden?',
+        options: ['40', '4', '14'],
+        correct: '40',
+        explanation: 'Vier tientallen zijn 10 + 10 + 10 + 10 = 40. Er komen geen losse eenheden bij.'
       },
       {
         area: 'language',
-        prompt: 'Welke combinatie bevat een zelfstandig naamwoord met het juiste lidwoord en meervoud?',
-        options: ['de knuffel – de knuffels', 'het knuffel – de knuffelen', 'de delen – de deel'],
-        correct: 'de knuffel – de knuffels',
-        explanation: 'Knuffel is een zelfstandig naamwoord. Je zegt de knuffel en in het meervoud de knuffels.'
+        prompt: 'Welke rij bevat in deze volgorde een zelfstandig naamwoord, een werkwoord en een eigenschap?',
+        options: ['speelgoed – delen – proper', 'delen – proper – speelgoed', 'proper – speelgoed – delen'],
+        correct: 'speelgoed – delen – proper',
+        explanation: 'Speelgoed is een ding en dus een zelfstandig naamwoord. Delen is iets wat je doet en dus een werkwoord. Proper zegt hoe iets is en is een eigenschap.'
       },
       {
         area: 'explore',
-        prompt: 'De speelgoed-wc roept: “Pipi-pauze!” Liam wil hem daarna in de geefkast zetten. Wat controleert hij eerst?',
-        options: ['Of het speelgoed proper, heel en volledig is.', 'Of het speelgoed zoveel mogelijk lawaai maakt.', 'Of er expres een onderdeel ontbreekt.'],
-        correct: 'Of het speelgoed proper, heel en volledig is.',
-        explanation: 'Speelgoed voor de geefkast moet proper, heel en volledig zijn. Dan kan een ander kind er veilig mee spelen.'
+        prompt: 'Twee lange rechte lijnen lopen overal even ver van elkaar en raken elkaar nooit. Hoe heten die lijnen?',
+        options: ['evenwijdige lijnen', 'snijdende lijnen', 'loodrecht snijdende lijnen'],
+        correct: 'evenwijdige lijnen',
+        explanation: 'Evenwijdige lijnen blijven overal even ver van elkaar. Ze kruisen of raken elkaar niet.'
       }
     ]
   }
